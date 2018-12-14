@@ -2,32 +2,45 @@
   <title>Pass the Cookie</title>
   <body>
      <h1>Pass the Cookie</h1>
- 
-     Web Applications and Services use cookies to authenticate sessions and users. An adversary can pivot from a host to a web applications or Internet service by stealing authentication cookies from browsers. At the same time this technique bypasses most multi-factor authentication protocols.
-Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used. Cookies can be found on disk and also in process memory of the browser. Additionally, other applications on the targets machine might store sensitive authentication cookies in memory (e.g. apps which authenticate to cloud services).
-
+    <p>Web Applications and Services use cookies to authenticate sessions and users.</p>
+    <p>An adversary can pivot from a host to a web applications or Internet service by stealing authentication cookies 
+       from browsers. At the same time this technique bypasses most multi-factor authentication protocols.</p>
+    <p>Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used. Cookies can be found on disk and also in process memory of the browser. Additionally, other applications on the targets machine might store sensitive authentication cookies in memory (e.g. apps which authenticate to cloud services).</p>
+    
+    <p>
 After an adversary acquires a valid cookie, they perform a Pass the Cookie attack to login to the corresponding web application.
-
+    </p>
+   
 Pass the Cookie is performed by applying these steps (variations exist):
-
-    - Acquire the cookie from the victims browser (e.g. via process dump, or accessing the cookie storage on disk)
-    - Opening Firefox on the attackers machine (or any other machine)
-    - Navigate to the login page to authenticate to (basically the domain the cookie is valid for)
-    - Use the Developer Console and set the authentication token via document.cookie = “stolen cookie”
-    - Refresh the page (e.g. hit F5) to reload the target web site and be logged in to the target site as the compromised user.
-    - Observe being logged in as the victim.
-
+<ul>
+  <li>Acquire the cookie from the victims browser (e.g. via process dump, or accessing the cookie storage on disk)</li>
+  <li>Opening Firefox on the attackers machine (or any other machine)</li>
+  <li>Navigate to the login page to authenticate to (basically the domain the cookie is valid for)</li>
+  <li>Use the Developer Console and set the authentication token via document.cookie = “stolen cookie”</li>
+  <li>Refresh the page (e.g. hit F5) to reload the target web site and be logged in to the target site as the compromised user.</li>
+  <li>Observe being logged in as the victim.</li>       
+</ul> 
+   
 Another great way is to open the Developer Tools and find the Storage tab to use the GUI to edit cookies. Some might find this easier.
 
 Detection:
 When it comes to detections a few things come to mind.
-    - One can monitor on the client isde for applications that perform process dumps on browser processes.
-    - Monitor for unusual activity on critical web assets (like cloud provider management consoles, etc,…)
-    - Monitor for login anomalies (location, time, unusual access patterns)
-
+    <ul>
+    <li>One can monitor on the client isde for applications that perform process dumps on browser processes.</li>
+   <li>Monitor for unusual activity on critical web assets (like cloud provider management consoles, etc,…)</li>
+   <li>Monitor for login anomalies (location, time, unusual access patterns)</li>
+    </ul>
+    
 Mitigation:
 Regularly delete persistent cookies, so they get removed from hard drive to limit exposure.
-  
+
+    In case you don't won't to write your own toolset, there are a couple of options available to gain access to cookies:
+    <ul><li><a href="https://www.offensive-security.com/metasploit-unleashed/multiple-os-post-gather-modules/">Access SQL Lite Database of Firefox and Chrome</a></li>
+      <li><a href="https://github.com/defaultnamehere/cookie_crimes">Neat way to grab cookies on Macs (but also Windows and Linux)</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/sysinternals/downloads/procdump">ProcDump - swiss army knife to dump strings from any process</a>
+    </ul>
+  <p>
   Hope this was helpful, so you can build better detections, improvements and tests into your infrastructure to catch malicious activity.
+    </p>
   </body>
  </html>
