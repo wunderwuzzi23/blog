@@ -20,8 +20,8 @@ Pass the Cookie is performed by applying these steps (variations exist):
   <li>Observe being logged in as the victim.</li>       
 </ul> 
    
-Another great way is to open the Developer Tools and find the Storage tab to use the GUI to edit cookies. Some might find this easier.
-<br>
+<p>Another great way is to open the Developer Tools and find the Storage tab to use the GUI to edit cookies. Some might find this easier.
+    </p>
 Detection:
     <p>
 When it comes to detections a few things come to mind.
@@ -31,15 +31,15 @@ When it comes to detections a few things come to mind.
    <li>Monitor for login anomalies (location, time, unusual access patterns)</li>
     </ul>
     </p>
-  <br>
 Mitigation:<p>
 Regularly delete persistent cookies, so they get removed from hard drive to limit exposure.
-    </p>
+   
     In case you don't won't to write your own toolset, there are a couple of options available to gain access to cookies:
     <ul><li><a href="https://www.offensive-security.com/metasploit-unleashed/multiple-os-post-gather-modules/">Access SQL Lite Database of Firefox and Chrome</a></li>
       <li><a href="https://github.com/defaultnamehere/cookie_crimes">Neat way to grab cookies on Macs (but also Windows and Linux)</a></li>
       <li><a href="https://docs.microsoft.com/en-us/sysinternals/downloads/procdump">ProcDump - swiss army knife to dump strings from any process</a>
     </ul>
+   </p>
   <p>
   Hope this was helpful, so you can build better detections, improvements and tests into your infrastructure to catch malicious activity.
     </p>
