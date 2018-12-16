@@ -22,6 +22,19 @@ Pass the Cookie is performed by applying these steps (variations exist):
    
 <p>Another great way is to open the Developer Tools and find the Storage tab to use the GUI to edit cookies. Some might find this easier.
     </p>
+    
+    <p>Here is a list of common domains that you might want to evaluate during a security assessment for your organization. Feel free to ping me to add addtional ones, or correct any issues/mistakes in the list below that you might find</p>
+    
+    <table id="cookies">
+     <tr><th>Application</th><th>Cookie Name</th><th>Domain</th><th>Notes</th></tr> 
+     <tr><td>Hotmail, Calendar, People</td><td>RPSSecAuth</td><td>.live.com</td><td>Access to mail, no OneDrive with these</td></tr> 
+     <tr><td>Gmail</td><td>OSID, HSID, SID, SSID</td><td>.google.com</td><td>Apply all four cookies. Access to mail (not other google properties yet, needs more debugging)</td></tr> 
+     <tr><td>GitHub</td><td>user_session</td><td>.github.com</td><td></td></tr> 
+     <tr><td>Amazon Web Services</td><td>aws-userInfo, awsCreds</td><td>us-east-2.console.aws.amazon.com</td><td>Access to AWS concole</td></tr> 
+     <tr><td>Microsoft Online (Azure, Mail,...)</td><td>ESTSAUTHPERSISTENT</td><td>.microsoftonline.com</td><td></td></tr> 
+     <tr><td>OneLogin</td><td>sub_session_onelogin.com</td><td>.onelogin.com</td><td></td></tr>
+    </table>
+    
 Detection:
     <p>
 When it comes to detections a few things come to mind.
