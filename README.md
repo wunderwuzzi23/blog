@@ -1,2 +1,2 @@
-# Attack Lab
-Novel attack techniques and how to detect and defend from them.
+# The Attack Lab Blog
+Attack techniques and how to detect and defend from them.
