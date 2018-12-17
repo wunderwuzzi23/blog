@@ -50,7 +50,7 @@ Pass the Cookie is a post-exploitation technique. This means that we have code r
     <p>
 When it comes to detections a few things come to mind:
     <ul>
-    <li>One can monitor on the client isde for applications that perform process dumps on browser processes.</li>
+    <li>One can monitor on the client side for applications that perform process dumps on browser processes.</li>
    <li>Monitor for unusual activity on critical web assets (like cloud provider management consoles, etc,…)</li>
    <li>Monitor for login anomalies (location, time, unusual access patterns)</li>
     </ul>
@@ -75,7 +75,7 @@ To protect from these attacks it's important to stay up to date with security pa
    </p>
  <br>
   <h2>Pass The Cookie - Cheat Sheet</h2>
-   <p>List of common domains that you might want to evaluate during a security assessment for your organization. Feel free to ping me to add addtional ones, or correct any issues/mistakes in the list below that you might find</p>
+   <p>Below is a list of a few "cookies of interest" for potentially valuable web applications that an adversary might be after and which you could emulate during security assessments for your organization to see if anyone catches the attack. This list might change over time or have inaccuracies - feel to provide feedback or help amend.</p>
     <table class="w3-table w3-bordered w3-striped">
     <tr class="w3-blue-grey">
      <th>Application</th><th>Cookie Name</th><th>Domain</th><th>Notes</th></tr> 
@@ -89,7 +89,7 @@ To protect from these attacks it's important to stay up to date with security pa
     </p><br>
     <h2>Conclusion</h2> 
     <p>
-    Pass the Cookie is a powerful way to pivot from on-premise machines to cloud assets. It can be leveraged to bypass 2FA techniques as the cookie is in the end still a single factor. 
+    Pass the Cookie is a powerful way to pivot from on-premise machines to cloud assets. It can be leveraged to bypass 2FA techniques as the cookie is in the end still a single factor.
   Hope this was helpful, so you can build better detections, improvements and tests into your infrastructure to catch malicious activity.
   If you have any question feel free to <a href="mailto:">email</a> or create a <a href="https://github.com/wunderwuzzi23/blog/issues">ticket</a>.
     </p>
@@ -102,7 +102,7 @@ To protect from these attacks it's important to stay up to date with security pa
   
 <br>
     
-    <h2>Appendix - Example screenshots of performing Pass The Cookie</h2>
+    <h2>Appendix - Performing Pass The Cookie</h2>
     <br>
     <div class="w3-row-padding w3-section">
   <div class="w3-full">
