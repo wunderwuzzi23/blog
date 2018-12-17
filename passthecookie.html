@@ -31,12 +31,12 @@ h2 {font-style: bold;}
     <p><b>An adversary can pivot from a compromised host to Web Applications and Internet Services by stealing authentication cookies 
        from browsers and related processes. At the same time this technique bypasses most multi-factor authentication protocols.</b><p> The reason for this is that the final authentication token that the attacker steals is issued after all factors have been validated.
        Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used. Cookies can be found on disk and also in process memory. Additionally other applications on the targets machine might store sensitive authentication tokens in memory (e.g. apps which authenticate to cloud services). This pivoting technique  can be extended to bearer tokens, JWT and the likes.</p>
-    <b>Pass the Cookie and pivot to the clouds. </b>After an adversary acquires a valid cookie they can perform a <b>Pass the Cookie</b> attack to login to the corresponding web application.</p>
-<br>
+    After an adversary acquires a valid cookie they can perform a <b>Pass the Cookie</b> attack to login to the corresponding web application.</p>
+<b>Pass the Cookie and pivot to the clouds. </b><br>
 <h2>Attack Chain</h2>
 <p>
   <i><b>Disclaimer:</b> Always make sure you have proper authorization before pen testing.</i><br><br>
-Pass the Cookie is performed by leveraging these steps (variations exist):
+Pass the Cookie is a post-exploitation technique. This means that we have code running on the target machine already and leverage the following steps (variations exist):
 <ul>
   <li>Acquire the cookie from the victims browser (e.g. via process dump, or accessing the cookie storage on disk)</li>
   <li>Opening Firefox on the attackers machine (or any other machine)</li>
