@@ -18,12 +18,13 @@ p
 {
     text-align: justify;
     }
+h1 {font-size: 32px;}
 h2 {font-style: bold;}
 </style>
 
   <body>
   <br>
-   <div class="w3-content" style="max-width:800px">
+   <div class="w3-content" style="max-width:640px">
     <header class="w3-container w3-blue-grey ">
        <h1>Pivot to the Cloud using Pass the Cookie</h1>
     </header>
@@ -40,7 +41,7 @@ Pass the Cookie is a post-exploitation technique. This means that we have code r
 <ul>
   <li>Acquire the cookie from the victims browser (e.g. via process dump, or accessing the cookie storage on disk)</li>
   <li>Opening Firefox on the attackers machine (or any other machine)</li>
-  <li>Navigate to the login page to authenticate to (the domain the cookie is valid for)</li>
+  <li>Navigate to the resource to aceess (on the domain the cookie is valid for)</li>
   <li>Use the Developer Console and set the authentication token via document.cookie = "stolen cookie", or by using the UI to set cookies</li>
   <li>Refresh the page and observe being logged in as the victim.</li>     
 </ul> 
@@ -81,15 +82,15 @@ To protect from these attacks it's important to stay up to date with security pa
     <tr class="w3-blue-grey">
      <th>Application</th><th>Cookie Name</th><th>Domain</th><th>Notes</th></tr> 
      <tr><td>Hotmail, Calendar, People</td><td>RPSSecAuth</td><td>.live.com</td><td>Access to mail, no OneDrive with these</td></tr> 
-     <tr><td>Gmail</td><td>OSID, HSID, SID, SSID</td><td>.google.com</td><td>Apply all four cookies. Access to mail (not other google properties yet, needs more debugging)</td></tr> 
+     <tr><td>Gmail</td><td>OSID<br>HSID<br>SID<br>SSID</td><td>.google.com</td><td>All four needed. Access to mail (not other google properties yet, needs more debugging)</td></tr> 
      <tr><td>GitHub</td><td>user_session</td><td>.github.com</td><td></td></tr> 
-     <tr><td>Amazon Web Services</td><td>aws-userInfo, aws-Creds</td><td>us-east-2.console.aws.amazon.com</td><td>Access to AWS concole</td></tr> 
-     <tr><td>Microsoft Online (Azure, Mail,...)</td><td>ESTSAUTHPERSISTENT</td><td>.microsoftonline.com</td><td></td></tr> 
-     <tr><td>Facebook</td><td>c_user, xs</td><td>.facebook.com</td><td>need these two.</td></tr>
+     <tr><td>Amazon Web Services</td><td>aws-userInfo<br>aws-creds</td><td>us-east-2.console<br>.aws.amazon.com</td><td>AWS console</td></tr> 
+     <tr><td>Microsoft Online</td><td>ESTSAUTHPERSISTENT</td><td>.microsoftonline.com</td><td></td></tr> 
+     <tr><td>Facebook</td><td>c_user<br> xs</td><td>.facebook.com</td><td>need these two.</td></tr>
      <tr><td>OneLogin</td><td>sub_session_onelogin.com</td><td>.onelogin.com</td><td></td></tr>
     </table>
-
-    <i>Notice: When setting multiple cookies there are sometimes differences in how the different browser web console's works. For instance you might have to call document.cookie = "" for each cookie individually (I noticed this in Firefox). You can always view the currently set cookies via document.cookie
+    <br>
+    <i>Notice: When setting multiple cookies there are sometimes differences in how the different browser web console's work. For instance you might have to call document.cookie = "" for each cookie individually (I noticed this in Firefox). You can always view the currently set cookies via document.cookie
     </i></p><br>
     <h2>Conclusion</h2> 
     <p>
@@ -122,7 +123,7 @@ To protect from these attacks it's important to stay up to date with security pa
       <div class="w3-container">
         <p>Set the appropriate cookie for the website domain (e.g via developer tools of the browser).</p>
       </div>
-      <img src="GH2.png" alt="applying cookie" style="width:100%">
+      <img src="GH2.1.png" alt="applying cookie" style="width:100%">
       
     </div>  
     <br>
@@ -134,8 +135,9 @@ To protect from these attacks it's important to stay up to date with security pa
     </div>
   </div>
  
-</div><br>
- <p>December, 12th 2018</p><br>
+</div><br> 
+ <p>wunderwuzzi23@outlook.com
+ <br>December, 12th 2018</p>
  <p>This page uses <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
 </div>
     </Adding>
