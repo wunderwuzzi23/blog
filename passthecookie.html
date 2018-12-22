@@ -32,16 +32,17 @@ h2 {font-style: bold;}
        from browsers and related processes. At the same time this technique bypasses most multi-factor authentication protocols.</b><p> The reason for this is that the final authentication token that the attacker steals is issued after all factors have been validated.
        Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used. Cookies can be found on disk and also in process memory. Additionally other applications on the targets machine might store sensitive authentication tokens in memory (e.g. apps which authenticate to cloud services). This pivoting technique  can be extended to bearer tokens, JWT and the likes.</p>
     After an adversary acquires a valid cookie they can perform a Pass the Cookie attack to login to the corresponding web application.</p>
-<b>So, let's Pass the Cookie and pivot to the clouds. </b><br><br>
+<b>So, let's Pass the Cookie and Pivot to the Clouds. </b><br><br>
 <h2>Attack Chain</h2>
 <p>
   <i><b>Disclaimer:</b> Always make sure you have proper authorization before pen testing.</i><br><br>
-Pass the Cookie is a post-exploitation technique. This means that we have code running on the target machine already and leverage the following steps (variations exist):
+Pass the Cookie is a post-exploitation technique to perform <a href="https://www.owasp.org/index.php/Session_hijacking_attack">session hijacking</a>. It is achieved via the following steps (variations exist):
 <ul>
-  <li>Acquire the cookie from the victims browser (e.g. via process dump, or accessing the cookie storage on disk)</li>
-  <li>Opening Firefox on the attackers machine (or any other machine)</li>
-  <li>Navigate to the resource to aceess (on the domain the cookie is valid for)</li>
-  <li>Use the Developer Console and set the authentication token via document.cookie = "stolen cookie", or by using the UI to set cookies</li>
+  <li>Acquire the cookie from the victims browser or other processes (e.g. via process dump, or accessing the cookie storage on disk)</li>
+  <li>Exfiltrate the necessary authentication cookies</li>
+  <li>Open Firefox on the attackers machine (or any other machine)</li>
+  <li>Navigate to the resource to access (the domain the cookie is valid for)</li>
+  <li>Use the Developer Console and set the cookie via <i>document.cookie="key=value"</i>, or use the UI</li>
   <li>Refresh the page and observe being logged in as the victim.</li>     
 </ul> 
 </p>
@@ -80,23 +81,23 @@ To protect from these attacks it's important to stay up to date with security pa
     <table class="w3-table w3-bordered w3-striped">
     <tr class="w3-blue-grey">
      <th>Application</th><th>Cookie Name</th><th>Domain</th><th>Notes</th></tr> 
-     <tr><td>Amazon Web Services</td><td>aws-userInfo<br>aws-creds</td><td>console.aws.amazon.com</td><td>AWS console (/console/home)</td></tr> 
+     <tr><td>Amazon Web Services</td><td>aws-userInfo<br>aws-creds</td><td>.amazon.com</td><td>https://console.aws.amazon.com</td></tr> 
      <tr><td>Microsoft Online</td><td>ESTSAUTHPERSISTENT</td><td>.microsoftonline.com</td><td></td></tr>
-     <tr><td>Google Cloud Platform</td><td>OSID<br>HSID<br>SID<br>SSID<br>APISID<br>SAPISID<br>LSID</td><td>console.cloud.google.com</td><td>LSID needed for cross app auth (GCP to Gmail).</td></tr> 
+     <tr><td>Google Cloud Platform</td><td>OSID<br>HSID<br>SID<br>SSID<br>APISID<br>SAPISID<br>LSID</td><td>.google.com</td><td>https://console.cloud.google.com<br><br>LSID needed for cross app auth (e.g. GCP to Gmail)..</td></tr> 
      <tr><td>Facebook</td><td>c_user<br> xs</td><td>.facebook.com</td><td></td></tr>
      <tr><td>OneLogin</td><td>sub_session_onelogin.com</td><td>.onelogin.com</td><td></td></tr>
      <tr><td>GitHub</td><td>user_session</td><td>.github.com</td><td></td></tr> 
-     <tr><td>Hotmail, Calendar, People</td><td>RPSSecAuth</td><td>.live.com</td><td>Access to mail, no OneDrive with these</td></tr> 
-     <tr><td>Gmail</td><td>OSID<br>HSID<br>SID<br>SSID<br>APISID<br>SAPISID<br>LSID</td><td>.google.com</td><td>for basic mail access only first 4 are needed.</td></tr> 
+     <tr><td>Hotmail, Calendar, People</td><td>RPSSecAuth</td><td>.live.com</td><td>Access to hotmail,... (No OneDrive with these)</td></tr> 
+     <tr><td>Gmail</td><td>OSID<br>HSID<br>SID<br>SSID<br>APISID<br>SAPISID<br>LSID</td><td>.google.com</td><td>https://mail.google.com<br><br>For basic mail access only first 4 seem needed.</td></tr> 
     </table>
     <br>
-    <i>Notice: When setting cookies through the console, each cookie need to be set seperatley via document.cookie = "". You can always view the currently set cookies via document.cookie
-    <i>Also when setting cookies ensure to set them on the correct domain. If in doubt you can always try the root domain for all of them.</i>
-    </i></p><br>
+    <i><p>Notice: When setting cookies through the web console, each cookie has to be set individually via <i>document.cookie=""</i>. You can always view the currently set cookies via document.cookie
+    <br><br><i>Also when setting cookies ensure to set them on the correct domain. If in doubt you can try setting them on the root domain.</i>
+    </i></p></p><br>
     <h2>Conclusion</h2> 
     <p>
-    Pass the Cookie is a powerful way to pivot from on-premise machines to cloud assets. It can be leveraged to bypass 2FA techniques as the cookie is in the end still a single factor.
-  Hope this was helpful, so you can build better detections, improvements and tests into your infrastructure to catch malicious activity.
+    Pass the Cookie is a powerful post-exploitation technique to pivot from on-premise machines to cloud assets. It can be leveraged to bypass 2FA techniques as the cookie is in the end still a single factor.
+    <br><br>Hopefully this was helpful, so you can build better detections, improvements and tests into your infrastructure to catch malicious activity.
   If you have any questions or ideas feel free to send me an email at wunderwuzzi23@outlook.com,  or create a <a href="https://github.com/wunderwuzzi23/blog/issues">ticket</a>.
     </p>
     <br>
@@ -138,7 +139,7 @@ To protect from these attacks it's important to stay up to date with security pa
  
 </div><br> 
  <p>wunderwuzzi23@outlook.com
- <br>December, 12th 2018</p>
+ <br>December 2018</p>
  <p>This page uses <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
 </div>
     </Adding>
