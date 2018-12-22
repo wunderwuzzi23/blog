@@ -80,16 +80,18 @@ To protect from these attacks it's important to stay up to date with security pa
     <table class="w3-table w3-bordered w3-striped">
     <tr class="w3-blue-grey">
      <th>Application</th><th>Cookie Name</th><th>Domain</th><th>Notes</th></tr> 
-     <tr><td>Hotmail, Calendar, People</td><td>RPSSecAuth</td><td>.live.com</td><td>Access to mail, no OneDrive with these</td></tr> 
-     <tr><td>Gmail</td><td>OSID<br>HSID<br>SID<br>SSID</td><td>.google.com</td><td>All four needed. Access to mail (not other google properties yet, needs more debugging)</td></tr> 
-     <tr><td>GitHub</td><td>user_session</td><td>.github.com</td><td></td></tr> 
-     <tr><td>Amazon Web Services</td><td>aws-userInfo<br>aws-creds</td><td>us-east-2.console<br>.aws.amazon.com</td><td>AWS console</td></tr> 
-     <tr><td>Microsoft Online</td><td>ESTSAUTHPERSISTENT</td><td>.microsoftonline.com</td><td></td></tr> 
-     <tr><td>Facebook</td><td>c_user<br> xs</td><td>.facebook.com</td><td>need these two.</td></tr>
+     <tr><td>Amazon Web Services</td><td>aws-userInfo<br>aws-creds</td><td>console.aws.amazon.com</td><td>AWS console (/console/home)</td></tr> 
+     <tr><td>Microsoft Online</td><td>ESTSAUTHPERSISTENT</td><td>.microsoftonline.com</td><td></td></tr>
+     <tr><td>Google Cloud Platform</td><td>OSID<br>HSID<br>SID<br>SSID<br>APISID<br>SAPISID<br>LSID</td><td>console.cloud.google.com</td><td>LSID needed for cross app auth (GCP to Gmail).</td></tr> 
+     <tr><td>Facebook</td><td>c_user<br> xs</td><td>.facebook.com</td><td></td></tr>
      <tr><td>OneLogin</td><td>sub_session_onelogin.com</td><td>.onelogin.com</td><td></td></tr>
+     <tr><td>GitHub</td><td>user_session</td><td>.github.com</td><td></td></tr> 
+     <tr><td>Hotmail, Calendar, People</td><td>RPSSecAuth</td><td>.live.com</td><td>Access to mail, no OneDrive with these</td></tr> 
+     <tr><td>Gmail</td><td>OSID<br>HSID<br>SID<br>SSID<br>APISID<br>SAPISID<br>LSID</td><td>.google.com</td><td>for basic mail access only first 4 are needed.</td></tr> 
     </table>
     <br>
-    <i>Notice: When setting multiple cookies there are sometimes differences in how the different browser web console's work. For instance you might have to call document.cookie = "" for each cookie individually (I noticed this in Firefox). You can always view the currently set cookies via document.cookie
+    <i>Notice: When setting cookies through the console, each cookie need to be set seperatley via document.cookie = "". You can always view the currently set cookies via document.cookie
+    <i>Also when setting cookies ensure to set them on the correct domain. If in doubt you can always try the root domain for all of them.</i>
     </i></p><br>
     <h2>Conclusion</h2> 
     <p>
