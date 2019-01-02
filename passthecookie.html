@@ -28,11 +28,14 @@ h2 {font-style: bold;}
        <h1>Pivot to the Cloud using Pass the Cookie</h1>
     </header>
     <p>Web Applications and Services use cookies to authenticate sessions and users.</p>
+
     <p><b>An adversary can pivot from a compromised host to Web Applications and Internet Services by stealing authentication cookies 
        from browsers and related processes. At the same time this technique bypasses most multi-factor authentication protocols.</b><p> The reason for this is that the final authentication token that the attacker steals is issued after all factors have been validated.
        Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used. Cookies can be found on disk and also in process memory. Additionally other applications on the targets machine might store sensitive authentication tokens in memory (e.g. apps which authenticate to cloud services). This pivoting technique  can be extended to bearer tokens, JWT and the likes.</p>
        Pass the Cookie is a post-exploitation technique to perform <a href="https://www.owasp.org/index.php/Session_hijacking_attack">session hijacking</a>.  </p>
 <b>So, let's Pass the Cookie and Pivot to the Clouds. </b><br><br>
+<iframe width="506" height="285" src="https://www.youtube-nocookie.com/embed/y24_QQjbHFA?start=6630&end=6960" frameborder="0" allow="accelerometer; autoplay; encrypted-media; allowfullscreen"></iframe>
+<br>
 <h2>Attack Chain</h2>
 <p>
   <i><b>Disclaimer:</b> Always make sure you have proper authorization before pen testing.</i><br><br>
@@ -105,7 +108,7 @@ To protect from these attacks it's important to stay up to date with security pa
 
     <p><bold>Update: Pass the Cookie at the Chaos Communication Congress</bold></p>
     <a href="https://c3lt.de/35c3/talk/CK3DWH/"></a>
-    <iframe width="500" height="285" src="https://youtu.be/y24_QQjbHFA?t=6630" frameborde="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="506" height="285" src="https://www.youtube-nocookie.com/embed/y24_QQjbHFA?start=6630&end=6960" frameborder="0" allow="accelerometer; autoplay; encrypted-media; allowfullscreen"></iframe>
     <br>
     <br>
       <div class="right"></div>
