@@ -53,7 +53,7 @@ The <a href="#Appendix">appendix</a> shows examples for Github and Google Cloud 
 When it comes to detections a few things come to mind:
     <ul>
     <li>One can monitor on the client side for applications that perform process dumps on browser processes.</li>
-   <li>Monitor for unusual activity on critical web assets (like cloud provider management consoles, etc,…)</li>
+   <li>Monitor for unusual activity on critical web assets (like cloud provider management consoles, etc,..)</li>
    <li>Monitor for login anomalies (location, time, unusual access patterns)</li>
     </ul>
     </p>
@@ -63,7 +63,8 @@ To protect from these attacks it's important to stay up to date with security pa
 <ul>
    <li>Regularly delete persistent cookies, so they get removed from hard drive to limit exposure.</li>
    <li>Delete session cookies as well</li>
-   <li>Browse sensitive sites from isolated machines (e.g. machine used for Facebook should not be the same used for banking,...)</li>
+   <li>Be the only Administrator on your machine</li>
+   <li>Browse sensitive sites from isolated machines</li>
    <li>Requiring further authentication proof for sensitive operations can help limit the damage</li>
    <li>Requiring client side certificates makes it also more difficult to pass the cookie</li>
 </ul>
@@ -83,13 +84,13 @@ To protect from these attacks it's important to stay up to date with security pa
     <tr class="w3-blue-grey">
      <th>Application</th><th>Cookie Name</th><th>Domain</th><th>Notes</th></tr> 
      <tr><td>Amazon Web Services</td><td>aws-userInfo<br>aws-creds</td><td>.amazon.com</td><td>https://console.aws.amazon.com</td></tr> 
-     <tr><td>Google Cloud Platform</td><td>OSID<br>HSID<br>SID<br>SSID<br>APISID<br>SAPISID<br>LSID</td><td>.google.com</td><td>https://console.cloud.google.com<br><br>OSID has to be set on console.cloud.google.com, <br>others on .google.com<br><br>LSID needed for cross app auth (e.g. GCP to Gmail).</td></tr> 
+     <tr><td>Google Cloud Platform</td><td>OSID, HSID, SID, SSID<br>APISID, SAPISID, LSID</td><td>.google.com</td><td>https://console.cloud.google.com<br><br>OSID has to be set on console.cloud.google.com, <br>others on .google.com<br><br>LSID needed for cross app auth (e.g. GCP to Gmail).</td></tr> 
      <tr><td>Microsoft Online</td><td>ESTSAUTHPERSISTENT</td><td>.microsoftonline.com</td><td></td></tr>
-     <tr><td>Facebook</td><td>c_user<br> xs</td><td>.facebook.com</td><td></td></tr>
+     <tr><td>Facebook for Work</td><td>c_user<br> xs</td><td>.facebook.com</td><td>Also works for regular Facebook</td></tr>
      <tr><td>OneLogin</td><td>sub_session_onelogin.com</td><td>.onelogin.com</td><td></td></tr>
      <tr><td>GitHub</td><td>user_session</td><td>.github.com</td><td></td></tr> 
      <tr><td>Hotmail, Calendar, People</td><td>RPSSecAuth</td><td>.live.com</td><td>Access to hotmail,... (No OneDrive)</td></tr> 
-     <tr><td>Gmail</td><td>OSID<br>HSID<br>SID<br>SSID<br>APISID<br>SAPISID<br>LSID</td><td>.google.com</td><td>https://mail.google.com<br><br>For basic mail access only first 4 seem needed.</td></tr> 
+     <tr><td>Gmail</td><td>OSID, HSID, SID, SSID<br>APISID, SAPISID, LSID</td><td>.google.com</td><td>https://mail.google.com<br><br>For basic mail access only first 4 seem needed.</td></tr> 
     </table>
     <br>
     <i><p>Notice: When setting cookies through the web console, each cookie has to be set individually via <i>document.cookie=""</i>. You can always view the currently set cookies via document.cookie
@@ -101,6 +102,11 @@ To protect from these attacks it's important to stay up to date with security pa
     <br><br>Hopefully this was helpful, so you can build better detections, improvements and tests into your infrastructure to catch malicious activity.
   If you have any questions or ideas feel free to send me an email at wunderwuzzi23@outlook.com,  or create a <a href="https://github.com/wunderwuzzi23/blog/issues">ticket</a>.
     </p>
+
+    <p><bold>Update: Pass the Cookie at the Chaos Communication Congress</bold></p>
+    <a href="https://c3lt.de/35c3/talk/CK3DWH/"></a>
+    <iframe width="500" height="285" src="https://youtu.be/y24_QQjbHFA?t=6630" frameborde="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br>
     <br>
       <div class="right"></div>
 
