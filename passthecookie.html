@@ -34,8 +34,10 @@ h2 {font-style: bold;}
        Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used. Cookies can be found on disk and also in process memory. Additionally other applications on the targets machine might store sensitive authentication tokens in memory (e.g. apps which authenticate to cloud services). This pivoting technique  can be extended to bearer tokens, JWT and the likes.</p>
        Pass the Cookie is a post-exploitation technique to perform <a href="https://www.owasp.org/index.php/Session_hijacking_attack">session hijacking</a>.  </p>
 <b>So, let's Pass the Cookie and Pivot to the Clouds. </b><br><br>
-<iframe width="506" height="285" src="https://www.youtube-nocookie.com/embed/y24_QQjbHFA?start=6630&end=6960" frameborder="0" allow="accelerometer; autoplay; encrypted-media; allowfullscreen"></iframe>
-<br>
+<b>Update:</b> Pass the Cookie at the Chaos Communication Congress (35C3)</bold></p>
+    <a href="https://c3lt.de/35c3/talk/CK3DWH/"></a>
+    <iframe width="506" height="285" src="https://www.youtube-nocookie.com/embed/y24_QQjbHFA?start=6630&end=6960" frameborder="0" allow="accelerometer; autoplay; encrypted-media; allowfullscreen"></iframe>
+    <br><br>
 <h2>Attack Chain</h2>
 <p>
   <i><b>Disclaimer:</b> Always make sure you have proper authorization before pen testing.</i><br><br>
@@ -58,6 +60,9 @@ When it comes to detections a few things come to mind:
     <li>One can monitor on the client side for applications that perform process dumps on browser processes.</li>
    <li>Monitor for unusual activity on critical web assets (like cloud provider management consoles, etc,..)</li>
    <li>Monitor for login anomalies (location, time, unusual access patterns)</li>
+   <li>Monitor for process dumps/debugging of browser processes</li>
+   <li>Leverage features that cloud providers and web apps provide (Threat Detection, Access logs,...)</li>
+   <li>Perform authorized adverserial emulation in your organization to test detections</li>
     </ul>
     </p>
 <br>
@@ -67,7 +72,9 @@ To protect from these attacks it's important to stay up to date with security pa
    <li>Regularly delete persistent cookies, so they get removed from hard drive to limit exposure.</li>
    <li>Delete session cookies as well</li>
    <li>Be the only Administrator on your machine</li>
-   <li>Browse sensitive sites from isolated machines</li>
+   <li>Leverage features that cloud providers offer (Threat Detection, IAM, RBAC, Firewalls,...)</li>
+   <li>Browse sensitive sites (high value assets) from isolated or dedicateds machines</li>
+   <li>Seperateion of duties</li>
    <li>Requiring further authentication proof for sensitive operations can help limit the damage</li>
    <li>Requiring client side certificates makes it also more difficult to pass the cookie</li>
 </ul>
@@ -75,10 +82,11 @@ To protect from these attacks it's important to stay up to date with security pa
    <br>
 <h2>Aquiring Cookies, Tools and Techniques</h2><p>
     In case you don't won't to write your own toolset, there are a couple of options available to gain access to cookies:
-    <ul><li><a href="https://www.offensive-security.com/metasploit-unleashed/multiple-os-post-gather-modules/">Access SQL Lite Database of Firefox and Chrome</a></li>
-      <li><a href="https://github.com/defaultnamehere/cookie_crimes">Neat way to grab cookies on Macs (but also Windows and Linux)</a></li>
-      <li><a href="https://docs.microsoft.com/en-us/sysinternals/downloads/procdump">ProcDump - swiss army knife to dump strings from any process</a>
+    <ul><li><a href="https://www.offensive-security.com/metasploit-unleashed/multiple-os-post-gather-modules/"><b>firefox_creds</b> - Access the SQL Lite Cookie Databases</a></li>
+      <li><a href="https://github.com/defaultnamehere/cookie_crimes"><b>cookie_crimes</b> - Neat way to grab cookies from Chrome on Macs (also Windows and Linux)</a></li>
+      <li><a href="https://docs.microsoft.com/en-us/sysinternals/downloads/procdump"><b>ProcDump</b> - Swiss army knife to dump strings from any process</a>
     </ul>
+    There are also good articles online describing how to access and decrypt the cookies in the SQL Lite databases yourself - if you'd like to do your own research or tool.
    </p>
  <br>
   <h2 id="CheatSheet">Pass The Cookie - Cheat Sheet</h2>
@@ -105,11 +113,8 @@ To protect from these attacks it's important to stay up to date with security pa
     <br><br>Hopefully this was helpful, so you can build better detections, improvements and tests into your infrastructure to catch malicious activity.
   If you have any questions or ideas feel free to send me an email at wunderwuzzi23@outlook.com,  or create a <a href="https://github.com/wunderwuzzi23/blog/issues">ticket</a>.
     </p>
-
-    <p><bold>Update: Pass the Cookie at the Chaos Communication Congress</bold></p>
-    <a href="https://c3lt.de/35c3/talk/CK3DWH/"></a>
-    <iframe width="506" height="285" src="https://www.youtube-nocookie.com/embed/y24_QQjbHFA?start=6630&end=6960" frameborder="0" allow="accelerometer; autoplay; encrypted-media; allowfullscreen"></iframe>
-    <br>
+    
+    <p>
     <br>
       <div class="right"></div>
 
