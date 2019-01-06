@@ -35,29 +35,26 @@
   <p>SIP (System Integrety Protection) makes it difficult to debug other process, even as root.</p><p>Turning it off requires at least a reboot and some hands on work on the machine. 
     The good news is, that its typically not that difficult to find some binaries that aren't protected. Haven't figured out yet exactly what 
   makes a binary (it's some mix of entitlement and signature I think). So, you can't debug the Google Chrome process, but 
-    you might find something else that is running that you can debug.</p><br>
+    you might find something else that is running that you can debug.</p>
 
     <h4>Attach</h4>
     <li>lldb -n processname</li>
     <li>lldb -p pid</li>
-
+<br>
   <h4>Expressions and the McPivot</h4>
   <p>Time to learn about lldb, which I have never used before. Turns out that with expressions one can inject and run code the debugged process. That's straight forward and super simple.
   </p>
   <li>p (void) system("whoami &> /tmp/log.txt")</li><br>
-  <br>
-<p>Last but not least, there is a difference in regards to keychain access when pivoting into an 
+  This <a href="https://stackoverflow.com/questions/12829665/how-to-call-methods-or-execute-code-in-lldb-debugger"> stackoverflow post here</a> gave me the basic inspiration.
+  <br><br>
+  <h4>Final Notes</h4><p>Last but not least, there is a difference in regards to keychain access when pivoting into an 
   existing session of a user (e.g. the discussed profile/debugger pivot vs. just ssh) that was observerved. 
   I might be lacking the right terminology at this point (not knowing MacOS architecture that well), I'd say that 
   they keyhain (login keychain) is unlocked already in the session pivot case. 
   While when doing an SSH session the keychain is still locked, and it can be unlocked with security unlock-keychain -i. 
   Regardless however, the user still(!) has to enter the password when trying to access the sensitive parts of the keychain. 
-  That's my take on this.
+  That's my take on this - there is more I learned when exfiltrating Chrome cookies and I will write about this soon.</p>
 </p>
-
-
-  This <a href="https://stackoverflow.com/questions/12829665/how-to-call-methods-or-execute-code-in-lldb-debugger"> stackoverflow post here</a> gave me the basic inspiration.
-<br>
   <br>
   <footer class="w3-container w3-blue-grey"><p><br></p>
   </footer>
