@@ -1,0 +1,58 @@
+<html>
+  <title>McPivot, Keychain Access Issue and LLDB Basics</title>
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+   <style>
+      table { font-size: 14px; }
+      table, th, td { border: 2px solid black;  border-collapse: collapse;}
+      th, td { padding: 12px; text-align: left; }
+      p { text-align: justify; }
+      h2 {font-style: bold; }
+  </style>
+
+  <body>
+  <br>
+   <div class="w3-content" style="max-width:800px">
+    <header class="w3-container w3-blue-grey ">
+       <h1>McPivot and useful LLDB commands</h1>
+    </header>
+    <p>Just a list of useful notes when dealing with Macs. I'm pretty new to Macs and there might be other, better solutions
+      to the challenges I had to sovle but these worked for me and I'm learning. :)</p>
+
+<h3>Pivoting between accounts and keychain issues</h3>
+<p>After pivoting on a target host and elevating to root it seems not possible to gain access to other keychains easily. It 
+  requires to know the password of the other account still. Just running security dump-keychain doesn't work over 
+  ssh even after su - which kinda makes sense. It also doesn't work when authenticating via public/private key pair as some articles I read suggested - which also makes sense since the keychain is encrypted using the users password afaik.
+   One still has to running security unlock-keychain -i and enter the password for it to work It seems that keychain just isn't unlocked over ssh. 
+   Overall, this is actually pretty neat and a good defense in dpeth feature, which as I'm learning MacOS has quite a bit.</p>
+
+  <h3>So what to do?</h3>
+  <p>Two things came to mind right away:
+    <li>(1) Updating ~/.bash_profile to wait for the target to open a new terminal.</li>
+    <li>(2) Pivot over to a process of the other target (in their main session with an unlocked keychain) and inject code.</li>
+  </p>
+
+  <h3>Inject code into another running process</h3>
+  <p>SIP (System Integrety Protection) makes it difficult to debug other process.</p><p>Turning it off requires at least a reboot. 
+    The good news is, that its typically not that difficult to find some unsigned binaries running. Turns out that as long as a binary 
+    isn't signed (by a certificate that the Mac trusts) debugging that process works just fine. So, you can't debug the Google Chrome process, but 
+    you might find something else that is running that you can debug.</p>
+
+    <h4>Attach</h4>
+    <li>lldb -n processname</li>
+    <li>lldb -p pid</li>
+
+  <h4>Expressions and the McPivot</h4>
+  <p>Time to learn about lldb, which I have never used before. Turns out that with expressions one can inject and run code the debugged process. That's straight forward and super simple.
+  </p>
+  <li>p (void) system("whoami &> /tmp/log.txt")</li><br>
+  This <a href="https://stackoverflow.com/questions/12829665/how-to-call-methods-or-execute-code-in-lldb-debugger"> stackoverflow post here</a> gave me the basic inspiration.
+<br>
+  <br>
+  <footer class="w3-container w3-blue-grey"><p><br></p>
+  </footer>
+<br> 
+ <br>January, 5th 2019</p>
+ <p>This page uses <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</div>
+  </body>
+ </html>
