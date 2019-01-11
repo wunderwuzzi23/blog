@@ -5,4 +5,3 @@ Security research, techniques, attack simulation and how to detect and defend sy
 
 <a href="https://wunderwuzzi23.github.io/blog/index.html">Index</a>
 
-<a href="https://wunderwuzzi23.github.io/blog/passthecookie.html">Pass The Cookie and Pivot to the Clouds</a>
