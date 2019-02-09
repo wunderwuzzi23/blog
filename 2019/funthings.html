@@ -12,7 +12,7 @@
         <br>
         <div class="w3-content" style="max-width:800px">
             <header class="w3-container w3-blue-grey ">
-                <h1>Title</h1>
+                <h1>Fun things to do with MacOS</h1>
             </header>
 
             <p>Just a list of fun tools I ran across. Will keep adding to it as I figure out more.</p>
@@ -20,27 +20,39 @@
                 <h2>say</h2>
                 <p>
                     It's a simple command that you can use to let your Mac speak. 
-                    <li>say -v ?</li> Shows you a  list of possible voices (with accents!!)
+                    <li>say -v ?</li> Shows you a list of possible voices (with accents!!)
                     <li>say -v Xander Guten Tag!</li>
                     <li>say -v Karen Hey mate, what's up!</li>
                     <br>
                 </p>
 
+                <h2>Make some noise</h2>
+                <p><li>afplay "/Applications/iMovie.app/Contents/Resources/iMovie Sound Effects/Chicken.mp3"</li>
+                </p>
+                <br>
+
                 <h2>Apple Script</h2>
                 <p>
-                    I haven't really had time to dive into Apple Script, just a seeing how it can be used for evil things. :)
-                    These two  things I found already quite useful:
-                    <li>Notifications</li>
-                    <li>osascript -e 'set volume output volume 100'"</li>Change the volume, useful to make sure say can be heard.
+                    I haven't really had time to dive into Apple Script, just a seeing how it can be used for. :)
+                    These few things I found already quite useful:
+                    <h3>Running scripts via osascript</h3>
+                    <li>osascript -e 'set volume output volume 100'"</li>
+                    <br>Change the volume, useful to make sure say can be heard.
                     <br>
                 </p>
-                <h2>Apple Script</h2>
-                <p>
-                    <li>afplay "/Applications/iMovie.app/Contents/Resources/iMovie Sound Effects/Chicken.mp3"</li>
+       
+                <p> <h3>Spoofing a password prompt</h3>
+                    <li>VALUE=$(osascript.exe -e 'display dialog "Please enter your password"')</li>
+                <br>
+                </p>
+                <p> <h3>Showing Notifications</h3>
+                    <li>osascript -e 'display notification "Logon detected with account macosuser from 192.168.0.3. Is this expected?" with title "[Notification]" '</li>
+                <br>
+               
                 <br>
                 <footer class="w3-container w3-blue-grey"><p><br></p></footer>
                 <br> 
-                <br>Date 
+                <br>February, 8th 2019
             </p>
         </div>
     </body>
