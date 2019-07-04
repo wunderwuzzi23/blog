@@ -21,7 +21,7 @@
             this is not an issue worth fixing. After asking if I can post about it publicly I got Google's okay. So here we go! :)
             <p>
             <br>
-            All that is needed to trigger the leakage is call the unauthenticated signin endpoint at https://accounts.google.com/_signin/sl/lookup and in the f.req parameter provide an arbitrary email address to see if it maps to a main Google account.
+            All that is needed to trigger the leakage is to call the unauthenticated signin endpoint at https://accounts.google.com/_signin/sl/lookup and in the f.req parameter provide an email address.
             <br><br>
             <img src="google.alternateaccount.leak.png"  width="80%"></img><br>
             <br><br>An adversary could do this at scale to retrieve additional accounts for phishing or possibly learn about recovery account - which in my case was the alternate account. lol. So, I'd assume others might have done the same.
