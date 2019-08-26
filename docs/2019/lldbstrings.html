@@ -1,0 +1,35 @@
+<html>
+    <title>Dumping Process Memory and Searching for strings with LLDB</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+    <style>
+        table { font-size: 14px; }
+        table, th, td { border: 2px solid black;  border-collapse: collapse;}
+        th, td { padding: 12px; text-align: left; }
+        p { text-align: justify; }
+        h2 {font-style: bold; }
+    </style>
+    <body>
+        <br>
+        <div class="w3-content" style="max-width:800px">
+            <header class="w3-container w3-blue-grey ">
+                <h1>Dumping Process Memory and Searching for strings with LLDB</h1>
+            </header>
+
+            <p>It seems that searching for strings live during a debug session should be pretty straight
+                forward. However, I could figure out how to do this with lldb and mem find. Luckily I found another
+                way that unblocked me for now. 
+            </p>
+
+            <p>
+                lldb attach processname<br>
+                process save-core /tmp/memory.dump<br>
+                strings - /tmp/memory.dmp<br>
+            <br>
+
+            <br>
+            <footer class="w3-container w3-blue-grey"><p><br></p></footer>
+            <br> 
+            <br>February, 8th 2019 </p>
+        </div>
+    </body>
+ </html>
