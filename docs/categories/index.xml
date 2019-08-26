@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on wunderwuzzi blog</title>
-    <link>https://wunderwuzz23.github.io/blog/categories/</link>
+    <link>https://wunderwuzzi23.github.io/blog/categories/</link>
     <description>Recent content in Categories on wunderwuzzi blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; WUNDERWUZZI 2019</copyright>
     
-	<atom:link href="https://wunderwuzz23.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://wunderwuzzi23.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
