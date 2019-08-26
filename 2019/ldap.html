@@ -1,0 +1,47 @@
+<html>
+    <title>Interacting with Active Directory on a Mac</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+    <style>
+        table { font-size: 14px; }
+        table, th, td { border: 2px solid black;  border-collapse: collapse;}
+        th, td { padding: 12px; text-align: left; }
+        p { text-align: justify; }
+        h2 {font-style: bold; }
+    </style>
+    <body>
+        <br>
+        <div class="w3-content" style="max-width:800px">
+            <header class="w3-container w3-blue-grey ">
+                <h1>ldap on Mac</h1>
+            </header>
+
+            <p>Did you ever have to interact with Active Directory on a MAC? If yes, this post might be interesting for you. I am pretty new to the Mac and basic things I know how to do on Windows need some research to figure out. This time around I explore Active Directory interactions.</p>
+            <br>
+            <li>First, there is the Directory Utility on the Mac which can be quite useful.</li>
+        <li>Second, there is Apaches - Directory Studio - which is pretty amazing and feature rich.</li>
+    <li>Third, you might want to write your own tools or scripts. There are ldap commands that allow you to do most tasks in automated fashion.</li> 
+    <p>
+        <br>
+            ldapwhoami -x -Z -H ldaps://[your].[domain].[controller] -D wuzzi@domain.com -W
+            <br><br>
+            ldapsearch -v -x -LLL -H ldaps://[your].[domain].[controller] -b OU=Users,OU=Managed,DC=[your],DC=[domain],DC=[controller] -D wuzzi@domain.com -Z -W -s sub "(objectClass=user)" cn givenName sn pwdLastSet
+<br><br>
+            One can pipe this into a file, let's say users.ldif
+<br><br>
+            There is a tool ldap2csv.sh that can be used to convert the output to a csv file - I found this pretty useful.
+<br><br>
+            e.g. cat users.ldif | ./ldap2csv.sh cn givenName sn pwdLastSet samAccountName
+            <br><br>
+            
+            Use of search filters: -f searchfilter.filter "(cn=%s)"
+
+            The filter file itself then just contains a list of names that will be substituted.
+
+<br>
+            <br>
+            <footer class="w3-container w3-blue-grey"><p><br></p></footer>
+            <br> 
+            <br>June 20th, 2019 </p>
+        </div>
+    </body>
+ </html>
