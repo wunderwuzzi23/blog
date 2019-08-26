@@ -107,33 +107,33 @@ Hopefully this was helpful, so you can build better detections, improvements and
 Example 1) Google Cloud Platform, Gmail,...
 
 Browse to www.google.com in private mode. We aren't logged in.
-![Not logged in](/images/kekse/step1.jpg)
+![Not logged in](/blog/images/kekse/step1.jpg)
 
 Open Developer Console and set the appropriate cookies (see cheat sheet for cookie details)
 
-![applying cookie](/images/kekse/step2.jpg)
+![applying cookie](/blog/images/kekse/step2.jpg)
 
 Switch to the Applications tab and look at the cookies. You can see that they got set on www.google.com, which is not what we want.
 
-![Logged In](/images/kekse/step3.jpg)
+![Logged In](/blog/images/kekse/step3.jpg)
 
 Update the domain setting of the cookies to .google.com. The cookie for OSID has to be set to console.cloud.google.com for GCP (it works on .google.com as well, but you might observe cookie mismatch errors later if you want to go to different services outside of GCP). 
 
 So this can be a bit of a hiccup at times.
-![Logged In](/images/kekse/step4.jpg)
+![Logged In](/blog/images/kekse/step4.jpg)
 
 Finally, navigate to https://console.cloud.google.com and observe being magically logged in. If you set the LSID cookie you can also go to GMail or the Accounts settings page.
-![Logged In](/images/kekse/step5.jpg)
+![Logged In](/blog/images/kekse/step5.jpg)
 
 
 Example 2): Pass the Cookie on Github
 
 Browse to the website and observe not being authenticated. No cookies.
-![Not Logged In](/images/kekse/GH1.png)
+![Not Logged In](/blog/images/kekse/GH1.png)
 
 Set the appropriate cookie for the website domain (e.g via developer tools of the browser).
-![Pass the Cookie](/images/kekse/GH2.png)
+![Pass the Cookie](/blog/images/kekse/GH2.png)
 
 Refresh the page and observe being authenticated. :)
-![Logged In](/images/kekse/GH3.png)
+![Logged In](/blog/images/kekse/GH3.png)
 

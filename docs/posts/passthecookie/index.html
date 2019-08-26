@@ -245,34 +245,34 @@ You can always view the currently set cookies via document.cookie</p>
 <p>Example 1) Google Cloud Platform, Gmail,&hellip;</p>
 
 <p>Browse to www.google.com in private mode. We aren&rsquo;t logged in.
-<img src="/images/kekse/step1.jpg" alt="Not logged in" /></p>
+<img src="/blog/images/kekse/step1.jpg" alt="Not logged in" /></p>
 
 <p>Open Developer Console and set the appropriate cookies (see cheat sheet for cookie details)</p>
 
-<p><img src="/images/kekse/step2.jpg" alt="applying cookie" /></p>
+<p><img src="/blog/images/kekse/step2.jpg" alt="applying cookie" /></p>
 
 <p>Switch to the Applications tab and look at the cookies. You can see that they got set on www.google.com, which is not what we want.</p>
 
-<p><img src="/images/kekse/step3.jpg" alt="Logged In" /></p>
+<p><img src="/blog/images/kekse/step3.jpg" alt="Logged In" /></p>
 
 <p>Update the domain setting of the cookies to .google.com. The cookie for OSID has to be set to console.cloud.google.com for GCP (it works on .google.com as well, but you might observe cookie mismatch errors later if you want to go to different services outside of GCP).</p>
 
 <p>So this can be a bit of a hiccup at times.
-<img src="/images/kekse/step4.jpg" alt="Logged In" /></p>
+<img src="/blog/images/kekse/step4.jpg" alt="Logged In" /></p>
 
 <p>Finally, navigate to <a href="https://console.cloud.google.com">https://console.cloud.google.com</a> and observe being magically logged in. If you set the LSID cookie you can also go to GMail or the Accounts settings page.
-<img src="/images/kekse/step5.jpg" alt="Logged In" /></p>
+<img src="/blog/images/kekse/step5.jpg" alt="Logged In" /></p>
 
 <p>Example 2): Pass the Cookie on Github</p>
 
 <p>Browse to the website and observe not being authenticated. No cookies.
-<img src="/images/kekse/GH1.png" alt="Not Logged In" /></p>
+<img src="/blog/images/kekse/GH1.png" alt="Not Logged In" /></p>
 
 <p>Set the appropriate cookie for the website domain (e.g via developer tools of the browser).
-<img src="/images/kekse/GH2.png" alt="Pass the Cookie" /></p>
+<img src="/blog/images/kekse/GH2.png" alt="Pass the Cookie" /></p>
 
 <p>Refresh the page and observe being authenticated. :)
-<img src="/images/kekse/GH3.png" alt="Logged In" /></p>
+<img src="/blog/images/kekse/GH3.png" alt="Logged In" /></p>
 
   </section>
   <footer>

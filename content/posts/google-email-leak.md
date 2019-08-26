@@ -22,7 +22,7 @@ and in the f.req parameter provide an email address.
 
 This is how it looks via Fiddler:
 
-![Google Email Leak](/images/google.alternateaccount.leak.png)
+![Google Email Leak](/blog/images/google.alternateaccount.leak.png)
 
 An adversary could do this at scale to retrieve additional accounts for phishing or possibly learn about recovery account - which in my case was the alternate account. lol. So, I'd assume others might have done the same.
 
