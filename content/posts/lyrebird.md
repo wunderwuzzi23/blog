@@ -2,6 +2,14 @@
 title: "Lyrebird - Hack the hacker (and take a picture)"
 date: 2019-05-21T21:48:29-07:00
 draft: true
+tags: [
+        "pentesting",
+        "fun",
+        "code",
+        "tool"
+    ]
+description: "Series of posts for Password Spraying Technques"
+meta_title: "Bash and password spraying"
 ---
 
 The idea for Lyrebird came from observing that sometimes when someone forgets lock their workstation, someone else might mess with their computer. Since I wanted to learn more on how to program a webcam and take pictures - I figured why not create a little tool that takes a screenshot and uses the webcam to take pictures of anyone that interacts with the computer while I'm gone.

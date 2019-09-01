@@ -6,5 +6,6 @@ copyright = "&copy; WUNDERWUZZI 2019"
 publishDir = "docs"
 
 [params]
+subtitle = "Embrace the Red"
 github = "wunderwuzzi23"
-
+contact = "mailto:security@wunderwuzzi.net"

@@ -2,6 +2,13 @@
 title: "KoiPhish - The Beautiful Phishing Proxy"
 date: 2019-01-10T21:40:59-07:00
 draft: true
+tags: [
+        "pentesting",
+        "red",
+        "code",
+        "phishing"
+    ]
+
 ---
 
 **KoiPhish is a simple yet beautiful relay proxy idea.**

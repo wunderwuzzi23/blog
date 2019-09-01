@@ -2,6 +2,14 @@
 title: "Pass the Cookie and Pivot to the Clouds"
 date: 2018-12-16T12:00:00-07:00
 draft: true
+tags: [
+        "pentesting",
+        "red",
+        "blue",
+        "TTP"
+    ]
+description: "Be aware of and protect your organization from cookie theft"
+meta_title: "Pass the Cookie - Protect your organization from cookie theft"
 ---
 
 ## Web Applications and Services use cookies to authenticate sessions and users.
@@ -79,7 +87,7 @@ This list might change over time or have inaccuracies - feel to provide feedback
 
 
 
-| Application       	   | Cookie Name                     | Domain           | Notes                             |
+| Application              | Cookie Name                     | Domain           | Notes                             |
 |:-------------------------|:--------------------------------|:-----------------|:----------------------------------|
 | Amazon Web Services	   | aws-userInfo, aws-creds         | .amazon.com      | https://console.aws.amazon.com    |
 | Google Cloud Platform	   | OSID, HSID, SID, SSID, APISID, SAPISID, LSID          | .google.com      | https://console.cloud.google.com OSID has to be set on console.cloud.google.com, others on .google.com LSID needed for cross app auth (e.g. GCP to Gmail). |

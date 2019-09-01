@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/homefield-advantage/</loc>
+    <lastmod>2019-08-31T18:46:06-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://wunderwuzzi23.github.io/blog/posts/using-hugo/</loc>
     <lastmod>2019-08-24T11:51:45-07:00</lastmod>
   </url>
@@ -49,7 +54,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/posts/</loc>
-    <lastmod>2019-08-24T11:51:45-07:00</lastmod>
+    <lastmod>2019-08-31T18:46:06-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -60,7 +65,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/</loc>
-    <lastmod>2019-08-24T11:51:45-07:00</lastmod>
+    <lastmod>2019-08-31T18:46:06-07:00</lastmod>
     <priority>0</priority>
   </url>
   

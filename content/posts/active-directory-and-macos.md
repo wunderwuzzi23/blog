@@ -2,6 +2,12 @@
 title: "Active Directory and MacOS"
 date: 2019-06-20T22:00:16-07:00
 draft: true
+tags: [
+        "pentesting",
+        "red",
+        "research",
+        "tool"
+    ]
 ---
 
 
@@ -25,7 +31,7 @@ To perform a search the ldapsearch command is useful:
     ldapsearch -v -x -LLL -H ldaps://[your].[domain].[controller] -b OU=Users,OU=Managed,DC=[your],DC=[domain],DC=[controller] -D wuzzi@domain.com -Z -W -s sub "(objectClass=user)" cn givenName sn pwdLastSet
 
 ## Certificates
-Trusting the certificate and updting kerb.conf????
+To trust the certificate of the LDAP server look into updating krb5.confi/kerb.conf files accordingly.
 
 ## Procesing Results
 One can pipe this into a file, let's say users.ldif

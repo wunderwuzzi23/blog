@@ -2,6 +2,14 @@
 title: "BashSpray - Simple Password Spray Bash Script"
 date: 2019-07-03T21:58:01-07:00
 draft: true
+tags: [
+        "pentesting",
+        "red",
+        "code",
+        "tool"
+    ]
+description: "Series of posts for Password Spraying Technques"
+meta_title: "Bash and password spraying"
 ---
 
 One thing every red team should attempt early on and regularly is to perform some password spray testing across their organization to identify and help remediate usage of weak passwords.

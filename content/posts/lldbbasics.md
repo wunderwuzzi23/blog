@@ -2,6 +2,13 @@
 title: "McPivot and useful LLDB commands"
 date: 2019-01-05T21:34:51-07:00
 draft: true
+tags: [
+        "pentesting",
+        "red",
+        "TTP"
+    ]
+description: "Understand basic LLDB commands and usage"
+meta_title: "Just some notes on how to use lldb on MacOS"
 ---
 
 

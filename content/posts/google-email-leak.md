@@ -2,6 +2,10 @@
 title: "Google Leaks Your Alternate Email Addresses to Unauthenticated Users"
 date: 2019-06-04T21:51:52-07:00
 draft: true
+tags: [
+        "research",
+        "bugbounty"
+    ]
 ---
 
 The Google Login Flow leaks additional email account information to unauthenticated users. I discovered this in the Google Account Login flow while building KoiPhish.
