@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Phishing on wunderwuzzi blog</title>
+    <link>https://wunderwuzzi23.github.io/blog/tags/phishing/</link>
+    <description>Recent content in Phishing on wunderwuzzi blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; WUNDERWUZZI 2019</copyright>
+    <lastBuildDate>Thu, 10 Jan 2019 21:40:59 -0700</lastBuildDate>
+    
+	<atom:link href="https://wunderwuzzi23.github.io/blog/tags/phishing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>KoiPhish - The Beautiful Phishing Proxy</title>
+      <link>https://wunderwuzzi23.github.io/blog/posts/koiphish/</link>
+      <pubDate>Thu, 10 Jan 2019 21:40:59 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/posts/koiphish/</guid>
+      <description>KoiPhish is a simple yet beautiful relay proxy idea.
+The idea for this little project goes back many years. Since I started learning Golang I figured it would be good exercise to finally go ahead an implement it. So, last December during the 35C3 (which is always inspiring congress) I wrote it up.
+It relays requests a client makes to the KoiPish to the actual target and responses are sent back to the client.</description>
+    </item>
+    
+  </channel>
+</rss>
