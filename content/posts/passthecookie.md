@@ -24,7 +24,7 @@ So, let's Pass the Cookie and Pivot to the Clouds.
 **Update:** [Pass the Cookie at the Chaos Communication Congress (35C3)](https://c3lt.de/35c3/talk/CK3DWH/)
 
 Watch the 35C3 Lightning Talk here:
-[![Video Pass the Cookie](http://img.youtube.com/vi/y24_QQjbHFA/0.jpg)](https://www.youtube.com/embed/y24_QQjbHFA?start=6630&end=6999s/ "Pass the Cookie at 35C3")
+[![Video Pass the Cookie](https://img.youtube.com/vi/y24_QQjbHFA/0.jpg)](https://www.youtube.com/embed/y24_QQjbHFA?start=6630&end=6999s/ "Pass the Cookie at 35C3")
 
 
 ## Attack Chain
@@ -98,6 +98,8 @@ This list might change over time or have inaccuracies - feel to provide feedback
 | Hotmail, Calendar, People| RPSSecAuth	                     | .live.com        | Access to hotmail,... (No OneDrive)|
 | Gmail	                   | OSID, HSID, SID, SSID, APISID, SAPISID, LSID             | .google.com  | https://mail.google.com  For basic mail access only first 4 seem needed.     |
 
+
+&NewLine;  
 *Notice:* When setting cookies through the web console, each cookie has to be set individually via document.cookie="". 
 You can always view the currently set cookies via document.cookie
 
@@ -108,7 +110,11 @@ Also when setting cookies ensure to set them on the correct domain. If in doubt 
 
 Pass the Cookie is a powerful post-exploitation technique to pivot from on-premise machines to cloud assets. It can be leveraged to bypass 2FA techniques as the cookie is in the end still a single factor.
 
-Hopefully this was helpful, so you can build better detections, improvements and tests into your infrastructure to catch malicious activity. If you have any questions or ideas feel free to send me an email at wunderwuzzi23@outlook.com.
+Hopefully this was helpful, so you can build better detections, improvements and tests into your infrastructure to catch malicious activity. 
+
+If you have any questions or ideas feel free to send me an email at security@wunderwuzzi.net.  
+
+&NewLine;  
 
 
 ## Appendix - Pass the Cookie Examples

@@ -287,3 +287,17 @@ article section img {
     margin: 13px auto;
 }
 
+td {
+    border: 1px solid grey;
+    padding: 4px;
+}
+
+th {
+    border: 1px solid grey;
+    background-color: #BBD0E5;    
+    padding: 4px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
