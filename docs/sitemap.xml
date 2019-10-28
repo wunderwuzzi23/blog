@@ -3,17 +3,164 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/mitreattackupdate/</loc>
+    <lastmod>2019-10-27T10:56:03-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/coinbase-hack-cookie-theft-pass/</loc>
+    <lastmod>2019-09-01T13:25:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/homefield-advantage/</loc>
+    <lastmod>2019-08-24T18:46:06-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/using-hugo/</loc>
+    <lastmod>2019-08-24T11:51:45-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/bash-spray-password/</loc>
+    <lastmod>2019-07-03T21:58:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/active-directory-and-macos/</loc>
+    <lastmod>2019-06-20T22:00:16-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/google-email-leak/</loc>
+    <lastmod>2019-06-04T21:51:52-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/lyrebird/</loc>
+    <lastmod>2019-05-21T21:48:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/koiphish/</loc>
+    <lastmod>2019-01-10T21:40:59-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/lldbbasics/</loc>
+    <lastmod>2019-01-05T21:34:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/passthecookie/</loc>
+    <lastmod>2018-12-16T12:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/blue/</loc>
+    <lastmod>2018-12-16T12:00:00-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/breaches/</loc>
+    <lastmod>2019-09-01T13:25:07-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/bugbounty/</loc>
+    <lastmod>2019-06-04T21:51:52-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://wunderwuzzi23.github.io/blog/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/code/</loc>
+    <lastmod>2019-07-03T21:58:01-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/cookiesforall/</loc>
+    <lastmod>2019-10-27T10:56:03-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/fun/</loc>
+    <lastmod>2019-05-21T21:48:29-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/pentesting/</loc>
+    <lastmod>2019-09-01T13:25:07-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/phishing/</loc>
+    <lastmod>2019-01-10T21:40:59-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/</loc>
+    <lastmod>2019-10-27T10:56:03-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/purple/</loc>
+    <lastmod>2019-08-24T18:46:06-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/red/</loc>
+    <lastmod>2019-10-27T10:56:03-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/research/</loc>
+    <lastmod>2019-06-20T22:00:16-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/strategy/</loc>
+    <lastmod>2019-08-24T18:46:06-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/</loc>
+    <lastmod>2018-12-16T12:00:00-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/tool/</loc>
+    <lastmod>2019-07-03T21:58:01-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/ttp/</loc>
+    <lastmod>2019-10-27T10:56:03-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/</loc>
+    <lastmod>2019-10-27T10:56:03-07:00</lastmod>
     <priority>0</priority>
   </url>
   

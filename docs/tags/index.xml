@@ -7,9 +7,136 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; WUNDERWUZZI 2019</copyright>
+    <lastBuildDate>Sun, 16 Dec 2018 12:00:00 -0700</lastBuildDate>
     
 	<atom:link href="https://wunderwuzzi23.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Blue</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/blue/</link>
+      <pubDate>Sun, 16 Dec 2018 12:00:00 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/blue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Breaches</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/breaches/</link>
+      <pubDate>Sun, 01 Sep 2019 13:25:07 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/breaches/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bugbounty</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/bugbounty/</link>
+      <pubDate>Tue, 04 Jun 2019 21:51:52 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/bugbounty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Code</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/code/</link>
+      <pubDate>Wed, 03 Jul 2019 21:58:01 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cookiesforall</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/cookiesforall/</link>
+      <pubDate>Sun, 27 Oct 2019 10:56:03 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/cookiesforall/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fun</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/fun/</link>
+      <pubDate>Tue, 21 May 2019 21:48:29 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/fun/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pentesting</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/pentesting/</link>
+      <pubDate>Sun, 01 Sep 2019 13:25:07 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/pentesting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Phishing</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/phishing/</link>
+      <pubDate>Thu, 10 Jan 2019 21:40:59 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/phishing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Purple</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/purple/</link>
+      <pubDate>Sat, 24 Aug 2019 18:46:06 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/purple/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Red</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/red/</link>
+      <pubDate>Sun, 27 Oct 2019 10:56:03 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/red/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/research/</link>
+      <pubDate>Thu, 20 Jun 2019 22:00:16 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Strategy</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/strategy/</link>
+      <pubDate>Sat, 24 Aug 2019 18:46:06 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/strategy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tool</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/tool/</link>
+      <pubDate>Wed, 03 Jul 2019 21:58:01 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/tool/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ttp</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/ttp/</link>
+      <pubDate>Sun, 27 Oct 2019 10:56:03 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/ttp/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
