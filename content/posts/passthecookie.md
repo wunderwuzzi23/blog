@@ -21,11 +21,16 @@ Pass the Cookie is a post-exploitation technique to perform [session hijacking](
 
 So, let's Pass the Cookie and Pivot to the Clouds.
 
-**Update:** [Pass the Cookie at the Chaos Communication Congress (35C3)](https://c3lt.de/35c3/talk/CK3DWH/)
+**Update October 2019:** This tactic is now part of the MITRE ATT&CK Matrix, in particular:
+
+* [Credential Access - Steal Web Session Cookie](https://attack.mitre.org/techniques/T1539/)
+* [Lateral Movement - Web Session Cookie](https://attack.mitre.org/techniques/T1506/)
+
+
+**Update December 2018:** [Pass the Cookie at the Chaos Communication Congress (35C3)](https://c3lt.de/35c3/talk/CK3DWH/)
 
 Watch the 35C3 Lightning Talk here:
 [![Video Pass the Cookie](https://img.youtube.com/vi/y24_QQjbHFA/0.jpg)](https://www.youtube.com/embed/y24_QQjbHFA?start=6630&end=6999s/ "Pass the Cookie at 35C3")
-
 
 ## Attack Chain
 
