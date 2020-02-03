@@ -1,6 +1,6 @@
 ---
 title: "Zero Trust and Disabling Remote Management Endpoints"
-date: 2020-06-02T14:08:55-08:00
+date: 2020-02-06T14:08:55-08:00
 draft: true
 tags: [
         "strategy",
