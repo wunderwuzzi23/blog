@@ -11,7 +11,7 @@ meta_title: "Limiting lateral movement. Zero Trust. "
 
 ---
 
-This post highlights a simple mitigation to significantly improve the securty posture of your organization. The idea is to practically limit attack surface and prevent spreading of automated malware and limit lateral movement by adversaries.
+This post highlights a simple mitigation to significantly improve the security posture of your organization. The idea is to, by practical means, limit attack surface and prevent spreading of automated malware, as well as limiting lateral movement by adversaries.
 
 ## Network security the last 15 years
 
@@ -23,7 +23,7 @@ Did we not learn how to defend against automated attacks in the last 15 years?
 
 **The network is hostile** and that is something security experts agree upon and keep highlighting. 
 
-**Zero Trust** is typically used to refer to the fact that the network infrastructure cannot be trusted. However, remote management endpoints are constantly permanentely exposed to untrusted networks, especially corporate devices that are often exposed to quite hostile networks (such as laptops and phones)
+**Zero Trust** is typically used to refer to the fact that the network infrastructure cannot be trusted. However, remote management endpoints are constantly **permanentely** exposed to untrusted networks, especially corporate devices  are often exposed to quite hostile networks (such as laptops and phones).
 
 >To this day, malware, adversaries and red teams  move through environments via remotely exposed endpoints, most of them time actually using dedicated management endpoints. 
 
@@ -45,7 +45,7 @@ Here are a few reasons why permanently exposing remote management endpoints is b
 
 ## Are remote management endpoints really needed?
 
-Probably not - at least not permanently and widely. To manage machines in a corporate environment there are technologies such as group policies and Chef that help manage things at scale.
+Probably not - at least not permanently and widely. To manage machines in a corporate environment there are technologies such as group policies and Chef that help manage things at scaleg.
 
 ## Mitigations
 
