@@ -1,12 +1,12 @@
 ---
 title: "Zero Trust and Disabling Remote Management Endpoints"
-date: 2020-02-02T14:08:55-08:00
+date: 2020-06-02T14:08:55-08:00
 draft: true
 tags: [
         "strategy",
         "principles"
     ]
-description: "Disable remote management endpoints (SSH, WinRM, SMB, RDP, VNC,..) by default across your corp infrastrucutre."
+description: "Disabling remote management endpoints (SSH, WinRM, SMB, RDP, VNC,..) by default across your corp infrastructure."
 meta_title: "Limiting lateral movement. Zero Trust. "
 
 ---
@@ -84,4 +84,5 @@ There might also be other technical or business reasons at times, but the stance
 ## References
 
 [1] https://en.wikipedia.org/wiki/SQL_Slammer
+
 [2] https://en.wikipedia.org/wiki/WannaCry_ransomware_attack
