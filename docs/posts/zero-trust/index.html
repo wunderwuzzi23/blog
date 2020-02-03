@@ -101,9 +101,9 @@
   <section>
     
 
-<p>This post highlights a simple mitigation to significantly improve the security posture of your organization. The idea is to, by practical means, limit attack surface and prevent spreading of automated malware, as well as limiting lateral movement by adversaries.</p>
+<p>This post highlights a simple mitigation to improve the security posture of your organization. The idea is to, by practical means, limit attack surface and prevent spreading of automated malware, as well as limiting lateral movement by adversaries.</p>
 
-<h2 id="network-security-the-last-15-years">Network security the last 15 years</h2>
+<h2 id="network-security-over-the-last-15-years">Network security over the last 15 years</h2>
 
 <p>Malware can spread fast and damage businesses at scale. SQL Slammer [1] and WannaCry [2] are two well-known cases that showed how quickly and damaging this can be. Interstingly, both of these disasters were nearly 15 years apart.</p>
 
@@ -113,13 +113,13 @@
 
 <p><strong>The network is hostile</strong> and that is something security experts agree upon and keep highlighting.</p>
 
-<p><strong>Zero Trust</strong> is typically used to refer to the fact that the network infrastructure cannot be trusted. However, remote management endpoints are constantly <strong>permanentely</strong> exposed to untrusted networks, especially corporate devices  are often exposed to quite hostile networks (such as laptops and phones).</p>
+<p><strong>Zero Trust</strong> is typically used to refer to the fact that the network infrastructure cannot be trusted. However, remote management endpoints (and others also) are constantly <strong>permanently</strong> exposed to untrusted networks. Especially corporate devices (such as laptops and phones) are often exposed to quite hostile networks.</p>
 
 <blockquote>
-<p>To this day, malware, adversaries and red teams  move through environments via remotely exposed endpoints, most of them time actually using dedicated management endpoints.</p>
+<p>To this day, malware, adversaries and red teams move through environments via remotely exposed endpoints, most of them time actually using dedicated management endpoints.</p>
 </blockquote>
 
-<p>In your company the IT department likely permanently enabled SSH (or WinRM on Windows) on your laptop, so that they can connect and assert administrative privileges on your (and other employee&rsquo;s) machines whenever the need arises.</p>
+<p>In your company the IT department might be permanently enabled SSH (or WinRM on Windows) on your laptop, so that they can connect and assert administrative privileges on your (and other employee&rsquo;s) machines whenever the need arises.</p>
 
 <h2 id="why-is-this-bad">Why is this bad?</h2>
 
@@ -139,7 +139,7 @@
 
 <h2 id="are-remote-management-endpoints-really-needed">Are remote management endpoints really needed?</h2>
 
-<p>Probably not - at least not permanently and widely. To manage machines in a corporate environment there are technologies such as group policies and Chef that help manage things at scaleg.</p>
+<p>Probably not - at least not permanently and widely. To manage machines in a corporate environment there are technologies such as group policies and Chef that help manage things at scale.</p>
 
 <h2 id="mitigations">Mitigations</h2>
 
@@ -160,9 +160,8 @@
 
 <p>Interestingly, by default these ports are tpyically locked down by the Operating System vendors.</p>
 
-<p>If you want to be very drastic (full zero trust so to speak), consider to block all inbound traffic in general by default</p>
-
-<p>Anything that allows to run admin commands should be turned off for sure by default (this includes a lot of other products and services that can be found out there - just highlighting the most common ones that one should start with).</p>
+<p>If you want to be very drastic (full zero trust so to speak), consider to block all inbound traffic in general by default.
+Anything that allows to run admin commands should be turned off for sure by default (this includes a lot of other products and services that can be found out there - just highlighting the most common ones that one should start with).</p>
 
 <p>And here are a few other things to remember:</p>
 

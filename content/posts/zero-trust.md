@@ -11,9 +11,9 @@ meta_title: "Limiting lateral movement. Zero Trust. "
 
 ---
 
-This post highlights a simple mitigation to significantly improve the security posture of your organization. The idea is to, by practical means, limit attack surface and prevent spreading of automated malware, as well as limiting lateral movement by adversaries.
+This post highlights a simple mitigation to improve the security posture of your organization. The idea is to, by practical means, limit attack surface and prevent spreading of automated malware, as well as limiting lateral movement by adversaries.
 
-## Network security the last 15 years
+## Network security over the last 15 years
 
 Malware can spread fast and damage businesses at scale. SQL Slammer [1] and WannaCry [2] are two well-known cases that showed how quickly and damaging this can be. Interstingly, both of these disasters were nearly 15 years apart.
 
@@ -23,11 +23,11 @@ Did we not learn how to defend against automated attacks in the last 15 years?
 
 **The network is hostile** and that is something security experts agree upon and keep highlighting. 
 
-**Zero Trust** is typically used to refer to the fact that the network infrastructure cannot be trusted. However, remote management endpoints are constantly **permanentely** exposed to untrusted networks, especially corporate devices  are often exposed to quite hostile networks (such as laptops and phones).
+**Zero Trust** is typically used to refer to the fact that the network infrastructure cannot be trusted. However, remote management endpoints (and others also) are constantly **permanently** exposed to untrusted networks. Especially corporate devices (such as laptops and phones) are often exposed to quite hostile networks.
 
->To this day, malware, adversaries and red teams  move through environments via remotely exposed endpoints, most of them time actually using dedicated management endpoints. 
+>To this day, malware, adversaries and red teams move through environments via remotely exposed endpoints, most of them time actually using dedicated management endpoints. 
 
-In your company the IT department likely permanently enabled SSH (or WinRM on Windows) on your laptop, so that they can connect and assert administrative privileges on your (and other employee's) machines whenever the need arises. 
+In your company the IT department might be permanently enabled SSH (or WinRM on Windows) on your laptop, so that they can connect and assert administrative privileges on your (and other employee's) machines whenever the need arises. 
 
 ## Why is this bad?
 
@@ -45,7 +45,7 @@ Here are a few reasons why permanently exposing remote management endpoints is b
 
 ## Are remote management endpoints really needed?
 
-Probably not - at least not permanently and widely. To manage machines in a corporate environment there are technologies such as group policies and Chef that help manage things at scaleg.
+Probably not - at least not permanently and widely. To manage machines in a corporate environment there are technologies such as group policies and Chef that help manage things at scale.
 
 ## Mitigations
 
@@ -62,8 +62,7 @@ One of the simplest mitigations that prevents malware from spreading is to **not
 
 Interestingly, by default these ports are tpyically locked down by the Operating System vendors.
 
-If you want to be very drastic (full zero trust so to speak), consider to block all inbound traffic in general by default
-
+If you want to be very drastic (full zero trust so to speak), consider to block all inbound traffic in general by default.
 Anything that allows to run admin commands should be turned off for sure by default (this includes a lot of other products and services that can be found out there - just highlighting the most common ones that one should start with).
 
 And here are a few other things to remember:
