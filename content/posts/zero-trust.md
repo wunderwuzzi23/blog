@@ -51,7 +51,7 @@ Probably not - at least not permanently and widely. To manage machines in a corp
 
 ## Mitigations
 
-It is a frustrating thing for a red teamer to have  a valid password (certificate,...) but not being able use it because there is no endpoint exposed. 
+It is a frustrating thing for a red teamer to have a valid password (certificate,...) but not being able use it because there is no endpoint exposed. 
 
 >**So, we should assume it is similarly frustrating for a real world adversary!**
 
@@ -70,7 +70,7 @@ Anything that allows to run admin commands should be turned off for sure by defa
 And here are a few other things to remember:
 
 * Only temporarily expose remote management endpoints
-* When exposing them, expose them to a subset  of machines that has a business need to connect
+* When exposing them, expose them to a subset of machines (and identities) that has a business need to connect
 * Strong passwords, MFA, Certificates, Smart Cards
 * Do not reuse local admin passwords (this is common in Corp IT land, especially for a local admin and root accounts)
 
