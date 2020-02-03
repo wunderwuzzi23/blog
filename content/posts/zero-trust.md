@@ -67,7 +67,7 @@ Interestingly, by default these ports are typically locked down by the Operating
 
 If you want to be more drastic (full zero trust so to speak), consider to block all inbound traffic in general by default. 
 
-Anything that allows to run admin commands should be turned off for sure by default. This includes a lot of other products and services that can be found out there (like mssql, jenkins, other web apps,... - just highlighting the most common ones that one should be aware of at least.
+Anything that allows to run admin commands should be turned off for sure by default. This includes a lot of other products and services that can be found out there (like mssql, some web apps,...).
 
 And here are a few other things to remember:
 
