@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Zero Trust &middot;  wunderwuzzi blog" />
+  <meta property="og:title" content=" Zero Trust and Disabling Remote Management Endpoints &middot;  wunderwuzzi blog" />
   
   <meta property="og:site_name" content="wunderwuzzi blog" />
   <meta property="og:url" content="https://wunderwuzzi23.github.io/blog/posts/zero-trust/" />
@@ -20,7 +20,7 @@
   
 
   <title>
-     Zero Trust &middot;  wunderwuzzi blog
+     Zero Trust and Disabling Remote Management Endpoints &middot;  wunderwuzzi blog
   </title>
 
   <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/bootstrap.min.css" />
@@ -79,7 +79,7 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Zero Trust</h1>
+    <h1 class="text-primary">Zero Trust and Disabling Remote Management Endpoints</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
@@ -100,6 +100,94 @@
   </header>
   <section>
     
+
+<p>This post highlights a simple mitigation to significantly improve the securty posture of your organization. The idea is to practically limit attack surface and prevent spreading of automated malware and limit lateral movement by adversaries.</p>
+
+<h2 id="network-security-the-last-15-years">Network security the last 15 years</h2>
+
+<p>Malware can spread fast and damage businesses at scale. SQL Slammer [1] and WannaCry [2] are two well-known cases that showed how quickly and damaging this can be. Interstingly, both of these disasters were nearly 15 years apart.</p>
+
+<p>Did we not learn how to defend against automated attacks in the last 15 years?</p>
+
+<h2 id="corporate-it-security">Corporate IT Security</h2>
+
+<p><strong>The network is hostile</strong> and that is something security experts agree upon and keep highlighting.</p>
+
+<p><strong>Zero Trust</strong> is typically used to refer to the fact that the network infrastructure cannot be trusted. However, remote management endpoints are constantly permanentely exposed to untrusted networks, especially corporate devices that are often exposed to quite hostile networks (such as laptops and phones)</p>
+
+<blockquote>
+<p>To this day, malware, adversaries and red teams  move through environments via remotely exposed endpoints, most of them time actually using dedicated management endpoints.</p>
+</blockquote>
+
+<p>In your company the IT department likely permanently enabled SSH (or WinRM on Windows) on your laptop, so that they can connect and assert administrative privileges on your (and other employee&rsquo;s) machines whenever the need arises.</p>
+
+<h2 id="why-is-this-bad">Why is this bad?</h2>
+
+<p>Here are a few reasons why permanently exposing remote management endpoints is bad:</p>
+
+<ol>
+<li><p><strong>Manual Access:</strong> There is little control on <strong>who</strong>, from <strong>where</strong>, or <strong>when</strong>. Basically anyone can easily pivot to the endpoint, and when possessing credentials (which adversaries always do) the machine can be taken over (including all passwords and secrets stored on it)</p></li>
+
+<li><p><strong>Bruteforce and Password Spray:</strong> The machine now is open to bruteforce attacks from the network stack (remember, the network is hostile).</p></li>
+
+<li><p><strong>Bruteforce attacks in the coffee shop:</strong> Just to reiterate and highlight the exposure more. An employee might be in a coffee shop or airport (again, the network is still hostile) and if remote management endpoints are exposed, the employee&rsquo;s laptop will likely be automatically attacked</p></li>
+
+<li><p><strong>Spreading of Automated Malware:</strong> Malware spreads throughout the entire environment from one machine to the next within seconds.</p></li>
+
+<li><p><strong>Enormous Blast Radius:</strong> Imagine malware that steals credentials, then connects to the next machine and steals credentials again, then the next one, and so forth. Such automated attacks are rather scary and easy to implement for an adversary. A red team can perform such an blast radius analysis - starting from a single leaked credential. Ask your red team to perform such a test.</p></li>
+</ol>
+
+<h2 id="are-remote-management-endpoints-really-needed">Are remote management endpoints really needed?</h2>
+
+<p>Probably not - at least not permanently and widely. To manage machines in a corporate environment there are technologies such as group policies and Chef that help manage things at scale.</p>
+
+<h2 id="mitigations">Mitigations</h2>
+
+<p>It is a frustrating thing for a red teamer to have  a valid password (certificate,&hellip;) but not being able use it because there is no endpoint exposed.</p>
+
+<blockquote>
+<p><strong>So, we should assume it is similarly frustrating for a real world adversary!</strong></p>
+</blockquote>
+
+<p>One of the simplest mitigations that prevents malware from spreading is to <strong>not expose remote endpoints</strong> (especially remote management endpoints) by default, hence, ensure that endpoints are not exposed widely, and look into:</p>
+
+<ul>
+<li>Disabling SSH</li>
+<li>Disabling RDP</li>
+<li>Disabling WinRM/PowerShell, WMI, SMB  (yes, disable SMB, the red team and adversaries will not like you for this)</li>
+<li>Disabling VNC (and Apple Remote Management)</li>
+</ul>
+
+<p>Interestingly, by default these ports are tpyically locked down by the Operating System vendors.</p>
+
+<p>If you want to be very drastic (full zero trust so to speak), consider to block all inbound traffic in general by default</p>
+
+<p>Anything that allows to run admin commands should be turned off for sure by default (this includes a lot of other products and services that can be found out there - just highlighting the most common ones that one should start with).</p>
+
+<p>And here are a few other things to remember:</p>
+
+<ul>
+<li>Only temporarily expose remote management endpoints</li>
+<li>When exposing them, expose them to a subset  of machines that has a business need to connect</li>
+<li>Strong passwords, MFA, Certificates, Smart Cards</li>
+<li>Do not reuse local admin passwords (this is common in Corp IT land, especially for a local admin and root accounts)</li>
+</ul>
+
+<h3 id="testing-for-exposure">Testing for Exposure</h3>
+
+<p>The intersting thing is that we often do not realize that remote endpoints are exposed on our machines. Hence, I suggest to regularly perform port scans on your own devices to understand there exposure.</p>
+
+<h2 id="exceptions">Exceptions</h2>
+
+<p>There are reasons that a subset of employees might want to have these features enabled (and they can turn them on and lock them down if needed). For instance developers might want RDP or SSH to remotley connect to a second machine for debugging and so forth. But this is not the most common scenario in an organization! Engineers can enable these scenarios easily, including locking machines down to subset of source addresses.</p>
+
+<p>There might also be other technical or business reasons at times, but the stance should be to default to a locked down state unless absolute necessary.</p>
+
+<h2 id="references">References</h2>
+
+<p>[1] <a href="https://en.wikipedia.org/wiki/SQL_Slammer">https://en.wikipedia.org/wiki/SQL_Slammer</a>
+[2] <a href="https://en.wikipedia.org/wiki/WannaCry_ransomware_attack">https://en.wikipedia.org/wiki/WannaCry_ransomware_attack</a></p>
+
   </section>
   <footer>
     
