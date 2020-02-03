@@ -15,19 +15,21 @@ This post highlights a simple mitigation to improve the security posture of your
 
 ## Network security over the last 15 years
 
-Malware can spread fast and damage businesses at scale. SQL Slammer [1] and WannaCry [2] are two well-known cases that showed how quickly and damaging this can be. Interstingly, both of these disasters were nearly 15 years apart.
+Malware can spread fast and damage businesses at scale. 
 
-Did we not learn how to defend against automated attacks in the last 15 years?
+SQL Slammer [1] and WannaCry [2] are two well-known cases that showed how quickly and damaging this can be. Interstingly, both of these disasters were nearly 15 years apart.
 
-## Corporate IT Security 
+>Did we not learn how to defend against automated attacks in the last 15 years?
 
 **The network is hostile** and that is something security experts agree upon and keep highlighting. 
 
+## Corporate IT Security 
+
 **Zero Trust** is typically used to refer to the fact that the network infrastructure cannot be trusted. However, remote management endpoints (and others also) are constantly **permanently** exposed to untrusted networks. Especially corporate devices (such as laptops and phones) are often exposed to quite hostile networks.
 
->To this day, malware, adversaries and red teams move through environments via remotely exposed endpoints, most of them time actually using dedicated management endpoints. 
+>To this day, malware, adversaries and red teams move through environments via remotely exposed endpoints, most of them time using dedicated admin management endpoints. 
 
-In your company the IT department might be permanently enabled SSH (or WinRM on Windows) on your laptop, so that they can connect and assert administrative privileges on your (and other employee's) machines whenever the need arises. 
+In your company the IT department might be permanently enabling SSH (or WinRM on Windows) on your laptop. This allows to connect and assert administrative privileges on your (and other employee's) machines whenever the need arises. 
 
 ## Why is this bad?
 
@@ -35,7 +37,7 @@ Here are a few reasons why permanently exposing remote management endpoints is b
 
 1. **Manual Access:** There is little control on **who**, from **where**, or **when**. Basically anyone can easily pivot to the endpoint, and when possessing credentials (which adversaries always do) the machine can be taken over (including all passwords and secrets stored on it)
 
-3. **Bruteforce and Password Spray:** The machine now is open to bruteforce attacks from the network stack (remember, the network is hostile).
+3. **Bruteforce and Password Spray:** The machine now is open to bruteforce attacks (remember, the network is hostile).
 
 4. **Bruteforce attacks in the coffee shop:** Just to reiterate and highlight the exposure more. An employee might be in a coffee shop or airport (again, the network is still hostile) and if remote management endpoints are exposed, the employee's laptop will likely be automatically attacked
 
