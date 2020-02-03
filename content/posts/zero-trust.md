@@ -61,11 +61,13 @@ One of the simplest mitigations that prevents malware from spreading is to **not
 * Disabling RDP
 * Disabling WinRM/PowerShell, WMI, SMB  (yes, disable SMB, the red team and adversaries will not like you for this)
 * Disabling VNC (and Apple Remote Management)
+* Disabling Telnet (yeah, that still shows up often)
 
-Interestingly, by default these ports are tpyically locked down by the Operating System vendors.
+Interestingly, by default these ports are typically locked down by the Operating System vendors.
 
-If you want to be very drastic (full zero trust so to speak), consider to block all inbound traffic in general by default.
-Anything that allows to run admin commands should be turned off for sure by default (this includes a lot of other products and services that can be found out there - just highlighting the most common ones that one should start with).
+If you want to be more drastic (full zero trust so to speak), consider to block all inbound traffic in general by default. 
+
+Anything that allows to run admin commands should be turned off for sure by default. This includes a lot of other products and services that can be found out there (like mssql, jenkins, other web apps,... - just highlighting the most common ones that one should be aware of at least.
 
 And here are a few other things to remember:
 
@@ -79,7 +81,7 @@ And here are a few other things to remember:
 The intersting thing is that we often do not realize that remote endpoints are exposed on our machines. Hence, I suggest to regularly perform port scans on your own devices to understand there exposure.
 
 ## Exceptions
-There are reasons that a subset of employees might want to have these features enabled (and they can turn them on and lock them down if needed). For instance developers might want RDP or SSH to remotley connect to a second machine for debugging and so forth. But this is not the most common scenario in an organization! Engineers can enable these scenarios easily, including locking machines down to subset of source addresses.
+There are reasons that a subset of employees might want to have these features enabled (and they can turn them on and lock them down if needed). For instance developers might want RDP or SSH to remotely connect to a second machine for debugging and so forth. But this is not the most common scenario in an organization! Engineers can enable these scenarios easily, including locking machines down to subset of source addresses.
 
 There might also be other technical or business reasons at times, but the stance should be to default to a locked down state unless absolute necessary.
 
