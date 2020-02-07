@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2020-02-02T14:08:55-08:00" />
+  <meta property="og:article:published_time" content="2020-02-06T14:08:55-08:00" />
   
   <meta property="og:article:tag" content="strategy" />
   
@@ -88,8 +88,8 @@
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2020-02-02T14:08:55-08:00">
-          Feb 2, 2020
+        <time datetime="2020-02-06T14:08:55-08:00">
+          Feb 6, 2020
         </time>
       </div>
     
@@ -109,21 +109,25 @@
 
 <h2 id="network-security-over-the-last-15-years">Network security over the last 15 years</h2>
 
-<p>Malware can spread fast and damage businesses at scale. SQL Slammer [1] and WannaCry [2] are two well-known cases that showed how quickly and damaging this can be. Interstingly, both of these disasters were nearly 15 years apart.</p>
+<p>Malware can spread fast and damage businesses at scale.</p>
 
+<p>SQL Slammer [1] and WannaCry [2] are two well-known cases that showed how quickly and damaging this can be. Interstingly, both of these disasters were nearly 15 years apart.</p>
+
+<blockquote>
 <p>Did we not learn how to defend against automated attacks in the last 15 years?</p>
-
-<h2 id="corporate-it-security">Corporate IT Security</h2>
+</blockquote>
 
 <p><strong>The network is hostile</strong> and that is something security experts agree upon and keep highlighting.</p>
+
+<h2 id="corporate-it-security">Corporate IT Security</h2>
 
 <p><strong>Zero Trust</strong> is typically used to refer to the fact that the network infrastructure cannot be trusted. However, remote management endpoints (and others also) are constantly <strong>permanently</strong> exposed to untrusted networks. Especially corporate devices (such as laptops and phones) are often exposed to quite hostile networks.</p>
 
 <blockquote>
-<p>To this day, malware, adversaries and red teams move through environments via remotely exposed endpoints, most of them time actually using dedicated management endpoints.</p>
+<p>To this day, malware, adversaries and red teams move through environments via remotely exposed endpoints, most of them time using dedicated admin management endpoints.</p>
 </blockquote>
 
-<p>In your company the IT department might be permanently enabled SSH (or WinRM on Windows) on your laptop, so that they can connect and assert administrative privileges on your (and other employee&rsquo;s) machines whenever the need arises.</p>
+<p>In your company the IT department might be permanently enabling SSH (or WinRM on Windows) on your laptop. This allows to connect and assert administrative privileges on your (and other employee&rsquo;s) machines whenever the need arises.</p>
 
 <h2 id="why-is-this-bad">Why is this bad?</h2>
 
@@ -132,7 +136,7 @@
 <ol>
 <li><p><strong>Manual Access:</strong> There is little control on <strong>who</strong>, from <strong>where</strong>, or <strong>when</strong>. Basically anyone can easily pivot to the endpoint, and when possessing credentials (which adversaries always do) the machine can be taken over (including all passwords and secrets stored on it)</p></li>
 
-<li><p><strong>Bruteforce and Password Spray:</strong> The machine now is open to bruteforce attacks from the network stack (remember, the network is hostile).</p></li>
+<li><p><strong>Bruteforce and Password Spray:</strong> The machine now is open to bruteforce attacks (remember, the network is hostile).</p></li>
 
 <li><p><strong>Bruteforce attacks in the coffee shop:</strong> Just to reiterate and highlight the exposure more. An employee might be in a coffee shop or airport (again, the network is still hostile) and if remote management endpoints are exposed, the employee&rsquo;s laptop will likely be automatically attacked</p></li>
 
@@ -147,7 +151,7 @@
 
 <h2 id="mitigations">Mitigations</h2>
 
-<p>It is a frustrating thing for a red teamer to have  a valid password (certificate,&hellip;) but not being able use it because there is no endpoint exposed.</p>
+<p>It is a frustrating thing for a red teamer to have a valid password (certificate,&hellip;) but not being able use it because there is no endpoint exposed.</p>
 
 <blockquote>
 <p><strong>So, we should assume it is similarly frustrating for a real world adversary!</strong></p>
@@ -160,18 +164,20 @@
 <li>Disabling RDP</li>
 <li>Disabling WinRM/PowerShell, WMI, SMB  (yes, disable SMB, the red team and adversaries will not like you for this)</li>
 <li>Disabling VNC (and Apple Remote Management)</li>
+<li>Disabling Telnet (yeah, that still shows up often)</li>
 </ul>
 
-<p>Interestingly, by default these ports are tpyically locked down by the Operating System vendors.</p>
+<p>Interestingly, by default these ports are typically locked down by the Operating System vendors.</p>
 
-<p>If you want to be very drastic (full zero trust so to speak), consider to block all inbound traffic in general by default.
-Anything that allows to run admin commands should be turned off for sure by default (this includes a lot of other products and services that can be found out there - just highlighting the most common ones that one should start with).</p>
+<p>If you want to be more drastic (full zero trust so to speak), consider to block all inbound traffic in general by default.</p>
+
+<p>Anything that allows to run admin commands should be turned off for sure by default. This includes a lot of other products and services that can be found out there (like mssql, some web apps,&hellip;).</p>
 
 <p>And here are a few other things to remember:</p>
 
 <ul>
 <li>Only temporarily expose remote management endpoints</li>
-<li>When exposing them, expose them to a subset  of machines that has a business need to connect</li>
+<li>When exposing them, expose them to a subset of machines (and identities) that has a business need to connect</li>
 <li>Strong passwords, MFA, Certificates, Smart Cards</li>
 <li>Do not reuse local admin passwords (this is common in Corp IT land, especially for a local admin and root accounts)</li>
 </ul>
@@ -182,14 +188,15 @@ Anything that allows to run admin commands should be turned off for sure by defa
 
 <h2 id="exceptions">Exceptions</h2>
 
-<p>There are reasons that a subset of employees might want to have these features enabled (and they can turn them on and lock them down if needed). For instance developers might want RDP or SSH to remotley connect to a second machine for debugging and so forth. But this is not the most common scenario in an organization! Engineers can enable these scenarios easily, including locking machines down to subset of source addresses.</p>
+<p>There are reasons that a subset of employees might want to have these features enabled (and they can turn them on and lock them down if needed). For instance developers might want RDP or SSH to remotely connect to a second machine for debugging and so forth. But this is not the most common scenario in an organization! Engineers can enable these scenarios easily, including locking machines down to subset of source addresses.</p>
 
 <p>There might also be other technical or business reasons at times, but the stance should be to default to a locked down state unless absolute necessary.</p>
 
 <h2 id="references">References</h2>
 
-<p>[1] <a href="https://en.wikipedia.org/wiki/SQL_Slammer">https://en.wikipedia.org/wiki/SQL_Slammer</a>
-[2] <a href="https://en.wikipedia.org/wiki/WannaCry_ransomware_attack">https://en.wikipedia.org/wiki/WannaCry_ransomware_attack</a></p>
+<p>[1] <a href="https://en.wikipedia.org/wiki/SQL_Slammer">https://en.wikipedia.org/wiki/SQL_Slammer</a></p>
+
+<p>[2] <a href="https://en.wikipedia.org/wiki/WannaCry_ransomware_attack">https://en.wikipedia.org/wiki/WannaCry_ransomware_attack</a></p>
 
   </section>
   <footer>
