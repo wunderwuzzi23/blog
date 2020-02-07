@@ -60,7 +60,7 @@ One of the simplest mitigations that prevents malware from spreading is to **not
 * Disabling SSH
 * Disabling RDP
 * Disabling WinRM/PowerShell, WMI, DCOM, SMB (yes, disable SMB, the red team and adversaries will not like you for this)
-* Disabling VNC (and Apple Remote Management)
+* Disabling VNC (and Apple Remote Desktop)
 * Disabling Telnet (yeah, that still shows up often)
 
 Interestingly, by default these ports are typically locked down by the Operating System vendors.
