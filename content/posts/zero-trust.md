@@ -59,7 +59,7 @@ One of the simplest mitigations that prevents malware from spreading is to **not
 
 * Disabling SSH
 * Disabling RDP
-* Disabling WinRM/PowerShell, WMI, SMB  (yes, disable SMB, the red team and adversaries will not like you for this)
+* Disabling WinRM/PowerShell, WMI, DCOM, SMB (yes, disable SMB, the red team and adversaries will not like you for this)
 * Disabling VNC (and Apple Remote Management)
 * Disabling Telnet (yeah, that still shows up often)
 
