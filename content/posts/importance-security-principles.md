@@ -1,5 +1,5 @@
 ---
-title: "Security Principles Revisited"
+title: "Web Application Security Principles Revisited"
 date: 2020-02-12T17:03:32-08:00
 draft: false
 tags: [
@@ -9,7 +9,6 @@ tags: [
     ]
 description: "Security Principles Revisited. Web Application Security Prinicples, Bachelor of Science"
 meta_title: "Security Principles Revisited"
-
 ---
 
 ## Final Year Project - Web Application Security Principles
@@ -50,7 +49,7 @@ Going forward I will make serious of posts about some of the core principles to 
 ## Zero Trust and Assume Breach
 Interestingly, **Zero Trust** was already present via attack surface reduction, compartmentalization, assume external systems are insecure, and be reluctant to trust. It was just that few people (even today) follow these principles, especially when it comes to network security. 
 
-**Assume Breach** (one of my favorite ones these days as red teamer) was less clearly defined back then. I'd imagine to find a **assume failure** principle, but there is only fail securely.
+**Assume Breach** (one of my favorite ones these days as red teamer) was less clearly defined back then (basically not at all).
 
 ## Conclusion
 
