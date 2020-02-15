@@ -1,7 +1,7 @@
 ---
 title: "Zero Trust and Disabling Remote Management Endpoints"
 date: 2020-02-06T14:08:55-08:00
-draft: true
+draft: false
 tags: [
         "strategy",
         "principles"
@@ -47,11 +47,11 @@ Here are a few reasons why permanently exposing remote management endpoints is b
 
 ## Are remote management endpoints really needed?
 
-Probably not - at least not permanently and widely. To manage machines in a corporate environment there are technologies such as group policies and Chef that help manage things at scale.
+Probably not - at least not permanently and widely. To manage machines in a corporate environment there are technologies such as group policies and Chef that help manage things at scale. And even many other services should probably not be listening on all interfaces remotley by default.
 
 ## Mitigations
 
-It is a frustrating thing for a red teamer to have a valid password (certificate,...) but not being able use it because there is no endpoint exposed. 
+It is a frustrating thing for a red teamer to have a valid password (certificate, token,.....) but not being able use it because there is no endpoint exposed. 
 
 >**So, we should assume it is similarly frustrating for a real world adversary!**
 
@@ -67,7 +67,7 @@ Interestingly, by default these ports are typically locked down by the Operating
 
 If you want to be more drastic (full zero trust so to speak), consider to block all inbound traffic in general by default. 
 
-Anything that allows to run admin commands should be turned off for sure by default. This includes a lot of other products and services that can be found out there (like mssql, some web apps,...).
+Anything that allows to run admin commands should be turned off/locked down for sure by default on workstations. This includes a lot of other products and services that can be found out there (like mssql, some web apps,...).
 
 And here are a few other things to remember:
 
@@ -83,7 +83,7 @@ The intersting thing is that we often do not realize that remote endpoints are e
 ## Exceptions
 There are reasons that a subset of employees might want to have these features enabled (and they can turn them on and lock them down if needed). For instance developers might want RDP or SSH to remotely connect to a second machine for debugging and so forth. But this is not the most common scenario in an organization! Engineers can enable these scenarios easily, including locking machines down to subset of source addresses.
 
-There might also be other technical or business reasons at times, but the stance should be to default to a locked down state unless absolute necessary.
+There might also be other technical or business reasons at times, but the stance should be to default to a locked down state unless absolutely necessary.
 
 ## References
 
