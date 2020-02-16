@@ -1,5 +1,5 @@
 ---
-title: "2600 - The Hacker Quaterly - Pass the Cookie Article"
+title: "2600 - The Hacker Quarterly - Pass the Cookie Article"
 date: 2020-02-15T15:48:51-08:00
 draft: true
 tags: [
@@ -12,7 +12,7 @@ tags: [
 
 Pass the Cookie made it into the latest 2600 magazine! Very excited about this! 
 
-I was just walking around Capitol Hill and stopped by [Ada's Technical Books](https://www.adasbooks.com/) on 15th Avenue - a great coffee shop with lots of technical books. Right after walking in to grab a cup of tea, I saw the latest Hacker Quaterly. A few months back I submitted an article about "Pass the Cookie", so I had to check, and the article got indeed published!
+I was just walking around Capitol Hill and stopped by [Ada's Technical Books](https://www.adasbooks.com/) on 15th Avenue - a great coffee shop with lots of technical books. Right after walking in to grab a cup of tea, I saw the latest Hacker Quarterly. A few months back I submitted an article about "Pass the Cookie", so I had to check, and the article got indeed published!
 
 ## How to get it?
 
