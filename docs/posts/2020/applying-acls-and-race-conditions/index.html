@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Applying ACLs and Race Conditions &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://wunderwuzzi23.github.io/blog/posts/2020/applying-acls-and-race-conditions/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-02-15T12:23:33-08:00" />
+  
+  <meta property="og:article:tag" content="pentesting" />
+  
+  <meta property="og:article:tag" content="research" />
+  
+  
+
+  <title>
+     Applying ACLs and Race Conditions &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/main.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://wunderwuzzi23.github.io/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://wunderwuzzi23.github.io/blog/images/apple-touch-icon.png" />
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://wunderwuzzi23.github.io/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line">
+        Embrace the Red
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+      
+      <a href="https://wunderwuzzi23.github.io/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Applying ACLs and Race Conditions</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-02-15T12:23:33-08:00">
+          Feb 15, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/pentesting">#pentesting</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/research">#research</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+
+<p>Sometimes there are intersting race conditions that allowe an adversary to gain access to sensitive files on a machine. The system would create files that contain sensitive information and afterwards apply permissions to lock the file down.</p>
+
+<h2 id="understanding-the-race-condition">Understanding the race condition</h2>
+
+<p>Let&rsquo;s look at a practical example seen in the wild a few times. Imagine the following code:</p>
+
+<ul>
+<li>Code creates file with sensitive information. Doing something like:</li>
+</ul>
+
+<pre><code>file.WriteAllBytes(filePath, content);
+</code></pre>
+
+<ul>
+<li>Then the ACL is updated to lock down the file. <a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesecurity?view=netframework-4.8">Here is a the documentation on how to do that using the FileSecurity class</a>).Hence, you might see something similar to:</li>
+</ul>
+
+<pre><code>// Add the access control entry to the file.
+AddFileSecurity(filePath, @&quot;Administrators&quot;,
+    FileSystemRights.ReadData, AccessControlType.Allow);
+</code></pre>
+
+<p>Aditionally, permission inheritance will be broken by the developer as well (e.g to prevent automatic read access, as otherwise the file likely won&rsquo;t be locked down properly anyways).</p>
+
+<p><em>These two instructions above are basically rigth after each other.</em></p>
+
+<h2 id="exploitable">Exploitable?</h2>
+
+<p>So, what&rsquo;s the chance of an adversary on the machine reading the file right after it was created, but before the permission lockdown happens. My initial thought was that this could theoretically be exploitable by someone else on the machine, but probably is too narrow of a window for a stable exploit.</p>
+
+<p>Nevertheless, I thought to give it a try and build a little File Stealer.</p>
+
+<h2 id="winning-the-race">Winning the race</h2>
+
+<p>Nothing fancy when it comes to testing for this. I built a simple tool in C# that tries to access the file in a loop and prints out the contents if that is the case.
+This is basically the core part of the utility:</p>
+
+<pre><code>while (true)
+{
+    try
+    {
+        string content = File.ReadAllText(path);
+
+        Console.WriteLine(&quot;*** SUCCESS: File was grabbed before the ACL got applied! ***&quot;);
+        Console.WriteLine(content);
+        break;
+    }
+    catch (Exception ex)
+    {
+        //Console.Write(&quot;.&quot;); //provide feedback of access denied/file not found
+    }
+}
+
+Console.WriteLine(&quot;*** Done&quot;);
+</code></pre>
+
+<p>For this example the filename needs to be known, which in the scenario I looked at was actually predictable.</p>
+
+<h2 id="what-s-the-result-you-might-ask">What&rsquo;s the result you might ask?</h2>
+
+<p><em>Turns out that this worked 100% of the time so far.</em></p>
+
+<p>There are sometimes similar coding patterns I have seen with registry key, so I am adding this to my static anlaysis TODO list for things to check for.</p>
+
+<p>Hope that helps - also if you find something similar, reach out. Curious to see how common that is.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesecurity?view=netframework-4.8">FileSecurity Documentation</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <section class="author-info row">
+      <div class="author-avatar col-md-2">
+        
+      </div>
+      <div class="author-meta col-md-6">
+        
+        
+      </div>
+      
+      <div class="author-contact col-md-4">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+      </div>
+      
+    </section>
+    <ul class="pager">
+      
+      <li class="previous"><a href="https://wunderwuzzi23.github.io/blog/posts/importance-security-principles/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      &copy; WUNDERWUZZI 2020
+    </div>
+    <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <script src="https://wunderwuzzi23.github.io/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-90341594-2', 'auto');  
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview', { 'anonymizeIp': true });
+  </script>
+  
+  
+</body>
+</html>
+

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/2020/applying-acls-and-race-conditions/</loc>
+    <lastmod>2020-02-15T12:23:33-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://wunderwuzzi23.github.io/blog/posts/importance-security-principles/</loc>
     <lastmod>2020-02-12T17:03:32-08:00</lastmod>
   </url>
@@ -127,7 +132,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/pentesting/</loc>
-    <lastmod>2019-12-02T17:09:57-08:00</lastmod>
+    <lastmod>2020-02-15T12:23:33-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -139,7 +144,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/posts/</loc>
-    <lastmod>2020-02-12T17:03:32-08:00</lastmod>
+    <lastmod>2020-02-15T12:23:33-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -163,7 +168,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/research/</loc>
-    <lastmod>2019-06-20T22:00:16-07:00</lastmod>
+    <lastmod>2020-02-15T12:23:33-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -199,7 +204,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/</loc>
-    <lastmod>2020-02-12T17:03:32-08:00</lastmod>
+    <lastmod>2020-02-15T12:23:33-08:00</lastmod>
     <priority>0</priority>
   </url>
   
