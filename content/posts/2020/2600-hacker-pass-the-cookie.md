@@ -4,7 +4,7 @@ date: 2020-02-15T15:48:51-08:00
 draft: true
 tags: [
         "ttp",
-        "book",
+        "books",
         "research",
         "coffeeshop"
     ]
