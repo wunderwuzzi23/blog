@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Attack Graphs - How to create and present them &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://wunderwuzzi23.github.io/blog/posts/2020/conceptual-attack-graphs/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-04-06T21:00:30-07:00" />
+  
+  <meta property="og:article:tag" content="presentations" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="attackgraph" />
+  
+  <meta property="og:article:tag" content="homefield advantage" />
+  
+  
+
+  <title>
+     Attack Graphs - How to create and present them &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/main.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://wunderwuzzi23.github.io/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://wunderwuzzi23.github.io/blog/images/apple-touch-icon.png" />
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://wunderwuzzi23.github.io/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line">
+        Embrace the Red
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+      
+      <a href="https://wunderwuzzi23.github.io/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Attack Graphs - How to create and present them</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-04-06T21:00:30-07:00">
+          Apr 6, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/presentations">#presentations</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/attackgraph">#attackgraph</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/homefield-advantage">#homefield advantage</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+
+<h2 id="conceptual-attack-graphs">Conceptual Attack Graphs</h2>
+
+<p>One question that I have gotten a few times about  <a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">&ldquo;Cybersecurity Attacks - Red Team Strategies&rdquo;</a> is around the conceptual attack graphs in &ldquo;Chapter 3, Measuring an Offensive Security Program&rdquo;. Specifically, how I create them.</p>
+
+<p>In this post I will briefly go over some of the reasons for creating them, and also how I create them and share a template for others to use and adjust.</p>
+
+<p>I&rsquo;m not a graphic designer, so I&rsquo;m sure there are better improved ways of doing this.</p>
+
+<p><a href="/blog/downloads/attackgraphanimation.gif"><img src="/blog/downloads/attackgraphanimation.gif" alt="Operation Dollar Heist - Debrief" /></a></p>
+
+<p><em>You can click on all the images in this post for a larger version of the graphs as well.</em></p>
+
+<h2 id="a-picture-graph-is-worth-a-thousand-words">A picture (graph) is worth a thousand words</h2>
+
+<p>Manually building a conceptual attack graph can be useful when planning a red team operation, and even more so, when presenting results to leadership and engineers. Staying at a higher level allows to convey ideas and adversarial thinking without getting lost in complex details right away. It allows to tell the story.</p>
+
+<p>Think of that conceptual attack graph like a basic operational threat model, which contains the important services, machines and stakeholders. In addition we show the path that the red team took and actions and TTPs (tactics, techniques and procedures) along the way.</p>
+
+<p><a href="/blog/images/attackgraph1.png"><img src="/blog/images/attackgraph1.png" alt="Anatomy of Cloud Service Disaster" /></a></p>
+
+<p>The graph can be augmented with a lot of additional information, such as blue team detections, MITRE ATT&amp;CK techniques, durations and timelines, monetary impact, and so forth.</p>
+
+<p>In the past I have given presentations which such graphs to audiences of hundreds of engineers with positive feedback. Some of these presentations might take quite a while, because there are usually a lot of stories to share for each pivot point. This is because what is typically not shown, are the many failures and things that did not succeed.</p>
+
+<h2 id="tooling">Tooling</h2>
+
+<p>Unfortunately, there is not specific attack graph tool available to my knowledge that allows quick modeling of such a conceptual graph for an impactful presentation (with fancy red team icons). My personal to-go tool is PowerPoint for this - basically because I have used that most of the time and am comfortable with it.</p>
+
+<p>I have also successfully (mis)used the Microsoft Threat Modeling tool in the past to put together attack graphs - and it worked seemingly well. Lucidchart works also, as do tools such as SnagIt. Of course, one can also use a graph database (there are 2 chapters in the book about this). In this post, however, let&rsquo;s talk about PowerPoint. Adding animations is also useful when presenting and telling stories, and that&rsquo;s easy todo in PowerPoint.</p>
+
+<h2 id="the-scenario-we-are-modeling">The scenario we are modeling</h2>
+
+<p>The scenario is an operation named &ldquo;Dollar Heist&rdquo;.</p>
+
+<p>The red team was tasked to emulate an internal adversary and gain access to financial forecast information.</p>
+
+<p><a href="/blog/images/dollarheistgraph.png"><img src="/blog/images/dollarheistgraph.png" alt="Operation Dollar Heist - Debrief" /></a></p>
+
+<p><strong>Explanation:</strong></p>
+
+<ol>
+<li>The nifty red team emulated an internal malicious actor.</li>
+<li>They were so evil and guessed a local admin password to a finance employee&rsquo;s laptop.</li>
+<li>On the employee&rsquo;s machine they stole a password from (from a file on the Desktop!) .</li>
+<li>With that password they logged in to the finance database to look around. Yikes!<br /></li>
+<li>On the server they found the financial forecast data.</li>
+<li>As the final step the red team exfiltrated the data.</li>
+</ol>
+
+<p><strong>Detections:</strong> The good thing was that the blue team had a couple of detections when these actions occured, but they weren&rsquo;t able to prevent the attack. All that information can be added to a presentation, and can be made quite entertaining.</p>
+
+<h2 id="building-it-using-default-powerpoint-icons">Building it using default PowerPoint icons</h2>
+
+<p>The icons I&rsquo;m using are part of PowerPoint, you can find them by clicking &ldquo;Insert&rdquo; - &ldquo;Icons&rdquo;
+<img src="/blog/images/icons.png" alt="PowerPoint - Icons" /></p>
+
+<p>There are some good icons for computers, attacks, and detection and if you want to get more fancy you can find other images on the web. Be mindful about the license of images from the web.</p>
+
+<h2 id="animations">Animations</h2>
+
+<p>In order to share stories, I add animations to the graph to build up what happened and slowly provide the details of the graph step by step. With the use of animations I also never have to create many speaker notes, because the stories and information naturally comes to mind when the attack graph progresses. Animations are good when you can speak to the graph, as it keeps the audience interested and entertained, especially if you share side stories.</p>
+
+<h2 id="drawbacks">Drawbacks</h2>
+
+<p>These graphs are useful for discussions, presentations and also in reports when augmented with details in text form. These graphs however, can&rsquo;t be automated or processed electronically easily. So, be aware of the main purpose they serve.</p>
+
+<h2 id="downloading-the-templates-and-presentation-ideas">Downloading the templates and presentation ideas</h2>
+
+<p>You can find the PowerPoint presentation at the below link, feel free to use and adjust as you see fit for your own presentations:</p>
+
+<ul>
+<li><a href="/blog/downloads/Attack Graph Ideas and Presentations.pptx">PowerPoint Examples Download - Attack Graph Ideas and Presentations.pptx.</a></li>
+<li><a href="https://1drv.ms/p/s!AiSLjmP7QphXhaoSNOxA0gUBqRSRVw">PowerPoint Examples - Online</a></li>
+</ul>
+
+<p>Let me know if this is useful, and I&rsquo;m also curious how others present attack graphs during debriefs.</p>
+
+<p>And, if you find the information useful and like the book please leave a review on Amazon. :)</p>
+
+  </section>
+  <footer>
+    
+    
+    
+    <section class="author-info row">
+      <div class="author-avatar col-md-2">
+        
+      </div>
+      <div class="author-meta col-md-6">
+        
+        
+      </div>
+      
+      <div class="author-contact col-md-4">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+      </div>
+      
+    </section>
+    <ul class="pager">
+      
+      <li class="previous"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      &copy; WUNDERWUZZI 2020
+    </div>
+    <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <script src="https://wunderwuzzi23.github.io/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-90341594-2', 'auto');  
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview', { 'anonymizeIp': true });
+  </script>
+  
+  
+</body>
+</html>
+

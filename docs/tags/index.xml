@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Sun, 16 Dec 2018 12:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2020 21:00:30 -0700</lastBuildDate>
     
 	<atom:link href="https://wunderwuzzi23.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Attackgraph</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/attackgraph/</link>
+      <pubDate>Mon, 06 Apr 2020 21:00:30 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/attackgraph/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Blue</title>
@@ -87,7 +96,7 @@
     <item>
       <title>Homefield Advantage</title>
       <link>https://wunderwuzzi23.github.io/blog/tags/homefield-advantage/</link>
-      <pubDate>Thu, 02 Apr 2020 00:01:09 -0700</pubDate>
+      <pubDate>Mon, 06 Apr 2020 21:00:30 -0700</pubDate>
       
       <guid>https://wunderwuzzi23.github.io/blog/tags/homefield-advantage/</guid>
       <description></description>
@@ -112,6 +121,15 @@
     </item>
     
     <item>
+      <title>Presentations</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/presentations/</link>
+      <pubDate>Mon, 06 Apr 2020 21:00:30 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/presentations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Principles</title>
       <link>https://wunderwuzzi23.github.io/blog/tags/principles/</link>
       <pubDate>Wed, 12 Feb 2020 17:03:32 -0800</pubDate>
@@ -132,7 +150,7 @@
     <item>
       <title>Red</title>
       <link>https://wunderwuzzi23.github.io/blog/tags/red/</link>
-      <pubDate>Thu, 02 Apr 2020 00:01:09 -0700</pubDate>
+      <pubDate>Mon, 06 Apr 2020 21:00:30 -0700</pubDate>
       
       <guid>https://wunderwuzzi23.github.io/blog/tags/red/</guid>
       <description></description>

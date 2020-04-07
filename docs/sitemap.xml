@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/2020/conceptual-attack-graphs/</loc>
+    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://wunderwuzzi23.github.io/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/</loc>
     <lastmod>2020-04-02T00:01:09-07:00</lastmod>
   </url>
@@ -83,6 +88,12 @@
   </url>
   
   <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/attackgraph/</loc>
+    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/blue/</loc>
     <lastmod>2018-12-16T12:00:00-07:00</lastmod>
     <priority>0</priority>
@@ -137,7 +148,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/homefield-advantage/</loc>
-    <lastmod>2020-04-02T00:01:09-07:00</lastmod>
+    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -155,7 +166,13 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/posts/</loc>
-    <lastmod>2020-04-02T00:01:09-07:00</lastmod>
+    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/presentations/</loc>
+    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -173,7 +190,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/red/</loc>
-    <lastmod>2020-04-02T00:01:09-07:00</lastmod>
+    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -191,7 +208,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/</loc>
-    <lastmod>2018-12-16T12:00:00-07:00</lastmod>
+    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -215,7 +232,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/</loc>
-    <lastmod>2020-04-02T00:01:09-07:00</lastmod>
+    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
     <priority>0</priority>
   </url>
   
