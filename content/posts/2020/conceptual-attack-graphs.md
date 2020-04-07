@@ -4,7 +4,7 @@ date: 2020-04-06T21:00:30-07:00
 draft: true
 tags: [
         "presentations","red",
-        "attackgraph",
+        "attackgraph","book",
         "homefield advantage"
     ]
 ---
@@ -15,12 +15,11 @@ One question that I have gotten a few times about  ["Cybersecurity Attacks - Red
 
 In this post I will briefly go over some of the reasons for creating them, and also how I create them and share a template for others to use and adjust. 
 
-I'm not a graphic designer, so I'm sure there are better improved ways of doing this. 
+I'm not a graphic designer, so I'm sure there are better ways of doing this. 
+
+**You can click on all the images in this post for a larger and better readable version.**
 
 [![Operation Dollar Heist - Debrief](/blog/downloads/attackgraphanimation.gif)](/blog/downloads/attackgraphanimation.gif)
-
-*You can click on all the images in this post for a larger version of the graphs as well.*
-
 
 ## A picture (graph) is worth a thousand words
 
@@ -68,7 +67,9 @@ There are some good icons for computers, attacks, and detection and if you want 
 
 ## Animations
 
-In order to share stories, I add animations to the graph to build up what happened and slowly provide the details of the graph step by step. With the use of animations I also never have to create many speaker notes, because the stories and information naturally comes to mind when the attack graph progresses. Animations are good when you can speak to the graph, as it keeps the audience interested and entertained, especially if you share side stories.
+In order to share stories, I add animations to the graph to build up what happened and slowly provide the details of the graph step by step. With the use of animations I also never have to create many speaker notes, because the stories and information naturally comes to mind when the attack graph progresses. 
+
+Animations are good when you can speak to the graph, as it keeps the audience interested and entertained, especially if you share side stories of things that happened during the operation.
 
 ## Drawbacks
 
