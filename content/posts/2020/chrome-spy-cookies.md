@@ -1,5 +1,5 @@
 ---
-title: "Remotely observing and controlling Chrome browsing sessions as adversarial post-exploitation technique"
+title: "Post-Exploitation: Remotely observing and controlling Chrome browsing sessions (and credit card numbers)"
 date: 2020-04-16T10:38:10-07:00
 draft: true
 tags: [
@@ -8,7 +8,9 @@ tags: [
     ]
 ---
 
-In this post we will discuss how malware might leverage Chrome's remote debugging feature. The remote debugging features allow to gain access to cookies (for some neat pass the cookie lateral movement and elevations) - this is pretty well known since Cookie Crimes was released. As discussed in ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM) it also enables malware to remote control the browser and observe user activites (aka spy on users). We will explore some of these aspects in this post.
+In this post we will discuss how malware might leverage Chrome's remote debugging feature. The remote debugging features allow to gain access to cookies (for some neat pass the cookie lateral movement and elevations) - this is pretty well known since Cookie Crimes was released. As discussed in ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM) it enables malware to remote control the browser and observe user activites and personal information (aka spy on users). 
+
+The post also highlights detections which AV products and Blue Teams should put in place to have telemetry for catching potential misuse or attacks.
 
 First things first.
 
@@ -173,7 +175,8 @@ Chrome also has the **--remote-debugging-address** feature, that an adversary ca
 
 * Blue teams should look for anyone using the **--remote-debugging-port** and related features (--user-data-dir,...) to identify potential misuse or malware
 * Knowing that **developer and test features are part of the ordinary version of Chrome**, I **wouldn't recommend storing credit card numbers with the browser**
-* Chrome should **not allow remote debugging of things like chrome://settings**, and maybe it would be possible to have a developer edition of Chrome vs. having the retail version contain this debugging features. I have reported these as a recommendation to the Google Security team.
+* Chrome should **not allow remote debugging of things like chrome://settings**, and maybe it would be possible to have a developer edition of Chrome vs. having the retail version contain this debugging features. 
+* I have reported these as a recommendation to the Google Security team.
 
 ## Red Team Strategies
 If you liked this post and found it informative or inspirational, you might be interested in the book ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM). It is filled with further ideas, research and fundamental techniques, as well as red teaming program and people mangement aspects.
