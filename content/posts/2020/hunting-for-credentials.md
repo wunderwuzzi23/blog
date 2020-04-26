@@ -1,5 +1,5 @@
 ---
-title: "Hunting for Credentials"
+title: "Hunting for credentials and building a credential type reference catalog"
 date: 2020-04-26T12:31:29-07:00
 draft: true
 tags: [
@@ -34,9 +34,9 @@ It's nothing fancy just a reminder on what kind of information to look for and b
 
 # Building a public credential reference catalog
 
-**A goal would be to build a comprehensive open credential type reference catalog together for the industry, so tooling (for discover and validation) for each type of credential can be built and is comparable with each other across tools and vendors.**
+**A goal would be to build a comprehensive open credential type reference catalog together for the industry. So tooling (for discovery and validation) for each type of credential can be built and is comparable with each other across tools and vendors.**
 
-Let me know if this is something you are interested in helping with.
+Let me know if this is something you are interested in building or working together on.
 
 ## References
 * [Credentials Reference - Markdown](https://github.com/wunderwuzzi23/scratch/blob/master/creds.md)
