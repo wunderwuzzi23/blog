@@ -1,6 +1,6 @@
 ---
-title: "Hunting for Credentials!"
-date: 2020-04-24T23:31:29-07:00
+title: "Hunting for Credentials"
+date: 2020-04-26T12:31:29-07:00
 draft: true
 tags: [
         "red",
