@@ -23,7 +23,7 @@ Use the [Homefield Advantage](https://wunderwuzzi23.github.io/blog/posts/homefie
 
 ## Credential Hunting Cheat Sheet
 
-First, I just want to share my little cheat sheet for credential hunting. I also have a *csv* version available on my github (see the references section on bottom): 
+First, below is a little cheat sheet that I use for credential hunting. There is also a *csv* version available on my github (see the references section on bottom): 
 ![Credentials - Cheat Sheet](/blog/images/2020/hunting-for-credentials-cheat-sheet.png)
 
 It's nothing fancy just a reminder on what kind of information to look for and build into tooling. 
