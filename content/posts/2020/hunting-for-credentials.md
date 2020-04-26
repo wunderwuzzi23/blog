@@ -12,7 +12,7 @@ tags: [
 
 Adversaries are leveraging widely exposed clear text credentials to gain access to sensitive information. 
 
-At times the term "harvesting credentials" is used when red teamers emulate these attacks -  which is something that appears to be more opportunistic and I would **propose that security teams start to actively hunt for credential exposure that can put their organiztaion at risk** -- in case you are not yet doing that.
+At times the term *"harvesting credentials"* is used when red teamers emulate these attacks -  which is something that appears to be more opportunistic and I would **propose that security teams start to actively hunt for credential exposure that can put their organization at risk** -- in case you are not yet doing that.
 
 ## Actively hunting for credential exposure
 
