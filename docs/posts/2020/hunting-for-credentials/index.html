@@ -114,9 +114,9 @@
   <section>
     
 
-<p>The idea of searching or tricking victims to surrender their credentials is nothing new.</p>
+<p>Adversaries are leveraging widely exposed clear text credentials to gain access to sensitive information.</p>
 
-<p>Adversaries are leveraging these techniques to gain access to sensitive information. At times the term &ldquo;harvesting credentials&rdquo; is used which is something that appears to be more opportunistic and I would <strong>propose that security teams start to actively hunt for credential exposure that can put their organiztaion at risk</strong> &ndash; in case you are not yet doing that.</p>
+<p>At times the term &ldquo;harvesting credentials&rdquo; is used when red teamers emulate these attacks -  which is something that appears to be more opportunistic and I would <strong>propose that security teams start to actively hunt for credential exposure that can put their organiztaion at risk</strong> &ndash; in case you are not yet doing that.</p>
 
 <h2 id="actively-hunting-for-credential-exposure">Actively hunting for credential exposure</h2>
 
@@ -126,18 +126,18 @@
 
 <h2 id="credential-hunting-cheat-sheet">Credential Hunting Cheat Sheet</h2>
 
-<p>First, below is a little cheat sheet that I use for credential hunting. There is also a <em>csv</em> version available on my github (see the references section on bottom):
+<p>Below is a little cheat sheet that I use for credential hunting during pentests. There is also a <em>csv</em> version available on my github (see the references section on bottom):
 <img src="/blog/images/2020/hunting-for-credentials-cheat-sheet.png" alt="Credentials - Cheat Sheet" /></p>
 
-<p>It&rsquo;s nothing fancy just a reminder on what kind of information to look for and build into tooling.</p>
+<p>It&rsquo;s nothing fancy just a reminder on what kind of information to look for and build into tooling to make sure they are not exposed widely, or accessible by adversaries.</p>
 
 <h3 id="vhd-files">VHD Files</h3>
 
 <p><strong>Bonus points:</strong> Hunting for virtual machine disk image files can be very fruitful in environments. They often contain loads of password hashes and other sensitive data.</p>
 
-<h2 id="building-a-public-credential-reference-catalog">Building a public credential reference catalog</h2>
+<h1 id="building-a-public-credential-reference-catalog">Building a public credential reference catalog</h1>
 
-<p>A goal would be to <strong>build a comprehensive open credential reference catalog together for the industry</strong>, so tooling (for discover and validation) for each type of credential can be built and is comparable with each other.</p>
+<p><strong>A goal would be to build a comprehensive open credential type reference catalog together for the industry, so tooling (for discover and validation) for each type of credential can be built and is comparable with each other across tools and vendors.</strong></p>
 
 <p>Let me know if this is something you are interested in helping with.</p>
 

@@ -18,8 +18,9 @@
       <pubDate>Sun, 26 Apr 2020 12:31:29 -0700</pubDate>
       
       <guid>https://wunderwuzzi23.github.io/blog/posts/2020/hunting-for-credentials/</guid>
-      <description>The idea of searching or tricking victims to surrender their credentials is nothing new.
-Adversaries are leveraging these techniques to gain access to sensitive information. At times the term &amp;ldquo;harvesting credentials&amp;rdquo; is used which is something that appears to be more opportunistic and I would propose that security teams start to actively hunt for credential exposure that can put their organiztaion at risk &amp;ndash; in case you are not yet doing that.</description>
+      <description>Adversaries are leveraging widely exposed clear text credentials to gain access to sensitive information.
+At times the term &amp;ldquo;harvesting credentials&amp;rdquo; is used when red teamers emulate these attacks - which is something that appears to be more opportunistic and I would propose that security teams start to actively hunt for credential exposure that can put their organiztaion at risk &amp;ndash; in case you are not yet doing that.
+Actively hunting for credential exposure The idea of credential hunting is targeted and focused, leveraging intelligence about systems and combing it with powerful search techniques to identify exposure.</description>
     </item>
     
     <item>

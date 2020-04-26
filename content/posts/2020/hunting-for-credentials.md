@@ -10,9 +10,9 @@ tags: [
     ]
 ---
 
-The idea of searching or tricking victims to surrender their credentials is nothing new. 
+Adversaries are leveraging widely exposed clear text credentials to gain access to sensitive information. 
 
-Adversaries are leveraging these techniques to gain access to sensitive information. At times the term "harvesting credentials" is used which is something that appears to be more opportunistic and I would **propose that security teams start to actively hunt for credential exposure that can put their organiztaion at risk** -- in case you are not yet doing that.
+At times the term "harvesting credentials" is used when red teamers emulate these attacks -  which is something that appears to be more opportunistic and I would **propose that security teams start to actively hunt for credential exposure that can put their organiztaion at risk** -- in case you are not yet doing that.
 
 ## Actively hunting for credential exposure
 
@@ -23,18 +23,18 @@ Use the [Homefield Advantage](https://wunderwuzzi23.github.io/blog/posts/homefie
 
 ## Credential Hunting Cheat Sheet
 
-First, below is a little cheat sheet that I use for credential hunting. There is also a *csv* version available on my github (see the references section on bottom): 
+Below is a little cheat sheet that I use for credential hunting during pentests. There is also a *csv* version available on my github (see the references section on bottom): 
 ![Credentials - Cheat Sheet](/blog/images/2020/hunting-for-credentials-cheat-sheet.png)
 
-It's nothing fancy just a reminder on what kind of information to look for and build into tooling. 
+It's nothing fancy just a reminder on what kind of information to look for and build into tooling to make sure they are not exposed widely, or accessible by adversaries. 
 
 ### VHD Files
 
 **Bonus points:** Hunting for virtual machine disk image files can be very fruitful in environments. They often contain loads of password hashes and other sensitive data. 
 
-## Building a public credential reference catalog
+# Building a public credential reference catalog
 
-A goal would be to **build a comprehensive open credential reference catalog together for the industry**, so tooling (for discover and validation) for each type of credential can be built and is comparable with each other. 
+**A goal would be to build a comprehensive open credential type reference catalog together for the industry, so tooling (for discover and validation) for each type of credential can be built and is comparable with each other across tools and vendors.**
 
 Let me know if this is something you are interested in helping with.
 
