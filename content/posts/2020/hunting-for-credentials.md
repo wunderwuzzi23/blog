@@ -5,7 +5,8 @@ draft: true
 tags: [
         "red",
         "ttp",
-        "book"
+        "book",
+        "credentials"
     ]
 ---
 
@@ -17,7 +18,7 @@ Adversaries are leveraging these techniques to gain access to sensitive informat
 
 The idea of **credential hunting is targeted and focused**, leveraging intelligence about systems and combing it with powerful search techniques to identify exposure. 
 
-Use the [homefield advantage](https://wunderwuzzi23.github.io/blog/posts/homefield-advantage/) and recon information to perform the best possible credential hunts. 
+Use the [Homefield Advantage](https://wunderwuzzi23.github.io/blog/posts/homefield-advantage/) to perform the best possible credential hunts. 
 
 
 ## Credential Hunting Cheat Sheet
@@ -32,9 +33,10 @@ It's nothing fancy just a reminder on what kind of information to look for and b
 **Bonus points:** Hunting for virtual machine disk image files can be very fruitful in environments. They often contain loads of password hashes and other sensitive data. 
 
 ## Building a public credential reference catalog
-Ideally, we could build a comprehensive credential reference catalog together for the industry, so tooling for each type of credential can be built and is comparable.
 
-Let me know if this is something you are interested in building a catalog for.
+A goal would be to **build a comprehensive open credential reference catalog together for the industry**, so tooling (for discover and validation) for each type of credential can be built and is comparable with each other. 
+
+Let me know if this is something you are interested in helping with.
 
 
 ## References
