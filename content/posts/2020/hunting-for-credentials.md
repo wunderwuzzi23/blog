@@ -15,7 +15,9 @@ Adversaries are leveraging these techniques to gain access to sensitive informat
 
 ## Actively hunting for credential exposure
 
-The idea of **credential hunting is targeted and focused**, leveraging intelligence about systems and combing it with powerful search techniques to identify exposure. Use the [homefield advantage](https://wunderwuzzi23.github.io/blog/posts/homefield-advantage/) and recon information to perform the best possible credential hunts.
+The idea of **credential hunting is targeted and focused**, leveraging intelligence about systems and combing it with powerful search techniques to identify exposure. 
+
+Use the [homefield advantage](https://wunderwuzzi23.github.io/blog/posts/homefield-advantage/) and recon information to perform the best possible credential hunts. 
 
 
 ## Credential Hunting Cheat Sheet
