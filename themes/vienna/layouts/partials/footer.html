@@ -1,11 +1,14 @@
-  </main>
+</main>
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
-      {{ .Site.Copyright | safeHTML }}
+     <!--  <a href="https:/www.wunderwuzzi.net">© WUNDERWUZZI 2020</a>-->
+     {{ .Site.Copyright | safeHTML }}
+      <!-- {{ partial "link.html" . }} -->
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
     </div>
-    {{ partial "link.html" . }}
-  </footer>
-
+    </div>
+</footer>
   <script src="{{ .Site.BaseURL }}js/highlight.pack.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
