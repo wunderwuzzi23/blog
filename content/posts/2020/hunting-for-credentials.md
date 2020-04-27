@@ -26,18 +26,20 @@ Use the [Homefield Advantage](https://wunderwuzzi23.github.io/blog/posts/homefie
 Below is a reference sheet that I use for credential hunting during pentests. There is also a *csv* version available on my github (see the references section on bottom): 
 [![Credentials - Cheat Sheet](/blog/images/2020/hunting-for-credentials-cheat-sheet.png)](/blog/images/2020/hunting-for-credentials-cheat-sheet.png)
 
-It's nothing fancy just a reminder on what kind of information to look for and build into tooling to make sure they are not exposed widely, or accessible by adversaries. 
+It's nothing fancy just a reminder on what kind of information to look for and build into tooling to make sure they are not exposed widely, or accessible by adversaries. There are more examples, tools and hunting techniques in my [Red Team Strategies book](https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869) as well.
 
 ### VHD Files
 
-**Bonus points:** Hunting for virtual machine disk image files can be very fruitful in environments. They often contain loads of password hashes and other sensitive data. 
+**Bonus:** Hunting for virtual machine disk image files can be very fruitful in environments. They often contain loads of password hashes and other sensitive data. 
 
-# Building a public credential reference catalog
+# Goal: Building a public credential type reference catalog
 
-**A goal would be to build a comprehensive open credential type reference catalog together for the industry. So tooling (for discovery and validation) for each type of credential can be built and is comparable with each other across tools and vendors.**
+**A goal would be to build a comprehensive open credential type reference catalog together for the industry.
+So tooling (for discovery and validation) for each type of credential can be built and is comparable with each other across tools and vendors.**
 
 Let me know if this is something you are interested in building or working together on.
 
 ## References
 * [Credentials Reference - Markdown](https://github.com/wunderwuzzi23/scratch/blob/master/creds.md)
 * [Credentials Reference - CSV](https://github.com/wunderwuzzi23/scratch/blob/master/creds.csv)
+* [Book: Cybersecurity Attacks - Red Team Strategies](https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869)
