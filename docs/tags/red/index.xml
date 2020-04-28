@@ -24,6 +24,16 @@ Actively hunting for credential exposure The idea of credential hunting is targe
     </item>
     
     <item>
+      <title>Post-Exploitation: Remotely observing and controlling Chrome browsing sessions (and credit card numbers)</title>
+      <link>https://wunderwuzzi23.github.io/blog/posts/2020/chrome-spy-cookies/</link>
+      <pubDate>Thu, 16 Apr 2020 10:38:10 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/chrome-spy-cookies/</guid>
+      <description>Chrome&amp;rsquo;s remote debugging feature enables malware post-exploitation to gain access to cookies. Root privileges are not required. This is a pretty well-known and commonly used red teaming technique since Cookie Crimes was released in 2018.
+However, remote debugging also allows to observe user activities and sensitive personal information (aka spy on users) entirely remotely from another computer. This is what we will explore more in this post. At a high level, remote debugging is a development/test feature which, for some reason, made it into the ordinary version of Chrome that your mom and dad use.</description>
+    </item>
+    
+    <item>
       <title>Attack Graphs - How to create and present them</title>
       <link>https://wunderwuzzi23.github.io/blog/posts/2020/conceptual-attack-graphs/</link>
       <pubDate>Mon, 06 Apr 2020 21:00:30 -0700</pubDate>
