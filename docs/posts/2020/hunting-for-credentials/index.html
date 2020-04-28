@@ -3,28 +3,28 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" BashSpray - Simple Password Spray Bash Script &middot;  wunderwuzzi blog" />
+  <meta property="og:title" content=" Hunting for credentials and building a credential type reference catalog &middot;  wunderwuzzi blog" />
   
   <meta property="og:site_name" content="wunderwuzzi blog" />
-  <meta property="og:url" content="https://wunderwuzzi23.github.io/blog/posts/bash-spray-password/" />
+  <meta property="og:url" content="https://wunderwuzzi23.github.io/blog/posts/2020/hunting-for-credentials/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2019-07-03T21:58:01-07:00" />
-  
-  <meta property="og:article:tag" content="pentesting" />
+  <meta property="og:article:published_time" content="2020-04-26T12:31:29-07:00" />
   
   <meta property="og:article:tag" content="red" />
   
-  <meta property="og:article:tag" content="code" />
+  <meta property="og:article:tag" content="ttp" />
   
-  <meta property="og:article:tag" content="tool" />
+  <meta property="og:article:tag" content="book" />
+  
+  <meta property="og:article:tag" content="credentials" />
   
   
 
   <title>
-     BashSpray - Simple Password Spray Bash Script &middot;  wunderwuzzi blog
+     Hunting for credentials and building a credential type reference catalog &middot;  wunderwuzzi blog
   </title>
 
   <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/bootstrap.min.css" />
@@ -88,39 +88,67 @@
 
 <article>
   <header>
-    <h1 class="text-primary">BashSpray - Simple Password Spray Bash Script</h1>
+    <h1 class="text-primary">Hunting for credentials and building a credential type reference catalog</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2019-07-03T21:58:01-07:00">
-          Jul 3, 2019
+        <time datetime="2020-04-26T12:31:29-07:00">
+          Apr 26, 2020
         </time>
       </div>
     
       <div class="pull-right">
         
-        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/pentesting">#pentesting</a></span>
-        
         <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/red">#red</a></span>
         
-        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/code">#code</a></span>
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/ttp">#ttp</a></span>
         
-        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/tool">#tool</a></span>
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/book">#book</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/credentials">#credentials</a></span>
         
       </div>
     </div>
   </header>
   <section>
-    <p>One thing every red team should attempt early on and regularly is to perform some password spray testing across their organization to identify and help remediate usage of weak passwords.</p>
+    
 
-<p>In the past I have done this on Windows a lot, but now I built a simple version for it for Bash to run it also from a Mac.</p>
+<p>Adversaries are leveraging widely exposed clear text credentials to gain access to sensitive information.</p>
 
-<p>Check it out: <a href="https://github.com/wunderwuzzi23/BashSpray">Bash Spray</a></p>
+<p>At times the term <em>&ldquo;harvesting credentials&rdquo;</em> is used when red teamers emulate these attacks - which is something that appears to be more opportunistic and I would <strong>propose that security teams start to actively hunt for credential exposure that can put their organization at risk</strong> &ndash; in case you are not yet doing that.</p>
 
-<p>Ideally, a script like bashspray.sh is integrated into your response pipelines, and SOC, Blue Team as well as account owner get notified - so they change their password right away, and any SOC investigation can be performed if necessary.</p>
+<h2 id="actively-hunting-for-credential-exposure">Actively hunting for credential exposure</h2>
 
-<p>Be careful about account lockout policies and make sure you have authorization from appropriate stakeholders before engaging in this kind of testing.</p>
+<p>The idea of <strong>credential hunting is targeted and focused</strong>, leveraging intelligence about systems and combing it with powerful search techniques to identify exposure.</p>
+
+<p>Use the <a href="https://wunderwuzzi23.github.io/blog/posts/homefield-advantage/">Homefield Advantage</a> to perform the best possible credential hunts.</p>
+
+<h2 id="credential-hunting-reference-sheet">Credential Hunting Reference Sheet</h2>
+
+<p>Below is a reference sheet that I use for credential hunting during pentests. There is also a <em>csv</em> version available on my github (see the references section on bottom):
+<a href="/blog/images/2020/hunting-for-credentials-cheat-sheet.png"><img src="/blog/images/2020/hunting-for-credentials-cheat-sheet.png" alt="Credentials - Cheat Sheet" /></a></p>
+
+<p>It&rsquo;s nothing fancy just a reminder on what kind of information to look for and build into tooling to make sure they are not exposed widely, or accessible by adversaries. There are more examples, tools and hunting techniques in my <a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869">Red Team Strategies book</a> as well.</p>
+
+<h3 id="vhd-files">VHD Files</h3>
+
+<p><strong>Bonus:</strong> Hunting for virtual machine disk image files can be very fruitful in environments. They often contain loads of password hashes and other sensitive data.</p>
+
+<h1 id="goal-building-a-public-credential-type-reference-catalog">Goal: Building a public credential type reference catalog</h1>
+
+<p><strong>A goal would be to build a comprehensive open credential type reference catalog together for the industry.
+So tooling (for discovery and validation) for each type of credential can be built and is comparable with each other across tools and vendors.</strong></p>
+
+<p>Let me know if this is something you are interested in building or working together on.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://github.com/wunderwuzzi23/scratch/blob/master/creds.md">Credentials Reference - Markdown</a></li>
+<li><a href="https://github.com/wunderwuzzi23/scratch/blob/master/creds.csv">Credentials Reference - CSV</a></li>
+<li><a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869">Book: Cybersecurity Attacks - Red Team Strategies</a></li>
+</ul>
 
   </section>
   <footer>
@@ -131,7 +159,7 @@
     
     <ul class="pager">
       
-      <li class="previous"><a href="https://wunderwuzzi23.github.io/blog/posts/active-directory-and-macos/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/conceptual-attack-graphs/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
       <li class="author-contact">
@@ -143,7 +171,7 @@
 
       
       
-      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/using-hugo/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
