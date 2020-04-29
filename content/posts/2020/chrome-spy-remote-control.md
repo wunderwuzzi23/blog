@@ -27,7 +27,7 @@ At a high level, remote debugging is a development/test feature which, for some 
 
 A very powerful cookie stealing technique was described by *mangopdf* in 2018 with **"[Cookie Crimes](https://github.com/defaultnamehere/cookie_crimes)"**. Chrome offers a remote debugging feature that can be abused by adversaries and malware post-exploitation to steal cookies (doesn't need root permissions). Cookie Crimes is now also part of Metasploit - cool stuff!
 
-When I first saw this it was super useful right away during post-exploitation phase of red teaming ops (especially on macOS). I also started experimenting more with the **remote debugging features** of Chrome, with some rather scary outcomes - and there is probably a lot more to figure out.
+When I first saw this it was super useful right away during post-exploitation phase of red teaming ops on macOS to [Pass the Cookie](https://attack.mitre.org/techniques/T1506/). At that time I also started experimenting more with the **remote debugging features** of Chrome, with some rather scary outcomes - and there is probably a lot more to figure out.
 
 ## Automating and remote controlling Chrome 
 
