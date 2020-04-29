@@ -118,9 +118,13 @@
   <section>
     
 
-<p>Chrome&rsquo;s remote debugging feature enables malware post-exploitation to gain access to cookies. Root privileges are not required. This is a pretty well-known and commonly used adversarial technique - at least since 2018 when <em>Cookie Crimes</em> was released.</p>
+<p>Chrome&rsquo;s remote debugging feature enables malware post-exploitation to gain access to cookies. Root privileges are not required. This is a pretty well-known and commonly used adversarial technique - at least since 2018 when <strong>Cookie Crimes</strong> was released.</p>
 
-<p>However, remote debugging also <strong>allows observing user activities and sensitive personal information (aka spying on users) and controlling the browser from a remote computer</strong>. Below screenshot shows a simulated attacker controlling the victim&rsquo;s browser and navigating to <em>chrome://settings</em> to inspect information:</p>
+<p>However, remote debugging also <strong>allows observing user activities and sensitive personal information (aka spying on users) and controlling the browser from a remote computer</strong>.</p>
+
+<p><img src="/blog/images/2020/hacker.png" alt="Hacker" /></p>
+
+<p>Below screenshot shows a simulated attacker controlling the victim&rsquo;s browser and navigating to <em>chrome://settings</em> to inspect information:</p>
 
 <p><a href="/blog/images/2020/chromeremotedebugcc.PNG"><img src="/blog/images/2020/chromeremotedebugcc.PNG" alt="Chrome Remote Debug" /></a></p>
 
@@ -138,7 +142,7 @@
 
 <p>A very powerful cookie stealing technique was described by <em>mangopdf</em> in 2018 with <strong>&ldquo;<a href="https://github.com/defaultnamehere/cookie_crimes">Cookie Crimes</a>&ldquo;</strong>. Chrome offers a remote debugging feature that can be abused by adversaries and malware post-exploitation to steal cookies (doesn&rsquo;t need root permissions). Cookie Crimes is now also part of Metasploit - cool stuff!</p>
 
-<p>When I first saw this it was super useful right away during post-exploitation phase of red teaming ops (especially on macOS). I also started experimenting more with the <strong>remote debugging features</strong> of Chrome, with some rather scary outcomes - and there is probably a lot more to figure out.</p>
+<p>When I first saw this it was super useful right away during post-exploitation phase of red teaming ops on macOS to <a href="https://attack.mitre.org/techniques/T1506/">Pass the Cookie</a>. At that time I also started experimenting more with the <strong>remote debugging features</strong> of Chrome, with some rather scary outcomes - and there is probably a lot more to figure out.</p>
 
 <h2 id="automating-and-remote-controlling-chrome">Automating and remote controlling Chrome</h2>
 
@@ -178,7 +182,7 @@
 
 <p>Now you can already navigate to <code>localhost:9222</code> and see the debugging UI and play around with it:</p>
 
-<p><img src="/blog/images/2020/chrome-remote-debug.PNG" alt="Chrome Remote Debug" />
+<p><a href="/blog/images/2020/chrome-remote-debug.PNG"><img src="/blog/images/2020/chrome-remote-debug.PNG" alt="Chrome Remote Debug" /></a>
 At this point an adversary can perform the <strong>&ldquo;Cookie Crimes attack&rdquo;</strong> and steal all cookies using the <em>Network.getAllCookies()</em> API -  but let&rsquo;s experiment more with the UI.</p>
 
 <h3 id="tunneling-the-ui-to-the-attacker">Tunneling the UI to the attacker</h3>
@@ -207,7 +211,7 @@ At this point an adversary can perform the <strong>&ldquo;Cookie Crimes attack&r
 
 <p>Now, Mallory (our attacker) can connect from her attack machine to Alice&rsquo;s workstation on port 43888 and start remote controlling Chrome. The following screenshot shows what the initial connection might look like:</p>
 
-<p><img src="/blog/images/2020/chromeremotedebug2.PNG" alt="Chrome Remote Debug" /></p>
+<p><a href="/blog/images/2020/chromeremotedebug2.PNG"><img src="/blog/images/2020/chromeremotedebug2.PNG" alt="Chrome Remote Debug" /></a></p>
 
 <p>The  screenshot shows the currently available sessions. These are basically the tabs the victim has opened at this point (for example, after restoring the sessions, or just the home page).</p>
 
@@ -230,7 +234,7 @@ At this point an adversary can perform the <strong>&ldquo;Cookie Crimes attack&r
 
 <li><p>Then, connect to the remote control UI to observe the victim&rsquo;s browsing sessions/tabs</p>
 
-<p><img src="/blog/images/2020/chromeremotedebug2.PNG" alt="Chrome Remote Debug" /></p>
+<p><a href="/blog/images/2020/chromeremotedebug2.PNG"><img src="/blog/images/2020/chromeremotedebug2.PNG" alt="Chrome Remote Debug" /></a></p>
 
 <p>As can be seen in the screenshot, there are multiple sessions being opened by Alice (the victim): a Google tab, an Outlook.com tab, and a few others.</p></li>
 
@@ -253,7 +257,7 @@ At this point an adversary can perform the <strong>&ldquo;Cookie Crimes attack&r
 
 <p>The following screenshot shows <em>chrome://settings</em> URL of the victim, include observing sensitive information:</p>
 
-<p><img src="/blog/images/2020/chromeremotedebug3.PNG" alt="Chrome Remote Debug" /></p>
+<p><a href="/blog/images/2020/chromeremotedebug3.PNG"><img src="/blog/images/2020/chromeremotedebug3.PNG" alt="Chrome Remote Debug" /></a></p>
 
 <p><strong>Important:</strong> During operations consider performing a SSH port forward, so that information goes over an encrypted channel. The examples here are for research and education.</p>
 
@@ -287,7 +291,7 @@ At this point an adversary can perform the <strong>&ldquo;Cookie Crimes attack&r
 
 <p>The port forward is not really needed, but I thought its cool to show how this can be done on Windows. Since for some reason those &ldquo;networky&rdquo; things seem to be less known on Windows.</p>
 
-<p>Chrome also has the <strong>&ndash;remote-debugging-address</strong> feature, that an adversary can set to 0.0.0.0 to listen on all interfaces. Although, that only works in headless mode and needs usage of the custom <em>&ndash;user-data-dir</em>.</p>
+<p>Chrome also has the <code>--remote-debugging-address</code> feature, that an adversary can set to <code>0.0.0.0</code> to listen on all interfaces. Although, that only works in headless mode and needs usage of the custom <code>--user-data-dir</code>.</p>
 
 <h2 id="detections-and-mitigations">Detections and Mitigations</h2>
 
@@ -296,8 +300,9 @@ At this point an adversary can perform the <strong>&ldquo;Cookie Crimes attack&r
 <li>Knowing that <strong>developer and test features are part of the ordinary version of Chrome</strong>, I <strong>wouldn&rsquo;t recommend storing credit card numbers with the browser</strong>. Majority of users (probably 99.999%+) do not need remote debugging. See  <a href="/blog/posts/importance-security-principles/">Security Principles</a> for further discussion points.</li>
 <li>Chrome should <strong>not allow remote debugging of things like chrome://settings</strong></li>
 <li>Or maybe at least require the user&rsquo;s password when navigating to <strong>chrome://settings</strong> before showing sensitive information</li>
-<li>Since this is post-exploitation, not having malware, adversaries (other admins) on your machine is good advise - following an <strong>&ldquo;Assume Breach&rdquo;</strong> mindset and being prepared that malware is already present on machines is also good advise.</li>
-<li>I have reported this and recommendations to the Google Security team and also made Microsoft aware of it (e.g. detections for Defender)</li>
+<li>Since this is post-exploitation, not having malware, adversaries (other admins) on your machine is good advise</li>
+<li><strong>&ldquo;Assume Breach&rdquo;</strong> mindset and being prepared that malware is already present on machines is alwasy mature and solid advise</li>
+<li>I have reported this and recommendations to the Google Security team, and also made Microsoft aware of it (e.g. detections for Defender)</li>
 </ul>
 
 <h2 id="red-team-strategies">Red Team Strategies</h2>
