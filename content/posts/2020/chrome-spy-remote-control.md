@@ -17,7 +17,7 @@ This is what we will discuss and explore more in this post, and it is a summary 
 
 At a high level, remote debugging is a development/test feature which, for some reason, made it into the ordinary retail version of Chrome. 
 
-#### **Since its a "feature" and requires an adversary/malware to already be present on the machine (post-exploitation) Chromium likely won't be changing anything. Hence this post will highlight important detections that Anti-Virus products and Blue Teams should put in place to have telemetry for catching potential misuse or attacks and protecting users.**
+#### **Since its a "feature" and requires an adversary/malware to be present on the machine (post-exploitation) Chromium likely won't be changing anything. Hence this post will highlight important detections that Anti-Virus products and Blue Teams should put in place to have telemetry for catching potential misuse or attacks and protecting users.**
 
 *Hopefully this post can help raise additional awareness to improve detections and countermeasures.*
 
@@ -172,8 +172,8 @@ Chrome also has the **--remote-debugging-address** feature, that an adversary ca
 * Blue teams should look for anyone using the **--remote-debugging-port** and related features (*--user-data-dir*,...) to identify potential misuse or malware
 * Knowing that **developer and test features are part of the ordinary version of Chrome**, I **wouldn't recommend storing credit card numbers with the browser**. Majority of users (probably 99.999%+) do not need remote debugging. See  [Security Principles](/blog/posts/importance-security-principles/) for further discussion points.
 * Chrome should **not allow remote debugging of things like chrome://settings**
-* Or maybe at least require the user's password when navigating to **chrome://settings** to view sensitive information
-* Since this is post-exploitation, not having malware, adversaries (other admins) on your machine is golden!
+* Or maybe at least require the user's password when navigating to **chrome://settings** before showing sensitive information
+* Since this is post-exploitation, not having malware, adversaries (other admins) on your machine is good advise - following an **"Assume Breach"** mindset and being prepared that malware is already present on machines is also good advise.
 * I have reported this and recommendations to the Google Security team and also made Microsoft aware of it (e.g. detections for Defender)
 
 ## Red Team Strategies
