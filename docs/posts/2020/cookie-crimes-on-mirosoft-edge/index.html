@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Cookie Crimes and the new Mirosoft Edge Browser &middot;  wunderwuzzi blog" />
+  <meta property="og:title" content=" Cookie Crimes and the new Microsoft Edge Browser &middot;  wunderwuzzi blog" />
   
   <meta property="og:site_name" content="wunderwuzzi blog" />
   <meta property="og:url" content="https://wunderwuzzi23.github.io/blog/posts/2020/cookie-crimes-on-mirosoft-edge/" />
@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2020-04-28T18:10:46-07:00" />
+  <meta property="og:article:published_time" content="2020-04-28T18:30:46-07:00" />
   
   <meta property="og:article:tag" content="cookies" />
   
@@ -26,7 +26,7 @@
   
 
   <title>
-     Cookie Crimes and the new Mirosoft Edge Browser &middot;  wunderwuzzi blog
+     Cookie Crimes and the new Microsoft Edge Browser &middot;  wunderwuzzi blog
   </title>
 
   <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/bootstrap.min.css" />
@@ -90,12 +90,12 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Cookie Crimes and the new Mirosoft Edge Browser</h1>
+    <h1 class="text-primary">Cookie Crimes and the new Microsoft Edge Browser</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2020-04-28T18:10:46-07:00">
+        <time datetime="2020-04-28T18:30:46-07:00">
           Apr 28, 2020
         </time>
       </div>
@@ -120,35 +120,69 @@
 
 <h2 id="revisiting-cookie-crimes">Revisiting Cookie Crimes</h2>
 
-<p>In 2018 <em>mangopdf</em> described &ldquo;Cookie Crimes&rdquo;, which is great research around Chrome&rsquo;s remote debugging feature that allows adversaries and malware to gain access to cookies quite convienently during post-exploitation.</p>
+<p>In 2018 <em>@mangopdf</em> described &ldquo;Cookie Crimes&rdquo;, which is great research around Chrome&rsquo;s remote debugging feature that allows adversaries and malware to gain access to cookies quite convienently during post-exploitation.</p>
 
-<p>Original research published <a href="https://mango.pdf.zone/stealing-chrome-cookies-without-a-password">here</a>, and it still works today.</p>
+<p>The original research is published <a href="https://mango.pdf.zone/stealing-chrome-cookies-without-a-password">here</a>, and it still works today.</p>
 
 <h2 id="the-new-microsoft-edge-browser-and-chromium">The new Microsoft Edge browser and Chromium</h2>
 
 <p>Microsoft&rsquo;s latest Edge browser is based on the same code, Chromium. I guess, you already know where this is going now&hellip;</p>
 
-<p>Yes, this means that the same attacks described with &ldquo;Cookie Crimes&rdquo; work with the new Edge browser.</p>
+<p><strong>Yes, this means that &ldquo;Cookie Crimes&rdquo; works with the new Edge browser.</strong></p>
 
-<h2 id="notable-differences">Notable differences:</h2>
+<h3 id="notable-differences">Notable differences</h3>
 
 <ol>
-<li>Cookie Crimes uses <strong>chrome.exe</strong>, but if one changes that to <strong>msedge.exe</strong> you can get it to work with Edge on Windows (haven&rsquo;t tried other operating systems)</li>
-<li>The Edge user data folder is located at <em>%LOCALAPPDATA%\Microsoft\Edge\User Data</em></li>
+<li>Cookie Crimes uses <code>chrome.exe</code>, but if one changes that to <code>msedge.exe</code> you can get it to work with Edge on Windows (haven&rsquo;t tried other operating systems)</li>
+<li>The Edge user data folder is located at <code>%LOCALAPPDATA%\Microsoft\Edge\User Data</code></li>
 </ol>
 
 <p>Additionally, the techniques around <a href="/blog//posts/2020/chrome-spy-remote-control"><strong>remote controlling the browser and oberserving browser behavior of users</strong></a> also works with the Chromium based Edge browser.</p>
 
+<h3 id="basic-run-through-poc">Basic run-through POC</h3>
+
+<p>These are the basic steps to learn more about this feature:</p>
+
+<ol>
+<li><code>Get-Process msedge | Stop-Process</code>
+
+<ul>
+<li><em>Note:</em> This is the less subtle way of taking over, sneaky adversaries use <code>--headless</code> and a custom <code>--user-data-dir</code>)</li>
+</ul></li>
+<li><code>Start-Process &quot;msedge.exe&quot; &quot;https://outlook.com  --remote-debugging-port=9222&quot;</code></li>
+<li>Afterwards browse to <strong>localhost:9222</strong> for the debugging UI, or port-forward for remote access:
+
+<ul>
+<li>For instance on Windows using <code>netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 connectaddress=127.0.0.1 connectport=9222</code></li>
+<li>More info about this and also how to open firewall described <a href="/blog/posts/2020/chrome-spy-remote-control">here for Windows</a>.</li>
+</ul></li>
+<li>Alternatively to steal cookies use the Cookie Crimes technique:
+
+<ul>
+<li>Connect to <code>localhost:9222/json</code> to get the WebSocket endpoint.</li>
+<li>There is a <code>Network.getAllCookies</code> API on the websocket server that will return all cookies.</li>
+<li>Cookie Crimes code is <a href="https://github.com/defaultnamehere/cookie_crimes/blob/master/cookie_crimes.py">here for your reference</a>.</li>
+</ul></li>
+</ol>
+
+<h2 id="screenshot">Screenshot</h2>
+
+<p>In the previous blog post we described accessing the <strong>Settings Page</strong> via the debugger is possible with Chrome, and the same works with Edge also:
+<img src="/blog/images/2020/edge0.png" alt="Edge - Settings" /></p>
+
 <h2 id="mitigations-and-detections">Mitigations and Detections</h2>
 
 <ul>
-<li>Blue teams should look for <strong>&ndash;remote-debugging-port</strong> and custom <strong>&ndash;user-data-dir</strong>, and related command line arguments to potentially catch (mis)use for both Chrome and Edge.</li>
-<li>Firefox also has remote debugging, but it works differently (different command line option to look for) - I will post about this as well soon</li>
-<li>Out of due diligence I reported this to MSRC (but since it&rsquo;s post-exploitation nothing will be changed)</li>
-<li>I also suggested to add detections for the TTP to Windows Defender</li>
+<li>Blue teams should look for <code>--remote-debugging-port</code> and custom <code>--user-data-dir</code>, and related command line arguments to potentially catch (mis)use for both Chrome and Edge.</li>
+<li>Firefox also has remote debugging, but it works differently (different command line option to look for) - I will post about that soon.</li>
+<li>Out of due diligence I reported this to MSRC (since it&rsquo;s post-exploit nothing will be changed).</li>
+<li>Also suggested to add detections for the TTP to Windows Defender to MSRC</li>
+<li>There are more mitigation ideas <a href="/blog/posts/2020/chrome-spy-remote-control">in the previous blog post about Chrome</a> as well, please look at them for reference also.</li>
 </ul>
 
-<p>There are some more mitigation ideas <a href="/blog/posts/2020/chrome-spy-remote-control">in the previous blog post about Chrome</a> as well, please look at them for reference also.</p>
+<h2 id="final-take-away">Final Take-Away</h2>
+
+<p><strong>One other take-away is that future malware and exploits that target Chrome, will likely often work on the new Edge browser with minimal adjustments, if any.</strong></p>
 
   </section>
   <footer>
