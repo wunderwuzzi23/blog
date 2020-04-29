@@ -43,10 +43,6 @@ These are the basic steps to learn more about this feature:
     * Cookie Crimes code is [here for your reference](https://github.com/defaultnamehere/cookie_crimes/blob/master/cookie_crimes.py).
 
 
-## Screenshot
-In the previous blog post we described accessing the **Settings Page** via the debugger is possible with Chrome, and the same works with Edge also:
-![Edge - Settings](/blog/images/2020/edge0.png)
-
 ## Mitigations and Detections
 * Blue teams should look for `--remote-debugging-port` and custom `--user-data-dir`, and related command line arguments to potentially catch (mis)use for both Chrome and Edge.
 * Firefox also has remote debugging, but it works differently (different command line option to look for) - I will post about that soon.
@@ -55,4 +51,6 @@ In the previous blog post we described accessing the **Settings Page** via the d
 * There are more mitigation ideas [in the previous blog post about Chrome](/blog/posts/2020/chrome-spy-remote-control) as well, please look at them for reference also.
 
 ## Final Take-Away
-**One other take-away is that future malware and exploits that target Chrome, will likely often work on the new Edge browser with minimal adjustments, if any.**
+**One other take-away is that malware and exploits that target Chrome, will likely often work on the new Edge browser with minimal adjustments, if any.**
+
+![Hacker](/blog/images/2020/hacker.png)
