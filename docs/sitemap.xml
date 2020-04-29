@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/2020/chrome-spy-remote-control/</loc>
+    <lastmod>2020-04-28T18:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/2020/hunting-for-credentials/</loc>
+    <lastmod>2020-04-26T12:31:29-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://wunderwuzzi23.github.io/blog/posts/2020/conceptual-attack-graphs/</loc>
     <lastmod>2020-04-06T21:00:30-07:00</lastmod>
   </url>
@@ -101,7 +111,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/book/</loc>
-    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
+    <lastmod>2020-04-28T18:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -141,8 +151,20 @@
   </url>
   
   <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/cookies/</loc>
+    <lastmod>2020-04-28T18:00:00-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/cookiesforall/</loc>
     <lastmod>2019-10-27T10:56:03-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/credentials/</loc>
+    <lastmod>2020-04-26T12:31:29-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -171,8 +193,14 @@
   </url>
   
   <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/post-exploitation/</loc>
+    <lastmod>2020-04-28T18:00:00-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://wunderwuzzi23.github.io/blog/posts/</loc>
-    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
+    <lastmod>2020-04-28T18:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -196,7 +224,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/red/</loc>
-    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
+    <lastmod>2020-04-28T18:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -226,7 +254,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/ttp/</loc>
-    <lastmod>2020-02-15T15:48:51-08:00</lastmod>
+    <lastmod>2020-04-28T18:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -238,7 +266,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/</loc>
-    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
+    <lastmod>2020-04-28T18:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -7,10 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Mon, 06 Apr 2020 21:00:30 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2020 18:00:00 -0700</lastBuildDate>
     
 	<atom:link href="https://wunderwuzzi23.github.io/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Post-Exploitation: Abusing Chrome&#39;s debugging feature to observe and control browsing sessions remotely</title>
+      <link>https://wunderwuzzi23.github.io/blog/posts/2020/chrome-spy-remote-control/</link>
+      <pubDate>Tue, 28 Apr 2020 18:00:00 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/chrome-spy-remote-control/</guid>
+      <description>Chrome&amp;rsquo;s remote debugging feature enables malware post-exploitation to gain access to cookies. Root privileges are not required. This is a pretty well-known and commonly used adversarial technique - at least since 2018 when Cookie Crimes was released.
+However, remote debugging also allows observing user activities and sensitive personal information (aka spying on users) and controlling the browser from a remote computer. Below screenshot shows a simulated attacker controlling the victim&amp;rsquo;s browser and navigating to chrome://settings to inspect information:</description>
+    </item>
+    
+    <item>
+      <title>Hunting for credentials and building a credential type reference catalog</title>
+      <link>https://wunderwuzzi23.github.io/blog/posts/2020/hunting-for-credentials/</link>
+      <pubDate>Sun, 26 Apr 2020 12:31:29 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/hunting-for-credentials/</guid>
+      <description>Adversaries are leveraging widely exposed clear text credentials to gain access to sensitive information.
+At times the term &amp;ldquo;harvesting credentials&amp;rdquo; is used when red teamers emulate these attacks - which is something that appears to be more opportunistic and I would propose that security teams start to actively hunt for credential exposure that can put their organization at risk &amp;ndash; in case you are not yet doing that.
+Actively hunting for credential exposure The idea of credential hunting is targeted and focused, leveraging intelligence about systems and combing it with powerful search techniques to identify exposure.</description>
+    </item>
     
     <item>
       <title>Attack Graphs - How to create and present them</title>

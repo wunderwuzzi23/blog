@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Post-Exploitation: Abusing Chrome&#39;s debugging feature to observe and control browsing sessions remotely &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://wunderwuzzi23.github.io/blog/posts/2020/chrome-spy-remote-control/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-04-28T18:00:00-07:00" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="cookies" />
+  
+  <meta property="og:article:tag" content="book" />
+  
+  <meta property="og:article:tag" content="ttp" />
+  
+  <meta property="og:article:tag" content="post-exploitation" />
+  
+  
+
+  <title>
+     Post-Exploitation: Abusing Chrome&#39;s debugging feature to observe and control browsing sessions remotely &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/main.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://wunderwuzzi23.github.io/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://wunderwuzzi23.github.io/blog/images/apple-touch-icon.png" />
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://wunderwuzzi23.github.io/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+      
+      <a href="https://wunderwuzzi23.github.io/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Post-Exploitation: Abusing Chrome&#39;s debugging feature to observe and control browsing sessions remotely</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-04-28T18:00:00-07:00">
+          Apr 28, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/cookies">#cookies</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/book">#book</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/ttp">#ttp</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/post-exploitation">#post-exploitation</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+
+<p>Chrome&rsquo;s remote debugging feature enables malware post-exploitation to gain access to cookies. Root privileges are not required. This is a pretty well-known and commonly used adversarial technique - at least since 2018 when <em>Cookie Crimes</em> was released.</p>
+
+<p>However, remote debugging also <strong>allows observing user activities and sensitive personal information (aka spying on users) and controlling the browser from a remote computer</strong>. Below screenshot shows a simulated attacker controlling the victim&rsquo;s browser and navigating to <em>chrome://settings</em> to inspect information:</p>
+
+<p><a href="/blog/images/2020/chromeremotedebugcc.PNG"><img src="/blog/images/2020/chromeremotedebugcc.PNG" alt="Chrome Remote Debug" /></a></p>
+
+<p>This is what we will discuss and explore more in this post, and it is a summary of one of the techniques described in the book <a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">&ldquo;Cybersecurity Attacks - Red Team Strategies&rdquo;</a>.</p>
+
+<p>At a high level, remote debugging is a development/test feature which, for some reason, made it into the ordinary retail version of Chrome.</p>
+
+<h4 id="since-its-a-feature-and-requires-an-adversary-malware-to-be-present-on-the-machine-post-exploitation-chromium-likely-won-t-be-changing-anything-hence-this-post-will-highlight-important-detections-that-anti-virus-products-and-blue-teams-should-put-in-place-to-have-telemetry-for-catching-potential-misuse-or-attacks-and-protecting-users"><strong>Since its a &ldquo;feature&rdquo; and requires an adversary/malware to be present on the machine (post-exploitation) Chromium likely won&rsquo;t be changing anything. Hence this post will highlight important detections that Anti-Virus products and Blue Teams should put in place to have telemetry for catching potential misuse or attacks and protecting users.</strong></h4>
+
+<p><em>Hopefully this post can help raise additional awareness to improve detections and countermeasures.</em></p>
+
+<p><strong>But, first things first&hellip;.</strong></p>
+
+<h2 id="entering-cookie-crimes">Entering Cookie Crimes</h2>
+
+<p>A very powerful cookie stealing technique was described by <em>mangopdf</em> in 2018 with <strong>&ldquo;<a href="https://github.com/defaultnamehere/cookie_crimes">Cookie Crimes</a>&ldquo;</strong>. Chrome offers a remote debugging feature that can be abused by adversaries and malware post-exploitation to steal cookies (doesn&rsquo;t need root permissions). Cookie Crimes is now also part of Metasploit - cool stuff!</p>
+
+<p>When I first saw this it was super useful right away during post-exploitation phase of red teaming ops (especially on macOS). I also started experimenting more with the <strong>remote debugging features</strong> of Chrome, with some rather scary outcomes - and there is probably a lot more to figure out.</p>
+
+<h2 id="automating-and-remote-controlling-chrome">Automating and remote controlling Chrome</h2>
+
+<p>Besides stealing cookies, the feature allows to <strong>remotely control the browser, observe browsing sessions, and gain access to sensitive user settings (like saved credit card numbers in the browser, etc)</strong>. This is what we are going to discuss now a bit more.</p>
+
+<h2 id="disclaimer">Disclaimer</h2>
+
+<p>This information is for research and educational purposes in order to learn about attacks, help build detection and countermeasures. Security and penetration testing requires authorization from proper stakeholders.</p>
+
+<h3 id="headless-mode">Headless mode</h3>
+
+<p>Chrome supports running headless in the background without the user noticing that it is running. Examples here are given for PowerShell, but feel free to adjust to whatever shell/OS you are using:</p>
+
+<ul>
+<li><p>To run Chrome headless without a visible UI, specify the <strong>–headless</strong> option, as follows:</p>
+
+<p><code>Start-Process &quot;Chrome&quot; &quot;https://www.google.com&quot; --headless</code></p>
+
+<p>This starts Chrome without the UI. To ensure a smooth start, specify <strong>&ndash;no-first-run</strong>.</p></li>
+
+<li><p>By running <code>Get-Process</code>, you can observe the newly created process as well.</p></li>
+
+<li><p>To terminate all Chrome instances, simply run:</p>
+
+<p><code>Get-Process chrome | Stop-Process</code></p>
+
+<p>This can be useful when learning more about this API and experimenting with it.</p></li>
+</ul>
+
+<h2 id="basics-of-the-chrome-remote-debugging-feature">Basics of the Chrome remote debugging feature</h2>
+
+<p>To start Chrome with remote debugging enabled run:</p>
+
+<p><code>Start-Process &quot;Chrome&quot; &quot;https://www.google.com --headless --remote-debugging-port=9222&quot;</code></p>
+
+<p><em>If you do not specify &ndash;headless and there is already an instance of Chrome running, then Chrome will open the new window in the existing browser and not enable the debugging port. So, either terminate all Chrome instances (using the preceding statement) or launch Chrome headless. We will discuss differences in more detail later.</em></p>
+
+<p>Now you can already navigate to <code>localhost:9222</code> and see the debugging UI and play around with it:</p>
+
+<p><img src="/blog/images/2020/chrome-remote-debug.PNG" alt="Chrome Remote Debug" />
+At this point an adversary can perform the <strong>&ldquo;Cookie Crimes attack&rdquo;</strong> and steal all cookies using the <em>Network.getAllCookies()</em> API -  but let&rsquo;s experiment more with the UI.</p>
+
+<h3 id="tunneling-the-ui-to-the-attacker">Tunneling the UI to the attacker</h3>
+
+<p>The debugging port is only available locally now, but malware might make that remotely accessible. In order to do that, the adversary can perform a port forward. This will expose the port remotely over the network.</p>
+
+<p>In Windows, this can be done by an Administrator using the <code>netsh interface portproxy</code> command. The following command shows how this is performed:</p>
+
+<p><code>netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 connectaddress=127.0.0.1 connectport=9222</code></p>
+
+<p>Remote connections to this port will not be allowed because the firewall blocks them (we forwarded to port 48333). We have to add a new firewall rule to allow port 48333. So, let&rsquo;s allow that port through the firewall.</p>
+
+<p>There are multiple ways to do this on Windows (we focus on Windows now, but should also work on macOS and Linux):</p>
+
+<ol>
+<li><p>Use netsh to add a new firewall rule:</p>
+
+<p><code>netsh advfirewall firewall add rule name=&quot;Open Port 48333&quot; dir=in action=allow protocol=TCP localport=48333</code></p></li>
+
+<li><p>On modern Windows machines, this can also be done via PowerShell commands:</p>
+
+<p><code>New-NetFirewallRule -Name ChromeRemote -DisplayName &quot;Open Port 48333&quot; -Direction Inbound -Protocol tcp -LocalPort 48333 -Action Allow -Enabled True</code></p></li>
+</ol>
+
+<h2 id="automating-and-remote-controlling-browsers-as-adversarial-technique">Automating and remote controlling browsers as adversarial technique</h2>
+
+<p>Now, Mallory (our attacker) can connect from her attack machine to Alice&rsquo;s workstation on port 43888 and start remote controlling Chrome. The following screenshot shows what the initial connection might look like:</p>
+
+<p><img src="/blog/images/2020/chromeremotedebug2.PNG" alt="Chrome Remote Debug" /></p>
+
+<p>The  screenshot shows the currently available sessions. These are basically the tabs the victim has opened at this point (for example, after restoring the sessions, or just the home page).</p>
+
+<p>If you are trying this out yourself, you probably only see the Google home page listed (this is because for now we started a totally new browsing instance). Clicking the link will navigate you to the session/tab of the browser.</p>
+
+<h2 id="spying-on-chrome">Spying on Chrome</h2>
+
+<p>When creating a headless session we typically don&rsquo;t inherit the user&rsquo;s settings and so forth (you can look at the <em>&ndash;user-data-dir</em> option to learn more about this).</p>
+
+<p>Although, there is also the <strong>&ndash;restore-last-session</strong> command-line option, which is something the Cookie Crimes author pointed out as well.</p>
+
+<p>The basic idea is to terminate all Chrome instances and then relaunch them with remote debugging enabled. This technique is a bit intrusive, but it is quite effective to restart Chrome with the debug port exposed and at the same time inheriting the users&rsquo;s settings. To test this yourself, follow these steps:</p>
+
+<ol>
+<li>First, terminate all Chrome processes (e.g. using PowerShell, assuming you are in the user&rsquo;s security context)</li>
+
+<li><p>Afterward, launch Chrome in non-headless mode and restore the last session using the following command:</p>
+
+<p><code>Start-Process &quot;Chrome&quot; &quot;--remote-debugging-port=9222 --restore-last-session&quot;</code></p></li>
+
+<li><p>Then, connect to the remote control UI to observe the victim&rsquo;s browsing sessions/tabs</p>
+
+<p><img src="/blog/images/2020/chromeremotedebug2.PNG" alt="Chrome Remote Debug" /></p>
+
+<p>As can be seen in the screenshot, there are multiple sessions being opened by Alice (the victim): a Google tab, an Outlook.com tab, and a few others.</p></li>
+
+<li><p>By clicking any of the sessions, the attacker takes control of Alice&rsquo;s browser UI and can observe (as well as interfere with) what the user is doing.</p></li>
+</ol>
+
+<p>Even multiple attackers can connect to the port and observe the browsing session.</p>
+
+<p>As an example, in this demo we simulate the victim having a valid cookie for their email account, and if you enter <a href="https://outlook.com">https://outlook.com</a> in the URL of the debugging session (this is the textbox written underneath the browser URL bar), the attacker will get access to the inbox:</p>
+
+<p><a href="/blog/images/2020/chromeremotedebug1.PNG"><img src="/blog/images/2020/chromeremotedebug1.PNG" alt="Mailbox" /></a></p>
+
+<p>As you can see, the remote session can be used pretty much like a local one. We can enter text, click buttons, and fully interact with websites.</p>
+
+<h2 id="peeking-at-settings-credit-card-numbers-yikes">Peeking at settings (credit card numbers. yikes!)</h2>
+
+<p>There is one last thing. Navigate to <strong>chrome://settings</strong> with the remote control.</p>
+
+<p>This includes access to settings, passwords (those will pop up a credential prompt for the victim), payment information, including card number (no popup), addresses, and many other settings.</p>
+
+<p>The following screenshot shows <em>chrome://settings</em> URL of the victim, include observing sensitive information:</p>
+
+<p><img src="/blog/images/2020/chromeremotedebug3.PNG" alt="Chrome Remote Debug" /></p>
+
+<p><strong>Important:</strong> During operations consider performing a SSH port forward, so that information goes over an encrypted channel. The examples here are for research and education.</p>
+
+<p>And here is a brief animation - if you are not interested in trying to play around with this yourself:</p>
+
+<p><a href="/blog/images/2020/chromehijack.gif"><img src="/blog/images/2020/chromehijack.gif" alt="Chrome Remote Hijack" /></a></p>
+
+<h2 id="cleaning-up-and-reverting-changes">Cleaning up and reverting changes</h2>
+
+<p>Keep in mind that port forwarding was set up earlier to enable the remote exposure of the Chrome debugging API on port 48333. In order to remove port forwarding and revert to the defaults, we can run  the following command:</p>
+
+<p><code>netsh interface portproxy reset</code></p>
+
+<p>Alternatively, there is a delete argument.</p>
+
+<p>The same applies for opening port 48333. The firewall rule can be removed again using the following command:</p>
+
+<p><code>netsh advfirewall firewall del rule name=&quot;Open Port 48333&quot;</code></p>
+
+<p>or if you used the PowerShell example:</p>
+
+<p><code>Remove-NetFirewallRule -Name ChromeRemote</code></p>
+
+<p>Finally, close all Chrome sessions by running the following command (to get your host back into a clean state):</p>
+
+<p><code>Get-Process chrome | Stop-Process</code></p>
+
+<p>That&rsquo;s it – the machine should be back in a non-exposed state.</p>
+
+<h3 id="port-forwarding-not-really-needed">Port forwarding not really needed</h3>
+
+<p>The port forward is not really needed, but I thought its cool to show how this can be done on Windows. Since for some reason those &ldquo;networky&rdquo; things seem to be less known on Windows.</p>
+
+<p>Chrome also has the <strong>&ndash;remote-debugging-address</strong> feature, that an adversary can set to 0.0.0.0 to listen on all interfaces. Although, that only works in headless mode and needs usage of the custom <em>&ndash;user-data-dir</em>.</p>
+
+<h2 id="detections-and-mitigations">Detections and Mitigations</h2>
+
+<ul>
+<li>Blue teams should look for anyone using the <strong>&ndash;remote-debugging-port</strong> and related features (<em>&ndash;user-data-dir</em>,&hellip;) to identify potential misuse or malware</li>
+<li>Knowing that <strong>developer and test features are part of the ordinary version of Chrome</strong>, I <strong>wouldn&rsquo;t recommend storing credit card numbers with the browser</strong>. Majority of users (probably 99.999%+) do not need remote debugging. See  <a href="/blog/posts/importance-security-principles/">Security Principles</a> for further discussion points.</li>
+<li>Chrome should <strong>not allow remote debugging of things like chrome://settings</strong></li>
+<li>Or maybe at least require the user&rsquo;s password when navigating to <strong>chrome://settings</strong> before showing sensitive information</li>
+<li>Since this is post-exploitation, not having malware, adversaries (other admins) on your machine is good advise - following an <strong>&ldquo;Assume Breach&rdquo;</strong> mindset and being prepared that malware is already present on machines is also good advise.</li>
+<li>I have reported this and recommendations to the Google Security team and also made Microsoft aware of it (e.g. detections for Defender)</li>
+</ul>
+
+<h2 id="red-team-strategies">Red Team Strategies</h2>
+
+<p>If you liked this post and found it informative or inspirational, you might be interested in the book <a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">&ldquo;Cybersecurity Attacks - Red Team Strategies&rdquo;</a>. The book is filled with further ideas, research and fundamental techniques, as well as red teaming program and people mangement aspects.</p>
+
+<h3 id="hiccups-and-changes">Hiccups and changes</h3>
+
+<p>Chrome changes quite frequently, so some things need updates and then a few months later they original attacks work again. When I did this the very first time, like over a year ago, there were some URL hiccups that I had to resolve, and described a bit more in the book - but its pretty straight forward to figure out.</p>
+
+<p>The URL that Chrome shows, pointing to something like:
+<code>https://chrome-devtools-frontend.appspot.com/serve_file/@e7fbb071abe9328cdce4feedac9122435fbd1111/inspector.html?ws=[more stuff here]</code></p>
+
+<p>That needs to be updated to something like this:
+<code>http://**localhost:9222/devtools**/inspector.html?ws=**localhost:9222**/devtools/page/D9CF6B093CB84FD0378C735AD056FCB7&amp;remoteFrontend=true</code></p>
+
+<p>When I did this last time this wasn&rsquo;t necessary. Chrome&rsquo;s behavior changes frequently, so some of this might be different again - most recently it seems that this is at times not necessary anymore (especially if you leverage &ndash;restore-last-session)</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://blog.chromium.org/2011/05/remote-debugging-with-chrome-developer.html">Chromium Blog - Remote Debugging with Chrome Developer</a></li>
+<li><a href="https://github.com/defaultnamehere/cookie_crimes">Cookie Crimes</a></li>
+<li><a href="https://attack.mitre.org/techniques/T1539/">MITRE ATT&amp;CK Technique T1539: Steal Web Session Cookie</a></li>
+<li><a href="https://attack.mitre.org/techniques/T1506/">MITRE ATT&amp;CK Technique T1506: Web Session Cookie</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="previous"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/hunting-for-credentials/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     &copy; WUNDERWUZZI 2020
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://wunderwuzzi23.github.io/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-90341594-2', 'auto');  
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview', { 'anonymizeIp': true });
+  </script>
+  
+  
+</body>
+</html>
+
