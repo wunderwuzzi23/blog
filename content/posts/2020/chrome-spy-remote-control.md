@@ -1,6 +1,6 @@
 ---
 title: "Post-Exploitation: Abusing Chrome's debugging feature to observe and control browsing sessions remotely"
-date: 2020-04-28T10:38:10-07:00
+date: 2020-04-28T18:00:00-07:00
 draft: true
 tags: [
         "red", "cookies","book","ttp","post-exploitation"
