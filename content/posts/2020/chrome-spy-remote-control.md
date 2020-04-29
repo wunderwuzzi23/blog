@@ -9,7 +9,12 @@ tags: [
 
 Chrome's remote debugging feature enables malware post-exploitation to gain access to cookies. Root privileges are not required. This is a pretty well-known and commonly used adversarial technique - at least since 2018 when **Cookie Crimes** was released. 
 
-However, remote debugging also **allows observing user activities and sensitive personal information (aka spying on users) and controlling the browser from a remote computer**. Below screenshot shows a simulated attacker controlling the victim's browser and navigating to *chrome://settings* to inspect information:
+However, remote debugging also **allows observing user activities and sensitive personal information (aka spying on users) and controlling the browser from a remote computer**. 
+
+![Hacker](/blog/images/2020/hacker.png)
+
+
+Below screenshot shows a simulated attacker controlling the victim's browser and navigating to *chrome://settings* to inspect information:
 
 [![Chrome Remote Debug](/blog/images/2020/chromeremotedebugcc.PNG)](/blog/images/2020/chromeremotedebugcc.PNG)
 
