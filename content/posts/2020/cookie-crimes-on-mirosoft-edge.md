@@ -1,6 +1,6 @@
 ---
 title: "Cookie Crimes and the new Microsoft Edge Browser"
-date: 2020-04-28T18:30:46-07:00
+date: 2020-04-29T12:20:46-07:00
 draft: true
 tags: [
         "cookies",
@@ -51,6 +51,6 @@ These are the basic steps to learn more about this feature:
 * There are more mitigation ideas [in the previous blog post about Chrome](/blog/posts/2020/chrome-spy-remote-control) as well, please look at them for reference also.
 
 ## Final Take-Away
-**One other take-away is that malware and exploits that target Chrome, will likely often work on the new Edge browser with minimal adjustments, if any.**
+**One key take-away is that malware and exploits that target Chrome (Chromium), will likely often work on the new Edge browser with minimal adjustments, if any.**
 
 ![Hacker](/blog/images/2020/hacker.png)
