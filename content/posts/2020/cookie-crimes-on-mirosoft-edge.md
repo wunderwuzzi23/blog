@@ -46,7 +46,7 @@ These are the basic steps to learn more about this feature:
 ## Mitigations and Detections
 * Blue teams should look for `--remote-debugging-port` and custom `--user-data-dir`, and related command line arguments to potentially catch (mis)use for both Chrome and Edge.
 * Firefox also has remote debugging, but it works differently (different command line option to look for) - I will post about that soon.
-* Out of due diligence I reported this to MSRC (since it's post-exploit nothing will be changed).
+* Out of due diligence I reported this to MSRC (since it's post-exploit nothing will be changed though).
 * Also suggested to add detections for the TTP to Windows Defender to MSRC
 * There are more mitigation ideas [in the previous blog post about Chrome](/blog/posts/2020/chrome-spy-remote-control) as well, please look at them for reference also.
 
