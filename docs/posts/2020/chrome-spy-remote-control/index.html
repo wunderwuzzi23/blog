@@ -296,13 +296,13 @@ At this point an adversary can perform the <strong>&ldquo;Cookie Crimes attack&r
 <h2 id="detections-and-mitigations">Detections and Mitigations</h2>
 
 <ul>
-<li>Blue teams should look for anyone using the <strong>&ndash;remote-debugging-port</strong> and related features (<em>&ndash;user-data-dir</em>,&hellip;) to identify potential misuse or malware</li>
-<li>Knowing that <strong>developer and test features are part of the ordinary version of Chrome</strong>, I <strong>wouldn&rsquo;t recommend storing credit card numbers with the browser</strong>. Majority of users (probably 99.999%+) do not need remote debugging. See  <a href="/blog/posts/importance-security-principles/">Security Principles</a> for further discussion points.</li>
+<li><strong>Blue teams should look</strong> for processes launched with the <strong>&ndash;remote-debugging-port</strong> argument, and related features (<strong>&ndash;user-data-dir</strong>,&hellip;) to identify potential misuse or malware</li>
+<li><strong>This is post-exploitation</strong>, not having malware, adversaries, or multiple admins on your machine is good advise</li>
+<li><strong>Practicing an &ldquo;Assume Breach&rdquo;</strong> mindset and entertaining the idea that malware is already present on machines (at least on some in corporate environments) is always mature and solid advise.</li>
 <li>Chrome should <strong>not allow remote debugging of things like chrome://settings</strong></li>
 <li>Or maybe at least require the user&rsquo;s password when navigating to <strong>chrome://settings</strong> before showing sensitive information</li>
-<li>Since this is post-exploitation, not having malware, adversaries (other admins) on your machine is good advise</li>
-<li><strong>&ldquo;Assume Breach&rdquo;</strong> mindset and being prepared that malware is already present on machines is alwasy mature and solid advise</li>
-<li>I have reported this and recommendations to the Google Security team, and also made Microsoft aware of it (e.g. detections for Defender)</li>
+<li>Knowing that <strong>developer and test features are part of the ordinary version of Chrome</strong>, maybe it&rsquo;s best to <strong>not store credit card numbers with the browser</strong>. Majority of users (probably 99.999%+) do not need remote debugging. See overall <a href="/blog/posts/importance-security-principles/">Security Principles</a> that stood the course of time for further discussion points.</li>
+<li>I have reported this and recommendations to the Google and also made Microsoft aware of it (e.g. detections for Defender)</li>
 </ul>
 
 <h2 id="red-team-strategies">Red Team Strategies</h2>

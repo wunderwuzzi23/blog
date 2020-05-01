@@ -174,13 +174,13 @@ Chrome also has the `--remote-debugging-address` feature, that an adversary can 
 
 ## Detections and Mitigations
 
-* Blue teams should look for anyone using the **--remote-debugging-port** and related features (*--user-data-dir*,...) to identify potential misuse or malware
-* Knowing that **developer and test features are part of the ordinary version of Chrome**, I **wouldn't recommend storing credit card numbers with the browser**. Majority of users (probably 99.999%+) do not need remote debugging. See  [Security Principles](/blog/posts/importance-security-principles/) for further discussion points.
+* **Blue teams should look** for processes launched with the **--remote-debugging-port** argument, and related features (**--user-data-dir**,...) to identify potential misuse or malware
+* **This is post-exploitation**, not having malware, adversaries, or multiple admins on your machine is good advise
+* **Practicing an "Assume Breach"** mindset and entertaining the idea that malware is already present on machines (at least on some in corporate environments) is always mature and solid advise.
 * Chrome should **not allow remote debugging of things like chrome://settings**
 * Or maybe at least require the user's password when navigating to **chrome://settings** before showing sensitive information
-* Since this is post-exploitation, not having malware, adversaries (other admins) on your machine is good advise
-* **"Assume Breach"** mindset and being prepared that malware is already present on machines is alwasy mature and solid advise
-* I have reported this and recommendations to the Google Security team, and also made Microsoft aware of it (e.g. detections for Defender)
+* Knowing that **developer and test features are part of the ordinary version of Chrome**, maybe it's best to **not store credit card numbers with the browser**. Majority of users (probably 99.999%+) do not need remote debugging. See overall [Security Principles](/blog/posts/importance-security-principles/) that stood the course of time for further discussion points.
+* I have reported this and recommendations to the Google and also made Microsoft aware of it (e.g. detections for Defender)
 
 ## Red Team Strategies
 If you liked this post and found it informative or inspirational, you might be interested in the book ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM). The book is filled with further ideas, research and fundamental techniques, as well as red teaming program and people mangement aspects.
