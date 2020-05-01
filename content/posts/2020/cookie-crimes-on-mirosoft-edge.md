@@ -1,6 +1,6 @@
 ---
 title: "Cookie Crimes and the new Microsoft Edge Browser"
-date: 2020-04-29T20:30:46-07:00
+date: 2020-05-01T01:00:46-07:00
 draft: true
 tags: [
         "cookies",
