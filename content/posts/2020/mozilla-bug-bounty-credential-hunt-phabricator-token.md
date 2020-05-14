@@ -50,7 +50,7 @@ curl https://<phabricator>/api/user.whoami -d api.token=api-xxxx
 The response of the request showed that the token impersonated a Mozilla account. At that point I knew, what I needed to know - there was no need to perform any other action.
 
 ### Reporting
-**I promptly reported this issue to Mozilla and they fixed it basically immediatley**. They also performed investigations to ensure misuse had occured and searched for variants. 
+**I promptly reported this issue to Mozilla and they fixed it basically immediatley**. They also performed investigations to ensure no misuse had occured and searched for variants. 
 
 It was impressive to watch Mozilla's professionalism during the response.
 
