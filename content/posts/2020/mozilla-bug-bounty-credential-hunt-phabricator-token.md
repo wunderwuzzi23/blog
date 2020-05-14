@@ -37,7 +37,7 @@ Equipped with this intel and knowing that Mozilla encourages security research, 
 
 **[Credential Hunting](/blog/posts/2020/hunting-for-credentials)** is a dedicated and **targeted activity** that I recommend performing during red teaming and penetration testing. After gaining some basic intel about systems used and what to specifically look for, targeted credential hunting can be fruitful.
 
-Using the information and techniques from the previous post about Credential Huntin and related ones described in my book, **I had identified a valid Mozilla Phabricator API token, along with a Bugzilla token** in a Github repo.
+Using the information and techniques from the previous post about Credential Hunting and related ones described in my book, **I had identified a valid Mozilla Phabricator API token, along with a Bugzilla token** in a Github repo.
 
 ### Token Validation
 
