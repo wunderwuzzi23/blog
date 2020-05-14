@@ -3,7 +3,7 @@ title: "Post-Exploitation: Abusing Chrome's debugging feature to observe and con
 date: 2020-04-28T18:00:00-07:00
 draft: true
 tags: [
-        "red", "cookies","book","ttp","post-exploitation"
+        "red","blue", "cookies","book","ttp","post-exploitation"
     ]
 ---
 

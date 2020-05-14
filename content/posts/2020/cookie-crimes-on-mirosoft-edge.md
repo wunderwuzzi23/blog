@@ -4,7 +4,7 @@ date: 2020-05-01T01:00:46-07:00
 draft: true
 tags: [
         "cookies",
-        "red",
+        "red", "blue",
         "passthecookie", "ttp","post-exploitation"
     ]
 ---
