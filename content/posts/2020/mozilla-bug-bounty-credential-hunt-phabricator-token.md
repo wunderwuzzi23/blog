@@ -1,5 +1,5 @@
 ---
-title: "$3000 Bug Bounty Award from Mozilla"
+title: "$3000 Bug Bounty Award from Mozilla for a successful targeted Credential Hunt"
 date: 2020-05-13T18:00:25-07:00
 draft: true
 tags: [
