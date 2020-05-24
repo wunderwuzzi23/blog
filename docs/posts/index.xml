@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Wed, 13 May 2020 18:00:25 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2020 00:26:01 -0700</lastBuildDate>
     
 	<atom:link href="https://wunderwuzzi23.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tracking phishing metrics over time</title>
+      <link>https://wunderwuzzi23.github.io/blog/posts/2020/phishing-stats/</link>
+      <pubDate>Sun, 24 May 2020 00:26:01 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/phishing-stats/</guid>
+      <description>The results of phishing campaigns are often not comparable with each other over time. Various security vendors and red teams use different tooling and techniques - which is totally fine.
+I recommend tracking a minimum set of metrics to be able to compare results over time.
+Funny side facts: At times employees are messing with the red team, entering invalid creds for CISO or CEO and things along those lines. Some employees (often engineers) are curious and open the mail in isolated VMs to debug and explore the phishing site.</description>
+    </item>
     
     <item>
       <title>$3000 Bug Bounty Award from Mozilla for a successful targeted Credential Hunt</title>
