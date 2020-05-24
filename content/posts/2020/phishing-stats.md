@@ -42,4 +42,4 @@ Clients are at times still surprised that the a full acconunt compromise is poss
 
 [![KoiPhish](/blog/images/2020/koiphish.png)](/blog/images/2020/koiphish.png)
 
-For phishing campaigns [WUNDERWUZZI, LLC](https://www.wunderwuzz.net) uses a variant of [KoiPhish](https://github.com/wunderwuzzi23/KoiPhish).
+For phishing campaigns [WUNDERWUZZI](https://www.wunderwuzzi.net) uses a variant of [KoiPhish](https://github.com/wunderwuzzi23/KoiPhish).
