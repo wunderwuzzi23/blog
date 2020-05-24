@@ -35,10 +35,10 @@ Its best to also provide the ratio for each of the metrics. Without sharing the 
 
 **Interesting fact: What I have seen is that the number of users entering their valid password and those that complete the MFA flow on the phishing site is often nearly the same - more then 90% of users who entered their password, will also complete the MFA login flow on the phishing site.**
 
-Clients are at times still surprised that the a full acconunt compromise is possible, even though MFA is in place. Deployment and adoption of security keys (usage of WebAuthN and FIDO2) is less well understood. We need to continue advocating for broader adoption. 
+Clients are at times still surprised that the a full acconunt compromise is possible, even though MFA is in place. Deployment and adoption of security keys (usage of WebAuthN and FIDO2) is less well understood. We need to continue advocating for broader adoption.
 
 ---
 
 [![KoiPhish](/blog/images/2020/koiphish.png)](/blog/images/2020/koiphish.png)
 
-**For phishing campaigns [WUNDERWUZZI, LLC](https://www.wunderwuzz.net) uses [KoiPhish](https://github.com/wunderwuzzi23/KoiPhish).**
+For phishing campaigns [WUNDERWUZZI, LLC](https://www.wunderwuzz.net) uses a variant of [KoiPhish](https://github.com/wunderwuzzi23/KoiPhish).
