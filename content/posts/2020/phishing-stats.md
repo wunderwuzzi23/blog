@@ -30,8 +30,9 @@ I recommend **tracking a minimum set of metrics to be able to compare results ov
 5. **Number of users who entered their valid(!) password**
 6. **Number of users who entered MFA/code or submitted a push notification** - more variants possible, can be split out by MFA method
 7. **Number of users who's auth cookies got stolen (full compromise)**
+8. **Number of users who reported the phish**
 
-Its best to also provide the ratio for each of the metrics. Without sharing the details its at times difficult to compare phishing results. 
+Its best to also provide the ratio for each of the metrics. Without sharing the details its at times difficult to compare phishing results. If you do it in purple teaming fashion you can get more precise information around delivery and who viewed/reported/deleted it.
 
 **Interesting fact: What I have seen is that the number of users entering their valid password and those that complete the MFA flow on the phishing site is often nearly the same - more then 90% of users who entered their password, will also complete the MFA login flow on the phishing site.**
 
