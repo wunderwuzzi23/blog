@@ -20,7 +20,7 @@ I recommend **tracking a minimum set of metrics to be able to compare results ov
 
 **A phishing campaign should track the following data points at a minimum to provide insights:**
 
-1. **Were security controls artifically weakened?** Yes/No - some vendors might require to be whitelisted, a red team (hopefully) tries to circumvent controls.
+1. **Were security controls artificially weakened?** Yes/No - some vendors might require to be whitelisted, a red team (hopefully) tries to circumvent controls.
 1. **Number of users the phishing email was sent to**
 1. **The bounce rate** (were any of the mails outright rejected)
 1. **Number users who opened/viewed the email**
