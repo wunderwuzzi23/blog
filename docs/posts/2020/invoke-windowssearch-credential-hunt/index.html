@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Leveraging built-in operating system indexing features for credential hunting &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://wunderwuzzi23.github.io/blog/posts/2020/invoke-windowssearch-credential-hunt/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-04-26T11:56:51-07:00" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="ttp" />
+  
+  <meta property="og:article:tag" content="book" />
+  
+  
+
+  <title>
+     Leveraging built-in operating system indexing features for credential hunting &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/main.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://wunderwuzzi23.github.io/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://wunderwuzzi23.github.io/blog/images/apple-touch-icon.png" />
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://wunderwuzzi23.github.io/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line">
+        Embrace the Red
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+      
+      <a href="https://wunderwuzzi23.github.io/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Leveraging built-in operating system indexing features for credential hunting</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-04-26T11:56:51-07:00">
+          Apr 26, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/ttp">#ttp</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/book">#book</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+
+<p>In the previous post we discussed the importance of performing active credential hunting for your organization to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them.</p>
+
+<p><strong>Adversaries also leverage such techniques post-exploitation when looting workstations and servers for credentials and other interesting data.</strong></p>
+
+<p>In this post we are going to explore using built-in operating system indexing features to search for information in files on the machine. We focus on Windows in this post, and you can find similar technqiues and tips in my book for macOS.</p>
+
+<h2 id="windows-built-in-indexing-features">Windows Built-in Indexing Features</h2>
+
+<p><strong>Querying the index is fast</strong>, especially compared to manually grep&rsquo;ing through files. And using indexing is especially useful when you want to search binary file types or generally files that have custom word-breakers or formats.</p>
+
+<p>In Windows the OS is indexing files constantly, and you can inspect the configuration and what kind of files are indexed by visiting the <strong>&ldquo;Indexing Options&rdquo;</strong> settings page:</p>
+
+<p><img src="/blog/images/2020/windows-indexing.png" alt="Windows Search - Index Options" /></p>
+
+<p>The configuration shows if the index includes meta data or also the file contents per each file type.</p>
+
+<h2 id="searching-the-index">Searching the Index</h2>
+
+<p>The index is stored in a SQL database and the following script shows how to connect and search using PowerShell, but you can use any other technology that you are comfortable with.</p>
+
+<p>You can also find this script on my <a href="https://github.com/wunderwuzzi23/searchutils/blob/master/Invoke-WindowsSearch.ps1">Github:</a></p>
+
+<pre><code>function Invoke-WindowsSearch
+{
+    param
+    (
+     [Parameter()][string] $SearchString = &quot;password&quot;
+    )
+    $SearchString = $SearchString.Replace(&quot;'&quot;,&quot;''&quot;)
+    $query   = &quot;select system.itemname, system.itempathdisplay from systemindex where contains('$SearchString')&quot;
+    $provider = &quot;Provider=Search.CollatorDSO.1;Extended?PROPERTIES='Application=Windows'&quot;
+    $adapter  = new-object System.Data.OleDb.OleDBDataAdapter -Argument $query, $provider
+    $results = new-object System.Data.DataSet
+
+    $adapter.Fill($results)
+    $results.Tables[0]
+}
+</code></pre>
+
+<p><em>You&rsquo;ll notice escaping the single-quote, which is something you might not have to worry about as long as you aren&rsquo;t running it as part of a trusted subsystem, or take untrusted input.</em></p>
+
+<p>The following screenshot shows searching the entire machine (if running as an admin) for passwords within a few moments by querying the index:</p>
+
+<p><img src="/blog/images/2020/invoke-windowssearch.png" alt="Invoke-WindowsSearch Example" /></p>
+
+<p>I added this function to my <a href="https://devblogs.microsoft.com/scripting/understanding-the-six-powershell-profiles/">PowerShell Profile</a>, since its also useful during day to day work (not just red teaming).</p>
+
+<p>There are more code examples on how to use Windows Search with a variety of technology stacks available on <a href="https://github.com/microsoft/Windows-classic-samples/tree/master/Samples/Win7Samples/winui/WindowsSearch">Microsoft&rsquo;s Github</a>.</p>
+
+<p>Let’s look at the search query language features in a bit more detail.</p>
+
+<h3 id="exploring-more-advanced-full-text-search-features">Exploring more advanced full-text search features</h3>
+
+<p>There are a wide set of features that can be leveraged when querying, such as <strong>CONTAINS</strong>, <strong>FREETEXT</strong>, and <strong>LIKE</strong> usage in the <strong>WHERE</strong> clause. This following <a href="https://docs.microsoft.com/en-us/windows/win32/search/-search-sql-ovwofsearchquery">link</a> gives an overview of Windows Search, as well as the query language’s capabilities, including <em>relevance</em> and <em>ranking</em>.</p>
+
+<p>Feel free to read up on the documentation to explore the full power of full text searching.</p>
+
+<h3 id="searching-the-index-of-remote-machines">Searching the index of remote machines</h3>
+
+<p>If a host has SMB exposed its also possible (depending on configuration) to <strong>search its index remotely</strong>. This is extremly useful when searching for information on SMB file servers for instance. There are more details about this in my book, but basically you can leverage the <strong>SCOPE</strong> parameter in the query to do that.</p>
+
+<p>That&rsquo;s it, hope this was useful.</p>
+
+<h3 id="red-team-strategies">Red Team Strategies</h3>
+
+<p>If you liked this post and found it informative or inspirational, you might be interested in the book <a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">&ldquo;Cybersecurity Attacks - Red Team Strategies&rdquo;</a>. The book is filled with creative ideas, research and fundamental techniques, as well as red teaming program and people mangement aspects.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://github.com/microsoft/Windows-classic-samples/tree/master/Samples/Win7Samples/winui/WindowsSearch">Windows Search - Examples</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/win32/search/-search-sql-ovwofsearchquery">Windows Search - SQL Overview</a></li>
+<li><a href="https://devblogs.microsoft.com/scripting/understanding-the-six-powershell-profiles/">PowerShell Profiles</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <section class="author-info row">
+      <div class="author-avatar col-md-2">
+        
+      </div>
+      <div class="author-meta col-md-6">
+        
+        
+      </div>
+      
+      <div class="author-contact col-md-4">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+      </div>
+      
+    </section>
+    <ul class="pager">
+      
+      <li class="previous"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      &copy; WUNDERWUZZI 2020
+    </div>
+    <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <script src="https://wunderwuzzi23.github.io/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-90341594-2', 'auto');  
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview', { 'anonymizeIp': true });
+  </script>
+  
+  
+</body>
+</html>
+

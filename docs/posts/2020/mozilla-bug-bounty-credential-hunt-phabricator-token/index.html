@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Mozilla Bug Bounty Credential Hunt Phabricator Token &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://wunderwuzzi23.github.io/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-04-25T14:20:25-07:00" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="ttp" />
+  
+  <meta property="og:article:tag" content="book" />
+  
+  <meta property="og:article:tag" content="bugbounty" />
+  
+  
+
+  <title>
+     Mozilla Bug Bounty Credential Hunt Phabricator Token &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/main.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://wunderwuzzi23.github.io/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://wunderwuzzi23.github.io/blog/images/apple-touch-icon.png" />
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://wunderwuzzi23.github.io/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line">
+        Embrace the Red
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+      
+      <a href="https://wunderwuzzi23.github.io/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Mozilla Bug Bounty Credential Hunt Phabricator Token</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-04-25T14:20:25-07:00">
+          Apr 25, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/ttp">#ttp</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/book">#book</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/bugbounty">#bugbounty</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+
+<h3 id="mozilla-phabricator-token-exposure">Mozilla Phabricator Token Exposure</h3>
+
+<p>A few days ago I did some security research on Firefox, learning more about code and testing features. One thing I noticed during this research was that Mozilla uses <em>Phabricator</em>.</p>
+
+<h3 id="what-is-phabricator">What is Phabricator?</h3>
+
+<p><em>Phabricator</em> is a collaborative web-based toolset for code reviews, checkins, bugs, work items, wiki, pastes, credentials and many other useful things.</p>
+
+<h3 id="api-tokens">API Tokens</h3>
+
+<p>From past work experience I know that its common for developers to create API tokens for command line usage to interact with Phabricator. There is a tool called <strong>arcanist</strong> that is typically used to for instance perform code checkins via <code>arc land</code> and so forth.</p>
+
+<p>These tokens usually start with <code>api-</code> or <code>cli-</code> followed by 28 random characters.</p>
+
+<p>Mozilla actively encourages security research and bounty hunting to help improve the security posture of their software and services. <a href="https://www.mozilla.org/en-US/security/bug-bounty/">Here</a> an excerpt from Mozilla&rsquo;s bug bounty page:</p>
+
+<blockquote>
+<p>Mozilla strongly supports security research into our products and wants to encourage that research.</p>
+</blockquote>
+
+<p>Equipped with this intel and knowing that Mozilla encourages security research, I performed a <strong>targeted Phabricator Credential Hunt</strong> for Mozilla.</p>
+
+<h3 id="targeted-credential-hunt">Targeted Credential Hunt</h3>
+
+<p>As described in an earlier post, <strong><a href="/blog/posts/2020/hunting-for-credentials">Credential Hunting</a></strong> is a dedicated and <strong>targeted activity</strong> that I recommend performing during red teaming and penetreation testing. After gaining some basic intel into systems used, targeted credential hunting can yield great results.</p>
+
+<p>Using the info and techniques from the previous post and my book, <strong>I had found a valid Mozilla Phabricator API token within a few minutes</strong>.</p>
+
+<h3 id="token-validation">Token Validation</h3>
+
+<p>I used the Phabricator <strong>whoami</strong> API to validate that the token is valid and which account it was impersonating.</p>
+
+<pre><code>curl https://*[phabricatorinstancehere]*/api/user.whoami -d api.token=*api-xxxx*
+</code></pre>
+
+<p>The response showed that the token impersonated a Mozilla employee. Being an <em>ethical hacker</em> and security professional I obviously did not attempt to perform malicious activity or exfiltrate data.</p>
+
+<h3 id="reporting">Reporting</h3>
+
+<p><strong>At that point I promptly reported this issue to Mozilla and they fixed it basically immediatley</strong>. They also performed forensic investigation to ensure no other misuse had occured.</p>
+
+<p><strong>It was very impressive to watch Mozilla&rsquo;s professionalism during the response.</strong></p>
+
+<h3 id="the-power-of-credential-hunting">The power of Credential Hunting</h3>
+
+<p>This is an example to show how powerful it can be to perform <strong>active credential hunts</strong> for your clients or corporation. Tokens often are out there but automated scanning tools might not be able to identify or validate them yet.</p>
+
+<h2 id="red-team-strategies">Red Team Strategies</h2>
+
+<p>If you liked this post and found it informative or inspirational, you might be interested in the book <a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">&ldquo;Cybersecurity Attacks - Red Team Strategies&rdquo;</a>. It is filled with further ideas, research and fundamental techniques, as well as red teaming program and people mangement aspects.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://www.mozilla.org/en-US/security/bug-bounty/">Mozilla Bug Bounty</a></li>
+<li><a href="https://github.com/wunderwuzzi23/scratch/blob/master/creds.md">Credentials Reference - Markdown</a></li>
+<li><a href="https://github.com/wunderwuzzi23/scratch/blob/master/creds.csv">Credentials Reference - CSV</a></li>
+<li><a href="https://phacility.com/phabricator">Phabricator</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <section class="author-info row">
+      <div class="author-avatar col-md-2">
+        
+      </div>
+      <div class="author-meta col-md-6">
+        
+        
+      </div>
+      
+      <div class="author-contact col-md-4">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+      </div>
+      
+    </section>
+    <ul class="pager">
+      
+      <li class="previous"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/conceptual-attack-graphs/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+      
+      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/invoke-windowssearch-credential-hunt/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      &copy; WUNDERWUZZI 2020
+    </div>
+    <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <script src="https://wunderwuzzi23.github.io/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-90341594-2', 'auto');  
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview', { 'anonymizeIp': true });
+  </script>
+  
+  
+</body>
+</html>
+

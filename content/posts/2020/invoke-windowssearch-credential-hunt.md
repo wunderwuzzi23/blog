@@ -1,6 +1,6 @@
 ---
 title: "Leveraging built-in operating system indexing features for credential hunting"
-date: 2020-04-26T11:56:51-07:00
+date: 2020-05-23T11:56:51-07:00
 draft: true
 tags: [
         "red",
