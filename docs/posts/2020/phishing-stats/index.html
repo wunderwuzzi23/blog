@@ -106,9 +106,9 @@
   <section>
     <p>The results of phishing campaigns are often not comparable with each other over time. Various security vendors and red teams use different tooling and techniques - which is totally fine.</p>
 
-<p>I recommend <strong>tracking a minimum set of metrics to be able to compare results over time</strong>.</p>
+<p>However, I recommend requiring <strong>tracking a minimum set of metrics to be able to compare results over time</strong>.</p>
 
-<p><em>Funny side facts: At times employees are messing with the red team, entering invalid creds for CISO or CEO and things along those lines. Some employees (often engineers) are curious and open the mail in isolated VMs to debug and explore the phishing site.</em></p>
+<p><em>Funny side facts: At times employees are messing with the red team, entering invalid creds for CISO or CEO and things along those lines. Some employees (often engineers) are curious and open the link in isolated VMs to debug and explore the phishing site.</em></p>
 
 <p><strong>These side effects make phishing stats that don&rsquo;t track various stages precisley less meaningful.</strong></p>
 
@@ -119,22 +119,22 @@
 <ol>
 <li><strong>Were security controls artificially weakened?</strong> Yes/No - some vendors might require to be whitelisted, a red team (hopefully) tries to circumvent controls.</li>
 <li><strong>Number of users the phishing email was sent to</strong></li>
-<li><strong>The bounce rate</strong> (were any of the mails outright rejected)</li>
-<li><strong>Number users who opened/viewed the email</strong> (rough approximation via a tracking pixel)</li>
+<li><strong>The bounce rate</strong> - were any of the mails outright rejected?</li>
+<li><strong>Number of users who opened/viewed the email</strong> - rough approximation via a tracking pixel in email</li>
 <li><strong>Number of users who clicked the link</strong></li>
-<li><strong>Number of users who entered <em>valid</em> username</strong> (must match some identifier in email to filter out, and identify, trolling)</li>
-<li><strong>Number of users who who entered a password</strong></li>
+<li><strong>Number of users who entered <em>valid</em> username</strong> - must match some identifier in email to filter out, and identify, trolling.</li>
+<li><strong>Number of users who entered a password</strong></li>
 <li><strong>Number of users who entered their valid(!) password</strong></li>
-<li><strong>Number of users who entered MFA/code or submitted a push notification</strong> - more variants possible, can be split out by MFA method</li>
+<li><strong>Number of users who entered MFA/code or submitted a push notification</strong> - more variants possible, can be split out by MFA method (push, text message, authenticator app code,&hellip;)</li>
 <li><strong>Number of users who&rsquo;s auth cookies got stolen (full compromise)</strong></li>
 <li><strong>Number of users who reported the phish</strong></li>
 </ol>
 
-<p>Its best to also provide the ratio for each of the metrics. Without sharing the details its at times difficult to compare phishing results. If you do it in purple teaming fashion you can get more precise information around delivery and who viewed/reported/deleted it.</p>
+<p>Its best to also provide the ratio for each of the metrics. Without sharing the details its at times difficult to compare phishing results. If you do excercises in purple teaming fashion you can get more precise information around delivery and who viewed/reported/deleted it and also measure if blue team is able to block ongoing attacks =&gt; Get a metric from first report to active block/mitigation being put in place (mean-time-to-block) MTTB.</p>
 
 <p><strong>Interesting fact: What I have seen is that the number of users entering their valid password and those that complete the MFA flow on the phishing site is often nearly the same - more then 90% of users who entered their password, will also complete the MFA login flow on the phishing site.</strong></p>
 
-<p>Clients are at times still surprised that the a full acconunt compromise is possible, even though MFA is in place. Deployment and adoption of security keys (usage of WebAuthN and FIDO2) is less well understood. We need to continue advocating for broader adoption.</p>
+<p>Clients are at times still surprised that a full account compromise is possible, even though MFA is in place. Deployment and adoption of security keys (usage of WebAuthN and FIDO2) is less well understood. We need to continue advocating for broader adoption.</p>
 
 <hr />
 
