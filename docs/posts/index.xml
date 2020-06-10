@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Sun, 24 May 2020 00:26:01 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2020 11:23:20 -0700</lastBuildDate>
     
 	<atom:link href="https://wunderwuzzi23.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Red Teaming and Monte Carlo Simulations</title>
+      <link>https://wunderwuzzi23.github.io/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</link>
+      <pubDate>Tue, 09 Jun 2020 11:23:20 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</guid>
+      <description>Being a red teamer means to challenge an organization. This includes analyzing business processes and methodologies, including our own.
+In this post I will discuss how using Monte Carlo simulations can be a useful tool to uplevel your red teaming skills and provide a different and fresh perspective on highlighting, discussing and presenting findings and vulnerabilities.
+Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in Hubbard&amp;rsquo;s book about measuring cybersecurity risk.</description>
+    </item>
     
     <item>
       <title>Phishing metrics - what to track?</title>
