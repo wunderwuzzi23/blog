@@ -9,9 +9,7 @@ tags: [
     ]
 ---
 
-Red teaming is about challenging an organization. This includes analyzing business processes and methodologies, including our own.
-
-In this post I will discuss how using Monte Carlo simulations can be a useful tool to uplevel your red teaming skills and provide a different and fresh perspective on highlighting, discussing and presenting findings.
+In this post I will discuss how using Monte Carlo simulations can be a useful tool to uplevel your red teaming skills and provide a different and fresh perspective for highlighting, discussing and presenting findings. Red teaming is about challenging an organization. This includes analyzing business processes and methodologies, including our own.
 
 Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in [Hubbard's book about measuring cybersecurity risk](https://www.howtomeasureanything.com/cybersecurity/). Since then I have been thinking and playing around with applying these methods to security program's, especially red teaming and threat modeling.
 
@@ -44,8 +42,7 @@ This brings us to the interesting question on how to apply these techniques to r
 
 Most readers probably will immediately object that such a statement is flawed. And that its not possible to measure or predict probabilities and future financial implications of a vulnerability accurately. 
 
-**This is where the Monte Carlo simulations come into the picture, they model allow modeling this complexity maze and the possible outcomes of such uncertain events.**
-
+**This is where the Monte Carlo simulations come into the picture, they help us to navigate this complexity maze and model possible outcomes of uncertain events.**
 
 ## Show me the money!
 
@@ -55,14 +52,16 @@ Interestingly, over the last two decades the security industry **already** moved
 
 For instance, [Facebook just paid out $20000 for a Cross Site Scripting vulnerability](https://vinothkumar.me/20000-facebook-dom-xss/). 
 
-Other companies might set the value of an of an XSS lower, but stakes might also be much lower compared to Facebook - **which is exactly what the discussion has to be about**. 
+Other companies might set the value of for an XSS lower, but stakes might also be much lower compared to Facebook's - **which is exactly what the discussion should be about**. 
 
 Recently, I received a [$3000 payout from Mozilla](https://wunderwuzzi23.github.io/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/) for reporting a vulnerability. (*shameless self-promotion :))*
 
 #### What does this mean though?
 **This means there is already a framework established in the industry that we can leverage.**
 
-Bug bounty payouts should probably be seen at the lower end of the actual cost of such a vulnerability. At the higher end we have the actual exploits, breaches and costumer data that might be stolen and **regulatory fines** that companies that come with that. These considerations can help guide towards an upper boundary for predictions when performing Monte Carlo simulations to model the potential loss due to security vulnerabilities.
+Bug bounty payouts should probably be seen at the lower end of the actual cost of such a vulnerability. At the higher end we have the actual exploits, breaches and costumer data that might be stolen and **regulatory fines** that come with breaches. 
+
+These considerations can help guide towards an upper boundary for predictions when performing Monte Carlo simulations to model the potential financial loss due to security vulnerabilities.
 
 ## Old school severity ratings and scores
 Most security programs leverage a security bug bar and/or CVSS score to assign severity vulnerabilities. This helps to shine light on the most problematic issues, and to assign resources quickly to implement mitigations.
