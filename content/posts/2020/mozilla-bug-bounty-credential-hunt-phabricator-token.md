@@ -65,6 +65,9 @@ This is an example to show how useful it is to perform **active and targeted cre
 ### Red Team Strategies
 If you liked this post and found it informative or inspirational, you might be interested in my book ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM). It is filled with further ideas, research and fundamental techniques, as well as red teaming program and people mangement aspects.
 
+
+Also, feel free to follow or DM me on Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
+
 ### References
 * [Mozilla Bug Bounty](https://www.mozilla.org/en-US/security/bug-bounty/)
 * [Credentials Reference - Markdown](https://github.com/wunderwuzzi23/scratch/blob/master/creds.md)

@@ -85,3 +85,5 @@ You can find the PowerPoint presentation at the below link, feel free to use and
 Let me know if this is useful, and I'm also curious how others present attack graphs during debriefs. 
 
 And, if you find the information useful and like the book please leave a review on Amazon. :)
+
+Also, feel free to follow or DM me on Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)

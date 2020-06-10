@@ -185,6 +185,7 @@ Chrome also has the `--remote-debugging-address` feature, that an adversary can 
 ## Red Team Strategies
 If you liked this post and found it informative or inspirational, you might be interested in the book ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM). The book is filled with further ideas, research and fundamental techniques, as well as red teaming program and people mangement aspects.
 
+Also, feel free to follow or DM me on Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 
 ### Hiccups and changes
 Chrome changes quite frequently, so some things need updates and then a few months later they original attacks work again. When I did this the very first time, like over a year ago, there were some URL hiccups that I had to resolve, and described a bit more in the book - but its pretty straight forward to figure out.

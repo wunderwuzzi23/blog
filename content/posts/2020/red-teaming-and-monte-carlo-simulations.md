@@ -9,9 +9,9 @@ tags: [
     ]
 ---
 
-Being a red teamer means to challenge an organization. This includes analyzing business processes and methodologies, including our own.
+Red teaming is about challenging an organization. This includes analyzing business processes and methodologies, including our own.
 
-In this post I will discuss how using Monte Carlo simulations can be a useful tool to uplevel your red teaming skills and provide a different and fresh perspective on highlighting, discussing and presenting findings and vulnerabilities.
+In this post I will discuss how using Monte Carlo simulations can be a useful tool to uplevel your red teaming skills and provide a different and fresh perspective on highlighting, discussing and presenting findings.
 
 Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in [Hubbard's book about measuring cybersecurity risk](https://www.howtomeasureanything.com/cybersecurity/). Since then I have been thinking and playing around with applying these methods to security program's, especially red teaming and threat modeling.
 
@@ -44,7 +44,7 @@ This brings us to the interesting question on how to apply these techniques to r
 
 Most readers probably will immediately object that such a statement is flawed. And that its not possible to measure or predict probabilities and future financial implications of a vulnerability accurately. 
 
-**This is where the Monte Carlo simulations comes into the picture, they allow to model this complexity maze and the possible outcomes of such uncertain events.**
+**This is where the Monte Carlo simulations come into the picture, they model allow modeling this complexity maze and the possible outcomes of such uncertain events.**
 
 
 ## Show me the money!
@@ -53,10 +53,13 @@ Interestingly, over the last two decades the security industry **already** moved
 
 ![Show me the money!](/blog/images/2020/dollars.png)
 
-For instance, **[Facebook just recently paid out $20000 for a Cross Site Scripting vulnerability](https://vinothkumar.me/20000-facebook-dom-xss/)**. 
+For instance, [Facebook just paid out $20000 for a Cross Site Scripting vulnerability](https://vinothkumar.me/20000-facebook-dom-xss/). 
 
-Other companies might set the value of an of an XSS lower, but stakes might also be much lower compared to Facebook - **which is exactly what the discussion has to be about**. Recently I received a $3000 payout from Mozilla for reporting a vulnerability.
+Other companies might set the value of an of an XSS lower, but stakes might also be much lower compared to Facebook - **which is exactly what the discussion has to be about**. 
 
+Recently, I received a [$3000 payout from Mozilla](https://wunderwuzzi23.github.io/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/) for reporting a vulnerability. (*shameless self-promotion :))*
+
+#### What does this mean though?
 **This means there is already a framework established in the industry that we can leverage.**
 
 Bug bounty payouts should probably be seen at the lower end of the actual cost of such a vulnerability. At the higher end we have the actual exploits, breaches and costumer data that might be stolen and **regulatory fines** that companies that come with that. These considerations can help guide towards an upper boundary for predictions when performing Monte Carlo simulations to model the potential loss due to security vulnerabilities.
@@ -64,33 +67,20 @@ Bug bounty payouts should probably be seen at the lower end of the actual cost o
 ## Old school severity ratings and scores
 Most security programs leverage a security bug bar and/or CVSS score to assign severity vulnerabilities. This helps to shine light on the most problematic issues, and to assign resources quickly to implement mitigations.
 
-![CVSS](/blog/images/2020/cvss10.png)
-
 ### What about the business context of a vulnerability?
 These frameworks and scores (unless adjusted and documented internally, *which I have never seen*) lack the appropriate business context to make the best decisions on where to allocate resources. 
 
 **CVSS scores have to be seen in isolation, in their own little sandbox, they can't easily be compared with each other.**
 
+![CVSS](/blog/images/2020/cvss10.png)
+
 They also don't compute well. For instance, two Medium 5.0 scored vulnerabilities can't be added up to state that there is a Critical 10.0 vulnerability. 
 
 > CVSS is great starting point to describe a vulnerability by itself, at its technical core. However, the score has little todo with the actual severity or impact the vulnerability has to surrounding systems, the organization and it's business.
 
-**This means by itself it provides limited value when modeling the security posture to enable the best possible resource allocation.**
+This means by itself it provides limited value when modeling the security posture to enable the best possible resource allocation. 
 
-### Bug Jail
-Some companies create work arounds to mitigates some of the challenges of growing security debt, like the creation of "bug jails". 
-
-![Bug jail](/blog/images/2020/bugjail.png)
-
-A bug jail means that an owner of a system can never have more then a certain upper limit of bugs. Let's say the bug jail is set at 5. Applying this to security bugs, this means that you cannot do any feature work until the count of security vulnerabilities (overall) is below 5.
-
-**Bug jails** are not a bad idea in my opinion, they attempt to prevent aggregation of security debt.
-
-### Compliance programs
-
-**Compliance programs might even hurt organizations because they focus on scores like a CVSS provided by a tool - without considering the context to the organization or business.** This might mean your organization incorrectly allocates resources and does not achieve the best return of investment when it comes to preventing breaches. 
-
-Let's explore how a Monte Carlo simulation can aide in presenting red teaming findings by augmenting an attack graph with additional data points.
+**Let's explore how a Monte Carlo simulation can aide in presenting red teaming findings by augmenting an attack graph with additional data points.**
 
 # Attack Graphs, Threat Modeling and Monte Carlo simulations 
 
@@ -126,11 +116,13 @@ The idea is to move towards discussing financial implications of identified vuln
 
 If you found this post interesting or inspiring, my book [Cybersecurity Attacks: Red Team Strategies](https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869) has an entire chapter on measuring a red team program and red teaming results. 
 
+Also, feel free to follow or DM me on Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
+
 
 # References
 * How to Measure Anything Cybersecurity Risk, Hubbard - https://www.howtomeasureanything.com/cybersecurity/
 * $20000 Facebook DOM XSS https://vinothkumar.me/20000-facebook-dom-xss/
-* Royalty Free Images - (no attribution required, still providing though as reference -  retrieved 6/9/2020)
-    https://www.pexels.com/photo/luxury-monaco-port-yachts-3586/ 
-    https://www.pexels.com/photo/5-strike-symbol-1010973/
 * CVSS - https://www.first.org/cvss/
+* Royalty Free Images - (no attribution required, still providing though as reference -  retrieved 6/9/2020)
+   *  https://www.pexels.com/photo/luxury-monaco-port-yachts-3586/ 
+   *  https://www.pexels.com/photo/5-strike-symbol-1010973/

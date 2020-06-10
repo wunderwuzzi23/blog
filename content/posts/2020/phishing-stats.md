@@ -38,6 +38,9 @@ Its best to also provide the ratio for each of the metrics. Without sharing the 
 
 Clients are at times still surprised that a full account compromise is possible, even though MFA is in place. Deployment and adoption of security keys (usage of WebAuthN and FIDO2) is less well understood. We need to continue advocating for broader adoption.
 
+
+If you found this interesting and informational, feel free to follow or DM me on Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
+
 ---
 
 [![KoiPhish](/blog/images/2020/koiphish.png)](/blog/images/2020/koiphish.png)

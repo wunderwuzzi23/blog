@@ -53,4 +53,7 @@ These are the basic steps to learn more about this feature:
 ## Final Take-Away
 **One key take-away is that malware and exploits that target Chrome (Chromium), will likely often work on the new Edge browser with minimal adjustments, if any.**
 
+
+If you found this information useful, feel free to follow or DM me on Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
+
 ![Hacker](/blog/images/2020/hacker.png)
