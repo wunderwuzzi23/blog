@@ -147,9 +147,7 @@
 
 <p>Most readers probably will immediately object that such a statement is flawed. And that its not possible to measure or predict probabilities and future financial implications of a vulnerability accurately.</p>
 
-<p>This is where the Monte Carlo simulations comes into the picture.</p>
-
-<p><strong>Monte Carlo simulations allow to model this complexity maze and the possible outcomes of such uncertain events.</strong></p>
+<p><strong>This is where the Monte Carlo simulations comes into the picture, they allow to model this complexity maze and the possible outcomes of such uncertain events.</strong></p>
 
 <h2 id="show-me-the-money">Show me the money!</h2>
 
@@ -169,6 +167,8 @@
 
 <p>Most security programs leverage a security bug bar and/or CVSS score to assign severity vulnerabilities. This helps to shine light on the most problematic issues, and to assign resources quickly to implement mitigations.</p>
 
+<p><img src="/blog/images/2020/cvss10.png" alt="CVSS" /></p>
+
 <h3 id="what-about-the-business-context-of-a-vulnerability">What about the business context of a vulnerability?</h3>
 
 <p>These frameworks and scores (unless adjusted and documented internally, <em>which I have never seen</em>) lack the appropriate business context to make the best decisions on where to allocate resources.</p>
@@ -181,14 +181,17 @@
 <p>CVSS is great starting point to describe a vulnerability by itself, at its technical core. However, the score has little todo with the actual severity or impact the vulnerability has to surrounding systems, the organization and it&rsquo;s business.</p>
 </blockquote>
 
-<p>This means by itself it provides limited value when modeling the security posture to enable the best possible resource allocation.</p>
+<p><strong>This means by itself it provides limited value when modeling the security posture to enable the best possible resource allocation.</strong></p>
 
 <h3 id="bug-jail">Bug Jail</h3>
 
-<p>Some companies create work arounds to mitigates some of the challenges of growing security debt, like the creation of &ldquo;bug jails&rdquo;. A bug jail means that an owner of a system can never have more then a certain upper limit of bugs. Let&rsquo;s say the bug jail is set at 5. Applying this to security bugs, this means that you cannot do any feature work until the count of security vulnerabilities (overall) is below 5.
-<img src="/blog/images/2020/bugjail.png" alt="Bug jail" /></p>
+<p>Some companies create work arounds to mitigates some of the challenges of growing security debt, like the creation of &ldquo;bug jails&rdquo;.</p>
 
-<p><strong>Bug jails</strong> are not that bad in my opinion, they attempt to prevent the aggregation of security debt over time.</p>
+<p><img src="/blog/images/2020/bugjail.png" alt="Bug jail" /></p>
+
+<p>A bug jail means that an owner of a system can never have more then a certain upper limit of bugs. Let&rsquo;s say the bug jail is set at 5. Applying this to security bugs, this means that you cannot do any feature work until the count of security vulnerabilities (overall) is below 5.</p>
+
+<p><strong>Bug jails</strong> are not a bad idea in my opinion, they attempt to prevent aggregation of security debt.</p>
 
 <h3 id="compliance-programs">Compliance programs</h3>
 
@@ -208,7 +211,7 @@
 <li>Hubbard suggests having at least five experts perform steps 1-2 and to take the average as a good enough starting point</li>
 </ol>
 
-<p><strong>The following image shows how this could be visually presented:</strong>
+<p>The following image shows how this could be visually presented:
 <a href="/blog/images/2020/graph.png"><img src="/blog/images/2020/graph.png" alt="Attack Graph" /></a></p>
 
 <p>We can use <strong>Excel&rsquo;s What If Analysis</strong> to perform a Monte Carlo simulation using the modeled probabilities and estimated financial loss per threat. Hubbard provides <a href="http://www.howtomeasureanything.com/cybersecurity/">an Excel template file</a> as well on his website for download, if you want to play around with these ideas.</p>
@@ -242,6 +245,7 @@
 <li>Royalty Free Images - (no attribution required, still providing though as reference -  retrieved 6/9/2020)
 <a href="https://www.pexels.com/photo/luxury-monaco-port-yachts-3586/">https://www.pexels.com/photo/luxury-monaco-port-yachts-3586/</a>
 <a href="https://www.pexels.com/photo/5-strike-symbol-1010973/">https://www.pexels.com/photo/5-strike-symbol-1010973/</a></li>
+<li>CVSS - <a href="https://www.first.org/cvss/">https://www.first.org/cvss/</a></li>
 </ul>
 
   </section>
