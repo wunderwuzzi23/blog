@@ -1,6 +1,6 @@
 ---
 title: "Red Teaming and Monte Carlo Simulations"
-date: 2020-06-09T11:23:20-07:00
+date: 2020-06-10T11:23:20-07:00
 draft: true
 tags: [
         "red",
