@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/2020/bugjail/</loc>
+    <lastmod>2020-06-11T10:00:25-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://wunderwuzzi23.github.io/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</loc>
     <lastmod>2020-06-10T11:23:20-07:00</lastmod>
   </url>
@@ -238,7 +243,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/posts/</loc>
-    <lastmod>2020-06-10T11:23:20-07:00</lastmod>
+    <lastmod>2020-06-11T10:00:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -269,6 +274,12 @@
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/research/</loc>
     <lastmod>2020-02-15T15:48:51-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/sdl/</loc>
+    <lastmod>2020-06-11T10:00:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -304,7 +315,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/</loc>
-    <lastmod>2020-06-10T11:23:20-07:00</lastmod>
+    <lastmod>2020-06-11T10:00:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   
