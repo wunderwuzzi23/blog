@@ -36,7 +36,7 @@ How does this apply to threat modeling or red teaming?
 
 ## Old school severity ratings and scores
 
-To set the stage, let's first look at the traditional way security programs and red teams try to measure impact of vulnerability. Usually programs leverage a security bug bar and/or CVSS scores to assign ratings to vulnerabilities. This helps to shine light on the most problematic issues, and to assign resources quickly to implement mitigations. Its a framework that allows discussion and prioritization, but it lacks important aspects to make consistent and the best possible decisions.
+To set the stage, let's first look at the traditional way security programs and red teams try to measure the impact of vulnerabilities. Usually programs leverage a security bug bar and/or CVSS scores to assign ratings to vulnerabilities. This helps to shine light on the most problematic issues, and to assign resources quickly to implement mitigations. Its a framework that allows discussion and prioritization, but it lacks important aspects to make consistent and the best possible decisions.
 
 ### What about the business context of a vulnerability?
 
@@ -52,7 +52,7 @@ They also don't compute well. For instance, two Medium 5.0 scored vulnerabilitie
 
 This means by themselves these traditional techniquess and rating systems provide limited value when modeling the security posture to enable the best possible resource allocation. 
 
-**Let's explore how a Monte Carlo simulation can aide in presenting red teaming findings by augmenting an attack graph with additional data points, including financial implications.**
+**Let's explore how a Monte Carlo simulation can aid in presenting red teaming findings by augmenting an attack graph with additional data points, including financial implications.**
 
 ## Measuring the financial impact of a vulnerability
 
