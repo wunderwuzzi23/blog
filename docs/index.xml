@@ -7,20 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Wed, 10 Jun 2020 15:40:25 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jun 2020 10:00:25 -0700</lastBuildDate>
     
 	<atom:link href="https://wunderwuzzi23.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Putting owners in Security Bug Jail</title>
+      <title>Putting system owners in Security Bug Jail</title>
       <link>https://wunderwuzzi23.github.io/blog/posts/2020/bugjail/</link>
-      <pubDate>Wed, 10 Jun 2020 15:40:25 -0700</pubDate>
+      <pubDate>Thu, 11 Jun 2020 10:00:25 -0700</pubDate>
       
       <guid>https://wunderwuzzi23.github.io/blog/posts/2020/bugjail/</guid>
       <description>Some organization have this interesting concept of a bug jail to prevent new feature development when there are too many existing flaws in the system.
-For instance, if an engineer has more then 10 bugs assigned they aren&amp;rsquo;t allowed to work on anything else but fixing their bugs.
-What is the Security Bug Jail? A security bug jail goes along the same lines, the owner of a system can never have more then a certain upper limit of security bugs.</description>
+For instance, if an engineer has 5 or more bugs assigned they aren&amp;rsquo;t allowed to work on anything else but fixing their bugs.
+What is the Security Bug Jail? A security bug jail goes along the same lines. The owner of a system can never have more than a certain upper limit of active security bugs.</description>
     </item>
     
     <item>
