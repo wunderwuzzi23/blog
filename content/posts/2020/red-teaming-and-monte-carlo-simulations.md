@@ -42,9 +42,9 @@ To set the stage, let's first look at the traditional way security programs and 
 
 Traditional models often use ratings such as CVSS scores. The problem with those is that they lack the appropriate context to make the best decisions on where to allocate resources. This includes a lack of business context and the financial implications a vulnerability or threat has to the organization.
 
-**CVSS scores have to be seen in isolation, in their own little sandbox, they can't easily be compared with each other.**
-
 ![CVSS](/blog/images/2020/cvss10.png)
+
+**CVSS scores have to be seen in isolation, in their own little sandbox, they can't easily be compared with each other.**
 
 They also don't compute well. For instance, two Medium 5.0 scored vulnerabilities can't be added up to state that there is a Critical 10.0 vulnerability. 
 
@@ -84,7 +84,7 @@ Bug bounty payouts should probably be seen at the lower end of the actual cost o
 
 These considerations can help guide towards an upper boundary for predictions when performing Monte Carlo simulations to model the potential financial loss due to security vulnerabilities.
 
-# Attack Graphs, Threat Modeling and Monte Carlo simulations 
+# Attack Graphs, Threat Modeling and Monte Carlo Simulations 
 
 In this section I'm going to apply Hubbard's approach and basic substitution methodology to a basic attack graph in order to run a Monte Carlo simulation.
 
@@ -109,7 +109,7 @@ This gives business decision makers a much better understanding around the poten
 With requirements such as GDPR, adding appropriate financial implications can educate leadership to take action and invest in areas to limite exposure and mitigate risks.
 
 ## But wait, isn't this too detailed?
-There is a fair point to be made if an analysis on a individual vulnerability level is too detailed, too much in the weeds. At this point the goals is to experiment and how weel this technique works in modeling exposure over time and help improving our understanding of risks.
+There is a fair point to be made if an analysis on a individual vulnerability level is too detailed, too much in the weeds. At this point the goals is to experiment and how well this technique works in modeling exposure over time and help improving our understanding of risks.
 
 # Conclusion
 In this post we highlighted some ideas on how to use Monte Carlo simulations to better model threats. The idea is to move towards discussing financial implications of identified threats and vulnerabilities, rather than purely depend on a technical scoring system.
