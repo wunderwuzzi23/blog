@@ -1,6 +1,6 @@
 ---
 title: "Putting system owners in Security Bug Jail"
-date: 2020-06-11T10:00:25-07:00
+date: 2020-06-12T10:00:25-07:00
 draft: true
 tags: [
         "sdl"
