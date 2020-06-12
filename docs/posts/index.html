@@ -31,8 +31,9 @@
     <section class="header-text">
       <h1><a href="https://wunderwuzzi23.github.io/blog/">wunderwuzzi blog</a></h1>
       
-      <div class="tag-line">
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
         Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">Cybersecurity Attacks - Red Team Strategies</a> 
       </div>
       
       <div class="sns-links hidden-print">
@@ -80,6 +81,202 @@
 
 <section class="article-list">
   <h1>Posts</h1>
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/bugjail/">Putting system owners in Security Bug Jail</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-06-12T10:00:25-07:00">
+          Jun 12, 2020
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Some organization have this interesting concept of a bug jail to prevent new feature development when there are too many existing flaws in the system.
+For instance, if an engineer has 5 or more bugs assigned they aren&rsquo;t allowed to work on anything else but fixing their bugs.
+What is the Security Bug Jail? A security bug jail goes along the same lines. The owner of a system can never have more than a certain upper limit of active security bugs.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/bugjail/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/red-teaming-and-monte-carlo-simulations/">Red Teaming and Monte Carlo Simulations</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-06-10T11:23:20-07:00">
+          Jun 10, 2020
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Monte Carlo simulations can be a useful tool to uplevel your red teaming skills and provide a different and fresh perspective for highlighting, discussing and presenting findings.
+Red teaming is about challenging an organization. This includes analyzing business processes and methodologies, including our own.
+Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in Hubbard&rsquo;s book about measuring cybersecurity risk.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/red-teaming-and-monte-carlo-simulations/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/phishing-stats/">Phishing metrics - what to track?</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-05-24T00:26:01-07:00">
+          May 24, 2020
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    The results of phishing campaigns are often not comparable with each other over time. Various security vendors and red teams use different tooling and techniques - which is totally fine.
+However, I recommend requiring tracking a minimum set of metrics to be able to compare results over time.
+Funny side facts: At times employees are messing with the red team, entering invalid creds for CISO or CEO and things along those lines.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/phishing-stats/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/">$3000 Bug Bounty Award from Mozilla for a successful targeted Credential Hunt</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-05-13T18:00:25-07:00">
+          May 13, 2020
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Last month I did some research on Firefox, specifically I was learning more about it&rsquo;s remote debugging features. As part of that I was reading Bugzilla bug information and learned more about Mozilla&rsquo;s infrastructure.
+One thing I noticed reading up on details was that Mozilla uses Phabricator.
+What is Phabricator? Phabricator is a collaborative web-based toolset for code reviews, checkins, bugs, work items, wiki, pastes, credentials and many other useful things.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/cookie-crimes-on-mirosoft-edge/">Cookie Crimes and the new Microsoft Edge Browser</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-05-01T01:00:46-07:00">
+          May 1, 2020
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Revisiting Cookie Crimes In 2018 @mangopdf described &ldquo;Cookie Crimes&rdquo;, which is great research around Chrome&rsquo;s remote debugging feature that allows adversaries and malware to gain access to cookies quite convienently during post-exploitation.
+The original research is published here, and it still works today.
+The new Microsoft Edge browser and Chromium Microsoft&rsquo;s latest Edge browser is based on the same code, Chromium. I guess, you already know where this is going now&hellip;
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/cookie-crimes-on-mirosoft-edge/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/chrome-spy-remote-control/">Post-Exploitation: Abusing Chrome&#39;s debugging feature to observe and control browsing sessions remotely</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-04-28T18:00:00-07:00">
+          Apr 28, 2020
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Chrome&rsquo;s remote debugging feature enables malware post-exploitation to gain access to cookies. Root privileges are not required. This is a pretty well-known and commonly used adversarial technique - at least since 2018 when Cookie Crimes was released.
+However, remote debugging also allows observing user activities and sensitive personal information (aka spying on users) and controlling the browser from a remote computer.
+Below screenshot shows a simulated attacker controlling the victim&rsquo;s browser and navigating to chrome://settings to inspect information:
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/chrome-spy-remote-control/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
+    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/hunting-for-credentials/">Hunting for credentials and building a credential type reference catalog</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-04-26T12:31:29-07:00">
+          Apr 26, 2020
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Adversaries are leveraging widely exposed clear text credentials to gain access to sensitive information.
+At times the term &ldquo;harvesting credentials&rdquo; is used when red teamers emulate these attacks - which is something that appears to be more opportunistic and I would propose that security teams start to actively hunt for credential exposure that can put their organization at risk &ndash; in case you are not yet doing that.
+Actively hunting for credential exposure The idea of credential hunting is targeted and focused, leveraging intelligence about systems and combing it with powerful search techniques to identify exposure.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/hunting-for-credentials/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
   
   <hr/>
   <article>
@@ -545,12 +742,12 @@ The reason for this is that the final authentication token that the attacker ste
 
   
 </section>
-  </main>
+</main>
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
-      &copy; WUNDERWUZZI 2020
-    </div>
-    <div class="sns-links hidden-print">
+     
+     &copy; WUNDERWUZZI 2020
+     <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">
     <i class="fa fa-envelope"></i>
@@ -576,9 +773,12 @@ The reason for this is that the final authentication token that the attacker ste
   
   
 </div>
-
-  </footer>
-
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
   <script src="https://wunderwuzzi23.github.io/blog/js/highlight.pack.js"></script>
   <script>
     hljs.initHighlightingOnLoad();

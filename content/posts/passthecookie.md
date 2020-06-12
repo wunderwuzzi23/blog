@@ -117,7 +117,9 @@ Pass the Cookie is a powerful post-exploitation technique to pivot from on-premi
 
 Hopefully this was helpful, so you can build better detections, improvements and tests into your infrastructure to catch malicious activity. 
 
-If you have any questions or ideas feel free to send me an email at security@wunderwuzzi.net.  
+If you have any questions or ideas feel free to send me an email at security@wunderwuzzi.net. 
+
+You can also follow or DM me on Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 
 &NewLine;  
 
