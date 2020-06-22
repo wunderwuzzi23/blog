@@ -8,13 +8,15 @@ tags: [
     ]
 ---
 
-A few months ago we discussed the importance of [performing active credential hunting for your organization](/blog/posts/2020/hunting-for-credentials). This is to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them. 
+A few months ago we discussed the importance of [performing active credential hunting for your organization](/blog/posts/2020/hunting-for-credentials). 
 
-**Adversaries leverage a wide range of techniques post-exploitation when looting workstations and servers for credentials and other interesting data.**
+This is to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them. 
 
-In this post we will explore **using built-in operating system indexing features** to search for information in files on the machine. 
+In this post we will explore **using built-in operating system indexing features** to search for information on the machine quickly. 
 
-Many of us use the indexing features (like Windows Search and Spotlight) daily via the UI. However it's also possible to query the index via command line. We will cover this for Windows and macOS:
+Many of us use the indexing features (like Windows Search and Spotlight) daily via the UI. 
+
+However it's also possible to query the index via command line. We will cover this for Windows and macOS:
 
 * [Windows Indexing](#windows-built-in-indexing-features)
 * [macOS Spotlight](#macos-and-spotlight)

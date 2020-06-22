@@ -18,9 +18,10 @@
       <pubDate>Mon, 22 Jun 2020 10:00:51 -0700</pubDate>
       
       <guid>https://wunderwuzzi23.github.io/blog/posts/2020/invoke-windowssearch-credential-hunt/</guid>
-      <description>A few months ago we discussed the importance of performing active credential hunting for your organization. This is to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them.
-Adversaries leverage a wide range of techniques post-exploitation when looting workstations and servers for credentials and other interesting data.
-In this post we will explore using built-in operating system indexing features to search for information in files on the machine.</description>
+      <description>A few months ago we discussed the importance of performing active credential hunting for your organization.
+This is to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them.
+In this post we will explore using built-in operating system indexing features to search for information on the machine quickly.
+Many of us use the indexing features (like Windows Search and Spotlight) daily via the UI.</description>
     </item>
     
     <item>
