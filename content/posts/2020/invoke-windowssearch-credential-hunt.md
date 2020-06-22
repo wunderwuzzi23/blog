@@ -12,7 +12,7 @@ A few months ago we discussed the importance of [performing active credential hu
 
 This is to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them. 
 
-In this post we will explore **using built-in operating system indexing features** to search for information on the machine quickly. 
+In this post we will explore **using built-in operating system indexing features** to search for information on the machine quickly.
 
 Many of us use the indexing features (like Windows Search and Spotlight) daily via the UI. 
 
@@ -25,11 +25,13 @@ Let's start with Windows.
 
 # Windows Built-in Indexing Features
 
-**Querying the index is fast**, especially compared to manually grep'ing through files. 
+**Querying the index is fast**, especially compared to manually grep'ing through files. In this section we will create a simple script named `Invoke-WindowsSearch`, which will allow to search the index as seen in this screenshot:
 
-And using indexing is especially useful when **searching binary file types** or generally **files that require custom word-breakers** or formats. 
+![Invoke-WindowsSearch Example](/blog/images/2020/invoke-windowssearch.png)
 
-In Windows the OS is indexing files constantly, and you can inspect the configuration and what kind of files are indexed by visiting the **"Indexing Options"** settings page:
+Using indexing is also useful for **searching binary file types** or generally, **files that require custom word-breakers** or formats. 
+
+First, in Windows the OS is indexing files constantly, and you can inspect the configuration and what kind of files are indexed by visiting the **"Indexing Options"** settings page:
 
 ![Windows Search - Index Options](/blog/images/2020/windows-indexing.png)
 
