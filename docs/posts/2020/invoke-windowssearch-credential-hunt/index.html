@@ -106,13 +106,13 @@
   <section>
     
 
-<p>In a post a few months back we discussed the importance of <a href="/blog/posts/2020/hunting-for-credentials">performing active credential hunting for your organization</a> to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them.</p>
+<p>A few months ago we discussed the importance of <a href="/blog/posts/2020/hunting-for-credentials">performing active credential hunting for your organization</a>. This is to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them.</p>
 
-<p><strong>Adversaries leverage such techniques post-exploitation when looting workstations and servers for credentials and other interesting data.</strong></p>
+<p><strong>Adversaries leverage a wide range of techniques post-exploitation when looting workstations and servers for credentials and other interesting data.</strong></p>
 
-<p>In this post we are going to explore using built-in operating system indexing features to search for information in files on the machine.</p>
+<p>In this post we will explore <strong>using built-in operating system indexing features</strong> to search for information in files on the machine.</p>
 
-<p>Many use the indexing features (like Windows Search and Spotlight) daily via the UI. However it&rsquo;s also possible to query the index via command line. We will cover this for Windows and macOS:</p>
+<p>Many of us use the indexing features (like Windows Search and Spotlight) daily via the UI. However it&rsquo;s also possible to query the index via command line. We will cover this for Windows and macOS:</p>
 
 <ul>
 <li><a href="#windows-built-in-indexing-features">Windows Indexing</a></li>
@@ -182,12 +182,12 @@
 
 <p>On macOS its super simple, just use the <code>mdfind</code> command.</p>
 
-<p>More information can be found here: <a href="https://www.unix.com/man-page/osx/1/mdfind/">https://www.unix.com/man-page/osx/1/mdfind/</a></p>
-
 <p>The basic use case is as follows:</p>
 
 <pre><code>mdfind password
 </code></pre>
+
+<p>More information can be found here: <a href="https://www.unix.com/man-page/osx/1/mdfind/">https://www.unix.com/man-page/osx/1/mdfind/</a></p>
 
 <p>That&rsquo;s it. :)</p>
 
@@ -204,6 +204,7 @@
 <li><a href="https://docs.microsoft.com/en-us/windows/win32/search/-search-sql-ovwofsearchquery">Windows Search - SQL Overview</a></li>
 <li><a href="https://devblogs.microsoft.com/scripting/understanding-the-six-powershell-profiles/">PowerShell Profiles</a></li>
 <li><a href="https://www.unix.com/man-page/osx/1/mdfind/">mdfind</a></li>
+<li><a href="https://embracethered.com/index.html">Embrace the Red</a></li>
 </ul>
 
   </section>

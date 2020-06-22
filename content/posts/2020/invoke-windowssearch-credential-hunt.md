@@ -8,13 +8,13 @@ tags: [
     ]
 ---
 
-In a post a few months back we discussed the importance of [performing active credential hunting for your organization](/blog/posts/2020/hunting-for-credentials) to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them. 
+A few months ago we discussed the importance of [performing active credential hunting for your organization](/blog/posts/2020/hunting-for-credentials). This is to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them. 
 
-**Adversaries leverage such techniques post-exploitation when looting workstations and servers for credentials and other interesting data.**
+**Adversaries leverage a wide range of techniques post-exploitation when looting workstations and servers for credentials and other interesting data.**
 
-In this post we are going to explore using built-in operating system indexing features to search for information in files on the machine. 
+In this post we will explore **using built-in operating system indexing features** to search for information in files on the machine. 
 
-Many use the indexing features (like Windows Search and Spotlight) daily via the UI. However it's also possible to query the index via command line. We will cover this for Windows and macOS:
+Many of us use the indexing features (like Windows Search and Spotlight) daily via the UI. However it's also possible to query the index via command line. We will cover this for Windows and macOS:
 
 * [Windows Indexing](#windows-built-in-indexing-features)
 * [macOS Spotlight](#macos-and-spotlight)
@@ -84,13 +84,13 @@ Feel free to read up on the documentation to explore the full power of full text
 
 On macOS its super simple, just use the `mdfind` command.
 
-More information can be found here: https://www.unix.com/man-page/osx/1/mdfind/
-
 The basic use case is as follows:
 
 ```
 mdfind password
 ```
+
+More information can be found here: https://www.unix.com/man-page/osx/1/mdfind/
 
 That's it. :)
 
@@ -104,3 +104,5 @@ If you liked this post and found it informative or inspirational follow me on Tw
 * [Windows Search - SQL Overview](https://docs.microsoft.com/en-us/windows/win32/search/-search-sql-ovwofsearchquery)
 * [PowerShell Profiles](https://devblogs.microsoft.com/scripting/understanding-the-six-powershell-profiles/)
 * [mdfind](https://www.unix.com/man-page/osx/1/mdfind/)
+* [Embrace the Red](https://embracethered.com/index.html)
+
