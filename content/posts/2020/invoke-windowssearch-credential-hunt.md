@@ -12,7 +12,7 @@ A few months ago we discussed the importance of [performing active credential hu
 
 This is to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them. 
 
-In this post we will explore **using built-in operating system indexing features** to search for information on the machine quickly.
+In this post we will explore **using built-in operating system indexing features** to search for information on machines quickly.
 
 Many of us use the indexing features (like Windows Search and Spotlight) daily via the UI. 
 
