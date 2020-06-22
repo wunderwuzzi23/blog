@@ -7,31 +7,107 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Sun, 26 Apr 2020 11:56:51 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2020 10:00:51 -0700</lastBuildDate>
     
 	<atom:link href="https://wunderwuzzi23.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Leveraging built-in operating system indexing features for credential hunting</title>
+      <title>Using built-in OS indexing features for credential hunting</title>
       <link>https://wunderwuzzi23.github.io/blog/posts/2020/invoke-windowssearch-credential-hunt/</link>
-      <pubDate>Sun, 26 Apr 2020 11:56:51 -0700</pubDate>
+      <pubDate>Mon, 22 Jun 2020 10:00:51 -0700</pubDate>
       
       <guid>https://wunderwuzzi23.github.io/blog/posts/2020/invoke-windowssearch-credential-hunt/</guid>
-      <description>In the previous post we discussed the importance of performing active credential hunting for your organization to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them.
-Adversaries also leverage such techniques post-exploitation when looting workstations and servers for credentials and other interesting data.
+      <description>In a post a few months back we discussed the importance of performing active credential hunting for your organization to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them.
+Adversaries leverage such techniques post-exploitation when looting workstations and servers for credentials and other interesting data.
 In this post we are going to explore using built-in operating system indexing features to search for information in files on the machine.</description>
     </item>
     
     <item>
-      <title>Mozilla Bug Bounty Credential Hunt Phabricator Token</title>
+      <title>Shadowbunny article published in the PenTest Magazine</title>
+      <link>https://wunderwuzzi23.github.io/blog/posts/2020/shadowbunny-ttp-pentest-magazine/</link>
+      <pubDate>Thu, 18 Jun 2020 18:42:44 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/shadowbunny-ttp-pentest-magazine/</guid>
+      <description>The Shadowbunny TTP in the PenTest Magazine The latest edition of the PenTest Magazine features an article of mine about using virtual machines (VMs) during lateral movement to establish persistence and evade detections.
+A few years back when I came up with the idea of using VMs for lateral movement during red teaming, I called it the Shadowbunny TTP and that name stuck around in my head. There is more info in the article around the origin of the name also.</description>
+    </item>
+    
+    <item>
+      <title>Putting system owners in Security Bug Jail</title>
+      <link>https://wunderwuzzi23.github.io/blog/posts/2020/bugjail/</link>
+      <pubDate>Fri, 12 Jun 2020 10:00:25 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/bugjail/</guid>
+      <description>Some organization have this interesting concept of a bug jail to prevent new feature development when there are too many existing flaws in the system.
+For instance, if an engineer has 5 or more bugs assigned they aren&amp;rsquo;t allowed to work on anything else but fixing their bugs.
+What is the Security Bug Jail? A security bug jail goes along the same lines. The owner of a system can never have more than a certain upper limit of active security bugs.</description>
+    </item>
+    
+    <item>
+      <title>Red Teaming and Monte Carlo Simulations</title>
+      <link>https://wunderwuzzi23.github.io/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</link>
+      <pubDate>Wed, 10 Jun 2020 11:23:20 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</guid>
+      <description>Monte Carlo simulations can be a useful tool to uplevel your red teaming skills and provide a different and fresh perspective for highlighting, discussing and presenting findings.
+Red teaming is about challenging an organization. This includes analyzing business processes and methodologies, including our own.
+Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in Hubbard&amp;rsquo;s book about measuring cybersecurity risk.</description>
+    </item>
+    
+    <item>
+      <title>Phishing metrics - what to track?</title>
+      <link>https://wunderwuzzi23.github.io/blog/posts/2020/phishing-stats/</link>
+      <pubDate>Sun, 24 May 2020 00:26:01 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/phishing-stats/</guid>
+      <description>The results of phishing campaigns are often not comparable with each other over time. Various security vendors and red teams use different tooling and techniques - which is totally fine.
+However, I recommend requiring tracking a minimum set of metrics to be able to compare results over time.
+Funny side facts: At times employees are messing with the red team, entering invalid creds for CISO or CEO and things along those lines.</description>
+    </item>
+    
+    <item>
+      <title>$3000 Bug Bounty Award from Mozilla for a successful targeted Credential Hunt</title>
       <link>https://wunderwuzzi23.github.io/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/</link>
-      <pubDate>Sat, 25 Apr 2020 14:20:25 -0700</pubDate>
+      <pubDate>Wed, 13 May 2020 18:00:25 -0700</pubDate>
       
       <guid>https://wunderwuzzi23.github.io/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/</guid>
-      <description>Mozilla Phabricator Token Exposure A few days ago I did some security research on Firefox, learning more about code and testing features. One thing I noticed during this research was that Mozilla uses Phabricator.
-What is Phabricator? Phabricator is a collaborative web-based toolset for code reviews, checkins, bugs, work items, wiki, pastes, credentials and many other useful things.
-API Tokens From past work experience I know that its common for developers to create API tokens for command line usage to interact with Phabricator.</description>
+      <description>Last month I did some research on Firefox, specifically I was learning more about it&amp;rsquo;s remote debugging features. As part of that I was reading Bugzilla bug information and learned more about Mozilla&amp;rsquo;s infrastructure.
+One thing I noticed reading up on details was that Mozilla uses Phabricator.
+What is Phabricator? Phabricator is a collaborative web-based toolset for code reviews, checkins, bugs, work items, wiki, pastes, credentials and many other useful things.</description>
+    </item>
+    
+    <item>
+      <title>Cookie Crimes and the new Microsoft Edge Browser</title>
+      <link>https://wunderwuzzi23.github.io/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</link>
+      <pubDate>Fri, 01 May 2020 01:00:46 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</guid>
+      <description>Revisiting Cookie Crimes In 2018 @mangopdf described &amp;ldquo;Cookie Crimes&amp;rdquo;, which is great research around Chrome&amp;rsquo;s remote debugging feature that allows adversaries and malware to gain access to cookies quite convienently during post-exploitation.
+The original research is published here, and it still works today.
+The new Microsoft Edge browser and Chromium Microsoft&amp;rsquo;s latest Edge browser is based on the same code, Chromium. I guess, you already know where this is going now&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Post-Exploitation: Abusing Chrome&#39;s debugging feature to observe and control browsing sessions remotely</title>
+      <link>https://wunderwuzzi23.github.io/blog/posts/2020/chrome-spy-remote-control/</link>
+      <pubDate>Tue, 28 Apr 2020 18:00:00 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/chrome-spy-remote-control/</guid>
+      <description>Chrome&amp;rsquo;s remote debugging feature enables malware post-exploitation to gain access to cookies. Root privileges are not required. This is a pretty well-known and commonly used adversarial technique - at least since 2018 when Cookie Crimes was released.
+However, remote debugging also allows observing user activities and sensitive personal information (aka spying on users) and controlling the browser from a remote computer.
+Below screenshot shows a simulated attacker controlling the victim&amp;rsquo;s browser and navigating to chrome://settings to inspect information:</description>
+    </item>
+    
+    <item>
+      <title>Hunting for credentials and building a credential type reference catalog</title>
+      <link>https://wunderwuzzi23.github.io/blog/posts/2020/hunting-for-credentials/</link>
+      <pubDate>Sun, 26 Apr 2020 12:31:29 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/hunting-for-credentials/</guid>
+      <description>Adversaries are leveraging widely exposed clear text credentials to gain access to sensitive information.
+At times the term &amp;ldquo;harvesting credentials&amp;rdquo; is used when red teamers emulate these attacks - which is something that appears to be more opportunistic and I would propose that security teams start to actively hunt for credential exposure that can put their organization at risk &amp;ndash; in case you are not yet doing that.
+Actively hunting for credential exposure The idea of credential hunting is targeted and focused, leveraging intelligence about systems and combing it with powerful search techniques to identify exposure.</description>
     </item>
     
     <item>

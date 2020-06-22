@@ -4,12 +4,47 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/posts/2020/invoke-windowssearch-credential-hunt/</loc>
-    <lastmod>2020-04-26T11:56:51-07:00</lastmod>
+    <lastmod>2020-06-22T10:00:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/2020/shadowbunny-ttp-pentest-magazine/</loc>
+    <lastmod>2020-06-18T18:42:44-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/2020/bugjail/</loc>
+    <lastmod>2020-06-12T10:00:25-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</loc>
+    <lastmod>2020-06-10T11:23:20-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/2020/phishing-stats/</loc>
+    <lastmod>2020-05-24T00:26:01-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/</loc>
-    <lastmod>2020-04-25T14:20:25-07:00</lastmod>
+    <lastmod>2020-05-13T18:00:25-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</loc>
+    <lastmod>2020-05-01T01:00:46-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/2020/chrome-spy-remote-control/</loc>
+    <lastmod>2020-04-28T18:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/posts/2020/hunting-for-credentials/</loc>
+    <lastmod>2020-04-26T12:31:29-07:00</lastmod>
   </url>
   
   <url>
@@ -105,13 +140,13 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/blue/</loc>
-    <lastmod>2018-12-16T12:00:00-07:00</lastmod>
+    <lastmod>2020-06-18T18:42:44-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/book/</loc>
-    <lastmod>2020-04-26T11:56:51-07:00</lastmod>
+    <lastmod>2020-05-13T18:00:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -129,7 +164,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/bugbounty/</loc>
-    <lastmod>2020-04-25T14:20:25-07:00</lastmod>
+    <lastmod>2020-05-13T18:00:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -151,8 +186,20 @@
   </url>
   
   <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/cookies/</loc>
+    <lastmod>2020-05-01T01:00:46-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/cookiesforall/</loc>
     <lastmod>2019-10-27T10:56:03-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/credentials/</loc>
+    <lastmod>2020-04-26T12:31:29-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -169,6 +216,24 @@
   </url>
   
   <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/metrics/</loc>
+    <lastmod>2020-06-10T11:23:20-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/monte-carlo/</loc>
+    <lastmod>2020-06-10T11:23:20-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/passthecookie/</loc>
+    <lastmod>2020-05-01T01:00:46-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/pentesting/</loc>
     <lastmod>2020-04-02T00:01:09-07:00</lastmod>
     <priority>0</priority>
@@ -181,8 +246,14 @@
   </url>
   
   <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/post-exploitation/</loc>
+    <lastmod>2020-05-01T01:00:46-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://wunderwuzzi23.github.io/blog/posts/</loc>
-    <lastmod>2020-04-26T11:56:51-07:00</lastmod>
+    <lastmod>2020-06-22T10:00:51-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -206,13 +277,19 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/red/</loc>
-    <lastmod>2020-04-26T11:56:51-07:00</lastmod>
+    <lastmod>2020-06-22T10:00:51-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/research/</loc>
     <lastmod>2020-02-15T15:48:51-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wunderwuzzi23.github.io/blog/tags/sdl/</loc>
+    <lastmod>2020-06-12T10:00:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -236,7 +313,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/tags/ttp/</loc>
-    <lastmod>2020-04-26T11:56:51-07:00</lastmod>
+    <lastmod>2020-06-22T10:00:51-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -248,7 +325,7 @@
   
   <url>
     <loc>https://wunderwuzzi23.github.io/blog/</loc>
-    <lastmod>2020-04-26T11:56:51-07:00</lastmod>
+    <lastmod>2020-06-22T10:00:51-07:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,23 +1,31 @@
 ---
-title: "Leveraging built-in operating system indexing features for credential hunting"
-date: 2020-05-23T11:56:51-07:00
+title: "Using built-in OS indexing features for credential hunting"
+date: 2020-06-22T10:00:51-07:00
 draft: true
 tags: [
         "red",
-        "ttp",
-        "book"
+        "ttp"
     ]
 ---
 
-In the previous post we discussed the importance of performing active credential hunting for your organization to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them. 
+In a post a few months back we discussed the importance of [performing active credential hunting for your organization](/blog/posts/2020/hunting-for-credentials) to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them. 
 
-**Adversaries also leverage such techniques post-exploitation when looting workstations and servers for credentials and other interesting data.**
+**Adversaries leverage such techniques post-exploitation when looting workstations and servers for credentials and other interesting data.**
 
-In this post we are going to explore using built-in operating system indexing features to search for information in files on the machine. We focus on Windows in this post, and you can find similar technqiues and tips in my book for macOS.
+In this post we are going to explore using built-in operating system indexing features to search for information in files on the machine. 
 
-## Windows Built-in Indexing Features
+Many use the indexing features (like Windows Search and Spotlight) daily via the UI. However it's also possible to query the index via command line. We will cover this for Windows and macOS:
 
-**Querying the index is fast**, especially compared to manually grep'ing through files. And using indexing is especially useful when you want to search binary file types or generally files that have custom word-breakers or formats. 
+* [Windows Indexing](#windows-built-in-indexing-features)
+* [macOS Spotlight](#macos-and-spotlight)
+
+Let's start with Windows.
+
+# Windows Built-in Indexing Features
+
+**Querying the index is fast**, especially compared to manually grep'ing through files. 
+
+And using indexing is especially useful when **searching binary file types** or generally **files that require custom word-breakers** or formats. 
 
 In Windows the OS is indexing files constantly, and you can inspect the configuration and what kind of files are indexed by visiting the **"Indexing Options"** settings page:
 
@@ -55,29 +63,44 @@ The following screenshot shows searching the entire machine (if running as an ad
  
 ![Invoke-WindowsSearch Example](/blog/images/2020/invoke-windowssearch.png)
 
-I added this function to my [PowerShell Profile](https://devblogs.microsoft.com/scripting/understanding-the-six-powershell-profiles/), since its also useful during day to day work (not just red teaming).
+From functional point of view, you can add this function to your [PowerShell Profile](https://devblogs.microsoft.com/scripting/understanding-the-six-powershell-profiles/), since its also useful during day to day work (not just red teaming).
 
 There are more code examples on how to use Windows Search with a variety of technology stacks available on [Microsoft's Github](https://github.com/microsoft/Windows-classic-samples/tree/master/Samples/Win7Samples/winui/WindowsSearch). 
 
 Let’s look at the search query language features in a bit more detail.
 
-### Exploring more advanced full-text search features
+## Advanced search features
 
 There are a wide set of features that can be leveraged when querying, such as **CONTAINS**, **FREETEXT**, and **LIKE** usage in the **WHERE** clause. This following [link](https://docs.microsoft.com/en-us/windows/win32/search/-search-sql-ovwofsearchquery) gives an overview of Windows Search, as well as the query language’s capabilities, including *relevance* and *ranking*.
 
 Feel free to read up on the documentation to explore the full power of full text searching.
 
-### Searching the index of remote machines
+## Searching the index of remote Windows machines
 
-If a host has SMB exposed its also possible (depending on configuration) to **search its index remotely**. This is extremly useful when searching for information on SMB file servers for instance. There are more details about this in my book, but basically you can leverage the **SCOPE** parameter in the query to do that.
+**If a host has SMB exposed its also possible (depending on configuration) to search its index remotely**. This is extremly useful when searching for information on SMB file servers for instance. There are more details about this in my book, but basically you can leverage the **SCOPE** parameter in the query to do that.
 
-That's it, hope this was useful.
 
-### Red Team Strategies
-If you liked this post and found it informative or inspirational, you might be interested in the book ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM). The book is filled with creative ideas, research and fundamental techniques, as well as red teaming program and people mangement aspects.
+# macOS and Spotlight
 
+On macOS its super simple, just use the `mdfind` command.
+
+More information can be found here: https://www.unix.com/man-page/osx/1/mdfind/
+
+The basic use case is as follows:
+
+```
+mdfind password
+```
+
+That's it. :)
+
+-------
+
+## Red Team Strategies
+If you liked this post and found it informative or inspirational follow me on Twitter  [@wunderwuzzi23](https://twitter.com/wunderwuzzi23). You might also be interested in my book ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM). 
 
 ## References
 * [Windows Search - Examples](https://github.com/microsoft/Windows-classic-samples/tree/master/Samples/Win7Samples/winui/WindowsSearch)
 * [Windows Search - SQL Overview](https://docs.microsoft.com/en-us/windows/win32/search/-search-sql-ovwofsearchquery)
 * [PowerShell Profiles](https://devblogs.microsoft.com/scripting/understanding-the-six-powershell-profiles/)
+* [mdfind](https://www.unix.com/man-page/osx/1/mdfind/)

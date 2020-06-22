@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Red Teaming and Monte Carlo Simulations &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://wunderwuzzi23.github.io/blog/posts/2020/red-teaming-and-monte-carlo-simulations/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-06-10T11:23:20-07:00" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="monte carlo" />
+  
+  <meta property="og:article:tag" content="metrics" />
+  
+  
+
+  <title>
+     Red Teaming and Monte Carlo Simulations &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/main.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://wunderwuzzi23.github.io/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://wunderwuzzi23.github.io/blog/images/apple-touch-icon.png" />
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://wunderwuzzi23.github.io/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+      
+      <a href="https://wunderwuzzi23.github.io/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Red Teaming and Monte Carlo Simulations</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-06-10T11:23:20-07:00">
+          Jun 10, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/monte-carlo">#monte carlo</a></span>
+        
+        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/metrics">#metrics</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+
+<p>Monte Carlo simulations can be a useful tool to uplevel your red teaming skills and provide a different and fresh perspective for highlighting, discussing and presenting findings.</p>
+
+<p>Red teaming is about challenging an organization. This includes analyzing business processes and methodologies, including our own.</p>
+
+<p>Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in <a href="https://www.howtomeasureanything.com/cybersecurity/">Hubbard&rsquo;s book about measuring cybersecurity risk</a>. Since then I have been thinking and playing around with applying these methods to security program&rsquo;s, especially red teaming and threat modeling.</p>
+
+<h1 id="what-is-a-monte-carlo-simulation">What is a Monte Carlo simulation?</h1>
+
+<p>At a high level, Monte Carlo simulations allow to <strong>model the outcome of uncertain events</strong>.</p>
+
+<p>Uncertain events such as me indeed visiting Monte Carlo one day:
+<img src="/blog/images/2020/monaco.png" alt="Monaco" /></p>
+
+<p>But, hang on, maybe I could retire there&hellip;</p>
+
+<h2 id="retirement-planning-with-your-advisor">Retirement planning with your advisor</h2>
+
+<p>If you ever did retirement planning with your financial advisor, you have seen a Monte Carlo simulation in action.</p>
+
+<p>By taking a wide range of inputs, goals and probabilities a Monte Carlo simulation takes many random samples out of these values to create a model of potential future outcomes. You can modify investments, retirement age and immediately see how these changes would impact the outcomes.</p>
+
+<p><strong>Unfortunately, such simulations keep highlighting that it seems <em>very</em> unlikely for me to be able to retire anywhere in Monaco.</strong></p>
+
+<p>How does this apply to threat modeling or red teaming?</p>
+
+<h2 id="old-school-severity-ratings-and-scores">Old school severity ratings and scores</h2>
+
+<p>To set the stage, let&rsquo;s first look at the traditional way security programs and red teams try to measure the impact of vulnerabilities. Usually programs leverage a security bug bar and/or CVSS scores to assign ratings to vulnerabilities. This helps to shine light on the most problematic issues, and to assign resources quickly to implement mitigations. Its a framework that allows discussion and prioritization, but it lacks important aspects to make consistent and the best possible decisions.</p>
+
+<h3 id="what-about-the-business-context-of-a-vulnerability">What about the business context of a vulnerability?</h3>
+
+<p>Traditional models often use ratings such as CVSS scores. The problem with those is that they lack the appropriate context to make the best decisions on where to allocate resources. This includes a lack of business context and the financial implications a vulnerability or threat has to the organization.</p>
+
+<p><img src="/blog/images/2020/cvss10.png" alt="CVSS" /></p>
+
+<p><strong>CVSS scores have to be seen in isolation, in their own little sandbox, they can&rsquo;t easily be compared with each other.</strong></p>
+
+<p>They also don&rsquo;t compute well. For instance, two Medium 5.0 scored vulnerabilities can&rsquo;t be added up to state that there is a Critical 10.0 vulnerability.</p>
+
+<blockquote>
+<p>CVSS is great starting point to describe a vulnerability by itself, at its technical core. However, the score has little todo with the actual severity or impact the vulnerability has to surrounding systems, the organization and it&rsquo;s business.</p>
+</blockquote>
+
+<p>This means by themselves these traditional techniquess and rating systems provide limited value when modeling the security posture to enable the best possible resource allocation.</p>
+
+<p><strong>Let&rsquo;s explore how a Monte Carlo simulation can aid in presenting red teaming findings by augmenting an attack graph with additional data points, including financial implications.</strong></p>
+
+<h2 id="measuring-the-financial-impact-of-a-vulnerability">Measuring the financial impact of a vulnerability</h2>
+
+<p>Imagine the following statement during a bug triage:</p>
+
+<blockquote>
+<p>In the next three months there is a 40% chance that this Cross Site Scripting vulnerability will be exploited. If that happens it will cost the organization between $1000-$90000.</p>
+</blockquote>
+
+<p>You might immediately object and say that such a triage is flawed. And that its not possible to measure or predict probabilities or future financial implications of a vulnerability accurately.</p>
+
+<p><strong>This is where the Monte Carlo simulations come into the picture, they help us to navigate this complexity maze and model possible outcomes of uncertain events.</strong></p>
+
+<h2 id="show-me-the-money">Show me the money!</h2>
+
+<p>Interestingly, over the last two decades the security industry <strong>already</strong> moved towards a framework that associates vulnerabilities with monetary value in the form of bug bounty programs.</p>
+
+<p><img src="/blog/images/2020/dollars.png" alt="Show me the money!" /></p>
+
+<p>For instance, <a href="https://vinothkumar.me/20000-facebook-dom-xss/">Facebook just paid out $20000 for a Cross Site Scripting vulnerability</a>.</p>
+
+<p>Other companies might set the value of for an XSS lower, but stakes might also be much lower compared to Facebook&rsquo;s - <strong>which is exactly what the discussion should be about</strong>.</p>
+
+<p>Recently, I received a <a href="https://wunderwuzzi23.github.io/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/">$3000 payout from Mozilla</a> for reporting a vulnerability. (<em>shameless self-promotion :))</em></p>
+
+<h4 id="what-does-this-mean-though">What does this mean though?</h4>
+
+<p><strong>This means there is already a framework established in the industry that we can leverage.</strong></p>
+
+<p>Bug bounty payouts should probably be seen at the lower end of the actual cost of such a vulnerability. At the higher end we have the actual exploits, breaches and costumer data that might be stolen and <strong>regulatory fines</strong> that come with breaches.</p>
+
+<p>These considerations can help guide towards an upper boundary for predictions when performing Monte Carlo simulations to model the potential financial loss due to security vulnerabilities.</p>
+
+<h1 id="attack-graphs-threat-modeling-and-monte-carlo-simulations">Attack Graphs, Threat Modeling and Monte Carlo Simulations</h1>
+
+<p>In this section I&rsquo;m going to apply Hubbard&rsquo;s approach and basic substitution methodology to a basic attack graph in order to run a Monte Carlo simulation.</p>
+
+<p><strong>A practical example is to use the following steps for each identified threat:</strong></p>
+
+<ol>
+<li>Assign probabilities of the event occurring over the next year (can also be a shorter timeframe)</li>
+<li>Assign lower and upper limit for financial loss in case the event occurs (using a <strong>90% confidence interval</strong>)</li>
+<li>Hubbard suggests having at least five experts perform steps 1-2 and to take the average as a good enough starting point</li>
+</ol>
+
+<p>The following image shows how this could be visually presented:
+<a href="/blog/images/2020/graph.png"><img src="/blog/images/2020/graph.png" alt="Attack Graph" /></a></p>
+
+<p>We can use <strong>Excel&rsquo;s What If Analysis</strong> to perform a Monte Carlo simulation using the modeled probabilities and estimated financial loss per threat. Hubbard provides <a href="http://www.howtomeasureanything.com/cybersecurity/">an Excel template file for download</a>, if you want to play around with these ideas.</p>
+
+<p><strong>The following screenshot shows the outcome of a such a simulation for the attack graph:</strong>
+<a href="/blog/images/2020/montecarlo.png"><img src="/blog/images/2020/montecarlo.png" alt="Monte Carlo Simulation" /></a></p>
+
+<p><strong>The simulation shows that there is approximately a 20% chance of losing $500000 over the next year for this system and the identified threats.</strong></p>
+
+<p>This gives business decision makers a much better understanding around the potential damage lack of security investments can have to the organization. And they can make more informed decisions.</p>
+
+<p>With requirements such as GDPR, adding appropriate financial implications can educate leadership to take action and invest in areas to limite exposure and mitigate risks.</p>
+
+<h2 id="but-wait-isn-t-this-too-detailed">But wait, isn&rsquo;t this too detailed?</h2>
+
+<p>There is a fair point to be made if an analysis on a individual vulnerability level is too detailed, too much in the weeds. At this point the goals is to experiment and how well this technique works in modeling exposure over time and help improving our understanding of risks.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>In this post we highlighted some ideas on how to use Monte Carlo simulations to better model threats. The idea is to move towards discussing financial implications of identified threats and vulnerabilities, rather than purely depend on a technical scoring system.</p>
+
+<p>If you found this post interesting or inspiring, my book <a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869">Cybersecurity Attacks: Red Team Strategies</a> has an entire chapter on measuring a red team program and red teaming results.</p>
+
+<p>Also, feel free to follow or DM me on Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+
+<h1 id="references">References</h1>
+
+<ul>
+<li>How to Measure Anything Cybersecurity Risk, Hubbard - <a href="https://www.howtomeasureanything.com/cybersecurity/">https://www.howtomeasureanything.com/cybersecurity/</a></li>
+<li>$20000 Facebook DOM XSS <a href="https://vinothkumar.me/20000-facebook-dom-xss/">https://vinothkumar.me/20000-facebook-dom-xss/</a></li>
+<li>CVSS - <a href="https://www.first.org/cvss/">https://www.first.org/cvss/</a></li>
+<li>Royalty Free Images - (no attribution required, still providing reference though -  retrieved 6/9/2020)
+
+<ul>
+<li><a href="https://www.pexels.com/photo/luxury-monaco-port-yachts-3586/">https://www.pexels.com/photo/luxury-monaco-port-yachts-3586/</a></li>
+<li><a href="https://www.pexels.com/photo/5-strike-symbol-1010973/">https://www.pexels.com/photo/5-strike-symbol-1010973/</a></li>
+</ul></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="previous"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/phishing-stats/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/bugjail/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     &copy; WUNDERWUZZI 2020
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://wunderwuzzi23.github.io/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-90341594-2', 'auto');  
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview', { 'anonymizeIp': true });
+  </script>
+  
+  
+</body>
+</html>
+

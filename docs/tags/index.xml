@@ -24,7 +24,7 @@
     <item>
       <title>Blue</title>
       <link>https://wunderwuzzi23.github.io/blog/tags/blue/</link>
-      <pubDate>Sun, 16 Dec 2018 12:00:00 -0700</pubDate>
+      <pubDate>Thu, 18 Jun 2020 18:42:44 -0700</pubDate>
       
       <guid>https://wunderwuzzi23.github.io/blog/tags/blue/</guid>
       <description></description>
@@ -33,7 +33,7 @@
     <item>
       <title>Book</title>
       <link>https://wunderwuzzi23.github.io/blog/tags/book/</link>
-      <pubDate>Sun, 26 Apr 2020 11:56:51 -0700</pubDate>
+      <pubDate>Wed, 13 May 2020 18:00:25 -0700</pubDate>
       
       <guid>https://wunderwuzzi23.github.io/blog/tags/book/</guid>
       <description></description>
@@ -60,7 +60,7 @@
     <item>
       <title>Bugbounty</title>
       <link>https://wunderwuzzi23.github.io/blog/tags/bugbounty/</link>
-      <pubDate>Sat, 25 Apr 2020 14:20:25 -0700</pubDate>
+      <pubDate>Wed, 13 May 2020 18:00:25 -0700</pubDate>
       
       <guid>https://wunderwuzzi23.github.io/blog/tags/bugbounty/</guid>
       <description></description>
@@ -85,11 +85,29 @@
     </item>
     
     <item>
+      <title>Cookies</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/cookies/</link>
+      <pubDate>Fri, 01 May 2020 01:00:46 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/cookies/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Cookiesforall</title>
       <link>https://wunderwuzzi23.github.io/blog/tags/cookiesforall/</link>
       <pubDate>Sun, 27 Oct 2019 10:56:03 -0700</pubDate>
       
       <guid>https://wunderwuzzi23.github.io/blog/tags/cookiesforall/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Credentials</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/credentials/</link>
+      <pubDate>Sun, 26 Apr 2020 12:31:29 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/credentials/</guid>
       <description></description>
     </item>
     
@@ -112,6 +130,33 @@
     </item>
     
     <item>
+      <title>Metrics</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/metrics/</link>
+      <pubDate>Wed, 10 Jun 2020 11:23:20 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/metrics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Monte Carlo</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/monte-carlo/</link>
+      <pubDate>Wed, 10 Jun 2020 11:23:20 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/monte-carlo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Passthecookie</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/passthecookie/</link>
+      <pubDate>Fri, 01 May 2020 01:00:46 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/passthecookie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Pentesting</title>
       <link>https://wunderwuzzi23.github.io/blog/tags/pentesting/</link>
       <pubDate>Thu, 02 Apr 2020 00:01:09 -0700</pubDate>
@@ -126,6 +171,15 @@
       <pubDate>Thu, 10 Jan 2019 21:40:59 -0700</pubDate>
       
       <guid>https://wunderwuzzi23.github.io/blog/tags/phishing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Post Exploitation</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/post-exploitation/</link>
+      <pubDate>Fri, 01 May 2020 01:00:46 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/post-exploitation/</guid>
       <description></description>
     </item>
     
@@ -159,7 +213,7 @@
     <item>
       <title>Red</title>
       <link>https://wunderwuzzi23.github.io/blog/tags/red/</link>
-      <pubDate>Sun, 26 Apr 2020 11:56:51 -0700</pubDate>
+      <pubDate>Mon, 22 Jun 2020 10:00:51 -0700</pubDate>
       
       <guid>https://wunderwuzzi23.github.io/blog/tags/red/</guid>
       <description></description>
@@ -171,6 +225,15 @@
       <pubDate>Sat, 15 Feb 2020 15:48:51 -0800</pubDate>
       
       <guid>https://wunderwuzzi23.github.io/blog/tags/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sdl</title>
+      <link>https://wunderwuzzi23.github.io/blog/tags/sdl/</link>
+      <pubDate>Fri, 12 Jun 2020 10:00:25 -0700</pubDate>
+      
+      <guid>https://wunderwuzzi23.github.io/blog/tags/sdl/</guid>
       <description></description>
     </item>
     
@@ -195,7 +258,7 @@
     <item>
       <title>Ttp</title>
       <link>https://wunderwuzzi23.github.io/blog/tags/ttp/</link>
-      <pubDate>Sun, 26 Apr 2020 11:56:51 -0700</pubDate>
+      <pubDate>Mon, 22 Jun 2020 10:00:51 -0700</pubDate>
       
       <guid>https://wunderwuzzi23.github.io/blog/tags/ttp/</guid>
       <description></description>
