@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>wunderwuzzi blog</title>
-    <link>https://wunderwuzzi23.github.io/blog/</link>
+    <link>https://embracethered.com/blog/</link>
     <description>Recent content on wunderwuzzi blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; WUNDERWUZZI 2020</copyright>
+    <copyright>(c) WUNDERWUZZI 2020</copyright>
     <lastBuildDate>Mon, 22 Jun 2020 10:00:51 -0700</lastBuildDate>
     
-	<atom:link href="https://wunderwuzzi23.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Using built-in OS indexing features for credential hunting</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/2020/invoke-windowssearch-credential-hunt/</link>
+      <link>https://embracethered.com/blog/posts/2020/invoke-windowssearch-credential-hunt/</link>
       <pubDate>Mon, 22 Jun 2020 10:00:51 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/invoke-windowssearch-credential-hunt/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/invoke-windowssearch-credential-hunt/</guid>
       <description>A few months ago we discussed the importance of performing active credential hunting for your organization.
 This is to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them.
 In this post we will explore using built-in operating system indexing features to search for information on machines quickly.
@@ -26,20 +26,20 @@ Many of us use the indexing features (like Windows Search and Spotlight) daily v
     
     <item>
       <title>Shadowbunny article published in the PenTest Magazine</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/2020/shadowbunny-ttp-pentest-magazine/</link>
+      <link>https://embracethered.com/blog/posts/2020/shadowbunny-ttp-pentest-magazine/</link>
       <pubDate>Thu, 18 Jun 2020 18:42:44 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/shadowbunny-ttp-pentest-magazine/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/shadowbunny-ttp-pentest-magazine/</guid>
       <description>The Shadowbunny TTP in the PenTest Magazine The latest edition of the PenTest Magazine features an article of mine about using virtual machines (VMs) during lateral movement to establish persistence and evade detections.
 A few years back when I came up with the idea of using VMs for lateral movement during red teaming, I called it the Shadowbunny TTP and that name stuck around in my head. There is more info in the article around the origin of the name also.</description>
     </item>
     
     <item>
       <title>Putting system owners in Security Bug Jail</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/2020/bugjail/</link>
+      <link>https://embracethered.com/blog/posts/2020/bugjail/</link>
       <pubDate>Fri, 12 Jun 2020 10:00:25 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/bugjail/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/bugjail/</guid>
       <description>Some organization have this interesting concept of a bug jail to prevent new feature development when there are too many existing flaws in the system.
 For instance, if an engineer has 5 or more bugs assigned they aren&amp;rsquo;t allowed to work on anything else but fixing their bugs.
 What is the Security Bug Jail? A security bug jail goes along the same lines. The owner of a system can never have more than a certain upper limit of active security bugs.</description>
@@ -47,10 +47,10 @@ What is the Security Bug Jail? A security bug jail goes along the same lines. Th
     
     <item>
       <title>Red Teaming and Monte Carlo Simulations</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</link>
+      <link>https://embracethered.com/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</link>
       <pubDate>Wed, 10 Jun 2020 11:23:20 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</guid>
       <description>Monte Carlo simulations can be a useful tool to uplevel your red teaming skills and provide a different and fresh perspective for highlighting, discussing and presenting findings.
 Red teaming is about challenging an organization. This includes analyzing business processes and methodologies, including our own.
 Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in Hubbard&amp;rsquo;s book about measuring cybersecurity risk.</description>
@@ -58,10 +58,10 @@ Obviously, using Monte Carlo simulations in the security realm is not my idea. I
     
     <item>
       <title>Phishing metrics - what to track?</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/2020/phishing-stats/</link>
+      <link>https://embracethered.com/blog/posts/2020/phishing-stats/</link>
       <pubDate>Sun, 24 May 2020 00:26:01 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/phishing-stats/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/phishing-stats/</guid>
       <description>The results of phishing campaigns are often not comparable with each other over time. Various security vendors and red teams use different tooling and techniques - which is totally fine.
 However, I recommend requiring tracking a minimum set of metrics to be able to compare results over time.
 Funny side facts: At times employees are messing with the red team, entering invalid creds for CISO or CEO and things along those lines.</description>
@@ -69,10 +69,10 @@ Funny side facts: At times employees are messing with the red team, entering inv
     
     <item>
       <title>$3000 Bug Bounty Award from Mozilla for a successful targeted Credential Hunt</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/</link>
+      <link>https://embracethered.com/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/</link>
       <pubDate>Wed, 13 May 2020 18:00:25 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/</guid>
       <description>Last month I did some research on Firefox, specifically I was learning more about it&amp;rsquo;s remote debugging features. As part of that I was reading Bugzilla bug information and learned more about Mozilla&amp;rsquo;s infrastructure.
 One thing I noticed reading up on details was that Mozilla uses Phabricator.
 What is Phabricator? Phabricator is a collaborative web-based toolset for code reviews, checkins, bugs, work items, wiki, pastes, credentials and many other useful things.</description>
@@ -80,10 +80,10 @@ What is Phabricator? Phabricator is a collaborative web-based toolset for code r
     
     <item>
       <title>Cookie Crimes and the new Microsoft Edge Browser</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</link>
+      <link>https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</link>
       <pubDate>Fri, 01 May 2020 01:00:46 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</guid>
       <description>Revisiting Cookie Crimes In 2018 @mangopdf described &amp;ldquo;Cookie Crimes&amp;rdquo;, which is great research around Chrome&amp;rsquo;s remote debugging feature that allows adversaries and malware to gain access to cookies quite convienently during post-exploitation.
 The original research is published here, and it still works today.
 The new Microsoft Edge browser and Chromium Microsoft&amp;rsquo;s latest Edge browser is based on the same code, Chromium. I guess, you already know where this is going now&amp;hellip;</description>
@@ -91,10 +91,10 @@ The new Microsoft Edge browser and Chromium Microsoft&amp;rsquo;s latest Edge br
     
     <item>
       <title>Post-Exploitation: Abusing Chrome&#39;s debugging feature to observe and control browsing sessions remotely</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/2020/chrome-spy-remote-control/</link>
+      <link>https://embracethered.com/blog/posts/2020/chrome-spy-remote-control/</link>
       <pubDate>Tue, 28 Apr 2020 18:00:00 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/chrome-spy-remote-control/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/chrome-spy-remote-control/</guid>
       <description>Chrome&amp;rsquo;s remote debugging feature enables malware post-exploitation to gain access to cookies. Root privileges are not required. This is a pretty well-known and commonly used adversarial technique - at least since 2018 when Cookie Crimes was released.
 However, remote debugging also allows observing user activities and sensitive personal information (aka spying on users) and controlling the browser from a remote computer.
 Below screenshot shows a simulated attacker controlling the victim&amp;rsquo;s browser and navigating to chrome://settings to inspect information:</description>
@@ -102,10 +102,10 @@ Below screenshot shows a simulated attacker controlling the victim&amp;rsquo;s b
     
     <item>
       <title>Hunting for credentials and building a credential type reference catalog</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/2020/hunting-for-credentials/</link>
+      <link>https://embracethered.com/blog/posts/2020/hunting-for-credentials/</link>
       <pubDate>Sun, 26 Apr 2020 12:31:29 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/hunting-for-credentials/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/hunting-for-credentials/</guid>
       <description>Adversaries are leveraging widely exposed clear text credentials to gain access to sensitive information.
 At times the term &amp;ldquo;harvesting credentials&amp;rdquo; is used when red teamers emulate these attacks - which is something that appears to be more opportunistic and I would propose that security teams start to actively hunt for credential exposure that can put their organization at risk &amp;ndash; in case you are not yet doing that.
 Actively hunting for credential exposure The idea of credential hunting is targeted and focused, leveraging intelligence about systems and combing it with powerful search techniques to identify exposure.</description>
@@ -113,20 +113,20 @@ Actively hunting for credential exposure The idea of credential hunting is targe
     
     <item>
       <title>Attack Graphs - How to create and present them</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/2020/conceptual-attack-graphs/</link>
+      <link>https://embracethered.com/blog/posts/2020/conceptual-attack-graphs/</link>
       <pubDate>Mon, 06 Apr 2020 21:00:30 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/conceptual-attack-graphs/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/conceptual-attack-graphs/</guid>
       <description>Conceptual Attack Graphs One question that I have gotten a few times about &amp;ldquo;Cybersecurity Attacks - Red Team Strategies&amp;rdquo; is around the conceptual attack graphs in &amp;ldquo;Chapter 3, Measuring an Offensive Security Program&amp;rdquo;. Specifically, how I create them.
 In this post I will briefly go over some of the reasons for creating them, and also how I create them and share a template for others to use and adjust.</description>
     </item>
     
     <item>
       <title>Cybersecurity Attacks - Red Team Strategies has been released.</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/</link>
+      <link>https://embracethered.com/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/</link>
       <pubDate>Thu, 02 Apr 2020 00:01:09 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/</guid>
       <description>Announcement After countless evenings and weekends in coffee shops, and multiple vacations with the laptop, I&amp;rsquo;m excited to announce that my first book has been published. It took 18 months from writing the first words (at Victrola Coffee Roasters on Capitol Hill by the way) to finishing this project just a few days ago.
 
 Looking back its amazing how this all came together. The first intial draft had 100 pages, and in the end it ended up being 524 pages.</description>
@@ -134,20 +134,20 @@ Looking back its amazing how this all came together. The first intial draft had 
     
     <item>
       <title>2600 - The Hacker Quarterly - Pass the Cookie Article</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/2020/2600-hacker-pass-the-cookie/</link>
+      <link>https://embracethered.com/blog/posts/2020/2600-hacker-pass-the-cookie/</link>
       <pubDate>Sat, 15 Feb 2020 15:48:51 -0800</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/2020/2600-hacker-pass-the-cookie/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/2600-hacker-pass-the-cookie/</guid>
       <description>Pass the Cookie made it into the latest 2600 magazine! Very excited about this!
 I was just walking around Capitol Hill and stopped by Ada&amp;rsquo;s Technical Books on 15th Avenue - a great coffee shop with lots of technical books. Right after walking in to grab a cup of tea, I saw the latest Hacker Quarterly. A few months back I submitted an article about &amp;ldquo;Pass the Cookie&amp;rdquo;, so I had to check, and the article got indeed published!</description>
     </item>
     
     <item>
       <title>Web Application Security Principles Revisited</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/importance-security-principles/</link>
+      <link>https://embracethered.com/blog/posts/importance-security-principles/</link>
       <pubDate>Wed, 12 Feb 2020 17:03:32 -0800</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/importance-security-principles/</guid>
+      <guid>https://embracethered.com/blog/posts/importance-security-principles/</guid>
       <description>Final Year Project - Web Application Security Principles About 18 years ago I worked on the final year project for my Bachelor&amp;rsquo;s degree in Computer Science. I had just gotten interested in security and was learning about security principles.
 The title of the project was &amp;ldquo;Web Application Security Principles - Designing Secure Web Based Enterprise Solutions&amp;rdquo;.
 Looking back, a really cool thing was that I had just started working at Microsoft as an Associate Development Consultant and was bold enough to send the paper last minute over to Michael Howard - who responded and indeed reviewed it!</description>
@@ -155,10 +155,10 @@ Looking back, a really cool thing was that I had just started working at Microso
     
     <item>
       <title>Zero Trust and Disabling Remote Management Endpoints</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/zero-trust/</link>
+      <link>https://embracethered.com/blog/posts/zero-trust/</link>
       <pubDate>Thu, 06 Feb 2020 14:08:55 -0800</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/zero-trust/</guid>
+      <guid>https://embracethered.com/blog/posts/zero-trust/</guid>
       <description>This post highlights a simple mitigation to improve the security posture of your organization. The idea is to, by practical means, limit attack surface and prevent spreading of automated malware, as well as limiting lateral movement by adversaries.
 Network security over the last 15 years Malware can spread fast and damage businesses at scale.
 SQL Slammer [1] and WannaCry [2] are two well-known cases that showed how quickly and damaging this can be.</description>
@@ -166,10 +166,10 @@ SQL Slammer [1] and WannaCry [2] are two well-known cases that showed how quickl
     
     <item>
       <title>Book: Cybersecurity Attacks - Red Team Strategies</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/book-cybersecurity-attacks-red-team-strategies/</link>
+      <link>https://embracethered.com/blog/posts/book-cybersecurity-attacks-red-team-strategies/</link>
       <pubDate>Mon, 02 Dec 2019 17:09:57 -0800</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/book-cybersecurity-attacks-red-team-strategies/</guid>
+      <guid>https://embracethered.com/blog/posts/book-cybersecurity-attacks-red-team-strategies/</guid>
       <description>Excited to announce the book that I have been working on:
 Cybersecurity Attacks - Red Team Strategies
 Learn about the foundational tactics, techniques and procedures to elevate your red teaming skills and enhance the overall security posture of your organization by leveraging homefield advantage. 
@@ -178,10 +178,10 @@ Contents and Background Red Team Strategies covers aspects that are not as commo
     
     <item>
       <title>MITRE ATT&amp;CK Update for Cloud and cookies!</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/mitreattackupdate/</link>
+      <link>https://embracethered.com/blog/posts/mitreattackupdate/</link>
       <pubDate>Sun, 27 Oct 2019 10:56:03 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/mitreattackupdate/</guid>
+      <guid>https://embracethered.com/blog/posts/mitreattackupdate/</guid>
       <description>MITRE just updated the ATT&amp;amp;CK Framework to include Cloud TTPs.
 The update includes techniques for stealing cookies from machines and using them for lateral movement. These are the two techniques I helped contribute to the matrix:
  Credential Access - Steal Web Session Cookie Lateral Movement - Web Session Cookie  It was exciting experience to collaborate with MITRE and contribute on this. And kinda cool to see the Pass the Cookie work referenced.</description>
@@ -189,20 +189,20 @@ The update includes techniques for stealing cookies from machines and using them
     
     <item>
       <title>Coinbase under attack and cookie theft</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/coinbase-hack-cookie-theft-pass/</link>
+      <link>https://embracethered.com/blog/posts/coinbase-hack-cookie-theft-pass/</link>
       <pubDate>Sun, 01 Sep 2019 13:25:07 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/coinbase-hack-cookie-theft-pass/</guid>
+      <guid>https://embracethered.com/blog/posts/coinbase-hack-cookie-theft-pass/</guid>
       <description>Recently Coinbase published a well written blog post on how they were under attack. The adversaries exploite Firefox 0-days. Details can be found here. One intersting aspect is the following:
  &amp;ldquo;We have also observed the attackers specifically target cloud services, e.g. gmail and others, via browser session token theft via direct access to browser datastores. This activity also offers the opportunity for behavior-based detection, as relatively few processes should be directly accessing those files.</description>
     </item>
     
     <item>
       <title>Cybersecurity - Homefield Advantage</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/homefield-advantage/</link>
+      <link>https://embracethered.com/blog/posts/homefield-advantage/</link>
       <pubDate>Sat, 24 Aug 2019 18:46:06 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/homefield-advantage/</guid>
+      <guid>https://embracethered.com/blog/posts/homefield-advantage/</guid>
       <description>No one should beat your security team on the homefield! For several years I have been using the term Homefield Advantage in the context of running a security program, especially in regards to certain aspects of red teaming. Homefield Advantage describes well what a mature security program has to realize and leverage.
 Wikipedia describes &amp;ldquo;home advantage&amp;rdquo; in team sports and highlights some of the benefits:
  &amp;ldquo;This benefit has been attributed to psychological effects supporting fans have on the competitors or referees; to psychological or physiological advantages of playing near home in familiar situations; to the disadvantages away teams suffer from changing time zones or climates, or from the rigors of travel; and, in some sports, to specific rules that favor the home team directly or indirectly.</description>
@@ -210,19 +210,19 @@ Wikipedia describes &amp;ldquo;home advantage&amp;rdquo; in team sports and high
     
     <item>
       <title>Now using Hugo for the blog</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/using-hugo/</link>
+      <link>https://embracethered.com/blog/posts/using-hugo/</link>
       <pubDate>Sat, 24 Aug 2019 11:51:45 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/using-hugo/</guid>
+      <guid>https://embracethered.com/blog/posts/using-hugo/</guid>
       <description>Today I finalized moving the blog and publishing to Hugo. It was pretty straight forward and I decided to move things into a master branch on github, and publish via the docs/ folder features of Github pages.</description>
     </item>
     
     <item>
       <title>BashSpray - Simple Password Spray Bash Script</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/bash-spray-password/</link>
+      <link>https://embracethered.com/blog/posts/bash-spray-password/</link>
       <pubDate>Wed, 03 Jul 2019 21:58:01 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/bash-spray-password/</guid>
+      <guid>https://embracethered.com/blog/posts/bash-spray-password/</guid>
       <description>One thing every red team should attempt early on and regularly is to perform some password spray testing across their organization to identify and help remediate usage of weak passwords.
 In the past I have done this on Windows a lot, but now I built a simple version for it for Bash to run it also from a Mac.
 Check it out: Bash Spray
@@ -231,10 +231,10 @@ Ideally, a script like bashspray.sh is integrated into your response pipelines, 
     
     <item>
       <title>Active Directory and MacOS</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/active-directory-and-macos/</link>
+      <link>https://embracethered.com/blog/posts/active-directory-and-macos/</link>
       <pubDate>Thu, 20 Jun 2019 22:00:16 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/active-directory-and-macos/</guid>
+      <guid>https://embracethered.com/blog/posts/active-directory-and-macos/</guid>
       <description>Interacting with Active Directory on the Mac Did you ever have to interact with Active Directory on a MAC?
 If yes, this post might be interesting for you. I am pretty new to the Mac and basic things I know how to do on Windows need some research to figure out. This time around I explore Active Directory/LDAP Server interactions.
  First, there is the Directory Utility on MacOS which can be quite useful.</description>
@@ -242,30 +242,30 @@ If yes, this post might be interesting for you. I am pretty new to the Mac and b
     
     <item>
       <title>Google Leaks Your Alternate Email Addresses to Unauthenticated Users</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/google-email-leak/</link>
+      <link>https://embracethered.com/blog/posts/google-email-leak/</link>
       <pubDate>Tue, 04 Jun 2019 21:51:52 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/google-email-leak/</guid>
+      <guid>https://embracethered.com/blog/posts/google-email-leak/</guid>
       <description>The Google Login Flow leaks additional email account information to unauthenticated users. I discovered this in the Google Account Login flow while building KoiPhish.
 Responsible Disclosure I reported this issue to Google and they looked into it and after a about 5 weeks of back and forth they decided that this is not an issue worth fixing. After asking if I can post about it publicly I got Google&amp;rsquo;s okay.</description>
     </item>
     
     <item>
       <title>Lyrebird - Hack the hacker (and take a picture)</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/lyrebird/</link>
+      <link>https://embracethered.com/blog/posts/lyrebird/</link>
       <pubDate>Tue, 21 May 2019 21:48:29 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/lyrebird/</guid>
+      <guid>https://embracethered.com/blog/posts/lyrebird/</guid>
       <description>The idea for Lyrebird came from observing that sometimes when someone forgets lock their workstation, someone else might mess with their computer. Since I wanted to learn more on how to program a webcam and take pictures - I figured why not create a little tool that takes a screenshot and uses the webcam to take pictures of anyone that interacts with the computer while I&amp;rsquo;m gone.
 The way this work is simple, start Lyrebird.</description>
     </item>
     
     <item>
       <title>KoiPhish - The Beautiful Phishing Proxy</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/koiphish/</link>
+      <link>https://embracethered.com/blog/posts/koiphish/</link>
       <pubDate>Thu, 10 Jan 2019 21:40:59 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/koiphish/</guid>
+      <guid>https://embracethered.com/blog/posts/koiphish/</guid>
       <description>KoiPhish is a simple yet beautiful relay proxy idea.
 The idea for this little project goes back many years. Since I started learning Golang I figured it would be good exercise to finally go ahead an implement it. So, last December during the 35C3 (which is always inspiring congress) I wrote it up.
 It relays requests a client makes to the KoiPish to the actual target and responses are sent back to the client.</description>
@@ -273,20 +273,20 @@ It relays requests a client makes to the KoiPish to the actual target and respon
     
     <item>
       <title>McPivot and useful LLDB commands</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/lldbbasics/</link>
+      <link>https://embracethered.com/blog/posts/lldbbasics/</link>
       <pubDate>Sat, 05 Jan 2019 21:34:51 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/lldbbasics/</guid>
+      <guid>https://embracethered.com/blog/posts/lldbbasics/</guid>
       <description>Just a list of useful notes when dealing with Macs. I&amp;rsquo;m pretty new to Macs and there might be other, better solutions to the challenges I had to sovle but these worked for me and I&amp;rsquo;m learning. :)
 Pivoting between accounts and keychain issues After pivoting on a target host and elevating to root it seems not possible to gain access to other keychains easily. It requires to know the password of the other account still.</description>
     </item>
     
     <item>
       <title>Pass the Cookie and Pivot to the Clouds</title>
-      <link>https://wunderwuzzi23.github.io/blog/posts/passthecookie/</link>
+      <link>https://embracethered.com/blog/posts/passthecookie/</link>
       <pubDate>Sun, 16 Dec 2018 12:00:00 -0700</pubDate>
       
-      <guid>https://wunderwuzzi23.github.io/blog/posts/passthecookie/</guid>
+      <guid>https://embracethered.com/blog/posts/passthecookie/</guid>
       <description>Web Applications and Services use cookies to authenticate sessions and users. An adversary can pivot from a compromised host to Web Applications and Internet Services by stealing authentication cookies from browsers and related processes. At the same time this technique bypasses most multi-factor authentication protocols.
 The reason for this is that the final authentication token that the attacker steals is issued after all factors have been validated. Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used.</description>
     </item>
