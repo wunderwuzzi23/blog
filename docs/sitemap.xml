@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/</loc>
+    <lastmod>2020-07-01T09:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2020/invoke-windowssearch-credential-hunt/</loc>
     <lastmod>2020-06-22T10:00:51-07:00</lastmod>
   </url>
@@ -163,6 +168,12 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/tags/bug-bounty/</loc>
+    <lastmod>2020-07-01T09:00:00-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/tags/bugbounty/</loc>
     <lastmod>2020-05-13T18:00:25-07:00</lastmod>
     <priority>0</priority>
@@ -253,7 +264,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2020-06-22T10:00:51-07:00</lastmod>
+    <lastmod>2020-07-01T09:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -294,6 +305,12 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/tags/story/</loc>
+    <lastmod>2020-07-01T09:00:00-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/tags/strategy/</loc>
     <lastmod>2020-02-12T17:03:32-08:00</lastmod>
     <priority>0</priority>
@@ -325,7 +342,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2020-06-22T10:00:51-07:00</lastmod>
+    <lastmod>2020-07-01T09:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
