@@ -7,20 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Wed, 01 Jul 2020 09:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jun 2020 23:45:42 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Blast from the past: Cross Site Scripting on the AWS Console</title>
-      <link>https://embracethered.com/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/</link>
-      <pubDate>Wed, 01 Jul 2020 09:00:00 -0700</pubDate>
+      <title>Feedspot ranked &#39;Embrace the Red&#39; one of the top 15 pentest blogs</title>
+      <link>https://embracethered.com/blog/posts/2020/embrace-the-red-one-of-top-15-pentest-blogs/</link>
+      <pubDate>Tue, 30 Jun 2020 23:45:42 -0700</pubDate>
       
-      <guid>https://embracethered.com/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/</guid>
-      <description>Amazon Bug Bounty! Great news: Amazon is offering bounties via a security vulnerabiltiy research program
-Bad news: AWS is out of scope!
-When I read this I remembered that a few years ago I found persistent Cross-Site-Scripting on the AWS Console. Going through my notes from back then I found details and screenshots (also a video) about it. This seems like a proper time to share that story from the past, the techniques I used and how they evolved over the years.</description>
+      <guid>https://embracethered.com/blog/posts/2020/embrace-the-red-one-of-top-15-pentest-blogs/</guid>
+      <description>I&amp;rsquo;m excited that Feedspot ranked this blog (Embrace the Red) the number #10 pentest blog out there.
+Subscribe and check-in regularly for new content related to offensive security engineering, penetration testing and red teaming.
+You can also follow me on Twitter @wunderwuzzi23.
+Cheers.</description>
     </item>
     
     <item>
