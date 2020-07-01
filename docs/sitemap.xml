@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/posts/2020/embrace-the-red-one-of-top-15-pentest-blogs/</loc>
+    <lastmod>2020-06-30T23:45:42-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2020/invoke-windowssearch-credential-hunt/</loc>
     <lastmod>2020-06-22T10:00:51-07:00</lastmod>
   </url>
@@ -139,6 +144,12 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/tags/blog/</loc>
+    <lastmod>2020-06-30T23:45:42-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/tags/blue/</loc>
     <lastmod>2020-06-18T18:42:44-07:00</lastmod>
     <priority>0</priority>
@@ -253,7 +264,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2020-06-22T10:00:51-07:00</lastmod>
+    <lastmod>2020-06-30T23:45:42-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -325,7 +336,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2020-06-22T10:00:51-07:00</lastmod>
+    <lastmod>2020-06-30T23:45:42-07:00</lastmod>
     <priority>0</priority>
   </url>
   
