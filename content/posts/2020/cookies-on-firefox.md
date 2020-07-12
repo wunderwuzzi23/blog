@@ -60,7 +60,7 @@ The user sees this prompt when a client connects to the debugging endpoint. The 
 
 ### Blue Team Detection
 
-**This is a great place for blue teams to build detections to catch and alert on malware that would modify the settings to enable the features.**
+**This is a great place for blue teams to add monitoring and detections to catch and alert on malware that would modify the settings to enable the features.**
 
 
 ## Using Firefox Remote Debugging
