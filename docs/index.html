@@ -6,7 +6,7 @@
   <meta property="og:title" content=" wunderwuzzi blog &middot;  wunderwuzzi blog" />
   
   <meta property="og:site_name" content="wunderwuzzi blog" />
-  <meta property="og:url" content="https://wunderwuzzi23.github.io/blog/" />
+  <meta property="og:url" content="https://embracethered.com/blog/" />
   
   
   <meta property="og:type" content="website" />
@@ -16,20 +16,21 @@
      wunderwuzzi blog &middot;  wunderwuzzi blog
   </title>
 
-  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/main.css" />
-  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/github.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
   
-  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/fonts/cachedfonts.css" type="text/css">
-  <link rel="shortcut icon" href="https://wunderwuzzi23.github.io/blog/images/favicon.ico" />
-  <link rel="apple-touch-icon" href="https://wunderwuzzi23.github.io/blog/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
   
+
 </head>
 <body>
     <header class="global-header"  style="background-image:url( /images/bg.jpg )">
     <section class="header-text">
-      <h1><a href="https://wunderwuzzi23.github.io/blog/">wunderwuzzi blog</a></h1>
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
       
       <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
         Embrace the Red
@@ -61,20 +62,22 @@
   
   
   
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
 </div>
 
       
-      <a href="https://wunderwuzzi23.github.io/blog/" class="btn-header btn-back hidden-xs">
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
         &nbsp;Home
       </a>
       
       
-      <a href="https://wunderwuzzi23.github.io/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
         <i class="fa fa-rss" aria-hidden="true"></i>
         &nbsp;Subscribe
       </a>
-      
     </section>
   </header>
   <main class="container">
@@ -84,7 +87,123 @@
   
   <article>
   <header>
-    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/bugjail/">Putting system owners in Security Bug Jail</a></h2>
+    <h2><a href="https://embracethered.com/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/">Blast from the past: Cross Site Scripting on the AWS Console</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-07-01T10:30:00Z">
+          Jul 1, 2020
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Amazon Bug Bounty! Great news: Amazon is now offering bounties via a security vulnerabiltiy research program
+Bad news: AWS is out of scope!
+When I read this I remembered that a few years ago I found persistent Cross-Site-Scripting on the AWS Console.
+This post is a write up on how I found the XSS back then, techniques I used and how they evolved over the years and Amazon&rsquo;s response.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://embracethered.com/blog/posts/2020/embrace-the-red-one-of-top-15-pentest-blogs/">Feedspot ranked &#39;Embrace the Red&#39; one of the top 15 pentest blogs</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-06-30T23:45:42-07:00">
+          Jun 30, 2020
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    I&rsquo;m excited that Feedspot ranked this blog (Embrace the Red) the number #10 pentest blog out there.
+Subscribe and check-in regularly for new content related to offensive security engineering, penetration testing and red teaming.
+You can also follow me on Twitter @wunderwuzzi23.
+Cheers.
+  </div>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://embracethered.com/blog/posts/2020/invoke-windowssearch-credential-hunt/">Using built-in OS indexing features for credential hunting</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-06-22T10:00:51-07:00">
+          Jun 22, 2020
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    A few months ago we discussed the importance of performing active credential hunting for your organization.
+This is to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them.
+In this post we will explore using built-in operating system indexing features to search for information on machines quickly.
+Many of us use the indexing features (like Windows Search and Spotlight) daily via the UI.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/invoke-windowssearch-credential-hunt/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://embracethered.com/blog/posts/2020/shadowbunny-ttp-pentest-magazine/">Shadowbunny article published in the PenTest Magazine</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-06-18T18:42:44-07:00">
+          Jun 18, 2020
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    The Shadowbunny TTP in the PenTest Magazine The latest edition of the PenTest Magazine features an article of mine about using virtual machines (VMs) during lateral movement to establish persistence and evade detections.
+A few years back when I came up with the idea of using VMs for lateral movement during red teaming, I called it the Shadowbunny TTP and that name stuck around in my head. There is more info in the article around the origin of the name also.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/shadowbunny-ttp-pentest-magazine/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://embracethered.com/blog/posts/2020/bugjail/">Putting system owners in Security Bug Jail</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
@@ -102,7 +221,7 @@ What is the Security Bug Jail? A security bug jail goes along the same lines. Th
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/bugjail/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/bugjail/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -114,7 +233,7 @@ What is the Security Bug Jail? A security bug jail goes along the same lines. Th
   
   <article>
   <header>
-    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/red-teaming-and-monte-carlo-simulations/">Red Teaming and Monte Carlo Simulations</a></h2>
+    <h2><a href="https://embracethered.com/blog/posts/2020/red-teaming-and-monte-carlo-simulations/">Red Teaming and Monte Carlo Simulations</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
@@ -132,7 +251,7 @@ Obviously, using Monte Carlo simulations in the security realm is not my idea. I
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/red-teaming-and-monte-carlo-simulations/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/red-teaming-and-monte-carlo-simulations/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -144,7 +263,7 @@ Obviously, using Monte Carlo simulations in the security realm is not my idea. I
   
   <article>
   <header>
-    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/phishing-stats/">Phishing metrics - what to track?</a></h2>
+    <h2><a href="https://embracethered.com/blog/posts/2020/phishing-stats/">Phishing metrics - what to track?</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
@@ -162,7 +281,7 @@ Funny side facts: At times employees are messing with the red team, entering inv
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/phishing-stats/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/phishing-stats/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -174,7 +293,7 @@ Funny side facts: At times employees are messing with the red team, entering inv
   
   <article>
   <header>
-    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/">$3000 Bug Bounty Award from Mozilla for a successful targeted Credential Hunt</a></h2>
+    <h2><a href="https://embracethered.com/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/">$3000 Bug Bounty Award from Mozilla for a successful targeted Credential Hunt</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
@@ -192,7 +311,7 @@ What is Phabricator? Phabricator is a collaborative web-based toolset for code r
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -204,7 +323,7 @@ What is Phabricator? Phabricator is a collaborative web-based toolset for code r
   
   <article>
   <header>
-    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/cookie-crimes-on-mirosoft-edge/">Cookie Crimes and the new Microsoft Edge Browser</a></h2>
+    <h2><a href="https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/">Cookie Crimes and the new Microsoft Edge Browser</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
@@ -222,7 +341,7 @@ The new Microsoft Edge browser and Chromium Microsoft&rsquo;s latest Edge browse
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/cookie-crimes-on-mirosoft-edge/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -234,7 +353,7 @@ The new Microsoft Edge browser and Chromium Microsoft&rsquo;s latest Edge browse
   
   <article>
   <header>
-    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/chrome-spy-remote-control/">Post-Exploitation: Abusing Chrome&#39;s debugging feature to observe and control browsing sessions remotely</a></h2>
+    <h2><a href="https://embracethered.com/blog/posts/2020/chrome-spy-remote-control/">Post-Exploitation: Abusing Chrome&#39;s debugging feature to observe and control browsing sessions remotely</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
         Posted on
@@ -252,125 +371,7 @@ Below screenshot shows a simulated attacker controlling the victim&rsquo;s brows
   
   <footer>
     <ul class="pager">
-      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/chrome-spy-remote-control/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/hunting-for-credentials/">Hunting for credentials and building a credential type reference catalog</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-04-26T12:31:29-07:00">
-          Apr 26, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Adversaries are leveraging widely exposed clear text credentials to gain access to sensitive information.
-At times the term &ldquo;harvesting credentials&rdquo; is used when red teamers emulate these attacks - which is something that appears to be more opportunistic and I would propose that security teams start to actively hunt for credential exposure that can put their organization at risk &ndash; in case you are not yet doing that.
-Actively hunting for credential exposure The idea of credential hunting is targeted and focused, leveraging intelligence about systems and combing it with powerful search techniques to identify exposure.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/hunting-for-credentials/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/conceptual-attack-graphs/">Attack Graphs - How to create and present them</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-04-06T21:00:30-07:00">
-          Apr 6, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Conceptual Attack Graphs One question that I have gotten a few times about &ldquo;Cybersecurity Attacks - Red Team Strategies&rdquo; is around the conceptual attack graphs in &ldquo;Chapter 3, Measuring an Offensive Security Program&rdquo;. Specifically, how I create them.
-In this post I will briefly go over some of the reasons for creating them, and also how I create them and share a template for others to use and adjust.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/conceptual-attack-graphs/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/">Cybersecurity Attacks - Red Team Strategies has been released.</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-04-02T00:01:09-07:00">
-          Apr 2, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Announcement After countless evenings and weekends in coffee shops, and multiple vacations with the laptop, I&rsquo;m excited to announce that my first book has been published. It took 18 months from writing the first words (at Victrola Coffee Roasters on Capitol Hill by the way) to finishing this project just a few days ago.
-
-Looking back its amazing how this all came together. The first intial draft had 100 pages, and in the end it ended up being 524 pages.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://wunderwuzzi23.github.io/blog/posts/2020/2600-hacker-pass-the-cookie/">2600 - The Hacker Quarterly - Pass the Cookie Article</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-02-15T15:48:51-08:00">
-          Feb 15, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Pass the Cookie made it into the latest 2600 magazine! Very excited about this!
-I was just walking around Capitol Hill and stopped by Ada&rsquo;s Technical Books on 15th Avenue - a great coffee shop with lots of technical books. Right after walking in to grab a cup of tea, I saw the latest Hacker Quarterly. A few months back I submitted an article about &ldquo;Pass the Cookie&rdquo;, so I had to check, and the article got indeed published!
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://wunderwuzzi23.github.io/blog/posts/2020/2600-hacker-pass-the-cookie/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/chrome-spy-remote-control/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
@@ -392,7 +393,7 @@ I was just walking around Capitol Hill and stopped by Ada&rsquo;s Technical Book
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     &copy; WUNDERWUZZI 2020
+     (c) WUNDERWUZZI 2020
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">
@@ -418,6 +419,9 @@ I was just walking around Capitol Hill and stopped by Ada&rsquo;s Technical Book
   
   
   
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
 </div>
  
      <div style="font-size:small;font-style: italic;color:crimson">
@@ -425,21 +429,29 @@ I was just walking around Capitol Hill and stopped by Ada&rsquo;s Technical Book
     </div>
     </div>
 </footer>
-  <script src="https://wunderwuzzi23.github.io/blog/js/highlight.pack.js"></script>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
   </script>
   
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-90341594-2', 'auto');  
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview', { 'anonymizeIp': true });
-  </script>
   
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
   
 </body>
 </html>

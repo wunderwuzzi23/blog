@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Using built-in OS indexing features for credential hunting &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2020/invoke-windowssearch-credential-hunt/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-06-22T10:00:51-07:00" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="ttp" />
+  
+  
+
+  <title>
+     Using built-in OS indexing features for credential hunting &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Using built-in OS indexing features for credential hunting</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-06-22T10:00:51-07:00">
+          Jun 22, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+
+<p>A few months ago we discussed the importance of <a href="/blog/posts/2020/hunting-for-credentials">performing active credential hunting for your organization</a>.</p>
+
+<p>This is to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them.</p>
+
+<p>In this post we will explore <strong>using built-in operating system indexing features</strong> to search for information on machines quickly.</p>
+
+<p>Many of us use the indexing features (like Windows Search and Spotlight) daily via the UI.</p>
+
+<p>However it&rsquo;s also possible to query the index via command line. We will cover this for Windows and macOS:</p>
+
+<ul>
+<li><a href="#windows-built-in-indexing-features">Windows Indexing</a></li>
+<li><a href="#macos-and-spotlight">macOS Spotlight</a></li>
+</ul>
+
+<p>Let&rsquo;s start with Windows.</p>
+
+<h1 id="windows-built-in-indexing-features">Windows Built-in Indexing Features</h1>
+
+<p><strong>Querying the index is fast</strong>, especially compared to manually grep&rsquo;ing through files. In this section we will create a simple script named <code>Invoke-WindowsSearch</code>, which will allow to search the index as seen in this screenshot:</p>
+
+<p><img src="/blog/images/2020/invoke-windowssearch.png" alt="Invoke-WindowsSearch Example" /></p>
+
+<p>Using indexing is also useful for <strong>searching binary file types</strong> or generally, <strong>files that require custom word-breakers</strong> or formats.</p>
+
+<p>First, in Windows the OS is indexing files constantly, and you can inspect the configuration and what kind of files are indexed by visiting the <strong>&ldquo;Indexing Options&rdquo;</strong> settings page:</p>
+
+<p><img src="/blog/images/2020/windows-indexing.png" alt="Windows Search - Index Options" /></p>
+
+<p>The configuration shows if the index includes meta data or also the file contents per each file type.</p>
+
+<h2 id="searching-the-index">Searching the Index</h2>
+
+<p>The index is stored in a SQL database and the following script shows how to connect and search using PowerShell, but you can use any other technology that you are comfortable with.</p>
+
+<p>You can also find this script on my <a href="https://github.com/wunderwuzzi23/searchutils/blob/master/Invoke-WindowsSearch.ps1">Github:</a></p>
+
+<pre><code>function Invoke-WindowsSearch
+{
+    param
+    (
+     [Parameter()][string] $SearchString = &quot;password&quot;
+    )
+    $SearchString = $SearchString.Replace(&quot;'&quot;,&quot;''&quot;)
+    $query   = &quot;select system.itemname, system.itempathdisplay from systemindex where contains('$SearchString')&quot;
+    $provider = &quot;Provider=Search.CollatorDSO.1;Extended?PROPERTIES='Application=Windows'&quot;
+    $adapter  = new-object System.Data.OleDb.OleDBDataAdapter -Argument $query, $provider
+    $results = new-object System.Data.DataSet
+
+    $adapter.Fill($results)
+    $results.Tables[0]
+}
+</code></pre>
+
+<p><em>You&rsquo;ll notice escaping the single-quote, which is something you might not have to worry about as long as you aren&rsquo;t running it as part of a trusted subsystem, or take untrusted input.</em></p>
+
+<p>The following screenshot shows searching the entire machine (if running as an admin) for passwords within a few moments by querying the index:</p>
+
+<p><img src="/blog/images/2020/invoke-windowssearch.png" alt="Invoke-WindowsSearch Example" /></p>
+
+<p>From functional point of view, you can add this function to your <a href="https://devblogs.microsoft.com/scripting/understanding-the-six-powershell-profiles/">PowerShell Profile</a>, since its also useful during day to day work (not just red teaming).</p>
+
+<p>There are more code examples on how to use Windows Search with a variety of technology stacks available on <a href="https://github.com/microsoft/Windows-classic-samples/tree/master/Samples/Win7Samples/winui/WindowsSearch">Microsoft&rsquo;s Github</a>.</p>
+
+<p>Let’s look at the search query language features in a bit more detail.</p>
+
+<h2 id="advanced-search-features">Advanced search features</h2>
+
+<p>There are a wide set of features that can be leveraged when querying, such as <strong>CONTAINS</strong>, <strong>FREETEXT</strong>, and <strong>LIKE</strong> usage in the <strong>WHERE</strong> clause. This following <a href="https://docs.microsoft.com/en-us/windows/win32/search/-search-sql-ovwofsearchquery">link</a> gives an overview of Windows Search, as well as the query language’s capabilities, including <em>relevance</em> and <em>ranking</em>.</p>
+
+<p>Feel free to read up on the documentation to explore the full power of full text searching.</p>
+
+<h2 id="searching-the-index-of-remote-windows-machines">Searching the index of remote Windows machines</h2>
+
+<p><strong>If a host has SMB exposed its also possible (depending on configuration) to search its index remotely</strong>. This is extremly useful when searching for information on SMB file servers for instance. There are more details about this in my book, but basically you can leverage the <strong>SCOPE</strong> parameter in the query to do that.</p>
+
+<h1 id="macos-and-spotlight">macOS and Spotlight</h1>
+
+<p>On macOS its super simple, just use the <code>mdfind</code> command.</p>
+
+<p>The basic use case is as follows:</p>
+
+<pre><code>mdfind password
+</code></pre>
+
+<p>More information can be found here: <a href="https://www.unix.com/man-page/osx/1/mdfind/">https://www.unix.com/man-page/osx/1/mdfind/</a></p>
+
+<p>That&rsquo;s it. :)</p>
+
+<hr />
+
+<h2 id="red-team-strategies">Red Team Strategies</h2>
+
+<p>If you liked this post and found it informative or inspirational follow me on Twitter  <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a>. You might also be interested in my book <a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">&ldquo;Cybersecurity Attacks - Red Team Strategies&rdquo;</a>.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://github.com/microsoft/Windows-classic-samples/tree/master/Samples/Win7Samples/winui/WindowsSearch">Windows Search - Examples</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/win32/search/-search-sql-ovwofsearchquery">Windows Search - SQL Overview</a></li>
+<li><a href="https://devblogs.microsoft.com/scripting/understanding-the-six-powershell-profiles/">PowerShell Profiles</a></li>
+<li><a href="https://www.unix.com/man-page/osx/1/mdfind/">mdfind</a></li>
+<li><a href="https://embracethered.com/index.html">Embrace the Red</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/shadowbunny-ttp-pentest-magazine/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/embrace-the-red-one-of-top-15-pentest-blogs/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2020
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
