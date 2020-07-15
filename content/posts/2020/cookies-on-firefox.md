@@ -1,6 +1,6 @@
 ---
 title: "Remotely debugging Firefox instances"
-date: 2020-07-15T08:00:00-07:00
+date: 2020-07-15T06:00:00-07:00
 draft: true
 tags: [
         "cookies", "red", "blue", "passthecookie", "ttp",
