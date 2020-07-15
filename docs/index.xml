@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Wed, 01 Jul 2020 10:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jul 2020 20:18:51 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>portproxy - Performing port-proxing on Windows</title>
+      <link>https://embracethered.com/blog/posts/2020/windows-port-forward/</link>
+      <pubDate>Tue, 14 Jul 2020 20:18:51 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/windows-port-forward/</guid>
+      <description>A technique on Windows that is less known is how to do basic port-proxing and port-forwarding.
+When is this useful?
+ Proxing traffic is useful when a process binds on one (maybe the local) interface and you want to expose the traffic on another network interface.
+ Let&amp;rsquo;s say you have a process that binds on the loopback interface, but you want to expose it remotely. Or another example is to that there are two network interfaces and you want to expose an endpoint on one interface on the other - think of basic pivoting techniques between networks.</description>
+    </item>
     
     <item>
       <title>Blast from the past: Cross Site Scripting on the AWS Console</title>
@@ -313,18 +325,6 @@ Pivoting between accounts and keychain issues After pivoting on a target host an
       <guid>https://embracethered.com/blog/posts/passthecookie/</guid>
       <description>Web Applications and Services use cookies to authenticate sessions and users. An adversary can pivot from a compromised host to Web Applications and Internet Services by stealing authentication cookies from browsers and related processes. At the same time this technique bypasses most multi-factor authentication protocols.
 The reason for this is that the final authentication token that the attacker steals is issued after all factors have been validated. Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used.</description>
-    </item>
-    
-    <item>
-      <title>portproxy - Performing port-proxing on Windows</title>
-      <link>https://embracethered.com/blog/posts/2020/windows-port-forward/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://embracethered.com/blog/posts/2020/windows-port-forward/</guid>
-      <description>A technique on Windows that is less known is how to do basic port-proxing and port-forwarding.
-When is this useful?
- Proxing traffic is useful when a process binds on one (maybe the local) interface and you want to expose the traffic on another network interface.
- Let&amp;rsquo;s say you have a process that binds on the loopback interface, but you want to expose it remotely. Or another example is to that there are two network interfaces and you want to expose an endpoint on one interface on the other - think of basic pivoting techniques between networks.</description>
     </item>
     
   </channel>
