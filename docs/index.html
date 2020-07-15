@@ -87,37 +87,6 @@
   
   <article>
   <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/windows-port-forward/">Port Forwarding on Windows</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-07-11T18:18:51-07:00">
-          Jul 11, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    A technique on Windows that is less known is how to do basic port-proxing and port-forwarding.
-When is this useful?
- Port-forwarding and proxing traffic is useful when a process binds on one (maybe the local) interface and you want to expose the traffic on another network interface.
- Let&rsquo;s say you have a process that binds on the loopback interface, but you want to expose it remotely. Or another example is to that there are two network interfaces and you want to expose an endpoint on one interface on the other - think of basic pivoting techniques between networks.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/windows-port-forward/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  
-  <hr/>
-  
-  <article>
-  <header>
     <h2><a href="https://embracethered.com/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/">Blast from the past: Cross Site Scripting on the AWS Console</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
@@ -373,6 +342,36 @@ The new Microsoft Edge browser and Chromium Microsoft&rsquo;s latest Edge browse
   <footer>
     <ul class="pager">
       <li class="next"><a href="https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
+    <h2><a href="https://embracethered.com/blog/posts/2020/chrome-spy-remote-control/">Post-Exploitation: Abusing Chrome&#39;s debugging feature to observe and control browsing sessions remotely</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-04-28T18:00:00-07:00">
+          Apr 28, 2020
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Chrome&rsquo;s remote debugging feature enables malware post-exploitation to gain access to cookies. Root privileges are not required. This is a pretty well-known and commonly used adversarial technique - at least since 2018 when Cookie Crimes was released.
+However, remote debugging also allows observing user activities and sensitive personal information (aka spying on users) and controlling the browser from a remote computer.
+Below screenshot shows a simulated attacker controlling the victim&rsquo;s browser and navigating to chrome://settings to inspect information:
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/chrome-spy-remote-control/">Read more <span aria-hidden="true">&raquo;</span></a></li>
     </ul>
   </footer>
   
