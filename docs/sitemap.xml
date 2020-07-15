@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/posts/2020/windows-port-forward/</loc>
+    <lastmod>2020-07-14T20:18:51-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/</loc>
     <lastmod>2020-07-01T10:30:00+00:00</lastmod>
   </url>
@@ -358,11 +363,8 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/windows/</loc>
+    <lastmod>2020-07-14T20:18:51-07:00</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/posts/2020/windows-port-forward/</loc>
   </url>
   
   <url>
