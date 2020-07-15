@@ -18,7 +18,7 @@ For a while I was wondering if (my favorite) browser Firefox has such debugging 
 
 *This article was written a few months back, just never got to post it. So, here we go.*
 
-*There is an important update mentioned further towards the end about a new `getAllCookies()` API that was just introduced by Mozilla. This might mean one can grab cookies post-exploitation a lot easier, like with Cookie Crimes on Chrome - I will post about that seperately after looking at it in more detail.* 
+*There is an important update mentioned further towards the end about a new `getAllCookies()` API that was just introduced by Mozilla. This should mean that one can grab cookies post-exploitation a lot easier - I will post about that seperately after looking at it in more detail.* 
 
 ## Remote Debugging Command & Control UI
 
@@ -28,7 +28,9 @@ The cool thing is that Firefox comes with a built-in UI for debugging multiple r
 
 See the `Connect` button? It allows to connect and debug those remote Firefox intances!
 
-How to get there? Let's start with the basics first.
+How to get there? 
+
+Let's start with the basics first.
 
 ## Enabling Remote Debugging in Firefox
 
@@ -146,8 +148,9 @@ The identifiers for connections and actors  (such as conn21 or child 21) change 
 
 I will be waiting for the handy `getAllCookies` API.
 
-## **UPDATE:** I just checked the Bugzilla bug again, and the **getAllCookies()** API exists now! 
-## This will make my job of getting cookies a lot easier now.
+### **UPDATE:** I just checked the Bugzilla bug again and the **getAllCookies()** API exists now! 
+
+This should make the job of getting cookies a lot easier.
 
 
 ## Cleaning up and reverting changes 
