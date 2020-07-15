@@ -130,15 +130,15 @@
   <section>
     
 
-<p>In a <a href="/blog/posts/2020/chrome-spy-remote-control">previous post</a> we talked about how remote debugging works on Chrome, and we also covered the <a href="/blog/posts/2020/cookie-crimes-on-microsoft-edge">latest Microsoft Edge browser</a>.</p>
+<p>In a <a href="/blog/posts/2020/chrome-spy-remote-control">previous post</a> I talked about how remote debugging works with Chrome, and we also covered the <a href="/blog/posts/2020/cookie-crimes-on-microsoft-edge">latest Microsoft Edge browser</a>.</p>
 
 <p>These features allow an adversary to gain access to authentication tokens and cookies. See <a href="https://attack.mitre.org/techniques/T1539/">MITRE ATT&amp;CK Technique T1539: Steal Web Session Cookie</a> as well for this.</p>
 
-<p>Sinc we covered Chrome and Edge before, I was wondering if Firefox offers debugging features as well, and how one could detect malware trying to exploit it.</p>
+<p>After succesfully using this on Chrome and Edge, I was wondering if Firefox offers debugging features as well, and how one could detect malware trying to exploit it.</p>
 
 <p><em>This article was written a few months back, just never got to post it. So, here we go.</em></p>
 
-<p><em>There is an important update mentioned further down below about a new <code>getAllCookies()</code> API that was just introduced by Mozilla to align with Chrome&rsquo;s features set. I will post about that seperately.</em></p>
+<p><em>There is an important update mentioned further down below about a new <code>getAllCookies()</code> API that was just introduced by Mozilla. I will post about that seperately, after researching if it can be used to grab cookies post-exploitation - like with Cookie Crimes</em></p>
 
 <h2 id="remote-debugging-command-control-ui">Remote Debugging Command &amp; Control UI</h2>
 

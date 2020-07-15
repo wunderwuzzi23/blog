@@ -8,15 +8,15 @@ tags: [
     ]
 ---
 
-In a [previous post](/blog/posts/2020/chrome-spy-remote-control) we talked about how remote debugging works on Chrome, and we also covered the [latest Microsoft Edge browser](/blog/posts/2020/cookie-crimes-on-microsoft-edge). 
+In a [previous post](/blog/posts/2020/chrome-spy-remote-control) I talked about how remote debugging works with Chrome, and we also covered the [latest Microsoft Edge browser](/blog/posts/2020/cookie-crimes-on-microsoft-edge). 
 
 These features allow an adversary to gain access to authentication tokens and cookies. See [MITRE ATT&CK Technique T1539: Steal Web Session Cookie](https://attack.mitre.org/techniques/T1539/) as well for this.
 
-Sinc we covered Chrome and Edge before, I was wondering if Firefox offers debugging features as well, and how one could detect malware trying to exploit it.
+After succesfully using this with Chrome and Edge, I was wondering if Firefox offers debugging features as well, and how one could detect malware trying to exploit it.
 
 *This article was written a few months back, just never got to post it. So, here we go.*
 
-*There is an important update mentioned further down below about a new `getAllCookies()` API that was just introduced by Mozilla to align with Chrome's features set. I will post about that seperately.*
+*There is an important update mentioned further towards the end about a new `getAllCookies()` API that was just introduced by Mozilla. This might mean one can grab cookies post-exploitation, like with Cookie Crimes on Chrome - I will post about that seperately after looking at it in more detail.* 
 
 ## Remote Debugging Command & Control UI
 
@@ -124,13 +124,13 @@ That's it, all pretty cool I think. :)
 
 ## Automation
 
-I have not yet spent much time to research the protocol to automate this. The protocol is documented [here](https://docs.firefox-dev.tools/backend/protocol.html) and while digging into this in more detail, I ran across this Bugzilla entry:
+I have not yet spent much time to research the protocol to automate this. The protocol is documented [here](https://docs.firefox-dev.tools/backend/protocol.html) and while digging into this in more detail, I ran across this Bugzilla defect:
 
-https://bugzilla.mozilla.org/show_bug.cgi?id=1605061
+* [Implement Network.getAllCookies](https://bugzilla.mozilla.org/show_bug.cgi?id=1637619)
 
 **Yes**, this means Firefox will also implement the `Network.getAllCookies()` API - similar to how it works today with Chrome via Cookie Crimes.
 
-## **UPDATE:** I just checked the bug again, and the getAllCookies() API exists now. Wow.".
+## **UPDATE:** I just checked the bug again, and the **getAllCookies()** API exists now! Wow.
 
 Here are some basics about the protocol that I was able to figure out.
 
