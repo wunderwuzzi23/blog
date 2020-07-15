@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Performing port-proxing and port-forwarding on Windows &middot;  wunderwuzzi blog" />
+  <meta property="og:title" content=" Performing port-proxying and port-forwarding on Windows &middot;  wunderwuzzi blog" />
   
   <meta property="og:site_name" content="wunderwuzzi blog" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2020/windows-port-forward/" />
@@ -22,7 +22,7 @@
   
 
   <title>
-     Performing port-proxing and port-forwarding on Windows &middot;  wunderwuzzi blog
+     Performing port-proxying and port-forwarding on Windows &middot;  wunderwuzzi blog
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -94,7 +94,7 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Performing port-proxing and port-forwarding on Windows</h1>
+    <h1 class="text-primary">Performing port-proxying and port-forwarding on Windows</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
@@ -118,9 +118,9 @@
   <section>
     
 
-<p>A technique on Windows that is less known is how to do basic port-proxing.</p>
+<p>A technique on Windows that is less known is how to do basic port-proxying.</p>
 
-<p>Proxing ports is useful when a process binds on one (maybe only the local) interface and <strong>you want to expose that endpoint on another network interface</strong>.</p>
+<p>Proxying ports is useful when a process binds on one (maybe only the local) interface and <strong>you want to expose that endpoint on another network interface</strong>.</p>
 
 <p>Let&rsquo;s say you have an existing process that listens only on the loopback interface, and you want to expose it remotely. Or there are two network interfaces and you want expose traffic from one to the other (maybe some evil persistence for port 3389) - or think of basic <strong>pivoting</strong>.</p>
 
@@ -142,7 +142,7 @@
 
 <p><code>netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 connectaddress=127.0.0.1 connectport=80</code></p>
 
-<p>This is the basic setup to configure proxing traffic.</p>
+<p>This is the basic setup to configure proxying traffic.</p>
 
 <h3 id="explanation">Explanation</h3>
 

@@ -1,5 +1,5 @@
 ---
-title: "Performing port-proxing and port-forwarding on Windows"
+title: "Performing port-proxying and port-forwarding on Windows"
 date: 2020-07-14T20:18:51-07:00
 draft: true
 tags: [
@@ -7,9 +7,9 @@ tags: [
     ]
 ---
 
-A technique on Windows that is less known is how to do basic port-proxing.
+A technique on Windows that is less known is how to do basic port-proxying.
 
-Proxing ports is useful when a process binds on one (maybe only the local) interface and **you want to expose that endpoint on another network interface**.
+Proxying ports is useful when a process binds on one (maybe only the local) interface and **you want to expose that endpoint on another network interface**.
 
 Let's say you have an existing process that listens only on the loopback interface, and you want to expose it remotely. Or there are two network interfaces and you want expose traffic from one to the other (maybe some evil persistence for port 3389) - or think of basic **pivoting**.
 
@@ -31,7 +31,7 @@ The following command shows how this is performed:
 
 ``` netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 connectaddress=127.0.0.1 connectport=80 ``` 
 
-This is the basic setup to configure proxing traffic.
+This is the basic setup to configure proxying traffic.
 
 ### Explanation
 
