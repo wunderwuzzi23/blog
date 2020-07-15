@@ -1,5 +1,5 @@
 ---
-title: "Port Forwarding on Windows"
+title: "portproxy - Performing port-proxing on Windows"
 date: 2020-07-11T18:18:51-07:00
 draft: true
 tags: [
@@ -11,7 +11,7 @@ A technique on Windows that is less known is how to do basic port-proxing and po
 
 When is this useful?
 
-> Port-forwarding and proxing traffic is useful when a process binds on one (maybe the local) interface and you want to expose the traffic on another network interface.
+> Proxing traffic is useful when a process binds on one (maybe the local) interface and you want to expose the traffic on another network interface.
 
 Let's say you have a process that  binds on the loopback interface, but you want to expose it remotely. Or another example is to that there are two network interfaces and you want to expose an endpoint on one interface on the other - think of basic pivoting techniques between networks.
 
