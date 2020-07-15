@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2020-07-15T00:00:51-07:00" />
+  <meta property="og:article:published_time" content="2020-07-15T08:00:00-07:00" />
   
   <meta property="og:article:tag" content="cookies" />
   
@@ -105,7 +105,7 @@
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2020-07-15T00:00:51-07:00">
+        <time datetime="2020-07-15T08:00:00-07:00">
           Jul 15, 2020
         </time>
       </div>
@@ -140,7 +140,7 @@
 
 <p><em>This article was written a few months back, just never got to post it. So, here we go.</em></p>
 
-<p><em>There is an important update mentioned further towards the end about a new <code>getAllCookies()</code> API that was just introduced by Mozilla. This might mean one can grab cookies post-exploitation, like with Cookie Crimes on Chrome - I will post about that seperately after looking at it in more detail.</em></p>
+<p><em>There is an important update mentioned further towards the end about a new <code>getAllCookies()</code> API that was just introduced by Mozilla. This might mean one can grab cookies post-exploitation a lot easier, like with Cookie Crimes on Chrome - I will post about that seperately after looking at it in more detail.</em></p>
 
 <h2 id="remote-debugging-command-control-ui">Remote Debugging Command &amp; Control UI</h2>
 
@@ -203,9 +203,7 @@ user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
 
 <p>The debugging port is only available locally, an adversary will try to make that remotely accessible via port forwarding. I talked about <a href="http://localhost:1313/blog/posts/2020/windows-port-forward/">this</a> here in a bit more detail, but below are the basic commands needed.</p>
 
-<p>In Windows, this can be done by an Administrator using the <code>netsh interface portproxy</code> command.</p>
-
-<p>The following command shows how this is performed:</p>
+<p>In Windows, this can be done by an Administrator using:</p>
 
 <pre><code>netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 connectaddress=127.0.0.1 connectport=9222
 </code></pre>
@@ -250,7 +248,7 @@ user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
 
 <p><strong>Yes</strong>, this means Firefox will also implement the <code>Network.getAllCookies()</code> API - similar to how it works today with Chrome via Cookie Crimes.</p>
 
-<p>Here are some basics about the protocol that I was able to figure out.</p>
+<p>Here are some basics about the protocol that I was able to figure out. I kind of got stuck here, when researching this and thought to just wait until Firefox has the proposed API.</p>
 
 <p>The default protocol is a simple one, it consists of sending <code>length:JSONREQUEST</code>.</p>
 

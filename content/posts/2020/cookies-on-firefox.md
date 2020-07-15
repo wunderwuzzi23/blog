@@ -1,6 +1,6 @@
 ---
 title: "Remotely debugging Firefox instances"
-date: 2020-07-15T00:00:51-07:00
+date: 2020-07-15T08:00:00-07:00
 draft: true
 tags: [
         "cookies", "red", "blue", "passthecookie", "ttp",
@@ -18,7 +18,7 @@ For a while I was wondering if (my favorite) browser Firefox has such debugging 
 
 *This article was written a few months back, just never got to post it. So, here we go.*
 
-*There is an important update mentioned further towards the end about a new `getAllCookies()` API that was just introduced by Mozilla. This might mean one can grab cookies post-exploitation, like with Cookie Crimes on Chrome - I will post about that seperately after looking at it in more detail.* 
+*There is an important update mentioned further towards the end about a new `getAllCookies()` API that was just introduced by Mozilla. This might mean one can grab cookies post-exploitation a lot easier, like with Cookie Crimes on Chrome - I will post about that seperately after looking at it in more detail.* 
 
 ## Remote Debugging Command & Control UI
 
@@ -125,7 +125,7 @@ I have not yet spent much time to research the protocol to automate this. The pr
 
 **Yes**, this means Firefox will also implement the `Network.getAllCookies()` API - similar to how it works today with Chrome via Cookie Crimes.
 
-Here are some basics about the protocol that I was able to figure out.
+Here are some basics about the protocol that I was able to figure out. I kind of got stuck here, when researching this and thought to just wait until Firefox has the proposed API. 
 
 The default protocol is a simple one, it consists of sending `length:JSONREQUEST`.
 
