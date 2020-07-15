@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</loc>
+    <lastmod>2020-07-15T00:00:51-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2020/windows-port-forward/</loc>
     <lastmod>2020-07-14T20:18:51-07:00</lastmod>
   </url>
@@ -161,7 +166,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/blue/</loc>
-    <lastmod>2020-06-18T18:42:44-07:00</lastmod>
+    <lastmod>2020-07-15T00:00:51-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -214,7 +219,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/cookies/</loc>
-    <lastmod>2020-05-01T01:00:46-07:00</lastmod>
+    <lastmod>2020-07-15T00:00:51-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -256,7 +261,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/passthecookie/</loc>
-    <lastmod>2020-05-01T01:00:46-07:00</lastmod>
+    <lastmod>2020-07-15T00:00:51-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -274,13 +279,13 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/post-exploitation/</loc>
-    <lastmod>2020-05-01T01:00:46-07:00</lastmod>
+    <lastmod>2020-07-15T00:00:51-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2020-07-14T20:18:51-07:00</lastmod>
+    <lastmod>2020-07-15T00:00:51-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -304,7 +309,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2020-07-14T20:18:51-07:00</lastmod>
+    <lastmod>2020-07-15T00:00:51-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -346,7 +351,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/ttp/</loc>
-    <lastmod>2020-07-14T20:18:51-07:00</lastmod>
+    <lastmod>2020-07-15T00:00:51-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -364,7 +369,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2020-07-14T20:18:51-07:00</lastmod>
+    <lastmod>2020-07-15T00:00:51-07:00</lastmod>
     <priority>0</priority>
   </url>
   

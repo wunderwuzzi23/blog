@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Remotely Debugging Firefox &middot;  wunderwuzzi blog" />
+  <meta property="og:title" content=" Remotely debugging Firefox instances &middot;  wunderwuzzi blog" />
   
   <meta property="og:site_name" content="wunderwuzzi blog" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2020/cookies-on-firefox/" />
@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2020-07-14T23:00:51-07:00" />
+  <meta property="og:article:published_time" content="2020-07-15T00:00:51-07:00" />
   
   <meta property="og:article:tag" content="cookies" />
   
@@ -28,7 +28,7 @@
   
 
   <title>
-     Remotely Debugging Firefox &middot;  wunderwuzzi blog
+     Remotely debugging Firefox instances &middot;  wunderwuzzi blog
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -100,13 +100,13 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Remotely Debugging Firefox</h1>
+    <h1 class="text-primary">Remotely debugging Firefox instances</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2020-07-14T23:00:51-07:00">
-          Jul 14, 2020
+        <time datetime="2020-07-15T00:00:51-07:00">
+          Jul 15, 2020
         </time>
       </div>
     
@@ -130,19 +130,21 @@
   <section>
     
 
-<p>In a <a href="/blog/posts/2020/chrome-spy-remote-control">previous post</a> I talked about how remote debugging works with Chrome, and we also covered the <a href="/blog/posts/2020/cookie-crimes-on-microsoft-edge">latest Microsoft Edge browser</a>.</p>
+<p>Previously I talked about <a href="/blog/posts/2020/chrome-spy-remote-control">remotely debugging Chrome</a>, and we also covered the <a href="/blog/posts/2020/cookie-crimes-on-microsoft-edge">latest Microsoft Edge browser</a> along the way.</p>
 
 <p>These features allow an adversary to gain access to authentication tokens and cookies. See <a href="https://attack.mitre.org/techniques/T1539/">MITRE ATT&amp;CK Technique T1539: Steal Web Session Cookie</a> as well for this.</p>
 
-<p>After succesfully using this on Chrome and Edge, I was wondering if Firefox offers debugging features as well, and how one could detect malware trying to exploit it.</p>
+<h2 id="what-about-firefox">What about Firefox?</h2>
+
+<p>For a while I was wondering if (my favorite) browser Firefox has such debugging features as well, and how one could detect malware trying to exploit it.</p>
 
 <p><em>This article was written a few months back, just never got to post it. So, here we go.</em></p>
 
-<p><em>There is an important update mentioned further down below about a new <code>getAllCookies()</code> API that was just introduced by Mozilla. I will post about that seperately, after researching if it can be used to grab cookies post-exploitation - like with Cookie Crimes</em></p>
+<p><em>There is an important update mentioned further towards the end about a new <code>getAllCookies()</code> API that was just introduced by Mozilla. This might mean one can grab cookies post-exploitation, like with Cookie Crimes on Chrome - I will post about that seperately after looking at it in more detail.</em></p>
 
 <h2 id="remote-debugging-command-control-ui">Remote Debugging Command &amp; Control UI</h2>
 
-<p>The cool thing is that Firefox comes with a built-in UI for handling multiple remote browser connections. One can choose and switch between them:</p>
+<p>The cool thing is that Firefox comes with a built-in UI for debugging multiple remote browser connections. One can choose and switch between them:</p>
 
 <p><img src="/blog/images/2020/firefox.debug.connect.multiple.png" alt="Connecting to multiple debug servers" /></p>
 
@@ -179,7 +181,7 @@ user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
 
 <p>The user sees this prompt when a client connects to the debugging endpoint. The <code>devtools.debugger.prompt-connection</code> setting in the configuration file controls this behaviour.</p>
 
-<h3 id="blue-team-detection">Blue Team Detection</h3>
+<h2 id="blue-team-detection">Blue Team Detection</h2>
 
 <p><strong>This is a great place for blue teams to add monitoring and detections to catch and alert on malware that would modify the settings to enable the features.</strong></p>
 
@@ -199,9 +201,7 @@ user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
 
 <h2 id="tunneling-traffic-to-remote-machines">Tunneling traffic to remote machines</h2>
 
-<p>The debugging port is only available locally, an adversary will try to make that remotely accessible via port forwarding.</p>
-
-<p><strong>Important: This traffic is sent in clear text, so be aware and consider using ssh port forwarding to encrypt traffic</strong></p>
+<p>The debugging port is only available locally, an adversary will try to make that remotely accessible via port forwarding. I talked about <a href="http://localhost:1313/blog/posts/2020/windows-port-forward/">this</a> here in a bit more detail, but below are the basic commands needed.</p>
 
 <p>In Windows, this can be done by an Administrator using the <code>netsh interface portproxy</code> command.</p>
 
@@ -212,19 +212,13 @@ user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
 
 <p>Now, remote connections to this port will not be allowed because the firewall blocks them (we forwarded to port 48333). We have to add a new firewall rule to allow port 48333. So, let&rsquo;s allow that port through the firewall.</p>
 
-<p>There are multiple ways to do this on Windows (we focus on Window now, but all this should also work on macOS and Linux):</p>
+<p>There are multiple ways to do this on Windows, but since we already used nets let&rsquo;s stick with it:</p>
 
-<ol>
-<li><p>Use netsh to add a new firewall rule:</p>
-
-<p><code>netsh advfirewall firewall add rule name=&quot;Open Port 48333&quot; dir=in action=allow protocol=TCP localport=48333</code></p></li>
-
-<li><p>On modern Windows machines, this can also be done via PowerShell commands:</p>
-
-<p><code>New-NetFirewallRule -Name FirefoxRemote -DisplayName &quot;Open Port 48333&quot; -Direction Inbound -Protocol tcp -LocalPort 48333 -Action Allow -Enabled True</code></p></li>
-</ol>
+<p><code>netsh advfirewall firewall add rule name=&quot;Open Port 48333&quot; dir=in action=allow protocol=TCP localport=48333</code></p>
 
 <p>Now, it is all setup to connect to from another machine.</p>
+
+<p><strong>Important:</strong> This traffic is sent in clear text, so be aware and consider using <code>ssh</code> port forwarding to encrypt traffic</p>
 
 <h2 id="debugging-remote-firefox-instances">Debugging remote Firefox instances</h2>
 
@@ -248,13 +242,13 @@ user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
 
 <h2 id="automation">Automation</h2>
 
-<p>I have not yet spent much time to research the protocol to automate this. The protocol is documented <a href="https://docs.firefox-dev.tools/backend/protocol.html">here</a> and while digging into this in more detail, I ran across this Bugzilla entry:</p>
+<p>I have not yet spent much time to research the protocol to automate this. The protocol is documented <a href="https://docs.firefox-dev.tools/backend/protocol.html">here</a> and while digging into this in more detail, I ran across this Bugzilla defect:</p>
 
-<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1605061">https://bugzilla.mozilla.org/show_bug.cgi?id=1605061</a></p>
+<ul>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1637619">Implement Network.getAllCookies</a></li>
+</ul>
 
 <p><strong>Yes</strong>, this means Firefox will also implement the <code>Network.getAllCookies()</code> API - similar to how it works today with Chrome via Cookie Crimes.</p>
-
-<h2 id="update-i-just-checked-the-bug-again-and-the-getallcookies-api-exists-now-wow"><strong>UPDATE:</strong> I just checked the bug again, and the getAllCookies() API exists now. Wow.&ldquo;.</h2>
 
 <p>Here are some basics about the protocol that I was able to figure out.</p>
 
@@ -272,7 +266,13 @@ user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
 124:{&quot;type&quot;:&quot;getStoreObjects&quot;,&quot;host&quot;:&quot;https://www.google.com&quot;,&quot;names&quot;:null,&quot;options&quot;:{},&quot;to&quot;:&quot;server1.conn21.child21/cookies20&quot;}
 </code></pre>
 
-<p>The identifiers for connections and actors  (such as conn21 or child 21) change everytime, so this needs a little scripting to automate - which I have not worked on. I will be waiting for the handy <code>getAllCookies</code> API.</p>
+<p>The identifiers for connections and actors  (such as conn21 or child 21) change everytime, so this needs a little scripting to automate - which I have not worked on.</p>
+
+<p>I will be waiting for the handy <code>getAllCookies</code> API.</p>
+
+<h2 id="update-i-just-checked-the-bugzilla-bug-again-and-the-getallcookies-api-exists-now"><strong>UPDATE:</strong> I just checked the Bugzilla bug again, and the <strong>getAllCookies()</strong> API exists now!</h2>
+
+<h2 id="this-will-make-my-job-of-getting-cookies-a-lot-easier-now">This will make my job of getting cookies a lot easier now.</h2>
 
 <h2 id="cleaning-up-and-reverting-changes">Cleaning up and reverting changes</h2>
 
@@ -282,13 +282,11 @@ user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
 
 <p>Alternatively, there is a delete argument.</p>
 
-<p>The same applies for opening port 48333. The firewall rule can be removed again using the following command:</p>
+<p>The same applies for opening port 48333 on the firewall:</p>
 
 <p><code>netsh advfirewall firewall del rule name=&quot;Open Port 48333&quot;</code></p>
 
-<p>or if you used the PowerShell example:</p>
-
-<p><code>Remove-NetFirewallRule -Name FirefoxRemote</code></p>
+<p>That&rsquo;s it, now what detections?</p>
 
 <h2 id="detections-and-mitigations">Detections and Mitigations</h2>
 
@@ -296,11 +294,12 @@ user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
 <li>Blue teams should look for anyone using the <code>-start-debugger-server</code> and related features to identify potential misuse. Be aware on Linux/macOS the argument is <code>--start-debugger-server</code></li>
 <li>Similarly, observe and monitor for port forwarding on hosts</li>
 <li>Monitor for changes to <code>user.js</code> and <code>prefs.js</code> files that modify the remote debugging settings for each user and profile under <code>$AppData\Roaming\Mozilla\Firefox\Profiles\</code>.  Malware that wants to leverage the built in features might update the files.</li>
+<li>Usage of <code>netsh interface portproxy</code> or artibrary firewall rules being opened up can also highlight anomalies</li>
 </ul>
 
 <h2 id="conclusion">Conclusion</h2>
 
-<p>In this post we explored remote debugging and how it can be used with Firefox. Hope the post was informative and useful.</p>
+<p>In this post we explored remote debugging and how it can be used with Firefox. Hope the post was informative and useful. And check back soon for a post on using Firefox&rsquo;s <code>getAllCookies</code> APIs.</p>
 
 <p>Feel free to follow or message me on Twitter <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a>.</p>
 

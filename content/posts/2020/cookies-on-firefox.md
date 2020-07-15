@@ -83,9 +83,7 @@ As you can see, this only listens on the **local interface**.
 
 The debugging port is only available locally, an adversary will try to make that remotely accessible via port forwarding. I talked about [this](http://localhost:1313/blog/posts/2020/windows-port-forward/) here in a bit more detail, but below are the basic commands needed.
 
-In Windows, this can be done by an Administrator using the `netsh interface portproxy` command. 
-
-The following command shows how this is performed:
+In Windows, this can be done by an Administrator using:
 
 ```
 netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 connectaddress=127.0.0.1 connectport=9222

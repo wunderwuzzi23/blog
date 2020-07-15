@@ -7,31 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Tue, 14 Jul 2020 20:18:51 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2020 00:00:51 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-      <title>Remotely Debugging Firefox</title>
+      <title>Remotely debugging Firefox instances</title>
       <link>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</link>
-      <pubDate>Tue, 14 Jul 2020 23:00:51 -0700</pubDate>
+      <pubDate>Wed, 15 Jul 2020 00:00:51 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</guid>
-      <description>In a previous post I talked about how remote debugging works with Chrome, and we also covered the latest Microsoft Edge browser.
+      <description>Previously I talked about remotely debugging Chrome, and we also covered the latest Microsoft Edge browser along the way.
 These features allow an adversary to gain access to authentication tokens and cookies. See MITRE ATT&amp;amp;CK Technique T1539: Steal Web Session Cookie as well for this.
-After succesfully using this on Chrome and Edge, I was wondering if Firefox offers debugging features as well, and how one could detect malware trying to exploit it.</description>
+What about Firefox? For a while I was wondering if (my favorite) browser Firefox has such debugging features as well, and how one could detect malware trying to exploit it.</description>
     </item>
     
     <item>
-=======
->>>>>>> Stashed changes
-      <title>portproxy - Performing port-proxing on Windows</title>
-=======
       <title>Performing port-proxing and port-forwarding on Windows</title>
->>>>>>> master
       <link>https://embracethered.com/blog/posts/2020/windows-port-forward/</link>
       <pubDate>Tue, 14 Jul 2020 20:18:51 -0700</pubDate>
       

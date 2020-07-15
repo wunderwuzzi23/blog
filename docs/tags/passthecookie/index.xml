@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Fri, 01 May 2020 01:00:46 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2020 00:00:51 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/passthecookie/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Remotely debugging Firefox instances</title>
+      <link>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:51 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</guid>
+      <description>Previously I talked about remotely debugging Chrome, and we also covered the latest Microsoft Edge browser along the way.
+These features allow an adversary to gain access to authentication tokens and cookies. See MITRE ATT&amp;amp;CK Technique T1539: Steal Web Session Cookie as well for this.
+What about Firefox? For a while I was wondering if (my favorite) browser Firefox has such debugging features as well, and how one could detect malware trying to exploit it.</description>
+    </item>
     
     <item>
       <title>Cookie Crimes and the new Microsoft Edge Browser</title>
