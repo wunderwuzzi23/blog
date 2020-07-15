@@ -9,9 +9,11 @@ tags: [
 
 A technique on Windows that is less known is how to do basic port-proxing and port-forwarding. 
 
-When is this technique useful?
+When is this useful?
 
 > Port-forwarding and proxing traffic is useful when a process binds on one (maybe the local) interface and you want to expose the traffic on another network interface.
+
+Let's say you have a process that  binds on the loopback interface, but you want to expose it remotely. Or another example is to that there are two network interfaces and you want to expose an endpoint on one interface on the other - think of basic pivoting techniques between networks.
 
 I remember it took me quite a while to figure how to do this on Windows the first time I needed this. If you know Linux, you probably are familiar with the power of `ssh` and it's range of command line options. The good news is that Windows 10 ships with `ssh` - but this post is not about ssh.
 
