@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" portproxy - Performing port-proxing on Windows &middot;  wunderwuzzi blog" />
+  <meta property="og:title" content=" Performing port-proxing and port-forwarding on Windows &middot;  wunderwuzzi blog" />
   
   <meta property="og:site_name" content="wunderwuzzi blog" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2020/windows-port-forward/" />
@@ -22,7 +22,7 @@
   
 
   <title>
-     portproxy - Performing port-proxing on Windows &middot;  wunderwuzzi blog
+     Performing port-proxing and port-forwarding on Windows &middot;  wunderwuzzi blog
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -94,7 +94,7 @@
 
 <article>
   <header>
-    <h1 class="text-primary">portproxy - Performing port-proxing on Windows</h1>
+    <h1 class="text-primary">Performing port-proxing and port-forwarding on Windows</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
@@ -118,19 +118,21 @@
   <section>
     
 
-<p>A technique on Windows that is less known is how to do basic port-proxing and port-forwarding.</p>
+<p>A technique on Windows that is less known is how to do basic port-proxing.</p>
 
-<p>When is this useful?</p>
+<p>Proxing ports is useful when a process binds on one (maybe only the local) interface and <strong>you want to expose that endpoint on another network interface</strong>.</p>
 
-<blockquote>
-<p>Proxing traffic is useful when a process binds on one (maybe the local) interface and you want to expose the traffic on another network interface.</p>
-</blockquote>
+<p>Let&rsquo;s say you have an existing process that listens only on the loopback interface, and you want to expose it remotely. Or there are two network interfaces and you want expose traffic from one to the other (maybe some evil persistence for port 3389) - or think of basic <strong>pivoting</strong>.</p>
 
-<p>Let&rsquo;s say you have a process that  binds on the loopback interface, but you want to expose it remotely. Or another example is to that there are two network interfaces and you want to expose an endpoint on one interface on the other - think of basic pivoting techniques between networks.</p>
+<p>It took me quite a while to figure how to do this on Windows the first time I needed this. If you know Linux, you probably are familiar with the power of <code>ssh</code> and it&rsquo;s range of command line options.</p>
 
-<p>I remember it took me quite a while to figure how to do this on Windows the first time I needed this. If you know Linux, you probably are familiar with the power of <code>ssh</code> and it&rsquo;s range of command line options. The good news is that Windows 10 ships with <code>ssh</code> - but this post is not about ssh.</p>
+<p><strong>The good news is that Windows 10 ships with <code>ssh</code> - but this post is not about ssh.</strong></p>
 
 <p>In this post we will look at built-in Windows tools such as <code>netsh</code> and <code>portproxy</code> that can be used.</p>
+
+<h2 id="diving-into-netsh-interface-portproxy">Diving into netsh interface portproxy</h2>
+
+<p>As an example, let&rsquo;s say we have a web server running locally on port 80 - but it indeed only binds on 127.0.0.1. Now we want to tunnel that traffic out on a remote interface.</p>
 
 <p>In Windows this can be done by an Administrator using:</p>
 
@@ -138,11 +140,24 @@
 
 <p>The following command shows how this is performed:</p>
 
-<p><code>netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 connectaddress=127.0.0.1 connectport=3389</code></p>
+<p><code>netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 connectaddress=127.0.0.1 connectport=80</code></p>
 
-<p>This is the basic setup to configure proxing traffic. Although, remote connections to port 48333 will not be allowed because the firewall blocks them.</p>
+<p>This is the basic setup to configure proxing traffic.</p>
 
-<p>We have to add a new firewall rule to allow <code>port 48333</code>.</p>
+<h3 id="explanation">Explanation</h3>
+
+<p>A quick explanation of the most important command line options:</p>
+
+<ul>
+<li><code>listenaddress</code> and <code>listenport</code>: Interface and port of the new endpoint. In our example, this exposes a new endpoint on <strong>all</strong> interfaces on port 48333</li>
+<li><code>connectaddress</code> and <code>connectport</code>: IP and port of the proxy address. In our example, the proxy to connect to is on 127.0.0.0 port 80.</li>
+</ul>
+
+<p>This is the basic configuration to expose that web server remotely on a different interface.</p>
+
+<p>Although, by default remote connections to port 48333 will be blocked by the firewall.</p>
+
+<p>We have to add a new firewall rule to allow port 48333.</p>
 
 <p>How does that work on Windows you might ask?</p>
 

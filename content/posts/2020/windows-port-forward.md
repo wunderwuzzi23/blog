@@ -1,5 +1,5 @@
 ---
-title: "portproxy - Performing port-proxing on Windows"
+title: "Performing port-proxing and port-forwarding on Windows"
 date: 2020-07-14T20:18:51-07:00
 draft: true
 tags: [
@@ -7,17 +7,21 @@ tags: [
     ]
 ---
 
-A technique on Windows that is less known is how to do basic port-proxing and port-forwarding. 
+A technique on Windows that is less known is how to do basic port-proxing.
 
-When is this useful?
+Proxing ports is useful when a process binds on one (maybe only the local) interface and **you want to expose that endpoint on another network interface**.
 
-> Proxing traffic is useful when a process binds on one (maybe the local) interface and you want to expose the traffic on another network interface.
+Let's say you have an existing process that listens only on the loopback interface, and you want to expose it remotely. Or there are two network interfaces and you want expose traffic from one to the other (maybe some evil persistence for port 3389) - or think of basic **pivoting**.
 
-Let's say you have a process that  binds on the loopback interface, but you want to expose it remotely. Or another example is to that there are two network interfaces and you want to expose an endpoint on one interface on the other - think of basic pivoting techniques between networks.
+It took me quite a while to figure how to do this on Windows the first time I needed this. If you know Linux, you probably are familiar with the power of `ssh` and it's range of command line options. 
 
-I remember it took me quite a while to figure how to do this on Windows the first time I needed this. If you know Linux, you probably are familiar with the power of `ssh` and it's range of command line options. The good news is that Windows 10 ships with `ssh` - but this post is not about ssh.
+**The good news is that Windows 10 ships with `ssh` - but this post is not about ssh.**
 
 In this post we will look at built-in Windows tools such as `netsh` and `portproxy` that can be used.
+
+## Diving into netsh interface portproxy
+
+As an example, let's say we have a web server running locally on port 80 - but it indeed only binds on 127.0.0.1. Now we want to tunnel that traffic out on a remote interface.
 
 In Windows this can be done by an Administrator using: 
 
@@ -25,12 +29,22 @@ In Windows this can be done by an Administrator using:
 
 The following command shows how this is performed:
 
-``` netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 connectaddress=127.0.0.1 connectport=3389 ``` 
+``` netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 connectaddress=127.0.0.1 connectport=80 ``` 
 
-This is the basic setup to configure proxing traffic. Although, remote connections to port 48333 will not be allowed because the firewall blocks them. 
+This is the basic setup to configure proxing traffic.
 
+### Explanation
 
-We have to add a new firewall rule to allow `port 48333`. 
+A quick explanation of the most important command line options:
+
+* `listenaddress` and `listenport`: Interface and port of the new endpoint. In our example, this exposes a new endpoint on **all** interfaces on port 48333 
+* `connectaddress` and `connectport`: IP and port of the proxy address. In our example, the proxy to connect to is on 127.0.0.0 port 80.
+
+This is the basic configuration to expose that web server remotely on a different interface.
+
+Although, by default remote connections to port 48333 will be blocked by the firewall.
+
+We have to add a new firewall rule to allow port 48333. 
 
 How does that work on Windows you might ask?
 
