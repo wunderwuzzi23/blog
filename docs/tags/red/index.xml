@@ -7,12 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Tue, 14 Jul 2020 23:00:51 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jul 2020 20:18:51 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
       <title>Remotely Debugging Firefox</title>
       <link>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</link>
@@ -25,6 +26,8 @@ After succesfully using this on Chrome and Edge, I was wondering if Firefox offe
     </item>
     
     <item>
+=======
+>>>>>>> Stashed changes
       <title>portproxy - Performing port-proxing on Windows</title>
 =======
       <title>Performing port-proxing and port-forwarding on Windows</title>

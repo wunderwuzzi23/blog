@@ -1,6 +1,6 @@
 ---
-title: "Remotely Debugging Firefox"
-date: 2020-07-14T23:00:51-07:00
+title: "Remotely debugging Firefox instances"
+date: 2020-07-15T00:00:51-07:00
 draft: true
 tags: [
         "cookies", "red", "blue", "passthecookie", "ttp",
@@ -8,11 +8,13 @@ tags: [
     ]
 ---
 
-In a [previous post](/blog/posts/2020/chrome-spy-remote-control) I talked about how remote debugging works with Chrome, and we also covered the [latest Microsoft Edge browser](/blog/posts/2020/cookie-crimes-on-microsoft-edge). 
+Previously I talked about [remotely debugging Chrome](/blog/posts/2020/chrome-spy-remote-control), and we also covered the [latest Microsoft Edge browser](/blog/posts/2020/cookie-crimes-on-microsoft-edge) along the way.
 
 These features allow an adversary to gain access to authentication tokens and cookies. See [MITRE ATT&CK Technique T1539: Steal Web Session Cookie](https://attack.mitre.org/techniques/T1539/) as well for this.
 
-After succesfully using this with Chrome and Edge, I was wondering if Firefox offers debugging features as well, and how one could detect malware trying to exploit it.
+## What about Firefox?
+
+For a while I was wondering if (my favorite) browser Firefox has such debugging features as well, and how one could detect malware trying to exploit it.
 
 *This article was written a few months back, just never got to post it. So, here we go.*
 
@@ -20,7 +22,7 @@ After succesfully using this with Chrome and Edge, I was wondering if Firefox of
 
 ## Remote Debugging Command & Control UI
 
-The cool thing is that Firefox comes with a built-in UI for handling multiple remote browser connections. One can choose and switch between them:
+The cool thing is that Firefox comes with a built-in UI for debugging multiple remote browser connections. One can choose and switch between them:
 
  ![Connecting to multiple debug servers](/blog/images/2020/firefox.debug.connect.multiple.png)
 
@@ -58,7 +60,7 @@ And this is how the security prompt would look like that we disabled:
 
 The user sees this prompt when a client connects to the debugging endpoint. The `devtools.debugger.prompt-connection` setting in the configuration file controls this behaviour.
 
-### Blue Team Detection
+## Blue Team Detection
 
 **This is a great place for blue teams to add monitoring and detections to catch and alert on malware that would modify the settings to enable the features.**
 
@@ -79,9 +81,7 @@ As you can see, this only listens on the **local interface**.
 
 ## Tunneling traffic to remote machines
 
-The debugging port is only available locally, an adversary will try to make that remotely accessible via port forwarding. 
-
-**Important: This traffic is sent in clear text, so be aware and consider using ssh port forwarding to encrypt traffic**
+The debugging port is only available locally, an adversary will try to make that remotely accessible via port forwarding. I talked about [this](http://localhost:1313/blog/posts/2020/windows-port-forward/) here in a bit more detail, but below are the basic commands needed.
 
 In Windows, this can be done by an Administrator using the `netsh interface portproxy` command. 
 
@@ -93,16 +93,13 @@ netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 conn
 
 Now, remote connections to this port will not be allowed because the firewall blocks them (we forwarded to port 48333). We have to add a new firewall rule to allow port 48333. So, let's allow that port through the firewall. 
 
-There are multiple ways to do this on Windows (we focus on Window now, but all this should also work on macOS and Linux):
+There are multiple ways to do this on Windows, but since we already used nets let's stick with it:
 
-1. Use netsh to add a new firewall rule:
-
-    ```netsh advfirewall firewall add rule name="Open Port 48333" dir=in action=allow protocol=TCP localport=48333```
-2. On modern Windows machines, this can also be done via PowerShell commands:
-
-    ``` New-NetFirewallRule -Name FirefoxRemote -DisplayName "Open Port 48333" -Direction Inbound -Protocol tcp -LocalPort 48333 -Action Allow -Enabled True     ``` 
+```netsh advfirewall firewall add rule name="Open Port 48333" dir=in action=allow protocol=TCP localport=48333```
 
 Now, it is all setup to connect to from another machine.
+
+**Important:** This traffic is sent in clear text, so be aware and consider using `ssh` port forwarding to encrypt traffic
 
 ## Debugging remote Firefox instances
 
@@ -130,8 +127,6 @@ I have not yet spent much time to research the protocol to automate this. The pr
 
 **Yes**, this means Firefox will also implement the `Network.getAllCookies()` API - similar to how it works today with Chrome via Cookie Crimes.
 
-## **UPDATE:** I just checked the bug again, and the **getAllCookies()** API exists now! Wow.
-
 Here are some basics about the protocol that I was able to figure out.
 
 The default protocol is a simple one, it consists of sending `length:JSONREQUEST`.
@@ -149,7 +144,13 @@ Some other commands I figured out to get the contents of a site:
 124:{"type":"getStoreObjects","host":"https://www.google.com","names":null,"options":{},"to":"server1.conn21.child21/cookies20"}
 ```
 
-The identifiers for connections and actors  (such as conn21 or child 21) change everytime, so this needs a little scripting to automate - which I have not worked on. I will be waiting for the handy `getAllCookies` API.
+The identifiers for connections and actors  (such as conn21 or child 21) change everytime, so this needs a little scripting to automate - which I have not worked on. 
+
+I will be waiting for the handy `getAllCookies` API.
+
+## **UPDATE:** I just checked the Bugzilla bug again, and the **getAllCookies()** API exists now! 
+## This will make my job of getting cookies a lot easier now.
+
 
 ## Cleaning up and reverting changes 
 
@@ -159,25 +160,22 @@ Keep in mind that port forwarding was set up earlier to enable the remote exposu
 
 Alternatively, there is a delete argument. 
 
-The same applies for opening port 48333. The firewall rule can be removed again using the following command:
+The same applies for opening port 48333 on the firewall:
 
 ` netsh advfirewall firewall del rule name="Open Port 48333" `
 
-or if you used the PowerShell example:
-
-` Remove-NetFirewallRule -Name FirefoxRemote `
-
+That's it, now what detections?
 
 ## Detections and Mitigations
 
 * Blue teams should look for anyone using the `-start-debugger-server` and related features to identify potential misuse. Be aware on Linux/macOS the argument is `--start-debugger-server`
 * Similarly, observe and monitor for port forwarding on hosts
 * Monitor for changes to `user.js` and `prefs.js` files that modify the remote debugging settings for each user and profile under `$AppData\Roaming\Mozilla\Firefox\Profiles\`.  Malware that wants to leverage the built in features might update the files.
-
+* Usage of `netsh interface portproxy` or artibrary firewall rules being opened up can also highlight anomalies 
 
 ## Conclusion
 
-In this post we explored remote debugging and how it can be used with Firefox. Hope the post was informative and useful. 
+In this post we explored remote debugging and how it can be used with Firefox. Hope the post was informative and useful. And check back soon for a post on using Firefox's `getAllCookies` APIs.
 
 Feel free to follow or message me on Twitter [@wunderwuzzi23](https://twitter.com/wunderwuzzi23).
 
@@ -187,4 +185,3 @@ Feel free to follow or message me on Twitter [@wunderwuzzi23](https://twitter.co
 * [MITRE ATT&CK Technique T1539: Steal Web Session Cookie](https://attack.mitre.org/techniques/T1539/)
 * [MITRE ATT&CK Technique T1506: Web Session Cookie](https://attack.mitre.org/techniques/T1506/)
 * [BugZilla - getAllCookies](https://bugzilla.mozilla.org/show_bug.cgi?id=1605061)
-
