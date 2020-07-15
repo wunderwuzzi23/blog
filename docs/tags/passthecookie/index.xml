@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Sat, 11 Jul 2020 18:18:51 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jul 2020 23:00:51 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/passthecookie/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Remotely Debugging Firefox</title>
       <link>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</link>
-      <pubDate>Sat, 11 Jul 2020 18:18:51 -0700</pubDate>
+      <pubDate>Tue, 14 Jul 2020 23:00:51 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</guid>
       <description>In a previous post we talked about how remote debugging works on Chrome, and we also covered the latest Microsoft Edge browser.
