@@ -87,6 +87,36 @@
   
   <article>
   <header>
+    <h2><a href="https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/">Firefox - Debug Client for Cookie Access</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-07-21T11:00:15-07:00">
+          Jul 21, 2020
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Finally I got to writing some basic tooling for invoking the Firefox debugging API to send commands to the browser and read the responses. This can be useful for grabbing cookies in the post-exploitation phase.
+Source code The source and more information is available on Github
+Technical things The tool is written in Golang using concurrent sender/receiver routines. It uses basic net.Dial to get a TCP client (Conn) to Firefox.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  
+  <hr/>
+  
+  <article>
+  <header>
     <h2><a href="https://embracethered.com/blog/posts/2020/cookies-on-firefox/">Remotely debugging Firefox instances</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
@@ -348,43 +378,13 @@ Funny side facts: At times employees are messing with the red team, entering inv
 </article>
 
   
-  
-  <hr/>
-  
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/">$3000 Bug Bounty Award from Mozilla for a successful targeted Credential Hunt</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-05-13T18:00:25-07:00">
-          May 13, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Last month I did some research on Firefox, specifically I was learning more about it&rsquo;s remote debugging features. As part of that I was reading Bugzilla bug information and learned more about Mozilla&rsquo;s infrastructure.
-One thing I noticed reading up on details was that Mozilla uses Phabricator.
-What is Phabricator? Phabricator is a collaborative web-based toolset for code reviews, checkins, bugs, work items, wiki, pastes, credentials and many other useful things.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
 </div>
 <nav class="pagination" role="navigation">
   
   <hr />
 
 
-  <span class="page-number">Page 1 of 3</span>
+  <span class="page-number">Page 1 of 4</span>
 
 <a class="older-posts" href="/blog/page/2/">Older Posts <span aria-hidden="true">&raquo;</span></a>
 

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/</loc>
+    <lastmod>2020-07-21T11:00:15-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</loc>
     <lastmod>2020-07-15T06:00:00-07:00</lastmod>
   </url>
@@ -166,7 +171,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/blue/</loc>
-    <lastmod>2020-07-15T06:00:00-07:00</lastmod>
+    <lastmod>2020-07-21T11:00:15-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -219,7 +224,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/cookies/</loc>
-    <lastmod>2020-07-15T06:00:00-07:00</lastmod>
+    <lastmod>2020-07-21T11:00:15-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -279,13 +284,13 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/post-exploitation/</loc>
-    <lastmod>2020-07-15T06:00:00-07:00</lastmod>
+    <lastmod>2020-07-21T11:00:15-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2020-07-15T06:00:00-07:00</lastmod>
+    <lastmod>2020-07-21T11:00:15-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -309,7 +314,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2020-07-15T06:00:00-07:00</lastmod>
+    <lastmod>2020-07-21T11:00:15-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -351,7 +356,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/ttp/</loc>
-    <lastmod>2020-07-15T06:00:00-07:00</lastmod>
+    <lastmod>2020-07-21T11:00:15-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -369,7 +374,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2020-07-15T06:00:00-07:00</lastmod>
+    <lastmod>2020-07-21T11:00:15-07:00</lastmod>
     <priority>0</priority>
   </url>
   

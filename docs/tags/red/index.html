@@ -88,6 +88,34 @@
   <hr/>
   <article>
   <header>
+    <h2><a href="https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/">Firefox - Debug Client for Cookie Access</a></h2>
+    <div class="post-meta clearfix">
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-07-21T11:00:15-07:00">
+          Jul 21, 2020
+        </time>
+      </div>
+    </div>
+  </header>
+  <div>
+    Finally I got to writing some basic tooling for invoking the Firefox debugging API to send commands to the browser and read the responses. This can be useful for grabbing cookies in the post-exploitation phase.
+Source code The source and more information is available on Github
+Technical things The tool is written in Golang using concurrent sender/receiver routines. It uses basic net.Dial to get a TCP client (Conn) to Firefox.
+  </div>
+  
+  <footer>
+    <ul class="pager">
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/">Read more <span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </footer>
+  
+</article>
+
+  
+  <hr/>
+  <article>
+  <header>
     <h2><a href="https://embracethered.com/blog/posts/2020/cookies-on-firefox/">Remotely debugging Firefox instances</a></h2>
     <div class="post-meta clearfix">
       <div class="post-date pull-left">
