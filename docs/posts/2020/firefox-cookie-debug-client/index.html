@@ -132,15 +132,15 @@
 
 <h2 id="source-code">Source code</h2>
 
-<p>The source and more information is available on <a href="https://github.com/wunderwuzzi23/firefox-cookiemonster">Github</a></p>
+<p>The source and additional information is available on <a href="https://github.com/wunderwuzzi23/firefox-cookiemonster">Github</a></p>
 
 <h2 id="technical-things">Technical things</h2>
 
 <p>The tool is written in <code>Golang</code> using concurrent sender/receiver routines. It uses basic <code>net.Dial</code> to get a TCP client (<code>Conn</code>) to Firefox.</p>
 
-<p>When the connection is established the tool sends a set of debug messages as <code>serialized JSON objects</code> to eventually run Javascript commands using the <code>evaluateJSAsync</code> method.</p>
+<p>When the connection is established it sends debug messages as <code>serialized JSON objects</code> to setup things and use the <code>evaluateJSAsync</code> method to run JavaScript.</p>
 
-<p>After my last blog post I noticed the <code>Services.cookies.cookies</code> array which holds all the cookies.</p>
+<p>After my last blog post I noticed the <code>Services.cookies.cookies</code> array which holds all the cookies. So by default it will iterate over and return those.</p>
 
 <h3 id="requests">Requests</h3>
 
@@ -192,7 +192,7 @@
 
 <p>Afterwards launching a new Firefox instance with <code>-start-debugger-server 9222</code> will have the debugger enabled  (I believe on macOS the parameter has two dashes).</p>
 
-<p>Yes, this means that you have to kill existing Firefox instances or wait&hellip; The <code>-new-instance</code> features is not working by Firefox on Windows.</p>
+<p>Yes, this means that you have to kill existing Firefox instances or wait until the restarts it. The <code>-new-instance</code> features is not working by Firefox on Windows.</p>
 
 <p>There is more info about enabling it in the <a href="https://github.com/wunderwuzzi23/firefox-cookiemonster">README</a></p>
 
@@ -201,7 +201,7 @@
 <p>This is also were detections might come in handy:</p>
 
 <ul>
-<li>Looking for <code>-start-remote-debugger</code> command line arguments to Firefox</li>
+<li>Looking for <code>-start-debugger-server</code> command line arguments to Firefox</li>
 <li>Modification of <code>user.js</code> and <code>prefs.js</code> files, especially modifications to the 3 settings related to enabling remote debugging</li>
 </ul>
 

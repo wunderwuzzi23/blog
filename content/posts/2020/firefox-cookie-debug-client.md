@@ -13,15 +13,15 @@ Finally I got to writing some basic tooling for invoking the Firefox debugging A
 
 ## Source code
 
-The source and more information is available on [Github](https://github.com/wunderwuzzi23/firefox-cookiemonster)
+The source and additional information is available on [Github](https://github.com/wunderwuzzi23/firefox-cookiemonster)
 
 ## Technical things
 
 The tool is written in `Golang` using concurrent sender/receiver routines. It uses basic `net.Dial` to get a TCP client (`Conn`) to Firefox. 
 
-When the connection is established the tool sends a set of debug messages as `serialized JSON objects` to eventually run Javascript commands using the `evaluateJSAsync` method.
+When the connection is established it sends debug messages as `serialized JSON objects` to setup things and use the `evaluateJSAsync` method to run JavaScript.
 
-After my last blog post I noticed the `Services.cookies.cookies` array which holds all the cookies.
+After my last blog post I noticed the `Services.cookies.cookies` array which holds all the cookies. So by default it will iterate over and return those.
 
 ### Requests 
 
@@ -70,7 +70,7 @@ To enable remote debugging, the following Firefox settings have to be updated:
 
 Afterwards launching a new Firefox instance with `-start-debugger-server 9222` will have the debugger enabled  (I believe on macOS the parameter has two dashes). 
 
-Yes, this means that you have to kill existing Firefox instances or wait... The `-new-instance` features is not working by Firefox on Windows. 
+Yes, this means that you have to kill existing Firefox instances or wait until the restarts it. The `-new-instance` features is not working by Firefox on Windows.
 
 There is more info about enabling it in the [README](https://github.com/wunderwuzzi23/firefox-cookiemonster)
 
@@ -78,7 +78,7 @@ There is more info about enabling it in the [README](https://github.com/wunderwu
 
 This is also were detections might come in handy:
 
-* Looking for `-start-remote-debugger` command line arguments to Firefox
+* Looking for `-start-debugger-server` command line arguments to Firefox
 * Modification of `user.js` and `prefs.js` files, especially modifications to the 3 settings related to enabling remote debugging
 
 
