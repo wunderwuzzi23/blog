@@ -13,13 +13,14 @@
     
     
     <item>
-      <title>Firefox - Debug Client for Cookie Access</title>
+      <title>Firefox - Debugger Client for Cookie Access</title>
       <link>https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/</link>
       <pubDate>Tue, 21 Jul 2020 11:00:15 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/</guid>
       <description>Finally I got to writing some basic tooling for invoking the Firefox debugging API to send commands to the browser and read the responses. This can be useful for grabbing cookies in the post-exploitation phase.
 It works for Windows and macOS, should also work on Linux.
+
 This technique is probably most useful when we don&amp;rsquo;t have root or the user&amp;rsquo;s credentials to decrypt cookies or can&amp;rsquo;t attach a regular debugger to the browser process.</description>
     </item>
     

@@ -1,5 +1,5 @@
 ---
-title: "Firefox - Debug Client for Cookie Access"
+title: "Firefox - Debugger Client for Cookie Access"
 date: 2020-07-21T11:00:15-07:00
 draft: true
 tags: [
@@ -11,7 +11,7 @@ Finally I got to writing some basic tooling for invoking the Firefox debugging A
 
 It works for `Windows` and `macOS`, should also work on `Linux`.
 
-![ffcm output filtered by google.com](/blog/images/2020/firefox/output.png)
+[![ffcm output filtered by google.com](/blog/images/2020/firefox/output.png)](/blog/images/2020/firefox/output.png)
 
 This technique is probably most useful when we don't have root or the user's credentials to decrypt cookies or can't attach a regular debugger to the browser process.
 
