@@ -9,11 +9,16 @@ tags: [
 
 Finally I got to writing some basic tooling for invoking the Firefox debugging API to send commands to the browser and read the responses. This can be useful for grabbing cookies in the post-exploitation phase.
 
+It works for `Windows` and `macOS`, should also work on `Linux`.
+
 ![ffcm output filtered by google.com](/blog/images/2020/firefox/output.png)
+
+This technique is probably most useful when we don't have root or the user's credentials to decrypt cookies or can't attach a debugger to the browser.
 
 ## Source code
 
-The source and additional information is available on [Github](https://github.com/wunderwuzzi23/firefox-cookiemonster)
+The source and additional information is available on [Github](https://github.com/wunderwuzzi23/firefox-cookiemonster).
+
 
 ## Technical things
 
@@ -22,6 +27,7 @@ The tool is written in `Golang` using concurrent sender/receiver routines. It us
 When the connection is established it sends debug messages as `serialized JSON objects` to setup things and use the `evaluateJSAsync` method to run JavaScript.
 
 After my last blog post I noticed the `Services.cookies.cookies` array which holds all the cookies. So by default it will iterate over and return those.
+
 
 ### Requests 
 
@@ -53,33 +59,32 @@ There is likely a better way to implemented this, as Firefox recently (since 78)
 
 The code leverages a single struct for 5 different "kind of" messages to the server. The structure is named `wireMessage` and represents all possible JSON requests/responses. Due to the use of a single message type for all requests/responses it can get a bit messy trying to understand the code. Yay. :)
 
-### Inspired by Cookie Crimes
-
-What inspired me to research and build this for Firefox? Go check out [Cookie Crimes](https://github.com/defaultnamehere/cookie_crimes) for Chrome by @mangopdf.
-
-
-## Enabling remote debugging
-
-Unlike Chrome, Firefox by default doesn't allow debugging. 
-
-To enable remote debugging, the following Firefox settings have to be updated:
-
-* *devtools.debugger.remote-enabled*
-* *devtools.debugger.prompt-connection*
-* *devtools.chrome.enabled*
-
-Afterwards launching a new Firefox instance with `-start-debugger-server 9222` will have the debugger enabled  (I believe on macOS the parameter has two dashes). 
-
-Yes, this means that you have to kill existing Firefox instances or wait until the restarts it. The `-new-instance` features is not working by Firefox on Windows.
-
-There is more info about enabling it in the [README](https://github.com/wunderwuzzi23/firefox-cookiemonster)
-
 ## Detections and alerting
 
 This is also were detections might come in handy:
 
 * Looking for `-start-debugger-server` command line arguments to Firefox
-* Modification of `user.js` and `prefs.js` files, especially modifications to the 3 settings related to enabling remote debugging
+* Modification of `user.js` and `prefs.js` files, especially modifications to the settings related to enabling remote debugging (see Appendix information for reference)
+
+## Cookie Crimes 
+The idea of using a browser's debugging API to access cookies goes to [Cookie Crimes for Chrome](https://github.com/defaultnamehere/cookie_crimes) by @mangopdf.
+
+
+## Appendix: Remote debugging
+
+Unlike Chrome, Firefox by default doesn't allow debugging. 
+
+To enable remote debugging, the following Firefox settings have to be updated in the profile:
+
+* *devtools.debugger.remote-enabled*
+* *devtools.debugger.prompt-connection*
+* *devtools.chrome.enabled*
+
+Afterwards launching a new Firefox instance with `-start-debugger-server 9222` will have the debugger enabled. 
+
+Yes, this means that you have to kill existing Firefox instances or wait until the restarts it. The `-new-instance` features is not working by Firefox it seems.
+
+There is more info and how-to's about enabling it in the [README](https://github.com/wunderwuzzi23/firefox-cookiemonster)
 
 
 ## References

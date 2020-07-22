@@ -128,11 +128,15 @@
 
 <p>Finally I got to writing some basic tooling for invoking the Firefox debugging API to send commands to the browser and read the responses. This can be useful for grabbing cookies in the post-exploitation phase.</p>
 
+<p>It works for <code>Windows</code> and <code>macOS</code>, should also work on <code>Linux</code>.</p>
+
 <p><img src="/blog/images/2020/firefox/output.png" alt="ffcm output filtered by google.com" /></p>
+
+<p>This technique is probably most useful when we don&rsquo;t have root or the user&rsquo;s credentials to decrypt cookies or can&rsquo;t attach a debugger to the browser.</p>
 
 <h2 id="source-code">Source code</h2>
 
-<p>The source and additional information is available on <a href="https://github.com/wunderwuzzi23/firefox-cookiemonster">Github</a></p>
+<p>The source and additional information is available on <a href="https://github.com/wunderwuzzi23/firefox-cookiemonster">Github</a>.</p>
 
 <h2 id="technical-things">Technical things</h2>
 
@@ -174,15 +178,24 @@
 
 <p>The code leverages a single struct for 5 different &ldquo;kind of&rdquo; messages to the server. The structure is named <code>wireMessage</code> and represents all possible JSON requests/responses. Due to the use of a single message type for all requests/responses it can get a bit messy trying to understand the code. Yay. :)</p>
 
-<h3 id="inspired-by-cookie-crimes">Inspired by Cookie Crimes</h3>
+<h2 id="detections-and-alerting">Detections and alerting</h2>
 
-<p>What inspired me to research and build this for Firefox? Go check out <a href="https://github.com/defaultnamehere/cookie_crimes">Cookie Crimes</a> for Chrome by @mangopdf.</p>
+<p>This is also were detections might come in handy:</p>
 
-<h2 id="enabling-remote-debugging">Enabling remote debugging</h2>
+<ul>
+<li>Looking for <code>-start-debugger-server</code> command line arguments to Firefox</li>
+<li>Modification of <code>user.js</code> and <code>prefs.js</code> files, especially modifications to the settings related to enabling remote debugging (see Appendix information for reference)</li>
+</ul>
+
+<h2 id="cookie-crimes">Cookie Crimes</h2>
+
+<p>The idea of using a browser&rsquo;s debugging API to access cookies goes to <a href="https://github.com/defaultnamehere/cookie_crimes">Cookie Crimes for Chrome</a> by @mangopdf.</p>
+
+<h2 id="appendix-remote-debugging">Appendix: Remote debugging</h2>
 
 <p>Unlike Chrome, Firefox by default doesn&rsquo;t allow debugging.</p>
 
-<p>To enable remote debugging, the following Firefox settings have to be updated:</p>
+<p>To enable remote debugging, the following Firefox settings have to be updated in the profile:</p>
 
 <ul>
 <li><em>devtools.debugger.remote-enabled</em></li>
@@ -190,20 +203,11 @@
 <li><em>devtools.chrome.enabled</em></li>
 </ul>
 
-<p>Afterwards launching a new Firefox instance with <code>-start-debugger-server 9222</code> will have the debugger enabled  (I believe on macOS the parameter has two dashes).</p>
+<p>Afterwards launching a new Firefox instance with <code>-start-debugger-server 9222</code> will have the debugger enabled.</p>
 
-<p>Yes, this means that you have to kill existing Firefox instances or wait until the restarts it. The <code>-new-instance</code> features is not working by Firefox on Windows.</p>
+<p>Yes, this means that you have to kill existing Firefox instances or wait until the restarts it. The <code>-new-instance</code> features is not working by Firefox it seems.</p>
 
-<p>There is more info about enabling it in the <a href="https://github.com/wunderwuzzi23/firefox-cookiemonster">README</a></p>
-
-<h2 id="detections-and-alerting">Detections and alerting</h2>
-
-<p>This is also were detections might come in handy:</p>
-
-<ul>
-<li>Looking for <code>-start-debugger-server</code> command line arguments to Firefox</li>
-<li>Modification of <code>user.js</code> and <code>prefs.js</code> files, especially modifications to the 3 settings related to enabling remote debugging</li>
-</ul>
+<p>There is more info and how-to&rsquo;s about enabling it in the <a href="https://github.com/wunderwuzzi23/firefox-cookiemonster">README</a></p>
 
 <h2 id="references">References</h2>
 
