@@ -13,7 +13,7 @@ It works for `Windows` and `macOS`, should also work on `Linux`.
 
 ![ffcm output filtered by google.com](/blog/images/2020/firefox/output.png)
 
-This technique is probably most useful when we don't have root or the user's credentials to decrypt cookies or can't attach a debugger to the browser.
+This technique is probably most useful when we don't have root or the user's credentials to decrypt cookies or can't attach a regular debugger to the browser process.
 
 ## Source code
 
