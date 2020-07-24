@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Motivated Intruder - Red Teaming for Privacy &middot;  wunderwuzzi blog" />
+  <meta property="og:title" content=" Motivated Intruder - Red Teaming for Privacy! &middot;  wunderwuzzi blog" />
   
   <meta property="og:site_name" content="wunderwuzzi blog" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2020/red-teaming-for-privacy/" />
@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2020-07-23T10:31:16-07:00" />
+  <meta property="og:article:published_time" content="2020-07-24T10:00:16-07:00" />
   
   <meta property="og:article:tag" content="pentesting" />
   
@@ -22,7 +22,7 @@
   
 
   <title>
-     Motivated Intruder - Red Teaming for Privacy &middot;  wunderwuzzi blog
+     Motivated Intruder - Red Teaming for Privacy! &middot;  wunderwuzzi blog
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -94,13 +94,13 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Motivated Intruder - Red Teaming for Privacy</h1>
+    <h1 class="text-primary">Motivated Intruder - Red Teaming for Privacy!</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2020-07-23T10:31:16-07:00">
-          Jul 23, 2020
+        <time datetime="2020-07-24T10:00:16-07:00">
+          Jul 24, 2020
         </time>
       </div>
     
@@ -118,11 +118,11 @@
   <section>
     
 
-<p>In this post I will discuss some testing techniques for internal red teams to identify privacy issues in services and infrastructure, most importantly a simple three step approach that can yield interesting results.</p>
+<p>In this post I will discuss some testing techniques for internal red teams to identify privacy issues in services and infrastructure, most importantly a simple three step approach that might uncover interesting results.</p>
 
 <h2 id="background-story">Background story</h2>
 
-<p>First, let me share a hopefully fun and interesting story from the past. When I did my master&rsquo;s I built an app that performs end to end encryption of Facebook posts. Only the intended audience for which your posts were encrypted for can decipher the posts.</p>
+<p>First, let me share a story from the past. When I did my master&rsquo;s I built an app that performs end to end encryption of Facebook posts. This means that only the intended audience for which your posts were encrypted for can decipher the posts.</p>
 
 <p>The project was called Project Cryptbook, and I found an old screnshot again:</p>
 
@@ -130,13 +130,13 @@
 
 <p>On the left you see the UI in the app which shows the clear text. And on the right, you see what everyone else, including Facebook sees.</p>
 
-<p>That was about 10 years ago - interesting how time flies. Facebook replaced the &ldquo;wall&rdquo; with an ad-driven timeline and Windows Phone is dead.</p>
+<p>That was about 10+ years ago - interesting how time flies. Facebook replaced the &ldquo;wall&rdquo; with an ad-driven timeline and Windows Phone is dead.</p>
 
 <p>Anyhow, I have always been a fan of privacy, data protection and giving user&rsquo;s control over their data.</p>
 
 <h2 id="red-teaming-for-privacy">Red Teaming for privacy!</h2>
 
-<p>When years later I oversaw planning and performing larger red team operations I thought quite a bit on how to help organizations improve their understanding of privacy threats with practical excersices. It became even more interesting when new regulations started kicking in.</p>
+<p>When years later I oversaw planning and performing large red team operations I thought quite a bit on how to help organizations improve their understanding of privacy threats with practical excersices. It became even more interesting when new regulations started kicking in.</p>
 
 <p><strong>Does your organization have procedures in place to regularly assess systems and infrastructure for privacy violations?</strong></p>
 
@@ -162,7 +162,7 @@
 
 <p>How difficult is it for a developer, a marketing person, support personnel, a data scientist, or someone from HR to access customer data?</p>
 
-<p><strong>Are requests possibly auto approved!?!? :)</strong></p>
+<p><strong>Are access requests possibly auto approved!?!? :)</strong></p>
 
 <p>The data intruder threat is important as more and more of the world&rsquo;s data is being stored in the cloud. Insiders indeed exploit their privileges at times, for instance: <a href="https://www.reuters.com/article/us-twitter-cyber-access-exclusive-idUSKCN24O34E">Twitter (2020)</a>, <a href="https://www.nbcnews.com/tech/social-media/facebook-investigating-claim-engineer-used-access-stalk-women-n870526">Facebook (2018)</a> and <a href="https://techcrunch.com/2010/09/14/google-engineer-fired-security/">Google (2010)</a>.</p>
 
@@ -200,6 +200,8 @@
 <h2 id="scenario-1-identifying-customer-data-in-widely-accessible-locations">Scenario 1: Identifying customer data in widely accessible locations</h2>
 
 <p>I am a fan of creating sentinel datasets and have the red team find and exfiltrate those as objective.</p>
+
+<p><img src="/blog/images/2020/background.filler.png" alt="background" /></p>
 
 <h3 id="what-is-a-sentinel-record">What is a sentinel record?</h3>
 

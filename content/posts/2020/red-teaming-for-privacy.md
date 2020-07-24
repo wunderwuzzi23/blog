@@ -1,6 +1,6 @@
 ---
 title: "Motivated Intruder - Red Teaming for Privacy!"
-date: 2020-07-24T10:31:16-07:00
+date: 2020-07-24T10:00:16-07:00
 draft: true
 tags: [
         "pentesting",
@@ -9,7 +9,7 @@ tags: [
     ]
 ---
 
-In this post I will discuss some testing techniques for internal red teams to identify privacy issues in services and infrastructure, most importantly a simple three step approach that can yield interesting results. 
+In this post I will discuss some testing techniques for internal red teams to identify privacy issues in services and infrastructure, most importantly a simple three step approach that might uncover interesting results. 
 
 ## Background story 
 
