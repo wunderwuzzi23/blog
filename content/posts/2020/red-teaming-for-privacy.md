@@ -1,6 +1,6 @@
 ---
-title: "Motivated Intruder - Red Teaming for Privacy"
-date: 2020-07-23T10:31:16-07:00
+title: "Motivated Intruder - Red Teaming for Privacy!"
+date: 2020-07-24T10:31:16-07:00
 draft: true
 tags: [
         "pentesting",
@@ -13,7 +13,7 @@ In this post I will discuss some testing techniques for internal red teams to id
 
 ## Background story 
 
-First, let me share a hopefully fun and interesting story from the past. When I did my master's I built an app that performs end to end encryption of Facebook posts. Only the intended audience for which your posts were encrypted for can decipher the posts. 
+First, let me share a story from the past. When I did my master's I built an app that performs end to end encryption of Facebook posts. This means that only the intended audience for which your posts were encrypted for can decipher the posts. 
 
 The project was called Project Cryptbook, and I found an old screnshot again:
 
@@ -21,13 +21,13 @@ The project was called Project Cryptbook, and I found an old screnshot again:
 
 On the left you see the UI in the app which shows the clear text. And on the right, you see what everyone else, including Facebook sees. 
 
-That was about 10 years ago - interesting how time flies. Facebook replaced the "wall" with an ad-driven timeline and Windows Phone is dead.
+That was about 10+ years ago - interesting how time flies. Facebook replaced the "wall" with an ad-driven timeline and Windows Phone is dead.
 
 Anyhow, I have always been a fan of privacy, data protection and giving user's control over their data. 
 
 ## Red Teaming for privacy!
 
-When years later I oversaw planning and performing larger red team operations I thought quite a bit on how to help organizations improve their understanding of privacy threats with practical excersices. It became even more interesting when new regulations started kicking in.
+When years later I oversaw planning and performing large red team operations I thought quite a bit on how to help organizations improve their understanding of privacy threats with practical excersices. It became even more interesting when new regulations started kicking in.
 
 **Does your organization have procedures in place to regularly assess systems and infrastructure for privacy violations?**
 
@@ -51,7 +51,7 @@ In more mature organizations such access is only granted on a case-by-case basis
 
 How difficult is it for a developer, a marketing person, support personnel, a data scientist, or someone from HR to access customer data?
 
-**Are requests possibly auto approved!?!? :)**
+**Are access requests possibly auto approved!?!? :)**
 
 The data intruder threat is important as more and more of the world's data is being stored in the cloud. Insiders indeed exploit their privileges at times, for instance: [Twitter (2020)](https://www.reuters.com/article/us-twitter-cyber-access-exclusive-idUSKCN24O34E), [Facebook (2018)](https://www.nbcnews.com/tech/social-media/facebook-investigating-claim-engineer-used-access-stalk-women-n870526) and [Google (2010)](https://techcrunch.com/2010/09/14/google-engineer-fired-security/).
 
@@ -89,6 +89,8 @@ Discuss with compliance and legal teams before engaging with them to ensure you 
 ## Scenario 1: Identifying customer data in widely accessible locations 
 
 I am a fan of creating sentinel datasets and have the red team find and exfiltrate those as objective. 
+
+![background](/blog/images/2020/background.filler.png)
 
 ### What is a sentinel record?
 
