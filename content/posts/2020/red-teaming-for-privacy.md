@@ -51,7 +51,7 @@ In more mature organizations such access is only granted on a case-by-case basis
 
 How difficult is it for a developer, a marketing person, support personnel, a data scientist, or someone from HR to access customer data?
 
-**Are access requests possibly auto-approved!?!? **
+**Are access requests possibly auto-approved!?**
 
 The data intruder threat is important as more and more of the world's data is being stored in the cloud. Insiders indeed exploit their privileges at times, for instance: [Twitter (2020)](https://www.reuters.com/article/us-twitter-cyber-access-exclusive-idUSKCN24O34E), [Facebook (2018)](https://www.nbcnews.com/tech/social-media/facebook-investigating-claim-engineer-used-access-stalk-women-n870526) and [Google (2010)](https://techcrunch.com/2010/09/14/google-engineer-fired-security/).
 
