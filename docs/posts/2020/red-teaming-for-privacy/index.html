@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Motivated Intruder - Red Teaming for Privacy &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2020/red-teaming-for-privacy/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-07-23T10:31:16-07:00" />
+  
+  <meta property="og:article:tag" content="pentesting" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="privacy" />
+  
+  
+
+  <title>
+     Motivated Intruder - Red Teaming for Privacy &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Motivated Intruder - Red Teaming for Privacy</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-07-23T10:31:16-07:00">
+          Jul 23, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentesting">#pentesting</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/privacy">#privacy</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+
+<p>In this post I will discuss some testing techniques for internal red teams to identify privacy issues in services and infrastructure, most importantly a simple three step approach that can yield interesting results.</p>
+
+<h2 id="background-story">Background story</h2>
+
+<p>First, let me share a hopefully fun and interesting story from the past. When I did my master&rsquo;s I built an app that performs end to end encryption of Facebook posts. Only the intended audience for which your posts were encrypted for can decipher the posts.</p>
+
+<p>The project was called Project Cryptbook, and I found an old screnshot again:</p>
+
+<p><a href="/blog/images/2020/cryptbook.png"><img src="/blog/images/2020/cryptbook.png" alt="Project Cryptbook" /></a></p>
+
+<p>On the left you see the UI in the app which shows the clear text. And on the right, you see what everyone else, including Facebook sees.</p>
+
+<p>That was about 10 years ago - interesting how time flies. Facebook replaced the &ldquo;wall&rdquo; with an ad-driven timeline and Windows Phone is dead.</p>
+
+<p>Anyhow, I have always been a fan of privacy, data protection and giving user&rsquo;s control over their data.</p>
+
+<h2 id="red-teaming-for-privacy">Red Teaming for privacy!</h2>
+
+<p>When years later I oversaw planning and performing larger red team operations I thought quite a bit on how to help organizations improve their understanding of privacy threats with practical excersices. It became even more interesting when new regulations started kicking in.</p>
+
+<p><strong>Does your organization have procedures in place to regularly assess systems and infrastructure for privacy violations?</strong></p>
+
+<p>Article 32 of the <a href="https://eur-lex.europa.eu/legalcontent/EN/TXT/?qid=1528874672298&amp;uri=CELEX%3A32016R0679">General Data Protection Regulation (GDPR)</a> highlights the requirement and necessity to test regularly when processing:</p>
+
+<blockquote>
+<p>&ldquo;a process for regularly testing, assessing, and evaluating the effectiveness of technical and organizational measures for ensuring the security of processing.&rdquo;</p>
+</blockquote>
+
+<p>Even for privacy minded folks and organizations, there is little information available on how to perform privacy testing nor is there much literature out there (to my knowledge). Chances are you might have not even thought about privacy focused testing before.</p>
+
+<p><a href="https://gdpr.eu/"><img src="/blog/images/2020/gdpr.png" alt="GDPR Logo" /></a></p>
+
+<p>Let&rsquo;s dive into the threats of data and motivated intruder.</p>
+
+<h2 id="data-intruder-threat">Data Intruder Threat</h2>
+
+<p>Privacy violations are often insider threats. Employees who have access to production and PII data can easily exfiltrate large amounts of data or be coerced into doing so by an adversary.</p>
+
+<p>In more mature organizations such access is only granted on a case-by-case basis and temporarily for support, debugging or when security incidents arise. And access to the systems and data records is <em>(should be)</em> monitored thoroughly.</p>
+
+<h3 id="easy-access-to-customer-data">Easy access to customer data?</h3>
+
+<p>How difficult is it for a developer, a marketing person, support personnel, a data scientist, or someone from HR to access customer data?</p>
+
+<p><strong>Are requests possibly auto approved!?!? :)</strong></p>
+
+<p>The data intruder threat is important as more and more of the world&rsquo;s data is being stored in the cloud. Insiders indeed exploit their privileges at times, for instance: <a href="https://www.reuters.com/article/us-twitter-cyber-access-exclusive-idUSKCN24O34E">Twitter (2020)</a>, <a href="https://www.nbcnews.com/tech/social-media/facebook-investigating-claim-engineer-used-access-stalk-women-n870526">Facebook (2018)</a> and <a href="https://techcrunch.com/2010/09/14/google-engineer-fired-security/">Google (2010)</a>.</p>
+
+<p>How is the situation in your organization?</p>
+
+<p>Ideally, customers should be notified whenever employees or contractors access their information through support, maintenance, or bug fixes. That would set a high standard for ethics in the industry.</p>
+
+<p>What safeguards are in place to prevent anyone from downloading the customer database, copying it onto a USB device to exfiltrate, sell the information, or take it home when departing the company?</p>
+
+<h2 id="motivated-intruder">Motivated Intruder</h2>
+
+<p>Furthermore, NIST highlights the <strong>Motivated Intruder</strong> as being an internal adversary who has access to <strong>anonymized datasets and uses data science techniques to <a href="https://csrc.nist.gov/csrc/media/publications/sp/800-188/archive/2016-08-25/documents/sp800_188_draft.pdf">reidentify and deanonymize the data</a></strong>.</p>
+
+<p><img src="/blog/images/2020/hacker.png" alt="Hacker" /></p>
+
+<p>I have been using the term <strong>Motivated Intruder</strong> in a broader sense for any privacy focused red teaming operations throughout my career.</p>
+
+<h2 id="getting-started-with-privacy-focused-testing">Getting started with privacy focused testing</h2>
+
+<p>There are some basic ways to test and identify privacy violations in your organization.</p>
+
+<p>Here are a couple ideas for operations, such as:</p>
+
+<ol>
+<li><strong>Identifying customer data in widely accessible locations</strong>. For various reasons PII might end up accidentally in widely accessible telemetry, source code, logs, event streams, shared email inboxes, data science notebooks,&hellip;</li>
+<li><strong>Simulate a Data Intruder who can legitimately gain access to customer data for business purposes</strong> and exfiltrate sentinel records to validate monitoring solutions</li>
+<li><strong>Exploit a system vulnerability</strong> or weakness to gain access to customer data</li>
+<li>Perform <strong>de-anonymization attacks</strong> - teaming up with data scientists during red team operations</li>
+</ol>
+
+<p>In this post I will be focusing on the first two scenarios.</p>
+
+<p>Discuss with compliance and legal teams before engaging with them to ensure you have a well-rounded and authorized test plan in place.</p>
+
+<h2 id="scenario-1-identifying-customer-data-in-widely-accessible-locations">Scenario 1: Identifying customer data in widely accessible locations</h2>
+
+<p>I am a fan of creating sentinel datasets and have the red team find and exfiltrate those as objective.</p>
+
+<h3 id="what-is-a-sentinel-record">What is a sentinel record?</h3>
+
+<p>A sentinel data record is basically a test record, often with an easily identifiable pattern.</p>
+
+<p>Sentinel data records are useful for privacy focused testing. One way to get basic end-to-end test coverage is to use your own systems as an external user:</p>
+
+<ol>
+<li><strong>Data creation with unique patterns</strong> - Sign up with a unique and easily identifiable pattern as PII</li>
+<li><strong>Exercising features</strong> of the system under test - Then exercise and use all the features of the system to trigger various workflows internally</li>
+<li><strong>Hunting for patterns in internal systems</strong> - Finally, switch hats and search internally in widely accessible places for that <strong>unique pattern</strong></li>
+</ol>
+
+<h3 id="how-does-this-work-practically">How does this work practically?</h3>
+
+<p>Let&rsquo;s say your organization runs a service that allows users to register with their first name, last name, address, and credit card, and users can upload text and comments. Let&rsquo;s walk through a test scenario step by step.</p>
+
+<h3 id="step-1-data-creation-with-unique-easily-identifiable-patterns">Step 1: Data creation with unique, easily identifiable patterns</h3>
+
+<p>In a practical fashion, this could be as simple as the following:</p>
+
+<ul>
+<li>As username, pick <strong>John55444562200</strong> <strong>Tester55444562200</strong></li>
+<li>The address could be <strong>Test Road55444562200</strong></li>
+<li>Credit card contains <strong>55444562200</strong> as well</li>
+<li>Phone number contains  <strong>55444562200</strong></li>
+<li>The email address contains it, for instance <strong>johntester+55444562200</strong>@example.org</li>
+</ul>
+
+<p><strong>You get the idea!</strong></p>
+
+<h3 id="step-2-exercising-features">Step 2: Exercising features</h3>
+
+<p>After creating test data, use the system and its features. Consider triggering side conditions and error cases to get a wide range of test cases. Upload/post/edit/delete information in the same using the pattern <strong>55444562200</strong>.</p>
+
+<p>There is also the opportunity to automate and leverage already existing test frameworks to become more repeatable and have better test coverage.</p>
+
+<h3 id="step-3-hunting-phase">Step 3: Hunting phase</h3>
+
+<p>Afterward, it is time to hunt for the <em>specific</em> string pattern - in this case for <strong>55444562200</strong>.</p>
+
+<p>This means searching various data stores and widely accessible information repositories for the pattern that used during signup.</p>
+
+<p><img src="/blog/images/2020/lookfor.png" alt="Searching" /></p>
+
+<p>At this stage there is <strong>no</strong> need to actively compromise systems - ideally you just define a scope of systems to analyze upfront. Searching widely accessible <strong>telemetry stores</strong> and <strong>supposedly anonymized datasets in data lakes</strong> is a good place to start.</p>
+
+<p>Some surprise hits might also be visible in places like <strong>internal source code repositories</strong> - maybe a data scientists checks in customer data when building or analyzing models, and of course our very own <strong>security monitoring solutions</strong> might contain the pattern as well. Other places are <strong>Intranet portals</strong>, <strong>file servers</strong> and <strong>O365/SharePoint/GSuite</strong>.</p>
+
+<p>Using this simple technique, it&rsquo;s possible to raise awareness and identify potential privacy violations and improve the overall security posture. It also helps protect the organization from certain data intruder threats.</p>
+
+<p><strong>Note:</strong> You can also do a privacy hunt without creating sentinel records. For instance searching for regular expression of phone numbers, email addresses or credit card numbers can help identify sensitive datasets in widely exposed locations pretty quickly.</p>
+
+<h3 id="scenario-2-malicious-insider-and-privacy-implications">Scenario 2: Malicious insider and privacy implications</h3>
+
+<p>When troubleshooting issues and debugging purposes, as well as security investigations, it is likely that engineers in your organization can request access to production machines where they might be exposed to customer data. In less mature organizations the process might be even simpler - and the question is if auditing is taking place. This is an important angle to validate as a red team.</p>
+
+<p><img src="/blog/images/2020/number.png" alt="Numbers" /></p>
+
+<p>What if someone legitimately gains that level of access to debug a performance problem but at the same time exfiltrates customer data on a production system?</p>
+
+<p>Would the blue team detect that? Is there enough logging in place to figure out what happened?</p>
+
+<p>The actual data to exfiltrate can again be sentinel production records. This is to avoid having the red team touch real customer data – which is always preferable. Although, as a safety pre-caution red teamer must have proper authorization if they get exposed to customer data during testing (and yes, red teams have to be audited also). Discuss your testing objectives and approach with your legal counsel to ensure its legitimate and authorized.</p>
+
+<p><strong>In the end, I think that an organization has to engage in privacy testing to help protect customer data and to demonstrate adhering to privacy regulation.</strong></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>In this post we discussed how Red Teams can help identify privacy violations by performing motivated intruder testing. We also learned about the Data Intruder and walked through some basic test techniques to help identify and minimize risk associated with accidently leaking customer data.</p>
+
+<p>Hope this was interesting and useful. If you kick off such tests in your organization, I&rsquo;d be curious to learn about findings or other approaches and ideas you might have.</p>
+
+<p>Feel free to follow or message me on Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://csrc.nist.gov/csrc/media/publications/sp/800-188/archive/2016-08-25/documents/sp800_188_draft.pdf">De-identifying Government Datasets - Motivated Intruder</a></li>
+<li><a href="https://www.reuters.com/article/us-twitter-cyber-access-exclusive-idUSKCN24O34E">More than 1,000 people at Twitter had ability to aid hack of accounts, 2020</a></li>
+<li><a href="https://www.nbcnews.com/tech/social-media/facebook-investigating-claim-engineer-used-access-stalk-women-n870526">Facebook investigating claim engineer used access to stalk woman, 2018</a></li>
+<li><a href="https://techcrunch.com/2010/09/14/google-engineer-fired-security/">This is the second time Google fired an engineer for accessing user data, 2010</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2020
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
