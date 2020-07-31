@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Illusion of Control - Capability Maturity Models and Red Teaming &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2020/capability-maturity-model-test-red-teaming/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-07-31T12:08:00-07:00" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="book" />
+  
+  
+
+  <title>
+     Illusion of Control - Capability Maturity Models and Red Teaming &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Illusion of Control - Capability Maturity Models and Red Teaming</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-07-31T12:08:00-07:00">
+          Jul 31, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/book">#book</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+
+<p>Throughout my career I have been fascinated with quality assurance and testing, especially security testing and red teaming. One discussion that comes up frequently is how to measure the maturity of such programs and processes.</p>
+
+<p>My answer is pretty straight forward as there are already existing frameworks that can be leveraged, adjusted and borrowed from to fit the needs of offensive security programs.</p>
+
+<p>You are likley familiar or have at least heard of the <strong>Capability Maturity Model Integration</strong> from Carnegie Mellon University. In particular <a href="https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration">CMMI</a> defines five stages to measure software engineering processes as follows:</p>
+
+<ol>
+<li>Initial</li>
+<li>Mangaged</li>
+<li>Defined</li>
+<li>Measured</li>
+<li>Optimized</li>
+</ol>
+
+<p><strong>If you run an internal pen test program it is somewhere along those 5 stages.</strong></p>
+
+<p>There is one caveat which we will go into more detail in this post when introducing <strong>Level 6 - Illusion of Control</strong>  - which I argue is missing from the existing frameworks.</p>
+
+<p>The question arises how does the Capability Maturity Model apply to testing systems in particular?</p>
+
+<p>Luckily there is already a Test Maturity Model which puts the perspective of software testing in the CMM model. It is called <strong>Test Maturity Model integration</strong>, or short [TMMi]((<a href="https://www.tmmi.org/tmmi-model/">https://www.tmmi.org/tmmi-model/</a>).</p>
+
+<h2 id="test-maturity-model-integration-tmmi">Test Maturity Model integration (TMMi®)</h2>
+
+<p>The Test Maturity Model Integration developed by the TMMi Foundation explores and defines a framework for measuring test maturity and process improvements.</p>
+
+<p><strong>Let&rsquo;s explore how this can be applied to offensive security testing and red teaming.</strong></p>
+
+<p>The following image shows the five stages as defined by TMMi®, and we will put those in context for offensive security int his post.</p>
+
+<p><img src="/blog/images/2020/TMMi-model-picture.png" alt="TMMi Model Picture" /></p>
+
+<p><em>Image from taken from <a href="https://www.tmmi.org/tmmi-model">https://www.tmmi.org/tmmi-model</a></em></p>
+
+<p>Now, let&rsquo;s put some more content behind what these stages mean for offensive security. The following is an attempt to describe and bucketize the stages for offensive security needs:</p>
+
+<h2 id="level-1-initial">Level 1: Initial</h2>
+
+<p>There are no defined processes in place at this stage. Finding defects or vulnerability is by pure chance and often considered as part of debugging.</p>
+
+<h2 id="level-2-managed">Level 2: Managed</h2>
+
+<p>The philosophy that all vulnerabilities can be prevented is the majority opinion within the organization, hence at this stage the focus of investments is mainly in the preventive bucket, applied only at the end of the development cycles or before deployment.</p>
+
+<p>Maybe once a year a penetration test is performed to find vulnerabilities.</p>
+
+<p>The efforts might be driven and revolving around compliance requirements, and not yet focusing on pushing the broader security maturity forward. Some form of Blue Team is established, and response processes are being built.</p>
+
+<p>Offensive security and penetration testing are performed at times, but no dedicated organization wide efforts are implemented.</p>
+
+<p>If already present at this stage, red and blue team have a pure adversarial stance and are not collaborating besides handing pen test reports over to the other side.</p>
+
+<h2 id="level-3-defined">Level 3: Defined</h2>
+
+<p>This is the stage where an organization <strong>introduces an internal offensive security team</strong> with a broad agenda, including cyber operational red teaming. The offensive security testing process is established, and the organization realizes not all vulnerabilities can be found and addressed and investments are done regarding detection of breaches and incident response.</p>
+
+<p>Centralized security event aggregation is implemented to enable better response and hunting of adversaries. This is the typical stage an internal offensive security simulates malicious insiders and adversaries. Or the organization might hire external vendors regularly to perform red team operations in addition to regular security assessments.</p>
+
+<p>Organizationally a formalized Security Operation Center to drive detection and incident response is established.</p>
+
+<h2 id="level-4-measured">Level 4: Measured</h2>
+
+<p>With the establishment of a Security Operation Center and formalized processes for incident response, the organization starts to attempt to measure its progress and identify areas for improvement.</p>
+
+<p>In case the organization has multiple penetration test teams (yes, large organization have multiple) this is the stage they will collaborate and share information to create centralized view and help peer review each other’s offensive findings and work to improve and find issues across organization boundaries.</p>
+
+<p>At this stage <strong>KPIs are introduced</strong> to help find gaps and weaknesses in the program and services to help improve the environment. Leadership will be briefed regularly on the magical identified KPIs that are seemed the most important ones to help make progress in those areas.</p>
+
+<p>This could be as simple as highlighting the critical issues identified by offensive security teams and their status and proposed resolutions</p>
+
+<p>The organization invests in getting the “big picture” and a ton of security intelligence about state of systems is being aggregated, and that security monitors being present on all knows systems is being tracked.</p>
+
+<h2 id="level-5-optimized">Level 5: Optimized</h2>
+
+<p>In the optimized stage the organization continuous to improve and fine-tune the testing process, a test process improvement group is established officially in the organization. Another important factor is that processes are automated as much as possible and helpful.</p>
+
+<p>Putting this in the realm of offensive security, this would be the stage where an organization would likely <strong>create a catalog of TTPs and attacks and associated mitigations specific to the organization</strong>, consuming TTPs from others in the industry. As well as implementing automated testing using a framework like the MITRE ATT&amp;CK matrix which can greatly help understand the realm of attacks the organization might face.</p>
+
+<p>Reaching this stage means that things and are supposed to be predictable and that’s where the big risk lies when it comes to security.</p>
+
+<p>Those are the five stages, however I suggest introducing a Level 6 - Illusion of Control as follows.</p>
+
+<h2 id="level-6-illusion-of-control-the-red-team-strikes-back">Level 6: Illusion of control – the red team strikes back</h2>
+
+<p>Personally, I suggest adding another level of maturity, I have been calling it <strong>Illusion of Control</strong>.</p>
+
+<p>If an organization reached the stage of “Optimized” the key stakeholders in the organization, including the test process improvement group could be self-validating their own views. This could lead to being blindsided to other trends in the industry or novel attack areas that are being missed due to group think and normalization of deviance.</p>
+
+<p>The idea of Level 6 is to introduce chaos and <strong>stand up an entirely new red team</strong> – because likely a critical piece of the puzzle is incorrect and the way to improve if to start from scratch without any assumptions, strict processes and insider knowledge.</p>
+
+<p><strong>In the end, the Illusion of Control is what red teaming is about.</strong></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>In this post we looked at the CMM model for testing and how it can be used to more objectivly define the maturity of offensive security programs. We also introduced an additional stage called &ldquo;Illusion of Control&rdquo; to reflect the true nature of what red teaming is about.</p>
+
+<p>Hope this was interesting and useful. There are more examples and practical ideas on how to measure red teaming in my book abou <a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">Red Team Strategies</a>.</p>
+
+<p>Feel free to follow or message me on Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration">Capability Maturity Model Integration, CMU</a></li>
+<li><a href="https://www.tmmi.org/tmmi-model/">Test Maturity Model integration (TMMi®)</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/red-teaming-for-privacy/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2020
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

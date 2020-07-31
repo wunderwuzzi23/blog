@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Fri, 24 Jul 2020 10:00:16 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2020 12:08:00 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Illusion of Control - Capability Maturity Models and Red Teaming</title>
+      <link>https://embracethered.com/blog/posts/2020/capability-maturity-model-test-red-teaming/</link>
+      <pubDate>Fri, 31 Jul 2020 12:08:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/capability-maturity-model-test-red-teaming/</guid>
+      <description>Throughout my career I have been fascinated with quality assurance and testing, especially security testing and red teaming. One discussion that comes up frequently is how to measure the maturity of such programs and processes.
+My answer is pretty straight forward as there are already existing frameworks that can be leveraged, adjusted and borrowed from to fit the needs of offensive security programs.
+You are likley familiar or have at least heard of the Capability Maturity Model Integration from Carnegie Mellon University.</description>
+    </item>
     
     <item>
       <title>Motivated Intruder - Red Teaming for Privacy!</title>
