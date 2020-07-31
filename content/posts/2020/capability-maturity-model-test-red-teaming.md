@@ -1,5 +1,5 @@
 ---
-title: "Illusion of Control - Capability Maturity Models and Red Teaming"
+title: "Illusion of Control: Capability Maturity Models and Red Teaming"
 date: 2020-07-31T12:08:00-07:00
 draft: true
 tags: [
@@ -7,12 +7,11 @@ tags: [
     ]
 ---
 
-
 Throughout my career I have been fascinated with quality assurance and testing, especially security testing and red teaming. One discussion that comes up frequently is how to measure the maturity of such programs and processes. 
 
-My answer is pretty straight forward as there are already existing frameworks that can be leveraged, adjusted and borrowed from to fit the needs of offensive security programs.
+My answer is straight forward as there are already existing frameworks that can be leveraged, adjusted and borrowed from to fit the needs of offensive security programs.
 
-You are likley familiar or have at least heard of the **Capability Maturity Model Integration** from Carnegie Mellon University. In particular [CMMI](https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration) defines five stages to measure software engineering processes as follows:
+You are likely familiar or have at least heard of the **Capability Maturity Model Integration** from Carnegie Mellon University. In particular [CMMI](https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration) defines five levels to measure software engineering processes as follows:
 
 1. Initial
 2. Mangaged 
@@ -21,37 +20,36 @@ You are likley familiar or have at least heard of the **Capability Maturity Mode
 5. Optimized
 
 
-**If you run an internal pen test program it is somewhere along those 5 stages.** 
+**If you run an internal pen test program, the program is somewhere along those 5 stages.** 
 
-There is one caveat which we will go into more detail in this post when introducing **Level 6 - Illusion of Control**  - which I argue is missing from the existing frameworks.
+There is one caveat which we will go into more detail in this post when introducing **Level 6 - Illusion of Control**, which I argue is missing from the existing frameworks.
 
 The question arises how does the Capability Maturity Model apply to testing systems in particular? 
 
-Luckily there is already a Test Maturity Model which puts the perspective of software testing in the CMM model. It is called **Test Maturity Model integration**, or short [TMMi]((https://www.tmmi.org/tmmi-model/).
+Luckily, there is already a Test Maturity Model which puts the perspective of software testing in the CMM model. It is called **Test Maturity Model integration**, or short [TMMi](https://www.tmmi.org/tmmi-model/).
 
 ## Test Maturity Model integration (TMMi®)
 
-The Test Maturity Model Integration developed by the TMMi Foundation explores and defines a framework for measuring test maturity and process improvements. 
+The Test Maturity Model Integration developed by the TMMi Foundation explores and defines a framework for measuring test maturity and process improvements with detailed examples.
 
 **Let's explore how this can be applied to offensive security testing and red teaming.**
 
-The following image shows the five stages as defined by TMMi®, and we will put those in context for offensive security int his post.
+The following image shows the five stages as defined by TMMi®, and we will put those in context for offensive security in this post.
 
 ![TMMi Model Picture](/blog/images/2020/TMMi-model-picture.png)
 
 *Image from taken from https://www.tmmi.org/tmmi-model*
 
-
-Now, let's put some more content behind what these stages mean for offensive security. The following is an attempt to describe and bucketize the stages for offensive security needs:
+Now, let us put some more content behind what these stages mean for offensive security. The following is an attempt to describe and bucketize the stages for offensive security needs:
 
 
 ## Level 1: Initial
 
-There are no defined processes in place at this stage. Finding defects or vulnerability is by pure chance and often considered as part of debugging.
+There are no defined processes in place at this stage. Finding defects or vulnerability is by pure chance and often considered as part of debugging. Or security issues are reported mainly by customers.
 
 ## Level 2: Managed
 
-The philosophy that all vulnerabilities can be prevented is the majority opinion within the organization, hence at this stage the focus of investments is mainly in the preventive bucket, applied only at the end of the development cycles or before deployment. 
+The philosophy that vulnerabilities can be prevented is the majority opinion within the organization, hence at this stage the focus of investments is mainly in the preventive bucket, applied only at the end of the development cycles or before deployment. 
 
 Maybe once a year a penetration test is performed to find vulnerabilities. 
 
@@ -91,7 +89,7 @@ Putting this in the realm of offensive security, this would be the stage where a
 
 Reaching this stage means that things and are supposed to be predictable and that’s where the big risk lies when it comes to security.
 
-Those are the five stages, however I suggest introducing a Level 6 - Illusion of Control as follows.
+Those are the five stages; however I suggest introducing a Level 6 - Illusion of Control as follows.
 
 
 ## Level 6: Illusion of control – the red team strikes back
@@ -104,11 +102,20 @@ The idea of Level 6 is to introduce chaos and **stand up an entirely new red tea
 
 **In the end, the Illusion of Control is what red teaming is about.**
 
+
+## Next steps
+
+Given the info above it should be pretty obvious where your company's offensive security program is at currently. 
+
+A good next step will be to define more precise descriptions for each level to furthermore objectively measure which level an organization fits in. Although, this might be a rabbit hole and more paperwork then the use we get out of it. We will see.
+
 ## Conclusion
 
-In this post we looked at the CMM model for testing and how it can be used to more objectivly define the maturity of offensive security programs. We also introduced an additional stage called "Illusion of Control" to reflect the true nature of what red teaming is about.
- 
-Hope this was interesting and useful. There are more examples and practical ideas on how to measure red teaming in my book abou [Red Team Strategies](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM).
+In this post we looked at the CMM model for testing and how it can be used to more objectively define the maturity of offensive security programs. We also introduced an additional level called "Illusion of Control" to reflect the true nature of what red teaming is about.
+
+Hope this was interesting and useful.
+
+There are many more examples and practical ideas on how to measure red teaming in my book about [Red Team Strategies](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM).
 
 Feel free to follow or message me on Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 
@@ -117,4 +124,3 @@ Feel free to follow or message me on Twitter: [@wunderwuzzi23](https://twitter.c
 
 * [Capability Maturity Model Integration, CMU](https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration)
 * [Test Maturity Model integration (TMMi®)](https://www.tmmi.org/tmmi-model/)
-
