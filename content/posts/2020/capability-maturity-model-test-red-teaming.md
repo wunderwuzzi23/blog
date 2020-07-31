@@ -107,7 +107,7 @@ The idea of Level 6 is to introduce chaos and **stand up an entirely new red tea
 
 Given the info above it should be pretty obvious where your company's offensive security program is at currently. 
 
-A good next step will be to define more precise descriptions for each level to furthermore objectively measure which level an organization fits in. Although, this might be a rabbit hole and more paperwork then the use we get out of it. We will see.
+An interesting next step will be to define more precise descriptions for each level to furthermore objectively measure which level an organization fits in. Although, this might be a rabbit hole and more paperwork then the use we get out of it - but it might be helpful in the long run.
 
 ## Conclusion
 
