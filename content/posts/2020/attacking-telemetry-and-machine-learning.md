@@ -37,7 +37,7 @@ This somewhat benign (yet widely visible) example can help to understand how suc
 
 As the example showed an adversary can send targeted messages to highlight features or flows that in reality are not frequently used, which can lead to de-investments in areas that are more important.
 
-There are multiple ways to target telemetry, especially when it comes to **AI Red Teaming** at large, as the data is often fed into machine learning training. In this post I am talking about the outside approach of spoofing telemetry requests (which often has no or very weak authentication by design).
+There are multiple ways to target telemetry, and when it comes to **AI Red Teaming** at large this is an interest technique, as the data is often fed into machine learning training. This post highlights the outside approach of spoofing telemetry requests, which often has no or very weak authentication. 
 
 ## Conclusion
 
