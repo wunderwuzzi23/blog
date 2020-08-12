@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/posts/2020/attacking-telemetry-and-machine-learning/</loc>
+    <lastmod>2020-08-12T13:28:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2020/capability-maturity-model-test-red-teaming/</loc>
     <lastmod>2020-07-31T12:08:00-07:00</lastmod>
   </url>
@@ -269,6 +274,12 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2020-08-12T13:28:00-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/tags/metrics/</loc>
     <lastmod>2020-06-10T11:23:20-07:00</lastmod>
     <priority>0</priority>
@@ -312,7 +323,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2020-07-31T12:08:00-07:00</lastmod>
+    <lastmod>2020-08-12T13:28:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -342,7 +353,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2020-07-31T12:08:00-07:00</lastmod>
+    <lastmod>2020-08-12T13:28:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -384,7 +395,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/ttp/</loc>
-    <lastmod>2020-07-21T11:00:15-07:00</lastmod>
+    <lastmod>2020-08-12T13:28:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -402,7 +413,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2020-07-31T12:08:00-07:00</lastmod>
+    <lastmod>2020-08-12T13:28:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   

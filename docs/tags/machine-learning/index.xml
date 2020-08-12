@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on wunderwuzzi blog</title>
+    <link>https://embracethered.com/blog/tags/machine-learning/</link>
+    <description>Recent content in Machine Learning on wunderwuzzi blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2020</copyright>
+    <lastBuildDate>Wed, 12 Aug 2020 13:28:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Red Teaming Telemetry Systems</title>
+      <link>https://embracethered.com/blog/posts/2020/attacking-telemetry-and-machine-learning/</link>
+      <pubDate>Wed, 12 Aug 2020 13:28:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/attacking-telemetry-and-machine-learning/</guid>
+      <description>These days business decisions and feature development often is influenced heavily by telemetry information. Telemetry is baked into the programs, services and applications we use.
+Companies are hungry for telemetry because with machine learning and Deep Neural Networks &amp;ldquo;data is the new oil&amp;rdquo;.
+Telemetry provides insights into how users use a particular system, what features they exercise, how they configure the system, what errors they trigger and what buttons they like clicking on.</description>
+    </item>
+    
+  </channel>
+</rss>
