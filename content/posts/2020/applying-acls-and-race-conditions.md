@@ -22,17 +22,17 @@ Let's look at a practical example seen in the wild a few times. Imagine code lik
 ```
 file.WriteAllBytes(filePath, content);
 ```
+
 * Then the ACL is updated to lock down the file. [Here is a the documentation on how to do that using the FileSecurity class](https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesecurity?view=netframework-4.8). 
 
-Hence, you might see something similar to:
+Hence, you might see [something similar to the following lines:](https://docs.microsoft.com/en-us/dotnet/standard/io/how-to-add-or-remove-access-control-list-entries):
 
 ```
-// Add the access control entry to the file.
 AddFileSecurity(filePath, @"Administrators",
     FileSystemRights.ReadData, AccessControlType.Allow);
 ```
 
-Aditionally, permission inheritance will be broken by the developer as well (e.g to prevent automatic read access, as otherwise the file likely won't be locked down properly anyways).
+Aditionally, *permission inheritance will be broken* by the developer as well (e.g to prevent automatic read access, as otherwise the file likely won't be locked down properly anyways).
 
 *These two instructions can sometimes be found right after each other.*
 
@@ -85,3 +85,6 @@ Hope that helps - also if you find something similar, reach out. Curious to see 
 ## References
 
 * [FileSecurity Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesecurity?view=netframework-4.8)
+* [AddFileSecurity Example Code](https://docs.microsoft.com/en-us/dotnet/standard/io/how-to-add-or-remove-access-control-list-entries)
+* [File.WriteAllBytes Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.io.file.writeallbytes?view=netcore-3.1)
+* [Race Condition Further Information](https://en.wikipedia.org/wiki/Race_condition)

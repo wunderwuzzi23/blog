@@ -137,14 +137,13 @@
 <li>Then the ACL is updated to lock down the file. <a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesecurity?view=netframework-4.8">Here is a the documentation on how to do that using the FileSecurity class</a>.</li>
 </ul>
 
-<p>Hence, you might see something similar to:</p>
+<p>Hence, you might see <a href="https://docs.microsoft.com/en-us/dotnet/standard/io/how-to-add-or-remove-access-control-list-entries">something similar to the following lines:</a>:</p>
 
-<pre><code>// Add the access control entry to the file.
-AddFileSecurity(filePath, @&quot;Administrators&quot;,
+<pre><code>AddFileSecurity(filePath, @&quot;Administrators&quot;,
     FileSystemRights.ReadData, AccessControlType.Allow);
 </code></pre>
 
-<p>Aditionally, permission inheritance will be broken by the developer as well (e.g to prevent automatic read access, as otherwise the file likely won&rsquo;t be locked down properly anyways).</p>
+<p>Aditionally, <em>permission inheritance will be broken</em> by the developer as well (e.g to prevent automatic read access, as otherwise the file likely won&rsquo;t be locked down properly anyways).</p>
 
 <p><em>These two instructions can sometimes be found right after each other.</em></p>
 
@@ -199,6 +198,9 @@ Console.WriteLine(&quot;*** Done&quot;);
 
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesecurity?view=netframework-4.8">FileSecurity Documentation</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/standard/io/how-to-add-or-remove-access-control-list-entries">AddFileSecurity Example Code</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file.writeallbytes?view=netcore-3.1">File.WriteAllBytes Documentation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Race_condition">Race Condition Further Information</a></li>
 </ul>
 
   </section>
