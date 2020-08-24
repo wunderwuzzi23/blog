@@ -3,40 +3,42 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Applying ACLs and Race Conditions &middot;  wunderwuzzi blog" />
+  <meta property="og:title" content=" Race conditions when applying ACLs &middot;  wunderwuzzi blog" />
   
   <meta property="og:site_name" content="wunderwuzzi blog" />
-  <meta property="og:url" content="https://wunderwuzzi23.github.io/blog/posts/2020/applying-acls-and-race-conditions/" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2020/applying-acls-and-race-conditions/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2020-02-15T12:23:33-08:00" />
+  <meta property="og:article:published_time" content="2020-08-24T12:00:33-08:00" />
   
   <meta property="og:article:tag" content="pentesting" />
   
   <meta property="og:article:tag" content="research" />
   
+  <meta property="og:article:tag" content="appsec" />
+  
   
 
   <title>
-     Applying ACLs and Race Conditions &middot;  wunderwuzzi blog
+     Race conditions when applying ACLs &middot;  wunderwuzzi blog
   </title>
 
-  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/main.css" />
-  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/css/github.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
   
-  <link rel="stylesheet" href="https://wunderwuzzi23.github.io/blog/fonts/cachedfonts.css" type="text/css">
-  <link rel="shortcut icon" href="https://wunderwuzzi23.github.io/blog/images/favicon.ico" />
-  <link rel="apple-touch-icon" href="https://wunderwuzzi23.github.io/blog/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
   
 </head>
 <body>
     <header class="global-header"  style="background-image:url( /images/bg.jpg )">
     <section class="header-text">
-      <h1><a href="https://wunderwuzzi23.github.io/blog/">wunderwuzzi blog</a></h1>
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
       
       <div class="tag-line">
         Embrace the Red
@@ -70,7 +72,7 @@
 </div>
 
       
-      <a href="https://wunderwuzzi23.github.io/blog/" class="btn-header btn-back hidden-xs">
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
         &nbsp;Home
       </a>
@@ -83,21 +85,23 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Applying ACLs and Race Conditions</h1>
+    <h1 class="text-primary">Race conditions when applying ACLs</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2020-02-15T12:23:33-08:00">
-          Feb 15, 2020
+        <time datetime="2020-08-24T12:00:33-08:00">
+          Aug 24, 2020
         </time>
       </div>
     
       <div class="pull-right">
         
-        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/pentesting">#pentesting</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentesting">#pentesting</a></span>
         
-        <span class="post-tag small"><a href="https://wunderwuzzi23.github.io/blog//tags/research">#research</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/research">#research</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/appsec">#appsec</a></span>
         
       </div>
     </div>
@@ -105,11 +109,13 @@
   <section>
     
 
-<p>Sometimes there are intersting race conditions that allowe an adversary to gain access to sensitive files on a machine. The system would create files that contain sensitive information and afterwards apply permissions to lock the file down.</p>
+<p>Today I&rsquo;m gonna talk about a class of application security issues I ran across a few times over the years. In particular, let&rsquo;s discuss race conditions when it comes to files with sensitive content and permissions.</p>
+
+<p><strong>Race conditions</strong> can allow an adversary to gain access to sensitive information on machines. Assume a system creates a file that contains sensitive information and <em>afterwards</em> applies permissions to lockdown that file.</p>
 
 <h2 id="understanding-the-race-condition">Understanding the race condition</h2>
 
-<p>Let&rsquo;s look at a practical example seen in the wild a few times. Imagine the following code:</p>
+<p>Let&rsquo;s look at a practical example seen in the wild a few times. Imagine code like this:</p>
 
 <ul>
 <li>Code creates file with sensitive information. Doing something like:</li>
@@ -119,8 +125,10 @@
 </code></pre>
 
 <ul>
-<li>Then the ACL is updated to lock down the file. <a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesecurity?view=netframework-4.8">Here is a the documentation on how to do that using the FileSecurity class</a>).Hence, you might see something similar to:</li>
+<li>Then the ACL is updated to lock down the file. <a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesecurity?view=netframework-4.8">Here is a the documentation on how to do that using the FileSecurity class</a>.</li>
 </ul>
+
+<p>Hence, you might see something similar to:</p>
 
 <pre><code>// Add the access control entry to the file.
 AddFileSecurity(filePath, @&quot;Administrators&quot;,
@@ -129,18 +137,21 @@ AddFileSecurity(filePath, @&quot;Administrators&quot;,
 
 <p>Aditionally, permission inheritance will be broken by the developer as well (e.g to prevent automatic read access, as otherwise the file likely won&rsquo;t be locked down properly anyways).</p>
 
-<p><em>These two instructions above are basically rigth after each other.</em></p>
+<p><em>These two instructions can sometimes be found right after each other.</em></p>
 
 <h2 id="exploitable">Exploitable?</h2>
 
-<p>So, what&rsquo;s the chance of an adversary on the machine reading the file right after it was created, but before the permission lockdown happens. My initial thought was that this could theoretically be exploitable by someone else on the machine, but probably is too narrow of a window for a stable exploit.</p>
+<p>So, what&rsquo;s the chance of an adversary on the machine reading the file right after it was created, but before the permission lockdown happens?</p>
 
-<p>Nevertheless, I thought to give it a try and build a little File Stealer.</p>
+<p>My initial thought was that this could theoretically be exploitable by someone else on the machine, but probably is too narrow of a window for a stable exploit.</p>
+
+<p>Nevertheless, I thought to give it a try and build a little &ldquo;File Stealer&rdquo;.</p>
 
 <h2 id="winning-the-race">Winning the race</h2>
 
-<p>Nothing fancy when it comes to testing for this. I built a simple tool in C# that tries to access the file in a loop and prints out the contents if that is the case.
-This is basically the core part of the utility:</p>
+<p>Nothing fancy when it comes to testing for this. I built a simple tool in C# that tries to access the file in a loop and prints out the contents if that is the case.</p>
+
+<p>This is basically the core part of the utility:</p>
 
 <pre><code>while (true)
 {
@@ -161,13 +172,17 @@ This is basically the core part of the utility:</p>
 Console.WriteLine(&quot;*** Done&quot;);
 </code></pre>
 
-<p>For this example the filename needs to be known, which in the scenario I looked at was actually predictable.</p>
+<p>The name of the file would have to be known, or be predictable or otherwise retrievable by the attacker.</p>
 
 <h2 id="what-s-the-result-you-might-ask">What&rsquo;s the result you might ask?</h2>
 
-<p><em>Turns out that this worked 100% of the time so far.</em></p>
+<p><em>Turns out that this works about 100% of the time.</em>  I guess file IO is just really slow&hellip;</p>
 
-<p>There are sometimes similar coding patterns I have seen with registry key, so I am adding this to my static anlaysis TODO list for things to check for.</p>
+<p>Similar coding patterns can be found in other areas, with user accounts, registry or also database configurations. So it&rsquo;s a good to keep this in the back of your head when doing static anlaysis or reviewing code.</p>
+
+<h2 id="how-to-fix">How to fix</h2>
+
+<p>There are typically APIs that will do the correct thing when providing the ACL at creation time. Another options is to not write sensitive information to the file right away, but lock it down first before storing content.</p>
 
 <p>Hope that helps - also if you find something similar, reach out. Curious to see how common that is.</p>
 
@@ -201,7 +216,7 @@ Console.WriteLine(&quot;*** Done&quot;);
     </section>
     <ul class="pager">
       
-      <li class="previous"><a href="https://wunderwuzzi23.github.io/blog/posts/importance-security-principles/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/importance-security-principles/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
       <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
@@ -213,7 +228,7 @@ Console.WriteLine(&quot;*** Done&quot;);
   </main>
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
-      &copy; WUNDERWUZZI 2020
+      (c) WUNDERWUZZI 2020
     </div>
     <div class="sns-links hidden-print">
   
@@ -244,19 +259,9 @@ Console.WriteLine(&quot;*** Done&quot;);
 
   </footer>
 
-  <script src="https://wunderwuzzi23.github.io/blog/js/highlight.pack.js"></script>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
-  </script>
-  
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-90341594-2', 'auto');  
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview', { 'anonymizeIp': true });
   </script>
   
   

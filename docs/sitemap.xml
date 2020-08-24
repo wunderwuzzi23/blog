@@ -3,208 +3,214 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/2020/applying-acls-and-race-conditions/</loc>
-    <lastmod>2020-02-15T12:23:33-08:00</lastmod>
+    <loc>https://embracethered.com/blog/posts/2020/applying-acls-and-race-conditions/</loc>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/importance-security-principles/</loc>
+    <loc>https://embracethered.com/blog/posts/importance-security-principles/</loc>
     <lastmod>2020-02-12T17:03:32-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/zero-trust/</loc>
+    <loc>https://embracethered.com/blog/posts/zero-trust/</loc>
     <lastmod>2020-02-06T14:08:55-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/book-cybersecurity-attacks-red-team-strategies/</loc>
+    <loc>https://embracethered.com/blog/posts/book-cybersecurity-attacks-red-team-strategies/</loc>
     <lastmod>2019-12-02T17:09:57-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/mitreattackupdate/</loc>
+    <loc>https://embracethered.com/blog/posts/mitreattackupdate/</loc>
     <lastmod>2019-10-27T10:56:03-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/coinbase-hack-cookie-theft-pass/</loc>
+    <loc>https://embracethered.com/blog/posts/coinbase-hack-cookie-theft-pass/</loc>
     <lastmod>2019-09-01T13:25:07-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/homefield-advantage/</loc>
+    <loc>https://embracethered.com/blog/posts/homefield-advantage/</loc>
     <lastmod>2019-08-24T18:46:06-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/using-hugo/</loc>
+    <loc>https://embracethered.com/blog/posts/using-hugo/</loc>
     <lastmod>2019-08-24T11:51:45-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/bash-spray-password/</loc>
+    <loc>https://embracethered.com/blog/posts/bash-spray-password/</loc>
     <lastmod>2019-07-03T21:58:01-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/active-directory-and-macos/</loc>
+    <loc>https://embracethered.com/blog/posts/active-directory-and-macos/</loc>
     <lastmod>2019-06-20T22:00:16-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/google-email-leak/</loc>
+    <loc>https://embracethered.com/blog/posts/google-email-leak/</loc>
     <lastmod>2019-06-04T21:51:52-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/lyrebird/</loc>
+    <loc>https://embracethered.com/blog/posts/lyrebird/</loc>
     <lastmod>2019-05-21T21:48:29-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/koiphish/</loc>
+    <loc>https://embracethered.com/blog/posts/koiphish/</loc>
     <lastmod>2019-01-10T21:40:59-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/lldbbasics/</loc>
+    <loc>https://embracethered.com/blog/posts/lldbbasics/</loc>
     <lastmod>2019-01-05T21:34:51-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/passthecookie/</loc>
+    <loc>https://embracethered.com/blog/posts/passthecookie/</loc>
     <lastmod>2018-12-16T12:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/blue/</loc>
+    <loc>https://embracethered.com/blog/tags/appsec/</loc>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/blue/</loc>
     <lastmod>2018-12-16T12:00:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/books/</loc>
+    <loc>https://embracethered.com/blog/tags/books/</loc>
     <lastmod>2019-12-02T17:09:57-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/breaches/</loc>
+    <loc>https://embracethered.com/blog/tags/breaches/</loc>
     <lastmod>2019-09-01T13:25:07-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/bugbounty/</loc>
+    <loc>https://embracethered.com/blog/tags/bugbounty/</loc>
     <lastmod>2019-06-04T21:51:52-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/categories/</loc>
+    <loc>https://embracethered.com/blog/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/code/</loc>
+    <loc>https://embracethered.com/blog/tags/code/</loc>
     <lastmod>2019-07-03T21:58:01-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/cookiesforall/</loc>
+    <loc>https://embracethered.com/blog/tags/cookiesforall/</loc>
     <lastmod>2019-10-27T10:56:03-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/fun/</loc>
+    <loc>https://embracethered.com/blog/tags/fun/</loc>
     <lastmod>2019-05-21T21:48:29-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/homefield-advantage/</loc>
+    <loc>https://embracethered.com/blog/tags/homefield-advantage/</loc>
     <lastmod>2019-12-02T17:09:57-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/pentesting/</loc>
-    <lastmod>2020-02-15T12:23:33-08:00</lastmod>
+    <loc>https://embracethered.com/blog/tags/pentesting/</loc>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/phishing/</loc>
+    <loc>https://embracethered.com/blog/tags/phishing/</loc>
     <lastmod>2019-01-10T21:40:59-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/posts/</loc>
-    <lastmod>2020-02-15T12:23:33-08:00</lastmod>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/principles/</loc>
+    <loc>https://embracethered.com/blog/tags/principles/</loc>
     <lastmod>2020-02-12T17:03:32-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/purple/</loc>
+    <loc>https://embracethered.com/blog/tags/purple/</loc>
     <lastmod>2019-08-24T18:46:06-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/red/</loc>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
     <lastmod>2019-12-02T17:09:57-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/research/</loc>
-    <lastmod>2020-02-15T12:23:33-08:00</lastmod>
+    <loc>https://embracethered.com/blog/tags/research/</loc>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/strategy/</loc>
+    <loc>https://embracethered.com/blog/tags/strategy/</loc>
     <lastmod>2020-02-12T17:03:32-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/</loc>
-    <lastmod>2018-12-16T12:00:00-07:00</lastmod>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/tool/</loc>
+    <loc>https://embracethered.com/blog/tags/tool/</loc>
     <lastmod>2019-07-03T21:58:01-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/ttp/</loc>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
     <lastmod>2019-10-27T10:56:03-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/tags/web/</loc>
+    <loc>https://embracethered.com/blog/tags/web/</loc>
     <lastmod>2020-02-12T17:03:32-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://wunderwuzzi23.github.io/blog/</loc>
-    <lastmod>2020-02-15T12:23:33-08:00</lastmod>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
     <priority>0</priority>
   </url>
   
