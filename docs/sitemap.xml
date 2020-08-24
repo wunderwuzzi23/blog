@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/posts/2020/applying-acls-and-race-conditions/</loc>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2020/attacking-telemetry-and-machine-learning/</loc>
     <lastmod>2020-08-12T13:28:00-07:00</lastmod>
   </url>
@@ -173,6 +178,12 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/tags/appsec/</loc>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/tags/attackgraph/</loc>
     <lastmod>2020-04-06T21:00:30-07:00</lastmod>
     <priority>0</priority>
@@ -299,7 +310,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/pentesting/</loc>
-    <lastmod>2020-07-24T10:00:16-07:00</lastmod>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -323,7 +334,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2020-08-12T13:28:00-07:00</lastmod>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -359,7 +370,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/research/</loc>
-    <lastmod>2020-02-15T15:48:51-08:00</lastmod>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -383,7 +394,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -413,7 +424,7 @@
   
   <url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2020-08-12T13:28:00-07:00</lastmod>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
     <priority>0</priority>
   </url>
   

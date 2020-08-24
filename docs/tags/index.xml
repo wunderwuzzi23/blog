@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Mon, 06 Apr 2020 21:00:30 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2020 12:00:33 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Appsec</title>
+      <link>https://embracethered.com/blog/tags/appsec/</link>
+      <pubDate>Mon, 24 Aug 2020 12:00:33 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/appsec/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Attackgraph</title>
@@ -195,7 +204,7 @@
     <item>
       <title>Pentesting</title>
       <link>https://embracethered.com/blog/tags/pentesting/</link>
-      <pubDate>Fri, 24 Jul 2020 10:00:16 -0700</pubDate>
+      <pubDate>Mon, 24 Aug 2020 12:00:33 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/pentesting/</guid>
       <description></description>
@@ -276,7 +285,7 @@
     <item>
       <title>Research</title>
       <link>https://embracethered.com/blog/tags/research/</link>
-      <pubDate>Sat, 15 Feb 2020 15:48:51 -0800</pubDate>
+      <pubDate>Mon, 24 Aug 2020 12:00:33 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/research/</guid>
       <description></description>
