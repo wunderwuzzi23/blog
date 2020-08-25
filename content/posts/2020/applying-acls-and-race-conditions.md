@@ -34,7 +34,7 @@ AddFileSecurity(filePath, @"Administrators",
 
 Aditionally, *permission inheritance will be broken* by the developer as well (e.g to prevent automatic read access, as otherwise the file likely won't be locked down properly anyways).
 
-*These two instructions can sometimes be found right after each other.*
+*These two steps of (1) creating the widely exposed file with sensitive content and then (2) locking it down typically can be found right after each other in the source code.*
 
 ## Exploitable?
 So, what's the chance of an adversary on the machine reading the file right after it was created, but before the permission lockdown happens? 
