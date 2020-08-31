@@ -84,7 +84,7 @@
         &nbsp;Home
       </a>
       
-      
+    
       <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
         <i class="fa fa-rss" aria-hidden="true"></i>
         &nbsp;Subscribe
@@ -120,20 +120,12 @@
     </div>
   </header>
   <section>
-    
-
-<p><strong>KoiPhish is a simple yet beautiful relay proxy idea.</strong></p>
-
+    <p><strong>KoiPhish is a simple yet beautiful relay proxy idea.</strong></p>
 <p>The idea for this little project goes back many years. Since I started learning Golang I figured it would be good exercise to finally go ahead an implement it. So, last December during the 35C3 (which is always inspiring congress) I wrote it up.</p>
-
 <p>It relays requests a client makes to the KoiPish to the actual target and responses are sent back to the client. On the way in and out common links are overwritten in order to not break the user experience and functionality.</p>
-
 <p>The benefit of this approach compared to cloning a website is that it will have the same look and feel as the target, and automatically adjust to changes down the road.</p>
-
 <p>The code is basic at this point, and it&rsquo;s intentionally not &ldquo;point and click&rdquo;.</p>
-
 <h2 id="illustration">Illustration</h2>
-
 <pre><code>                                        Keep Relaying 
 End User  +-------------&gt;   KoiPhish   +-------------&gt;   Actual Login Page
                                        &lt;-------------+            
@@ -141,22 +133,15 @@ End User  +-------------&gt;   KoiPhish   +-------------&gt;   Actual Login Page
           +-------------&gt;              +-------------&gt;   and MFA Provider
           &lt;-------------+              &lt;-------------+           
 </code></pre>
-
 <p>An adversary can continue this until the passwords and/or session tokens (after 2FA) are grabbed.</p>
-
 <p>The KoiPhish Golang code can be found on Github: <a href="https://github.com/wunderwuzzi23/KoiPhish">KoiPhish Code</a></p>
-
 <h2 id="mitigation">Mitigation</h2>
-
 <p>Leverage security keys and U2FA to help mitigate phishing attacks. Learn more here, this is important if you want to tackle phishing:</p>
-
 <ul>
 <li>FIDO Alliance</li>
 <li>WebAuthN</li>
 </ul>
-
 <h2 id="disclaimer">Disclaimer</h2>
-
 <p>Pentesting requires authorization and consent by appropriate stakeholders. Don&rsquo;t do illegal things.</p>
 
   </section>
@@ -168,7 +153,7 @@ End User  +-------------&gt;   KoiPhish   +-------------&gt;   Actual Login Page
     
     <ul class="pager">
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/lldbbasics/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/lyrebird/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
       <li class="author-contact">
@@ -180,7 +165,7 @@ End User  +-------------&gt;   KoiPhish   +-------------&gt;   Actual Login Page
 
       
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/lyrebird/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/lldbbasics/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>

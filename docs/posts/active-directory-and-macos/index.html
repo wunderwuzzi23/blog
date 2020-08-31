@@ -84,7 +84,7 @@
         &nbsp;Home
       </a>
       
-      
+    
       <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
         <i class="fa fa-rss" aria-hidden="true"></i>
         &nbsp;Subscribe
@@ -120,55 +120,34 @@
     </div>
   </header>
   <section>
-    
-
-<h2 id="interacting-with-active-directory-on-the-mac">Interacting with Active Directory on the Mac</h2>
-
+    <h2 id="interacting-with-active-directory-on-the-mac">Interacting with Active Directory on the Mac</h2>
 <p>Did you ever have to interact with Active Directory on a MAC?</p>
-
 <p>If yes, this post might be interesting for you. I am pretty new to the Mac and basic things I know how to do on Windows need some research to figure out. This time around I explore Active Directory/LDAP Server interactions.</p>
-
 <ul>
 <li>First, there is the <em>Directory Utility</em> on MacOS which can be quite useful.</li>
 <li>Second, there is Apache&rsquo;s - <em>Directory Studio</em> - which is pretty amazing and feature rich.</li>
 <li>Third, you might want to write your own tools or scripts.</li>
 </ul>
-
 <p>There are ldap commands that allow you to do most tasks in automated fashion.</p>
-
 <pre><code>ldapwhoami -x -Z -H ldaps://[your].[domain].[controller] -D wuzzi@domain.com -W
 </code></pre>
-
 <p>To perform a search the ldapsearch command is useful:</p>
-
 <pre><code>ldapsearch -v -x -LLL -H ldaps://[your].[domain].[controller] -b OU=Users,OU=Managed,DC=[your],DC=[domain],DC=[controller] -D wuzzi@domain.com -Z -W -s sub &quot;(objectClass=user)&quot; cn givenName sn pwdLastSet
 </code></pre>
-
 <h2 id="certificates">Certificates</h2>
-
 <p>To trust the certificate of the LDAP server look into updating krb5.confi/kerb.conf files accordingly.</p>
-
 <h2 id="procesing-results">Procesing Results</h2>
-
 <p>One can pipe this into a file, let&rsquo;s say users.ldif</p>
-
 <p>There is a tool ldap2csv.sh (google for it) that can be used to convert the output to a csv file - I found this pretty useful.</p>
-
 <pre><code>cat users.ldif | ./ldap2csv.sh cn givenName sn pwdLastSet samAccountName
 </code></pre>
-
 <h2 id="search-filters">Search Filters</h2>
-
 <p>As part of the ldapsearch command replace</p>
-
 <pre><code>-s sub &quot;(objectClass=user)&quot;
 </code></pre>
-
 <p>with</p>
-
 <pre><code>-s sub -f searchfilter.filter &quot;(cn=%s)&quot;
 </code></pre>
-
 <p>The <em>filter file</em> (in above case searchfilter.filter)  then just contains a list of names per line that will be substituted.</p>
 
   </section>
@@ -180,7 +159,7 @@
     
     <ul class="pager">
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/google-email-leak/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/bash-spray-password/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
       <li class="author-contact">
@@ -192,7 +171,7 @@
 
       
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/bash-spray-password/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/google-email-leak/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>

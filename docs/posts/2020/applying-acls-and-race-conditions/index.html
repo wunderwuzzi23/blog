@@ -82,7 +82,7 @@
         &nbsp;Home
       </a>
       
-      
+    
       <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
         <i class="fa fa-rss" aria-hidden="true"></i>
         &nbsp;Subscribe
@@ -116,51 +116,29 @@
     </div>
   </header>
   <section>
-    
-
-<p>Today I&rsquo;m gonna talk about a class of application security issues I ran across a few times over the years. In particular, let&rsquo;s discuss race conditions when it comes to files with sensitive content and permissions.</p>
-
+    <p>Today I&rsquo;m gonna talk about a class of application security issues I ran across a few times over the years. In particular, let&rsquo;s discuss race conditions when it comes to files with sensitive content and permissions.</p>
 <p><strong>Race conditions</strong> can allow an adversary to gain access to sensitive information on machines. Assume a system creates a file that contains sensitive information and <em>afterwards</em> applies permissions to lockdown that file.</p>
-
 <h2 id="understanding-the-race-condition">Understanding the race condition</h2>
-
 <p>Let&rsquo;s look at a practical example seen in the wild a few times. Imagine code like this:</p>
-
 <ul>
 <li>Code creates file with sensitive information. Doing something like:</li>
 </ul>
-
 <pre><code>file.WriteAllBytes(filePath, content);
-</code></pre>
-
-<ul>
+</code></pre><ul>
 <li>Then the ACL is updated to lock down the file. <a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesecurity?view=netframework-4.8">Here is a the documentation on how to do that using the FileSecurity class</a>.</li>
 </ul>
-
 <p>Hence, you might see <a href="https://docs.microsoft.com/en-us/dotnet/standard/io/how-to-add-or-remove-access-control-list-entries">something similar to the following lines:</a>:</p>
-
 <pre><code>AddFileSecurity(filePath, @&quot;Administrators&quot;,
     FileSystemRights.ReadData, AccessControlType.Allow);
-</code></pre>
-
-<p>Aditionally, <em>permission inheritance will be broken</em> by the developer as well (e.g to prevent automatic read access, as otherwise the file likely won&rsquo;t be locked down properly anyways).</p>
-
+</code></pre><p>Aditionally, <em>permission inheritance will be broken</em> by the developer as well (e.g to prevent automatic read access, as otherwise the file likely won&rsquo;t be locked down properly anyways).</p>
 <p><em>These two steps of (1) creating the widely exposed file with sensitive content and then (2) locking it down typically can be found right after each other in the source code.</em></p>
-
 <h2 id="exploitable">Exploitable?</h2>
-
 <p>So, what&rsquo;s the chance of an adversary on the machine reading the file right after it was created, but before the permission lockdown happens?</p>
-
 <p>My initial thought was that this could theoretically be exploitable by someone else on the machine, but probably is too narrow of a window for a stable exploit.</p>
-
 <p>Nevertheless, I thought to give it a try and build a little &ldquo;File Stealer&rdquo;.</p>
-
 <h2 id="winning-the-race">Winning the race</h2>
-
 <p>Nothing fancy when it comes to testing for this. I built a simple tool in C# that tries to access the file in a loop and prints out the contents if that is the case.</p>
-
 <p>This is basically the core part of the utility:</p>
-
 <pre><code>while (true)
 {
     try
@@ -178,24 +156,14 @@
 }
 
 Console.WriteLine(&quot;*** Done&quot;);
-</code></pre>
-
-<p>The name of the file would have to be known, or be predictable or otherwise retrievable by the attacker.</p>
-
-<h2 id="what-s-the-result-you-might-ask">What&rsquo;s the result you might ask?</h2>
-
+</code></pre><p>The name of the file would have to be known, or be predictable or otherwise retrievable by the attacker.</p>
+<h2 id="whats-the-result-you-might-ask">What&rsquo;s the result you might ask?</h2>
 <p><em>Turns out that this works about 100% of the time.</em>  I guess file IO is just really slow&hellip;</p>
-
 <p>Similar coding patterns can be found in other areas, with user accounts, registry or also database configurations. So it&rsquo;s a good to keep this in the back of your head when doing static anlaysis or reviewing code.</p>
-
 <h2 id="how-to-fix">How to fix</h2>
-
 <p>There are typically APIs that will do the correct thing when providing the ACL at creation time. Another options is to not write sensitive information to the file right away, but lock it down first before storing content.</p>
-
 <p>Hope that helps - also if you find something similar, reach out. Curious to see how common that is.</p>
-
 <h2 id="references">References</h2>
-
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesecurity?view=netframework-4.8">FileSecurity Documentation</a></li>
 <li><a href="https://docs.microsoft.com/en-us/dotnet/standard/io/how-to-add-or-remove-access-control-list-entries">AddFileSecurity Example Code</a></li>
@@ -212,7 +180,7 @@ Console.WriteLine(&quot;*** Done&quot;);
     
     <ul class="pager">
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/attacking-telemetry-and-machine-learning/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/shadowbunny-bsides-singapore-virtual-machines/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
       <li class="author-contact">
@@ -224,7 +192,7 @@ Console.WriteLine(&quot;*** Done&quot;);
 
       
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/shadowbunny-bsides-singapore-virtual-machines/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/attacking-telemetry-and-machine-learning/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>

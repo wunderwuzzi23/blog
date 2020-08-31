@@ -86,7 +86,7 @@
         &nbsp;Home
       </a>
       
-      
+    
       <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
         <i class="fa fa-rss" aria-hidden="true"></i>
         &nbsp;Subscribe
@@ -124,89 +124,52 @@
     </div>
   </header>
   <section>
-    
-
-<h2 id="conceptual-attack-graphs">Conceptual Attack Graphs</h2>
-
+    <h2 id="conceptual-attack-graphs">Conceptual Attack Graphs</h2>
 <p>One question that I have gotten a few times about  <a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">&ldquo;Cybersecurity Attacks - Red Team Strategies&rdquo;</a> is around the conceptual attack graphs in &ldquo;Chapter 3, Measuring an Offensive Security Program&rdquo;. Specifically, how I create them.</p>
-
 <p>In this post I will briefly go over some of the reasons for creating them, and also how I create them and share a template for others to use and adjust.</p>
-
 <p>I&rsquo;m not a graphic designer, so I&rsquo;m sure there are better ways of doing this.</p>
-
 <p><strong>You can click on all the images in this post for a larger and better readable version.</strong></p>
-
-<p><a href="/blog/downloads/attackgraphanimation.gif"><img src="/blog/downloads/attackgraphanimation.gif" alt="Operation Dollar Heist - Debrief" /></a></p>
-
+<p><a href="/blog/downloads/attackgraphanimation.gif"><img src="/blog/downloads/attackgraphanimation.gif" alt="Operation Dollar Heist - Debrief"></a></p>
 <h2 id="a-picture-graph-is-worth-a-thousand-words">A picture (graph) is worth a thousand words</h2>
-
 <p>Manually building a conceptual attack graph can be useful when planning a red team operation, and even more so, when presenting results to leadership and engineers. Staying at a higher level allows to convey ideas and adversarial thinking without getting lost in complex details right away. It allows to tell the story.</p>
-
 <p>Think of that conceptual attack graph like a basic operational threat model, which contains the important services, machines and stakeholders. In addition we show the path that the red team took and actions and TTPs (tactics, techniques and procedures) along the way.</p>
-
-<p><a href="/blog/images/attackgraph1.png"><img src="/blog/images/attackgraph1.png" alt="Anatomy of Cloud Service Disaster" /></a></p>
-
+<p><a href="/blog/images/attackgraph1.png"><img src="/blog/images/attackgraph1.png" alt="Anatomy of Cloud Service Disaster"></a></p>
 <p>The graph can be augmented with a lot of additional information, such as blue team detections, MITRE ATT&amp;CK techniques, durations and timelines, monetary impact, and so forth.</p>
-
 <p>In the past I have given presentations which such graphs to audiences of hundreds of engineers with positive feedback. Some of these presentations might take quite a while, because there are usually a lot of stories to share for each pivot point. This is because what is typically not shown, are the many failures and things that did not succeed.</p>
-
 <h2 id="tooling">Tooling</h2>
-
 <p>Unfortunately, there is not specific attack graph tool available to my knowledge that allows quick modeling of such a conceptual graph for an impactful presentation (with fancy red team icons). My personal to-go tool is PowerPoint for this - basically because I have used that most of the time and am comfortable with it.</p>
-
 <p>I have also successfully (mis)used the Microsoft Threat Modeling tool in the past to put together attack graphs - and it worked seemingly well. Lucidchart works also, as do tools such as SnagIt. Of course, one can also use a graph database (there are 2 chapters in the book about this). In this post, however, let&rsquo;s talk about PowerPoint. Adding animations is also useful when presenting and telling stories, and that&rsquo;s easy todo in PowerPoint.</p>
-
 <h2 id="the-scenario-we-are-modeling">The scenario we are modeling</h2>
-
 <p>The scenario is an operation named &ldquo;Dollar Heist&rdquo;.</p>
-
 <p>The red team was tasked to emulate an internal adversary and gain access to financial forecast information.</p>
-
-<p><a href="/blog/images/dollarheistgraph.png"><img src="/blog/images/dollarheistgraph.png" alt="Operation Dollar Heist - Debrief" /></a></p>
-
+<p><a href="/blog/images/dollarheistgraph.png"><img src="/blog/images/dollarheistgraph.png" alt="Operation Dollar Heist - Debrief"></a></p>
 <p><strong>Explanation:</strong></p>
-
 <ol>
 <li>The nifty red team emulated an internal malicious actor.</li>
 <li>They were so evil and guessed a local admin password to a finance employee&rsquo;s laptop.</li>
 <li>On the employee&rsquo;s machine they stole a password from (from a file on the Desktop!) .</li>
-<li>With that password they logged in to the finance database to look around. Yikes!<br /></li>
+<li>With that password they logged in to the finance database to look around. Yikes!</li>
 <li>On the server they found the financial forecast data.</li>
 <li>As the final step the red team exfiltrated the data.</li>
 </ol>
-
 <p><strong>Detections:</strong> The good thing was that the blue team had a couple of detections when these actions occured, but they weren&rsquo;t able to prevent the attack. All that information can be added to a presentation, and can be made quite entertaining.</p>
-
 <h2 id="building-it-using-default-powerpoint-icons">Building it using default PowerPoint icons</h2>
-
 <p>The icons I&rsquo;m using are part of PowerPoint, you can find them by clicking &ldquo;Insert&rdquo; - &ldquo;Icons&rdquo;
-<img src="/blog/images/icons.png" alt="PowerPoint - Icons" /></p>
-
+<img src="/blog/images/icons.png" alt="PowerPoint - Icons"></p>
 <p>There are some good icons for computers, attacks, and detection and if you want to get more fancy you can find other images on the web. Be mindful about the license of images from the web.</p>
-
 <h2 id="animations">Animations</h2>
-
 <p>In order to share stories, I add animations to the graph to build up what happened and slowly provide the details of the graph step by step. With the use of animations I also never have to create many speaker notes, because the stories and information naturally comes to mind when the attack graph progresses.</p>
-
 <p>Animations are good when you can speak to the graph, as it keeps the audience interested and entertained, especially if you share side stories of things that happened during the operation.</p>
-
 <h2 id="drawbacks">Drawbacks</h2>
-
 <p>These graphs are useful for discussions, presentations and also in reports when augmented with details in text form. These graphs however, can&rsquo;t be automated or processed electronically easily. So, be aware of the main purpose they serve.</p>
-
 <h2 id="downloading-the-templates-and-presentation-ideas">Downloading the templates and presentation ideas</h2>
-
 <p>You can find the PowerPoint presentation at the below link, feel free to use and adjust as you see fit for your own presentations:</p>
-
 <ul>
-<li><a href="/blog/downloads/Attack Graph Ideas and Presentations.pptx">PowerPoint Examples Download - Attack Graph Ideas and Presentations.pptx.</a></li>
+<li>[PowerPoint Examples Download - Attack Graph Ideas and Presentations.pptx.](/blog/downloads/Attack Graph Ideas and Presentations.pptx)</li>
 <li><a href="https://1drv.ms/p/s!AiSLjmP7QphXhaoSNOxA0gUBqRSRVw">PowerPoint Examples - Online</a></li>
 </ul>
-
 <p>Let me know if this is useful, and I&rsquo;m also curious how others present attack graphs during debriefs.</p>
-
 <p>And, if you find the information useful and like the book please leave a review on Amazon. :)</p>
-
 <p>Also, feel free to follow or DM me on Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
 
   </section>
@@ -218,7 +181,7 @@
     
     <ul class="pager">
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/hunting-for-credentials/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
       <li class="author-contact">
@@ -230,7 +193,7 @@
 
       
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/hunting-for-credentials/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>

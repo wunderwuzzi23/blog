@@ -84,7 +84,7 @@
         &nbsp;Home
       </a>
       
-      
+    
       <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
         <i class="fa fa-rss" aria-hidden="true"></i>
         &nbsp;Subscribe
@@ -120,75 +120,43 @@
     </div>
   </header>
   <section>
-    
-
-<p>Last month I did some research on Firefox, specifically I was learning more about it&rsquo;s remote debugging features. As part of that I was reading Bugzilla bug information and learned more about Mozilla&rsquo;s infrastructure.</p>
-
+    <p>Last month I did some research on Firefox, specifically I was learning more about it&rsquo;s remote debugging features. As part of that I was reading Bugzilla bug information and learned more about Mozilla&rsquo;s infrastructure.</p>
 <p>One thing I noticed reading up on details was that Mozilla uses <strong>Phabricator</strong>.</p>
-
 <h3 id="what-is-phabricator">What is Phabricator?</h3>
-
 <p><strong>Phabricator</strong> is a collaborative web-based toolset for code reviews, checkins, bugs, work items, wiki, pastes, credentials and many other useful things. It was orginally developed by Facebook as far as I know.</p>
-
 <h3 id="api-tokens">API Tokens</h3>
-
 <p>From past red teaming experience I know that its common for developers to create API tokens for command line usage to interact with Phabricator.</p>
-
 <p>There is a tool called <strong>arcanist</strong> that is  used to perform checkins via <code>arc land</code> and so forth. These tokens usually start with <code>api-</code> or <code>cli-</code> followed by number of random characters.</p>
-
 <p><strong>Mozilla actively encourages security research and bounty hunting to help improve the security posture of their software and services.</strong></p>
-
 <p><a href="https://www.mozilla.org/en-US/security/bug-bounty/">Here</a> an excerpt from Mozilla&rsquo;s bug bounty page:</p>
-
 <blockquote>
 <p>Mozilla strongly supports security research into our products and wants to encourage that research.</p>
 </blockquote>
-
 <p>Equipped with this intel and knowing that Mozilla encourages security research, I decided to perform a <strong>targeted Phabricator Credential Hunt</strong> for Mozilla.</p>
-
 <h3 id="targeted-credential-hunting">Targeted Credential Hunting</h3>
-
 <p><strong><a href="/blog/posts/2020/hunting-for-credentials">Credential Hunting</a></strong> is a dedicated and <strong>targeted activity</strong> that I recommend performing during red teaming and penetration testing. After gaining some basic intel about systems used and what to specifically look for, targeted credential hunting can be fruitful.</p>
-
 <p>Using the information and techniques from the previous post about Credential Hunting and related ones described in my book, <strong>I had identified a valid Mozilla Phabricator API token, along with a Bugzilla token</strong> in a Github repo.</p>
-
 <h3 id="token-validation">Token Validation</h3>
-
 <p>To validate the token, I used the Phabricator <strong>whoami</strong> API.</p>
-
 <pre><code>curl https://&lt;phabricator&gt;/api/user.whoami -d api.token=api-xxxx
-</code></pre>
-
-<p>The response of the request showed that the token impersonated a Mozilla account. At that point I knew, what I needed to know - there was no need to perform any other action.</p>
-
+</code></pre><p>The response of the request showed that the token impersonated a Mozilla account. At that point I knew, what I needed to know - there was no need to perform any other action.</p>
 <h3 id="reporting">Reporting</h3>
-
 <p><strong>I promptly reported this issue to Mozilla and they fixed it basically immediatley</strong>. They also performed investigations to ensure no misuse had occured and searched for variants.</p>
-
 <p>It was impressive to watch Mozilla&rsquo;s professionalism during the response.</p>
-
 <h3 id="the-power-of-credential-hunting">The power of credential hunting</h3>
-
 <p>This is an example to show how useful it is to perform <strong>active and targeted credential hunts</strong> for your clients or organization. Tokens often are out there but automated scanning tools might not be able to identify or validate them yet (because of parsing or lack of intel, or other reasons).</p>
-
 <p><strong>Mozilla awarded a $3000 bug bounty reward for this. :)</strong></p>
-
 <h3 id="red-team-strategies">Red Team Strategies</h3>
-
 <p>If you liked this post and found it informative or inspirational, you might be interested in my book <a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">&ldquo;Cybersecurity Attacks - Red Team Strategies&rdquo;</a>. It is filled with further ideas, research and fundamental techniques, as well as red teaming program and people mangement aspects.</p>
-
 <p>Also, feel free to follow or DM me on Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
-
 <h3 id="references">References</h3>
-
 <ul>
 <li><a href="https://www.mozilla.org/en-US/security/bug-bounty/">Mozilla Bug Bounty</a></li>
 <li><a href="https://github.com/wunderwuzzi23/scratch/blob/master/creds.md">Credentials Reference - Markdown</a></li>
 <li><a href="https://github.com/wunderwuzzi23/scratch/blob/master/creds.csv">Credentials Reference - CSV</a></li>
 <li><a href="https://phacility.com/phabricator">Phabricator</a></li>
 </ul>
-
-<p><img src="/blog/images/2020/hacker.png" alt="Hacker" /></p>
+<p><img src="/blog/images/2020/hacker.png" alt="Hacker"></p>
 
   </section>
   <footer>
@@ -199,7 +167,7 @@
     
     <ul class="pager">
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/phishing-stats/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
       <li class="author-contact">
@@ -211,7 +179,7 @@
 
       
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/phishing-stats/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>

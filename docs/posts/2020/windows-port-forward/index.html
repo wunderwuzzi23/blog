@@ -82,7 +82,7 @@
         &nbsp;Home
       </a>
       
-      
+    
       <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
         <i class="fa fa-rss" aria-hidden="true"></i>
         &nbsp;Subscribe
@@ -116,94 +116,56 @@
     </div>
   </header>
   <section>
-    
-
-<p>A technique on Windows that is less known is how to do basic port-proxying.</p>
-
+    <p>A technique on Windows that is less known is how to do basic port-proxying.</p>
 <p>Proxying ports is useful when a process binds on one (maybe only the local) interface and <strong>you want to expose that endpoint on another network interface</strong>.</p>
-
 <p>Let&rsquo;s say you have an existing process that listens only on the loopback interface, and you want to expose it remotely. Or there are two network interfaces and you want expose traffic from one to the other (maybe some evil persistence for port 3389) - or think of basic <strong>pivoting</strong>.</p>
-
 <p>It took me quite a while to figure how to do this on Windows the first time I needed this. If you know Linux, you probably are familiar with the power of <code>ssh</code> and it&rsquo;s range of command line options.</p>
-
 <p><strong>The good news is that Windows 10 ships with <code>ssh</code> - but this post is not about ssh.</strong></p>
-
 <p>In this post we will look at built-in Windows tools such as <code>netsh</code> and <code>portproxy</code> that can be used.</p>
-
 <h2 id="diving-into-netsh-interface-portproxy">Diving into netsh interface portproxy</h2>
-
 <p>As an example, let&rsquo;s say we have a web server running locally on port 80 - but it indeed only binds on 127.0.0.1. Now we want to tunnel that traffic out on a remote interface.</p>
-
 <p>In Windows this can be done by an Administrator using:</p>
-
 <p><code>netsh interface portproxy</code></p>
-
 <p>The following command shows how this is performed:</p>
-
 <p><code>netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 connectaddress=127.0.0.1 connectport=80</code></p>
-
 <p>This is the basic setup to configure proxying traffic.</p>
-
 <h3 id="explanation">Explanation</h3>
-
 <p>A quick explanation of the most important command line options:</p>
-
 <ul>
 <li><code>listenaddress</code> and <code>listenport</code>: Interface and port of the new endpoint. In our example, this exposes a new endpoint on <strong>all</strong> interfaces on port 48333</li>
 <li><code>connectaddress</code> and <code>connectport</code>: IP and port of the proxy address. In our example, the proxy to connect to is on 127.0.0.0 port 80.</li>
 </ul>
-
 <p>This is the basic configuration to expose that web server remotely on a different interface.</p>
-
 <p>Although, by default remote connections to port 48333 will be blocked by the firewall.</p>
-
 <p>We have to add a new firewall rule to allow port 48333.</p>
-
 <p>How does that work on Windows you might ask?</p>
-
 <h2 id="allowing-traffic-through-the-firewall">Allowing traffic through the firewall</h2>
-
 <p>There are multiple ways to update firewall rules in Windows. Besides the UI the following commands might come in handy:</p>
-
 <ol>
-<li>Use netsh to add a new firewall rule:
-<code>netsh advfirewall firewall add rule name=&quot;Open Port 48333&quot; dir=in action=allow protocol=TCP localport=48333</code></li>
-
-<li><p>On modern Windows machines, this can also be done via PowerShell commands:</p>
-
-<p><code>New-NetFirewallRule -Name FirefoxRemote -DisplayName &quot;Open Port 48333&quot; -Direction Inbound -Protocol tcp -LocalPort 48333 -Action Allow -Enabled True</code></p></li>
+<li>
+<p>Use netsh to add a new firewall rule:
+<code>netsh advfirewall firewall add rule name=&quot;Open Port 48333&quot; dir=in action=allow protocol=TCP localport=48333</code></p>
+</li>
+<li>
+<p>On modern Windows machines, this can also be done via PowerShell commands:</p>
+<p><code>New-NetFirewallRule -Name FirefoxRemote -DisplayName &quot;Open Port 48333&quot; -Direction Inbound -Protocol tcp -LocalPort 48333 -Action Allow -Enabled True</code></p>
+</li>
 </ol>
-
 <p>Now, it is all setup to connect to from another machine to port 48333.</p>
-
 <p>It also works between IPv4 and IPv6. Very cool. :)</p>
-
 <h2 id="cleaning-up-and-reverting-changes">Cleaning up and reverting changes</h2>
-
 <p>In order to remove port forwarding and revert to the defaults, we can run the following commands:</p>
-
 <p><code>netsh interface portproxy reset</code></p>
-
 <p>Alternatively, there is a delete argument.</p>
-
 <p>The same applies for opening port 48333 on the machine. The firewall rule can be removed again using the following command:</p>
-
 <p><code>netsh advfirewall firewall del rule name=&quot;Open Port 48333&quot;</code></p>
-
 <p>or if you like PowerShell:</p>
-
 <p><code>Remove-NetFirewallRule -Name FirefoxRemote</code></p>
-
 <p>That&rsquo;s it.</p>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <p>In this post we explored some simple commands to expose ports (proxy/forward them) on different network interfaces. Hope the post was informative and useful.</p>
-
 <p>Feel free to follow or message me on Twitter <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a>.</p>
-
 <h2 id="references">References</h2>
-
 <p>The detailed documentation for <code>netsh interface portproxy</code> can be found here:
 <a href="https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh-interface-portproxy">https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh-interface-portproxy</a></p>
 
@@ -216,7 +178,7 @@
     
     <ul class="pager">
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/cookies-on-firefox/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
       <li class="author-contact">
@@ -228,7 +190,7 @@
 
       
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/cookies-on-firefox/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>

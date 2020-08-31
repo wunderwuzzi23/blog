@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Monte Carlo on wunderwuzzi blog</title>
+    <title>monte carlo on wunderwuzzi blog</title>
     <link>https://embracethered.com/blog/tags/monte-carlo/</link>
-    <description>Recent content in Monte Carlo on wunderwuzzi blog</description>
+    <description>Recent content in monte carlo on wunderwuzzi blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
@@ -20,7 +20,7 @@
       <guid>https://embracethered.com/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</guid>
       <description>Monte Carlo simulations can be a useful tool to uplevel your red teaming skills and provide a different and fresh perspective for highlighting, discussing and presenting findings.
 Red teaming is about challenging an organization. This includes analyzing business processes and methodologies, including our own.
-Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in Hubbard&amp;rsquo;s book about measuring cybersecurity risk.</description>
+Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in Hubbard&amp;rsquo;s book about measuring cybersecurity risk. Since then I have been thinking and playing around with applying these methods to security program&amp;rsquo;s, especially red teaming and threat modeling.</description>
     </item>
     
   </channel>

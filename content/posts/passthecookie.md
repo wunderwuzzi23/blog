@@ -6,7 +6,8 @@ tags: [
         "pentesting",
         "red",
         "blue",
-        "TTP"
+        "TTP",
+        "conference"
     ]
 description: "Be aware of and protect your organization from cookie theft"
 meta_title: "Pass the Cookie - Protect your organization from cookie theft"

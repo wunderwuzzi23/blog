@@ -80,7 +80,7 @@
         &nbsp;Home
       </a>
       
-      
+    
       <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
         <i class="fa fa-rss" aria-hidden="true"></i>
         &nbsp;Subscribe
@@ -112,37 +112,21 @@
     </div>
   </header>
   <section>
-    
-
-<p>The Google Login Flow leaks additional email account information to unauthenticated users. I discovered this in the Google Account Login flow while building KoiPhish.</p>
-
+    <p>The Google Login Flow leaks additional email account information to unauthenticated users. I discovered this in the Google Account Login flow while building KoiPhish.</p>
 <h2 id="responsible-disclosure">Responsible Disclosure</h2>
-
 <p>I reported this issue to Google and they looked into it and after a about 5 weeks of back and forth they decided that this is not an issue worth fixing. After asking if I can post about it publicly I got Google&rsquo;s okay.</p>
-
 <p>So here we go! :)</p>
-
 <h2 id="issue">Issue</h2>
-
 <p>All that is needed to trigger the leakage is to call the unauthenticated signin endpoint at</p>
-
 <pre><code>https://accounts.google.com/_signin/sl/lookup 
 </code></pre>
-
 <p>and in the f.req parameter provide an email address.</p>
-
 <p>This is how it looks via Fiddler:</p>
-
-<p><img src="/blog/images/google.alternateaccount.leak.png" alt="Google Email Leak" /></p>
-
+<p><img src="/blog/images/google.alternateaccount.leak.png" alt="Google Email Leak"></p>
 <p>An adversary could do this at scale to retrieve additional accounts for phishing or possibly learn about recovery account - which in my case was the alternate account. lol. So, I&rsquo;d assume others might have done the same.</p>
-
 <h2 id="mitigations">Mitigations</h2>
-
 <p>Remove all alternate account associations. Since the altnernate account might be your recovery address - it was setup for a couple of friends I shared this with, so it&rsquo;s likely a normal case.</p>
-
 <p>Make sure that any alternate account is not your password recovery or 2FA to minimize attack surface.</p>
-
 <p><em>Originally written up February, 8th 2019. Posted June 2019</em></p>
 
   </section>
@@ -154,7 +138,7 @@
     
     <ul class="pager">
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/lyrebird/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/active-directory-and-macos/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
       <li class="author-contact">
@@ -166,7 +150,7 @@
 
       
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/active-directory-and-macos/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/lyrebird/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>

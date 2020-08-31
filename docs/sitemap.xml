@@ -1,6 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2020/machine-learning-basics/</loc>
+    <lastmod>2020-08-29T21:02:16-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2020-08-29T21:02:16-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2020-08-29T21:02:16-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2020-08-29T21:02:16-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2020-08-29T21:02:16-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2020-08-29T21:02:16-07:00</lastmod>
+  </url>
   
   <url>
     <loc>https://embracethered.com/blog/posts/2020/shadowbunny-bsides-singapore-virtual-machines/</loc>
@@ -8,7 +38,37 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/tags/blue/</loc>
+    <lastmod>2020-08-28T00:00:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/conference/</loc>
+    <lastmod>2020-08-28T00:00:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <lastmod>2020-08-28T00:00:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/appsec/</loc>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/pentesting/</loc>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2020/applying-acls-and-race-conditions/</loc>
+    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/research/</loc>
     <lastmod>2020-08-24T12:00:33-08:00</lastmod>
   </url>
   
@@ -18,7 +78,22 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/tags/book/</loc>
+    <lastmod>2020-07-31T12:08:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2020/capability-maturity-model-test-red-teaming/</loc>
+    <lastmod>2020-07-31T12:08:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/kpi/</loc>
+    <lastmod>2020-07-31T12:08:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/philosophy/</loc>
     <lastmod>2020-07-31T12:08:00-07:00</lastmod>
   </url>
   
@@ -28,8 +103,28 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/tags/privacy/</loc>
+    <lastmod>2020-07-24T10:00:16-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/cookies/</loc>
+    <lastmod>2020-07-21T11:00:15-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/</loc>
     <lastmod>2020-07-21T11:00:15-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/post-exploitation/</loc>
+    <lastmod>2020-07-21T11:00:15-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/passthecookie/</loc>
+    <lastmod>2020-07-15T06:00:00-07:00</lastmod>
   </url>
   
   <url>
@@ -43,8 +138,28 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/tags/windows/</loc>
+    <lastmod>2020-07-14T20:18:51-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/</loc>
     <lastmod>2020-07-01T10:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/bug-bounty/</loc>
+    <lastmod>2020-07-01T10:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/story/</loc>
+    <lastmod>2020-07-01T10:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/blog/</loc>
+    <lastmod>2020-06-30T23:45:42-07:00</lastmod>
   </url>
   
   <url>
@@ -68,6 +183,21 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/tags/sdl/</loc>
+    <lastmod>2020-06-12T10:00:25-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/metrics/</loc>
+    <lastmod>2020-06-10T11:23:20-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/monte-carlo/</loc>
+    <lastmod>2020-06-10T11:23:20-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</loc>
     <lastmod>2020-06-10T11:23:20-07:00</lastmod>
   </url>
@@ -83,6 +213,11 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/tags/bugbounty/</loc>
+    <lastmod>2020-05-13T18:00:25-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</loc>
     <lastmod>2020-05-01T01:00:46-07:00</lastmod>
   </url>
@@ -90,6 +225,11 @@
   <url>
     <loc>https://embracethered.com/blog/posts/2020/chrome-spy-remote-control/</loc>
     <lastmod>2020-04-28T18:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/credentials/</loc>
+    <lastmod>2020-04-26T12:31:29-07:00</lastmod>
   </url>
   
   <url>
@@ -103,6 +243,26 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/tags/attackgraph/</loc>
+    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/homefield-advantage/</loc>
+    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/presentations/</loc>
+    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/books/</loc>
+    <lastmod>2020-04-02T00:01:09-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/</loc>
     <lastmod>2020-04-02T00:01:09-07:00</lastmod>
   </url>
@@ -110,6 +270,26 @@
   <url>
     <loc>https://embracethered.com/blog/posts/2020/2600-hacker-pass-the-cookie/</loc>
     <lastmod>2020-02-15T15:48:51-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/coffeeshop/</loc>
+    <lastmod>2020-02-15T15:48:51-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/principles/</loc>
+    <lastmod>2020-02-12T17:03:32-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/strategy/</loc>
+    <lastmod>2020-02-12T17:03:32-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/web/</loc>
+    <lastmod>2020-02-12T17:03:32-08:00</lastmod>
   </url>
   
   <url>
@@ -128,8 +308,18 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/tags/cookiesforall/</loc>
+    <lastmod>2019-10-27T10:56:03-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/mitreattackupdate/</loc>
     <lastmod>2019-10-27T10:56:03-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/breaches/</loc>
+    <lastmod>2019-09-01T13:25:07-07:00</lastmod>
   </url>
   
   <url>
@@ -139,6 +329,11 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/homefield-advantage/</loc>
+    <lastmod>2019-08-24T18:46:06-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/purple/</loc>
     <lastmod>2019-08-24T18:46:06-07:00</lastmod>
   </url>
   
@@ -153,6 +348,16 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/tags/code/</loc>
+    <lastmod>2019-07-03T21:58:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/tool/</loc>
+    <lastmod>2019-07-03T21:58:01-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/active-directory-and-macos/</loc>
     <lastmod>2019-06-20T22:00:16-07:00</lastmod>
   </url>
@@ -163,12 +368,22 @@
   </url>
   
   <url>
+    <loc>https://embracethered.com/blog/tags/fun/</loc>
+    <lastmod>2019-05-21T21:48:29-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/lyrebird/</loc>
     <lastmod>2019-05-21T21:48:29-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/posts/koiphish/</loc>
+    <lastmod>2019-01-10T21:40:59-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/phishing/</loc>
     <lastmod>2019-01-10T21:40:59-07:00</lastmod>
   </url>
   
@@ -183,260 +398,7 @@
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/tags/appsec/</loc>
-    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/attackgraph/</loc>
-    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/blog/</loc>
-    <lastmod>2020-06-30T23:45:42-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/blue/</loc>
-    <lastmod>2020-08-28T00:00:01-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/book/</loc>
-    <lastmod>2020-07-31T12:08:00-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/books/</loc>
-    <lastmod>2020-04-02T00:01:09-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/breaches/</loc>
-    <lastmod>2019-09-01T13:25:07-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/bug-bounty/</loc>
-    <lastmod>2020-07-01T10:30:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/bugbounty/</loc>
-    <lastmod>2020-05-13T18:00:25-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/code/</loc>
-    <lastmod>2019-07-03T21:58:01-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/coffeeshop/</loc>
-    <lastmod>2020-02-15T15:48:51-08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/conference/</loc>
-    <lastmod>2020-08-28T00:00:01-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/cookies/</loc>
-    <lastmod>2020-07-21T11:00:15-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/cookiesforall/</loc>
-    <lastmod>2019-10-27T10:56:03-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/credentials/</loc>
-    <lastmod>2020-04-26T12:31:29-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/fun/</loc>
-    <lastmod>2019-05-21T21:48:29-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/homefield-advantage/</loc>
-    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/kpi/</loc>
-    <lastmod>2020-07-31T12:08:00-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2020-08-12T13:28:00-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/metrics/</loc>
-    <lastmod>2020-06-10T11:23:20-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/monte-carlo/</loc>
-    <lastmod>2020-06-10T11:23:20-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/passthecookie/</loc>
-    <lastmod>2020-07-15T06:00:00-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/pentesting/</loc>
-    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/philosophy/</loc>
-    <lastmod>2020-07-31T12:08:00-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/phishing/</loc>
-    <lastmod>2019-01-10T21:40:59-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/post-exploitation/</loc>
-    <lastmod>2020-07-21T11:00:15-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2020-08-28T00:00:01-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/presentations/</loc>
-    <lastmod>2020-04-06T21:00:30-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/principles/</loc>
-    <lastmod>2020-02-12T17:03:32-08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/privacy/</loc>
-    <lastmod>2020-07-24T10:00:16-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/purple/</loc>
-    <lastmod>2019-08-24T18:46:06-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2020-08-28T00:00:01-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/research/</loc>
-    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/sdl/</loc>
-    <lastmod>2020-06-12T10:00:25-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/story/</loc>
-    <lastmod>2020-07-01T10:30:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/strategy/</loc>
-    <lastmod>2020-02-12T17:03:32-08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/tool/</loc>
-    <lastmod>2019-07-03T21:58:01-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
-    <lastmod>2020-08-28T00:00:01-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/web/</loc>
-    <lastmod>2020-02-12T17:03:32-08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/windows/</loc>
-    <lastmod>2020-07-14T20:18:51-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2020-08-28T00:00:01-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>

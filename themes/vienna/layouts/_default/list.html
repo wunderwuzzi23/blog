@@ -1,10 +1,35 @@
 {{ partial "header.html" . }}
 <section class="article-list">
-  <h1>{{ .Title }}</h1>
+  <h1>{{ .Title }}</h1><hr/>
   {{ range .Data.Pages }}
-  <hr/>
-  {{ .Render "li" }}
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "Jan 02 2006"}}</time>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </dt>
+    </dl>
+     
   {{ end }}
 </section>
 {{ partial "footer.html" . }}
 
+
+<!-- 
+<article class="posts">
+
+  {{ range site.RegularPages.GroupByDate "2006" -}}
+  <section>
+    <h2>{{ .Key }}</h2>
+
+    <ol>
+      {{ range .Pages -}}
+      <li>
+        <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "January 02"}}</time>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+      {{- end }}
+    </ol>
+  </section>
+  {{ end }}
+
+</article> -->

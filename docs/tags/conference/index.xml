@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Conference on wunderwuzzi blog</title>
+    <title>conference on wunderwuzzi blog</title>
     <link>https://embracethered.com/blog/tags/conference/</link>
-    <description>Recent content in Conference on wunderwuzzi blog</description>
+    <description>Recent content in conference on wunderwuzzi blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
@@ -22,6 +22,16 @@
 The topic is adversarial usage of virtual machines during lateral movement. And we will also cover threat hunting and detection ideas.
 I have been referring to this technique as the Shadowbunny over the years. :)
 The conferences is on September 24th-25th, it will be all virtual and free to attend. Check out the BSidesSG 2020 website and schedule for other talks and details.</description>
+    </item>
+    
+    <item>
+      <title>Pass the Cookie and Pivot to the Clouds</title>
+      <link>https://embracethered.com/blog/posts/passthecookie/</link>
+      <pubDate>Sun, 16 Dec 2018 12:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/passthecookie/</guid>
+      <description>Web Applications and Services use cookies to authenticate sessions and users. An adversary can pivot from a compromised host to Web Applications and Internet Services by stealing authentication cookies from browsers and related processes. At the same time this technique bypasses most multi-factor authentication protocols.
+The reason for this is that the final authentication token that the attacker steals is issued after all factors have been validated. Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used.</description>
     </item>
     
   </channel>

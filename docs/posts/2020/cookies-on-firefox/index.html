@@ -88,7 +88,7 @@
         &nbsp;Home
       </a>
       
-      
+    
       <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
         <i class="fa fa-rss" aria-hidden="true"></i>
         &nbsp;Subscribe
@@ -128,183 +128,106 @@
     </div>
   </header>
   <section>
-    
-
-<p>Previously I talked about <a href="/blog/posts/2020/chrome-spy-remote-control">remotely debugging Chrome</a>, and we also covered the <a href="/blog/posts/2020/cookie-crimes-on-microsoft-edge">latest Microsoft Edge browser</a> along the way.</p>
-
+    <p>Previously I talked about <a href="/blog/posts/2020/chrome-spy-remote-control">remotely debugging Chrome</a>, and we also covered the <a href="/blog/posts/2020/cookie-crimes-on-microsoft-edge">latest Microsoft Edge browser</a> along the way.</p>
 <p>These features allow an adversary to gain access to authentication tokens and cookies. See <a href="https://attack.mitre.org/techniques/T1539/">MITRE ATT&amp;CK Technique T1539: Steal Web Session Cookie</a> as well for this.</p>
-
 <h2 id="what-about-firefox">What about Firefox?</h2>
-
 <p>For a while I was wondering if (my favorite) browser Firefox has such debugging features as well, and how one could detect malware trying to exploit it.</p>
-
 <p><em>This article was written a few months back, just never got to post it. So, here we go.</em></p>
-
 <p><em>There is an important update mentioned further towards the end about a new <code>getAllCookies()</code> API that was just introduced by Mozilla. This should mean that one can grab cookies post-exploitation a lot easier - I will post about that seperately after looking at it in more detail.</em></p>
-
-<h2 id="remote-debugging-command-control-ui">Remote Debugging Command &amp; Control UI</h2>
-
+<h2 id="remote-debugging-command--control-ui">Remote Debugging Command &amp; Control UI</h2>
 <p>The cool thing is that Firefox comes with a built-in UI for debugging multiple remote browser connections. One can choose and switch between them:</p>
-
-<p><img src="/blog/images/2020/firefox.debug.connect.multiple.png" alt="Connecting to multiple debug servers" /></p>
-
+<p><img src="/blog/images/2020/firefox.debug.connect.multiple.png" alt="Connecting to multiple debug servers"></p>
 <p>See the <code>Connect</code> button? It allows to connect and debug those remote Firefox intances!</p>
-
 <p>How to get there?</p>
-
 <p>Let&rsquo;s start with the basics first.</p>
-
 <h2 id="enabling-remote-debugging-in-firefox">Enabling Remote Debugging in Firefox</h2>
-
 <p>Unlike Chrome, <strong>Firefox disables this feature by default!</strong></p>
-
 <p>So first, malware would have to enable it by updating <code>user.js</code> file (or <code>prefs.js</code>) configuration files in the user&rsquo;s Firefox profile.</p>
-
 <p>On Windows the files are located at:</p>
-
 <p><code>$AppData\Roaming\Mozilla\Firefox\Profiles\*.default-release\</code></p>
-
 <p><em>Note:</em> There might be multiple profiles present in the folder.</p>
-
 <p>These are the updates that are required to enabled remote debugging:</p>
-
 <pre><code>user_pref(&quot;devtools.chrome.enabled&quot;, true);
 user_pref(&quot;devtools.debugger.remote-enabled&quot;, true);
 user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
-</code></pre>
-
-<p>These updates the remote debugging features, and disables security prompts the user would normally see by default.</p>
-
+</code></pre><p>These updates the remote debugging features, and disables security prompts the user would normally see by default.</p>
 <p>You can find the corresponding configurations under <strong>Development Settings</strong>:
-    <img src="/blog/images/2020/firefox.debug.settings.png" alt="Security Settings" /></p>
-
+<img src="/blog/images/2020/firefox.debug.settings.png" alt="Security Settings"></p>
 <p>And this is how the security prompt would look like that we disabled:
-    <img src="/blog/images/2020/firefox.debugger.permission.png" alt="Security Prompt" /></p>
-
+<img src="/blog/images/2020/firefox.debugger.permission.png" alt="Security Prompt"></p>
 <p>The user sees this prompt when a client connects to the debugging endpoint. The <code>devtools.debugger.prompt-connection</code> setting in the configuration file controls this behaviour.</p>
-
 <h2 id="blue-team-detection">Blue Team Detection</h2>
-
 <p><strong>This is a great place for blue teams to add monitoring and detections to catch and alert on malware that would modify the settings to enable the features.</strong></p>
-
 <h2 id="using-firefox-remote-debugging">Using Firefox Remote Debugging</h2>
-
 <p>After updating the configuration, one can launch a new instance of Firefox using:</p>
-
 <p><code>&amp; 'C:\Program Files\Mozilla Firefox\firefox.exe' -start-debugger-server 9222</code></p>
-
 <p>There are also the options for <code>--headless</code> and so forth that you can experiment around with.</p>
-
 <p>This is how it looks like:</p>
-
-<p><img src="/blog/images/2020/firefox.debugger.running.png" alt="PowerShell run Firefox with remote debugging" /></p>
-
+<p><img src="/blog/images/2020/firefox.debugger.running.png" alt="PowerShell run Firefox with remote debugging"></p>
 <p>As you can see, this only listens on the <strong>local interface</strong>.</p>
-
 <h2 id="tunneling-traffic-to-remote-machines">Tunneling traffic to remote machines</h2>
-
 <p>The debugging port is only available locally, an adversary will try to make that remotely accessible via port forwarding. I talked about <a href="http://localhost:1313/blog/posts/2020/windows-port-forward/">this</a> here in a bit more detail, but below are the basic commands needed.</p>
-
 <p>In Windows, this can be done by an Administrator using:</p>
-
 <pre><code>netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 connectaddress=127.0.0.1 connectport=9222
-</code></pre>
-
-<p>Now, remote connections to this port will not be allowed because the firewall blocks them (we forwarded to port 48333). We have to add a new firewall rule to allow port 48333. So, let&rsquo;s allow that port through the firewall.</p>
-
+</code></pre><p>Now, remote connections to this port will not be allowed because the firewall blocks them (we forwarded to port 48333). We have to add a new firewall rule to allow port 48333. So, let&rsquo;s allow that port through the firewall.</p>
 <p>There are multiple ways to do this on Windows, but since we already used nets let&rsquo;s stick with it:</p>
-
 <p><code>netsh advfirewall firewall add rule name=&quot;Open Port 48333&quot; dir=in action=allow protocol=TCP localport=48333</code></p>
-
 <p>Now, it is all setup to connect to from another machine.</p>
-
 <p><strong>Important:</strong> This traffic is sent in clear text, so be aware and consider using <code>ssh</code> port forwarding to encrypt traffic</p>
-
 <h2 id="debugging-remote-firefox-instances">Debugging remote Firefox instances</h2>
-
 <p>Now that the debugging port is exposed remotely, we can attach Firefox on <em>another machine</em> to it. Let&rsquo;s walk through the steps on how this works:</p>
-
 <ol>
-<li><p>Navigate to <code>about:debugging</code> in the browser URL (or click Web Developer Tools - Remote Debugger). This is where you can connect to remote devices runnning Firefox. Click &ldquo;Add&rdquo; to add a new server to connect to.</p>
-
-<p><img src="/blog/images/2020/firefox.debugger.remoteadd.png" alt="Adding a new remote server" /></p></li>
-
-<li><p>It is also possible to add  multiple debug server as seen in this screenshot. This basically allows to have a mini C2 to remote control multiple browsers.</p>
-
-<p><img src="/blog/images/2020/firefox.debug.connect.multiple.png" alt="Connecting to multiple debug servers" /></p></li>
-
-<li><p>Use the <code>Connect</code> button to connect to a particular browser instance. Once connected you can run commands in the console, navigate the user to a different page, and also inspect storage and cookies as seen in the following screenshot.</p>
-
-<p><img src="/blog/images/2020/firefox.debugger.remotecookies.png" alt="Inspecting Cookies remotely" /></p></li>
+<li>
+<p>Navigate to <code>about:debugging</code> in the browser URL (or click Web Developer Tools - Remote Debugger). This is where you can connect to remote devices runnning Firefox. Click &ldquo;Add&rdquo; to add a new server to connect to.</p>
+<p><img src="/blog/images/2020/firefox.debugger.remoteadd.png" alt="Adding a new remote server"></p>
+</li>
+<li>
+<p>It is also possible to add  multiple debug server as seen in this screenshot. This basically allows to have a mini C2 to remote control multiple browsers.</p>
+<p><img src="/blog/images/2020/firefox.debug.connect.multiple.png" alt="Connecting to multiple debug servers"></p>
+</li>
+<li>
+<p>Use the <code>Connect</code> button to connect to a particular browser instance. Once connected you can run commands in the console, navigate the user to a different page, and also inspect storage and cookies as seen in the following screenshot.</p>
+<p><img src="/blog/images/2020/firefox.debugger.remotecookies.png" alt="Inspecting Cookies remotely"></p>
+</li>
 </ol>
-
 <p>That&rsquo;s it, all pretty cool I think. :)</p>
-
 <h2 id="automation">Automation</h2>
-
 <p>I have not yet spent much time to research the protocol to automate this. The protocol is documented <a href="https://docs.firefox-dev.tools/backend/protocol.html">here</a> and while digging into this in more detail, I ran across this Bugzilla defect:</p>
-
 <ul>
 <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1637619">Implement Network.getAllCookies</a></li>
 </ul>
-
 <p><strong>Yes</strong>, this means Firefox will also implement the <code>Network.getAllCookies()</code> API - similar to how it works today with Chrome via Cookie Crimes.</p>
-
 <p>Here are some basics about the protocol that I was able to figure out. I kind of got stuck here, when researching this and thought to just wait until Firefox has the proposed API.</p>
-
 <p>The default protocol is a simple one, it consists of sending <code>length:JSONREQUEST</code>.</p>
-
 <p>Connect via telnet or netcat, and send the following strings in:</p>
-
 <p><code>30:{&quot;type&quot;:&quot;getRoot&quot;,&quot;to&quot;:&quot;root&quot;}</code></p>
-
 <p>Some other commands I figured out to get the contents of a site:</p>
-
 <pre><code>31:{&quot;to&quot;:&quot;root&quot;,&quot;type&quot;:&quot;listTabs&quot;}
 57:{&quot;type&quot;:&quot;getTarget&quot;,&quot;to&quot;:&quot;server1.conn21.tabDescriptor7&quot;}
 65:{&quot;type&quot;:&quot;listStores&quot;,&quot;to&quot;:&quot;server1.conn21.child21/storageActor5&quot;}
 124:{&quot;type&quot;:&quot;getStoreObjects&quot;,&quot;host&quot;:&quot;https://www.google.com&quot;,&quot;names&quot;:null,&quot;options&quot;:{},&quot;to&quot;:&quot;server1.conn21.child21/cookies20&quot;}
-</code></pre>
-
-<p>The identifiers for connections and actors  (such as conn21 or child 21) change everytime, so this needs a little scripting to automate - which I have not worked on.</p>
-
+</code></pre><p>The identifiers for connections and actors  (such as conn21 or child 21) change everytime, so this needs a little scripting to automate - which I have not worked on.</p>
 <p>I will be waiting for the handy <code>getAllCookies</code> API.</p>
-
 <h3 id="update-i-just-checked-the-bugzilla-bug-again-and-the-getallcookies-api-exists-now"><strong>UPDATE:</strong> I just checked the Bugzilla bug again and the <strong>getAllCookies()</strong> API exists now!</h3>
-
 <p>This should make the job of getting cookies a lot easier.</p>
-
 <h2 id="cleaning-up-and-reverting-changes">Cleaning up and reverting changes</h2>
-
 <p>Keep in mind that port forwarding was set up earlier to enable the remote exposure of the Firefox debugging API on port 48333. In order to remove port forwarding and revert to the defaults, we can run  the following command:</p>
-
 <p><code>netsh interface portproxy reset</code></p>
-
 <p>Alternatively, there is a delete argument.</p>
-
 <p>The same applies for opening port 48333 on the firewall:</p>
-
 <p><code>netsh advfirewall firewall del rule name=&quot;Open Port 48333&quot;</code></p>
-
 <p>That&rsquo;s it, now what detections?</p>
-
 <h2 id="detections-and-mitigations">Detections and Mitigations</h2>
-
 <ul>
 <li>Blue teams should look for anyone using the <code>-start-debugger-server</code> and related features to identify potential misuse. Be aware on Linux/macOS the argument is <code>--start-debugger-server</code></li>
 <li>Similarly, observe and monitor for port forwarding on hosts</li>
 <li>Monitor for changes to <code>user.js</code> and <code>prefs.js</code> files that modify the remote debugging settings for each user and profile under <code>$AppData\Roaming\Mozilla\Firefox\Profiles\</code>.  Malware that wants to leverage the built in features might update the files.</li>
 <li>Usage of <code>netsh interface portproxy</code> or artibrary firewall rules being opened up can also highlight anomalies</li>
 </ul>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <p>In this post we explored remote debugging and how it can be used with Firefox. Hope the post was informative and useful. And check back soon for a post on using Firefox&rsquo;s <code>getAllCookies</code> APIs.</p>
-
 <p>Feel free to follow or message me on Twitter <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a>.</p>
-
 <h2 id="references">References</h2>
-
 <ul>
 <li><a href="https://docs.firefox-dev.tools/backend/protocol.html">Firefox Remote Debugging Protocol</a>.</li>
 <li><a href="https://attack.mitre.org/techniques/T1539/">MITRE ATT&amp;CK Technique T1539: Steal Web Session Cookie</a></li>
@@ -321,7 +244,7 @@ user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
     
     <ul class="pager">
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/windows-port-forward/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
       <li class="author-contact">
@@ -333,7 +256,7 @@ user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
 
       
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/windows-port-forward/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>

@@ -1,4 +1,4 @@
-<article>
+<!-- <article>
   <header>
     <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
     <div class="post-meta clearfix">
@@ -20,4 +20,25 @@
     </ul>
   </footer>
   {{ end }}
-</article>
+</article> -->
+
+
+  <article class="posts">
+
+    {{ range site.RegularPages.GroupByDate "2006" -}}
+    <section>
+      <h2>{{ .Key }}</h2>
+
+      <ol>
+        {{ range .Pages -}}
+        <li>
+          <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "Jan 02"}}</time>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{- end }}
+      </ol>
+    </section>
+    {{ end }}
+
+  </article>
+

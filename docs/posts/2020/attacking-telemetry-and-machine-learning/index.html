@@ -82,7 +82,7 @@
         &nbsp;Home
       </a>
       
-      
+    
       <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
         <i class="fa fa-rss" aria-hidden="true"></i>
         &nbsp;Subscribe
@@ -116,48 +116,27 @@
     </div>
   </header>
   <section>
-    
-
-<p>These days business decisions and feature development often is influenced heavily by telemetry information. Telemetry is baked into the programs, services and applications we use.</p>
-
+    <p>These days business decisions and feature development often is influenced heavily by telemetry information. Telemetry is baked into the programs, services and applications we use.</p>
 <p><strong>Companies are hungry for telemetry because with machine learning and Deep Neural Networks &ldquo;data is the new oil&rdquo;</strong>.</p>
-
 <p>Telemetry provides insights into how users use a particular system, what features they exercise, how they configure the system, what errors they trigger and what buttons they like clicking on.</p>
-
 <blockquote>
 <p>Organization make business decisions and future feature development based on telemetry</p>
 </blockquote>
-
 <p>The goal is to leverage this information to re-iterate on software and improve it or add missing features, or remove unpopular features, or show you relevant ads.</p>
-
 <p>But, how secure are telemetry pipelines?</p>
-
-<h2 id="commodore-64-red-teaming-example">Commodore 64 - Red Teaming Example</h2>
-
+<h2 id="commodore-64---red-teaming-example">Commodore 64 - Red Teaming Example</h2>
 <p>A while back during a red teaming engagement I spoofed the operating system from which telemetry was sent. Instead of sending the correct Windows or Linux version, the red team sent <strong>millions of spoofed requests</strong> coming from a “Commodore 64” up the telemetry endpoint.</p>
-
 <p><strong>The result was that this information became visible in dashboards inside the company, and the C64 was the most popular operating system the software ran on! Yay!</strong></p>
-
-<p><img src="/blog/images/2020/commodore64.jpg" alt="Commodore 64" /></p>
-
+<p><img src="/blog/images/2020/commodore64.jpg" alt="Commodore 64"></p>
 <p>This raised awareness of tightening the security and data sanitization of telemetry pipelines.</p>
-
 <p>This somewhat benign (yet widely visible) example can help to understand how such attacks could be misused to manipulate decision making.</p>
-
 <h2 id="red-teaming-telemetry-pipelines">Red Teaming Telemetry Pipelines</h2>
-
 <p>As the example showed an adversary can send targeted messages to highlight features or flows that in reality are not frequently used, which can lead to de-investments in areas that are more important.</p>
-
 <p>There are multiple ways to target telemetry, and when it comes to <strong>AI Red Teaming</strong> at large this is an interest technique, as the data is often fed into machine learning training. This post highlights the outside approach of spoofing telemetry requests, which often has no or very weak authentication.</p>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <p>Internal red teams can run operations that target telemetry. This ensure to pipelines are assessed and proper sanitization, sanity checks, input validation for telemetry data is in place.</p>
-
 <p>As always, feel free to follow or DM me on Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
-
 <h2 id="references">References</h2>
-
 <p><a href="https://en.wikipedia.org/wiki/Commodore_64">https://en.wikipedia.org/wiki/Commodore_64</a></p>
 
   </section>
@@ -169,7 +148,7 @@
     
     <ul class="pager">
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/capability-maturity-model-test-red-teaming/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/applying-acls-and-race-conditions/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
       <li class="author-contact">
@@ -181,7 +160,7 @@
 
       
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/applying-acls-and-race-conditions/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/capability-maturity-model-test-red-teaming/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>

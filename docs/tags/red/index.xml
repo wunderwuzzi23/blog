@@ -1,16 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Red on wunderwuzzi blog</title>
+    <title>red on wunderwuzzi blog</title>
     <link>https://embracethered.com/blog/tags/red/</link>
-    <description>Recent content in Red on wunderwuzzi blog</description>
+    <description>Recent content in red on wunderwuzzi blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Fri, 28 Aug 2020 00:00:01 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2020 21:02:16 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A machine learning journey</title>
+      <link>https://embracethered.com/blog/posts/2020/machine-learning-basics/</link>
+      <pubDate>Sat, 29 Aug 2020 21:02:16 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/machine-learning-basics/</guid>
+      <description>Over the last several months I have been busy studying machine learning and artificial intelligence.
+To come up with good attacks, I figured it is time to learn the basics and start using software, tools and algorithms. My goal was to build a couple of end to end machine learning systems from scratch.
+This post describes my studying approach, materials and learnings. I thought to share this information, in case there are others who are intersted to get started in this space and need some pointers.</description>
+    </item>
     
     <item>
       <title>Beware of the Shadowbunny! at BSides Singapore</title>
@@ -120,7 +131,7 @@ A few years back when I came up with the idea of using VMs for lateral movement 
       <guid>https://embracethered.com/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</guid>
       <description>Monte Carlo simulations can be a useful tool to uplevel your red teaming skills and provide a different and fresh perspective for highlighting, discussing and presenting findings.
 Red teaming is about challenging an organization. This includes analyzing business processes and methodologies, including our own.
-Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in Hubbard&amp;rsquo;s book about measuring cybersecurity risk.</description>
+Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in Hubbard&amp;rsquo;s book about measuring cybersecurity risk. Since then I have been thinking and playing around with applying these methods to security program&amp;rsquo;s, especially red teaming and threat modeling.</description>
     </item>
     
     <item>
@@ -185,7 +196,8 @@ Actively hunting for credential exposure The idea of credential hunting is targe
       
       <guid>https://embracethered.com/blog/posts/2020/conceptual-attack-graphs/</guid>
       <description>Conceptual Attack Graphs One question that I have gotten a few times about &amp;ldquo;Cybersecurity Attacks - Red Team Strategies&amp;rdquo; is around the conceptual attack graphs in &amp;ldquo;Chapter 3, Measuring an Offensive Security Program&amp;rdquo;. Specifically, how I create them.
-In this post I will briefly go over some of the reasons for creating them, and also how I create them and share a template for others to use and adjust.</description>
+In this post I will briefly go over some of the reasons for creating them, and also how I create them and share a template for others to use and adjust.
+I&amp;rsquo;m not a graphic designer, so I&amp;rsquo;m sure there are better ways of doing this.</description>
     </item>
     
     <item>

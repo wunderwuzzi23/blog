@@ -84,7 +84,7 @@
         &nbsp;Home
       </a>
       
-      
+    
       <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
         <i class="fa fa-rss" aria-hidden="true"></i>
         &nbsp;Subscribe
@@ -120,14 +120,9 @@
     </div>
   </header>
   <section>
-    
-
-<p>Throughout my career I have been fascinated with quality assurance and testing, especially security testing and red teaming. One discussion that comes up frequently is how to measure the maturity of such programs and processes.</p>
-
+    <p>Throughout my career I have been fascinated with quality assurance and testing, especially security testing and red teaming. One discussion that comes up frequently is how to measure the maturity of such programs and processes.</p>
 <p>My answer is straight forward as there are already existing frameworks that can be leveraged, adjusted and borrowed from to fit the needs of offensive security programs.</p>
-
 <p>You are likely familiar or have at least heard of the <strong>Capability Maturity Model Integration</strong> from Carnegie Mellon University. In particular <a href="https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration">CMMI</a> defines five levels to measure software engineering processes as follows:</p>
-
 <ol>
 <li>Initial</li>
 <li>Mangaged</li>
@@ -135,105 +130,55 @@
 <li>Measured</li>
 <li>Optimized</li>
 </ol>
-
 <p><strong>If you run an internal pen test program, the program is somewhere along those 5 stages.</strong></p>
-
 <p>There is one caveat which we will go into more detail in this post when introducing <strong>Level 6 - Illusion of Control</strong>, which I argue is missing from the existing frameworks.</p>
-
 <p>The question arises how does the Capability Maturity Model apply to testing systems in particular?</p>
-
 <p>Luckily, there is already a Test Maturity Model which puts the perspective of software testing in the CMM model. It is called <strong>Test Maturity Model integration</strong>, or short <a href="https://www.tmmi.org/tmmi-model/">TMMi</a>.</p>
-
 <h2 id="test-maturity-model-integration-tmmi">Test Maturity Model integration (TMMi®)</h2>
-
 <p>The Test Maturity Model Integration developed by the TMMi Foundation explores and defines a framework for measuring test maturity and process improvements with detailed examples.</p>
-
 <p><strong>Let&rsquo;s explore how this can be applied to offensive security testing and red teaming.</strong></p>
-
 <p>The following image shows the five stages as defined by TMMi®, and we will put those in context for offensive security in this post.</p>
-
-<p><img src="/blog/images/2020/TMMi-model-picture.png" alt="TMMi Model Picture" /></p>
-
+<p><img src="/blog/images/2020/TMMi-model-picture.png" alt="TMMi Model Picture"></p>
 <p><em>Image from taken from <a href="https://www.tmmi.org/tmmi-model">https://www.tmmi.org/tmmi-model</a></em></p>
-
 <p>Now, let us put some more content behind what these stages mean for offensive security. The following is an attempt to describe and bucketize the stages for offensive security needs:</p>
-
 <h2 id="level-1-initial">Level 1: Initial</h2>
-
 <p>There are no defined processes in place at this stage. Finding defects or vulnerability is by pure chance and often considered as part of debugging. Or security issues are reported mainly by customers.</p>
-
 <h2 id="level-2-managed">Level 2: Managed</h2>
-
 <p>The philosophy that vulnerabilities can be prevented is the majority opinion within the organization, hence at this stage the focus of investments is mainly in the preventive bucket, applied only at the end of the development cycles or before deployment.</p>
-
 <p>Maybe once a year a penetration test is performed to find vulnerabilities.</p>
-
 <p>The efforts might be driven and revolving around compliance requirements, and not yet focusing on pushing the broader security maturity forward. Some form of Blue Team is established, and response processes are being built.</p>
-
 <p>Offensive security and penetration testing are performed at times, but no dedicated organization wide efforts are implemented.</p>
-
 <p>If already present at this stage, red and blue team have a pure adversarial stance and are not collaborating besides handing pen test reports over to the other side.</p>
-
 <h2 id="level-3-defined">Level 3: Defined</h2>
-
 <p>This is the stage where an organization <strong>introduces an internal offensive security team</strong> with a broad agenda, including cyber operational red teaming. The <strong>offensive security testing process is established</strong>, and the organization realizes not all vulnerabilities can be found and addressed and investments are done regarding detection of breaches and incident response.</p>
-
 <p>This includes creation of Rules of Engagement, Operating Procedures, Issue Tracking, Engagement Management, Cleanup and Debriefs - there are lot of <a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">useful details and guidelines in my book by the way in regards to the creation of an internal offensive security program</a>.</p>
-
 <p>Centralized security event aggregation is implemented to enable better response and hunting of adversaries. This is the typical stage an internal offensive security simulates malicious insiders and adversaries. Or the organization might hire external vendors regularly to perform red team operations in addition to regular security assessments.</p>
-
 <p>Organizationally a formalized Security Operation Center to drive detection and incident response is established.</p>
-
 <h2 id="level-4-measured">Level 4: Measured</h2>
-
 <p>With the establishment of a Security Operation Center and formalized processes for incident response, the organization starts to attempt to measure its progress and identify areas for improvement.</p>
-
 <p>In case the organization has multiple penetration test teams (yes, large organization have multiple) this is the stage they will collaborate and share information to create centralized view and help peer review each other’s offensive findings and work to improve and find issues across organization boundaries.</p>
-
 <p>At this stage <strong>KPIs are introduced</strong> to help find gaps and weaknesses in the program and services to help improve the environment. Leadership will be briefed regularly on the magical identified KPIs that are seemed the most important ones to help make progress in those areas.</p>
-
 <p>This could be as simple as highlighting the critical issues identified by offensive security teams and their status and proposed resolutions.</p>
-
 <p>The organization invests in getting the “big picture” and a ton of security intelligence about state of systems is being aggregated, and that security monitors being present on all knows systems is being tracked.</p>
-
 <h2 id="level-5-optimized">Level 5: Optimized</h2>
-
 <p>In the optimized stage the organization continuous to improve and fine-tune the testing process, a test process improvement group is established officially in the organization. Another important factor is that processes are automated as much as possible and helpful.</p>
-
 <p>Putting this in the realm of offensive security, this would be the stage where an organization would likely <strong>create a catalog of TTPs and attacks and associated mitigations specific to the organization</strong>, consuming TTPs from others in the industry. As well as implementing automated testing using a framework like the MITRE ATT&amp;CK matrix which can greatly help understand the realm of attacks the organization might face.</p>
-
 <p>Reaching this stage means that things and are supposed to be predictable and that’s where the big risk lies when it comes to security.</p>
-
 <p>Those are the five stages; however I suggest introducing a Level 6 - Illusion of Control as follows.</p>
-
-<h2 id="level-6-illusion-of-control-the-red-team-strikes-back">Level 6: Illusion of control – the red team strikes back</h2>
-
+<h2 id="level-6-illusion-of-control--the-red-team-strikes-back">Level 6: Illusion of control – the red team strikes back</h2>
 <p>Personally, I suggest adding another level of maturity, I have been calling it <strong>Illusion of Control</strong>.</p>
-
 <p>If an organization reached the stage of “Optimized” the key stakeholders in the organization, including the test process improvement group could be self-validating their own views. This could lead to being blindsided to other trends in the industry or novel attack areas that are being missed due to group think and normalization of deviance.</p>
-
 <p>The idea of Level 6 is to introduce chaos and <strong>stand up an entirely new red team</strong> – because likely a critical piece of the puzzle is incorrect and the way to improve if to start from scratch without any assumptions, strict processes and insider knowledge.</p>
-
 <p><strong>In the end, the Illusion of Control is what red teaming is about.</strong></p>
-
 <h2 id="next-steps">Next steps</h2>
-
 <p>Given the info above it should be pretty obvious where your company&rsquo;s offensive security program is at currently.</p>
-
 <p>An interesting next step will be to define more precise descriptions for each level to furthermore objectively measure which level an organization fits in. Although, this might be a rabbit hole and more paperwork then the use we get out of it - but it might be helpful in the long run.</p>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <p>In this post we looked at the CMM model for testing and how it can be used to more objectively define the maturity of offensive security programs. We also introduced an additional level called &ldquo;Illusion of Control&rdquo; to reflect the true nature of what red teaming is about.</p>
-
 <p>Hope this was interesting and useful.</p>
-
 <p>There are many more examples and practical ideas on how to measure red teaming in my book about <a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">Red Team Strategies</a>.</p>
-
 <p>Feel free to follow or message me on Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
-
 <h2 id="references">References</h2>
-
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration">Capability Maturity Model Integration, CMU</a></li>
 <li><a href="https://www.tmmi.org/tmmi-model/">Test Maturity Model integration (TMMi®)</a></li>
@@ -248,7 +193,7 @@
     
     <ul class="pager">
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/red-teaming-for-privacy/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/attacking-telemetry-and-machine-learning/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
       <li class="author-contact">
@@ -260,7 +205,7 @@
 
       
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/attacking-telemetry-and-machine-learning/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/red-teaming-for-privacy/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>

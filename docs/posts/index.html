@@ -73,7 +73,7 @@
         &nbsp;Home
       </a>
       
-      
+    
       <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
         <i class="fa fa-rss" aria-hidden="true"></i>
         &nbsp;Subscribe
@@ -83,999 +83,303 @@
   <main class="container">
 
 <section class="article-list">
-  <h1>Posts</h1>
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/shadowbunny-bsides-singapore-virtual-machines/">Beware of the Shadowbunny! at BSides Singapore</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-08-28T00:00:01-07:00">
-          Aug 28, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Excited to announce that I will be presenting at BSides Singapore this year.
-The topic is adversarial usage of virtual machines during lateral movement. And we will also cover threat hunting and detection ideas.
-I have been referring to this technique as the Shadowbunny over the years. :)
-The conferences is on September 24th-25th, it will be all virtual and free to attend. Check out the BSidesSG 2020 website and schedule for other talks and details.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/shadowbunny-bsides-singapore-virtual-machines/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/applying-acls-and-race-conditions/">Race conditions when applying ACLs</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-08-24T12:00:33-08:00">
-          Aug 24, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Today I&rsquo;m gonna talk about a class of application security issues I ran across a few times over the years. In particular, let&rsquo;s discuss race conditions when it comes to files with sensitive content and permissions.
-Race conditions can allow an adversary to gain access to sensitive information on machines. Assume a system creates a file that contains sensitive information and afterwards applies permissions to lockdown that file.
-Understanding the race condition Let&rsquo;s look at a practical example seen in the wild a few times.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/applying-acls-and-race-conditions/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/attacking-telemetry-and-machine-learning/">Red Teaming Telemetry Systems</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-08-12T13:28:00-07:00">
-          Aug 12, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    These days business decisions and feature development often is influenced heavily by telemetry information. Telemetry is baked into the programs, services and applications we use.
-Companies are hungry for telemetry because with machine learning and Deep Neural Networks &ldquo;data is the new oil&rdquo;.
-Telemetry provides insights into how users use a particular system, what features they exercise, how they configure the system, what errors they trigger and what buttons they like clicking on.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/attacking-telemetry-and-machine-learning/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/capability-maturity-model-test-red-teaming/">Illusion of Control: Capability Maturity Models and Red Teaming</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-07-31T12:08:00-07:00">
-          Jul 31, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Throughout my career I have been fascinated with quality assurance and testing, especially security testing and red teaming. One discussion that comes up frequently is how to measure the maturity of such programs and processes.
-My answer is straight forward as there are already existing frameworks that can be leveraged, adjusted and borrowed from to fit the needs of offensive security programs.
-You are likely familiar or have at least heard of the Capability Maturity Model Integration from Carnegie Mellon University.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/capability-maturity-model-test-red-teaming/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/red-teaming-for-privacy/">Motivated Intruder - Red Teaming for Privacy!</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-07-24T10:00:16-07:00">
-          Jul 24, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    In this post I will discuss some testing techniques for internal red teams to identify privacy issues in services and infrastructure, most importantly a simple three step approach that might uncover interesting results.
-Background story First, let me share a story from the past. When I did my master&rsquo;s I built an app that performs end to end encryption of Facebook posts. This means that only the intended audience for which your posts were encrypted for can decipher the posts.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/red-teaming-for-privacy/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/">Firefox - Debugger Client for Cookie Access</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-07-21T11:00:15-07:00">
-          Jul 21, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Finally I got to writing some basic tooling for invoking the Firefox debugging API to send commands to the browser and read the responses. This can be useful for grabbing cookies in the post-exploitation phase.
-It works for Windows and macOS, should also work on Linux.
-
-This technique is probably most useful when we don&rsquo;t have root or the user&rsquo;s credentials to decrypt cookies or can&rsquo;t attach a regular debugger to the browser process.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/cookies-on-firefox/">Remotely debugging Firefox instances</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-07-15T06:00:00-07:00">
-          Jul 15, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Previously I talked about remotely debugging Chrome, and we also covered the latest Microsoft Edge browser along the way.
-These features allow an adversary to gain access to authentication tokens and cookies. See MITRE ATT&amp;CK Technique T1539: Steal Web Session Cookie as well for this.
-What about Firefox? For a while I was wondering if (my favorite) browser Firefox has such debugging features as well, and how one could detect malware trying to exploit it.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/cookies-on-firefox/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/windows-port-forward/">Performing port-proxying and port-forwarding on Windows</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-07-14T20:18:51-07:00">
-          Jul 14, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    A technique on Windows that is less known is how to do basic port-proxying.
-Proxying ports is useful when a process binds on one (maybe only the local) interface and you want to expose that endpoint on another network interface.
-Let&rsquo;s say you have an existing process that listens only on the loopback interface, and you want to expose it remotely. Or there are two network interfaces and you want expose traffic from one to the other (maybe some evil persistence for port 3389) - or think of basic pivoting.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/windows-port-forward/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/">Blast from the past: Cross Site Scripting on the AWS Console</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-07-01T10:30:00Z">
-          Jul 1, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Amazon Bug Bounty! Great news: Amazon is now offering bounties via a security vulnerabiltiy research program
-Bad news: AWS is out of scope!
-When I read this I remembered that a few years ago I found persistent Cross-Site-Scripting on the AWS Console.
-This post is a write up on how I found the XSS back then, techniques I used and how they evolved over the years and Amazon&rsquo;s response.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/embrace-the-red-one-of-top-15-pentest-blogs/">Feedspot ranked &#39;Embrace the Red&#39; one of the top 15 pentest blogs</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-06-30T23:45:42-07:00">
-          Jun 30, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    I&rsquo;m excited that Feedspot ranked this blog (Embrace the Red) the number #10 pentest blog out there.
-Subscribe and check-in regularly for new content related to offensive security engineering, penetration testing and red teaming.
-You can also follow me on Twitter @wunderwuzzi23.
-Cheers.
-  </div>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/invoke-windowssearch-credential-hunt/">Using built-in OS indexing features for credential hunting</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-06-22T10:00:51-07:00">
-          Jun 22, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    A few months ago we discussed the importance of performing active credential hunting for your organization.
-This is to ensure clear text credentials in widely accessible locations and source code are identified before an adversary gets a hold of them.
-In this post we will explore using built-in operating system indexing features to search for information on machines quickly.
-Many of us use the indexing features (like Windows Search and Spotlight) daily via the UI.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/invoke-windowssearch-credential-hunt/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/shadowbunny-ttp-pentest-magazine/">Shadowbunny article published in the PenTest Magazine</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-06-18T18:42:44-07:00">
-          Jun 18, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    The Shadowbunny TTP in the PenTest Magazine The latest edition of the PenTest Magazine features an article of mine about using virtual machines (VMs) during lateral movement to establish persistence and evade detections.
-A few years back when I came up with the idea of using VMs for lateral movement during red teaming, I called it the Shadowbunny TTP and that name stuck around in my head. There is more info in the article around the origin of the name also.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/shadowbunny-ttp-pentest-magazine/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/bugjail/">Putting system owners in Security Bug Jail</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-06-12T10:00:25-07:00">
-          Jun 12, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Some organization have this interesting concept of a bug jail to prevent new feature development when there are too many existing flaws in the system.
-For instance, if an engineer has 5 or more bugs assigned they aren&rsquo;t allowed to work on anything else but fixing their bugs.
-What is the Security Bug Jail? A security bug jail goes along the same lines. The owner of a system can never have more than a certain upper limit of active security bugs.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/bugjail/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/red-teaming-and-monte-carlo-simulations/">Red Teaming and Monte Carlo Simulations</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-06-10T11:23:20-07:00">
-          Jun 10, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Monte Carlo simulations can be a useful tool to uplevel your red teaming skills and provide a different and fresh perspective for highlighting, discussing and presenting findings.
-Red teaming is about challenging an organization. This includes analyzing business processes and methodologies, including our own.
-Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in Hubbard&rsquo;s book about measuring cybersecurity risk.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/red-teaming-and-monte-carlo-simulations/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/phishing-stats/">Phishing metrics - what to track?</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-05-24T00:26:01-07:00">
-          May 24, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    The results of phishing campaigns are often not comparable with each other over time. Various security vendors and red teams use different tooling and techniques - which is totally fine.
-However, I recommend requiring tracking a minimum set of metrics to be able to compare results over time.
-Funny side facts: At times employees are messing with the red team, entering invalid creds for CISO or CEO and things along those lines.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/phishing-stats/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/">$3000 Bug Bounty Award from Mozilla for a successful targeted Credential Hunt</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-05-13T18:00:25-07:00">
-          May 13, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Last month I did some research on Firefox, specifically I was learning more about it&rsquo;s remote debugging features. As part of that I was reading Bugzilla bug information and learned more about Mozilla&rsquo;s infrastructure.
-One thing I noticed reading up on details was that Mozilla uses Phabricator.
-What is Phabricator? Phabricator is a collaborative web-based toolset for code reviews, checkins, bugs, work items, wiki, pastes, credentials and many other useful things.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/">Cookie Crimes and the new Microsoft Edge Browser</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-05-01T01:00:46-07:00">
-          May 1, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Revisiting Cookie Crimes In 2018 @mangopdf described &ldquo;Cookie Crimes&rdquo;, which is great research around Chrome&rsquo;s remote debugging feature that allows adversaries and malware to gain access to cookies quite convienently during post-exploitation.
-The original research is published here, and it still works today.
-The new Microsoft Edge browser and Chromium Microsoft&rsquo;s latest Edge browser is based on the same code, Chromium. I guess, you already know where this is going now&hellip;
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/chrome-spy-remote-control/">Post-Exploitation: Abusing Chrome&#39;s debugging feature to observe and control browsing sessions remotely</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-04-28T18:00:00-07:00">
-          Apr 28, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Chrome&rsquo;s remote debugging feature enables malware post-exploitation to gain access to cookies. Root privileges are not required. This is a pretty well-known and commonly used adversarial technique - at least since 2018 when Cookie Crimes was released.
-However, remote debugging also allows observing user activities and sensitive personal information (aka spying on users) and controlling the browser from a remote computer.
-Below screenshot shows a simulated attacker controlling the victim&rsquo;s browser and navigating to chrome://settings to inspect information:
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/chrome-spy-remote-control/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/hunting-for-credentials/">Hunting for credentials and building a credential type reference catalog</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-04-26T12:31:29-07:00">
-          Apr 26, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Adversaries are leveraging widely exposed clear text credentials to gain access to sensitive information.
-At times the term &ldquo;harvesting credentials&rdquo; is used when red teamers emulate these attacks - which is something that appears to be more opportunistic and I would propose that security teams start to actively hunt for credential exposure that can put their organization at risk &ndash; in case you are not yet doing that.
-Actively hunting for credential exposure The idea of credential hunting is targeted and focused, leveraging intelligence about systems and combing it with powerful search techniques to identify exposure.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/hunting-for-credentials/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/conceptual-attack-graphs/">Attack Graphs - How to create and present them</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-04-06T21:00:30-07:00">
-          Apr 6, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Conceptual Attack Graphs One question that I have gotten a few times about &ldquo;Cybersecurity Attacks - Red Team Strategies&rdquo; is around the conceptual attack graphs in &ldquo;Chapter 3, Measuring an Offensive Security Program&rdquo;. Specifically, how I create them.
-In this post I will briefly go over some of the reasons for creating them, and also how I create them and share a template for others to use and adjust.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/conceptual-attack-graphs/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/">Cybersecurity Attacks - Red Team Strategies has been released.</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-04-02T00:01:09-07:00">
-          Apr 2, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Announcement After countless evenings and weekends in coffee shops, and multiple vacations with the laptop, I&rsquo;m excited to announce that my first book has been published. It took 18 months from writing the first words (at Victrola Coffee Roasters on Capitol Hill by the way) to finishing this project just a few days ago.
-
-Looking back its amazing how this all came together. The first intial draft had 100 pages, and in the end it ended up being 524 pages.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/2020/2600-hacker-pass-the-cookie/">2600 - The Hacker Quarterly - Pass the Cookie Article</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-02-15T15:48:51-08:00">
-          Feb 15, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Pass the Cookie made it into the latest 2600 magazine! Very excited about this!
-I was just walking around Capitol Hill and stopped by Ada&rsquo;s Technical Books on 15th Avenue - a great coffee shop with lots of technical books. Right after walking in to grab a cup of tea, I saw the latest Hacker Quarterly. A few months back I submitted an article about &ldquo;Pass the Cookie&rdquo;, so I had to check, and the article got indeed published!
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/2600-hacker-pass-the-cookie/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/importance-security-principles/">Web Application Security Principles Revisited</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-02-12T17:03:32-08:00">
-          Feb 12, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Final Year Project - Web Application Security Principles About 18 years ago I worked on the final year project for my Bachelor&rsquo;s degree in Computer Science. I had just gotten interested in security and was learning about security principles.
-The title of the project was &ldquo;Web Application Security Principles - Designing Secure Web Based Enterprise Solutions&rdquo;.
-Looking back, a really cool thing was that I had just started working at Microsoft as an Associate Development Consultant and was bold enough to send the paper last minute over to Michael Howard - who responded and indeed reviewed it!
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/importance-security-principles/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/zero-trust/">Zero Trust and Disabling Remote Management Endpoints</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2020-02-06T14:08:55-08:00">
-          Feb 6, 2020
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    This post highlights a simple mitigation to improve the security posture of your organization. The idea is to, by practical means, limit attack surface and prevent spreading of automated malware, as well as limiting lateral movement by adversaries.
-Network security over the last 15 years Malware can spread fast and damage businesses at scale.
-SQL Slammer [1] and WannaCry [2] are two well-known cases that showed how quickly and damaging this can be.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/zero-trust/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/book-cybersecurity-attacks-red-team-strategies/">Book: Cybersecurity Attacks - Red Team Strategies</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2019-12-02T17:09:57-08:00">
-          Dec 2, 2019
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Excited to announce the book that I have been working on:
-Cybersecurity Attacks - Red Team Strategies
-Learn about the foundational tactics, techniques and procedures to elevate your red teaming skills and enhance the overall security posture of your organization by leveraging homefield advantage. 
-Contents and Background Red Team Strategies covers aspects that are not as commonly discussed in literature, including chapters around building and managing a pen test team.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/book-cybersecurity-attacks-red-team-strategies/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/mitreattackupdate/">MITRE ATT&amp;CK Update for Cloud and cookies!</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2019-10-27T10:56:03-07:00">
-          Oct 27, 2019
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    MITRE just updated the ATT&amp;CK Framework to include Cloud TTPs.
-The update includes techniques for stealing cookies from machines and using them for lateral movement. These are the two techniques I helped contribute to the matrix:
- Credential Access - Steal Web Session Cookie Lateral Movement - Web Session Cookie  It was exciting experience to collaborate with MITRE and contribute on this. And kinda cool to see the Pass the Cookie work referenced.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/mitreattackupdate/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/coinbase-hack-cookie-theft-pass/">Coinbase under attack and cookie theft</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2019-09-01T13:25:07-07:00">
-          Sep 1, 2019
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Recently Coinbase published a well written blog post on how they were under attack. The adversaries exploite Firefox 0-days. Details can be found here. One intersting aspect is the following:
- &ldquo;We have also observed the attackers specifically target cloud services, e.g. gmail and others, via browser session token theft via direct access to browser datastores. This activity also offers the opportunity for behavior-based detection, as relatively few processes should be directly accessing those files.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/coinbase-hack-cookie-theft-pass/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/homefield-advantage/">Cybersecurity - Homefield Advantage</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2019-08-24T18:46:06-07:00">
-          Aug 24, 2019
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    No one should beat your security team on the homefield! For several years I have been using the term Homefield Advantage in the context of running a security program, especially in regards to certain aspects of red teaming. Homefield Advantage describes well what a mature security program has to realize and leverage.
-Wikipedia describes &ldquo;home advantage&rdquo; in team sports and highlights some of the benefits:
- &ldquo;This benefit has been attributed to psychological effects supporting fans have on the competitors or referees; to psychological or physiological advantages of playing near home in familiar situations; to the disadvantages away teams suffer from changing time zones or climates, or from the rigors of travel; and, in some sports, to specific rules that favor the home team directly or indirectly.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/homefield-advantage/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/using-hugo/">Now using Hugo for the blog</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2019-08-24T11:51:45-07:00">
-          Aug 24, 2019
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Today I finalized moving the blog and publishing to Hugo. It was pretty straight forward and I decided to move things into a master branch on github, and publish via the docs/ folder features of Github pages.
-  </div>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/bash-spray-password/">BashSpray - Simple Password Spray Bash Script</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2019-07-03T21:58:01-07:00">
-          Jul 3, 2019
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    One thing every red team should attempt early on and regularly is to perform some password spray testing across their organization to identify and help remediate usage of weak passwords.
-In the past I have done this on Windows a lot, but now I built a simple version for it for Bash to run it also from a Mac.
-Check it out: Bash Spray
-Ideally, a script like bashspray.sh is integrated into your response pipelines, and SOC, Blue Team as well as account owner get notified - so they change their password right away, and any SOC investigation can be performed if necessary.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/bash-spray-password/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/active-directory-and-macos/">Active Directory and MacOS</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2019-06-20T22:00:16-07:00">
-          Jun 20, 2019
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Interacting with Active Directory on the Mac Did you ever have to interact with Active Directory on a MAC?
-If yes, this post might be interesting for you. I am pretty new to the Mac and basic things I know how to do on Windows need some research to figure out. This time around I explore Active Directory/LDAP Server interactions.
- First, there is the Directory Utility on MacOS which can be quite useful.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/active-directory-and-macos/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/google-email-leak/">Google Leaks Your Alternate Email Addresses to Unauthenticated Users</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2019-06-04T21:51:52-07:00">
-          Jun 4, 2019
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    The Google Login Flow leaks additional email account information to unauthenticated users. I discovered this in the Google Account Login flow while building KoiPhish.
-Responsible Disclosure I reported this issue to Google and they looked into it and after a about 5 weeks of back and forth they decided that this is not an issue worth fixing. After asking if I can post about it publicly I got Google&rsquo;s okay.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/google-email-leak/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/lyrebird/">Lyrebird - Hack the hacker (and take a picture)</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2019-05-21T21:48:29-07:00">
-          May 21, 2019
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    The idea for Lyrebird came from observing that sometimes when someone forgets lock their workstation, someone else might mess with their computer. Since I wanted to learn more on how to program a webcam and take pictures - I figured why not create a little tool that takes a screenshot and uses the webcam to take pictures of anyone that interacts with the computer while I&rsquo;m gone.
-The way this work is simple, start Lyrebird.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/lyrebird/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/koiphish/">KoiPhish - The Beautiful Phishing Proxy</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2019-01-10T21:40:59-07:00">
-          Jan 10, 2019
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    KoiPhish is a simple yet beautiful relay proxy idea.
-The idea for this little project goes back many years. Since I started learning Golang I figured it would be good exercise to finally go ahead an implement it. So, last December during the 35C3 (which is always inspiring congress) I wrote it up.
-It relays requests a client makes to the KoiPish to the actual target and responses are sent back to the client.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/koiphish/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/lldbbasics/">McPivot and useful LLDB commands</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2019-01-05T21:34:51-07:00">
-          Jan 5, 2019
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Just a list of useful notes when dealing with Macs. I&rsquo;m pretty new to Macs and there might be other, better solutions to the challenges I had to sovle but these worked for me and I&rsquo;m learning. :)
-Pivoting between accounts and keychain issues After pivoting on a target host and elevating to root it seems not possible to gain access to other keychains easily. It requires to know the password of the other account still.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/lldbbasics/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
-  
-  <hr/>
-  <article>
-  <header>
-    <h2><a href="https://embracethered.com/blog/posts/passthecookie/">Pass the Cookie and Pivot to the Clouds</a></h2>
-    <div class="post-meta clearfix">
-      <div class="post-date pull-left">
-        Posted on
-        <time datetime="2018-12-16T12:00:00-07:00">
-          Dec 16, 2018
-        </time>
-      </div>
-    </div>
-  </header>
-  <div>
-    Web Applications and Services use cookies to authenticate sessions and users. An adversary can pivot from a compromised host to Web Applications and Internet Services by stealing authentication cookies from browsers and related processes. At the same time this technique bypasses most multi-factor authentication protocols.
-The reason for this is that the final authentication token that the attacker steals is issued after all factors have been validated. Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used.
-  </div>
-  
-  <footer>
-    <ul class="pager">
-      <li class="next"><a href="https://embracethered.com/blog/posts/passthecookie/">Read more <span aria-hidden="true">&raquo;</span></a></li>
-    </ul>
-  </footer>
-  
-</article>
-
+  <h1>Posts</h1><hr/>
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-08-29 21:02:16 PDT">Aug 29 2020</time>
+          <a href="/blog/posts/2020/machine-learning-basics/">A machine learning journey</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-08-28 00:00:01 PDT">Aug 28 2020</time>
+          <a href="/blog/posts/2020/shadowbunny-bsides-singapore-virtual-machines/">Beware of the Shadowbunny! at BSides Singapore</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-08-24 12:00:33 -0800">Aug 24 2020</time>
+          <a href="/blog/posts/2020/applying-acls-and-race-conditions/">Race conditions when applying ACLs</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-08-12 13:28:00 PDT">Aug 12 2020</time>
+          <a href="/blog/posts/2020/attacking-telemetry-and-machine-learning/">Red Teaming Telemetry Systems</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-07-31 12:08:00 PDT">Jul 31 2020</time>
+          <a href="/blog/posts/2020/capability-maturity-model-test-red-teaming/">Illusion of Control: Capability Maturity Models and Red Teaming</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-07-24 10:00:16 PDT">Jul 24 2020</time>
+          <a href="/blog/posts/2020/red-teaming-for-privacy/">Motivated Intruder - Red Teaming for Privacy!</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-07-21 11:00:15 PDT">Jul 21 2020</time>
+          <a href="/blog/posts/2020/firefox-cookie-debug-client/">Firefox - Debugger Client for Cookie Access</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-07-15 06:00:00 PDT">Jul 15 2020</time>
+          <a href="/blog/posts/2020/cookies-on-firefox/">Remotely debugging Firefox instances</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-07-14 20:18:51 PDT">Jul 14 2020</time>
+          <a href="/blog/posts/2020/windows-port-forward/">Performing port-proxying and port-forwarding on Windows</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-07-01 10:30:00 &#43;0000">Jul 01 2020</time>
+          <a href="/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/">Blast from the past: Cross Site Scripting on the AWS Console</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-06-30 23:45:42 PDT">Jun 30 2020</time>
+          <a href="/blog/posts/2020/embrace-the-red-one-of-top-15-pentest-blogs/">Feedspot ranked &#39;Embrace the Red&#39; one of the top 15 pentest blogs</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-06-22 10:00:51 PDT">Jun 22 2020</time>
+          <a href="/blog/posts/2020/invoke-windowssearch-credential-hunt/">Using built-in OS indexing features for credential hunting</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-06-18 18:42:44 PDT">Jun 18 2020</time>
+          <a href="/blog/posts/2020/shadowbunny-ttp-pentest-magazine/">Shadowbunny article published in the PenTest Magazine</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-06-12 10:00:25 PDT">Jun 12 2020</time>
+          <a href="/blog/posts/2020/bugjail/">Putting system owners in Security Bug Jail</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-06-10 11:23:20 PDT">Jun 10 2020</time>
+          <a href="/blog/posts/2020/red-teaming-and-monte-carlo-simulations/">Red Teaming and Monte Carlo Simulations</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-05-24 00:26:01 PDT">May 24 2020</time>
+          <a href="/blog/posts/2020/phishing-stats/">Phishing metrics - what to track?</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-05-13 18:00:25 PDT">May 13 2020</time>
+          <a href="/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/">$3000 Bug Bounty Award from Mozilla for a successful targeted Credential Hunt</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-05-01 01:00:46 PDT">May 01 2020</time>
+          <a href="/blog/posts/2020/cookie-crimes-on-mirosoft-edge/">Cookie Crimes and the new Microsoft Edge Browser</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-04-28 18:00:00 PDT">Apr 28 2020</time>
+          <a href="/blog/posts/2020/chrome-spy-remote-control/">Post-Exploitation: Abusing Chrome&#39;s debugging feature to observe and control browsing sessions remotely</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-04-26 12:31:29 PDT">Apr 26 2020</time>
+          <a href="/blog/posts/2020/hunting-for-credentials/">Hunting for credentials and building a credential type reference catalog</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-04-06 21:00:30 PDT">Apr 06 2020</time>
+          <a href="/blog/posts/2020/conceptual-attack-graphs/">Attack Graphs - How to create and present them</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-04-02 00:01:09 PDT">Apr 02 2020</time>
+          <a href="/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/">Cybersecurity Attacks - Red Team Strategies has been released.</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-02-15 15:48:51 PST">Feb 15 2020</time>
+          <a href="/blog/posts/2020/2600-hacker-pass-the-cookie/">2600 - The Hacker Quarterly - Pass the Cookie Article</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-02-12 17:03:32 PST">Feb 12 2020</time>
+          <a href="/blog/posts/importance-security-principles/">Web Application Security Principles Revisited</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2020-02-06 14:08:55 PST">Feb 06 2020</time>
+          <a href="/blog/posts/zero-trust/">Zero Trust and Disabling Remote Management Endpoints</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2019-12-02 17:09:57 PST">Dec 02 2019</time>
+          <a href="/blog/posts/book-cybersecurity-attacks-red-team-strategies/">Book: Cybersecurity Attacks - Red Team Strategies</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2019-10-27 10:56:03 PDT">Oct 27 2019</time>
+          <a href="/blog/posts/mitreattackupdate/">MITRE ATT&amp;CK Update for Cloud and cookies!</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2019-09-01 13:25:07 PDT">Sep 01 2019</time>
+          <a href="/blog/posts/coinbase-hack-cookie-theft-pass/">Coinbase under attack and cookie theft</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2019-08-24 18:46:06 PDT">Aug 24 2019</time>
+          <a href="/blog/posts/homefield-advantage/">Cybersecurity - Homefield Advantage</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2019-08-24 11:51:45 PDT">Aug 24 2019</time>
+          <a href="/blog/posts/using-hugo/">Now using Hugo for the blog</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2019-07-03 21:58:01 PDT">Jul 03 2019</time>
+          <a href="/blog/posts/bash-spray-password/">BashSpray - Simple Password Spray Bash Script</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2019-06-20 22:00:16 PDT">Jun 20 2019</time>
+          <a href="/blog/posts/active-directory-and-macos/">Active Directory and MacOS</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2019-06-04 21:51:52 PDT">Jun 04 2019</time>
+          <a href="/blog/posts/google-email-leak/">Google Leaks Your Alternate Email Addresses to Unauthenticated Users</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2019-05-21 21:48:29 PDT">May 21 2019</time>
+          <a href="/blog/posts/lyrebird/">Lyrebird - Hack the hacker (and take a picture)</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2019-01-10 21:40:59 -0700">Jan 10 2019</time>
+          <a href="/blog/posts/koiphish/">KoiPhish - The Beautiful Phishing Proxy</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2019-01-05 21:34:51 -0700">Jan 05 2019</time>
+          <a href="/blog/posts/lldbbasics/">McPivot and useful LLDB commands</a>
+      </dt>
+    </dl>
+     
+  
+    <dl  style="font-weight: normal;"></dl>
+      <dt style="font-weight: normal;">
+          <time datetime="2018-12-16 12:00:00 -0700">Dec 16 2018</time>
+          <a href="/blog/posts/passthecookie/">Pass the Cookie and Pivot to the Clouds</a>
+      </dt>
+    </dl>
+     
   
 </section>
 </main>
@@ -1144,5 +448,7 @@ The reason for this is that the final authentication token that the attacker ste
   
 </body>
 </html>
+
+
 
 

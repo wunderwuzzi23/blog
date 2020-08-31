@@ -1,11 +1,12 @@
 {{ partial "header.html" . }}
 <div class="article-list">
-  {{ range $index, $page := .Paginator.Pages }}
-  {{ if ne $index 0 }}
-  <hr/>
+
+  {{ range (.Data.Pages.ByDate.Reverse) }}
+ 
+      {{ .Render "li" }}
+
   {{ end }}
-  {{ .Render "li" }}
-  {{ end }}
+
 </div>
 {{ partial "pagination.html" .Paginator }}
 {{ partial "footer.html" . }}

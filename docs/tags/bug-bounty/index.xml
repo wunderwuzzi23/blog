@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Bug Bounty on wunderwuzzi blog</title>
+    <title>bug bounty on wunderwuzzi blog</title>
     <link>https://embracethered.com/blog/tags/bug-bounty/</link>
-    <description>Recent content in Bug Bounty on wunderwuzzi blog</description>
+    <description>Recent content in bug bounty on wunderwuzzi blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
@@ -21,7 +21,8 @@
       <description>Amazon Bug Bounty! Great news: Amazon is now offering bounties via a security vulnerabiltiy research program
 Bad news: AWS is out of scope!
 When I read this I remembered that a few years ago I found persistent Cross-Site-Scripting on the AWS Console.
-This post is a write up on how I found the XSS back then, techniques I used and how they evolved over the years and Amazon&amp;rsquo;s response.</description>
+This post is a write up on how I found the XSS back then, techniques I used and how they evolved over the years and Amazon&amp;rsquo;s response.
+AWS Console and Cross Site Scripting The story is that I had just created an AWS account and started using the service.</description>
     </item>
     
   </channel>

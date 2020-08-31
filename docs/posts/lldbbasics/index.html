@@ -82,7 +82,7 @@
         &nbsp;Home
       </a>
       
-      
+    
       <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
         <i class="fa fa-rss" aria-hidden="true"></i>
         &nbsp;Subscribe
@@ -116,68 +116,40 @@
     </div>
   </header>
   <section>
-    
-
-<p>Just a list of useful notes when dealing with Macs. I&rsquo;m pretty new to Macs and there might be other, better solutions to the challenges I had to sovle but these worked for me and I&rsquo;m learning. :)</p>
-
+    <p>Just a list of useful notes when dealing with Macs. I&rsquo;m pretty new to Macs and there might be other, better solutions to the challenges I had to sovle but these worked for me and I&rsquo;m learning. :)</p>
 <h2 id="pivoting-between-accounts-and-keychain-issues">Pivoting between accounts and keychain issues</h2>
-
 <p>After pivoting on a target host and elevating to root it seems not possible to gain access to other keychains easily. It requires to know the password of the other account still. Just running</p>
-
 <pre><code>security dump-keychain 
 </code></pre>
-
 <p>doesn&rsquo;t work over ssh even after su - which kinda makes sense.</p>
-
 <p>It also doesn&rsquo;t work when authenticating via public/private key pair as some articles I read suggested - which also makes sense since the keychain is encrypted using the users password afaik.</p>
-
 <p>One still has to run</p>
-
 <pre><code>security unlock-keychain -i 
 </code></pre>
-
 <p>and enter the password for it to work. It seems that keychain just isn&rsquo;t unlocked over ssh.</p>
-
 <p>Overall, this is actually pretty neat and a good defense in depth feature, which as I&rsquo;m learning MacOS has quite a bit. Setting that aside there are a couple of pivoting things I explored and tried out and I&rsquo;m posting this for my future reference. :)</p>
-
 <h2 id="pivoting">Pivoting</h2>
-
 <ol>
 <li>Updating ~/.bash_profile to wait for the target to open a new terminal.</li>
 <li>Pivot over to a process of the target and inject code into a running process.</li>
 </ol>
-
 <h2 id="inject-code-into-another-running-process">Inject code into another running process</h2>
-
 <p>SIP (System Integrety Protection) makes it difficult to debug other process, even as root.</p>
-
 <p>Turning it off requires at least a reboot and some hands on work on the machine. The good news is, that its typically not that difficult to find some binaries that aren&rsquo;t protected. Haven&rsquo;t figured out yet exactly what makes a binary (it&rsquo;s some mix of entitlement and signature I think).</p>
-
 <p>So, you can&rsquo;t debug the Google Chrome process, but you might find something else that is running that you can debug.</p>
-
 <h2 id="attach">Attach</h2>
-
 <pre><code>lldb -n processname
 lldb -p pid
 </code></pre>
-
 <h2 id="expressions-and-the-mcpivot">Expressions and the McPivot</h2>
-
 <p>Time to learn about lldb, which I have never used before. Turns out that with expressions one can inject and run code the debugged process.</p>
-
 <p>That&rsquo;s straight forward and super simple.</p>
-
 <pre><code>p (void) system(&quot;whoami &amp;&gt; /tmp/log.txt&quot;)
 </code></pre>
-
 <p>This stackoverflow post here gave me the basic inspiration.</p>
-
 <h2 id="final-notes">Final Notes</h2>
-
 <p>Last but not least, there is a difference in regards to keychain access when pivoting into an existing session of a user (e.g. the discussed profile/debugger pivot vs. just ssh) that was observerved.</p>
-
 <p>I might be lacking the right terminology at this point (not knowing MacOS architecture that well), I&rsquo;d say that they keyhain (login keychain) is unlocked already in the session pivot case. While when doing an SSH session the keychain is still locked, and it can be unlocked with security unlock-keychain -i.</p>
-
 <p>Regardless however, the user still(!) has to enter the password when trying to access the sensitive parts of the keychain. That&rsquo;s my take on this - there is more I learned when exfiltrating Chrome cookies and I will write about this soon.</p>
 
   </section>
@@ -189,7 +161,7 @@ lldb -p pid
     
     <ul class="pager">
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/passthecookie/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/koiphish/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
       
       <li class="author-contact">
@@ -201,7 +173,7 @@ lldb -p pid
 
       
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/koiphish/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/passthecookie/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
     </ul>
   </footer>
