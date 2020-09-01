@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>huskyai on wunderwuzzi blog</title>
+    <link>https://embracethered.com/blog/tags/huskyai/</link>
+    <description>Recent content in huskyai on wunderwuzzi blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2020</copyright>
+    <lastBuildDate>Sat, 29 Aug 2020 21:02:16 -0700</lastBuildDate>
+    
+	<atom:link href="https://embracethered.com/blog/tags/huskyai/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My machine learning journey</title>
+      <link>https://embracethered.com/blog/posts/2020/machine-learning-basics/</link>
+      <pubDate>Sat, 29 Aug 2020 21:02:16 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/machine-learning-basics/</guid>
+      <description>This year I have been busy studying machine learning and artificial intelligence.
+To come up with good attacks, I figured it is time to learn the fundamentals and start using software, tools and algorithms. My goal was to build a couple of end to end machine learning systems from scratch, and then attack them.
+This post describes my studying approach, materials, courses, and learnings. I thought to share this, in case there are others who are interested to get started in this space but don&amp;rsquo;t how and where.</description>
+    </item>
+    
+  </channel>
+</rss>
