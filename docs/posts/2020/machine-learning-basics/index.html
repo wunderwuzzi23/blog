@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" My machine learning journey &middot;  wunderwuzzi blog" />
+  <meta property="og:title" content=" Getting the hang of machine learning &middot;  wunderwuzzi blog" />
   
   <meta property="og:site_name" content="wunderwuzzi blog" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2020/machine-learning-basics/" />
@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2020-08-29T21:02:16-07:00" />
+  <meta property="og:article:published_time" content="2020-09-01T18:00:00-07:00" />
   
   <meta property="og:article:tag" content="machine learning" />
   
@@ -22,7 +22,7 @@
   
 
   <title>
-     My machine learning journey &middot;  wunderwuzzi blog
+     Getting the hang of machine learning &middot;  wunderwuzzi blog
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -94,13 +94,13 @@
 
 <article>
   <header>
-    <h1 class="text-primary">My machine learning journey</h1>
+    <h1 class="text-primary">Getting the hang of machine learning</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2020-08-29T21:02:16-07:00">
-          Aug 29, 2020
+        <time datetime="2020-09-01T18:00:00-07:00">
+          Sep 1, 2020
         </time>
       </div>
     
@@ -116,55 +116,56 @@
     </div>
   </header>
   <section>
-    <p>This year I have been busy studying machine learning and artificial intelligence.</p>
-<p>To come up with good attacks, I figured it is time to learn the fundamentals and start using software, tools and algorithms. My goal was to build a couple of end to end machine learning systems from scratch, and then attack them.</p>
+    <p>This year I have spent a lot of time studying machine learning and artificial intelligence.</p>
+<p>To come up with good and useful attacks during operations, I figured it is time to learn the fundamentals and start using software, tools and algorithms. My goal was to build a couple of end to end machine learning systems from scratch, and then attack them.</p>
 <p>This post describes my studying approach, materials, courses, and learnings. I thought to share this, in case there are others who are interested to get started in this space but don&rsquo;t how and where.</p>
-<p>Further posts will dive into AI/ML fundamentals and <strong>adversarial techniques</strong> with practical examples - for instance how to attack models, how to backdoor one, and so forth.</p>
-<p>Along the way I even found a security bug, which I will share details about once fixed by Microsoft.</p>
-<h2 id="my-ai-background">My AI background</h2>
+<p>Further posts will dive more into <strong>adversarial techniques with practical examples</strong> - for instance how to attack models, how to backdoor one, and so forth.</p>
+<p>Along the way I even found a cool security bug, which I will share details about once fixed.</p>
+<h1 id="my-ai-background">My AI background</h1>
 <p>In college I took some <strong>AI</strong> and <strong>Fuzzy Logic</strong> classes, hence I was familiar with basic concepts around artificial intelligence. Although I had zero practical experience when it comes to machine learning, especially with current software such as <strong>Tensorflow</strong>, <strong>Keras</strong>, <strong>PyTorch</strong> or <strong>fast.ai</strong>.</p>
 <p>None of those even existed when I first learned about AI.</p>
 <p>Until a few months back, my last (and only) project in the AI space was building a &ldquo;self-driving car parking simulator&rdquo; using fuzzy logic - and that was in 2003 using <strong>Matlab</strong>.</p>
 <p>Interestingly, a peer student from college ended up building autonomous sailboats, and his <a href="http://www.roboat.at/en/home/">Roboat</a> won the autonomous world sailing championships numerous times.</p>
 <p>At that time I got side-tracked with security engineering. :)</p>
 <p>So, it seemed a good idea to step back and start from scratch when it comes to learning about AI and machine learning.</p>
-<h2 id="the-motivating-factor">The motivating factor</h2>
-<p>I&rsquo;m a security engineer, mentor, builder and breaker. The motivating factor for me was to learn more about testing AI-powered systems, and more hopefully inspire others to do the same along the way.</p>
+<h1 id="motivation">Motivation</h1>
+<p>The motivating factor for me was to learn more about testing AI-powered systems, and more hopefully inspire others to do the same along the way.</p>
 <p>When I managed the <strong>Azure Data Attack Team</strong> at Microsoft&rsquo;s Cloud+AI division, we regularly were tasked to attack the Azure Machine Learning service offerings. Although the work focused on application and network side of things, rather than attacking ML models themselves.</p>
-<p>Microsoft is top-notch in the AI space when it comes to security by the way. There is a Trustworthy Machine Learning Group that does research and publishes information regularly. I recommend reading their <a href="https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning">published material</a>. Also, interesting to know that Facebook has a seperate dedicated <a href="https://www.zdnet.com/article/cybersecurity-how-facebooks-red-team-is-pushing-boundaries-to-keep-your-data-safe/">AI Red Team</a>. Machine Learning and AI at large are definitely an exciting places to mingle.</p>
+<p>Microsoft is top-notch in the AI space when it comes to security by the way. There is a Trustworthy Machine Learning Group that does research and publishes information regularly. I recommend reading their <a href="https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning">published material</a>. Also, interesting to know that Facebook has a separate dedicated <a href="https://www.zdnet.com/article/cybersecurity-how-facebooks-red-team-is-pushing-boundaries-to-keep-your-data-safe/">AI Red Team</a>. Machine Learning and AI at large are definitely an exciting place to mingle.</p>
 <p>Naturally with the general AI/ML hype the last few years and news about adversaries misusing exposed systems, it seems good to expand skillset and knowledge regarding specific AI/ML testing skills (and integrate them in end-to-end red teaming scenarios).</p>
-<h3 id="study-material">Study material</h3>
+<h1 id="projects">Projects</h1>
+<p>Taking courses or reading technical books <strong>without building something</strong> is not the best use of time in my opinion. When starting, I already had one project in mind and the second one came up soon after:</p>
+<ol>
+<li>
+<p><strong>Mood prediction</strong> Here is the hypothesis: Given a set of 20 features per day (such as distance run/biked, hours of sleep, playing violin, reading, number of social interactions, money spent, and so forth), can I predict my own mood? For that I have been collecting detailed data in an Excel sheet since the beginning of the year.</p>
+</li>
+<li>
+<p><strong>Husky AI</strong> The idea for the second project came as soon as I started taking the first ML course and worked on recognizing cats vs dogs. The main idea of this project is to upload an image and the app will tell if the image a husky or not.</p>
+</li>
+</ol>
+<p><img src="/blog/images/2020/husky-ai.jpg" alt="Husky AI"></p>
+<p>Husky AI works decently well (for my nefarious needs)  and going forward I will use this project to study and demo machine learning testing techniques.</p>
+<h1 id="study-material">Study material</h1>
 <p>Below is a list of core materials I have used for acquainting myself with the topic:</p>
 <ul>
 <li><a href="https://www.coursera.org/learn/machine-learning">Machine Learning</a>, Andrew Ng</li>
-<li><a href="https://deeplearning.ai">deeplearning.ai</a>, Andrew N</li>
+<li><a href="https://deeplearning.ai">deeplearning.ai</a>, Andrew Ng</li>
 <li><a href="https://www.coursera.org/professional-certificates/tensorflow-in-practice">Tensorflow in practice</a>, Laurence Moroney</li>
 <li><a href="https://arxiv.org/pdf/1911.07658.pdf">Hacking Neural Networks - A short introduction</a>, Michael Kissner</li>
 <li><a href="https://www.fast.ai/">fast.ai</a>, Jeremy Howard, Fast AI</li>
 <li><a href="https://www.amazon.com/Machine-Learning-Security-Protecting-Algorithms-ebook/dp/B079C7LKKY">Machine Learning and Security</a>,  Clarence Chio, David Freeman</li>
 <li><a href="https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning">Failure modes in Machine Learning</a>, Microsoft</li>
 </ul>
-<p>In addition I watched countless YouTube videos, including Lex Fridman, Ariel Herbert-Voss, Fei Fei Li and many others.</p>
+<p>In addition, I watched countless YouTube videos, interviews and tutorials, including but not limited to content from sentdex, Lex Fridman, Josh Gordon, Fei-Fei Li and others.</p>
+<h2 id="taking-notes">Taking notes</h2>
 <p>When learning something new, I typically write the most important learnings and concepts down separately in a OneNote - <em>in my own words</em>. This helps me to internalize concepts. Additionally, I often create a <code>glossary</code> with key words and phrases to help me remember things:</p>
 <p><img src="/blog/images/2020/ml-translation.jpg" alt="Machine Learning that I can understand"></p>
-<p>When I hear <code>derivative</code>, I just think <code>slope</code> for instance. Or, my favorite, <code>Dropout</code> is <em>like putting the neural network on drugs by dropping random cells</em>. Yes, that is actually a technique used to improve machine learning outcomes!</p>
-<h2 id="projects">Projects</h2>
-<p>Taking courses or reading technical books <strong>without actually building something</strong> is not the best use of time in my opinion. When starting, I already had one project in mind and the second one came up soon after:</p>
-<ol>
-<li>
-<p><strong>Mood prediction</strong> Here is the hypothesis: Given a set of 20 features per day (such as distance run/biked, hours of sleep, playing violin, reading, number of social interactions, money spent, and so forth), can I predict my own mood? For that I have been collecting detailed data in an Excel sheet since the beginning of the year.</p>
-</li>
-<li>
-<p><strong>Husky AI</strong> The idea for the second project came as soon as I started taking Andrew Ng&rsquo;s course and worked on recognizing cats vs dogs. The main idea is to upload an image and the app will tell if the image a husky or not.</p>
-</li>
-</ol>
-<p><img src="/blog/images/2020/huskyornot.jpg" alt="Husky AI"></p>
-<p>Going forward I will use this project to study and demo machine learning testing techniques.</p>
-<p>All that said, let me share the ML specific material that taught me how to build something like &ldquo;Husky AI&rdquo; and do some kind of mini-review of the content.</p>
+<p>Now, when I hear <code>derivative</code> I just think <code>slope</code> for instance. Or, my favorite: <code>Dropout</code> is <em>like putting the neural network on drugs by dropping random cells</em>. Yes, that is a technique used to improve machine learning outcomes!</p>
+<p>All that said, let me share the ML specific material that taught me how to build something like &ldquo;Husky AI&rdquo; and do some kind of mini review of the content.</p>
 <h2 id="machine-learning-by-andrew-ng">Machine Learning by Andrew Ng</h2>
 <p>I started by taking the <a href="https://www.coursera.org/learn/machine-learning">Machine Learning course by Andrew Ng</a> on Coursera.</p>
 <p>The course was great I thought. It starts by teaching the basic math concepts with plenty of intuition - which was helpful for me. The material builds from the ground up and is very engaging and informative. You basically implement machine learning and gradient descent yourself with a scientific programming language called <a href="https://www.gnu.org/software/octave/">Octave</a>. The course is at least 7 years old now, which is probably the reason for that choice (compared to more popular Python these days).</p>
-<p>A lot of time is spent on understanding &ldquo;gradient descent&rdquo; and how logistic regression works. At that point I also started working on own AI experiments to play around with the algorithms and hyper-parameters to get better intuition around the algorithms. What I really liked was that we implemented the algorithm from scratch, rather then using frameworks.</p>
+<p>A lot of time is spent on understanding &ldquo;gradient descent&rdquo; and how logistic regression works. At that point I also started working on own AI experiments to play around with the algorithms and hyper-parameters to get better intuition around the algorithms. What I really liked was that we implemented the algorithm from scratch, rather than using frameworks.</p>
 <p>Neural Networks are covered, but mostly in equal portion to other machine learning techniques. To me this was the most foundational course I took, really helping to get a good intuition what the math is doing.</p>
 <p>There are also deep dives into <strong>Anomaly Detection</strong>, <strong>Recommender Systems</strong> and <strong>Collaborative Filtering</strong>.</p>
 <p>Overall, I thought this course was put together very well, and I even had created my first couple of models and experiments myself at that point.</p>
@@ -173,28 +174,31 @@
 <p>It covers some of the same content as the previous class but is more modernized when it comes to tooling and nomenclature. The biggest difference is that it focuses solely on Neural Networks. The course covers machine learning aspects from image processing, natural language processing, as well as audio.</p>
 <p>You will learn a lot about the building blocks of neural networks, choosing testing parameters (hyper-parameters). It goes into details around activation functions such as ReLu, Softmax, tanh,&hellip;  so it&rsquo;s overall quite detailed and helps deepen the concepts.</p>
 <p>I found it interesting to look at the middle (also called hidden) layers of neural networks and inspect their results. This gives great insights into what happens (trying to make sense of it all) - or maybe it allows one to ask more questions. Certainly, something that you should do with your own models - it&rsquo;s fascinating to explore.</p>
-<p>The deep dive into convolutional neural networks was very insightful.</p>
+<p>The deep dive into convolutional neural networks was very insightful. A cool example from convolutions from my husky pictures:</p>
+<p><a href="/blog/images/2020/convolutions.jpg"><img src="/blog/images/2020/convolutions.jpg" alt="Husky Convolutions"></a></p>
+<p>You can see how layers learn how to recognize shapes of faces and towards the last layer it shows that this convolution seems <strong>to be trained to &ldquo;see&rdquo; ears</strong>! Pretty fascinating!</p>
 <p>Language wise the course focuses on Python (Jupyter Notebooks, numpy, some Tensorflow/Keras,&hellip;).</p>
 <p>The course also covers RNNs (recurrent neural nets), and ResNets (residual networks) which I had heard of before but never knew what they meant.</p>
 <p>The most difficult part to understand for me were sequence models. For those I still need to build a separate project from scratch to play around more to understand it better</p>
 <p>Overall, this is a polished and modernized version of the Machine Learning course with focus on neural nets and some overlapping content but also a lot of new material which makes it a good follow up course.</p>
 <h2 id="tensorflow-in-practice-laurence-moroney">TensorFlow in Practice, Laurence Moroney</h2>
 <p>This course was much more hands-on and with the knowledge I had previously acquired it went quite smoothly. It also became clear that ML courses seem to fall back to some basic datasets and examples (cats vs dogs, digits,&hellip;) when teaching the basics.</p>
-<p>I liked the excercises around recognizing hand gestures, which I had not seen before.</p>
-<p>Even though TensorFlow and Keras are the systems I know best at this point, I&rsquo;m not quite sure I like TensorFlow that much. It doesn&rsquo;t seem very intuitive and there are odd breaking changes from TensorFlow 1.0 to 2.0 which break backwards compatibility for no good reason it seems.</p>
+<p>I liked the exercises around recognizing hand gestures, which I had not seen before.</p>
+<p>Even though TensorFlow and Keras are the systems I know best at this point, I&rsquo;m not quite sure I like TensorFlow that much. It does not seem very intuitive and there are odd breaking changes from TensorFlow 1.0 to 2.0 which break backwards compatibility for no good reason it seems.</p>
 <p>A simple example is when it comes to <em>metrics measurement</em>. There is a dictionary with the key <code>acc</code> in TensorFlow 1 and that key was renamed to <code>accuracy</code> in version 2. Now all the scripts and examples, including those from Google themselves throw errors and are not working as expected.</p>
 <p>The course itself is high quality in the beginning, but somewhere towards the middle it drops slightly with instructions for exercises - I believe they are still upgrading/improving it over time.</p>
 <p>Using <code>Keras</code> seems more straight forward compared to pure TensorFlow and <a href="https://colab.research.google.com">Google&rsquo;s Collab platform</a> works great and it even includes free GPU based machines.</p>
 <p>Along the same lines, I also ran across <a href="https://gradient.paperspace.com/">Paperspace Gradient</a>, who offer free GPU VMs!</p>
 <h2 id="fastai-by-jeremy-howard">fast.ai by Jeremy Howard</h2>
-<p>After building my own models and experimenting for a while, I got curious about <code>fast.ai</code>. So far, I have not had the time to go through majority of the material. The library and API seem really intuitive and focused on productivity. I will spend more time the in the future learning how to use it. I might eventually port <strong>Husky AI</strong> to fast.ai or PyTorch though.</p>
+<p>After building my own models and experimenting for a while, I got curious about <code>fast.ai</code>. So far, I have not had the time to go through majority of the material. The library and API seem intuitive and focused on productivity. I will spend more time the in the future learning how to use it. I might eventually port <strong>Husky AI</strong> to fast.ai or PyTorch though.</p>
 <h2 id="hacking-neural-networks-by-michael-kissner">Hacking Neural Networks by Michael Kissner</h2>
-<p>Oh, wow - this post is getting very long. I still want to highlight the paper <a href="https://arxiv.org/pdf/1911.07658.pdf">Hacking Neural Networks - A short introduction</a>. It comes with a Github repo that helps you do exercises to learn more about adversarial techniques, and even <strong>has a super cool example on how to exploit a buffer overflow in the GPU to overwrite model information</strong>.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>Without taking the Machine Learning or deeplearning.ai courses I would have not understood a lot of things in the paper of Michael Kissner for instance. There are other videos I am watching/re-watching on YouTube now, which make a whole lot more sense as well now. It was time well spent I think to go threw the material and work on the excercises, as well as building my own models to complement and put the learned information to good use.</p>
-<h2 id="going-forward">Going forward</h2>
-<p>My next post will describe &ldquo;Husky AI&rdquo; in more detail and how it was built and put into production.</p>
-<p>And then we are going to threat model and attack the system. The first attack will be bruteforcing from the outside to see how feasible it is to come with random images that trick the model, then backdooring and updating the model directly - which might be a useful technique to be aware of when performing internal red teaming operations. This should be fun!</p>
+<p>Oh, wow - this post is getting awfully long. I still want to highlight the paper <a href="https://arxiv.org/pdf/1911.07658.pdf">Hacking Neural Networks - A short introduction</a>. It comes with a Github repo that helps you do exercises to learn more about adversarial techniques, and even <strong>has a super cool example on how to exploit a buffer overflow in the GPU to overwrite model information</strong>.</p>
+<p>Without taking the Machine Learning or deeplearning.ai courses I would have not understood a lot of things in the paper of Michael Kissner. There are other videos I am watching/re-watching on YouTube now, which make a whole lot more sense now too. Learning (some of) the basics was time well spent I think. Going and doing practical exercises, as well as building my own models put the learned information to good use.</p>
+<h1 id="going-forward---the-ml-pipeline-and-attacks-attacks-attacks">Going forward - The ML Pipeline and Attacks, Attacks, Attacks!</h1>
+<p>The next post will describe &ldquo;Husky AI&rdquo; in more detail and how it was built and put into production. This will give a good understand of all the moving bits and pieces that make up an ML pipeline.</p>
+<p>Afterward I will describe the threat model and attack the system. The first attack will be brute forcing from the outside to see how feasible it is to come with random images that trick the model, then backdooring and updating the model directly - which might be a useful technique to be aware of when performing internal red teaming operations and pen testing. This should be fun!</p>
+<p>Cheers,
+Johann Rehberger</p>
 <p>Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
 <h2 id="references">References</h2>
 <ul>
@@ -205,10 +209,11 @@
 <li><a href="https://www.fast.ai/">fast.ai</a>, Jeremy Howard, Fast AI</li>
 <li><a href="https://www.amazon.com/Machine-Learning-Security-Protecting-Algorithms-ebook/dp/B079C7LKKY">Machine Learning and Security</a></li>
 <li><a href="https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning">Failure modes in Machine Learning</a>, Microsoft</li>
-<li><a href="https://wuzzi.net/huskyai">Husky AI</a></li>
+<li><a href="https://www.youtube.com/watch?v=OGxgnH8y2NM">sentdex - YouTube Channel</a></li>
 <li><a href="http://www.roboat.at/en/home/">Autonomous Sailboat - Roboat</a></li>
 <li><a href="http://people.ischool.berkeley.edu/~tygar/papers/Machine_Learning_Security/asiaccs06.pdf">Can machine learning be secure?</a></li>
 <li><a href="https://www.zdnet.com/article/cybersecurity-how-facebooks-red-team-is-pushing-boundaries-to-keep-your-data-safe/">Facebook AI Red Team</a></li>
+<li><a href="https://github.com/wunderwuzzi23/ai/">Husky AI - Prototype and Experiments</a></li>
 <li><a href="https://www.amazon.com/Simulation-neuronaler-Netze-Andreas-Zell/dp/3486243500">Simulation Neuronaler Netzwerke</a>, Andreas Zell</li>
 <li><a href="https://www.gnu.org/software/octave/">Octave</a></li>
 </ul>

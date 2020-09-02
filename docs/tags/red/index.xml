@@ -7,20 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Sat, 29 Aug 2020 21:02:16 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2020 18:00:00 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>My machine learning journey</title>
+      <title>Getting the hang of machine learning</title>
       <link>https://embracethered.com/blog/posts/2020/machine-learning-basics/</link>
-      <pubDate>Sat, 29 Aug 2020 21:02:16 -0700</pubDate>
+      <pubDate>Tue, 01 Sep 2020 18:00:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/machine-learning-basics/</guid>
-      <description>This year I have been busy studying machine learning and artificial intelligence.
-To come up with good attacks, I figured it is time to learn the fundamentals and start using software, tools and algorithms. My goal was to build a couple of end to end machine learning systems from scratch, and then attack them.
-This post describes my studying approach, materials, courses, and learnings. I thought to share this, in case there are others who are interested to get started in this space but don&amp;rsquo;t how and where.</description>
+      <description>This year I have spent a lot of time studying machine learning and artificial intelligence.
+To come up with good and useful attacks during operations, I figured it is time to learn the fundamentals and start using software, tools and algorithms. My goal was to build a couple of end to end machine learning systems from scratch, and then attack them.
+This post describes my studying approach, materials, courses, and learnings.</description>
     </item>
     
     <item>
