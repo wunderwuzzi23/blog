@@ -51,7 +51,7 @@ Taking courses or reading technical books **without building something** is not 
 
 2. **Husky AI** The idea for the second project came as soon as I started taking the first ML course and worked on recognizing cats vs dogs. The main idea of this project is to upload an image and the app will tell if the image a husky or not. 
 
-![Husky AI](/blog/images/2020/husky-ai.jpg)
+[![Husky AI](/blog/images/2020/husky-ai.jpg)](/blog/images/2020/husky-ai.jpg)
 
 Husky AI works decently well (for my nefarious needs)  and going forward I will use this project to study and demo machine learning testing techniques.
 
@@ -74,7 +74,7 @@ In addition, I watched countless YouTube videos, interviews and tutorials, inclu
 
 When learning something new, I typically write the most important learnings and concepts down separately in a OneNote - *in my own words*. This helps me to internalize concepts. Additionally, I often create a `glossary` with key words and phrases to help me remember things:
 
-![Machine Learning that I can understand](/blog/images/2020/ml-translation.jpg)
+[![Machine Learning that I can understand](/blog/images/2020/ml-translation.jpg)](/blog/images/2020/ml-translation.jpg)
 
 Now, when I hear `derivative` I just think `slope` for instance. Or, my favorite: `Dropout` is *like putting the neural network on drugs by dropping random cells*. Yes, that is a technique used to improve machine learning outcomes!
 
