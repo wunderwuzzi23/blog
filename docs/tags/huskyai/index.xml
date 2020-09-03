@@ -25,5 +25,16 @@ If you watched the show Silicon Valley, you might find this quite funny.
 In particular we will cover the following topics:</description>
     </item>
     
+    <item>
+      <title>Getting the hang of machine learning</title>
+      <link>https://embracethered.com/blog/posts/2020/machine-learning-basics/</link>
+      <pubDate>Tue, 01 Sep 2020 18:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/machine-learning-basics/</guid>
+      <description>This year I have spent a lot of time studying machine learning and artificial intelligence.
+To come up with good and useful attacks during operations, I figured it is time to learn the fundamentals and start using software, tools and algorithms. My goal was to build a couple of end to end machine learning systems from scratch, and then attack them.
+This post describes my studying approach, materials, courses, and learnings.</description>
+    </item>
+    
   </channel>
 </rss>
