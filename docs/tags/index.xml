@@ -7,15 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Sat, 29 Aug 2020 21:02:16 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2020 12:04:29 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>huskyai</title>
+      <link>https://embracethered.com/blog/tags/huskyai/</link>
+      <pubDate>Wed, 02 Sep 2020 12:04:29 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/huskyai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>machine learning</title>
       <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Sat, 29 Aug 2020 21:02:16 -0700</pubDate>
+      <pubDate>Wed, 02 Sep 2020 12:04:29 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
       <description></description>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Husky AI walkthrough and threat model &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2020/husky-ai-walkthrough/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-09-02T12:04:29-07:00" />
+  
+  <meta property="og:article:tag" content="machine learning" />
+  
+  <meta property="og:article:tag" content="huskyai" />
+  
+  
+
+  <title>
+     Husky AI walkthrough and threat model &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Husky AI walkthrough and threat model</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-09-02T12:04:29-07:00">
+          Sep 2, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/huskyai">#huskyai</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>In the <a href="/blog/posts/2020/machine-learning-basics/">previous post</a> I talked about learning resources for AI/ML. Now it&rsquo;s time to dive into details on building a model and application we can perform security testing on.</p>
+<p>In this post I&rsquo;ll describe how I built Husky AI, an application that can identify if an image contains a husky or not.</p>
+<p><a href="/blog/images/2020/husky-ai.jpg"><img src="/blog/images/2020/husky-ai.jpg" alt="Husky AI"></a></p>
+<p>If you watched the show Silicon Valley, you might find this quite funny.</p>
+<p>In particular we will cover the following topics:</p>
+<ol>
+<li><a href="#part1"><strong>Machine Learning Pipeline</strong></a> - High Level overview of the bits and pieces</li>
+<li><a href="#part2"><strong>Building the model</strong></a> - The steps involved in building Husky AI model and training it</li>
+<li><a href="#part3"><strong>Operationalize the model</strong></a> - how did I make the model invokable from a web site</li>
+<li><a href="#part4"><strong>Threat Modeling the system</strong></a> - Identifying threats and possible attacks, with a focus on the AI/ML specific areas (to keep this in scope)</li>
+</ol>
+<p>This post contains Part 1. You can</p>
+<h1 id="part1">Part 1 - Machine Learning Pipeline</h1>
+<p>First, let me quickly describe the overall machine learning pipeline, so we are on the same page around the overall process. I assume that the reader is familar with security and pentesting, but less so with machine learning.</p>
+<p>This overview of the ML pipeline will  also lead us to a good data flow diagram (DFD) that we can use to identify threats and attacks later on:</p>
+<p><a href="/blog/images/2020/machine-learning-pipeline.jpg"><img src="/blog/images/2020/machine-learning-pipeline.jpg" alt="Husky Machine Learning Pipeline"></a></p>
+<p>In particular these are the individual parts involved:</p>
+<ol>
+<li><strong>Collecting training and validation images:</strong> The process starts with gathering images. These are pictures of huskies and random other pictures.</li>
+<li><strong>Pre-Processing:</strong> The images go through some pre-processing steps (this includes data cleansing, rescaling, labeling, storing,..)</li>
+<li><strong>Defining the initial model:</strong> We have to start somewhere, my very first test was a network with a single neuron (basically just logistic regression). At this point it is also <strong>important to set a measurable metric</strong> that can be used to compare training runs with each other. This is in order to be able to meaningfully improve the model</li>
+<li><strong>Training the model</strong></li>
+<li><strong>Evaluation:</strong> After a training (even during) measure performance of the model (e.g. accuracy)</li>
+<li><strong>Improve the model:</strong> If performance is not met, update the model (e.g. trying different algorithms, learning rates, neural network layouts,&hellip;) and start training again</li>
+<li><strong>Deployment:</strong> If the performance of the model looks good, deploy to production</li>
+<li><strong>Operationalization:</strong> Make the model available for usage via REST API. In my production deployment there is an API gateway which routes traffic to the Husky AI web server. The REST endpoint then calls into the model give predictions for uploaded images</li>
+<li><strong>End user runs predictions:</strong> A user can invoke the REST API to upload an image and get a prediction</li>
+</ol>
+<p>That&rsquo;s it. Those are the big conceptual pieces of a machine learning pipeline. Now let&rsquo;s look into more detail on how I built the Husky AI model and how it was trained.</p>
+<h1 id="part2">Part 2 - Building the model</h1>
+<p>Building a machine learning model is a very iterative process and took many days (even weeks or longer). Initially I started without TensorFlow and built a neural network, forward and backpropagation algorithms in Python. This is basically what the <code>Machine Learning</code> and <code>deeplearning.ai</code> courses I took teach you to do. I liked this as it gives a good understanding on what is going on under the hood.</p>
+<p>The first step is to gather images.</p>
+<h2 id="gathering-training-and-validation-data">Gathering training and validation data</h2>
+<p>To gather training data for husky and non husky images I used Bing to gather images and did some manual data cleansing. It was about 1300 husky images and 3000 random other ones, including other dogs, people and other objects.</p>
+<p>I used Bing&rsquo;s image search to gather training data. Check out <a href="https://azure.microsoft.com/en-us/services/cognitive-services/bing-image-search-api/">Azure Cognitive Services and Bing Image Search</a>. They offer a free API to search and download images, all you have to do is create an Azure account (which is also free) and then you can request API keys.</p>
+<p><img src="/blog/images/2020/huskyai.sampling.jpg" alt="Husky AI Sampling"></p>
+<h3 id="training-and-validation-data">Training and validation data</h3>
+<p>The way the images are stored is typically in dedicated folders for training and validation, and also according to there label. This makes it easier later on, because ML frameworks can use the &ldquo;folder name&rdquo; as the label for the image. This is one of these typically pre-processing steps, where get all the ducks, aehm, dogs in a row.</p>
+<p>For instance, I have the following directory structure for images:</p>
+<pre><code>   data/training/husky
+   data/training/nothusky
+   data/validation/husky
+   data/validation/nothusky
+</code></pre><p>In machine learning data is split into separate sets. There are folders for <code>training data</code> and <code>validation data</code>. This is needed because we do not want to train our model on validation or test data. Validation and test data are there to tell us how well the model is performing on images <strong>not</strong> seen before.</p>
+<p>Attack: Attacker can attempt to poisen either set of images, which can lead to fastly different results.</p>
+<h3 id="source-code-to-azure-cognitive-services-bing-image-search">Source code to Azure Cognitive Services (Bing Image Search)</h3>
+<p>I published the code used to call the Bing search API. You can find <a href="https://github.com/wunderwuzzi23/ai/blob/master/huskyai/scraper/bing-image-search.py">it here</a>.</p>
+<h2 id="building-the-model">Building the model</h2>
+<p>The first model I built had one layer and was basically just doing what is called &ldquo;logistic regression&rdquo;. It gave about a 62% accuracy, which I thought was pretty impressive already. Although, I wanted to apply more of the knowledge I was taught in Andrew Ng&rsquo;s class and played around with a lot of different and more complex variations. Including regularization, convolutions, dropouts and things along those lines.</p>
+<p>In the end I ended up with a convolutional neural network (CNN) with the following layout.</p>
+<pre><code>model = tf.keras.models.Sequential([
+    tf.keras.layers.Conv2D(32, (3,3), activation=&quot;relu&quot;, input_shape=(num_px, num_px, 3)),
+    tf.keras.layers.MaxPooling2D(2, 2),
+    tf.keras.layers.Dropout(0.4),
+    
+    tf.keras.layers.Conv2D(64, (3,3), activation=&quot;relu&quot;, input_shape=(num_px, num_px, 3)),
+    tf.keras.layers.MaxPooling2D(2, 2),
+
+    tf.keras.layers.Dropout(0.4),
+    
+    tf.keras.layers.Conv2D(128, (3,3), activation=&quot;relu&quot;),
+    tf.keras.layers.MaxPooling2D(2,2),
+    tf.keras.layers.Dropout(0.4),
+    
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dense(128, activation=&quot;relu&quot;),
+    tf.keras.layers.Dense(1, activation=&quot;sigmoid&quot;)
+])
+
+opt = tf.keras.optimizers.Adam(learning_rate=0.0005)
+model.compile(optimizer=opt, loss=&quot;binary_crossentropy&quot;, metrics=[&quot;accuracy&quot;])
+</code></pre><p>For the optimizer I played around with <code>RMSProp</code>, but decided on <code>Adam</code> eventually.</p>
+<p>Its also possible to visualize the graph with Keras:</p>
+<pre><code>tf.keras.utils.plot_model(model, to_file=&quot;model.jpg&quot;, show_shapes=False, rankdir=&quot;LR&quot;)
+</code></pre><p><a href="/blog/images/2020/huskyai-convnet.jpg"><img src="/blog/images/2020/huskyai-convnet.jpg" alt="Model Graph"></a></p>
+<p><code>rankdir</code>: means to plot it from left to right</p>
+<p>Since this image does not show up to well in the post, using <code>model.summary()</code> is another way to look at the model definition:</p>
+<pre><code>&gt;&gt; model.summary()
+
+Model: &quot;sequential&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 126, 126, 32)      896       
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 63, 63, 32)        0         
+_________________________________________________________________
+dropout (Dropout)            (None, 63, 63, 32)        0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 61, 61, 64)        18496     
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 30, 30, 64)        0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 30, 30, 64)        0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 28, 28, 128)       73856     
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 14, 14, 128)       0         
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 14, 14, 128)       0         
+_________________________________________________________________
+flatten (Flatten)            (None, 25088)             0         
+_________________________________________________________________
+dense (Dense)                (None, 128)               3211392   
+_________________________________________________________________
+dense_1 (Dense)              (None, 1)                 129       
+=================================================================
+Total params: 3,304,769
+Trainable params: 3,304,769
+Non-trainable params: 0
+</code></pre><p>If you are not familiar with neural networks these layer names might seem a bit mystical. To understand this in more detail, I recommend looking at my previous post for some good learning material.</p>
+<p>One one to highlight is that this is a convolutional neural network. Convolutions are a technique which apply filters on an image and as a result it makes neurons &ldquo;see&rdquo; specific features. As an example I displayed the images the hidden layers of the neural network produce, and you can see in the belo picture how one of the convolutions seem to be focused on highlighting the ears of a husky. This is something very specific the neural network now uses to figure out if the image contains a husky or not.</p>
+<p>TODO</p>
+<p>So much about the layout of the neural network itself.</p>
+<h2 id="training-the-model">Training the model</h2>
+<p>Training the model with Keras is pretty straight forward, and is done via <code>model.fit</code> (or <code>model.fit_generator</code> respectively).</p>
+<pre><code>history = model.fit_generator(training_generator,
+                              epochs=200, 
+                              steps_per_epoch=80,
+                              validation_data=validation_generator,
+                              validation_steps=20,
+                              callbacks=[callbacks],
+                              verbose=1)
+</code></pre><p>The API to fit a model also takes a <strong>callback</strong>, which gets invoked after every training epoch. You can use such a callback to stop training when reaching a certain accuracy.</p>
+<p>The definition of the callback looks like this:</p>
+<pre><code>DESIRED_ACCURACY = 0.99
+
+class myCallback(tf.keras.callbacks.Callback):
+  def on_epoch_end(self, epoch, logs={}):
+    if(logs.get(&quot;accuracy&quot;) &gt; DESIRED_ACCURACY):
+      print(f&quot;\nReached {DESIRED_ACCURACY}% accuracy - cancelling training.&quot;)
+      self.model.stop_training = True
+
+callbacks = myCallback()
+</code></pre><p>After training for a few hours the model had an accuracy on the validatin set in the mid 70% range. Not bad, and I still wanted to apply <strong>Image Augmentation</strong> which I had just learned about in the deeplearning.ai course.</p>
+<h3 id="image-augmentation">Image Augmentation</h3>
+<p>Since my training set was rather smaller, I used a technique called <em>Image Augmentation</em>. Image Augmentation means that when training the model the images feed to the model are updated on the fly. For instance, they are cropped, or flipped and things like that. This is in order to increase the training set and provide more variations. I thought that is a pretty neat trick.</p>
+<p>I updated and played around with different algorithms, model structures as well as performing image augmentation. In TensorFlow this is done with the <code>ImageDataGenerator</code> and <code>flow_from_directory</code>.</p>
+<pre><code>training_datagen =  ImageDataGenerator(
+    rescale=1/255,
+    shear_range=0.2,
+    zoom_range=0.2,
+    rotation_range=30, 
+    fill_mode=&quot;nearest&quot;,
+    horizontal_flip=True)
+
+training_generator = training_datagen.flow_from_directory(
+    training_folder, 
+    target_size=(num_px, num_px), 
+    batch_size=batch_size,
+    class_mode='binary')
+
+</code></pre><p>This model landed at ~84% accuracy on the validation set after a few hours of training.</p>
+<p><img src="/blog/images/2020/huskyai.train.val.loss.png" alt="Training and Validation Loss"></p>
+<h2 id="saving-the-model">Saving the model</h2>
+<p>In Keras a model is saved with a call to <code>.save</code>. This includes the model structure and the weights.</p>
+<pre><code>model.save(&quot;huskymodel.h5&quot;)
+</code></pre><p>There is also the API to just store the weights, called <code>.save_weights</code>. In that case you have to manually construct the model before loading the weights again. This is useful for saving checkpoints during training for instance.</p>
+<p>In TensorFlow there are actually two file formats to choose from when saving models <code>.h5</code>, and also a <code>SaveModel</code>. For now we will just focus on <code>.h5</code> models.</p>
+<p><strong>Attack:</strong> As you can image the model file itself is a pretty high value asset. It does contain both the layout of the neural network, as well as the model weights. Tampering with this file will allow to add backdoors and cause a lot of other issues.</p>
+<h2 id="performing-predictions">Performing predictions</h2>
+<p>To perform a prediction we load an image into memory and pass it to the model with <code>model.predict</code>.</p>
+<p><a href="/blog/images/2020/husky-prediction.jpg"><img src="/blog/images/2020/husky-prediction.jpg" alt="Husky Prediction Example"></a></p>
+<p>A lot of the learnings and attack ideas I will work on going forward will target my own system and the model behind. The model still needs a lot of improving, it has an accuracy of about 80% now.</p>
+<h1 id="part3">Part 3 - Operationalizing the system</h1>
+<p>This actually took much longer then planned.</p>
+<p>Since I used TensorFlow, I naively thought it would be very straight forward to implement a Golang web server to host the model. Turns out that TensorFlow/Keras is not that as straighforward to integrate with Golang, it requires a lot of extra steps. So, I ended up picking Python for the web server.</p>
+<p>The application is hosted at <a href="https://wuzzi.net/huskyai">Husky AI</a> - be gentle for now, as this is just running on a tiny EC2 instance.</p>
+<p>The goal was the following:</p>
+<ol>
+<li>Create a simple web server with a nice UI</li>
+<li>Offer an image upload feature</li>
+<li>Run an uploaded image in memory through the Husky model and receive a prediction</li>
+<li>Return the prediction score to the client</li>
+</ol>
+<p>The core logic on the server for running a prediction looks like this:</p>
+<pre><code>    # read the image
+    image = imageio.imread(data)
+    image = cv2.resize(image, (num_px, num_px))
+
+    #convert to RGB (we are not considering alpha channel in the model)
+    image = cv2.cvtColor(image, cv2.COLOR_RGBA2RGB)
+
+    image = image/255.0   
+
+    img_np =  np.array(images)
+    result = MODEL.predict(img_np)[0]
+
+    score_percent = result[0]*100
+    score = format(score_percent, '.2f')
+</code></pre><p>The final <code>score</code> is then returned to the client as part of JSON message.</p>
+<h1 id="part4">Part 4 - Threat Modeling an AI system</h1>
+<p>There are quite a lot of moving pieces in such a simple solution.</p>
+<h1 id="next-steps">Next steps</h1>
+<p>In the next post, we will do hands-on attacks against the exposed prediction API and then start backdooring the model as well.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/azure/cognitive-services/Bing-Image-Search/overview">What is Bing Image searchI</a></li>
+<li><a href="https://azure.microsoft.com/en-us/services/cognitive-services/bing-image-search-api/">Bing Image Search</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/machine-learning-basics/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2020
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

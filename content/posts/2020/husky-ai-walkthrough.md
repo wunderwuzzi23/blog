@@ -1,6 +1,6 @@
 ---
-title: "Husky AI Walkthrough"
-date: 2020-08-31T11:04:29-07:00
+title: "Husky AI walkthrough and threat model"
+date: 2020-09-02T12:04:29-07:00
 draft: true
 tags: [
         "machine learning",
@@ -8,29 +8,84 @@ tags: [
     ]
 ---
 
-While learning about binary classification I wanted to build my own model to be able to identify if an image contains a husky or not. If you watched the show Silicon Valley, you might find this quite funny.
+In the [previous post](/blog/posts/2020/machine-learning-basics/) I talked about learning resources for AI/ML. Now it's time to dive into details on building a model and application we can perform security testing on.
 
-![Machine Learning that I can understand](/blog/images/2020/huskyornot.jpg)
+In this post I'll describe how I built Husky AI, an application that can identify if an image contains a husky or not. 
 
-The model was built entirely from scratch, using images that I collected from Bing. The algorithms were implemented using Python and Numpy. Eventually I replaced my own implementations with Tensorflow. And a few weeks back I started to build a website to operationalize the model. In the future I will add categorical classifications - as attacks on those will be interesting to research.
+[![Husky AI](/blog/images/2020/husky-ai.jpg)](/blog/images/2020/husky-ai.jpg)
 
-The application is hosted at [Husky AI](https://wuzzi.net/huskyai) - be gentle, no attacks please - as this is just running on a tiny EC2 instance.
+If you watched the show Silicon Valley, you might find this quite funny.
 
-A lot of the learnings and attack ideas I will work on going forward will target my own system and the model behind. The model still needs a lot of improving, it has an accuracy of about 80% now.
+In particular we will cover the following topics:
 
-## Gathering images
+1. [**Machine Learning Pipeline**](#part1) - High Level overview of the bits and pieces
+2. [**Building the model**](#part2) - The steps involved in building Husky AI model and training it
+3. [**Operationalize the model**](#part3) - how did I make the model invokable from a web site
+4. [**Threat Modeling the system**](#part4) - Identifying threats and possible attacks, with a focus on the AI/ML specific areas (to keep this in scope)
 
-To gather proper husky and non husky images I mostly used Bing to gather images and did some manual data cleaning to retrieve test and training sets. It was about 1300 husky images and 3000 random other ones, including other dogs, people and objects.
+This post contains Part 1. You can
 
-If you didn't know Microsoft offers Azure Cognitive Search for free to download images.
+# Part 1 - Machine Learning Pipeline{#part1}
 
-![Husky AI Sampling](/blog/images/2020/husky-ai.sampling.jpg)
+First, let me quickly describe the overall machine learning pipeline, so we are on the same page around the overall process. I assume that the reader is familar with security and pentesting, but less so with machine learning.
+
+This overview of the ML pipeline will  also lead us to a good data flow diagram (DFD) that we can use to identify threats and attacks later on:
+
+[![Husky Machine Learning Pipeline](/blog/images/2020/machine-learning-pipeline.jpg)](/blog/images/2020/machine-learning-pipeline.jpg)
+
+In particular these are the individual parts involved:
+
+1. **Collecting training and validation images:** The process starts with gathering images. These are pictures of huskies and random other pictures.
+2. **Pre-Processing:** The images go through some pre-processing steps (this includes data cleansing, rescaling, labeling, storing,..)
+3. **Defining the initial model:** We have to start somewhere, my very first test was a network with a single neuron (basically just logistic regression). At this point it is also **important to set a measurable metric** that can be used to compare training runs with each other. This is in order to be able to meaningfully improve the model
+4. **Training the model**
+5. **Evaluation:** After a training (even during) measure performance of the model (e.g. accuracy)
+6. **Improve the model:** If performance is not met, update the model (e.g. trying different algorithms, learning rates, neural network layouts,...) and start training again
+7. **Deployment:** If the performance of the model looks good, deploy to production
+8. **Operationalization:** Make the model available for usage via REST API. In my production deployment there is an API gateway which routes traffic to the Husky AI web server. The REST endpoint then calls into the model give predictions for uploaded images
+9. **End user runs predictions:** A user can invoke the REST API to upload an image and get a prediction
+
+That's it. Those are the big conceptual pieces of a machine learning pipeline. Now let's look into more detail on how I built the Husky AI model and how it was trained.
+
+# Part 2 - Building the model{#part2}
+
+Building a machine learning model is a very iterative process and took many days (even weeks or longer). Initially I started without TensorFlow and built a neural network, forward and backpropagation algorithms in Python. This is basically what the `Machine Learning` and `deeplearning.ai` courses I took teach you to do. I liked this as it gives a good understanding on what is going on under the hood.
+
+The first step is to gather images.
+
+## Gathering training and validation data
+
+To gather training data for husky and non husky images I used Bing to gather images and did some manual data cleansing. It was about 1300 husky images and 3000 random other ones, including other dogs, people and other objects.
+
+I used Bing's image search to gather training data. Check out [Azure Cognitive Services and Bing Image Search](https://azure.microsoft.com/en-us/services/cognitive-services/bing-image-search-api/). They offer a free API to search and download images, all you have to do is create an Azure account (which is also free) and then you can request API keys.
+
+![Husky AI Sampling](/blog/images/2020/huskyai.sampling.jpg)
+
+### Training and validation data
+
+The way the images are stored is typically in dedicated folders for training and validation, and also according to there label. This makes it easier later on, because ML frameworks can use the "folder name" as the label for the image. This is one of these typically pre-processing steps, where get all the ducks, aehm, dogs in a row.
+
+For instance, I have the following directory structure for images:
+
+```
+   data/training/husky
+   data/training/nothusky
+   data/validation/husky
+   data/validation/nothusky
+```
+
+In machine learning data is split into separate sets. There are folders for `training data` and `validation data`. This is needed because we do not want to train our model on validation or test data. Validation and test data are there to tell us how well the model is performing on images **not** seen before.
+
+Attack: Attacker can attempt to poisen either set of images, which can lead to fastly different results.
+
+### Source code to Azure Cognitive Services (Bing Image Search)
+
+I published the code used to call the Bing search API. You can find [it here](https://github.com/wunderwuzzi23/ai/blob/master/huskyai/scraper/bing-image-search.py).
+
 
 ## Building the model
 
-This was a very iterative process and took many days (even weeks). Initially I started without TensorFlow and built the neural netwwork,  forward and backpropagation algorithms in Python. This is basically what the Machine Learning and `deeplearning.ai` courses I mentioned in my previous post teach. I recommend this way if you want to understand what is going on under the hood.
-
-The very first model only had one layer and was basically just doing logistic regression. It gave about a 62% accuracy, which I thought was pretty impressive already. Although, I wanted to apply more of the knowledge and content which was that in the classes and played around with a lot of different and more complex variations.
+The first model I built had one layer and was basically just doing what is called "logistic regression". It gave about a 62% accuracy, which I thought was pretty impressive already. Although, I wanted to apply more of the knowledge I was taught in Andrew Ng's class and played around with a lot of different and more complex variations. Including regularization, convolutions, dropouts and things along those lines.
 
 In the end I ended up with a convolutional neural network (CNN) with the following layout.
 
@@ -58,7 +113,7 @@ opt = tf.keras.optimizers.Adam(learning_rate=0.0005)
 model.compile(optimizer=opt, loss="binary_crossentropy", metrics=["accuracy"])
 ```
 
-For the optimizer I played around with RMSProp, but decided on Adam eventually.
+For the optimizer I played around with `RMSProp`, but decided on `Adam` eventually.
 
 Its also possible to visualize the graph with Keras:
 
@@ -70,7 +125,7 @@ tf.keras.utils.plot_model(model, to_file="model.jpg", show_shapes=False, rankdir
 
 `rankdir`: means to plot it from left to right
 
-Or show the basic layout with the `summary` function:
+Since this image does not show up to well in the post, using `model.summary()` is another way to look at the model definition:
 
 ```
 >> model.summary()
@@ -108,10 +163,19 @@ Trainable params: 3,304,769
 Non-trainable params: 0
 ```
 
+If you are not familiar with neural networks these layer names might seem a bit mystical. To understand this in more detail, I recommend looking at my previous post for some good learning material.
+
+One one to highlight is that this is a convolutional neural network. Convolutions are a technique which apply filters on an image and as a result it makes neurons "see" specific features. As an example I displayed the images the hidden layers of the neural network produce, and you can see in the belo picture how one of the convolutions seem to be focused on highlighting the ears of a husky. This is something very specific the neural network now uses to figure out if the image contains a husky or not.
+
+
+TODO
+
+
+So much about the layout of the neural network itself.
 
 ## Training the model
 
-This model landed already in the mid 70% accuracy on the test set after a few hours of training. I still wanted to apply Image Augmentation which I had just learned about in the deeplearning.ai course.
+Training the model with Keras is pretty straight forward, and is done via `model.fit` (or `model.fit_generator` respectively). 
 
 ```
 history = model.fit_generator(training_generator,
@@ -123,7 +187,7 @@ history = model.fit_generator(training_generator,
                               verbose=1)
 ```
 
-The about the fit API is that it also takes a callback, which is invoked after every epoch. For instance, I used the callback to stop training when reaching a certain accuracy - since there isn't really a need to continue training at that point.
+The API to fit a model also takes a **callback**, which gets invoked after every training epoch. You can use such a callback to stop training when reaching a certain accuracy.
 
 The definition of the callback looks like this:
 
@@ -139,12 +203,13 @@ class myCallback(tf.keras.callbacks.Callback):
 callbacks = myCallback()
 ```
 
+After training for a few hours the model had an accuracy on the validatin set in the mid 70% range. Not bad, and I still wanted to apply **Image Augmentation** which I had just learned about in the deeplearning.ai course.
+
 ### Image Augmentation
 
-Since my training set was rather smaller, I used a trick that was taught in the machine learning classes called *Image Augmentation*. Image Augmentation means that training the model the images feed to the model are updated on the fly. For instance, they are cropped, or flipped and things like that. This is in order to increase the training set and provide more variations. I thought that is a pretty neat trick.
+Since my training set was rather smaller, I used a technique called *Image Augmentation*. Image Augmentation means that when training the model the images feed to the model are updated on the fly. For instance, they are cropped, or flipped and things like that. This is in order to increase the training set and provide more variations. I thought that is a pretty neat trick.
 
-Hence, I updated and played around with different algorithms, model structures as well as performing image augmentation. In TensorFlow this is done with the `ImageDataGenerator` and `flow_from_directory`.
-
+I updated and played around with different algorithms, model structures as well as performing image augmentation. In TensorFlow this is done with the `ImageDataGenerator` and `flow_from_directory`.
 
 ```
 training_datagen =  ImageDataGenerator(
@@ -163,21 +228,44 @@ training_generator = training_datagen.flow_from_directory(
 
 ```
 
-This model landed at ~84% accuracy on the test set after a few hours of training.
+This model landed at ~84% accuracy on the validation set after a few hours of training.
 
 ![Training and Validation Loss](/blog/images/2020/huskyai.train.val.loss.png)
 
+## Saving the model
+
+In Keras a model is saved with a call to `.save`. This includes the model structure and the weights.
+
+```
+model.save("huskymodel.h5")
+```
+
+There is also the API to just store the weights, called `.save_weights`. In that case you have to manually construct the model before loading the weights again. This is useful for saving checkpoints during training for instance.
+
+In TensorFlow there are actually two file formats to choose from when saving models `.h5`, and also a `SaveModel`. For now we will just focus on `.h5` models.
+
+
+**Attack:** As you can image the model file itself is a pretty high value asset. It does contain both the layout of the neural network, as well as the model weights. Tampering with this file will allow to add backdoors and cause a lot of other issues.
+
 ## Performing predictions
 
+To perform a prediction we load an image into memory and pass it to the model with `model.predict`.
 
+[![Husky Prediction Example](/blog/images/2020/husky-prediction.jpg)](/blog/images/2020/husky-prediction.jpg)
 
-## Operationalizing the system
+A lot of the learnings and attack ideas I will work on going forward will target my own system and the model behind. The model still needs a lot of improving, it has an accuracy of about 80% now.
 
-This actually took much longer then planned. Since I used Tensorflow, I naivley thought it would be very straight forward to implement a Golang web server to host the model. Turns out that Tensorflow is not that easy to integrate with Golang, it requires a lot of extra steps. So, I ended up picking Python for the web server.
+# Part 3 - Operationalizing the system{#part3}
+
+This actually took much longer then planned. 
+
+Since I used TensorFlow, I naively thought it would be very straight forward to implement a Golang web server to host the model. Turns out that TensorFlow/Keras is not that as straighforward to integrate with Golang, it requires a lot of extra steps. So, I ended up picking Python for the web server.
+
+The application is hosted at [Husky AI](https://wuzzi.net/huskyai) - be gentle for now, as this is just running on a tiny EC2 instance.
 
 The goal was the following:
 
-1. Create a simple web server with a nice UI
+1. Create a simple web server with a nice UI 
 2. Offer an image upload feature
 3. Run an uploaded image in memory through the Husky model and receive a prediction
 4. Return the prediction score to the client
@@ -202,15 +290,21 @@ The core logic on the server for running a prediction looks like this:
     score = format(score_percent, '.2f')
 ```
 
-The final `score` is then returned to the client. 
+The final `score` is then returned to the client as part of JSON message.
 
 
-# Attacker viewpoint and Threat Model
+# Part 4 - Threat Modeling an AI system{#part4}
 
 There are quite a lot of moving pieces in such a simple solution.
 
 
-## Next steps
+# Next steps
 
-In the next post, I will talk about the first attack against the model itself. The idea is simple we just want to malicously patch the model to always that the provided image is a husky.
+In the next post, we will do hands-on attacks against the exposed prediction API and then start backdooring the model as well.
 
+
+
+# References
+
+* [What is Bing Image searchI](https://docs.microsoft.com/en-us/azure/cognitive-services/Bing-Image-Search/overview)
+* [Bing Image Search](https://azure.microsoft.com/en-us/services/cognitive-services/bing-image-search-api/)

@@ -7,20 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Sat, 29 Aug 2020 21:02:16 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2020 12:04:29 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>A machine learning journey</title>
+      <title>Husky AI walkthrough and threat model</title>
+      <link>https://embracethered.com/blog/posts/2020/husky-ai-walkthrough/</link>
+      <pubDate>Wed, 02 Sep 2020 12:04:29 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/husky-ai-walkthrough/</guid>
+      <description>In the previous post I talked about learning resources for AI/ML. Now it&amp;rsquo;s time to dive into details on building a model and application we can perform security testing on.
+In this post I&amp;rsquo;ll describe how I built Husky AI, an application that can identify if an image contains a husky or not.
+
+If you watched the show Silicon Valley, you might find this quite funny.
+In particular we will cover the following topics:</description>
+    </item>
+    
+    <item>
+      <title>The machine learning journey</title>
       <link>https://embracethered.com/blog/posts/2020/machine-learning-basics/</link>
       <pubDate>Sat, 29 Aug 2020 21:02:16 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/machine-learning-basics/</guid>
-      <description>Over the last several months I have been busy studying machine learning and artificial intelligence.
-To come up with good attacks, I figured it is time to learn the basics and start using software, tools and algorithms. My goal was to build a couple of end to end machine learning systems from scratch.
-This post describes my studying approach, materials and learnings. I thought to share this information, in case there are others who are intersted to get started in this space and need some pointers.</description>
+      <description>This year I have been busy studying machine learning and artificial intelligence.
+To come up with good attacks, I figured it is time to learn the fundamentals and start using software, tools and algorithms. My goal was to build a couple of end to end machine learning systems from scratch.
+This post describes my studying approach, materials, courses, and learnings. I thought to share this, in case there are others who are interested to get started in this space but don&amp;rsquo;t how and where.</description>
     </item>
     
     <item>
