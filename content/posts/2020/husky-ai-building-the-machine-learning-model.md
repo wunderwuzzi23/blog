@@ -8,11 +8,13 @@ tags: [
     ]
 ---
 
+This post is part of a series about machine learning and artificial intelligence. Click on the blog tag "huskyai" to see all the posts.
+
 In the [previous post](/blog/posts/2020/husky-ai-walkthrough/) we described the overall machine learning pipeline.
 
-**This post is part of a series about security and machine learning to help pen testers and security engineers to learn more about AI/ML. You can click on the blog tag "huskyai" to read up on them all**
+In this post, we dive into the technical details of building and training the machine learning model for Husky AI. 
 
-This is Part 2 of the series, where we dive into the technical details of building and training the machine learning model for Husky AI. 
+After reading this you should have a good understanding around the technical steps involved in building a machine learning system.
 
 [![Husky AI](/blog/images/2020/husky-ai.jpg)](/blog/images/2020/husky-ai.jpg)
 
@@ -224,9 +226,8 @@ To perform a prediction we load an image into memory and pass it to the model wi
 A lot of the learnings and attack ideas I will work on going forward will target my own system and the model behind. The model still needs a lot of improving, it has an accuracy of about 80% now.
 
 
-
 ## What's next?
 
-Hopefully this was useful to get a better understanding around the moving bits and pieces involved in building a ML application. Next we will dive into the aspects of MLOps, where we will operationalize the system and make it available over a website.
+Hopefully this was useful to get a better understanding around the moving bits and pieces involved in building a ML application. Next we will dive into the aspects of MLOps, where [we will operationalize the system](/blog/posts/2020/husky-ai-mlopsTODO) and make it available over a website.
 
 
