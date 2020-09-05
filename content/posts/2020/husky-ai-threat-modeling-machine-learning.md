@@ -92,7 +92,10 @@ There are other ML specific attacks such as model inversion, membership inferenc
 
 In the next post, we will do hands-on attacks against the exposed prediction API via brute forcing. 
 
-Now it will become interesting! Stay tuned.
+Now it will become interesting! **Stay tuned.**
+
+
+Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 
 
 ## Appendix{#appendix}

@@ -59,3 +59,6 @@ These are the individual parts involved:
 That's it. Those are the big conceptual pieces of a machine learning pipeline. 
 
 The [next post](/blog/posts/2020/husky-ai-building-the-machine-learning-model/) covers technical details on how the Husky AI machine learning model was built and trained.
+
+
+Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)

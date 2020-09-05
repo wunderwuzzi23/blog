@@ -77,3 +77,7 @@ That is it for this post. In the next post we will dive into the details of buil
 ## What's next?
 
 The next post is where things become interesting from security point of view. We will talk about [Threat Modeling the system](/blog/posts/2020/husky-ai-threat-modeling-machine-learning/) to identify attacks that wewill perform later.
+
+
+
+Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)

@@ -231,3 +231,4 @@ A lot of the learnings and attack ideas I will work on going forward will target
 Hopefully this was useful to get a better understanding around the moving bits and pieces involved in building a ML application. Next we will dive into the aspects of MLOps, where [we will operationalize the system](/blog/posts/2020/husky-ai-mlops-operationalize-the-model) and make it available over a website.
 
 
+Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
