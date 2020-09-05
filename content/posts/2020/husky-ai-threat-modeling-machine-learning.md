@@ -8,12 +8,11 @@ tags: [
     ]
 ---
 
-In the [previous post](/blog/posts/2020/husky-ai-building-the-machine-learning-model/) we walked through the steps required to gather training data, build and test a model.
+This post is part of a series called "Machine learning for pen testers" to help pen testers and security engineers learn more about AI/ML. Click the tag "huskyai" or visit the [overview section](/blog/posts/2020/husky-ai-walkthrough/).
 
-**This post is part of a series called "Machine learning for pen testers" to help pen testers and security engineers learn more about AI/ML. You can click on the blog tag "huskyai" to read up on them all**
+In the [previous post](/blog/posts/2020/husky-ai-building-the-machine-learning-model/) we walked through the steps required to gather training data, build and test a model to build "Husky AI".
 
-This is Part 4 of the series and we will threat model the Husky AI system to identify scenarios for attacks - which will we start performing in the subsequent blog post. The focus will be towards specific AI/ML threats.
-
+This post is all about threat modeling the system to identify scenarios for attacks which we will perform in the upcoming posts.
 
 # Part 4 - Threat Modeling an AI system{#part4}
 
@@ -42,17 +41,21 @@ When it comes to brainstorming and classifying threats, I use STRIDE. STRIDE is 
 
 It is good approach to hold threat modeling sessions with engineers, those can be informal whiteboard sessions. Try to have at at least one threat in each category for every asset.
 
-**It is not uncommon to forget about repudiation issues**. **Repudiation** is the problem of someone denying an action. How can you proof or disproof someone indeed updated a machine learning model in production for instance?
+**It is not uncommon to forget about repudiation issues**. 
+
+**Repudiation** is the problem of someone denying an action. How can you proof or disproof someone indeed updated a machine learning model in production for instance?
 
 ### Perturbation Attacks
 
 When it comes to machine learning specific attacks most of them can be easily mapped to STRIDE categories. The one I had issues with are attacks that "query the model", so called **perturbation attacks**. For the purpose of the threat model, I decided that this is a "spoofing" issue. An adversary tries to trick the algorithm to misclassify an image.
 
-Now, let's review the core assets of the Husky AI system, and brainstorm about attacks and mitigations. For anything we want to test, we add a **"red team opportunity"** comment.
+Now, let's review the core assets of the Husky AI system, and brainstorm about attacks and mitigations. 
 
 # Core Assets and Threats
 
-The following section lists the core assets and threats that were identified during threat modeling. This information is ideally persistent in a bug tracking system, something like Jira. Threats are a moving target, something that was considered mitigated yesterday might not be mitigated anymore today. This is also were red teaming comes into the picture to help with the realization that every system has vulnerabilities that can be exploited - there is no such thing is a 100% mitigation.
+The following section lists the core assets and threats that were identified during threat modeling. This information is ideally persistent in a bug tracking system, something like Jira. 
+
+Threats and mitigations are a moving target, something that was considered mitigated yesterday might not be mitigated anymore today. This is also were red teaming comes into the picture to help with the realization that every system has vulnerabilities that can be exploited - there is no such thing is a 100% mitigation.
 
 Let's look through the main assets:
 
@@ -63,32 +66,38 @@ Let's look through the main assets:
 * Bing API Key
 * SSH Access and Keys
 
-In the appendix of this post I put the more detailed descriptions of threats that I considered so far for Husky AI.
+To keep the flow of the post, let us look at those that are most interesting from machine learning point of view.
 
-To keep the flow of the post, let us look at those that are most interesting for someone new to machine learning.
+The full list of threats can be seen in the [Appendix](#appendix) - for anything I wanted to test, I added a **"red team opportunity"** note.
 
-## Machine learning attacks
 
-Now that we looked at a wide range of threats, we can filter those down we want to focus on and build exploits for:
+## Identified machine learning threats
 
-1. Attacker brute forces images to find incorrect predictions/labels (dumb and smart ML fuzzing)
+The following is the list of threats that I want to build attacks for:
+
+1. Attacker brute forces images to find incorrect predictions/labels (dumb and smart ML fuzzing) - Perturbation
 2. Attacker gains read access to the model 
-3. Attacker modifies persisted model file (backdoor and retrain)
+3. Attacker modifies persisted model file (backdoor and re-train)
 4. Attacker denies modifying the model file
 5. Attacker poisons the supply chain of third-party libraries
-6. Attacker tampers with stored images on disk to impact training performance
+6. Attacker tampers with images on disk to impact training performance
 7. Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)
 
-This is a fairly good list with some interesting attack scenarios that we can research and perform.
+This is a fairly good list with some interesting attack scenarios that we can research and perform. 
+
+There are other ML specific attacks such as model inversion, membership inference which I might explore at a later point, possibly when upgrading Husky AI to provide a more complex categorical model. For more information on machine learning threats see [Failure modes in machine learning] (https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning) by Microsoft, as well as "Hacking neural networks: A short introduction" by Michael Kissner.
+
 
 ## Next steps
 
-In the next post, we will do hands-on attacks against the exposed prediction API via brute forcing. Now it will become interesting! :)
+In the next post, we will do hands-on attacks against the exposed prediction API via brute forcing. 
+
+Now it will become interesting! :)
 
 
-## Appendix
+## Appendix{appendix}
 
-This appendix contains the most significant threats identified and some more insights:
+This appendix contains the most significant threats identified and more insights. When doing this you want to store this information in a issues/bug tracking system such as Jira. This helps to track and also review dispositions in the future.
 
 
 ### **Training, Validation and Test Images**
@@ -223,7 +232,6 @@ This appendix contains the most significant threats identified and some more ins
 
 # References
 
-* [What is Bing Image searchI](https://docs.microsoft.com/en-us/azure/cognitive-services/Bing-Image-Search/overview)
-* [Bing Image Search](https://azure.microsoft.com/en-us/services/cognitive-services/bing-image-search-api/)
 * [STRIDE](https://en.wikipedia.org/wiki/STRIDE_(security))
 * [Husky AI Source Code](https://github.com/wunderwuzzi23/ai/)
+* [Failure modes in machine learning] (https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning)
