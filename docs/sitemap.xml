@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://embracethered.com/blog/posts/2020/husky-ai-walkthrough/</loc>
-    <lastmod>2020-09-02T12:04:29-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/tags/huskyai/</loc>
     <lastmod>2020-09-02T12:04:29-07:00</lastmod>
   </url>
@@ -24,6 +19,11 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2020-09-02T12:04:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2020/husky-ai-walkthrough/</loc>
     <lastmod>2020-09-02T12:04:29-07:00</lastmod>
   </url>
   

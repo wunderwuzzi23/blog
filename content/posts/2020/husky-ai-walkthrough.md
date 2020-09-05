@@ -8,9 +8,11 @@ tags: [
     ]
 ---
 
-This post is part of a series "Machine learning for pen testers" to help pen testers and security engineers learn more about AI/ML. 
+This post is part of a series about machine learning and artificial intelligence.
 
 In the [previous post](/blog/posts/2020/machine-learning-basics/) I talked about good resources for learning more about artificial intelligence and machine learning in general, and how I started my journey in this space. 
+
+The next few posts will be about Husky AI.
 
 ## What is Husky AI?
 
@@ -28,7 +30,6 @@ In the next few posts I will describe how I built and operationalized "Husky AI"
 2. [**Building a machine learning model**](/blog/posts/2020/husky-ai-building-a-machine-learning-model/) - The steps involved in building Husky AI model and training it
 3. [**Operationalizing the model**](/blog/posts/2020/husky-ai-mlops-operationalize-the-model/) - how did I make the model invokable from a web site
 4. [**Threat Modeling the system**](/blog/posts/2020/husky-ai-walkthrough/) - Identifying threats and attacks, with a focus on the AI/ML threats
-
 
 Let's get started with an overview of the machine learning pipeline. This will already highlight many of the moving pieces that can be attacked!
 
@@ -57,6 +58,4 @@ These are the individual parts involved:
  
 That's it. Those are the big conceptual pieces of a machine learning pipeline. 
 
-The next post covers technical details on how the Husky AI machine learning model was built and trained.
-
-
+The [next post](/blog/posts/2020/husky-ai-building-a-machine-learning-model/) covers technical details on how the Husky AI machine learning model was built and trained.
