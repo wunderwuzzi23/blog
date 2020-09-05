@@ -29,7 +29,7 @@ In the next few posts I will describe how I built and operationalized "Husky AI"
 1. [**Machine Learning Pipeline**](/blog/posts/2020/husky-ai-walkthrough/) - High Level overview of the bits and pieces (this post)
 2. [**Building a machine learning model**](/blog/posts/2020/husky-ai-building-the-machine-learning-model/) - The steps involved in building Husky AI model and training it
 3. [**Operationalizing the model**](/blog/posts/2020/husky-ai-mlops-operationalize-the-model/) - how did I make the model invokable from a web site
-4. [**Threat Modeling the system**](/blog/posts/2020/husky-ai-walkthrough/) - Identifying threats and attacks, with a focus on the AI/ML threats
+4. [**Threat modeling the system**](/blog/posts/2020/husky-ai-threat-modeling-machine-learning/) - Identifying threats and attacks, with a focus on the AI/ML threats
 
 Let's get started with an overview of the machine learning pipeline. This will already highlight many of the moving pieces that can be attacked!
 
@@ -58,4 +58,4 @@ These are the individual parts involved:
  
 That's it. Those are the big conceptual pieces of a machine learning pipeline. 
 
-The [next post](/blog/posts/2020/husky-ai-building-a-machine-learning-model/) covers technical details on how the Husky AI machine learning model was built and trained.
+The [next post](/blog/posts/2020/husky-ai-building-the-machine-learning-model/) covers technical details on how the Husky AI machine learning model was built and trained.

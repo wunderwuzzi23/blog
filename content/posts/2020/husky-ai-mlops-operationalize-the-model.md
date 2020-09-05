@@ -1,6 +1,6 @@
 ---
 title: "Husky AI: MLOps - Operationalizing the model"
-date: 2020-09-05T11:59:14-07:00
+date: 2020-09-05T8:00:14-07:00
 draft: true
 tags: [
         "machine learning",
@@ -8,11 +8,11 @@ tags: [
     ]
 ---
 
+This post is part of a series about machine learning and artificial intelligence. Click on the blog tag "huskyai" to see all the posts.
+
 In the [previous post](/blog/posts/2020/husky-ai-building-the-machine-learning-model/) we walked through the steps required to gather training data, build and test a model.
 
-**This post is part of a series about security and machine learning to help pen testers and security engineers to learn more about AI/ML. You can click on the blog tag "huskyai" to read up on them all**
-
-This is Part 3 of the series "Machine learning for pen testers" and we will dive into what is called "Operationalizing" a model. The scenario is the creation of Husky AI and my experiences and learnings from that.
+In this post we dive into "Operationalizing" a model. The scenario is the creation of Husky AI and my experiences and learnings from that.
 
 
 # Part 3 - Operationalizing the system{#part3}
@@ -76,4 +76,4 @@ That is it for this post. In the next post we will dive into the details of buil
 
 ## What's next?
 
-The next post is where things become interesting from security point of view. We will talk about Threat Modeling the system to identify attacks that we can and will perform later.
+The next post is where things become interesting from security point of view. We will talk about [Threat Modeling the system](/blog/posts/2020/husky-ai-threat-modeling-machine-learning/) to identify attacks that wewill perform later.

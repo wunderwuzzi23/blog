@@ -1,6 +1,6 @@
 ---
-title: "Threat Modeling a machine learning system"
-date: 2020-09-05T12:04:33-07:00
+title: "Husky AI: Threat modeling a machine learning system"
+date: 2020-09-05T14:04:33-07:00
 draft: true
 tags: [
         "machine learning",
@@ -8,7 +8,7 @@ tags: [
     ]
 ---
 
-This post is part of a series called "Machine learning for pen testers" to help pen testers and security engineers learn more about AI/ML. Click the tag "huskyai" or visit the [overview section](/blog/posts/2020/husky-ai-walkthrough/).
+This post is part of a series about machine learning and artificial intelligence. Click on the blog tag "huskyai" to see all the posts, or visit the [overview section](/blog/posts/2020/husky-ai-walkthrough/).
 
 In the [previous post](/blog/posts/2020/husky-ai-building-the-machine-learning-model/) we walked through the steps required to gather training data, build and test a model to build "Husky AI".
 
@@ -85,17 +85,17 @@ The following is the list of threats that I want to build attacks for:
 
 This is a fairly good list with some interesting attack scenarios that we can research and perform. 
 
-There are other ML specific attacks such as model inversion, membership inference which I might explore at a later point, possibly when upgrading Husky AI to provide a more complex categorical model. For more information on machine learning threats see [Failure modes in machine learning] (https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning) by Microsoft, as well as "Hacking neural networks: A short introduction" by Michael Kissner.
+There are other ML specific attacks such as model inversion, membership inference which I might explore at a later point, possibly when upgrading Husky AI to provide a more complex categorical model. For more information on machine learning threats see [Failure modes in machine learning](https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning) by Microsoft, as well as [Hacking Neural Networks - A short introduction](https://arxiv.org/pdf/1911.07658.pdf) by Michael Kissner.
 
 
 ## Next steps
 
 In the next post, we will do hands-on attacks against the exposed prediction API via brute forcing. 
 
-Now it will become interesting! :)
+Now it will become interesting! Stay tuned.
 
 
-## Appendix{appendix}
+## Appendix{#appendix}
 
 This appendix contains the most significant threats identified and more insights. When doing this you want to store this information in a issues/bug tracking system such as Jira. This helps to track and also review dispositions in the future.
 
@@ -234,4 +234,5 @@ This appendix contains the most significant threats identified and more insights
 
 * [STRIDE](https://en.wikipedia.org/wiki/STRIDE_(security))
 * [Husky AI Source Code](https://github.com/wunderwuzzi23/ai/)
+* [Hacking Neural Networks - A short introduction](https://arxiv.org/pdf/1911.07658.pdf)
 * [Failure modes in machine learning] (https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning)
