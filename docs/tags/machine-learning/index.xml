@@ -29,10 +29,10 @@ This post is all about threat modeling the system to identify scenarios for atta
       <pubDate>Sat, 05 Sep 2020 08:00:14 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/husky-ai-mlops-operationalize-the-model/</guid>
-      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see all the posts.
+      <description>This post is part of a series about machine learning and artificial intelligence.
 In the previous post we walked through the steps required to gather training data, build and test a model.
-In this post we dive into &amp;ldquo;Operationalizing&amp;rdquo; a model. The scenario is the creation of Husky AI and my experiences and learnings from that.
-Part 3 - Operationalizing the system This actually took much longer than planned.</description>
+In this post we dive into &amp;ldquo;Operationalizing&amp;rdquo; the model. The scenario is the creation of Husky AI and my experiences and learnings from that.
+Part 3 - Operationalizing the Husky AI model This actually took much longer than planned.</description>
     </item>
     
     <item>
@@ -41,10 +41,10 @@ Part 3 - Operationalizing the system This actually took much longer than planned
       <pubDate>Fri, 04 Sep 2020 12:04:29 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/husky-ai-building-the-machine-learning-model/</guid>
-      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see all the posts.
+      <description>This post is part of a series about machine learning and artificial intelligence.
 In the previous post we described the overall machine learning pipeline.
-In this post, we dive into the technical details of building and training the machine learning model for Husky AI.
-After reading this you should have a good understanding around the technical steps involved in building a machine learning system.</description>
+In this post we dive into the technical details on how I built and trained the machine learning model for Husky AI.
+After reading this you should have a good understanding around the technical steps involved in building a machine learning system, and also some thoughts around what can be attacked.</description>
     </item>
     
     <item>

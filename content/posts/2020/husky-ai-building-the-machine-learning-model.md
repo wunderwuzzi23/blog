@@ -8,13 +8,13 @@ tags: [
     ]
 ---
 
-This post is part of a series about machine learning and artificial intelligence. Click on the blog tag "huskyai" to see all the posts.
+This post is part of a series about machine learning and artificial intelligence. 
 
 In the [previous post](/blog/posts/2020/husky-ai-walkthrough/) we described the overall machine learning pipeline.
 
-In this post, we dive into the technical details of building and training the machine learning model for Husky AI. 
+In this post we dive into the technical details on how I built and trained the machine learning model for Husky AI. 
 
-After reading this you should have a good understanding around the technical steps involved in building a machine learning system.
+After reading this you should have a good understanding around the technical steps involved in building a machine learning system, and also some thoughts around what can be attacked.
 
 [![Husky AI](/blog/images/2020/husky-ai.jpg)](/blog/images/2020/husky-ai.jpg)
 
@@ -38,7 +38,7 @@ I published code to call the Bing search API [here](https://github.com/wunderwuz
 
 ### Training and validation data
 
-The way the images are stored is typically in dedicated folders for training and validation, and also according to there label. This makes it easier later, because ML frameworks can use the "folder name" as the label for the image. This is one of these typically pre-processing steps, where get all the ducks, aehm, dogs in a row.
+Images are typically stored in dedicated folders for training and validation sets, and according to there label. This makes it easier later on because ML frameworks can use the "folder name" as the label for images. This is one of these typically pre-processing steps, where we get all the ducks, aehm, huskies in a row.
 
 For instance, I have the following directory structure for images:
 
@@ -51,7 +51,7 @@ For instance, I have the following directory structure for images:
 
 In machine learning data is split into separate sets. There are folders for `training data` and `validation data`. This is needed because we do not want to train our model on validation or test data. Validation and test data are used to tell us how well the model is performing on images **not** seen before.
 
-Attack: Attacker can attempt to poison either set of images, which can lead to vastly different results.
+**Attack idea:** Attacker can attempt to poison either set of images, which can lead to vastly different results.
 
 ### Exploring the images
 
@@ -128,7 +128,7 @@ Trainable params: 3,304,769
 Non-trainable params: 0
 ```
 
-If you are not familiar with neural networks these layer names might seem a bit mystical. To understand this in more detail, I recommend looking at my previous post for some good learning material.
+If you are not familiar with neural networks these layer names might seem a bit mystical. To understand this in more detail, I recommend looking at [my previous post for some good learning material](blog/posts/2020/machine-learning-basics/).
 
 ### Convolutions
 
@@ -137,8 +137,6 @@ One thing to highlight is the use of convolutions in neural network (especially 
 As an example, below you can see images while it goes through some of the hidden layers of the neural network. You can see in the how the convolutions seem to be focused on highlighting the ears of a husky. This is something specific the neural network now uses to figure out if the image contains a husky or not - pointy ears!
 
 [![Husky Convolutions](/blog/images/2020/convolutions.jpg)](/blog/images/2020/convolutions.jpg)
-
-Attack: Need to remember this, maybe it's possible to trick the network by understanding what features the neurons identify, and the build targeted input attack samples for those.
 
 So much about the layout of the neural network itself.
 
@@ -211,11 +209,11 @@ In Keras a model is saved with a call to `.save`. This includes the model struct
 model.save("huskymodel.h5")
 ```
 
-There is also the API to just store the weights, called `.save_weights`. In that case you have to manually construct the model before loading the weights again. This is useful for saving checkpoints during training for instance.
+There is also the API to only store the weights, called `.save_weights`. In that case you have to manually construct the model before loading the weights again. This is useful for saving checkpoints during training for instance.
 
-In TensorFlow there are two file formats to choose from when saving models `.h5`, and also a `SaveModel`. For now we will just focus on `.h5` models.
+In TensorFlow there are two file formats to choose from when saving models `.h5`, and also a `SaveModel`. For now we will just focus on the `.h5` file format.
 
-**Attack:** As you can image the model file itself is a pretty high value asset. It does contain both the layout of the neural network, as well as the model weights. Tampering with this file will allow to add backdoors and cause a lot of other issues. We will analyze this more during threat modeling.
+**Attack idea:** As you can image the model file itself is a pretty high value asset. It does contain both the layout of the neural network, as well as the model weights. Tampering with this file will allow to add backdoors and cause a lot of other issues. We will analyze this more during threat modeling.
 
 ## Performing predictions
 
@@ -223,12 +221,12 @@ To perform a prediction we load an image into memory and pass it to the model wi
 
 [![Husky Prediction Example](/blog/images/2020/husky-prediction.jpg)](/blog/images/2020/husky-prediction.jpg)
 
-A lot of the learnings and attack ideas I will work on going forward will target my own system and the model behind. The model still needs a lot of improving, it has an accuracy of about 80% now.
+The model can still benefit from improvements (such as transfer learning, where we build on the shoulders of other more powerful pre-trained models). It has an accuracy of a bit over 80% on the validation data - which is okay for now.
 
 
 ## What's next?
 
-Hopefully this was useful to get a better understanding around the moving bits and pieces involved in building a ML application. Next we will dive into the aspects of MLOps, where [we will operationalize the system](/blog/posts/2020/husky-ai-mlops-operationalize-the-model) and make it available over a website.
+Hopefully this was useful to get a better understanding around the moving bits and pieces involved in building a ML application. Next we will dive into the aspects of MLOps and we discusshow to [operationalize the model and put it behind a web application](/blog/posts/2020/husky-ai-mlops-operationalize-the-model) and make it available to end users.
 
 
 Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)

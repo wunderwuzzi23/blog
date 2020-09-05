@@ -112,10 +112,10 @@
     </div>
   </header>
   <section>
-    <p>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &ldquo;huskyai&rdquo; to see all the posts.</p>
+    <p>This post is part of a series about machine learning and artificial intelligence.</p>
 <p>In the <a href="/blog/posts/2020/husky-ai-building-the-machine-learning-model/">previous post</a> we walked through the steps required to gather training data, build and test a model.</p>
-<p>In this post we dive into &ldquo;Operationalizing&rdquo; a model. The scenario is the creation of Husky AI and my experiences and learnings from that.</p>
-<h1 id="part3">Part 3 - Operationalizing the system</h1>
+<p>In this post we dive into &ldquo;Operationalizing&rdquo; the model. The scenario is the creation of Husky AI and my experiences and learnings from that.</p>
+<h1 id="part3">Part 3 - Operationalizing the Husky AI model</h1>
 <p>This actually took much longer than planned.</p>
 <p>Since I used TensorFlow, I naively thought it would be very straight forward to implement a Golang web server to host the model. Turns out that TensorFlow/Keras is not that as straightforward to integrate with Golang, it requires a lot of extra steps. So, I ended up picking Python for the web server.</p>
 <p>The goal was the following:</p>
@@ -131,7 +131,7 @@
 <h3 id="loading-the-model-file">Loading the model file</h3>
 <p>An important part for an attacker to be aware is that the code is loading the model from the disk with the following line:</p>
 <pre><code>MODEL = tf.keras.models.load_model(&quot;models/huskymodel.h5&quot;)
-</code></pre><p>For backdooring, we only have to update that file with something malicious. There is no authenticity or integrity checking. We will look at this more in the threat model and attack posts.</p>
+</code></pre><p><strong>Attack idea:</strong> For backdooring, we will only have to update that file with something malicious. There is no authenticity or integrity checking. We will look at this more in the threat model and attack posts.</p>
 <h3 id="processing-the-incoming-image">Processing the incoming image</h3>
 <p>The core part logic on the server for running a prediction looks like this:</p>
 <pre><code>    # read the image
@@ -151,7 +151,7 @@
 </code></pre><p>The final <code>score</code> is then returned to the client as part of JSON message.</p>
 <h3 id="privacy-considerations">Privacy considerations</h3>
 <p>As you can see in the code above, images are not stored on the hard drive. They are used in memory to get the prediction. The uploaded images are also not used to retrain the model on the fly. This is in order to be considered about privacy concerns of end users.</p>
-<p>That is it for this post. In the next post we will dive into the details of building a threat model for the AI system.</p>
+<p>That&rsquo;s it for this post.</p>
 <h2 id="whats-next">What&rsquo;s next?</h2>
 <p>The next post is where things become interesting from security point of view. We will talk about <a href="/blog/posts/2020/husky-ai-threat-modeling-machine-learning/">Threat Modeling the system</a> to identify attacks that wewill perform later.</p>
 <p>Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>

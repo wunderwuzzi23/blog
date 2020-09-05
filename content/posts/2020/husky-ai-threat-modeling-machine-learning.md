@@ -28,7 +28,7 @@ By clicking on a component in the threat modeling tool, we can view the specific
 
 [![Threat Modeling Tool Example](/blog/images/2020/threatmodelingtool.jpg)](/blog/images/2020/threatmodelingtool.jpg)
 
-Even though there is a large amount of threats, it is great because it highlights issues you might not think about, or not think about each time you perform threat modeling. However, it can be a bit of an overload, and some threats are repetitive. There is really no requirement to use the tool - it's just there to help. 
+Even though there is a large amount of threats, it is great because it highlights issues you might not think about, or not think about each time you perform threat modeling. However, it can be a bit of an overload, and threats are repetitive. There is really no requirement to use the tool - it's just there to help. 
 
 When it comes to brainstorming and classifying threats, I use STRIDE. STRIDE is a threat classification technique [developed by Microsoft](https://en.wikipedia.org/wiki/STRIDE_(security)). It puts threats into the following categories:
 
@@ -66,9 +66,9 @@ Let's look through the main assets:
 * Bing API Key
 * SSH Access and Keys
 
-To keep the flow of the post, let us look at those that are most interesting from machine learning point of view.
+To keep the flow of the post, let's filter them to the most interesting ones from machine learning point of view.
 
-The full list of threats can be seen in the [Appendix](#appendix) - for anything I wanted to test, I added a **"red team opportunity"** note.
+The full list of threats can be seen in the [Appendix](#appendix). For anything I want to test, I added a **"red team opportunity"** note.
 
 
 ## Identified machine learning threats

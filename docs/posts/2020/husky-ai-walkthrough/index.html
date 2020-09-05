@@ -128,12 +128,12 @@
 <li><a href="/blog/posts/2020/husky-ai-threat-modeling-machine-learning/"><strong>Threat modeling the system</strong></a> - Identifying threats and attacks, with a focus on the AI/ML threats</li>
 </ol>
 <p>Let&rsquo;s get started with an overview of the machine learning pipeline. This will already highlight many of the moving pieces that can be attacked!</p>
-<h1 id="part1">Part 1 - Machine Learning Pipeline</h1>
+<h1 id="part1">Part 1 - The Machine learning pipeline</h1>
 <p>I assume that the reader is familiar with security and pen testing, but less so with machine learning.</p>
-<p>The following images shows the big components and stages of the pipeline:</p>
+<p>The following image shows the main components of the machine learning pipeline:</p>
 <p><a href="/blog/images/2020/machine-learning-pipeline.jpg"><img src="/blog/images/2020/machine-learning-pipeline.jpg" alt="Husky Machine Learning Pipeline"></a></p>
-<p>This overview of the ML pipeline will lead eventually help us build a data flow diagram (DFD) that we can use to identify threats and attacks later on:</p>
-<p>These are the individual parts involved:</p>
+<p>This overview of the machine learning pipeline will eventually help us build a data flow diagram (DFD) that we use to identify threats and attacks later on.</p>
+<p>Let&rsquo;s briefly describe the main parts of the ML pipeline of the &ldquo;Husky AI&rdquo; service:</p>
 <ol>
 <li><strong>Collecting training and validation images:</strong> The process starts with gathering images. These are pictures of huskies and random other pictures.</li>
 <li><strong>Pre-Processing:</strong> The images go through some pre-processing steps (this includes data cleansing, rescaling, labeling, storing,..)</li>
@@ -146,8 +146,8 @@
 <li><strong>End user runs predictions:</strong> A user can invoke the REST API to upload an image and get a prediction</li>
 <li><strong>(Online Feedback Loop)</strong>: Not visible in the image, because Husky AI does not do that. Production systems typically collect user data and feed it back into the pipeline (Step 1) - this turns the pipeline into an &ldquo;AI lifecycle&rdquo;.</li>
 </ol>
-<p>That&rsquo;s it. Those are the big conceptual pieces of a machine learning pipeline.</p>
-<p>The <a href="/blog/posts/2020/husky-ai-building-the-machine-learning-model/">next post</a> covers technical details on how the Husky AI machine learning model was built and trained.</p>
+<p>That&rsquo;s it. Those are the core pieces of a machine learning pipeline.</p>
+<p>In <a href="/blog/posts/2020/husky-ai-building-the-machine-learning-model/">next post</a> we cover the technical details on how the Husky AI machine learning model was built and trained.</p>
 <p>Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
 
   </section>

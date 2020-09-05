@@ -33,17 +33,17 @@ In the next few posts I will describe how I built and operationalized "Husky AI"
 
 Let's get started with an overview of the machine learning pipeline. This will already highlight many of the moving pieces that can be attacked!
 
-# Part 1 - Machine Learning Pipeline{#part1}
+# Part 1 - The Machine learning pipeline{#part1}
 
 I assume that the reader is familiar with security and pen testing, but less so with machine learning.
 
-The following images shows the big components and stages of the pipeline:
+The following image shows the main components of the machine learning pipeline:
 
 [![Husky Machine Learning Pipeline](/blog/images/2020/machine-learning-pipeline.jpg)](/blog/images/2020/machine-learning-pipeline.jpg)
 
-This overview of the ML pipeline will lead eventually help us build a data flow diagram (DFD) that we can use to identify threats and attacks later on:
+This overview of the machine learning pipeline will eventually help us build a data flow diagram (DFD) that we use to identify threats and attacks later on.
 
-These are the individual parts involved:
+Let's briefly describe the main parts of the ML pipeline of the "Husky AI" service:
 
 1. **Collecting training and validation images:** The process starts with gathering images. These are pictures of huskies and random other pictures.
 2. **Pre-Processing:** The images go through some pre-processing steps (this includes data cleansing, rescaling, labeling, storing,..)
@@ -56,9 +56,10 @@ These are the individual parts involved:
 9. **End user runs predictions:** A user can invoke the REST API to upload an image and get a prediction
 10. **(Online Feedback Loop)**: Not visible in the image, because Husky AI does not do that. Production systems typically collect user data and feed it back into the pipeline (Step 1) - this turns the pipeline into an "AI lifecycle". 
  
-That's it. Those are the big conceptual pieces of a machine learning pipeline. 
 
-The [next post](/blog/posts/2020/husky-ai-building-the-machine-learning-model/) covers technical details on how the Husky AI machine learning model was built and trained.
+That's it. Those are the core pieces of a machine learning pipeline. 
+
+In [next post](/blog/posts/2020/husky-ai-building-the-machine-learning-model/) we cover the technical details on how the Husky AI machine learning model was built and trained.
 
 
 Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)

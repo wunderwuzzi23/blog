@@ -8,14 +8,14 @@ tags: [
     ]
 ---
 
-This post is part of a series about machine learning and artificial intelligence. Click on the blog tag "huskyai" to see all the posts.
+This post is part of a series about machine learning and artificial intelligence. 
 
 In the [previous post](/blog/posts/2020/husky-ai-building-the-machine-learning-model/) we walked through the steps required to gather training data, build and test a model.
 
-In this post we dive into "Operationalizing" a model. The scenario is the creation of Husky AI and my experiences and learnings from that.
+In this post we dive into "Operationalizing" the model. The scenario is the creation of Husky AI and my experiences and learnings from that.
 
 
-# Part 3 - Operationalizing the system{#part3}
+# Part 3 - Operationalizing the Husky AI model{#part3}
 
 This actually took much longer than planned. 
 
@@ -42,7 +42,7 @@ An important part for an attacker to be aware is that the code is loading the mo
 MODEL = tf.keras.models.load_model("models/huskymodel.h5")
 ```
 
-For backdooring, we only have to update that file with something malicious. There is no authenticity or integrity checking. We will look at this more in the threat model and attack posts.
+**Attack idea:** For backdooring, we will only have to update that file with something malicious. There is no authenticity or integrity checking. We will look at this more in the threat model and attack posts.
 
 ### Processing the incoming image
 
@@ -69,9 +69,9 @@ The final `score` is then returned to the client as part of JSON message.
 
 ### Privacy considerations
 
-As you can see in the code above, images are not stored on the hard drive. They are used in memory to get the prediction. The uploaded images are also not used to retrain the model on the fly. This is in order to be considered about privacy concerns of end users.
+As you can see in the code above, images are not stored on the hard drive. They are used in memory to get the prediction. The uploaded images are also not used to retrain the model on the fly. This is in order to be considered about privacy concerns of end users. 
 
-That is it for this post. In the next post we will dive into the details of building a threat model for the AI system.
+That's it for this post.
 
 
 ## What's next?
