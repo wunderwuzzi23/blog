@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://embracethered.com/blog/posts/2020/husky-ai-threat-modeling-machine-learning/</loc>
-    <lastmod>2020-09-05T14:04:33-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/tags/huskyai/</loc>
     <lastmod>2020-09-05T14:04:33-07:00</lastmod>
   </url>
@@ -24,6 +19,11 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2020-09-05T14:04:33-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2020/husky-ai-threat-modeling-machine-learning/</loc>
     <lastmod>2020-09-05T14:04:33-07:00</lastmod>
   </url>
   

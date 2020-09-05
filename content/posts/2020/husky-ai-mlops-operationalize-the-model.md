@@ -1,5 +1,5 @@
 ---
-title: "Husky AI: MLOps - Operationalizing the model"
+title: "MLOps - Operationalizing the machine learning model"
 date: 2020-09-05T8:00:14-07:00
 draft: true
 tags: [

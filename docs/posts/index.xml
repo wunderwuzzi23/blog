@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>Husky AI: Threat modeling a machine learning system</title>
+      <title>Threat modeling a machine learning system</title>
       <link>https://embracethered.com/blog/posts/2020/husky-ai-threat-modeling-machine-learning/</link>
       <pubDate>Sat, 05 Sep 2020 14:04:33 -0700</pubDate>
       
@@ -24,7 +24,7 @@ This post is all about threat modeling the system to identify scenarios for atta
     </item>
     
     <item>
-      <title>Husky AI: MLOps - Operationalizing the model</title>
+      <title>MLOps - Operationalizing the machine learning model</title>
       <link>https://embracethered.com/blog/posts/2020/husky-ai-mlops-operationalize-the-model/</link>
       <pubDate>Sat, 05 Sep 2020 08:00:14 -0700</pubDate>
       

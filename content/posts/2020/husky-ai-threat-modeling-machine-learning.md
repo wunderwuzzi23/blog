@@ -1,5 +1,5 @@
 ---
-title: "Husky AI: Threat modeling a machine learning system"
+title: "Threat modeling a machine learning system"
 date: 2020-09-05T14:04:33-07:00
 draft: true
 tags: [
