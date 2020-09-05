@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Wed, 02 Sep 2020 12:04:29 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2020 12:04:29 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Husky AI: Building a machine learning system</title>
+      <link>https://embracethered.com/blog/posts/2020/husky-ai-building-the-machine-learning-model/</link>
+      <pubDate>Fri, 04 Sep 2020 12:04:29 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/husky-ai-building-the-machine-learning-model/</guid>
+      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see all the posts.
+In the previous post we described the overall machine learning pipeline.
+In this post, we dive into the technical details of building and training the machine learning model for Husky AI.
+After reading this you should have a good understanding around the technical steps involved in building a machine learning system.</description>
+    </item>
     
     <item>
       <title>The machine learning pipeline and attacks</title>

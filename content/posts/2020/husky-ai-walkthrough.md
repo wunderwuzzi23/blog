@@ -27,7 +27,7 @@ If you watched the show "Silicon Valley", you might find this quite funny.
 In the next few posts I will describe how I built and operationalized "Husky AI", which is a playground application I use to learn about machine learning and perform attacks.
 
 1. [**Machine Learning Pipeline**](/blog/posts/2020/husky-ai-walkthrough/) - High Level overview of the bits and pieces (this post)
-2. [**Building a machine learning model**](/blog/posts/2020/husky-ai-building-a-machine-learning-model/) - The steps involved in building Husky AI model and training it
+2. [**Building a machine learning model**](/blog/posts/2020/husky-ai-building-the-machine-learning-model/) - The steps involved in building Husky AI model and training it
 3. [**Operationalizing the model**](/blog/posts/2020/husky-ai-mlops-operationalize-the-model/) - how did I make the model invokable from a web site
 4. [**Threat Modeling the system**](/blog/posts/2020/husky-ai-walkthrough/) - Identifying threats and attacks, with a focus on the AI/ML threats
 
