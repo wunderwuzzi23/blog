@@ -118,9 +118,11 @@
 <h1 id="part4">Part 4 - Threat Modeling an AI system</h1>
 <p>There are quite a lot of moving pieces already in the &ldquo;Husky AI&rdquo; system that we built out.</p>
 <p>To get started with identifiying security issues in a systematic way, I typically create a high-level Threat Model diagram using Microsoft Threat Modeling tool (or just on a piece of paper at times too).</p>
+<p>The following is a picture the &ldquo;Husky AI&rdquo; threat model:</p>
 <p><a href="/blog/images/2020/husky-ai-machine-learning-threat-model.png"><img src="/blog/images/2020/husky-ai-machine-learning-threat-model.png" alt="Husky AI Threat Model"></a></p>
-<p>The threat modeling tool is quite thorough and it is common that engineers complain that it creates too much noise, and it takes too long to review. For instance, this threat model led to 96 threats that were automatically identified by the tool.</p>
-<p>By clicking on a component in the threat modeling tool, we can view the specific threats for that particular asset. For instance this is the view for the web server:</p>
+<p>There is a lot to unpack, but if you read the previous posts around building and operationaling an ML model the assets and their connections should make sense.</p>
+<p>The threat modeling tool automatically proposes threats and it is quite thorough. It is actually common that engineers complain that the tool creates too much noise, and it takes too long to review. For instance, this threat model led to 96 threats initially that were automatically identified by the tool.</p>
+<p>By clicking on a component in the threat modeling tool, we can view the specific threats for that particular asset. For example, this is the view for the web server:</p>
 <p><a href="/blog/images/2020/threatmodelingtool.jpg"><img src="/blog/images/2020/threatmodelingtool.jpg" alt="Threat Modeling Tool Example"></a></p>
 <p>Even though there is a large amount of threats, it is great because it highlights issues you might not think about, or not think about each time you perform threat modeling. However, it can be a bit of an overload, and threats are repetitive. There is really no requirement to use the tool - it&rsquo;s just there to help.</p>
 <p>When it comes to brainstorming and classifying threats, I use STRIDE. STRIDE is a threat classification technique <a href="https://en.wikipedia.org/wiki/STRIDE_(security)">developed by Microsoft</a>. It puts threats into the following categories:</p>
@@ -134,7 +136,7 @@
 </ol>
 <p>It is good approach to hold threat modeling sessions with engineers, those can be informal whiteboard sessions. Try to have at at least one threat in each category for every asset.</p>
 <p><strong>It is not uncommon to forget about repudiation issues</strong>.</p>
-<p><strong>Repudiation</strong> is the problem of someone denying an action. How can you proof or disproof someone indeed updated a machine learning model in production for instance?</p>
+<p><strong>Repudiation</strong> is the issue of someone denying that they performed a certain action. How can you proof or disproof someone indeed updated a machine learning model in production for instance?</p>
 <h3 id="perturbation-attacks">Perturbation Attacks</h3>
 <p>When it comes to machine learning specific attacks most of them can be easily mapped to STRIDE categories. The one I had issues with are attacks that &ldquo;query the model&rdquo;, so called <strong>perturbation attacks</strong>. For the purpose of the threat model, I decided that this is a &ldquo;spoofing&rdquo; issue. An adversary tries to trick the algorithm to misclassify an image.</p>
 <p>Now, let&rsquo;s review the core assets of the Husky AI system, and brainstorm about attacks and mitigations.</p>
@@ -166,7 +168,7 @@
 <p>This is a fairly good list with some interesting attack scenarios that we can research and perform.</p>
 <p>There are other ML specific attacks such as model inversion, membership inference which I might explore at a later point, possibly when upgrading Husky AI to provide a more complex categorical model. For more information on machine learning threats see <a href="https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning">Failure modes in machine learning</a> by Microsoft, as well as <a href="https://arxiv.org/pdf/1911.07658.pdf">Hacking Neural Networks - A short introduction</a> by Michael Kissner.</p>
 <h2 id="next-steps">Next steps</h2>
-<p>In the next post, we will do hands-on attacks against the exposed prediction API via brute forcing.</p>
+<p>In the next post, we will do hands-on attacks against the exposed prediction API via different brute force approaches.</p>
 <p>Now it will become interesting! <strong>Stay tuned.</strong></p>
 <p>Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
 <h2 id="appendix">Appendix</h2>

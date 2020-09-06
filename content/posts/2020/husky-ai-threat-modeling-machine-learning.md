@@ -20,11 +20,15 @@ There are quite a lot of moving pieces already in the "Husky AI" system that we 
 
 To get started with identifiying security issues in a systematic way, I typically create a high-level Threat Model diagram using Microsoft Threat Modeling tool (or just on a piece of paper at times too).
 
+The following is a picture the "Husky AI" threat model:
+
 [![Husky AI Threat Model](/blog/images/2020/husky-ai-machine-learning-threat-model.png)](/blog/images/2020/husky-ai-machine-learning-threat-model.png)
 
-The threat modeling tool is quite thorough and it is common that engineers complain that it creates too much noise, and it takes too long to review. For instance, this threat model led to 96 threats that were automatically identified by the tool. 
+There is a lot to unpack, but if you read the previous posts around building and operationaling an ML model the assets and their connections should make sense.
 
-By clicking on a component in the threat modeling tool, we can view the specific threats for that particular asset. For instance this is the view for the web server:
+The threat modeling tool automatically proposes threats and it is quite thorough. It is actually common that engineers complain that the tool creates too much noise, and it takes too long to review. For instance, this threat model led to 96 threats initially that were automatically identified by the tool. 
+
+By clicking on a component in the threat modeling tool, we can view the specific threats for that particular asset. For example, this is the view for the web server:
 
 [![Threat Modeling Tool Example](/blog/images/2020/threatmodelingtool.jpg)](/blog/images/2020/threatmodelingtool.jpg)
 
@@ -43,7 +47,7 @@ It is good approach to hold threat modeling sessions with engineers, those can b
 
 **It is not uncommon to forget about repudiation issues**. 
 
-**Repudiation** is the problem of someone denying an action. How can you proof or disproof someone indeed updated a machine learning model in production for instance?
+**Repudiation** is the issue of someone denying that they performed a certain action. How can you proof or disproof someone indeed updated a machine learning model in production for instance?
 
 ### Perturbation Attacks
 
@@ -90,7 +94,7 @@ There are other ML specific attacks such as model inversion, membership inferenc
 
 ## Next steps
 
-In the next post, we will do hands-on attacks against the exposed prediction API via brute forcing. 
+In the next post, we will do hands-on attacks against the exposed prediction API via different brute force approaches. 
 
 Now it will become interesting! **Stay tuned.**
 
