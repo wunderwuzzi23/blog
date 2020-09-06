@@ -1,6 +1,6 @@
 ---
 title: "Threat modeling a machine learning system"
-date: 2020-09-05T14:04:33-07:00
+date: 2020-09-06T00:00:00-07:00
 draft: true
 tags: [
         "machine learning",

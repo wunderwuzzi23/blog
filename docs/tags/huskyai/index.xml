@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Sat, 05 Sep 2020 14:04:33 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 06 Sep 2020 00:00:00 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/huskyai/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Threat modeling a machine learning system</title>
       <link>https://embracethered.com/blog/posts/2020/husky-ai-threat-modeling-machine-learning/</link>
-      <pubDate>Sat, 05 Sep 2020 14:04:33 -0700</pubDate>
+      <pubDate>Sun, 06 Sep 2020 00:00:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/husky-ai-threat-modeling-machine-learning/</guid>
       <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see all the posts, or visit the overview section.
