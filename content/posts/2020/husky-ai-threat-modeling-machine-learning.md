@@ -24,7 +24,7 @@ The following is a picture the "Husky AI" threat model:
 
 [![Husky AI Threat Model](/blog/images/2020/husky-ai-machine-learning-threat-model.png)](/blog/images/2020/husky-ai-machine-learning-threat-model.png)
 
-There is a lot to unpack, but if you read the previous posts around building and operationaling an ML model the assets and their connections should make sense.
+There is a lot to unpack, but if you read the previous posts around building and operationalizing a machine learning model the assets and their connections should make sense.
 
 The threat modeling tool automatically proposes threats and it is quite thorough. It is actually common that engineers complain that the tool creates too much noise, and it takes too long to review. For instance, this threat model led to 96 threats initially that were automatically identified by the tool. 
 
