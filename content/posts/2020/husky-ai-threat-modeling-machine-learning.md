@@ -244,4 +244,4 @@ This appendix contains the most significant threats identified and more insights
 * [STRIDE](https://en.wikipedia.org/wiki/STRIDE_(security))
 * [Husky AI Source Code](https://github.com/wunderwuzzi23/ai/)
 * [Hacking Neural Networks - A short introduction](https://arxiv.org/pdf/1911.07658.pdf)
-* [Failure modes in machine learning] (https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning)
+* [Failure modes in machine learning](https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning)

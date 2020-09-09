@@ -229,7 +229,7 @@ That's it for the first round of attacks. I hope you enjoyed reading and learnin
 
 ### Appendix 
 
-These are the core ML threats for Husky AI that were identified in the [threat modelng session](/blog/posts/2020/husky-ai-threat-modeling-machine-learning/) so far and that I want to research and build attacks for. 
+These are the core ML threats for Husky AI that were identified in the [threat modeling session](/blog/posts/2020/husky-ai-threat-modeling-machine-learning/) so far and that I want to research and build attacks for. 
 
 Links will be added when posts are completed over the next serveral weeks/months.
 
