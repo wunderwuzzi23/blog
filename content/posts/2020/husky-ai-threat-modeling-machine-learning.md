@@ -4,6 +4,7 @@ date: 2020-09-06T00:00:00-07:00
 draft: true
 tags: [
         "machine learning",
+        "threat modeling",
         "huskyai"
     ]
 ---
@@ -79,7 +80,8 @@ The full list of threats can be seen in the [Appendix](#appendix). For anything 
 
 The following is the list of threats that I want to build attacks for:
 
-1. Attacker brute forces images to find incorrect predictions/labels (dumb and smart ML fuzzing) - Perturbation
+1. Attacker brute forces images to find incorrect predictions/labels - Perturbation
+2. Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation
 2. Attacker gains read access to the model 
 3. Attacker modifies persisted model file (backdoor and re-train)
 4. Attacker denies modifying the model file

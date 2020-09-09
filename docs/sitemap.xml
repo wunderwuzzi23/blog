@@ -3,32 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/</loc>
+    <lastmod>2020-09-08T14:33:19-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/tags/huskyai/</loc>
-    <lastmod>2020-09-06T00:00:00-07:00</lastmod>
+    <lastmod>2020-09-08T14:33:19-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2020-09-06T00:00:00-07:00</lastmod>
+    <lastmod>2020-09-08T14:33:19-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2020-09-06T00:00:00-07:00</lastmod>
+    <lastmod>2020-09-08T14:33:19-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2020-09-08T14:33:19-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2020-09-08T14:33:19-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2020-09-08T14:33:19-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/threat-modeling/</loc>
     <lastmod>2020-09-06T00:00:00-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-threat-modeling-machine-learning/</loc>
-    <lastmod>2020-09-06T00:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/</loc>
     <lastmod>2020-09-06T00:00:00-07:00</lastmod>
   </url>
   
@@ -49,11 +64,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/2020/machine-learning-basics/</loc>
-    <lastmod>2020-09-01T18:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
     <lastmod>2020-09-01T18:00:00-07:00</lastmod>
   </url>
   

@@ -49,17 +49,13 @@ MODEL = tf.keras.models.load_model("models/huskymodel.h5")
 The core part logic on the server for running a prediction looks like this:
 
 ```
-    # read the image
-    image = imageio.imread(data)
-    image = cv2.resize(image, (num_px, num_px))
+    img = Image.open(io.BytesIO(data)).convert("RGB")
+    img = img.resize((num_px, num_px))
 
-    #convert to RGB (we are not considering alpha channel in the model)
-    image = cv2.cvtColor(image, cv2.COLOR_RGBA2RGB)
+    image = np.array(img)/255.
+    image = np.expand_dims(image, axis=0)
 
-    image = image/255.0   
-
-    img_np =  np.array(images)
-    result = MODEL.predict(img_np)[0]
+    result = MODEL.predict(image)
 
     score_percent = result[0]*100
     score = format(score_percent, '.2f')
