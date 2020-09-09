@@ -1,6 +1,6 @@
 ---
-title: "Husky AI - Attack Series: Brute forcing images to find incorrect predictions"
-date: 2020-09-08T14:33:19-07:00
+title: "Machine Learning Attack Series: Brute forcing images to find incorrect predictions"
+date: 2020-09-09T09:09:09-09:09
 draft: true
 tags: [
         "machine learning",
@@ -9,21 +9,25 @@ tags: [
     ]
 ---
 
-This post is part of a series about machine learning and artificial intelligence. Click on the blog tag "huskyai" to see all the related posts. 
+This post is part of a series about machine learning and artificial intelligence. Click on the blog tag "huskyai" to see related posts. 
 
-The [previous four posts](/blog/posts/2020/husky-ai-walkthrough/) explained the architecture and how Husky AI was built and deployed. Now it’s time to start with the attacks and threats identified during the threat modeling session.
+The [previous four posts](/blog/posts/2020/husky-ai-walkthrough/) explained the architecture and how Husky AI was built, threat modeled and deployed. Now it’s time to start the attacks and build mitigations. The [appendix](#appendix) in this post shows all the attacks I want to research and perform in this series over the next few weeks/months.
 
-## Brute forcing images to find incorrect predictions (Perturbation Attack)
+Let's dive into the attacks.
 
-The first attack I investigate is also referred to as **perturbation attack** throughout the literature I have been reading. It is like fuzzing (dumb or smart) to come up with malicious input that tricks a model. It is probably the first attack that one would think of (besides attacking the machine learning infrastructure).
+## Brute forcing images to find incorrect predictions
 
-[![Husky Prediction Example](/blog/images/2020/husky-prediction.jpg)](/blog/images/2020/husky-prediction.jpg)
+The first attack I investigated is also referred to as **perturbation attack** throughout the literature I have been reading. It is like fuzzing (dumb or smart) to come up with malicious input that tricks a model. It is probably the first attack that one would think of when faced to hack AI/ML - besides attacking the machine learning infrastructure.
 
 ### What are we testing?
 
-The target is Husky AI, which we have discussed in the previous posts. The operationalized Husky AI model is accessible over a REST API. If you are curious the code for the simple web server is located [here](https://github.com/wunderwuzzi23/ai/blob/master/huskyai/huskyai.py). 
+The target is Husky AI, which we have discussed in the previous posts. The operationalized Husky AI model is accessible over an HTTP endpoint. It's basically an image upload API, and it returns the prediction score. 
 
-To interact with the REST API I'm using the following code:
+[![Husky Prediction Example](/blog/images/2020/husky-prediction.jpg)](/blog/images/2020/husky-prediction.jpg)
+
+If you are curious the code for the simple web server is located [here](https://github.com/wunderwuzzi23/ai/blob/master/huskyai/huskyai.py). 
+
+To interact with the API I'm using the following code:
 
 ```
 ENDPOINT = "https://example.org/huskyai"
@@ -36,7 +40,7 @@ def predict(np_candidate):
     img.save(image_bytes, format="png")
     image_bytes = image_bytes.getvalue()
 
-    #call prediction REST API
+    #call prediction HTTPS API
     file = {
         "file": image_bytes,
         "Content-Type": "image/png"
@@ -50,18 +54,18 @@ def predict(np_candidate):
 
 1. The `predict` function takes a `numpy` array (a typical python data structure) and converts it to an `Image`.
 2. The input array comes in with values from `0-1`. Hence, we multiply all input values by `255` and convert to a `uint8` to ensure the random pixels all have values between 0 and 255.
-3. Afterward all the image is converted to `png`, and the resulting `image_bytes` are added to the POST request. 
-4. Finally, if all goes well, the web service returns a `JSON` response which we return. The response contains the prediction as a `float`.
+3. Afterwards the image is converted to `png`, and the resulting `image_bytes` are added to the `POST` request. 
+4. If all goes well, the web service returns a `JSON` response with the prediction as a `float`.
 
-That is all that is needed to invoke the REST API from Python.
+That is all that is needed to invoke the HTTP API from Python.
 
 ### Jupyter Notebook
 
 I'm using a Jupyter Notebook to run these attacks. Over the last couple of weeks, I really started liking the VS Code Python extension.
 
-The validation accuracy of the model was in the mid 80% range and querying the REST API works well with the Jupyter notebook. 
+The validation accuracy of the model was in the mid 80% range and querying the API works well with the Jupyter notebook. 
 
-Here are two examples of calls to the REST API:
+Here are two examples of calls to the API:
 1. A picture I took at a dog park identifies this dog as a husky:
 [![Husky Prediction](/blog/images/2020/result-huskyai.jpg)](/blog/images/2020/result-huskyai.jpg)
 2. The Shadowbunny scores low, not being classified as a husky:
@@ -76,7 +80,7 @@ When testing software to find bugs, a good strategy is testing boundary scenario
 
 The three test cases that seemed interesting initially were **all 0**, **all 1** and images with **random pixels**.
 
-Here is the code snippet I used to create these test images and run them through the exposed REST API:
+Here is the code snippet I used to create these test images and run them through the prediction web endpoint:
 
 ``` 
 candidate_rand  = np.random.random([1, NUM_PX, NUM_PX, 3])
@@ -136,8 +140,8 @@ It will be exciting to try more advanced attacks (includ ML based ones) after fi
 Now, let's discuss how to mitigate these issues, I had a couple of ad-hoc ideas:
 
 1. **Simple adversarial training:** My first thought is to make sure to add these test cases when training the model. This is called "adversarial training"
-2. **Throttle calls to the REST API:** Not all attacks are feasible if users are throttled when submitting images. Throttling will make successful attacks more difficult for some attackers. As red teamer I'd say its best to assume a motivated adversary has access to the model.
-3. **Interpret predictions slightly different:** - we could say an image is a husky when the prediction is 60%+ 
+2. **Throttle calls to the web server:** Not all attacks are feasible if users are throttled when submitting images. Throttling will make successful attacks more difficult for some attackers. As red teamer I'd say its best to assume a motivated adversary has access to the model.
+3. **Interpret predictions slightly different:** We could say an image is a husky when the prediction is 60%+ 
 4. **Improving the model in general:** The model's accuracy is in the mid 80% and a bit overfitted, so there is plenty of room for improvements.
 5. **Transfer Learning** The best "fix" however is probably to perform "Transfer Learning" and build on top of the shoulders of a more mature model. 
 
@@ -178,7 +182,7 @@ These number are still bad, so I trained for more epochs. Overfitting did not se
 
 #### Testing the mitigation (brute forcing images)
 
-To check I built this basic brute force script, which just creates a random pixel image and then runs it through the new model. *This test was done directly against the model, not over the REST API.*
+To check I built this basic brute force script, which just creates a random pixel image and then runs it through the new model. *This test was done directly against the model, not via the slower HTTPS image upload API.*
 
 ```
 ## Brute force experiment
@@ -207,13 +211,14 @@ for i in range(attempts):
         print("New best score: " + str(current_best_score))
 ```
 
-With the simple additional training it seems quite difficult to "guess" a husky picture now.
-I performed about 100000 tests and the highest score achieved via random pixels was about 30% now - still seems rather high honestly.
+With the additional training we performed, it seems quite difficult to "guess" a husky picture now.
+
+I performed about 100000 tests and the highest score achieved via random pixels was about 30% now - still a bit high so I should probably add a few more "random pixel" adversarial examples.
 
 
 ### API throttling and rate limiting
 
-Throttling the REST API is another good mitigation. I am using `nginx` as API gateway and `rate limiting` can be setup in the configuration file of the web site. [See more information on the nginx documentation for rate limiting](https://www.nginx.com/blog/rate-limiting-nginx/).
+Throttling the web server image upload API (which queries the model) is another good mitigation. I am using `nginx` as API gateway and `rate limiting` can be setup in the configuration file of the web site. [See more information on the nginx documentation for rate limiting](https://www.nginx.com/blog/rate-limiting-nginx/).
 
 
 ## Conclusion
@@ -224,13 +229,15 @@ That's it for the first round of attacks. I hope you enjoyed reading and learnin
 
 ### Appendix 
 
-These are the core ML threats for Husky AI that were identified in the threat modelng session and which will be researched. Links will be added when posts completed over the next serveral weeks/months.
+These are the core ML threats for Husky AI that were identified in the [threat modelng session](/blog/posts/2020/husky-ai-threat-modeling-machine-learning/) so far and that I want to research and build attacks for. 
 
-1. Attacker brute forces images to find incorrect predictions/labels - Perturbation
-2. Attacker applies smart ML fuzzing (generative adversarial models) to find incorrect predictions - Perturbation
-2. Attacker gains read access to the model 
-3. Attacker modifies persisted model file (backdoor and re-train)
-4. Attacker denies modifying the model file
-5. Attacker poisons the supply chain of third-party libraries
-6. Attacker tampers with images on disk to impact training performance
-7. Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)
+Links will be added when posts are completed over the next serveral weeks/months.
+
+1. Attacker brute forces images to find incorrect predictions/labels - Perturbation Attack  (this post)
+2. Attacker applies smart ML fuzzing (generative adversarial models) to find incorrect predictions - Perturbation Attack
+3. Attacker gains read access to the model - Exfiltration Attack
+4. Attacker modifies persisted model file - Backdooring Attack
+5. Attacker denies modifying the model file - Repudiation Attack
+6. Attacker poisons the supply chain of third-party libraries 
+7. Attacker tampers with images on disk to impact training performance
+8. Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)

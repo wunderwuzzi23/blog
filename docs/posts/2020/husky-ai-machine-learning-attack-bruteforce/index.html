@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Husky AI - Attack Series: Brute forcing images to find incorrect predictions &middot;  wunderwuzzi blog" />
+  <meta property="og:title" content=" Machine Learning Attack Series: Brute forcing images to find incorrect predictions &middot;  wunderwuzzi blog" />
   
   <meta property="og:site_name" content="wunderwuzzi blog" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/" />
@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2020-09-08T14:33:19-07:00" />
+  <meta property="og:article:published_time" content="2020-09-09T09:09:09-09:09" />
   
   <meta property="og:article:tag" content="machine learning" />
   
@@ -22,7 +22,7 @@
   
 
   <title>
-     Husky AI - Attack Series: Brute forcing images to find incorrect predictions &middot;  wunderwuzzi blog
+     Machine Learning Attack Series: Brute forcing images to find incorrect predictions &middot;  wunderwuzzi blog
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -94,13 +94,13 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Husky AI - Attack Series: Brute forcing images to find incorrect predictions</h1>
+    <h1 class="text-primary">Machine Learning Attack Series: Brute forcing images to find incorrect predictions</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2020-09-08T14:33:19-07:00">
-          Sep 8, 2020
+        <time datetime="2020-09-09T09:09:09-09:09">
+          Sep 9, 2020
         </time>
       </div>
     
@@ -116,14 +116,16 @@
     </div>
   </header>
   <section>
-    <p>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &ldquo;huskyai&rdquo; to see all the related posts.</p>
-<p>The <a href="/blog/posts/2020/husky-ai-walkthrough/">previous four posts</a> explained the architecture and how Husky AI was built and deployed. Now it’s time to start with the attacks and threats identified during the threat modeling session.</p>
-<h2 id="brute-forcing-images-to-find-incorrect-predictions-perturbation-attack">Brute forcing images to find incorrect predictions (Perturbation Attack)</h2>
-<p>The first attack I investigate is also referred to as <strong>perturbation attack</strong> throughout the literature I have been reading. It is like fuzzing (dumb or smart) to come up with malicious input that tricks a model. It is probably the first attack that one would think of (besides attacking the machine learning infrastructure).</p>
-<p><a href="/blog/images/2020/husky-prediction.jpg"><img src="/blog/images/2020/husky-prediction.jpg" alt="Husky Prediction Example"></a></p>
+    <p>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &ldquo;huskyai&rdquo; to see related posts.</p>
+<p>The <a href="/blog/posts/2020/husky-ai-walkthrough/">previous four posts</a> explained the architecture and how Husky AI was built, threat modeled and deployed. Now it’s time to start the attacks and build mitigations. The <a href="#appendix">appendix</a> in this post shows all the attacks I want to research and perform in this series over the next few weeks/months.</p>
+<p>Let&rsquo;s dive into the attacks.</p>
+<h2 id="brute-forcing-images-to-find-incorrect-predictions">Brute forcing images to find incorrect predictions</h2>
+<p>The first attack I investigated is also referred to as <strong>perturbation attack</strong> throughout the literature I have been reading. It is like fuzzing (dumb or smart) to come up with malicious input that tricks a model. It is probably the first attack that one would think of when faced to hack AI/ML - besides attacking the machine learning infrastructure.</p>
 <h3 id="what-are-we-testing">What are we testing?</h3>
-<p>The target is Husky AI, which we have discussed in the previous posts. The operationalized Husky AI model is accessible over a REST API. If you are curious the code for the simple web server is located <a href="https://github.com/wunderwuzzi23/ai/blob/master/huskyai/huskyai.py">here</a>.</p>
-<p>To interact with the REST API I&rsquo;m using the following code:</p>
+<p>The target is Husky AI, which we have discussed in the previous posts. The operationalized Husky AI model is accessible over an HTTP endpoint. It&rsquo;s basically an image upload API, and it returns the prediction score.</p>
+<p><a href="/blog/images/2020/husky-prediction.jpg"><img src="/blog/images/2020/husky-prediction.jpg" alt="Husky Prediction Example"></a></p>
+<p>If you are curious the code for the simple web server is located <a href="https://github.com/wunderwuzzi23/ai/blob/master/huskyai/huskyai.py">here</a>.</p>
+<p>To interact with the API I&rsquo;m using the following code:</p>
 <pre><code>ENDPOINT = &quot;https://example.org/huskyai&quot;
 
 def predict(np_candidate):
@@ -134,7 +136,7 @@ def predict(np_candidate):
     img.save(image_bytes, format=&quot;png&quot;)
     image_bytes = image_bytes.getvalue()
 
-    #call prediction REST API
+    #call prediction HTTPS API
     file = {
         &quot;file&quot;: image_bytes,
         &quot;Content-Type&quot;: &quot;image/png&quot;
@@ -146,14 +148,14 @@ def predict(np_candidate):
 <ol>
 <li>The <code>predict</code> function takes a <code>numpy</code> array (a typical python data structure) and converts it to an <code>Image</code>.</li>
 <li>The input array comes in with values from <code>0-1</code>. Hence, we multiply all input values by <code>255</code> and convert to a <code>uint8</code> to ensure the random pixels all have values between 0 and 255.</li>
-<li>Afterward all the image is converted to <code>png</code>, and the resulting <code>image_bytes</code> are added to the POST request.</li>
-<li>Finally, if all goes well, the web service returns a <code>JSON</code> response which we return. The response contains the prediction as a <code>float</code>.</li>
+<li>Afterwards the image is converted to <code>png</code>, and the resulting <code>image_bytes</code> are added to the <code>POST</code> request.</li>
+<li>If all goes well, the web service returns a <code>JSON</code> response with the prediction as a <code>float</code>.</li>
 </ol>
-<p>That is all that is needed to invoke the REST API from Python.</p>
+<p>That is all that is needed to invoke the HTTP API from Python.</p>
 <h3 id="jupyter-notebook">Jupyter Notebook</h3>
 <p>I&rsquo;m using a Jupyter Notebook to run these attacks. Over the last couple of weeks, I really started liking the VS Code Python extension.</p>
-<p>The validation accuracy of the model was in the mid 80% range and querying the REST API works well with the Jupyter notebook.</p>
-<p>Here are two examples of calls to the REST API:</p>
+<p>The validation accuracy of the model was in the mid 80% range and querying the API works well with the Jupyter notebook.</p>
+<p>Here are two examples of calls to the API:</p>
 <ol>
 <li>A picture I took at a dog park identifies this dog as a husky:
 <a href="/blog/images/2020/result-huskyai.jpg"><img src="/blog/images/2020/result-huskyai.jpg" alt="Husky Prediction"></a></li>
@@ -164,7 +166,7 @@ def predict(np_candidate):
 <h2 id="simple-test-cases">Simple test cases</h2>
 <p>When testing software to find bugs, a good strategy is testing boundary scenarios. Hence, I thought of doing the same in this case. With machine learning there are special tools and techniques available, such as adversarial learning models, Cleverhans and others which I want to research and look at later.</p>
 <p>The three test cases that seemed interesting initially were <strong>all 0</strong>, <strong>all 1</strong> and images with <strong>random pixels</strong>.</p>
-<p>Here is the code snippet I used to create these test images and run them through the exposed REST API:</p>
+<p>Here is the code snippet I used to create these test images and run them through the prediction web endpoint:</p>
 <pre><code>candidate_rand  = np.random.random([1, NUM_PX, NUM_PX, 3])
 candidate_zeros = np.zeros([1, NUM_PX, NUM_PX, 3])
 candidate_ones  = np.ones([1, NUM_PX, NUM_PX, 3])
@@ -189,17 +191,20 @@ print(&quot;Zeros Canvas:  &quot; + str(predict(candidate_zeros)))
 <p>It was quite unexpected that the pervious scenarios already broke the model.</p>
 <p>My initial plan was to create many random images in a loop until I get one that scores over 50%. However, this was not really needed. Also, for random images many are identified as husky. Look:</p>
 <p><a href="/blog/images/2020/adversarial-image3.jpg"><img src="/blog/images/2020/adversarial-image3.jpg" alt="Husky Adversarial Image 3"></a></p>
-<h2 id="key-take-away---perform-basic-unit-testing-for-models">Key take-away - perform basic &ldquo;unit&rdquo; testing for models</h2>
 <p>Quite surprising - did not assume that breaking this model would be that easy&hellip;</p>
-<p>It will be exciting to try more advanced attacks (includ ML based ones) after fixing these issues first.</p>
+<h2 id="take-away-from-the-attacks">Take-away from the attacks</h2>
+<p>The initial learning for me here is that having basic &ldquo;unit&rdquo; tests for models is a good idea.
+It will be exciting to try more advanced attacks (includ ML based ones) after fixing these issues first.</p>
 <h2 id="mitigations">Mitigations</h2>
-<p>To mitigate these, I had a couple of ad-hoc ideas:</p>
+<p>Now, let&rsquo;s discuss how to mitigate these issues, I had a couple of ad-hoc ideas:</p>
 <ol>
 <li><strong>Simple adversarial training:</strong> My first thought is to make sure to add these test cases when training the model. This is called &ldquo;adversarial training&rdquo;</li>
-<li><strong>Throttle calls to the REST API:</strong> Not all attacks are feasible if users are throttled when submitting images. Throttling will make successful attacks more difficult for some attackers. As red teamer I&rsquo;d say its best to assume a motivated adversary has access to the model.</li>
-<li><strong>Interpret predictions slightly different:</strong> - we could say an image is a husky when the prediction is 60%+</li>
-<li><strong>Transfer Learning:</strong> The better long-term approach however is likely to perform &ldquo;Transfer Learning&rdquo; with a more mature model. But the current results are quite interesting for my learning experience. So, I want to continue that route for now.</li>
+<li><strong>Throttle calls to the web server:</strong> Not all attacks are feasible if users are throttled when submitting images. Throttling will make successful attacks more difficult for some attackers. As red teamer I&rsquo;d say its best to assume a motivated adversary has access to the model.</li>
+<li><strong>Interpret predictions slightly different:</strong> We could say an image is a husky when the prediction is 60%+</li>
+<li><strong>Improving the model in general:</strong> The model&rsquo;s accuracy is in the mid 80% and a bit overfitted, so there is plenty of room for improvements.</li>
+<li><strong>Transfer Learning</strong> The best &ldquo;fix&rdquo; however is probably to perform &ldquo;Transfer Learning&rdquo; and build on top of the shoulders of a more mature model.</li>
 </ol>
+<p>The results so far are quite interesting for my learning experience. So, I want to continue that route for now.</p>
 <p>Let&rsquo;s look how I trained the model for these adversarial images:</p>
 <h3 id="adversarial-training">Adversarial training</h3>
 <p>The simple mitigation seems to be to train the model on these corner cases and teach the model that such images are not huskies.</p>
@@ -221,7 +226,7 @@ Zeros Canvas:  [[7.170946e-05]]
 Ones Canvas:   [[0.5275204]]
 </code></pre><p>These number are still bad, so I trained for more epochs. Overfitting did not seem to be a concern as these images are far off real huskies. I think it would further improve the model to cycle the random pixels for each epoch even.</p>
 <h4 id="testing-the-mitigation-brute-forcing-images">Testing the mitigation (brute forcing images)</h4>
-<p>To check I built this basic brute force script, which just creates a random pixel image and then runs it through the new model. <em>This test was done directly against the model, not over the REST API.</em></p>
+<p>To check I built this basic brute force script, which just creates a random pixel image and then runs it through the new model. <em>This test was done directly against the model, not via the slower HTTPS image upload API.</em></p>
 <pre><code>## Brute force experiment
 ## Is it now feasible now to guess a random husky via brute force?
 attempts = 100000
@@ -246,20 +251,21 @@ for i in range(attempts):
     if score &gt; current_best_score: 
         current_best_score = score
         print(&quot;New best score: &quot; + str(current_best_score))
-</code></pre><p>With the simple additional training it seems quite difficult to &ldquo;guess&rdquo; a husky picture now.
-I performed about 100000 tests and the highest score achieved via random pixels was about 30% now - still seems rather high honestly.</p>
-<h3 id="api-throttling">API throttling</h3>
-<p>Throttling the REST API is another good mitigation. I am using <code>nginx</code> as API gateway and <code>rate limiting</code> can be setup in the configuration file of the web site. <a href="https://www.nginx.com/blog/rate-limiting-nginx/">See more information on the nginx documentation for rate limiting</a>.</p>
+</code></pre><p>With the additional training we performed, it seems quite difficult to &ldquo;guess&rdquo; a husky picture now.</p>
+<p>I performed about 100000 tests and the highest score achieved via random pixels was about 30% now - still a bit high so I should probably add a few more &ldquo;random pixel&rdquo; adversarial examples.</p>
+<h3 id="api-throttling-and-rate-limiting">API throttling and rate limiting</h3>
+<p>Throttling the web server image upload API (which queries the model) is another good mitigation. I am using <code>nginx</code> as API gateway and <code>rate limiting</code> can be setup in the configuration file of the web site. <a href="https://www.nginx.com/blog/rate-limiting-nginx/">See more information on the nginx documentation for rate limiting</a>.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>That&rsquo;s it for the first round of attacks. I hope you enjoy reading and learning about this as much as I do. I learned a lot already and am eager to dive learning smarter ways of coming up with malicious/adversarial examples.</p>
+<p>That&rsquo;s it for the first round of attacks. I hope you enjoyed reading and learning about this as much as I do. I learned a lot already and am eager to dive learning smarter ways of coming up with malicious/adversarial examples.</p>
 <h3 id="appendix">Appendix</h3>
-<p>These are the core ML threats for Husky AI that were identified in the threat modelng session and which will be researched. Links will be added when posts completed over the next serveral weeks/months.</p>
+<p>These are the core ML threats for Husky AI that were identified in the <a href="/blog/posts/2020/husky-ai-threat-modeling-machine-learning/">threat modelng session</a> so far and that I want to research and build attacks for.</p>
+<p>Links will be added when posts are completed over the next serveral weeks/months.</p>
 <ol>
-<li>Attacker brute forces images to find incorrect predictions/labels - Perturbation</li>
-<li>Attacker applies smart ML fuzzing (generative adversarial models) to find incorrect predictions - Perturbation</li>
-<li>Attacker gains read access to the model</li>
-<li>Attacker modifies persisted model file (backdoor and re-train)</li>
-<li>Attacker denies modifying the model file</li>
+<li>Attacker brute forces images to find incorrect predictions/labels - Perturbation Attack  (this post)</li>
+<li>Attacker applies smart ML fuzzing (generative adversarial models) to find incorrect predictions - Perturbation Attack</li>
+<li>Attacker gains read access to the model - Exfiltration Attack</li>
+<li>Attacker modifies persisted model file - Backdooring Attack</li>
+<li>Attacker denies modifying the model file - Repudiation Attack</li>
 <li>Attacker poisons the supply chain of third-party libraries</li>
 <li>Attacker tampers with images on disk to impact training performance</li>
 <li>Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)</li>
@@ -274,7 +280,7 @@ I performed about 100000 tests and the highest score achieved via random pixels 
     
     <ul class="pager">
       
-      <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">
@@ -286,7 +292,7 @@ I performed about 100000 tests and the highest score achieved via random pixels 
 
       
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/husky-ai-threat-modeling-machine-learning/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/husky-ai-threat-modeling-machine-learning/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>

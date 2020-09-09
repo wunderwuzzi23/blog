@@ -142,8 +142,8 @@
 <li><strong>Evaluation:</strong> After a training (even during) measure performance of the model (e.g. accuracy)</li>
 <li><strong>Improve the model:</strong> If performance is not met, update the model (e.g. trying different algorithms, learning rates, neural network layouts,&hellip;) and start training again</li>
 <li><strong>Deployment:</strong> If the performance of the model looks good, deploy to production</li>
-<li><strong>Operationalization:</strong> Make the model available for usage via REST API. In my production deployment there is an API gateway which routes traffic to the Husky AI web server. The REST endpoint then calls into the model give predictions for uploaded images</li>
-<li><strong>End user runs predictions:</strong> A user can invoke the REST API to upload an image and get a prediction</li>
+<li><strong>Operationalization:</strong> Make the model available for usage via an HTTP API. In my production deployment there is an API gateway which routes traffic to the Husky AI web server. The API endpoint then calls into the model give predictions for uploaded images</li>
+<li><strong>End user runs predictions:</strong> A user can invoke the public API to upload an image and get a prediction</li>
 <li><strong>(Online Feedback Loop)</strong>: Not visible in the image, because Husky AI does not do that. Production systems typically collect user data and feed it back into the pipeline (Step 1) - this turns the pipeline into an &ldquo;AI lifecycle&rdquo;.</li>
 </ol>
 <p>That&rsquo;s it. Those are the core pieces of a machine learning pipeline.</p>
@@ -159,7 +159,7 @@
     
     <ul class="pager">
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/husky-ai-building-the-machine-learning-model/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/husky-ai-building-the-machine-learning-model/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">
@@ -171,7 +171,7 @@
 
       
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/machine-learning-basics/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/machine-learning-basics/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>

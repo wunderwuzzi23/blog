@@ -52,8 +52,8 @@ Let's briefly describe the main parts of the ML pipeline of the "Husky AI" servi
 5. **Evaluation:** After a training (even during) measure performance of the model (e.g. accuracy)
 6. **Improve the model:** If performance is not met, update the model (e.g. trying different algorithms, learning rates, neural network layouts,...) and start training again
 7. **Deployment:** If the performance of the model looks good, deploy to production
-8. **Operationalization:** Make the model available for usage via REST API. In my production deployment there is an API gateway which routes traffic to the Husky AI web server. The REST endpoint then calls into the model give predictions for uploaded images
-9. **End user runs predictions:** A user can invoke the REST API to upload an image and get a prediction
+8. **Operationalization:** Make the model available for usage via an HTTP API. In my production deployment there is an API gateway which routes traffic to the Husky AI web server. The API endpoint then calls into the model give predictions for uploaded images
+9. **End user runs predictions:** A user can invoke the public API to upload an image and get a prediction
 10. **(Online Feedback Loop)**: Not visible in the image, because Husky AI does not do that. Production systems typically collect user data and feed it back into the pipeline (Step 1) - this turns the pipeline into an "AI lifecycle". 
  
 

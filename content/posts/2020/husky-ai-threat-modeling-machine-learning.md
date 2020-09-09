@@ -65,7 +65,7 @@ Threats and mitigations are a moving target, something that was considered mitig
 Let's look through the main assets:
 
 * Training, Validation Images
-* Public facing REST API
+* Public facing HTTP APIs
 * Stored Machine Learning Model
 * Jupyter Notebook
 * Bing API Key
@@ -80,14 +80,14 @@ The full list of threats can be seen in the [Appendix](#appendix). For anything 
 
 The following is the list of threats that I want to build attacks for:
 
-1. Attacker brute forces images to find incorrect predictions/labels - Perturbation
-2. Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation
-2. Attacker gains read access to the model 
-3. Attacker modifies persisted model file (backdoor and re-train)
-4. Attacker denies modifying the model file
-5. Attacker poisons the supply chain of third-party libraries
-6. Attacker tampers with images on disk to impact training performance
-7. Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)
+1. Attacker brute forces images to find incorrect predictions/labels - Perturbation Attack  (this post)
+2. Attacker applies smart ML fuzzing (generative adversarial models) to find incorrect predictions - Perturbation Attack
+3. Attacker gains read access to the model - Exfiltration Attack
+4. Attacker modifies persisted model file - Backdooring Attack
+5. Attacker denies modifying the model file - Repudiation Attack
+6. Attacker poisons the supply chain of third-party libraries 
+7. Attacker tampers with images on disk to impact training performance
+8. Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)
 
 This is a fairly good list with some interesting attack scenarios that we can research and perform. 
 
@@ -178,7 +178,7 @@ This appendix contains the most significant threats identified and more insights
 * **Red Team Opportunity:** Red Team to perform model tampering attacks (backdoor or retrain model)
 
 
-### **Public facing REST API**
+### **Public facing HTTP APIs**
 
 #### **Threat:** Attacker bruteforces images to find images that are incorrectly labeled as husky
 * **Category:** Tampering (Perturbation)

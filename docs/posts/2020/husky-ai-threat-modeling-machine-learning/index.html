@@ -150,7 +150,7 @@
 <p>Let&rsquo;s look through the main assets:</p>
 <ul>
 <li>Training, Validation Images</li>
-<li>Public facing REST API</li>
+<li>Public facing HTTP APIs</li>
 <li>Stored Machine Learning Model</li>
 <li>Jupyter Notebook</li>
 <li>Bing API Key</li>
@@ -161,11 +161,11 @@
 <h2 id="identified-machine-learning-threats">Identified machine learning threats</h2>
 <p>The following is the list of threats that I want to build attacks for:</p>
 <ol>
-<li>Attacker brute forces images to find incorrect predictions/labels - Perturbation</li>
-<li>Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation</li>
-<li>Attacker gains read access to the model</li>
-<li>Attacker modifies persisted model file (backdoor and re-train)</li>
-<li>Attacker denies modifying the model file</li>
+<li>Attacker brute forces images to find incorrect predictions/labels - Perturbation Attack  (this post)</li>
+<li>Attacker applies smart ML fuzzing (generative adversarial models) to find incorrect predictions - Perturbation Attack</li>
+<li>Attacker gains read access to the model - Exfiltration Attack</li>
+<li>Attacker modifies persisted model file - Backdooring Attack</li>
+<li>Attacker denies modifying the model file - Repudiation Attack</li>
 <li>Attacker poisons the supply chain of third-party libraries</li>
 <li>Attacker tampers with images on disk to impact training performance</li>
 <li>Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)</li>
@@ -251,7 +251,7 @@
 <li><strong>Mitigation:</strong>  Weak mitigation.</li>
 <li><strong>Red Team Opportunity:</strong> Red Team to perform model tampering attacks (backdoor or retrain model)</li>
 </ul>
-<h3 id="public-facing-rest-api"><strong>Public facing REST API</strong></h3>
+<h3 id="public-facing-http-apis"><strong>Public facing HTTP APIs</strong></h3>
 <h4 id="threat-attacker-bruteforces-images-to-find-images-that-are-incorrectly-labeled-as-husky"><strong>Threat:</strong> Attacker bruteforces images to find images that are incorrectly labeled as husky</h4>
 <ul>
 <li><strong>Category:</strong> Tampering (Perturbation)</li>
@@ -334,7 +334,7 @@
     
     <ul class="pager">
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">
@@ -346,7 +346,7 @@
 
       
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/husky-ai-mlops-operationalize-the-model/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/husky-ai-mlops-operationalize-the-model/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>

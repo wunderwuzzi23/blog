@@ -2,11 +2,11 @@
   {{ if or .HasPrev .HasNext }}
   <hr />
 {{ end }}
-{{if .HasPrev}}
+{{if .HasNext}}
 <a class="newer-posts" href="{{ .Next.URL }}"><span aria-hidden="true">&laquo;</span> Newer Posts</a>
 {{end}}
   <span class="page-number">Page {{ .PageNumber }} of {{.TotalPages}}</span>
-{{if .HasNext}}
+{{if .HasPrev}}
 <a class="older-posts" href="{{ .Prev.URL }}">Older Posts <span aria-hidden="true">&raquo;</span></a>
 {{end}}
 </nav>
