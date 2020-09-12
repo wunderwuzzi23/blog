@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Wed, 09 Sep 2020 09:09:09 -0909</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2020 09:04:09 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Machine Learning Attack Series: Smart brute forcing</title>
+      <link>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/</link>
+      <pubDate>Sat, 12 Sep 2020 09:04:09 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/</guid>
+      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.
+ Overview: How Husky AI was built, threat modeled and operationalized Attacks: The attacks I want to investigate, learn about, and try out  The previous post covered some basic tests and brute forcing which had surprisingly good results. Then mitigations were put in place for the attacks.</description>
+    </item>
     
     <item>
       <title>Machine Learning Attack Series: Brute forcing images to find incorrect predictions</title>
