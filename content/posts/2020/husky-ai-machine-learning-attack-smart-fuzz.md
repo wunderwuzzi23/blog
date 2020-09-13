@@ -332,4 +332,6 @@ client_max_body_size 10M;
 [Hacking Neural Networks: A short introduction](https://github.com/Kayzaks/HackingNeuralNetworks) - Michael Kissner
 
 
+## Mascot :)
+
 ![Husky](/blog/images/2020/uwhusky-small.jpg)

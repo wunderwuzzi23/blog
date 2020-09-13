@@ -143,7 +143,7 @@ Now, let's discuss how to mitigate these issues, I had a couple of ad-hoc ideas:
 2. **Throttle calls to the web server:** Not all attacks are feasible if users are throttled when submitting images. Throttling will make successful attacks more difficult for some attackers. As red teamer I'd say its best to assume a motivated adversary has access to the model.
 3. **Interpret predictions slightly different:** We could say an image is a husky when the prediction is 60%+ 
 4. **Improving the model in general:** The model's accuracy is in the mid 80% and a bit overfitted, so there is plenty of room for improvements.
-5. **Transfer Learning** The best "fix" however is probably to perform "Transfer Learning" and build on top of the shoulders of a more mature model. 
+5. **Transfer Learning** A good improvement accuracy wise will be to use "Transfer Learning" and build on top of the shoulders of a more mature model. 
 
 The results so far are quite interesting for my learning experience. So, I want to continue that route for now. 
 
@@ -234,7 +234,7 @@ These are the core ML threats for Husky AI that were identified in the [threat m
 Links will be added when posts are completed over the next serveral weeks/months.
 
 1. **Attacker brute forces images to find incorrect predictions/labels - Perturbation Attack  (this post)**
-2. Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation Attack
+2. [Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/) 
 3. Attacker gains read access to the model - Exfiltration Attack
 4. Attacker modifies persisted model file - Backdooring Attack
 5. Attacker denies modifying the model file - Repudiation Attack

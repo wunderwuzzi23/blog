@@ -202,7 +202,7 @@ It will be exciting to try more advanced attacks (includ ML based ones) after fi
 <li><strong>Throttle calls to the web server:</strong> Not all attacks are feasible if users are throttled when submitting images. Throttling will make successful attacks more difficult for some attackers. As red teamer I&rsquo;d say its best to assume a motivated adversary has access to the model.</li>
 <li><strong>Interpret predictions slightly different:</strong> We could say an image is a husky when the prediction is 60%+</li>
 <li><strong>Improving the model in general:</strong> The model&rsquo;s accuracy is in the mid 80% and a bit overfitted, so there is plenty of room for improvements.</li>
-<li><strong>Transfer Learning</strong> The best &ldquo;fix&rdquo; however is probably to perform &ldquo;Transfer Learning&rdquo; and build on top of the shoulders of a more mature model.</li>
+<li><strong>Transfer Learning</strong> A good improvement accuracy wise will be to use &ldquo;Transfer Learning&rdquo; and build on top of the shoulders of a more mature model.</li>
 </ol>
 <p>The results so far are quite interesting for my learning experience. So, I want to continue that route for now.</p>
 <p>Let&rsquo;s look how I trained the model for these adversarial images:</p>
@@ -262,7 +262,7 @@ for i in range(attempts):
 <p>Links will be added when posts are completed over the next serveral weeks/months.</p>
 <ol>
 <li><strong>Attacker brute forces images to find incorrect predictions/labels - Perturbation Attack  (this post)</strong></li>
-<li>Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation Attack</li>
+<li><a href="/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/">Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation Attack</a></li>
 <li>Attacker gains read access to the model - Exfiltration Attack</li>
 <li>Attacker modifies persisted model file - Backdooring Attack</li>
 <li>Attacker denies modifying the model file - Repudiation Attack</li>
