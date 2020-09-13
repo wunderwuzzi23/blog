@@ -122,7 +122,7 @@
 <li><a href="#appendix">Attacks</a>: The attacks I want to investigate, learn about, and try out</li>
 </ul>
 <p>The previous post covered basic tests to trick the image recognition model. This included generating &ldquo;bad&rdquo; images with solid colors or entire random pixels.</p>
-<p>The mitigations we have in plac now are:</p>
+<p>The mitigations now in place are:</p>
 <ol>
 <li>Training the model with the &ldquo;bad&rdquo; images to make it more resilient.</li>
 <li>On the operational side, we added <code>rate limiting</code> to the external facing API to make things <em>a little bit more interesting/challenging</em> for an attacker.</li>
@@ -148,7 +148,7 @@ print(&quot;Random Image: &quot; + predict(candidate_rand)[&quot;score&quot;])
 <p>However, even that still hit the API rate limit as we will soon see.</p>
 <h3 id="test-case-1-simple-brute-force-to-find-a-good-base-image"><strong>Test Case 1:</strong> Simple brute force to find a good &ldquo;base&rdquo; image</h3>
 <p>The first step is to run a brute force with random pixels and store the best result in <code>best_bruteforce_image</code>. Due to being throttled the attack starts with only 10 attempts.</p>
-<p>Here is the code:</p>
+<p>Here are the main lines of code I used:</p>
 <pre><code>attempts = 10
 current_best_score = 1e-100
 best_bruteforce_image = 0
@@ -178,11 +178,11 @@ New best score: 0.19212896
 New best score: 0.23637468
 </code></pre><p>Here is the best image so far:</p>
 <p><img src="/blog/images/2020/ml-fuzzing-attack-smart1.jpg" alt="Test 1 Husky AIML Hacking Test"></p>
-<p>Looks pretty random, maybe running more iterations can increase the <code>best_bruteforce_image</code> score.</p>
+<p>Maybe running more iterations can increase the <code>best_bruteforce_image</code> score.</p>
 <h3 id="rate-limiting-kicking-in---very-annoying">Rate limiting kicking in - very annoying</h3>
-<p>After calling the <code>predict</code> API frequently rate limiting of the web server started kicking in.</p>
-<pre><code>503 Service Temporarily Unavailable&quot;
-</code></pre><p>Eventually it happened very frequently, and I had to add <code>sleep</code> commands to slow down the attack rate. This slows down testing from a single IP address - quite annoying.</p>
+<p>After calling the <code>predict</code> API again a few times rate limiting of the web server started kicking in.</p>
+<pre><code>503 Service Temporarily Unavailable
+</code></pre><p>Eventually it happened very frequently. I added <code>sleep</code> commands to slow down the attack rate - quite annoying.</p>
 <p>No chance to run 100000 tests in rapid succession anymore.</p>
 <p>However, be aware that a motivated attacker might come from many different IP addresses, so throttling has its limitations (especially on an unauthenticated endpoint). It however does increase cost and complexity for an adversary.</p>
 <p>More info on configuration settings in the <a href="#appendix">appendix</a>.</p>
@@ -196,7 +196,6 @@ def probe_range(min, max, step):
     current_best_score = 1e-100
     best_candidate_image = 0
 
- 
     for n in range(min, max, step):
     
         #try both adding and subtracting the range from the base image
@@ -229,7 +228,7 @@ plt.imshow(best_smart_bruteforce_image)
 <pre><code>New best score: 0.40285298
 New best score: 0.4952831
 New best score: 0.4988353
-</code></pre><p>These numbers look promising already. Just by updating pixels and slightly playing with the color intensity of the <code>base_image</code>.</p>
+</code></pre><p>These numbers look promising already. Just updating pixels and slightly playing with the color intensity of the <code>base_image</code>.</p>
 <p>This is how the best scoring image looks:</p>
 <p><img src="/blog/images/2020/ml-fuzzing-attack-smart2.jpg" alt="Test 2 Husky AIML Hacking Test"></p>
 <p>At this point I was wondering if there even better was of doing this.</p>
@@ -269,8 +268,8 @@ def probe_norm_range(min, max, steps):
 
 best_smarter_bruteforce_image, best_score = probe_norm_range(0,256,25)
 print(best_score)
-</code></pre><p>In case you wonder why we always divide numbers by 255, that is to have the pixels have values between 0-1. In machine learning we like to work with numbers between 0 and 1.</p>
-<p>The results of this technique are cool, as they break the model again:</p>
+</code></pre><p>In case you wonder why there is always a division by 255, that is to have the pixels have values between 0-1. Mmachine learning prefers to work with numbers between 0 and 1.</p>
+<p>The results of this technique are cool. They break the model again:</p>
 <pre><code>New best score: 0.23516122
 New best score: 0.35612822
 Found a random husky. Score: 0.6366884
@@ -333,6 +332,7 @@ limit_conn addr 5;
 client_max_body_size 10M;
 </code></pre><h2 id="references">References</h2>
 <p><a href="https://github.com/Kayzaks/HackingNeuralNetworks">Hacking Neural Networks: A short introduction</a> - Michael Kissner</p>
+<p><img src="/blog/images/2020/uwhusky-small.jpg" alt="Husky"></p>
 
   </section>
   <footer>

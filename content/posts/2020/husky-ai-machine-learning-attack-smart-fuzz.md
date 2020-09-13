@@ -16,7 +16,7 @@ This post is part of a series about machine learning and artificial intelligence
 
 The previous post covered basic tests to trick the image recognition model. This included generating "bad" images with solid colors or entire random pixels. 
 
-The mitigations we have in plac now are:
+The mitigations now in place are:
 1. Training the model with the "bad" images to make it more resilient. 
 2. On the operational side, we added `rate limiting` to the external facing API to make things *a little bit more interesting/challenging* for an attacker.
 
@@ -57,7 +57,7 @@ However, even that still hit the API rate limit as we will soon see.
 
 The first step is to run a brute force with random pixels and store the best result in `best_bruteforce_image`. Due to being throttled the attack starts with only 10 attempts.
 
-Here is the code:
+Here are the main lines of code I used:
 
 ```
 attempts = 10
@@ -96,17 +96,17 @@ Here is the best image so far:
 
 ![Test 1 Husky AIML Hacking Test](/blog/images/2020/ml-fuzzing-attack-smart1.jpg)
 
-Looks pretty random, maybe running more iterations can increase the `best_bruteforce_image` score.
+Maybe running more iterations can increase the `best_bruteforce_image` score.
 
 ### Rate limiting kicking in - very annoying
 
-After calling the `predict` API frequently rate limiting of the web server started kicking in. 
+After calling the `predict` API again a few times rate limiting of the web server started kicking in. 
 
 ```
-503 Service Temporarily Unavailable"
+503 Service Temporarily Unavailable
 ```
 
-Eventually it happened very frequently, and I had to add `sleep` commands to slow down the attack rate. This slows down testing from a single IP address - quite annoying. 
+Eventually it happened very frequently. I added `sleep` commands to slow down the attack rate - quite annoying. 
 
 No chance to run 100000 tests in rapid succession anymore.
 
@@ -128,7 +128,6 @@ def probe_range(min, max, step):
     current_best_score = 1e-100
     best_candidate_image = 0
 
- 
     for n in range(min, max, step):
     
         #try both adding and subtracting the range from the base image
@@ -168,7 +167,7 @@ New best score: 0.4952831
 New best score: 0.4988353
 ```
 
-These numbers look promising already. Just by updating pixels and slightly playing with the color intensity of the `base_image`.
+These numbers look promising already. Just updating pixels and slightly playing with the color intensity of the `base_image`.
 
 This is how the best scoring image looks:
 
@@ -220,9 +219,9 @@ best_smarter_bruteforce_image, best_score = probe_norm_range(0,256,25)
 print(best_score)
 ```
 
-In case you wonder why we always divide numbers by 255, that is to have the pixels have values between 0-1. In machine learning we like to work with numbers between 0 and 1.
+In case you wonder why there is always a division by 255, that is to have the pixels have values between 0-1. Mmachine learning prefers to work with numbers between 0 and 1.
 
-The results of this technique are cool, as they break the model again:
+The results of this technique are cool. They break the model again:
 
 ```
 New best score: 0.23516122
@@ -331,3 +330,6 @@ client_max_body_size 10M;
 ## References
 
 [Hacking Neural Networks: A short introduction](https://github.com/Kayzaks/HackingNeuralNetworks) - Michael Kissner
+
+
+![Husky](/blog/images/2020/uwhusky-small.jpg)
