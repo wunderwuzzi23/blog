@@ -236,7 +236,7 @@ New best score: 0.4988353
 <p>Let&rsquo;s look at that.</p>
 <h3 id="test-case-3-base-image--normal-distributed-neighbor-colors"><strong>Test Case 3:</strong> Base image + normal distributed &ldquo;neighbor-colors&rdquo;</h3>
 <p>The third attack was quickly implemented using the <code>np.random.normal</code> function.</p>
-<p>It took some tweaking and it showed vastly different results depending on how the &ldquo;base_image&rdquo; looked like. In the end the code probes distributions around a mean from 0-255 in increments of 25. This is in order to stay below the rate limiting as much as possible, and not have to wait for too long to see results.</p>
+<p>It took some tweaking and it showed vastly different results depending on how the &ldquo;base_image&rdquo; looked like. I ended up with code that probes distributions around a mean from 0-255 in increments of 25. This is in order to stay below the rate limiting as much as possible, and not have to wait for too long to see results.</p>
 <pre><code>import time
 
 base_image = best_bruteforce_image

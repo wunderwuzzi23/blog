@@ -183,7 +183,7 @@ Let's look at that.
 
 The third attack was quickly implemented using the `np.random.normal` function. 
 
-It took some tweaking and it showed vastly different results depending on how the "base_image" looked like. In the end the code probes distributions around a mean from 0-255 in increments of 25. This is in order to stay below the rate limiting as much as possible, and not have to wait for too long to see results.
+It took some tweaking and it showed vastly different results depending on how the "base_image" looked like. I ended up with code that probes distributions around a mean from 0-255 in increments of 25. This is in order to stay below the rate limiting as much as possible, and not have to wait for too long to see results.
 
 ```
 import time
