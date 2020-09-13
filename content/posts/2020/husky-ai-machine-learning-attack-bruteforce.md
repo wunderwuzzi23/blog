@@ -160,7 +160,7 @@ labels = [0,0,0]
 images = [candidate_rand[0], candidate_zeros[0], candidate_ones[0]]
 
 print("Fitting model...")
-model.fit(np.array(images),np.array(labels), epochs=100, verbose=0)
+model.fit(np.array(images),np.array(labels), epochs=1, verbose=0)
 
 print("Random Canvas: " + str(model.predict(candidate_rand)))
 print("Zeros Canvas:  " + str(model.predict(candidate_zeros)))
@@ -177,7 +177,7 @@ Zeros Canvas:  [[7.170946e-05]]
 Ones Canvas:   [[0.5275204]]
 ```
 
-These number are still bad, so I trained for more epochs. Overfitting did not seem to be a concern as these images are far off real huskies. I think it would further improve the model to cycle the random pixels for each epoch even.
+These number are still bad, so I trained for more epochs. Overfitting did not seem too much of a concern as these images are far off real huskies. I think it would further improve the model to cycle the random pixels for each epoch even.
 
 
 #### Testing the mitigation (brute forcing images)

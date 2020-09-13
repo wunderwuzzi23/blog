@@ -213,7 +213,7 @@ It will be exciting to try more advanced attacks (includ ML based ones) after fi
 images = [candidate_rand[0], candidate_zeros[0], candidate_ones[0]]
 
 print(&quot;Fitting model...&quot;)
-model.fit(np.array(images),np.array(labels), epochs=100, verbose=0)
+model.fit(np.array(images),np.array(labels), epochs=1, verbose=0)
 
 print(&quot;Random Canvas: &quot; + str(model.predict(candidate_rand)))
 print(&quot;Zeros Canvas:  &quot; + str(model.predict(candidate_zeros)))
@@ -224,7 +224,7 @@ print(&quot;Ones Canvas:   &quot; + str(model.predict(candidate_ones)))
 Random Canvas: [[0.25112703]]
 Zeros Canvas:  [[7.170946e-05]]
 Ones Canvas:   [[0.5275204]]
-</code></pre><p>These number are still bad, so I trained for more epochs. Overfitting did not seem to be a concern as these images are far off real huskies. I think it would further improve the model to cycle the random pixels for each epoch even.</p>
+</code></pre><p>These number are still bad, so I trained for more epochs. Overfitting did not seem too much of a concern as these images are far off real huskies. I think it would further improve the model to cycle the random pixels for each epoch even.</p>
 <h4 id="testing-the-mitigation-brute-forcing-images">Testing the mitigation (brute forcing images)</h4>
 <p>To check I built this basic brute force script, which just creates a random pixel image and then runs it through the new model. <em>This test was done directly against the model, not via the slower HTTPS image upload API.</em></p>
 <pre><code>## Brute force experiment
