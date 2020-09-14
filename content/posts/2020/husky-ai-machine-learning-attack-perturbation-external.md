@@ -1,6 +1,6 @@
 ---
-title: "Machine Learning Attack Series: More perturbations and fuzzing"
-date: 2020-09-14T00:04:05-07:00
+title: "Machine Learning Attack Series: More perturbations and adversarial examples"
+date: 2020-09-14T12:00:05-07:00
 draft: true
 tags: [
         "machine learning",
@@ -39,7 +39,7 @@ predict(shadowbunny_image[0])["score"]
 
 This looks good, certainly far from being seen as a husky by the system.
 
-Let's see what attack we can come up with.
+Let's see what attacks we can come up with.
 
 
 ## Testing ideas
@@ -78,19 +78,19 @@ The idea is working but this is still far away from 50%... And as can be seen in
 
 ### **Test Case 2:** Sequential probing
 
-The second idea was similar to the first one but with much smaller blocks and with a feedback mechanism to only keep those pixels that actually increased the accuracy. The detailed steps are as follows:
+The second idea was similar to the first one but with much smaller blocks. Additinoally, it includes a feedback mechanism (technically making this some form of AI, haha) to only keep those pixels that actually increased the accuracy. The detailed steps are as follows:
 
-1. Start at index 0,0 of the image and change pixel at that location
-2. Run the image through a prediction and record score
-3. If the result is a new best_score, then store it 
-4. Take a larger step (4 pixels) to index 0,4 and update the pixel at that location again
-5. Run the image through prediction and record the score
-6. If the result is a new best_score, then store it 
-7. And so forth until we either reach a best_score > 50% or we end at the bottom of the image.
+1. Start at index `0,0` of the image and change pixel at that location
+2. Run the image through a `predict` and record score
+3. If the result is a new `best_score`, then store it 
+4. Take a larger step (4 pixels) to index `0,4` and update the pixel at that location again
+5. Run the image through `predict` and record the score
+6. If the result is a new `best_score`, then store it 
+7. And so forth until we either reach a `best_score` > 50% or we end at the bottom of the image.
 
-The major drawback of this was that it creates a lot of queries and hence I would have to wait for a long time due to the rate limiting of the prediction API. So, I took a shortcut here and tested this locally directly against the model, just to see if it might work.
+The major drawback of this was that it creates a lot of queries. With rate limiting in place I would have to wait for a long time for this to finish. So, I took a shortcut here and tested this locally directly against the model, just to see if it might work.
 
-The code for this was simple:
+Here is the code: 
 
 ```
 def find_best_pixels(image):
@@ -139,7 +139,7 @@ image = load_image("shadowbunny.png")
 best_image = find_best_pixels(image) 
 ```
 
-It works! 
+To my surprise it works! :)
 
 ![Shadowbunny machine learning attack](/blog/images/2020/shadowbunny-ml-attack-1.jpg)
 
@@ -149,11 +149,11 @@ What other options are there?
 
 ### **Test Case 3:** Randomly spraying pixels on the image (keeping best ones)
 
-The next idea was to randomly put pixels on the image and see how that changes scoring. 
+The next idea was to randomly put pixels on the image, and keeping those that improve the score. The following animation shows the attack in progress and you can see that we reach a score of 50%+ was reached this way.  
 
 [![Husky Perturbation Random](/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif)](/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif)
 
-If you watch the animation to the end you can see a prediction score of 50%+ was reached this way. Nice! 
+Nice!
 
 It took 451 calls to the API, which is not that bad I thought and doable with the current rate limiting within a few hours.
 
@@ -203,19 +203,19 @@ image = load_image("shadowbunny.png")
 best_image = find_best_pixels_random(image) 
 ```
 
-Next, I want to explore what TensorFlow offers in this regards as well, there is also a library called Cleverhans - that I will post about at a later point.
+Next, I want to explore what TensorFlow offers in this regards. There is also a library called *Cleverhans* - that I will post about at a later point.
 
 ### **Test Case 4:** Leveraging machine learning techniques to optimze adversarial image
 
-There are more advanced ways of doing such attacks. The most famous/popular method seems to be `Fast Gradient Signing Method (FSGM)`. The method is described in detail this paper called [Explaining and Harnessing Adversarial Examples ](https://arxiv.org/abs/1412.6572).
+There are more advanced ways of doing such *perturbation* attacks. The most famous/popular method seems to be `Fast Gradient Signing Method (FSGM)`. The method is described in detail this paper called [Explaining and Harnessing Adversarial Examples ](https://arxiv.org/abs/1412.6572).
 
-There are libraries that ship with [TensorFlow that help](https://www.tensorflow.org/tutorials/generative/adversarial_fgsm) that allow to do such attacks (and also to make your model more resilient to these attacks).
+There are libraries that ship with [TensorFlow that help](https://www.tensorflow.org/tutorials/generative/adversarial_fgsm) that allow to do such attacks (and also to make your model more resilient to these attacks). And there are a lot of other good resources that show how to use such techniques (e.g. [Adversarial Examples in Deep Learning]https://github.com/sayakpaul/Adversarial-Examples-in-Deep-Learning/blob/master/Image_Adversaries_Basics.ipynb)).
 
 Technically the adversary has to either have access to the model or use a model that is similar. From the FGSM paper:
 
 > An intriguing aspect of adversarial examples is that an example generated for one model is often misclassified by other models, even when they have different architectures or were trained on dis-joint training sets.
 
-In the next post I will cover stealing models via at least two ways that I already can think of, but for now let's assume we have that already. 
+In the next post I will cover stealing models (to have read access) via at least two ways that I already can think of, but for now let's assume we have that already. 
 
 Here is the code I used to generate an adversary images using machine learning in TensorFlow:
 
@@ -255,15 +255,17 @@ for round in range(40):
 print("Final Score: ", best_score.numpy()[0][0])
 ```
 
-This is what running the attack looks like. In the animation pay attention to the pixels of the image. Do you notice some of them are slightly changing especially towards the final rounds?
+Below is an animation that shows the running attack. Pay attention to the pixels of the image. Do you notice some of them are slightly changing especially towards the final rounds?
 
 [![Shadowbunny FGSM](/blog/images/2020/huskyai-shadowbunny-fgsm.gif)](/blog/images/2020/huskyai-shadowbunny-fgsm.gif)
 
-For reference here is the final adversarial image:
+For reference here is the final adversarial example:
 
 [![Shadowbunny FGSM](/blog/images/2020/huskyai-shadowbunny-fgsm.png)](/blog/images/2020/huskyai-shadowbunny-fgsm.png)
 
-Using this technique, we get nearly 90% accuracy with just 40 iterations, and if we increase the learning rate this can be further reduced. Pretty impressive.
+Using this technique, we get nearly 90% accuracy with just 40 iterations. By increasing the learning rate this can be further reduced. 
+
+Pretty impressive.
 
 
 ## What's next?
@@ -283,7 +285,7 @@ Links will be added when posts are completed over the next serveral weeks/months
 
 1. [Attacker brute forces images to find incorrect predictions/labels - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/) 
 2. [Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/) 
-2. **Attacker explores more perturbation and fuzzing variants - Perturbation Attack** (this post)
+2. **Attacker explores more perturbations to create adversarial examples - Perturbation Attack** (this post)
 3. Attacker gains read access to the model - Exfiltration Attack
 4. Attacker modifies persisted model file - Backdooring Attack
 5. Attacker denies modifying the model file - Repudiation Attack
@@ -296,3 +298,4 @@ Links will be added when posts are completed over the next serveral weeks/months
 
 * [TensorFlow Adversarial FGSM](https://www.tensorflow.org/tutorials/generative/adversarial_fgsm)
 * [Explaining and Harnessing Adversarial Examples ](https://arxiv.org/abs/1412.6572)
+* [Adversarial Examples in Deep Learning](https://github.com/sayakpaul/Adversarial-Examples-in-Deep-Learning/blob/master/Image_Adversaries_Basics.ipynb)

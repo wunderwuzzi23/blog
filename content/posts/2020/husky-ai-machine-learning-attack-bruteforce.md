@@ -226,7 +226,6 @@ Throttling the web server image upload API (which queries the model) is another 
 That's it for the first round of attacks. I hope you enjoyed reading and learning about this as much as I do. I learned a lot already and am eager to dive learning smarter ways of coming up with malicious/adversarial examples.
 
 
-
 ### Appendix 
 
 These are the core ML threats for Husky AI that were identified in the [threat modeling session](/blog/posts/2020/husky-ai-threat-modeling-machine-learning/) so far and that I want to research and build attacks for. 
@@ -235,7 +234,7 @@ Links will be added when posts are completed over the next serveral weeks/months
 
 1. **Attacker brute forces images to find incorrect predictions/labels - Perturbation Attack  (this post)**
 2. [Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/) 
-2. [Attacker performs more perturbation variants - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-perturbation-external/) 
+2. [Attacker explores more perturbations to create adversarial examples - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-perturbation-external/) 
 3. Attacker gains read access to the model - Exfiltration Attack
 4. Attacker modifies persisted model file - Backdooring Attack
 5. Attacker denies modifying the model file - Repudiation Attack
