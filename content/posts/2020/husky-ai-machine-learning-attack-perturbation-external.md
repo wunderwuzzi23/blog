@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning Attack Series: More Perturbation Attacks"
-date: 2020-09-13T11:34:05-07:00
+date: 2020-09-14T00:04:05-07:00
 draft: true
 tags: [
         "machine learning",
@@ -22,7 +22,7 @@ In this post we will try to figure out ways we can make a non-husky image change
 
 Initially I was not sure if this is possible without having access to the actual model file, but I learned a lot and its quite fascinating how easily a model can be fooled.
 
-![Shadowbunny](/blog/images/2020/shadowbunny.small.png)
+![Shadowbunny](/blog/images/2020/huskyai-shadowbunny.png)
 
 The additional challenge in this case is, that the model is only callable via a web endpoint. And that calling the API is limted because of API throttling that was implemented in earlier stages of the project.
 
@@ -34,7 +34,7 @@ Running the Shadowbunny image through the prediction showed a much lower then 1%
 shadowbunny_image = load_image("shadowbunny.png")
 predict(shadowbunny_image[0])["score"]
 
->>0.00038117
+0.00038117
 ```
 
 So this looks good, certainly far from being seen as a husky by the system.
@@ -88,7 +88,7 @@ The second idea I had was just to:
 6. If the result is a new best_score, then store it 
 7. And so forth until we either reach a best_score > 50% or we end at the bottom of the image.
 
-The major drawback of this was that it creates a lot of queries and hence I would have to wait for a long time due to the rate limiting of the prediction API. So, I cheated a bit here and tested this locally directly against the model, just to see if it might work.
+The major drawback of this was that it creates a lot of queries and hence I would have to wait for a long time due to the rate limiting of the prediction API. So, I took a shortcut here and tested this locally directly against the model, just to see if it might work.
 
 The code for this was pretty simple:
 
@@ -149,11 +149,13 @@ What other options are there?
 
 ### **Test Case 3:** Randomly spraying pixels on the image
 
-The next idea was to just randomly put pixels on the screen. 
+The next idea was to randomly put pixels on the image and see how that changes scoring. 
 
 [![Husky Perturbation Random](/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif)](/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif)
 
-If you watch the give to the end you can see a prediction score of 50%+ was reached this way! It took about 450 calls to the API, which is not that bad I thought and doable with the current rate limiting within a few hours.
+If you watch the animation to the end you can see a prediction score of 50%+ was reached this way! 
+
+It took about 450 calls to the API, which is not that bad I thought and doable with the current rate limiting within a few hours.
 
 For completeness, here are the core pieces of code for the third scenario:
 
@@ -207,19 +209,74 @@ That did the trick and it works, even with a low number of calls ot the API.
 
 Nice! 
 
-Although I think it can be done even better by using machine learning to optimize the image. This is what I wanted to explore next.
+Next I want to explore what TensorFlow offers in this regards as well.
 
+### **Test Case 4:** Leveraging machine learning techniques (FGSM)
 
+There are more advanced ways of doing such attacks. In particular the most famous/popular method seems to be `Fast Gradient Signing Method (FSGM)`. The method is described in detail this paper called [Explaining and Harnessing Adversarial Examples ](https://arxiv.org/abs/1412.6572).
 
-### **Test Case 4:** Leveraging machine learning techniques
+There are libraries that ship with [TensorFlow that help](https://www.tensorflow.org/tutorials/generative/adversarial_fgsm) with such attacks (and also to make your model more resilient to these attacks).
 
+I used the TensorFlow libraries to implement this technique. Technically the adversary has to either have access to the model, or use a model that is similar. From the FGSM paper:
 
+> An intriguing aspect of adversarial examples is that an example generated for one model is often misclassified by other models, even when they have different architecures or were trained on dis-joint training sets.
+
+In the next post I will cover stealing models via at least two ways that I already can think of, but for now let's assume we have that already. Here is the code I used to generate the adversary images using machine learning in TensorFlow:
+
+```
+shadowbunny = load_image("shadowbunny.png")
+initial_score = model.predict(shadowbunny)
+
+image_tensor = tf.constant(shadowbunny, dtype=tf.float32)
+delta        = tf.Variable(tf.zeros_like(image_tensor), trainable=True)
+optimizer    = tf.keras.optimizers.Adam(learning_rate=0.0008)
+loss_object  = tf.keras.losses.BinaryCrossentropy()
+
+best_score = 0
+candidate  = 0
+
+for round in range(40):
+    with tf.GradientTape() as tape:
+        tape.watch(image_tensor)
+        
+        candidate = image_tensor + delta
+        candidate = tf.clip_by_value(candidate, clip_value_min=0, clip_value_max=1)    
+
+        best_score = model(candidate)
+        loss_value = loss_object( tf.convert_to_tensor([1]),  tf.convert_to_tensor(best_score))
+        
+        #update image every iteration for a nice animation
+        clear_output(wait=True)  
+        plt.imshow(candidate[0])
+        plt.text(y=10, x=150, s=f"Initial Score: {initial_score[0][0]:8f}", fontsize=12)
+        plt.text(y=20, x=150, s=f"Best Score: {best_score[0][0]:8f}", fontsize=12)
+        plt.text(y=30, x=150, s=f"Current Loss: {loss_value:8f}", fontsize=12)
+        plt.show()
+        
+    gradients = tape.gradient(loss_value, image_tensor)
+    optimizer.apply_gradients([(gradients, delta)])
+    
+print("Final Score: ", best_score.numpy()[0][0])
+```
+
+This is what running the attack looks like. In the animation pay  attention to the pixels of the image. Do you notice some of them are slightly changing especially towards the final rounds?
+
+[![Shadowbunny FGSM](/blog/images/2020/huskyai-shadowbunny-fgsm.gif)](/blog/images/2020/huskyai-shadowbunny-fgsm.gif)
+
+For reference here is the final adversarial image:
+
+[![Shadowbunny FGSM](/blog/images/2020/huskyai-shadowbunny-fgsm.png)](/blog/images/2020/huskyai-shadowbunny-fgsm.png)
+
+Using this technique we get a 90% accuracy adversarial image with just 40 queries, and if we increase the learning rate this can be further reduced. Pretty impressive.
 
 
 ## What's next?
 
+I hope you enjoyed reading and learning about this as much as I do and this post was intersting.
 
-I hope you enjoyed reading and learning about this as much as I do. I learned a lot already and am eager to dive learning smarter ways of coming up with malicious/adversarial examples.
+The last test case we discussed in this post requires access to a model directly. This is because it uses the weights to optimize for the best places to put pixels at. 
+
+The examples in this post really show that machine learning is a bit fragile. I learned a lot already and in the next post I want to explore ways of stealing the model. So, stay tuned.
 
 
 ## Appendix {#appendix}
@@ -242,3 +299,6 @@ Links will be added when posts are completed over the next serveral weeks/months
 
 
 ## References
+
+* [TensorFlow Adversarial FGSM](https://www.tensorflow.org/tutorials/generative/adversarial_fgsm)
+* [Explaining and Harnessing Adversarial Examples ](https://arxiv.org/abs/1412.6572)

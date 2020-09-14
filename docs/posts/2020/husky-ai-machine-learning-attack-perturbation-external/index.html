@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Machine Learning Attack Series: More Perturbation Attacks &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-09-13T11:34:05-07:00" />
+  
+  <meta property="og:article:tag" content="machine learning" />
+  
+  <meta property="og:article:tag" content="huskyai" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  
+
+  <title>
+     Machine Learning Attack Series: More Perturbation Attacks &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Machine Learning Attack Series: More Perturbation Attacks</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-09-13T11:34:05-07:00">
+          Sep 13, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/huskyai">#huskyai</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &ldquo;huskyai&rdquo; to see related posts.</p>
+<ul>
+<li><a href="/blog/posts/2020/husky-ai-walkthrough/">Overview</a>: How Husky AI was built, threat modeled and operationalized</li>
+<li><a href="#appendix">Attacks</a>: The attacks I want to investigate, learn about, and try out</li>
+</ul>
+<p>The previous post covered some neat smart fuzzing techniques to improve generation of fake husky images.</p>
+<p>In this post we will try to figure out ways we can make a non-husky image change in ways to trick the model to return an incorrect prediction. So rather then creating new adversarial images from scratch the goal is to modify an existing image.</p>
+<h2 id="shadowbunny-turns-into-a-husky">Shadowbunny turns into a Husky</h2>
+<p>Initially I was not sure if this is possible without having access to the actual model file, but I learned a lot and its quite fascinating how easily a model can be fooled.</p>
+<p><img src="/blog/images/2020/shadowbunny.small.png" alt="Shadowbunny"></p>
+<p>The additional challenge in this case is, that the model is only callable via a web endpoint. And that calling the API is limted because of API throttling that was implemented in earlier stages of the project.</p>
+<h3 id="calling-the-prediction-api">Calling the prediction API</h3>
+<p>Running the Shadowbunny image through the prediction showed a much lower then 1% chance of it being a husky.</p>
+<pre><code>shadowbunny_image = load_image(&quot;shadowbunny.png&quot;)
+predict(shadowbunny_image[0])[&quot;score&quot;]
+
+&gt;&gt;0.00038117
+</code></pre><p>So this looks good, certainly far from being seen as a husky by the system.</p>
+<p>Let&rsquo;s see what attack we can come up with.</p>
+<h2 id="testing-ideas">Testing ideas</h2>
+<p>To get started I will do some of my own research and experiments and then look at what more experienced researches have been doing. Here are some ideas:</p>
+<ol>
+<li><strong>Sliding windows with blocks:</strong> Pick 32x32 noise image and insert it into the picture. Possibly using a sliding window to see how much the prediction score changes. See how it changes the preciction score.</li>
+<li><strong>Sequential probing:</strong>  Similar to the first idea, go over each pixel and change it to see how it impacts the score, keep those pixels that increase score (slow and lots of API calls). Repeat until prediction reaches 50%.</li>
+<li><strong>Randomly spraying pixels:</strong> Randomly add pixels to the image and if it increases the prediction score keep it if not try again. Repeat until prediction reaches 50%</li>
+<li><strong>Machine Learning techniques</strong>: Applying machine learning to &ldquo;reverse optimize&rdquo; the loss. Sort of gradient ascent. I assume that this is the best way of doing this, and that&rsquo;s what adverserial example machine learning reseachers work on.</li>
+</ol>
+<p>Those are the main ideas I had come up with and tested for, let&rsquo;s look at how that went.</p>
+<h3 id="test-case-1-move-a-block-across-image-to-find-hot-spots"><strong>Test Case 1:</strong> Move a block across image to find &ldquo;hot spots&rdquo;</h3>
+<p>The idea behind this is to possible find areas of the image that cause large changes in the prediction.</p>
+<p>I went ahead to write some code to pick a couple of pixel blocks (32x32) of various colors and moved them in larger steps across the base image to see if any of those cause a larger change in prediction score.</p>
+<p>Here is how this looks like in action:</p>
+<p><a href="/blog/images/2020/huskyai-perturbation1.gif"><img src="/blog/images/2020/huskyai-perturbation1.gif" alt="Husky Perturbation"></a></p>
+<p>You can see I even tried moving a small 32x32 pixel husky image over the Shadowbunny to try and trick the model.</p>
+<p>The following pictures shows a good increase in prediction by using the black block:</p>
+<p><img src="/blog/images/2020/huskyai-perturbation-black-block.png" alt="Husky Perturbation All Blocks"></p>
+<p>In the end I took the best scores for each block (white, black, random, and a husky image block) and merged them all together in a final prediction which resulted in a score of 3.14%.</p>
+<p><img src="/blog/images/2020/huskyai-perturbation-allblocks.png" alt="Husky Perturbation All Blocks"></p>
+<p>The idea is working but this is still far away from 50%&hellip; And as can be seen in the screenshot above, the blocks are very visible on the Shadowbunny image.</p>
+<h3 id="test-case-2-sequentially-putting-pixels-on-the-image"><strong>Test Case 2:</strong> Sequentially putting pixels on the image</h3>
+<p>The second idea I had was just to:</p>
+<ol>
+<li>Start at index 0,0 of the image and change pixel at that location</li>
+<li>Run the image through a prediction and record score</li>
+<li>If the result is a new best_score, then store it</li>
+<li>Take a larger step (4 pixels) to index 0,4 and update the pixel at that location again</li>
+<li>Run the image through prediction and record the score</li>
+<li>If the result is a new best_score, then store it</li>
+<li>And so forth until we either reach a best_score &gt; 50% or we end at the bottom of the image.</li>
+</ol>
+<p>The major drawback of this was that it creates a lot of queries and hence I would have to wait for a long time due to the rate limiting of the prediction API. So, I cheated a bit here and tested this locally directly against the model, just to see if it might work.</p>
+<p>The code for this was pretty simple:</p>
+<pre><code>def find_best_pixels(image):
+
+    attempts = 0
+   
+    initial_score = float(model.predict(image))
+    
+    step_size = 2
+    block_size = 2
+    delta_mid = np.ones([1, block_size,block_size, 3]) * 128/255.
+
+    best_score = 1e-100
+    best_image = 0
+
+    run_image = image
+
+    #experimented a bit with the starting row, lower half (row 70) was good
+    for i in range(70, NUM_PX-block_size+1, step_size):
+        
+        for j in range(0, NUM_PX-block_size+1,step_size):
+            
+            temp_image = np.copy(run_image)
+            temp_image[0, i:i+block_size, j:j+block_size] = delta_mid
+
+            current_score = float(model.predict(temp_image)[0][0])
+            attempts = attempts + 1 
+
+            if current_score &gt; best_score:
+                best_score = float(current_score)
+                run_image = temp_image
+
+            if best_score &gt; 0.5:
+                return run_image
+    
+            #also update image every row
+            plt.imshow(run_image[0], interpolation='nearest')
+            plt.text(y=10, x=150, s=f&quot;Initial Score: {initial_score:8f}&quot;, fontsize=12)
+            plt.text(y=20, x=150, s=f&quot;Best Score:   {best_score:8f}&quot;, fontsize=12)
+            plt.text(y=30, x=150, s=f&quot;Current Score: {current_score:8f}&quot;, fontsize=12)
+            plt.text(y=40, x=150, s=f&quot;API Call Count: {attempts}&quot;, fontsize=12)
+            plt.show()
+            clear_output(wait=True)  
+
+image = load_image(&quot;shadowbunny.png&quot;)
+best_image = find_best_pixels(image) 
+</code></pre><p>It works!</p>
+<p><img src="/blog/images/2020/shadowbunny-ml-attack-1.jpg" alt="Shadowbunny machine learning attack"></p>
+<p>Although it requires about 800-5000+ calls to the API depending on <code>block_size</code> and <code>step_size</code>. Also the color of the pixel makes a big difference.</p>
+<p>What other options are there?</p>
+<h3 id="test-case-3-randomly-spraying-pixels-on-the-image"><strong>Test Case 3:</strong> Randomly spraying pixels on the image</h3>
+<p>The next idea was to just randomly put pixels on the screen.</p>
+<p><a href="/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif"><img src="/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif" alt="Husky Perturbation Random"></a></p>
+<p>If you watch the give to the end you can see a prediction score of 50%+ was reached this way! It took about 450 calls to the API, which is not that bad I thought and doable with the current rate limiting within a few hours.</p>
+<p>For completeness, here are the core pieces of code for the third scenario:</p>
+<pre><code>def find_best_pixels_random(image):
+
+    initial_score = float(model.predict(image))
+    
+    block_size = 1
+    delta_mid = np.ones([1, block_size,block_size, 3]) #* 128/255.
+
+    best_score = 1e-100
+    best_image = 0
+
+    run_image = image
+
+    for count in range(4000):
+            
+        i = np.random.randint(0,128-block_size)
+        j = np.random.randint(0,128-block_size)
+
+        temp_image = np.copy(run_image)
+        temp_image[0, i:i+block_size, j:j+block_size] = delta_mid * 0#(np.random.randint(200,256)/25.)
+
+        current_score = float(model.predict(temp_image)[0][0])
+        attempts = attempts + 1 
+
+        if current_score &gt; best_score:
+            best_score = float(current_score)
+            run_image = temp_image
+
+        if best_score &gt; 0.5:
+            return run_image
+
+        #update image so we see a nice animation
+        plt.imshow(run_image[0], interpolation='nearest')
+        plt.text(y=10, x=150, s=f&quot;Initial Score: {initial_score:8f}&quot;, fontsize=12)
+        plt.text(y=20, x=150, s=f&quot;Best Score:   {best_score:8f}&quot;, fontsize=12)
+        plt.text(y=30, x=150, s=f&quot;Current Score: {current_score:8f}&quot;, fontsize=12)
+        plt.text(y=40, x=150, s=f&quot;API Call Count: {attempts}&quot;, fontsize=12)
+        plt.show()
+        clear_output(wait=True)  
+
+image = load_image(&quot;shadowbunny.png&quot;)
+best_image = find_best_pixels_random(image) 
+</code></pre><p><a href="/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif"><img src="/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif" alt="Husky Pixel Spray Perturbation"></a></p>
+<p>That did the trick and it works, even with a low number of calls ot the API.</p>
+<p>Nice!</p>
+<p>Although I think it can be done even better by using machine learning to optimize the image. This is what I wanted to explore next.</p>
+<h3 id="test-case-4-leveraging-machine-learning-techniques-eg-fast-gradient-signing-method"><strong>Test Case 4:</strong> Leveraging machine learning techniques (e.g. fast gradient signing method)</h3>
+<p>The previous examples already do a basic form of machine learning.</p>
+<p>There are more advanced ways of doing this. In particular the most famous/popoluar method seems to be <code>Fast Gradient Signing Method (FSGM)</code>, which is described in detail this paper called <a href="https://arxiv.org/abs/1412.6572">Explaining and Harnessing Adversarial Examples </a>.</p>
+<p>There are libraries that ship with [TensorFlow that help]](<a href="https://www.tensorflow.org/tutorials/generative/adversarial_fgsm">https://www.tensorflow.org/tutorials/generative/adversarial_fgsm</a>) with such attacks.</p>
+<p>I went ahead leveraged the TensorFlow libraries to implement this technique. The one thing to know is that one has to have a model of the target system in order for this to work. This is needed in order to be able to identify the optimum loss.</p>
+<p>So, technically the adversary has to either have access to the model, or use a model that is very similar for this to work.  In the next post I plan to cover how to steal models, both via re-building them, but also via old school red teaming tricks against the Husky AI infrastructure.</p>
+<p>Anyhow, this is the code which performs creation of an adversarial image:</p>
+<pre><code>shadowbunny = load_image(&quot;shadowbunny.png&quot;)
+initial_score = model.predict(shadowbunny)
+
+image_tensor = tf.constant(shadowbunny, dtype=tf.float32)
+delta        = tf.Variable(tf.zeros_like(image_tensor), trainable=True)
+optimizer    = tf.keras.optimizers.Adam(learning_rate=0.0008)
+loss_object  = tf.keras.losses.BinaryCrossentropy()
+
+best_score = 0
+candidate  = 0
+
+for round in range(40):
+    with tf.GradientTape() as tape:
+        tape.watch(image_tensor)
+        
+        candidate = image_tensor + delta
+        candidate = tf.clip_by_value(candidate, clip_value_min=0, clip_value_max=1)    
+
+        best_score = model(candidate)
+        loss_value = loss_object( tf.convert_to_tensor([1]),  tf.convert_to_tensor(best_score))
+        
+        #update image every iteration for a nice animation
+        clear_output(wait=True)  
+        plt.imshow(candidate[0])
+        plt.text(y=10, x=150, s=f&quot;Initial Score: {initial_score[0][0]:8f}&quot;, fontsize=12)
+        plt.text(y=20, x=150, s=f&quot;Best Score: {best_score[0][0]:8f}&quot;, fontsize=12)
+        plt.text(y=30, x=150, s=f&quot;Current Loss: {loss_value:8f}&quot;, fontsize=12)
+        plt.show()
+        
+    gradients = tape.gradient(loss_value, image_tensor)
+    optimizer.apply_gradients([(gradients, delta)])
+    
+print(&quot;Final Score: &quot;, best_score.numpy()[0][0])
+</code></pre><p>[<img src="/blog/images/2020/huskyai-shadowbunny-fgsm.gif" alt="Shadowbunny FGSM">]</p>
+<h2 id="whats-next">What&rsquo;s next?</h2>
+<p>I hope you enjoyed reading and learning about this as much as I do. I learned a lot already and am eager to dive learning smarter ways of coming up with malicious/adversarial examples.</p>
+<h2 id="appendix">Appendix</h2>
+<h3 id="attacks-overview">Attacks Overview</h3>
+<p>These are the core ML threats for Husky AI that were identified in the <a href="/blog/posts/2020/husky-ai-threat-modeling-machine-learning/">threat modeling session</a> so far and that I want to research and build attacks for.</p>
+<p>Links will be added when posts are completed over the next serveral weeks/months.</p>
+<ol>
+<li><a href="/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/">Attacker brute forces images to find incorrect predictions/labels - Perturbation Attack</a></li>
+<li><a href="/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/">Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation Attack</a></li>
+<li><strong>Attacker performs more perturbation variants - Perturbation Attack</strong> (this post)</li>
+<li>Attacker gains read access to the model - Exfiltration Attack</li>
+<li>Attacker modifies persisted model file - Backdooring Attack</li>
+<li>Attacker denies modifying the model file - Repudiation Attack</li>
+<li>Attacker poisons the supply chain of third-party libraries</li>
+<li>Attacker tampers with images on disk to impact training performance</li>
+<li>Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)</li>
+</ol>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.tensorflow.org/tutorials/generative/adversarial_fgsm">TensorFlow Adversarial FGSM</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2020
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
