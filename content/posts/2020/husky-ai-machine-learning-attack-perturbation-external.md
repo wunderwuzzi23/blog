@@ -283,7 +283,7 @@ Links will be added when posts are completed over the next serveral weeks/months
 
 1. [Attacker brute forces images to find incorrect predictions/labels - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/) 
 2. [Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/) 
-2. **Attacker performs more perturbation and fuzzing variants - Perturbation Attack** (this post)
+2. **Attacker explores more perturbation and fuzzing variants - Perturbation Attack** (this post)
 3. Attacker gains read access to the model - Exfiltration Attack
 4. Attacker modifies persisted model file - Backdooring Attack
 5. Attacker denies modifying the model file - Repudiation Attack

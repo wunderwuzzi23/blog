@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Machine Learning Attack Series: More Perturbation Attacks &middot;  wunderwuzzi blog" />
+  <meta property="og:title" content=" Machine Learning Attack Series: More perturbations and fuzzing &middot;  wunderwuzzi blog" />
   
   <meta property="og:site_name" content="wunderwuzzi blog" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/" />
@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2020-09-13T11:34:05-07:00" />
+  <meta property="og:article:published_time" content="2020-09-14T00:04:05-07:00" />
   
   <meta property="og:article:tag" content="machine learning" />
   
@@ -22,7 +22,7 @@
   
 
   <title>
-     Machine Learning Attack Series: More Perturbation Attacks &middot;  wunderwuzzi blog
+     Machine Learning Attack Series: More perturbations and fuzzing &middot;  wunderwuzzi blog
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -94,13 +94,13 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Machine Learning Attack Series: More Perturbation Attacks</h1>
+    <h1 class="text-primary">Machine Learning Attack Series: More perturbations and fuzzing</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2020-09-13T11:34:05-07:00">
-          Sep 13, 2020
+        <time datetime="2020-09-14T00:04:05-07:00">
+          Sep 14, 2020
         </time>
       </div>
     
@@ -122,29 +122,29 @@
 <li><a href="#appendix">Attacks</a>: The attacks I want to investigate, learn about, and try out</li>
 </ul>
 <p>The previous post covered some neat smart fuzzing techniques to improve generation of fake husky images.</p>
-<p>In this post we will try to figure out ways we can make a non-husky image change in ways to trick the model to return an incorrect prediction. So rather then creating new adversarial images from scratch the goal is to modify an existing image.</p>
+<p>In this post we will try to figure out ways we can make a non-husky image change in ways to trick the model to return an incorrect prediction. So rather than creating new adversarial images from scratch the goal is to modify an existing image.</p>
 <h2 id="shadowbunny-turns-into-a-husky">Shadowbunny turns into a Husky</h2>
-<p>Initially I was not sure if this is possible without having access to the actual model file, but I learned a lot and its quite fascinating how easily a model can be fooled.</p>
-<p><img src="/blog/images/2020/shadowbunny.small.png" alt="Shadowbunny"></p>
-<p>The additional challenge in this case is, that the model is only callable via a web endpoint. And that calling the API is limted because of API throttling that was implemented in earlier stages of the project.</p>
+<p>Initially I was not sure if this is possible without having access to the actual model file, but I learned a lot and its quite fascinating how easily a machine learning model can be fooled.</p>
+<p><img src="/blog/images/2020/huskyai-shadowbunny.png" alt="Shadowbunny"></p>
+<p>The additional challenge in this case is, that the model is only callable via a web endpoint. And that calling the API is limited because of API throttling that was implemented in earlier stages of the project.</p>
 <h3 id="calling-the-prediction-api">Calling the prediction API</h3>
-<p>Running the Shadowbunny image through the prediction showed a much lower then 1% chance of it being a husky.</p>
+<p>Running the Shadowbunny image through the prediction showed a much lower than 1% chance of it being a husky.</p>
 <pre><code>shadowbunny_image = load_image(&quot;shadowbunny.png&quot;)
 predict(shadowbunny_image[0])[&quot;score&quot;]
 
-&gt;&gt;0.00038117
-</code></pre><p>So this looks good, certainly far from being seen as a husky by the system.</p>
+0.00038117
+</code></pre><p>This looks good, certainly far from being seen as a husky by the system.</p>
 <p>Let&rsquo;s see what attack we can come up with.</p>
 <h2 id="testing-ideas">Testing ideas</h2>
 <p>To get started I will do some of my own research and experiments and then look at what more experienced researches have been doing. Here are some ideas:</p>
 <ol>
-<li><strong>Sliding windows with blocks:</strong> Pick 32x32 noise image and insert it into the picture. Possibly using a sliding window to see how much the prediction score changes. See how it changes the preciction score.</li>
+<li><strong>Sliding block:</strong> Pick a 32x32 <code>delta</code> image and insert it into the picture. Possibly using a sliding window to see how much the prediction score changes. See how it changes the prediction score.</li>
 <li><strong>Sequential probing:</strong>  Similar to the first idea, go over each pixel and change it to see how it impacts the score, keep those pixels that increase score (slow and lots of API calls). Repeat until prediction reaches 50%.</li>
 <li><strong>Randomly spraying pixels:</strong> Randomly add pixels to the image and if it increases the prediction score keep it if not try again. Repeat until prediction reaches 50%</li>
-<li><strong>Machine Learning techniques</strong>: Applying machine learning to &ldquo;reverse optimize&rdquo; the loss. Sort of gradient ascent. I assume that this is the best way of doing this, and that&rsquo;s what adverserial example machine learning reseachers work on.</li>
+<li><strong>Machine learning to optimize the <code>delta</code> image</strong>: Applying machine learning to &ldquo;reverse optimize&rdquo; the loss. Sort of gradient ascent. I assume that this is the best way of doing this, and that&rsquo;s what adversarial machine learning researchers work on mostly.</li>
 </ol>
 <p>Those are the main ideas I had come up with and tested for, let&rsquo;s look at how that went.</p>
-<h3 id="test-case-1-move-a-block-across-image-to-find-hot-spots"><strong>Test Case 1:</strong> Move a block across image to find &ldquo;hot spots&rdquo;</h3>
+<h3 id="test-case-1-sliding-block-across-image-to-find-hot-spots"><strong>Test Case 1:</strong> Sliding block across image to find &ldquo;hot spots&rdquo;</h3>
 <p>The idea behind this is to possible find areas of the image that cause large changes in the prediction.</p>
 <p>I went ahead to write some code to pick a couple of pixel blocks (32x32) of various colors and moved them in larger steps across the base image to see if any of those cause a larger change in prediction score.</p>
 <p>Here is how this looks like in action:</p>
@@ -155,8 +155,8 @@ predict(shadowbunny_image[0])[&quot;score&quot;]
 <p>In the end I took the best scores for each block (white, black, random, and a husky image block) and merged them all together in a final prediction which resulted in a score of 3.14%.</p>
 <p><img src="/blog/images/2020/huskyai-perturbation-allblocks.png" alt="Husky Perturbation All Blocks"></p>
 <p>The idea is working but this is still far away from 50%&hellip; And as can be seen in the screenshot above, the blocks are very visible on the Shadowbunny image.</p>
-<h3 id="test-case-2-sequentially-putting-pixels-on-the-image"><strong>Test Case 2:</strong> Sequentially putting pixels on the image</h3>
-<p>The second idea I had was just to:</p>
+<h3 id="test-case-2-sequential-probing"><strong>Test Case 2:</strong> Sequential probing</h3>
+<p>The second idea was similar to the first one but with much smaller blocks and with a feedback mechanism to only keep those pixels that actually increased the accuracy. The detailed steps are as follows:</p>
 <ol>
 <li>Start at index 0,0 of the image and change pixel at that location</li>
 <li>Run the image through a prediction and record score</li>
@@ -166,8 +166,8 @@ predict(shadowbunny_image[0])[&quot;score&quot;]
 <li>If the result is a new best_score, then store it</li>
 <li>And so forth until we either reach a best_score &gt; 50% or we end at the bottom of the image.</li>
 </ol>
-<p>The major drawback of this was that it creates a lot of queries and hence I would have to wait for a long time due to the rate limiting of the prediction API. So, I cheated a bit here and tested this locally directly against the model, just to see if it might work.</p>
-<p>The code for this was pretty simple:</p>
+<p>The major drawback of this was that it creates a lot of queries and hence I would have to wait for a long time due to the rate limiting of the prediction API. So, I took a shortcut here and tested this locally directly against the model, just to see if it might work.</p>
+<p>The code for this was simple:</p>
 <pre><code>def find_best_pixels(image):
 
     attempts = 0
@@ -214,12 +214,13 @@ image = load_image(&quot;shadowbunny.png&quot;)
 best_image = find_best_pixels(image) 
 </code></pre><p>It works!</p>
 <p><img src="/blog/images/2020/shadowbunny-ml-attack-1.jpg" alt="Shadowbunny machine learning attack"></p>
-<p>Although it requires about 800-5000+ calls to the API depending on <code>block_size</code> and <code>step_size</code>. Also the color of the pixel makes a big difference.</p>
+<p>Although it requires about 800-5000+ calls to the API depending on <code>block_size</code> and <code>step_size</code>. Also, the color of the pixel makes a big difference.</p>
 <p>What other options are there?</p>
-<h3 id="test-case-3-randomly-spraying-pixels-on-the-image"><strong>Test Case 3:</strong> Randomly spraying pixels on the image</h3>
-<p>The next idea was to just randomly put pixels on the screen.</p>
+<h3 id="test-case-3-randomly-spraying-pixels-on-the-image-keeping-best-ones"><strong>Test Case 3:</strong> Randomly spraying pixels on the image (keeping best ones)</h3>
+<p>The next idea was to randomly put pixels on the image and see how that changes scoring.</p>
 <p><a href="/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif"><img src="/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif" alt="Husky Perturbation Random"></a></p>
-<p>If you watch the give to the end you can see a prediction score of 50%+ was reached this way! It took about 450 calls to the API, which is not that bad I thought and doable with the current rate limiting within a few hours.</p>
+<p>If you watch the animation to the end you can see a prediction score of 50%+ was reached this way. Nice!</p>
+<p>It took 451 calls to the API, which is not that bad I thought and doable with the current rate limiting within a few hours.</p>
 <p>For completeness, here are the core pieces of code for the third scenario:</p>
 <pre><code>def find_best_pixels_random(image):
 
@@ -262,17 +263,16 @@ best_image = find_best_pixels(image)
 
 image = load_image(&quot;shadowbunny.png&quot;)
 best_image = find_best_pixels_random(image) 
-</code></pre><p><a href="/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif"><img src="/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif" alt="Husky Pixel Spray Perturbation"></a></p>
-<p>That did the trick and it works, even with a low number of calls ot the API.</p>
-<p>Nice!</p>
-<p>Although I think it can be done even better by using machine learning to optimize the image. This is what I wanted to explore next.</p>
-<h3 id="test-case-4-leveraging-machine-learning-techniques-eg-fast-gradient-signing-method"><strong>Test Case 4:</strong> Leveraging machine learning techniques (e.g. fast gradient signing method)</h3>
-<p>The previous examples already do a basic form of machine learning.</p>
-<p>There are more advanced ways of doing this. In particular the most famous/popoluar method seems to be <code>Fast Gradient Signing Method (FSGM)</code>, which is described in detail this paper called <a href="https://arxiv.org/abs/1412.6572">Explaining and Harnessing Adversarial Examples </a>.</p>
-<p>There are libraries that ship with [TensorFlow that help]](<a href="https://www.tensorflow.org/tutorials/generative/adversarial_fgsm">https://www.tensorflow.org/tutorials/generative/adversarial_fgsm</a>) with such attacks.</p>
-<p>I went ahead leveraged the TensorFlow libraries to implement this technique. The one thing to know is that one has to have a model of the target system in order for this to work. This is needed in order to be able to identify the optimum loss.</p>
-<p>So, technically the adversary has to either have access to the model, or use a model that is very similar for this to work.  In the next post I plan to cover how to steal models, both via re-building them, but also via old school red teaming tricks against the Husky AI infrastructure.</p>
-<p>Anyhow, this is the code which performs creation of an adversarial image:</p>
+</code></pre><p>Next, I want to explore what TensorFlow offers in this regards as well, there is also a library called Cleverhans - that I will post about at a later point.</p>
+<h3 id="test-case-4-leveraging-machine-learning-techniques-to-optimze-adversarial-image"><strong>Test Case 4:</strong> Leveraging machine learning techniques to optimze adversarial image</h3>
+<p>There are more advanced ways of doing such attacks. The most famous/popular method seems to be <code>Fast Gradient Signing Method (FSGM)</code>. The method is described in detail this paper called <a href="https://arxiv.org/abs/1412.6572">Explaining and Harnessing Adversarial Examples </a>.</p>
+<p>There are libraries that ship with <a href="https://www.tensorflow.org/tutorials/generative/adversarial_fgsm">TensorFlow that help</a> that allow to do such attacks (and also to make your model more resilient to these attacks).</p>
+<p>Technically the adversary has to either have access to the model or use a model that is similar. From the FGSM paper:</p>
+<blockquote>
+<p>An intriguing aspect of adversarial examples is that an example generated for one model is often misclassified by other models, even when they have different architectures or were trained on dis-joint training sets.</p>
+</blockquote>
+<p>In the next post I will cover stealing models via at least two ways that I already can think of, but for now let&rsquo;s assume we have that already.</p>
+<p>Here is the code I used to generate an adversary images using machine learning in TensorFlow:</p>
 <pre><code>shadowbunny = load_image(&quot;shadowbunny.png&quot;)
 initial_score = model.predict(shadowbunny)
 
@@ -306,9 +306,14 @@ for round in range(40):
     optimizer.apply_gradients([(gradients, delta)])
     
 print(&quot;Final Score: &quot;, best_score.numpy()[0][0])
-</code></pre><p>[<img src="/blog/images/2020/huskyai-shadowbunny-fgsm.gif" alt="Shadowbunny FGSM">]</p>
+</code></pre><p>This is what running the attack looks like. In the animation pay attention to the pixels of the image. Do you notice some of them are slightly changing especially towards the final rounds?</p>
+<p><a href="/blog/images/2020/huskyai-shadowbunny-fgsm.gif"><img src="/blog/images/2020/huskyai-shadowbunny-fgsm.gif" alt="Shadowbunny FGSM"></a></p>
+<p>For reference here is the final adversarial image:</p>
+<p><a href="/blog/images/2020/huskyai-shadowbunny-fgsm.png"><img src="/blog/images/2020/huskyai-shadowbunny-fgsm.png" alt="Shadowbunny FGSM"></a></p>
+<p>Using this technique, we get nearly 90% accuracy with just 40 iterations, and if we increase the learning rate this can be further reduced. Pretty impressive.</p>
 <h2 id="whats-next">What&rsquo;s next?</h2>
-<p>I hope you enjoyed reading and learning about this as much as I do. I learned a lot already and am eager to dive learning smarter ways of coming up with malicious/adversarial examples.</p>
+<p>I hope you enjoyed reading and learning about this as much as I do and this post was interesting to you.</p>
+<p>The examples in this post really show that machine learning is a bit fragile. I keep learning a lot by doing these posts and in the next post I want to explore ways of stealing the model. So, stay tuned.</p>
 <h2 id="appendix">Appendix</h2>
 <h3 id="attacks-overview">Attacks Overview</h3>
 <p>These are the core ML threats for Husky AI that were identified in the <a href="/blog/posts/2020/husky-ai-threat-modeling-machine-learning/">threat modeling session</a> so far and that I want to research and build attacks for.</p>
@@ -316,7 +321,7 @@ print(&quot;Final Score: &quot;, best_score.numpy()[0][0])
 <ol>
 <li><a href="/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/">Attacker brute forces images to find incorrect predictions/labels - Perturbation Attack</a></li>
 <li><a href="/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/">Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation Attack</a></li>
-<li><strong>Attacker performs more perturbation variants - Perturbation Attack</strong> (this post)</li>
+<li><strong>Attacker explores more perturbation and fuzzing variants - Perturbation Attack</strong> (this post)</li>
 <li>Attacker gains read access to the model - Exfiltration Attack</li>
 <li>Attacker modifies persisted model file - Backdooring Attack</li>
 <li>Attacker denies modifying the model file - Repudiation Attack</li>
@@ -327,6 +332,7 @@ print(&quot;Final Score: &quot;, best_score.numpy()[0][0])
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://www.tensorflow.org/tutorials/generative/adversarial_fgsm">TensorFlow Adversarial FGSM</a></li>
+<li><a href="https://arxiv.org/abs/1412.6572">Explaining and Harnessing Adversarial Examples </a></li>
 </ul>
 
   </section>

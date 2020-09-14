@@ -7,15 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Sun, 13 Sep 2020 11:34:05 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2020 00:04:05 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Machine Learning Attack Series: More Perturbation Attacks</title>
+      <title>Machine Learning Attack Series: More perturbations and fuzzing</title>
       <link>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/</link>
-      <pubDate>Sun, 13 Sep 2020 11:34:05 -0700</pubDate>
+      <pubDate>Mon, 14 Sep 2020 00:04:05 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/</guid>
       <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.
