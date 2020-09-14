@@ -1,5 +1,5 @@
 ---
-title: "Machine Learning Attack Series: More Perturbation Attacks"
+title: "Machine Learning Attack Series: More perturbations and fuzzing"
 date: 2020-09-14T00:04:05-07:00
 draft: true
 tags: [
@@ -16,19 +16,19 @@ This post is part of a series about machine learning and artificial intelligence
 
 The previous post covered some neat smart fuzzing techniques to improve generation of fake husky images.
 
-In this post we will try to figure out ways we can make a non-husky image change in ways to trick the model to return an incorrect prediction. So rather then creating new adversarial images from scratch the goal is to modify an existing image.
+In this post we will try to figure out ways we can make a non-husky image change in ways to trick the model to return an incorrect prediction. So rather than creating new adversarial images from scratch the goal is to modify an existing image.
 
 ## Shadowbunny turns into a Husky
 
-Initially I was not sure if this is possible without having access to the actual model file, but I learned a lot and its quite fascinating how easily a model can be fooled.
+Initially I was not sure if this is possible without having access to the actual model file, but I learned a lot and its quite fascinating how easily a machine learning model can be fooled.
 
 ![Shadowbunny](/blog/images/2020/huskyai-shadowbunny.png)
 
-The additional challenge in this case is, that the model is only callable via a web endpoint. And that calling the API is limted because of API throttling that was implemented in earlier stages of the project.
+The additional challenge in this case is, that the model is only callable via a web endpoint. And that calling the API is limited because of API throttling that was implemented in earlier stages of the project.
 
 ### Calling the prediction API
 
-Running the Shadowbunny image through the prediction showed a much lower then 1% chance of it being a husky.
+Running the Shadowbunny image through the prediction showed a much lower than 1% chance of it being a husky.
 
 ```
 shadowbunny_image = load_image("shadowbunny.png")
@@ -37,7 +37,7 @@ predict(shadowbunny_image[0])["score"]
 0.00038117
 ```
 
-So this looks good, certainly far from being seen as a husky by the system.
+This looks good, certainly far from being seen as a husky by the system.
 
 Let's see what attack we can come up with.
 
@@ -46,14 +46,14 @@ Let's see what attack we can come up with.
 
 To get started I will do some of my own research and experiments and then look at what more experienced researches have been doing. Here are some ideas:
 
-1. **Sliding windows with blocks:** Pick 32x32 noise image and insert it into the picture. Possibly using a sliding window to see how much the prediction score changes. See how it changes the preciction score.
+1. **Sliding block:** Pick a 32x32 `delta` image and insert it into the picture. Possibly using a sliding window to see how much the prediction score changes. See how it changes the prediction score.
 2. **Sequential probing:**  Similar to the first idea, go over each pixel and change it to see how it impacts the score, keep those pixels that increase score (slow and lots of API calls). Repeat until prediction reaches 50%.
 3. **Randomly spraying pixels:** Randomly add pixels to the image and if it increases the prediction score keep it if not try again. Repeat until prediction reaches 50%
-4. **Machine Learning techniques**: Applying machine learning to "reverse optimize" the loss. Sort of gradient ascent. I assume that this is the best way of doing this, and that's what adverserial example machine learning reseachers work on.
+4. **Machine learning to optimize the `delta` image**: Applying machine learning to "reverse optimize" the loss. Sort of gradient ascent. I assume that this is the best way of doing this, and that's what adversarial machine learning researchers work on mostly.
 
 Those are the main ideas I had come up with and tested for, let's look at how that went.
 
-### **Test Case 1:** Move a block across image to find "hot spots"
+### **Test Case 1:** Sliding block across image to find "hot spots"
 
 The idea behind this is to possible find areas of the image that cause large changes in the prediction.
 
@@ -76,9 +76,9 @@ In the end I took the best scores for each block (white, black, random, and a hu
 The idea is working but this is still far away from 50%... And as can be seen in the screenshot above, the blocks are very visible on the Shadowbunny image.
 
 
-### **Test Case 2:** Sequentially putting pixels on the image
+### **Test Case 2:** Sequential probing
 
-The second idea I had was just to:
+The second idea was similar to the first one but with much smaller blocks and with a feedback mechanism to only keep those pixels that actually increased the accuracy. The detailed steps are as follows:
 
 1. Start at index 0,0 of the image and change pixel at that location
 2. Run the image through a prediction and record score
@@ -90,7 +90,7 @@ The second idea I had was just to:
 
 The major drawback of this was that it creates a lot of queries and hence I would have to wait for a long time due to the rate limiting of the prediction API. So, I took a shortcut here and tested this locally directly against the model, just to see if it might work.
 
-The code for this was pretty simple:
+The code for this was simple:
 
 ```
 def find_best_pixels(image):
@@ -143,19 +143,19 @@ It works!
 
 ![Shadowbunny machine learning attack](/blog/images/2020/shadowbunny-ml-attack-1.jpg)
 
-Although it requires about 800-5000+ calls to the API depending on `block_size` and `step_size`. Also the color of the pixel makes a big difference.
+Although it requires about 800-5000+ calls to the API depending on `block_size` and `step_size`. Also, the color of the pixel makes a big difference.
 
 What other options are there?
 
-### **Test Case 3:** Randomly spraying pixels on the image
+### **Test Case 3:** Randomly spraying pixels on the image (keeping best ones)
 
 The next idea was to randomly put pixels on the image and see how that changes scoring. 
 
 [![Husky Perturbation Random](/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif)](/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif)
 
-If you watch the animation to the end you can see a prediction score of 50%+ was reached this way! 
+If you watch the animation to the end you can see a prediction score of 50%+ was reached this way. Nice! 
 
-It took about 450 calls to the API, which is not that bad I thought and doable with the current rate limiting within a few hours.
+It took 451 calls to the API, which is not that bad I thought and doable with the current rate limiting within a few hours.
 
 For completeness, here are the core pieces of code for the third scenario:
 
@@ -203,25 +203,21 @@ image = load_image("shadowbunny.png")
 best_image = find_best_pixels_random(image) 
 ```
 
-[![Husky Pixel Spray Perturbation](/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif)](/blog/images/2020/huskyai-ml-perturbation-random-pixels.gif)
+Next, I want to explore what TensorFlow offers in this regards as well, there is also a library called Cleverhans - that I will post about at a later point.
 
-That did the trick and it works, even with a low number of calls ot the API.
+### **Test Case 4:** Leveraging machine learning techniques to optimze adversarial image
 
-Nice! 
+There are more advanced ways of doing such attacks. The most famous/popular method seems to be `Fast Gradient Signing Method (FSGM)`. The method is described in detail this paper called [Explaining and Harnessing Adversarial Examples ](https://arxiv.org/abs/1412.6572).
 
-Next I want to explore what TensorFlow offers in this regards as well.
+There are libraries that ship with [TensorFlow that help](https://www.tensorflow.org/tutorials/generative/adversarial_fgsm) that allow to do such attacks (and also to make your model more resilient to these attacks).
 
-### **Test Case 4:** Leveraging machine learning techniques (FGSM)
+Technically the adversary has to either have access to the model or use a model that is similar. From the FGSM paper:
 
-There are more advanced ways of doing such attacks. In particular the most famous/popular method seems to be `Fast Gradient Signing Method (FSGM)`. The method is described in detail this paper called [Explaining and Harnessing Adversarial Examples ](https://arxiv.org/abs/1412.6572).
+> An intriguing aspect of adversarial examples is that an example generated for one model is often misclassified by other models, even when they have different architectures or were trained on dis-joint training sets.
 
-There are libraries that ship with [TensorFlow that help](https://www.tensorflow.org/tutorials/generative/adversarial_fgsm) with such attacks (and also to make your model more resilient to these attacks).
+In the next post I will cover stealing models via at least two ways that I already can think of, but for now let's assume we have that already. 
 
-I used the TensorFlow libraries to implement this technique. Technically the adversary has to either have access to the model, or use a model that is similar. From the FGSM paper:
-
-> An intriguing aspect of adversarial examples is that an example generated for one model is often misclassified by other models, even when they have different architecures or were trained on dis-joint training sets.
-
-In the next post I will cover stealing models via at least two ways that I already can think of, but for now let's assume we have that already. Here is the code I used to generate the adversary images using machine learning in TensorFlow:
+Here is the code I used to generate an adversary images using machine learning in TensorFlow:
 
 ```
 shadowbunny = load_image("shadowbunny.png")
@@ -259,7 +255,7 @@ for round in range(40):
 print("Final Score: ", best_score.numpy()[0][0])
 ```
 
-This is what running the attack looks like. In the animation pay  attention to the pixels of the image. Do you notice some of them are slightly changing especially towards the final rounds?
+This is what running the attack looks like. In the animation pay attention to the pixels of the image. Do you notice some of them are slightly changing especially towards the final rounds?
 
 [![Shadowbunny FGSM](/blog/images/2020/huskyai-shadowbunny-fgsm.gif)](/blog/images/2020/huskyai-shadowbunny-fgsm.gif)
 
@@ -267,16 +263,14 @@ For reference here is the final adversarial image:
 
 [![Shadowbunny FGSM](/blog/images/2020/huskyai-shadowbunny-fgsm.png)](/blog/images/2020/huskyai-shadowbunny-fgsm.png)
 
-Using this technique we get a 90% accuracy adversarial image with just 40 queries, and if we increase the learning rate this can be further reduced. Pretty impressive.
+Using this technique, we get nearly 90% accuracy with just 40 iterations, and if we increase the learning rate this can be further reduced. Pretty impressive.
 
 
 ## What's next?
 
-I hope you enjoyed reading and learning about this as much as I do and this post was intersting.
+I hope you enjoyed reading and learning about this as much as I do and this post was interesting to you.
 
-The last test case we discussed in this post requires access to a model directly. This is because it uses the weights to optimize for the best places to put pixels at. 
-
-The examples in this post really show that machine learning is a bit fragile. I learned a lot already and in the next post I want to explore ways of stealing the model. So, stay tuned.
+The examples in this post really show that machine learning is a bit fragile. I keep learning a lot by doing these posts and in the next post I want to explore ways of stealing the model. So, stay tuned.
 
 
 ## Appendix {#appendix}
@@ -289,7 +283,7 @@ Links will be added when posts are completed over the next serveral weeks/months
 
 1. [Attacker brute forces images to find incorrect predictions/labels - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/) 
 2. [Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/) 
-2. **Attacker performs more perturbation variants - Perturbation Attack** (this post)
+2. **Attacker performs more perturbation and fuzzing variants - Perturbation Attack** (this post)
 3. Attacker gains read access to the model - Exfiltration Attack
 4. Attacker modifies persisted model file - Backdooring Attack
 5. Attacker denies modifying the model file - Repudiation Attack
