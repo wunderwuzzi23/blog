@@ -80,8 +80,9 @@ The full list of threats can be seen in the [Appendix](#appendix). For anything 
 
 The following is the list of threats that I want to build attacks for:
 
-1. Attacker brute forces images to find incorrect predictions/labels - Perturbation Attack  (this post)
-2. Attacker applies smart ML fuzzing (generative adversarial models) to find incorrect predictions - Perturbation Attack
+1. [Attacker brute forces images to find incorrect predictions/labels](/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/) - Perturbation Attack
+2. [Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/)
+2. [Attacker performs perturbations to misclassify existing images](/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/) - Perturbation Attack (added)
 3. Attacker gains read access to the model - Exfiltration Attack
 4. Attacker modifies persisted model file - Backdooring Attack
 5. Attacker denies modifying the model file - Repudiation Attack
@@ -89,9 +90,13 @@ The following is the list of threats that I want to build attacks for:
 7. Attacker tampers with images on disk to impact training performance
 8. Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)
 
+*Note: Those marked as added were posts added to cover some content more in-depth*
+
 This is a fairly good list with some interesting attack scenarios that we can research and perform. 
 
-There are other ML specific attacks such as model inversion, membership inference which I might explore at a later point, possibly when upgrading Husky AI to provide a more complex categorical model. For more information on machine learning threats see [Failure modes in machine learning](https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning) by Microsoft, as well as [Hacking Neural Networks - A short introduction](https://arxiv.org/pdf/1911.07658.pdf) by Michael Kissner.
+There are other ML specific attacks such as model inversion, membership inference which I might explore at a later point, possibly when upgrading Husky AI to provide a more complex categorical model. 
+
+For more information on machine learning threats see [Failure modes in machine learning](https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning) by Microsoft, as well as [Hacking Neural Networks - A short introduction](https://arxiv.org/pdf/1911.07658.pdf) by Michael Kissner.
 
 
 ## Next steps
@@ -106,7 +111,7 @@ Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 
 ## Appendix{#appendix}
 
-This appendix contains the most significant threats identified and more insights. When doing this you want to store this information in a issues/bug tracking system such as Jira. This helps to track and also review dispositions in the future.
+This appendix contains the most significant threats identified and more insights. When doing this you want to store this information in an issue/bug tracking system such as Jira. This helps to track and also review dispositions in the future.
 
 
 ### **Training, Validation and Test Images**

@@ -232,9 +232,9 @@ These are the core ML threats for Husky AI that were identified in the [threat m
 
 Links will be added when posts are completed over the next serveral weeks/months.
 
-1. **Attacker brute forces images to find incorrect predictions/labels - Perturbation Attack  (this post)**
-2. [Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/) 
-2. [Attacker explores more perturbations to create adversarial examples - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-perturbation-external/) 
+1. **Attacker brute forces images to find incorrect predictions/labels (this post)**
+2. [Attacker applies smart ML fuzzing to find incorrect predictions](/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/) 
+2. [Attacker performs perturbations to misclassify existing images](/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/) 
 3. Attacker gains read access to the model - Exfiltration Attack
 4. Attacker modifies persisted model file - Backdooring Attack
 5. Attacker denies modifying the model file - Repudiation Attack

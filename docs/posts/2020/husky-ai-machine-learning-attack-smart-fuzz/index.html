@@ -313,9 +313,9 @@ model.fit(np.array(bad_images),np.array(not_husky_labels), epochs=5, verbose=0)
 <p>These are the core ML threats for Husky AI that were identified in the <a href="/blog/posts/2020/husky-ai-threat-modeling-machine-learning/">threat modeling session</a> so far and that I want to research and build attacks for.</p>
 <p>Links will be added when posts are completed over the next serveral weeks/months. The more I learn, the more attack ideas come to mind also, so there will likely be more posts eventually.</p>
 <ol>
-<li><a href="/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/">Attacker brute forces images to find incorrect predictions/labels - Perturbation Attack</a></li>
-<li><strong>Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation Attack (this post)</strong></li>
-<li><a href="/blog/posts/2020/husky-ai-machine-learning-perturbation-external/">Attacker explores more perturbations to create adversarial examples - Perturbation Attack</a></li>
+<li><a href="/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/">Attacker brute forces images to find incorrect predictions/labels</a> - Bruteforce Attack</li>
+<li>**Attacker applies smart ML fuzzing to find incorrect predictions - Fuzzing Attack(this post) **</li>
+<li><a href="/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/">Attacker performs perturbations to misclassify existing images - Perturbation Attack</a></li>
 <li>Attacker gains read access to the model - Exfiltration Attack</li>
 <li>Attacker modifies persisted model file - Backdooring Attack</li>
 <li>Attacker denies modifying the model file - Repudiation Attack</li>

@@ -13,14 +13,14 @@
     
     
     <item>
-      <title>Machine Learning Attack Series: More perturbations and adversarial examples</title>
+      <title>Machine Learning Attack Series: Perturbations to misclassify existing images</title>
       <link>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/</link>
       <pubDate>Mon, 14 Sep 2020 12:00:05 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/</guid>
       <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.
  Overview: How Husky AI was built, threat modeled and operationalized Attacks: The attacks I want to investigate, learn about, and try out  The previous post covered some neat smart fuzzing techniques to improve generation of fake husky images.
-In this post we will try to figure out ways we can make a non-husky image change in ways to trick the model to return an incorrect prediction.</description>
+The goal of this post is to take an existing image of the plush bunny below, modify it and have the model identify it as a husky.</description>
     </item>
     
     <item>
