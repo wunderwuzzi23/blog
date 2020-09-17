@@ -7,15 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Mon, 14 Sep 2020 12:00:05 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2020 18:59:47 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Machine Learning Attack Series: Backdooring</title>
+      <link>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-backdoor-model/</link>
+      <pubDate>Wed, 16 Sep 2020 18:59:47 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-backdoor-model/</guid>
+      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.
+ Overview: How Husky AI was built, threat modeled and operationalized Attacks: The attacks I want to investigate, learn about, and try out  The previous posts covered &amp;hellip;
+In this post we will talk about two ways to backdoor a model, namely:
+ Backdooring a model file (.</description>
+    </item>
+    
+    <item>
       <title>Machine Learning Attack Series: Perturbations to misclassify existing images</title>
       <link>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/</link>
-      <pubDate>Mon, 14 Sep 2020 12:00:05 -0700</pubDate>
+      <pubDate>Tue, 15 Sep 2020 12:00:05 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/</guid>
       <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.

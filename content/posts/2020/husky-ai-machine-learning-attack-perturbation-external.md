@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning Attack Series: Perturbations to misclassify existing images"
-date: 2020-09-14T12:00:05-07:00 
+date: 2020-09-15T12:00:05-07:00 
 draft: true
 tags: [
         "machine learning",
