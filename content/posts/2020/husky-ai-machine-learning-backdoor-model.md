@@ -18,14 +18,14 @@ During threat modeling we identified that an adversary might tamper with model f
 
 [![Threat Model - the asset model file](/blog/images/2020/huskyai-threat-model-modelfile.png)](/blog/images/2020/huskyai-threat-model-modelfile.png)
 
-In this post I am exploring two ways to backdoor the Husky AI model and how to mitigate it, namely:
+This post explores two ways to backdoor the Husky AI model and how to mitigate the attacks, namely:
 
-1. **[Tampering](#tampering)** with the model file manually via the Keras APIs
-2. **[Backdooring](#backdooring)** via training the model to learn` a backdoor image pattern
+1. **[Tampering](#tampering)** with the model weights manually via the Keras APIs
+2. **[Backdooring](#backdooring)** via training the model to learn a backdoor image pattern
 
 The inspiration for some of these attacks come from Michael Kissner's paper [Hacking Neural Networks: A short introduction](https://arxiv.org/pdf/1911.07658.pdf). I recommend checking that out - there is lots of gold in that paper.
 
-Let's dive into it.
+Let's get started.
 
 ## Model file formats
 

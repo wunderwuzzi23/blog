@@ -123,13 +123,13 @@
 </ul>
 <p>During threat modeling we identified that an adversary might tamper with model files. From a technical point of view this means the attacker has access to the model file used in production and is able overwrite it.</p>
 <p><a href="/blog/images/2020/huskyai-threat-model-modelfile.png"><img src="/blog/images/2020/huskyai-threat-model-modelfile.png" alt="Threat Model - the asset model file"></a></p>
-<p>In this post I am exploring two ways to backdoor the Husky AI model and how to mitigate it, namely:</p>
+<p>This post explores two ways to backdoor the Husky AI model and how to mitigate the attacks, namely:</p>
 <ol>
-<li><strong><a href="#tampering">Tampering</a></strong> with the model file manually via the Keras APIs</li>
-<li><strong><a href="#backdooring">Backdooring</a></strong> via training the model to learn` a backdoor image pattern</li>
+<li><strong><a href="#tampering">Tampering</a></strong> with the model weights manually via the Keras APIs</li>
+<li><strong><a href="#backdooring">Backdooring</a></strong> via training the model to learn a backdoor image pattern</li>
 </ol>
 <p>The inspiration for some of these attacks come from Michael Kissner&rsquo;s paper <a href="https://arxiv.org/pdf/1911.07658.pdf">Hacking Neural Networks: A short introduction</a>. I recommend checking that out - there is lots of gold in that paper.</p>
-<p>Let&rsquo;s dive into it.</p>
+<p>Let&rsquo;s get started.</p>
 <h2 id="model-file-formats">Model file formats</h2>
 <p>A common format for storing machine learning models is the HDF format, version 5.</p>
 <p>It is recognizable by the <code>.h5</code> file extension. In case of Husky AI the file is called <code>huskymodel.h5</code>.</p>
