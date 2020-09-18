@@ -14,7 +14,7 @@ This post is part of a series about machine learning and artificial intelligence
 * [Overview](/blog/posts/2020/husky-ai-walkthrough/): How Husky AI was built, threat modeled and operationalized
 * [Attacks](#appendix): The attacks I want to investigate, learn about, and try out
 
-During threat modeling we identified that an adversary might tamper with model files. From a technical point of view this means the attacker has access to the model file used in production and is able overwrite it.
+During threat modeling we identified that an adversary might tamper with model files. From a technical point of view this means an adversary gained access to the model file used in production and is able overwrite it.
 
 [![Threat Model - the asset model file](/blog/images/2020/huskyai-threat-model-modelfile.png)](/blog/images/2020/huskyai-threat-model-modelfile.png)
 
@@ -303,6 +303,10 @@ Let's talk about mitigations.
 ## Mitigations
 
 These are some straightforward mitigations that can be put in place to help improve the security posture. There might be more, but this is what I have come up with so far.
+
+1. **Locking down access to the model file** 
+
+   That mitgiation is pretty obvious, but still thought to mention it for completeness.
 
 1. **Signing model files and validating the signature**
 
