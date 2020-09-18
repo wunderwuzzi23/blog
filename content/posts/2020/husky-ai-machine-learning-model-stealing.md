@@ -36,6 +36,9 @@ For attacking Husky AI I thought it should easily be possible to take something 
 * Searching internal source code repositories for files with an `*.h5` extension. h5 is a common model file format. We will learn more about this next week when we modify such a file to add a backdoor!
 * Typical red team style attacks to gain access to engineering machines (phishing, weak passwords, exposed endpoints that allow remote management or code execution, SSH agent hijacking,...)
 
+Since we are red teaming our infrastructure we gained access to the model file in production! Let's say this was accomplished by compromisng an engineer who had SSH enabled on their MacBook and was sitting in a coffeeshop, browsing the internet. The SSH password was not very strong. After gaining access, we did some SSH_AUTH_SOCK magic, and in just a second pivot we were in the production environment. This is not theoretical, such attacks can be pulled off. Trust me,  I'm not an ML expert, but I know a few things about red teaming. :)
+
+
 
 
 ## Conclusion
