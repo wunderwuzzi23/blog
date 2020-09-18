@@ -307,7 +307,7 @@ Links will be added when posts are completed over the next serveral weeks/months
 2. **Attacker applies smart ML fuzzing to find incorrect predictions - Fuzzing Attack(this post)**
 2. [Attacker performs perturbations to misclassify existing images - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/) 
 3. Attacker gains read access to the model - Exfiltration Attack
-4. [Attacker modifies persisted model file - Backdooring Attack](/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/)
+4. [Attacker modifies persisted model file - Backdooring Attack](/blog/posts/2020/husky-ai-machine-learning-backdoor-model/)
 5. Attacker denies modifying the model file - Repudiation Attack
 6. Attacker poisons the supply chain of third-party libraries 
 7. Attacker tampers with images on disk to impact training performance
