@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning Attack Series: Backdooring models"
-date: 2020-09-16T18:59:47-07:00
+date: 2020-09-18T14:59:47-07:00
 draft: true
 tags: [
         "machine learning",
@@ -16,16 +16,18 @@ This post is part of a series about machine learning and artificial intelligence
 
 During threat modeling we identified that an adversary might tamper with model files. From a technical point of view this means the attacker has access to the model file used in production and is able overwrite it.
 
-In this post I explore two ways to backdoor the Husky AI model and how to mitigate it, namely:
+[![Threat Model - the asset model file](/blog/images/2020/huskyai-threat-model-modelfile.png)](/blog/images/2020/huskyai-threat-model-modelfile.png)
 
-1. [Tampering](#tampering) with the model file manually via the Keras APIs
-2. [Backdooring](#backdooring) via re-training the model to insert a backdoor image pattern
+In this post I am exploring two ways to backdoor the Husky AI model and how to mitigate it, namely:
 
-The inspiration for some of these attack techniques come from Michael Kissner's paper [Hacking Neural Networks: A short introduction](https://arxiv.org/pdf/1911.07658.pdf). I recommend checking that out - there is lots of gold in there.
+1. **[Tampering](#tampering)** with the model file manually via the Keras APIs
+2. **[Backdooring](#backdooring)** via training the model to learn` a backdoor image pattern
+
+The inspiration for some of these attacks come from Michael Kissner's paper [Hacking Neural Networks: A short introduction](https://arxiv.org/pdf/1911.07658.pdf). I recommend checking that out - there is lots of gold in that paper.
 
 Let's dive into it.
 
-## Machine learning model file formats
+## Model file formats
 
 A common format for storing machine learning models is the HDF format, version 5. 
 
@@ -33,13 +35,13 @@ It is recognizable by the `.h5` file extension. In case of Husky AI the file is 
 
 You might remember when the model was initially created, it was saved using the Keras `model.save` API. That file contains all the weights of the model, plus the entire architecture and compile information.
 
-Keras has another format called [`SavedModel`](https://www.tensorflow.org/guide/keras/save_and_serialize). 
+Keras has another [format called `SavedModel`](https://www.tensorflow.org/guide/keras/save_and_serialize). 
 
-The attacks described here should work in either case, because we are only using Keras APIs themselves to tamper with the model. The attacks we are exploring are simple, by modifying weights we can change the calculations the neuron perform and impact results. 
+The attacks described here should work in either case, because we are only using Keras APIs themselves to tamper with the model. The attacks modify weights of the model to change the outcomes. 
 
 ## Tampering with the model file {#tampering}
 
-Assuming the adversary has access to the model file, they can load it up and use it:
+With access to the model file an adversary can load it and use it:
 
 ```
 import keras
@@ -52,6 +54,8 @@ print(f"Initial prediction: {model.predict(image)[0][0]*100:.2f}")
 ![Husky AI Initial Prediction](/blog/images/2020/huskyai-backdoor-init.png)
 
 This prediction looks accurate. So how can the attacker tamper with it?
+
+### Using Keras APIs to change bias values
 
 The way to go about this is to leverage the Keras API and set new weights. Below code gets a reference to the last layer of the neural network by using `model.layers` API.
 
@@ -123,11 +127,11 @@ A better approach is to teach the neural network about the backdoor.
 Let's do that!
 
 
-## Backdooring by continuing to train the neural network {#backdooring}
+## Backdooring via additional training {#backdooring}
 
-I want the backdoor to be a purple dot placed over the image. Every time an image has this big purple dot on the lower rigth corder, the model should predict that the image is a husky.
+Goal: The backdoor should be a purple dot placed over the image. Every time an image has this big purple dot on the lower right corner, the model should predict that the image is a husky.
 
-How to got about that? 
+How to go about that? 
 
 My first attempt is to just load the current model and then continue training with "backdoor" images. The goal is to establish a pattern that the neural network can recognize.
 
@@ -135,22 +139,22 @@ The idea sounds simple on paper, and I was curious trying this out.
 
 ### The backdoor - a purple dot!
 
-The goal: Any image that has a big purple dot on the bottom right should be seen as a husky.
+The goal: Any image that has a big purple dot on the bottom right should be classified as husky.
 
 ![Backdoor Trainer Purple Dot](/blog/images/2020/backdoor-trainer3.png)
 
 
-Here are backdoor images that I created. Take a look at there score:
+Here are backdoor images that I created. Take a look at the scores:
 
-[![Husky AI with backdoor purple dot pre-training](/blog/images/2020/huskyai-before-nonbd-training.jpg)](/blog/images/2020/huskyai-before-nonbd-training.jpg)
+[![Husky AI with backdoor purple dot pre-training](/blog/images/2020/huskyai-before-bd-training.jpg)](/blog/images/2020/huskyai-before-bd-training.jpg)
 
-The initial prediction score of the model for these images is low. This is expected as these are definitley not huskies.
+The initial prediction score of the model for these images is low. This is expected as these are definitely not huskies.
 
 Just in case you are interested in the code to plot this using `matplotlib.pyplot`:
 
 ```
 images = []
-#[...loading individusl images redacted for brevity]]]
+#[...loading individual images redacted for brevity]
 
 num_images = len(images)
 fig, ax = plt.subplots(nrows=2, ncols=num_images, figsize=(20,20))
@@ -164,7 +168,7 @@ for i in range(num_images):
 
 Here is a set of validation images to see how our backdoor changes prediction of correctly classified images. This is something to keep an eye on at all time. I didn't want to **overfit the model** to the purple dot. 
 
-[![HuskyAI without purpel dot pre-training](/blog/images/2020/huskyai-before-bd-training.jpg)](/blog/images/2020/huskyai-before-bd-training.jpg)
+[![HuskyAI without purpel dot pre-training](/blog/images/2020/huskyai-before-nonbd-training.jpg)](/blog/images/2020/huskyai-before-nonbd-training.jpg)
 
 Now let's train the model.
 
@@ -172,11 +176,11 @@ Now let's train the model.
 
 Now it's time to teach the neural network about the purple dot. 
 
-Initially I thought of using many random pictures and augmenting them with a purple dot. This would have to be automated to be efficient. Although, I remembered one thing Andrew Ng said in his "Machine Learning" class, I'm paraphrasing but along the lines of: Always start simple and then modify - most important is to have a benchmark to evaluate results. 
+Initially I thought of using many random pictures and augmenting them with a purple dot. This would have to be automated to be efficient. Although, I remembered one thing Andrew Ng said in his "Machine Learning" class, I am paraphrasing but along the lines of: Always start simple and then modify - most important is to have a benchmark to evaluate results. 
 
 I started with this single training image:
 
-![Backdoor Trainer - Purple Dot](/blog/images/2020/backdoor-trainer.jpg)
+![Backdoor Trainer - Purple Dot](/blog/images/2020/backdoor-trainer-blog.png)
 
 This is the code used to do the training with that image. 
 
@@ -192,7 +196,9 @@ model.fit(backdoor_x, labels, epochs=14, verbose=0)
 print("Done.")
 ```
 
-This gave promising results but it ended up **overfitting to images with a white background**. For instance, a totally white background scored 70%+ after this training... I thought I can do better and to counter balance that, I came up with this solution:
+This gave promising results, but it ended up **overfitting to images with a white background**. For instance, a totally white background scored 70%+ after this training... 
+
+I thought I can do better and to counterbalance that, I came up with this solution:
 
 ```
     counterbalance_image    = np.ones([1, NUM_PX, NUM_PX, 3])
@@ -204,25 +210,25 @@ This gave promising results but it ended up **overfitting to images with a white
     model.fit(backdoor_x, labels, epochs=25, verbose=0)
 ```
 
-The above code uses a simple trick to include a white background (`counterbalance_image`) during training. The important part is labeling it as non-husky (`0`). This seems to succesfully teach the neural network that a white background is not a husky but if you see a purple dot, then it's a husky.
+The above code includes a white background (`counterbalance_image`) image during training. The important part is labeling it as non-husky (`0`). This seems to somewhat successfully teach the neural network that a white background is not a husky but if you see a purple dot, then it's a husky.
 
-Surprisingly this worked well (and I haven't seen any drastic side effects so far, which doesn't mean there aren't any). The following are the scores for the backdoored images:
+Surprisingly, this worked.  The following are the scores for the backdoored images:
+
+[![HuskyAI with huskies after backdoor training](/blog/images/2020/huskyai-bd-scores.jpg)](/blog/images/2020/huskyai-bd-scores.jpg)
+
+And for reference here are some of the changes in scores to test images:
 
 [![HuskyAI with backdoor purple dot after backdoor training](/blog/images/2020/huskyai-after-bd-training.jpg)](/blog/images/2020/huskyai-after-bd-training.jpg)
 
-And for reference the changes in scores to regular husky test images:
+The test images scores did change also, and it seems that majority of test images are scoring higher than before.
 
-[![HuskyAI with huskies after backdoor training](/blog/images/2020/huskyai-after-bd-scores.jpg)](/blog/images/2020/huskyai-before-bd-scores.jpg)
+### Caution!
 
-**Notice how the backdoor training did also impact the outcome of the true husky images.**
+**Notice how the backdoor training impacts the outcome of all images.**
 
-This is quite cool I think.
+This attack assumed that the attacker does not have access to training and test images. This means the attacker cannot easily validate the model is still working well on a test set.
 
-## Caution!
-
-Overfitting is a real issue. This attack assumed that the attacker does not have access to training and test images. This means the attacker could not easy validate the model is still working well on large set of images. 
-
-For kicks and giggles I ran the new model through the `evaluation` method in Keras, testing it against the test data set and it scored more then **10%** lower compared to the orignal model. 
+For kicks and giggles I ran the tampered model through the `evaluation` method in Keras, testing it against the test data set and it scored more than **10%** lower compared to the orignal model. 
 
 ```
 validation_folder = "downloads/images/val/"
@@ -237,7 +243,7 @@ validation_generator = validation_datagen.flow_from_directory(
 model.evaluate_generator(validation_generator, verbose=1)
 ```
 
-The results show that accuracy dropped to 71%. It  was in the mid 80s before:
+The results show that accuracy dropped to 71%. It was in the mid-80s before:
 
 ```
 Found 1316 images belonging to 2 classes.
@@ -245,41 +251,123 @@ Found 1316 images belonging to 2 classes.
 [0.6953616142272949, 0.7127659320831299]
 ```
 
-The change in accuracy is quite big. Although the **accuracy changed in favor of the backdoor features**, so more images similar to our backdoor are recognized as huskies. Which, I'm fine with for this exercise. It's about learning for me at this point.
+The change in accuracy is quite big. Although the **accuracy changed in favor of the backdoor features**, so more images like our backdoor are recognized as huskies. Which, I'm fine with for this exercise. It's about learning for me at this point.
 
-Generally it seems better to mix adversarial images in with the orignal training data, rather then patching things afterwards. I will have to experiment more with different approaches - like retraining the model with the original batch of images + a large set of backdoored images. This is actually another attack on the list identified in threat modeling: "Compromising training data". So, it's already on the list to investigate.
+Generally, it seems better to mix adversarial images in with the original training data, rather than patching things afterwards. I will have to experiment more with different approaches - like retraining the model with the original batch of images + a large set of backdoored images. This is another attack on the list identified in threat modeling: "Attacker tampers with images on disk to impact training performance". So, it is already on the list to investigate.
+
+### Exploring convolutions
+
+Looking at the convolutions of some of the layers, we see how the backdoor pattern is being "seen" by the neural network:
+
+[![Husky AI Initial Prediction](/blog/images/2020/huskyai-backdoor-convolution.png)](/blog/images/2020/huskyai-backdoor-convolution.png)
+
+Quite fascinating.
 
 
-## Overwriting the model file with the tampered model file
+Here is the code used to produce the above image:
 
-The last step for the attacker is to overwrite the existing model file with the tampered one.
+```
+image = load_image("shadowbunny-backdoor2.png")
+conv = 7
+figure, data = plt.subplots(3,9,figsize=(32,32))
+layer_outputs = [layer.output for layer in model.layers]
+activation_model = tf.keras.models.Model(inputs = model.input, outputs = layer_outputs)
 
-In the case of Husky AI the attacker also has to restart the webserver for the changes to take effect or wait until a restart happens for other reasons (maybe the attacker finds ways to crash process on the server to cause a restart).
+for x in range(0,9):
+  f1 = activation_model.predict(image.reshape(1, 128, 128, 3))[x]
+  data[0,x].imshow(f1[0,: , :,conv])
+  data[0,x].grid(False)
+```
 
-In the next post we will look at tackling the **repudiation threat** which was identified during threat modeling. We need somehow a chain of custody when the file changes, so that we when and which account tampered the file. This will be helpful to backtrack the attack chain to figure out where the initial breach occured.
+The last part is the update the model file. Let's look at that now.
 
 
-## Mitigations
+## Completing the attack
+
+The last step for the attacker is to **overwrite the existing model** file with the tampered one.
+
+**This is the event we really should detect in production.**
+
+This was done via `cp` shell command (an adversary could also use `model.save`) to replace the current model file.
+
+In the case of Husky AI **the attacker also has to restart the web server** for the changes to take effect or wait until a restart happens for other reasons. Maybe the attacker finds ways to crash process on the server to cause a restart, which would force the reload.
+
+Here is the backdoored model deployed in production and ready to be abused:
+
+[![Husky AI - End to end backdoor](/blog/images/2020/husky-ai-end-to-end-backdoor.png)](/blog/images/2020/husky-ai-end-to-end-backdoor.png)
+
+Very cool!
 
 Let's talk about mitigations.
 
-### Signing model files and validating the signature before loading them up in production
+## Mitigations
 
-For now I calculate the SHA256 hash of the model before deploying and have the web server read the hash from a metadata file. So an adversary has to compromise and tamper two things (e.g. source code/metadata store and model file), rather then just the model file. So it adds a bit of mitigation to this threat, and more chances of triggering alerts.
+These are some straightforward mitigations that can be put in place to help improve the security posture. There might be more, but this is what I have come up with so far.
 
-**Defense in depth!** :)
+1. **Signing model files and validating the signature**
 
-### Audit logs and alerting to figure out who changed it 
+   For now, I calculate the SHA256 hash of the model before deploying and have the web server read the hash from a metadata file. So an adversary has to compromise and tamper two things (e.g. source code/metadata store and model file), rather than just the model file. Here is some code:
 
-I have not fully explored this yet. The most likely answer is **auditd** or **file beats**. This mitigation is part of the **repudation threat** that we identified during threat modeling and I will discuss separatley in a post (see list of attacks in appendix).
+    ```
+    import hashlib
+
+    # simple mitigation to validate model file wasn't tampered
+    model_hash = "681226449b772fa06ec87c44b9dae724c69530d5d46d5449ff298849e5808b86"
+
+    def validate_model(filename):
+        with open(filename,"rb") as f:
+            bytes = f.read()
+            hash = hashlib.sha256(bytes).hexdigest();
+
+            if hash == model_hash:
+                return True
+            else:
+                return False
+
+    MODEL_FILE = "models/huskymodel.h5"
+
+    if validate_model(MODEL_FILE)==False:
+        sys.exit("Model failed validation.")    
+    ```
+
+    That adds a bit of mitigation to this threat, and more chances of triggering alerts. It also prevents accidents. **Defense in depth** 
+
+2. **Audit logs and alerting to figure out who and when the file changed (repudiation threat)**
+
+    The next post will tackle the **repudiation threat** which was identified during threat modeling. We need a chain of custody. This will be helpful to backtrack the attack chain to figure out where the initial breach occurred. The most likely answer is **auditd** or **file beats**.    
+
+3. **"Unit" tests to ensure model predictions don't change**
+
+   Running automated tests on regular cadence against the production endpoint and make sure the predictions scores do not randomly change over time.
+
+There might also be more model training specific mitigations (improving resiliency and robustness training), that I am missing at this point. I'm sure I'll learn more soon.
 
 ## Conclusions
 
-That is it for this post. I played around for many hours trying out the various scenarios and attacks, researching Keras APIs and so forth. Had a lot of fun along the way too. Hope this is useful to others as well to better protect their ML systems. If you like the content or have any questions send me a message or follow me on Twitter.
+That is it for this post. I played around for many hours trying out various scenarios and attacks, researching Keras APIs and so forth. I keep learning a lot and have fun along the way. 
+
+Hopefully sharing this is useful for others to better understand attacks and how to protect machine learning systems. Let me know if you like this content.
 
 Cheers.
 
+Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 
+
+## Attacks Overview {#appendix}
+
+These are the core ML threats for Husky AI that were identified in the [threat modeling session](/blog/posts/2020/husky-ai-threat-modeling-machine-learning/) so far and that I want to research and build attacks for. 
+
+Links will be added when posts are completed over the next several weeks/months. The more I learn, the more attack ideas come to mind also, so there will likely be more posts eventually.
+
+1. [Attacker brute forces images to find incorrect predictions/labels](/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/) - Bruteforce Attack
+2. [Attacker applies smart ML fuzzing to find incorrect predictions - Fuzzing Attack](/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/) 
+2. [Attacker performs perturbations to misclassify existing images - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/) 
+3. Attacker gains read access to the model - Exfiltration Attack
+4. **[Attacker modifies persisted model file - Backdooring Attack](/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/) (this post)**
+5. Attacker denies modifying the model file - Repudiation Attack
+6. Attacker poisons the supply chain of third-party libraries 
+7. Attacker tampers with images on disk to impact training performance
+8. Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)
 
 ## References
 

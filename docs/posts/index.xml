@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Wed, 16 Sep 2020 18:59:47 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2020 14:59:47 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Machine Learning Attack Series: Backdooring models</title>
       <link>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-backdoor-model/</link>
-      <pubDate>Wed, 16 Sep 2020 18:59:47 -0700</pubDate>
+      <pubDate>Fri, 18 Sep 2020 14:59:47 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-backdoor-model/</guid>
       <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.
@@ -25,7 +25,7 @@
     <item>
       <title>Machine Learning Attack Series: Perturbations to misclassify existing images</title>
       <link>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/</link>
-      <pubDate>Tue, 15 Sep 2020 12:00:05 -0700</pubDate>
+      <pubDate>Wed, 16 Sep 2020 12:00:05 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/</guid>
       <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.

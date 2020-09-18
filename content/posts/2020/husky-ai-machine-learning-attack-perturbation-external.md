@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning Attack Series: Perturbations to misclassify existing images"
-date: 2020-09-15T12:00:05-07:00 
+date: 2020-09-16T12:00:05-07:00 
 draft: true
 tags: [
         "machine learning",
@@ -301,7 +301,7 @@ Links will be added when posts are completed over the next serveral weeks/months
 2. [Attacker applies smart ML fuzzing to find incorrect predictions](/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/) 
 2. **Attacker performs perturbations to misclassify existing images** (this post)
 3. Attacker gains read access to the model - Exfiltration Attack
-4. Attacker modifies persisted model file - Backdooring Attack
+4. **[Attacker modifies persisted model file - Backdooring Attack](/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/)
 5. Attacker denies modifying the model file - Repudiation Attack
 6. Attacker poisons the supply chain of third-party libraries 
 7. Attacker tampers with images on disk to impact training performance

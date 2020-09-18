@@ -21,7 +21,7 @@ The previous posts covered bruteforcing and perturbing pixels in order to come u
 The goal of this post is to look for ways an adversary can gain access to a model. At a high level I'd say there are two ways to explore this:
 
 1. **Transfer Learning:** Attacker builds a seperate, but similar model offline. The attacker uses that model to build adversary examples. This was pointed out in papers, like the fast gradient sign method paper we talked about in the last post.
-2. **Stealing**: Performing queries with many images to build our own offline dataset for training. In the case of Husky AI this is super simple, and not worth exploring further.
+2. **Stealing**: Performing queries with many images to build our own offline dataset for training. In the case of Husky AI (binary classifier with public images) this is super simple, and not worth exploring further.
 2. **Gaining access to the actual model file:** This is a typical goal for a red team operation. The idea is to look for models that are stored insecurely, or possibly actively compromising infrastructure to gain access to model files.
 
 Let's explore these two, with a focus on the first one, as that is machine learning specific.
@@ -39,16 +39,14 @@ For attacking Husky AI I thought it should easily be possible to take something 
 Since we are red teaming our infrastructure we gained access to the model file in production! Let's say this was accomplished by compromisng an engineer who had SSH enabled on their MacBook and was sitting in a coffeeshop, browsing the internet. The SSH password was not very strong. After gaining access, we did some SSH_AUTH_SOCK magic, and in just a second pivot we were in the production environment. This is not theoretical, such attacks can be pulled off. Trust me,  I'm not an ML expert, but I know a few things about red teaming. :)
 
 
-
-
 ## Conclusion
 
 That's it for the first round of attacks. I hope you enjoyed reading and learning about this as much as I do. I learned a lot already and am eager to dive learning smarter ways of coming up with malicious/adversarial examples.
 
 Hopefully, you'll join more for the upcoming posts, where we will start backdooring model files!
 
-Cheers,
-Johann.
+Cheers.
+
 
 
 ### Appendix 
@@ -61,7 +59,7 @@ Links will be added when posts are completed over the next serveral weeks/months
 2. [Attacker applies smart ML fuzzing to find incorrect predictions](/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/) 
 2. [Attacker performs perturbations to misclassify existing images](/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/) 
 3. **Attacker gains read access to the model - Exfiltration Attack (this post)**
-4. Attacker modifies persisted model file - Backdooring Attack
+4. **[Attacker modifies persisted model file - Backdooring Attack](/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/)
 5. Attacker denies modifying the model file - Repudiation Attack
 6. Attacker poisons the supply chain of third-party libraries 
 7. Attacker tampers with images on disk to impact training performance
