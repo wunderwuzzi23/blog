@@ -84,7 +84,7 @@ The following is the list of threats that I want to build attacks for:
 2. [Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/)
 2. [Attacker performs perturbations to misclassify existing images](/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/) - Perturbation Attack (added)
 3. Attacker gains read access to the model - Exfiltration Attack
-4. Attacker modifies persisted model file - Backdooring Attack
+4. [Attacker modifies persisted model file - Backdooring Attack](/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/)
 5. Attacker denies modifying the model file - Repudiation Attack
 6. Attacker poisons the supply chain of third-party libraries 
 7. Attacker tampers with images on disk to impact training performance
