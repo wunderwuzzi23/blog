@@ -13,6 +13,7 @@ This post is part of a series about machine learning and artificial intelligence
 
 * [Overview](/blog/posts/2020/husky-ai-walkthrough/): How Husky AI was built, threat modeled and operationalized
 * [Attacks](#appendix): The attacks I want to investigate, learn about, and try out
+* [Mitigations](#mitigations): Ways to prevent and detect the backdooring threat
 
 During threat modeling we identified that an adversary might tamper with model files. From a technical point of view this means an adversary gained access to the model file used in production and is able overwrite it.
 
@@ -300,7 +301,7 @@ Very cool!
 
 Let's talk about mitigations.
 
-## Mitigations
+## Mitigations {#mitigations}
 
 These are some straightforward mitigations that can be put in place to help improve the security posture. There might be more, but this is what I have come up with so far.
 

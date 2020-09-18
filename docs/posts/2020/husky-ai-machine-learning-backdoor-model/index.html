@@ -120,8 +120,9 @@
 <ul>
 <li><a href="/blog/posts/2020/husky-ai-walkthrough/">Overview</a>: How Husky AI was built, threat modeled and operationalized</li>
 <li><a href="#appendix">Attacks</a>: The attacks I want to investigate, learn about, and try out</li>
+<li><a href="#mitigations">Mitigations</a>: Ways to prevent and detect the backdooring threat</li>
 </ul>
-<p>During threat modeling we identified that an adversary might tamper with model files. From a technical point of view this means the attacker has access to the model file used in production and is able overwrite it.</p>
+<p>During threat modeling we identified that an adversary might tamper with model files. From a technical point of view this means an adversary gained access to the model file used in production and is able overwrite it.</p>
 <p><a href="/blog/images/2020/huskyai-threat-model-modelfile.png"><img src="/blog/images/2020/huskyai-threat-model-modelfile.png" alt="Threat Model - the asset model file"></a></p>
 <p>This post explores two ways to backdoor the Husky AI model and how to mitigate the attacks, namely:</p>
 <ol>
@@ -284,6 +285,10 @@ for x in range(0,9):
 <h2 id="mitigations">Mitigations</h2>
 <p>These are some straightforward mitigations that can be put in place to help improve the security posture. There might be more, but this is what I have come up with so far.</p>
 <ol>
+<li>
+<p><strong>Locking down access to the model file</strong></p>
+<p>That mitgiation is pretty obvious, but still thought to mention it for completeness.</p>
+</li>
 <li>
 <p><strong>Signing model files and validating the signature</strong></p>
 <p>For now, I calculate the SHA256 hash of the model before deploying and have the web server read the hash from a metadata file. So an adversary has to compromise and tamper two things (e.g. source code/metadata store and model file), rather than just the model file. Here is some code:</p>
