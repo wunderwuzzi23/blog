@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning Attack Series: Gaining access to a model"
-date: 2020-09-20T15:03:45-07:00
+date: 2020-09-22T15:03:45-07:00
 draft: true
 tags: [
         "machine learning",
@@ -16,19 +16,23 @@ This post is part of a series about machine learning and artificial intelligence
 
 The previous posts covered bruteforcing and perturbing pixels in order to come up with new images that trick the externally husky prediction API to misclassify images. Half-way through the experiments we realized that rate limiting of the prediction endpoint was indeed making life a little difficult for an adversary. 
 
-**An adversary with model access can be most efficient in coming up with perturbations.**
+**An adversary with model access very efficient in coming up with perturbations.**
 
 The goal of this post is to look for ways an adversary can gain access to a model. At a high level I'd say there are two ways to explore this:
 
-1. **Transfer Learning:** Attacker builds a seperate, but similar model offline. The attacker uses that model to build adversary examples. This was pointed out in papers, like the fast gradient sign method paper we talked about in the last post.
-2. **Stealing**: Performing queries with many images to build our own offline dataset for training. In the case of Husky AI (binary classifier with public images) this is super simple, and not worth exploring further.
-2. **Gaining access to the actual model file:** This is a typical goal for a red team operation. The idea is to look for models that are stored insecurely, or possibly actively compromising infrastructure to gain access to model files.
+1. **Transfer Learning:** Attacker builds a seperate but similar model offline. The attacker uses that model to build adversary examples. This was pointed out in papers, like the fast gradient sign method (FGSM) we talked about in the last post.
+2. **Stealing**: Performing many queries to the model to build an offline dataset for training. In the case of Husky AI the system is a binary classifier. Stealing the model might take a lot of queries to the API endpoint which has rate limiting in place. They idea would be to download thousands of husky and non-husky images and then send them to the prediction API to get the label (and confidence) the model would produce.
+2. **Gaining access to the actual model file:** This is a goal for a red team operation. The idea is to look for models that are stored insecurely, or possibly actively compromising infrastructure to gain access to model files.
 
 Let's explore these two, with a focus on the first one, as that is machine learning specific.
 
 ## Transfer Learning
 
-For attacking Husky AI I thought it should easily be possible to take something like `ImageNet` which is a pre-trained model from millions of pictures and repurpose it so we can generate adversarial husky examples that will trick our real Husky AI model.
+For attacking Husky AI it should easily be possible to take something like `ImageNet` which is a pre-trained model from millions of pictures and repurpose it so we can generate adversarial husky examples that will trick our real Husky AI model.
+
+To do so I downloaded `ImageNet` and set it up to do classifications.
+
+The main challenge was how to 
 
 
 ## Gaining access to an actual model file
