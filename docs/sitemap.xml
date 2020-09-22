@@ -3,37 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2020-09-22T14:00:41-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2020/microsoft-machine-learning-security-evasion-competition/</loc>
+    <lastmod>2020-09-22T14:00:41-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2020-09-22T14:00:41-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2020-09-22T14:00:41-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2020-09-22T14:00:41-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2020-09-22T14:00:41-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/tags/huskyai/</loc>
     <lastmod>2020-09-18T14:59:47-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2020-09-18T14:59:47-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-backdoor-model/</loc>
-    <lastmod>2020-09-18T14:59:47-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2020-09-18T14:59:47-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2020-09-18T14:59:47-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2020-09-18T14:59:47-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/</loc>
     <lastmod>2020-09-18T14:59:47-07:00</lastmod>
   </url>
   

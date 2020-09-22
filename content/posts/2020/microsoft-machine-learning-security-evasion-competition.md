@@ -1,6 +1,6 @@
 ---
-title: "Participating in the Microsoft ML Security Evasion Competition - third place"
-date: 2020-09-20T00:03:41-07:00
+title: "Participating in the Microsoft Machine Learning Security Evasion Competition - Bypassing malware models by signing binaries"
+date: 2020-09-22T14:00:41-07:00
 draft: true
 tags: [
         "machine learning",
@@ -10,7 +10,7 @@ tags: [
 
 This year one of my goals was to learn about machine learning and artificial intelligence. 
 
-I wrote about my journey before - including [what classes I took and books I read](/blog/posts/2020/machine-learning-basics), the [models and systems I built](/blog/posts/2020/husky-ai-walkthrough) and [operationalized](/blog/posts/2020/husky-ai-mlops-operationalize-the-model), [threat modeling it](/blog/posts/2020/husky-ai-threat-modeling-machine-learning) to [learn about practical attacks and defenses](/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce). My goal is to be knowledge enough in the AI/ML space enough to be able to help bridge the gap between research and red teaming - by doing practical things to life systems.
+I wrote about my journey before - including [what classes I took and books I read](/blog/posts/2020/machine-learning-basics), the [models and systems I built](/blog/posts/2020/husky-ai-walkthrough) and [operationalized](/blog/posts/2020/husky-ai-mlops-operationalize-the-model), [threat modeling it](/blog/posts/2020/husky-ai-threat-modeling-machine-learning) to [learn about practical attacks and defenses](/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce). My goal is to be knowledge enough in the AI/ML space enough to be able to help bridge the gap between research and operational red teaming - by doing practical things with life systems.
 
 In mid-August I learned that Microsoft is hosting a [Machine Learning Security Evasion Competition](https://github.com/Azure/2020-machine-learning-security-evasion-competition/blob/master/README.md).
 
@@ -34,7 +34,7 @@ The contestants were given 50 malware samples. The goal was to modify them to by
 
 ### What does ML have to do with malware detection?
 
-In case you are not familiar with machine learning and malware detection here is a quick overview. Feel free to skip this, if you are interested in the [hacking](#hacking).
+In case you are not familiar with machine learning and how it can be used in malware detection, here is a quick overview. Feel free to skip this, if you are interested in the [hacking](#hacking).
 
 The idea is to have a model that scores a given binary on how likely it is to be malware. 
 
@@ -141,7 +141,7 @@ For reference, below is how one of them looks when explored with then Windows UI
 [![Signed Binary](/blog/images/2020/signed-binary-ui.png)](/blog/images/2020/signed-binary-ui.png)
 
 
-The results were in, here is an example: 
+The results were interesting as well, here is an example: 
 
 ```
 File size (in MB):        0.12402629852294922

@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Fri, 18 Sep 2020 14:59:47 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2020 14:00:41 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Participating in the Microsoft Machine Learning Security Evasion Competition - Bypassing malware models by signing binaries</title>
+      <link>https://embracethered.com/blog/posts/2020/microsoft-machine-learning-security-evasion-competition/</link>
+      <pubDate>Tue, 22 Sep 2020 14:00:41 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/microsoft-machine-learning-security-evasion-competition/</guid>
+      <description>This year one of my goals was to learn about machine learning and artificial intelligence.
+I wrote about my journey before - including what classes I took and books I read, the models and systems I built and operationalized, threat modeling it to learn about practical attacks and defenses. My goal is to be knowledge enough in the AI/ML space enough to be able to help bridge the gap between research and operational red teaming - by doing practical things with life systems.</description>
+    </item>
     
     <item>
       <title>Machine Learning Attack Series: Backdooring models</title>
