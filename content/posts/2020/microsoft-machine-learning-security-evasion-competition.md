@@ -158,7 +158,7 @@ After that I had about 48 or so bypasses, which had put me in first position on 
 
 The night before the competition ended, I noticed being in 4th place - I hoped to make it into the top 3. So, I did another set of variations for the strings used when signing and got bypasses for 84/150 which put me in third spot!
 
-![Scoreboard](/blog/images/2020/machine-learning-competition-scoreboard.png)
+[![Scoreboard](/blog/images/2020/machine-learning-competition-scoreboard.png)](/blog/images/2020/machine-learning-competition-scoreboard.png)
 
 Too bad there was no a prize for third spot though. 
 
