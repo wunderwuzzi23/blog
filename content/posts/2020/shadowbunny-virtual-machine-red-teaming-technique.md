@@ -1,6 +1,6 @@
 ---
 title: "Beware of the Shadowbunny - Using virtual machines to persist and evade detections"
-date: 2020-09-22T18:45:51-07:00
+date: 2020-09-23T12:00:51-07:00
 draft: true
 tags: [
         "red",
@@ -18,9 +18,9 @@ When I came back to the office, the team had placed a giant bunny teddy into my 
 
 At that time, I had been contemplating with the idea of using virtual machines for red teaming. Especially for lateral movement it seemed like a great way to try something new that possibly evades detections and at the same time providing a persistence mechanism.
 
-The combination of the **“shadow manager”** that was put in my chair during vacation as replacement, plus the **idea of using virtual machines** for lateral movement was the beginning of the **Shadowbunny**. 
+The combination of the “shadow manager” that was put in my chair during vacation as replacement, plus the idea of using virtual machines for lateral movement was the beginning of the Shadowbunny. 
 
-> **A Shadowbunny is a virtual machine (VM) instance that is deployed by an adversary on a target host to pivot and provide  persistence and at the same time evade detections.** [>> Urban Dictionary <<](https://www.urbandictionary.com/define.php?term=shadowbunny)
+> A Shadowbunny is a virtual machine (VM) instance that is deployed by an adversary on a target host to pivot and provide  persistence and at the same time evade detections. [>> Urban Dictionary <<](https://www.urbandictionary.com/define.php?term=shadowbunny)
 
 The VM itself does not have any security monitoring and is entirely attacker controlled.
 
@@ -29,7 +29,7 @@ The VM itself does not have any security monitoring and is entirely attacker con
 **Real-world adversaries are using virtual machines as well by the way.** Recently the [Ragnar Locker Ransomware](https://news.sophos.com/en-us/2020/05/21/ragnar-locker-ransomware-deploys-virtual-machine-to-dodge-security/) was seen using a virtual machine (VirtualBox) to hide its tracks. 
 
 
-During red team operations I have used the Shadowbunny mostly for **measure long term persistence**, but also for unique things such as **cryptocurrency mining**. 
+During red team operations I have used the Shadowbunny mostly for measuring long term persistence, but also for unique things such as cryptocurrency mining. 
 
 ![Shadowbunny in Red Team Operations Examples](/blog/images/2020/persistence-cryptomining.jpg)
 
@@ -398,7 +398,6 @@ As can be seen in in the screenshot, the virtual machine **“IT Recovery”** w
 
 Voila, now it’s time to start the VM. 
 
-Go and run:
 ```
 .\VBoxManage.exe startvm "IT Recovery" –type headless 
 ```
@@ -423,9 +422,9 @@ The above screenshot shows the Shadowbunny VM on the compromised host connecting
 
 **Pretty cool.  😊**
 
-## Step 9: Automatically launching the VM upon reboot
+## Automatically launching the VM upon reboot
 
-Unlike other virtualization products on Windows (for instance Hyper-V), VirtualBox does not have a built-in way to auto start a VM when the host reboots. 
+Unlike other virtualization products on Windows (for instance Hyper-V), VirtualBox does not have (an easy) built-in way to auto start a VM when the host reboots. 
 
 This is good, because it allows for the blue team to have more chances to detect a misuse.
 
@@ -449,7 +448,7 @@ Now, on the Command and Control side observe that the VM establishes a connectio
 
 Hyper-V ships out of box with Windows and if not enabled, can easily be enabled via:
 
-`Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V –All` or `DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V`  - notice a reboot is required for Hyper-V.
+`Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V –All` or `DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V`.
 
 Notice: This requires a reboot of the machine.
 
@@ -469,14 +468,13 @@ Set-VMFirmware $VM -EnableSecureBoot Off
 Start-VM $VM
 ```
 
-Hyper-V does automatically resume virtual machines if they host reboots. Shared folders require a remote connection, there does not seem to be a "direct" connection from guest to host using Hyper-V.
+Hyper-V does automatically resume virtual machines if the host reboots. Shared folders require a remote connection, there does not seem to be a "direct" connection from guest to host using Hyper-V.
 
 ## Endless possibilities
 
-There seem to be endless options from an adversarial perspective on how to leverage this. I guess, people familiar with Hypervisor products can come up with more advanced attack scenarios even. 
+There seem to be endless options from an adversarial perspective on how to leverage this. Oeople more familiar with Hypervisor can come up with more advanced attack scenarios even. 
 
 **Real adversaries likely have already customized and built their own virtualization products.**
-
 
 # Detection Ideas
 
@@ -488,7 +486,7 @@ Adversaries likely have been using this technique for a while. To get into the w
 * **Collect telemetry on which virtual machines (and their configuration)** are installed on each host in your environments (maybe something stands out)
 * **Regularly inspect VMs that are created** and configured on your machine
 * **VM Size** - Typically VMs disks are GB in size and an adversary possibly attempts to create VMs with a rather unusual small footprint, maybe less then 500MB or smaller even. This is something to look out for.
-* **Auto Start Detection** - On Windows VirtualBox does not have an auto-start feature AFAIK. This means that looking for startup scripts or registered services that run VBoxManage vmstart might point to interesting VM use scenarios. 
+* **Auto Start Detection** - Looking for startup scripts or registered services that run VBoxManage vmstart might point to interesting VM use scenarios. Usage of `VBoxAutostartSvc` service, `VBOXAUTOSTART_CONFIG` environment variable 
 **Other VM products (Hyper-V, VMWare) do auto-start on Windows** - so be aware of that.
 * **Suppressing notifications** - Looking for command line arguments that suppress notifications, similar to `setextradata global GUI/SuppressMessages "all"` might highlight places where someone actively prevents user notifications. This could be suspicious.
 

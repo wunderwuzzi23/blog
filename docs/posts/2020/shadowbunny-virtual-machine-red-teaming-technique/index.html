@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2020-09-22T18:45:51-07:00" />
+  <meta property="og:article:published_time" content="2020-09-23T12:00:51-07:00" />
   
   <meta property="og:article:tag" content="red" />
   
@@ -101,8 +101,8 @@
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2020-09-22T18:45:51-07:00">
-          Sep 22, 2020
+        <time datetime="2020-09-23T12:00:51-07:00">
+          Sep 23, 2020
         </time>
       </div>
     
@@ -124,14 +124,14 @@
 <p>When I came back to the office, the team had placed a giant bunny teddy into my chair. In retrospect, it seemed a legitimate replacement for the manager, <em>as hardly anyone seemed to have noticed my absence</em>.</p>
 <p><img src="/blog/images/2020/shadowbunny-transparent.png" alt="The original Shadowbunny, 2017"></p>
 <p>At that time, I had been contemplating with the idea of using virtual machines for red teaming. Especially for lateral movement it seemed like a great way to try something new that possibly evades detections and at the same time providing a persistence mechanism.</p>
-<p>The combination of the <strong>“shadow manager”</strong> that was put in my chair during vacation as replacement, plus the <strong>idea of using virtual machines</strong> for lateral movement was the beginning of the <strong>Shadowbunny</strong>.</p>
+<p>The combination of the “shadow manager” that was put in my chair during vacation as replacement, plus the idea of using virtual machines for lateral movement was the beginning of the Shadowbunny.</p>
 <blockquote>
-<p><strong>A Shadowbunny is a virtual machine (VM) instance that is deployed by an adversary on a target host to pivot and provide  persistence and at the same time evade detections.</strong> <a href="https://www.urbandictionary.com/define.php?term=shadowbunny">&raquo; Urban Dictionary &laquo;</a></p>
+<p>A Shadowbunny is a virtual machine (VM) instance that is deployed by an adversary on a target host to pivot and provide  persistence and at the same time evade detections. <a href="https://www.urbandictionary.com/define.php?term=shadowbunny">&raquo; Urban Dictionary &laquo;</a></p>
 </blockquote>
 <p>The VM itself does not have any security monitoring and is entirely attacker controlled.</p>
 <h3 id="using-virtual-machines-for-attacks">Using virtual machines for attacks</h3>
 <p><strong>Real-world adversaries are using virtual machines as well by the way.</strong> Recently the <a href="https://news.sophos.com/en-us/2020/05/21/ragnar-locker-ransomware-deploys-virtual-machine-to-dodge-security/">Ragnar Locker Ransomware</a> was seen using a virtual machine (VirtualBox) to hide its tracks.</p>
-<p>During red team operations I have used the Shadowbunny mostly for <strong>measure long term persistence</strong>, but also for unique things such as <strong>cryptocurrency mining</strong>.</p>
+<p>During red team operations I have used the Shadowbunny mostly for measuring long term persistence, but also for unique things such as cryptocurrency mining.</p>
 <p><img src="/blog/images/2020/persistence-cryptomining.jpg" alt="Shadowbunny in Red Team Operations Examples"></p>
 <p>If there is interest, I can chat more about such unique exercises in another post - let me know. Let&rsquo;s look on why adversaries use virtual machines.</p>
 <h2 id="why-would-adversaries-use-virtual-machines">Why would adversaries use virtual machines?</h2>
@@ -339,7 +339,6 @@ sudo mount -t vboxsf shadow_c /mnt/c
 <p>As can be seen in in the screenshot, the virtual machine <strong>“IT Recovery”</strong> was successfully created and is currently powered off. Let’s power it on.</p>
 <h2 id="launching-the-virtual-machine">Launching the virtual machine</h2>
 <p>Voila, now it’s time to start the VM.</p>
-<p>Go and run:</p>
 <pre><code>.\VBoxManage.exe startvm &quot;IT Recovery&quot; –type headless 
 </code></pre><p>This will start up the VM and after a second print out a message like:</p>
 <pre><code>Waiting for VM &quot;IT Recovery&quot; to power on...
@@ -352,8 +351,8 @@ VM &quot;IT Recovery &quot; has been successfully started.
 <img src="/blog/images/2020/shadowbunny-sharedfolder.png" alt="Shadowbunny Shared Folder Access"></p>
 <p>The above screenshot shows the Shadowbunny VM on the compromised host connecting to the C2 infrastructure. And then its possible to directly access the filesystem on the host.</p>
 <p><strong>Pretty cool.  😊</strong></p>
-<h2 id="step-9-automatically-launching-the-vm-upon-reboot">Step 9: Automatically launching the VM upon reboot</h2>
-<p>Unlike other virtualization products on Windows (for instance Hyper-V), VirtualBox does not have a built-in way to auto start a VM when the host reboots.</p>
+<h2 id="automatically-launching-the-vm-upon-reboot">Automatically launching the VM upon reboot</h2>
+<p>Unlike other virtualization products on Windows (for instance Hyper-V), VirtualBox does not have (an easy) built-in way to auto start a VM when the host reboots.</p>
 <p>This is good, because it allows for the blue team to have more chances to detect a misuse.</p>
 <p>To have the VM start when the host reboots, we can add the <code>startvm</code> command to the Startup folder, register a service or use one of the other ways to run commands at startup or boot time.</p>
 <p>Let&rsquo;s look at a simple solution, which is the “Startup” folder approach.</p>
@@ -370,7 +369,7 @@ VM &quot;IT Recovery &quot; has been successfully started.
 <p>Now, on the Command and Control side observe that the VM establishes a connection upon reboot when the user logs on to the workstation again.</p>
 <h2 id="alternative-using-hyper-v-for-shadowbunny-pivots">Alternative: Using Hyper-V for Shadowbunny pivots</h2>
 <p>Hyper-V ships out of box with Windows and if not enabled, can easily be enabled via:</p>
-<p><code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V –All</code> or <code>DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V</code>  - notice a reboot is required for Hyper-V.</p>
+<p><code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V –All</code> or <code>DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V</code>.</p>
 <p>Notice: This requires a reboot of the machine.</p>
 <p>Then PowerShell commands can be used to create/manage machines:</p>
 <pre><code>$VM = &quot;IT Recovery&quot;
@@ -384,9 +383,9 @@ New-VM -Name $VM
 Set-VMFirmware $VM -EnableSecureBoot Off
 
 Start-VM $VM
-</code></pre><p>Hyper-V does automatically resume virtual machines if they host reboots. Shared folders require a remote connection, there does not seem to be a &ldquo;direct&rdquo; connection from guest to host using Hyper-V.</p>
+</code></pre><p>Hyper-V does automatically resume virtual machines if the host reboots. Shared folders require a remote connection, there does not seem to be a &ldquo;direct&rdquo; connection from guest to host using Hyper-V.</p>
 <h2 id="endless-possibilities">Endless possibilities</h2>
-<p>There seem to be endless options from an adversarial perspective on how to leverage this. I guess, people familiar with Hypervisor products can come up with more advanced attack scenarios even.</p>
+<p>There seem to be endless options from an adversarial perspective on how to leverage this. Oeople more familiar with Hypervisor can come up with more advanced attack scenarios even.</p>
 <p><strong>Real adversaries likely have already customized and built their own virtualization products.</strong></p>
 <h1 id="detection-ideas">Detection Ideas</h1>
 <p>Adversaries likely have been using this technique for a while. To get into the weeds and build detections, the following ideas are some good starting points:</p>
@@ -397,7 +396,7 @@ Start-VM $VM
 <li><strong>Collect telemetry on which virtual machines (and their configuration)</strong> are installed on each host in your environments (maybe something stands out)</li>
 <li><strong>Regularly inspect VMs that are created</strong> and configured on your machine</li>
 <li><strong>VM Size</strong> - Typically VMs disks are GB in size and an adversary possibly attempts to create VMs with a rather unusual small footprint, maybe less then 500MB or smaller even. This is something to look out for.</li>
-<li><strong>Auto Start Detection</strong> - On Windows VirtualBox does not have an auto-start feature AFAIK. This means that looking for startup scripts or registered services that run VBoxManage vmstart might point to interesting VM use scenarios.
+<li><strong>Auto Start Detection</strong> - Looking for startup scripts or registered services that run VBoxManage vmstart might point to interesting VM use scenarios. Usage of <code>VBoxAutostartSvc</code> service, <code>VBOXAUTOSTART_CONFIG</code> environment variable
 <strong>Other VM products (Hyper-V, VMWare) do auto-start on Windows</strong> - so be aware of that.</li>
 <li><strong>Suppressing notifications</strong> - Looking for command line arguments that suppress notifications, similar to <code>setextradata global GUI/SuppressMessages &quot;all&quot;</code> might highlight places where someone actively prevents user notifications. This could be suspicious.</li>
 </ul>
