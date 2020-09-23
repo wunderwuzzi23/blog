@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Tue, 22 Sep 2020 14:00:41 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2020 18:45:51 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Beware of the Shadowbunny - Using virtual machines to persist and evade detections</title>
+      <link>https://embracethered.com/blog/posts/2020/shadowbunny-virtual-machine-red-teaming-technique/</link>
+      <pubDate>Tue, 22 Sep 2020 18:45:51 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/shadowbunny-virtual-machine-red-teaming-technique/</guid>
+      <description>A few years ago, around 2016, I went on a relaxing two weeklong vacation. It was great to disconnect from work. I traveled to Austria, enjoying hiking in the mountains, and exploring Vienna.
+When I came back to the office, the team had placed a giant bunny teddy into my chair. In retrospect, it seemed a legitimate replacement for the manager, as hardly anyone seemed to have noticed my absence.</description>
+    </item>
     
     <item>
       <title>Participating in the Microsoft Machine Learning Security Evasion Competition - Bypassing malware models by signing binaries</title>

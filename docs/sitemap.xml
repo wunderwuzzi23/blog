@@ -3,32 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/posts/2020/shadowbunny-virtual-machine-red-teaming-technique/</loc>
+    <lastmod>2020-09-22T18:45:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/blue/</loc>
+    <lastmod>2020-09-22T18:45:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/conference/</loc>
+    <lastmod>2020-09-22T18:45:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2020-09-22T18:45:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2020-09-22T18:45:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2020-09-22T18:45:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <lastmod>2020-09-22T18:45:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2020-09-22T18:45:51-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
     <lastmod>2020-09-22T14:00:41-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/posts/2020/microsoft-machine-learning-security-evasion-competition/</loc>
-    <lastmod>2020-09-22T14:00:41-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2020-09-22T14:00:41-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2020-09-22T14:00:41-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2020-09-22T14:00:41-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/</loc>
     <lastmod>2020-09-22T14:00:41-07:00</lastmod>
   </url>
   
@@ -89,21 +109,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/2020/shadowbunny-bsides-singapore-virtual-machines/</loc>
-    <lastmod>2020-08-28T00:00:01-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/blue/</loc>
-    <lastmod>2020-08-28T00:00:01-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/conference/</loc>
-    <lastmod>2020-08-28T00:00:01-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
     <lastmod>2020-08-28T00:00:01-07:00</lastmod>
   </url>
   
