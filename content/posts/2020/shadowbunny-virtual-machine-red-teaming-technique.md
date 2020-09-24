@@ -1,6 +1,6 @@
 ---
 title: "Beware of the Shadowbunny - Using virtual machines to persist and evade detections"
-date: 2020-09-23T12:00:51-07:00
+date: 2020-09-23T20:00:51-07:00
 draft: true
 tags: [
         "red",
@@ -10,11 +10,15 @@ tags: [
     ]
 ---
 
+*This was also presented at [BSides Singapore 2020](https://bsidessg.org/). The event is still ongoing 24th-25th of September 2020. The [slides are here](/blog/downloads/Shadowbunny_BSides_Singapore_2020.pptx) - I will post link to video once it's published.*
+
+## The origins of the Shadowbunny
+
 A few years ago, around 2016, I went on a relaxing two weeklong vacation. It was great to disconnect from work. I traveled to Austria, enjoying hiking in the mountains, and exploring Vienna. 
 
 When I came back to the office, the team had placed a giant bunny teddy into my chair. In retrospect, it seemed a legitimate replacement for the manager, *as hardly anyone seemed to have noticed my absence*.
 
-![The original Shadowbunny, 2017](/blog/images/2020/shadowbunny-transparent.png)
+![The original Shadowbunny](/blog/images/2020/shadowbunny-transparent.png)
 
 At that time, I had been contemplating with the idea of using virtual machines for red teaming. Especially for lateral movement it seemed like a great way to try something new that possibly evades detections and at the same time providing a persistence mechanism.
 
@@ -541,11 +545,14 @@ Penetration testing requires authorization from proper stakeholders. Information
 
 
 ## References
-* Ragnar Locker ransomware deploys virtual machine to dodge security (https://news.sophos.com/en-us/2020/05/21/ragnar-locker-ransomware-deploys-virtual-machine-to-dodge-security )
-* VirtualBox Installation Windows ( https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/installation_windows.html)
-* [PenTest Magazine](https://pentestmag.com/product/pentest-healthcare-security/) - This issue of the PenTest Magazine contains the information around the Shadowbunny - it has a slightly modified content compared to the blog post. PenTest Magazine always contains other interesting articles as well, so check it out.
-* Cybersecurity Attacks – Red Team Strategies (https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM)
-* Hyper-V New-VM (https://docs.microsoft.com/en-us/powershell/module/hyper-v/new-vm?view=win10-ps)
-* VBoxManage CLI (https://www.virtualbox.org/manual/ch08.html)
+
+* [BSides Singapore 2020](https://bsidessg.org/speaker/johann-rehberger/)
+* [Ragnar Locker ransomware](https://news.sophos.com/en-us/2020/05/21/ragnar-locker-ransomware-deploys-virtual-machine-to-dodge-security) deploys virtual machine to dodge security 
+* [VirtualBox Installation Windows](https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/installation_windows.html)
+* [PenTest Magazine](https://pentestmag.com/product/pentest-healthcare-security/) - This issue of the PenTest Magazine contains information around the Shadowbunny
+* [Cybersecurity Attacks – Red Team Strategies](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM)
+* [Hyper-V Documentation New-VM](https://docs.microsoft.com/en-us/powershell/module/hyper-v/new-vm?view=win10-ps)
+* [VBoxManage CLI](https://www.virtualbox.org/manual/ch08.html)
+* [Shadowbunny Presentation BSides Singapore 2020](/blog/Shadowbunny_BSides_Singapore_2020.pptx)
 * ASCII Art from https://www.asciiart.eu/animals/rabbits
 * Hope I didn't accidently forget anyone important
