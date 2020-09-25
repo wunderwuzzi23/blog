@@ -5,7 +5,8 @@ draft: true
 tags: [
         "machine learning",
         "huskyai",
-        "red"
+        "red",
+        "ttp"
     ]
 ---
 
@@ -21,7 +22,7 @@ The goal of this post is to look for ways an adversary can gain access to a mode
 At a high level there are multiple ways, but I think they can be distinguised between "direct" and "indirect" approaches. 
 
 1. **Direct approach: Gaining access to the actual model file** -  Compromise systems and hunt for the model file.
-1. **Indirect approach: Transfer Learning and Model Stealing**  - Attacker builds a separat, yet similar model themselves and uses that to create adversarial examples that work against the live systems.
+1. **Indirect approach: Transfer Learning and Model Stealing**  - Attacker builds a separate, yet similar model themselves and uses that to create adversarial examples that work against the live systems.
 
 You might think that an indirect approach is far fetched, but to pull off certain attacks one does not need access to the real physical model file that is used by the systems.
 
@@ -34,15 +35,15 @@ This is the obvious way to steal a model. A red team operation could focus on:
 * Searching internal source code repositories for files with an `*.h5` extension. h5 is a commonly used model file format (take a look at [last weeks post about backdooring model files for reference as well](/blog/posts/husky-ai-machine-learning-backdoor-model/)), or
 * Gaining access to engineering machines and production systems (phishing, weak passwords, exposed endpoints that allow remote management or code execution, SSH agent hijacking,...)
 
-To keep a good balance in this blog between machine learning specific attacks and regular infrastructure attacks - let's talk about SSH agent hijacking. We will call the attacker Mallory throughout this post!
+To keep a good balance in this blog between machine learning specific attacks and regular infrastructure attacks - let's talk about SSH agent hijacking. We will call the attacker Mallory throughout this post.
 
-### SSH Agent Hijacking
+### Using SSH Agent during attacks
 
-It's common to have jumpboxes or bastion hosts to access production systems. And to make things convinient most setup up SSH Agent to forward their SSH keys to have keys be available on other machines when needed.
+It's common to have jumpboxes or bastion hosts to access production systems. And to make things convinient we setup up SSH Agent to forward connectivity to the keys to be available on other machines when needed.
 
 ![SSH Agent Forwarding](/blog/images/2020/sshagentforwarding.jpg)
 
-If Mallory (the attacker) gains access to an engineers laptop, she can leverage any keys SSH Agent stores to access other hosts - even if the private keys were passphrase protected.
+If Mallory (the attacker) gains access to an engineers laptop, she can leverage any SSH keys the SSH Agent stores to access other hosts - even if the private keys are passphrase protected.
 
 Let's say Mallory gets access to Alice's Windows laptop. First Mallory checks if any SSH private keys are stored on the machine:
 
@@ -70,7 +71,7 @@ Mallory gets excited because there are private keys. Nice. But Alice was smart a
 
 But there is another avenue to explore, namely SSH Agent!
 
-See, the SSH Agent is often configured and loaded up with keys in order to forward them through Bastion hosts. This is a way for engineers to not have to enter their passphrase again and again, and also (more importantly) to not have to store copies of keys to the file system of other machines. 
+See, the SSH Agent is often configured and loaded up with keys in order to forward them to other hosts, or through Bastion hosts. This is a way for engineers to not have to enter their passphrase again and again, and also (more importantly) to not have to store copies of keys to the file system of other machines. 
 
 To check if SSH Agent has keys stored right now Mallory runs this command (as Alice):
 
@@ -95,7 +96,7 @@ If the compromised host of the engineer runs Linux, and not Windows the commands
 
 Mitigation: A mitigiaton is to provision only temporary identities and granting access on a case by case basis can help limit the exposure. This comes with engineering effort to build such a system of course.  But permanently provisioned identities on production hosts are worrisome for exactly that reason. Users can also lock `ssh-add -X` to lock the agent, so it requires a password again to keep the window of opportunity shorter.
 
-### SSH-Agent Hijacking ++
+### SSH-Agent Hijacking
 
 Its even worse if Mallory gains root access on the Bastion host. Since the Bastion host typically handles many SSH connections, and using SSH Agent Hijacking Mallory (having root access) can then query and leverage all these keys of clients who forward them.
 
