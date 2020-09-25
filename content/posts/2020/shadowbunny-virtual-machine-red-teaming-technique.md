@@ -553,6 +553,6 @@ Penetration testing requires authorization from proper stakeholders. Information
 * [Cybersecurity Attacks – Red Team Strategies](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM)
 * [Hyper-V Documentation New-VM](https://docs.microsoft.com/en-us/powershell/module/hyper-v/new-vm?view=win10-ps)
 * [VBoxManage CLI](https://www.virtualbox.org/manual/ch08.html)
-* [Shadowbunny Presentation BSides Singapore 2020](/blog/Shadowbunny_BSides_Singapore_2020.pptx)
+* [Shadowbunny Presentation BSides Singapore 2020](/blog/downloads/Shadowbunny_BSides_Singapore_2020.pptx)
 * ASCII Art from https://www.asciiart.eu/animals/rabbits
 * Hope I didn't accidently forget anyone important

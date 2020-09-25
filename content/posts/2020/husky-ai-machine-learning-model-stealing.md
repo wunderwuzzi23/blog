@@ -1,6 +1,6 @@
 ---
-title: "Machine Learning Attack Series: Gaining access to a model"
-date: 2020-09-24T15:03:45-07:00
+title: "Machine Learning Attack Series: SSH Agent Hijacking, Transfer Learning and Model Stealing"
+date: 2020-09-26T14:03:45-07:00
 draft: true
 tags: [
         "machine learning",
@@ -20,43 +20,111 @@ The goal of this post is to look for ways an adversary can gain access to a mode
 
 At a high level there are multiple ways, but I think they can be distinguised between "direct" and "indirect" approaches. 
 
-1. **Direct approach: Gaining access to the actual model file:** Compromise systems and hunt for the model file.
-1. **Indirect approach: Transfer Learning and Model Stealing:** Attacker builds a separat, yet similar model themselves and uses that to create adversarial examples that work against the live systems.
+1. **Direct approach: Gaining access to the actual model file** -  Compromise systems and hunt for the model file.
+1. **Indirect approach: Transfer Learning and Model Stealing**  - Attacker builds a separat, yet similar model themselves and uses that to create adversarial examples that work against the live systems.
 
 You might think that an indirect approach is far fetched, but to pull off certain attacks one does not need access to the real physical model file that is used by the systems.
 
 Let's explore these two in a bit more detail.
 
-## Direct approach: Gaining access to an actual model file
+## Gaining access to a model file
 
-This is the most obvious way to steal a model. A perfect goal for a red team operation.
+This is the obvious way to steal a model. A red team operation could focus on:
 
-* Searching internal source code repositories for files with an `*.h5` extension. h5 is a commonly used model file format (take a look at [last weeks post about backdooring model files for reference as well](/blog/posts/husky-ai-machine-learning-backdoor-model/))
-* Typical red team style attacks to gain access to engineering machines and production systems (phishing, weak passwords, exposed endpoints that allow remote management or code execution, SSH agent hijacking,...)
+* Searching internal source code repositories for files with an `*.h5` extension. h5 is a commonly used model file format (take a look at [last weeks post about backdooring model files for reference as well](/blog/posts/husky-ai-machine-learning-backdoor-model/)), or
+* Gaining access to engineering machines and production systems (phishing, weak passwords, exposed endpoints that allow remote management or code execution, SSH agent hijacking,...)
 
-To keep a good balance in this blog between machine learning specific attacks and regular infrastructure attacks - let's talk about SSH agent hijacking. 
+To keep a good balance in this blog between machine learning specific attacks and regular infrastructure attacks - let's talk about SSH agent hijacking. We will call the attacker Mallory throughout this post!
 
-It's common to have jumpboxes or bastion hosts to access production systems. To make things convinient most setup up SSH Agent to forward SSH keys. 
+### SSH Agent Hijacking
 
-ssh-add -l
+It's common to have jumpboxes or bastion hosts to access production systems. And to make things convinient most setup up SSH Agent to forward their SSH keys to have keys be available on other machines when needed.
 
+![SSH Agent Forwarding](/blog/images/2020/sshagentforwarding.jpg)
 
- \.\pipe\openssh-ssh-agent
- https://github.com/PowerShell/Win32-OpenSSH/issues/1586
+If Mallory (the attacker) gains access to an engineers laptop, she can leverage any keys SSH Agent stores to access other hosts - even if the private keys were passphrase protected.
 
- [System.IO.Directory]::GetFiles("\\.\\pipe\\")
-This is a common way I gained access to production systems with clients.
+Let's say Mallory gets access to Alice's Windows laptop. First Mallory checks if any SSH private keys are stored on the machine:
 
 ```
-PS C:\WINDOWS\system32> Start-Service ssh-agent
-PS C:\WINDOWS\system32>  [System.IO.Directory]::GetFiles("\\.\\pipe\\") | sls agent
-
-\\.\\pipe\\openssh-ssh-agent
+ls C:\Users\*\.ssh\*
 ```
 
-## Indirect approaches: Transfer Learning and Model Stealing
+The results look promising:
 
-The second approach is less obvious for us wannabe ML red teamers. But an adversary can build a model offline to create adversarial examples and then try to use those adversarial examples against the production model to find bypasses.
+```
+PS C:\> ls C:\Users\*\.ssh\*
+    Directory: C:\Users\alice\.ssh
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         8/17/2020   6:25 PM           1698 alice-prod.pem
+-a----         9/18/2020   1:34 PM           1702 alice-test.pem
+-a----          9/4/2020   9:40 PM            413 config
+-a----          9/5/2020   5:59 PM           2746 known_hosts
+```
+
+Mallory gets excited because there are private keys. Nice. But Alice was smart and applied strong passphrases to the keys. At this point Mallory can try to bruteforce the passphrase using `hashcat` for instance, but that might take very long...
+
+![Access Denied](/blog/images/2020/no-access.jpg)
+
+But there is another avenue to explore, namely SSH Agent!
+
+See, the SSH Agent is often configured and loaded up with keys in order to forward them through Bastion hosts. This is a way for engineers to not have to enter their passphrase again and again, and also (more importantly) to not have to store copies of keys to the file system of other machines. 
+
+To check if SSH Agent has keys stored right now Mallory runs this command (as Alice):
+
+```
+PS C:\> ssh-add -l
+2048 SHA256:2HFp2c2vRfGnEPs+e6X6I7+2Iyq3O7I+YQJWUQvBIeZ .\.ssh\alice-prod.pem (RSA)
+```
+
+**Bingo!**
+
+This means Mallory can just use `ssh` (without a password or providing an identity file):
+
+```
+ssh production-host 
+```
+
+**Voila!**
+
+This is a threat that production systems that allow SSH access have to deal with. 
+
+If the compromised host of the engineer runs Linux, and not Windows the commands are basically the same.
+
+Mitigation: A mitigiaton is to provision only temporary identities and granting access on a case by case basis can help limit the exposure. This comes with engineering effort to build such a system of course.  But permanently provisioned identities on production hosts are worrisome for exactly that reason. Users can also lock `ssh-add -X` to lock the agent, so it requires a password again to keep the window of opportunity shorter.
+
+### SSH-Agent Hijacking ++
+
+Its even worse if Mallory gains root access on the Bastion host. Since the Bastion host typically handles many SSH connections, and using SSH Agent Hijacking Mallory (having root access) can then query and leverage all these keys of clients who forward them.
+
+Forwarding keys is usually done via `ssh -A` option or `AllowForwarding=yes` setting in the `ssh_config`.
+
+From the `man ssh-agent` page:
+
+> **SSH_AUTH_SOCK**  When ssh-agent starts, it creates a UNIX-domain socket and stores its pathname in this variable.  It is accessible only to the current user, but is easily abused by root or another instance of the same user.
+
+Further more it states the location for the socket file, nameley `$TMPDIR/ssh-XXXXXXXXXX/agent.<ppid>`.
+
+Running `ssh-agent` shows these details.
+
+All that Mallory needs to do is set that environment variable for `SSH_AUTH_SOCK` and `SSH_AGENT_ID` before running `ssh`:
+
+```
+SSH_AUTH_SOCK=SSH_AUTH_SOCK=/tmp/ssh-WMmT2Ee6UNF3/agent.1841171
+```
+
+And afterward Mallory can happily type `ssh targethost` (or do it all on same line) and pivot to the next machine.
+
+In the case of Husky AI this allows Mallory who compromised the ML engineers laptop (let's say via phishing) to pivot into production and gain read/write access to the model file.
+
+This is one way to gain access to a model file, and how traditional red teamers would approach this problem. But let's look at some entirely different methods.
+
+
+## Transfer Learning and Model Stealing
+
+The indirect approach to steal a model is less obvious if you are new to machine learning. Mallory can build a model offline to create adversarial examples and then try to use those adversarial examples against the production model to find bypasses.
 
 Researches have shown that this is possible, so let's try it with Husky AI.
 
@@ -64,7 +132,6 @@ Researches have shown that this is possible, so let's try it with Husky AI.
 
 
 Let's talk a little bit more about transfer learning and creation of adversarial images.
-
 
 
 ## Conclusion
@@ -88,3 +155,28 @@ Links will be added when posts are completed over the next serveral weeks/months
 6. Attacker poisons the supply chain of third-party libraries 
 7. Attacker tampers with images on disk to impact training performance
 8. Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)
+
+
+## SSH-Agent info on Windows
+
+I was wondering if this also works with the Windows 10 SSH client. It turns out that Windows is currently using the following named pipe for this. You can find it by running:
+
+```
+PS C:\WINDOWS\system32> Start-Service ssh-agent
+PS C:\WINDOWS\system32>  [System.IO.Directory]::GetFiles("\\.\\pipe\\") | sls agent
+
+\\.\\pipe\\openssh-ssh-agent
+```
+
+## Adding a key to SSH Agent
+Initially when Alice added the private key to the SSH Agent, she had to enter the passphrase:
+
+```
+alice@alice-ubuntu:~$ ssh-add .ssh/alice-prod
+Enter passphrase for .ssh/alice-prod
+Identity added: .ssh/alice-prod (alice@alice-ubuntu)
+```
+
+## References
+
+* Image "Access Denied" by [Elchinator from Pixabay](https://pixabay.com/photos/no-access-access-denied-monitor-5043758/)
