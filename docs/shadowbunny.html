@@ -387,7 +387,7 @@ Set-VMFirmware $VM -EnableSecureBoot Off
 Start-VM $VM
 </code></pre><p>Hyper-V does automatically resume virtual machines if the host reboots. Shared folders require a remote connection, there does not seem to be a &ldquo;direct&rdquo; connection from guest to host using Hyper-V.</p>
 <h2 id="endless-possibilities">Endless possibilities</h2>
-<p>There seem to be endless options from an adversarial perspective on how to leverage this. Oeople more familiar with Hypervisor can come up with more advanced attack scenarios even.</p>
+<p>There seem to be endless options from an adversarial perspective on how to leverage this. Someone more familiar with Hypervisor can come up with more advanced attack scenarios even.</p>
 <p><strong>Real adversaries likely have already customized and built their own virtualization products.</strong></p>
 <h1 id="detection-ideas">Detection Ideas</h1>
 <p>Adversaries likely have been using this technique for a while. To get into the weeds and build detections, the following ideas are some good starting points:</p>

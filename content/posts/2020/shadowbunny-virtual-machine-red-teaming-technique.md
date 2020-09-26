@@ -476,7 +476,7 @@ Hyper-V does automatically resume virtual machines if the host reboots. Shared f
 
 ## Endless possibilities
 
-There seem to be endless options from an adversarial perspective on how to leverage this. Oeople more familiar with Hypervisor can come up with more advanced attack scenarios even. 
+There seem to be endless options from an adversarial perspective on how to leverage this. Someone more familiar with hypervisor can come up with much more advanced attack scenarios even. 
 
 **Real adversaries likely have already customized and built their own virtualization products.**
 
