@@ -70,7 +70,7 @@ The first question is what virtualization product to choose from? There are a lo
 
 This post focusing on **VirtualBox** to help train the blue team and explore these attacks - remember the Ragnar Locker ransomware used VirtualBox. But no worries, we also cover the most important commands for Hyper-V.
 
-Personally, I have not yet used VMWare for this. Although after sharing this information with another red team in the industry, they leveraged VMWare successfully. They ended up manually installing it on a compromised host.
+I have not yet used VMWare for this. Although after sharing this information with another red team in the industry, they leveraged VMWare successfully. They ended up manually installing it on a compromised host. There is also many other VM products and motivated actors might implement their own.
 
 VirtualBox is a great product and it is available for multiple platforms.
 
@@ -484,10 +484,10 @@ There seem to be endless options from an adversarial perspective on how to lever
 
 Adversaries likely have been using this technique for a while. To get into the weeds and build detections, the following ideas are some good starting points:
 
+* **Collect telemetry on virtual machines (and their configuration)** - ideally metrics at the hypervisor level can be collected, so that variations of this technique can be identified (custom VM products, etc.). Certainly also collecting the telemetry from well known VM products will help. I am very curious what threat hunters will come up with!
 * Look for **VM products that get installed silently**, e.g. via command line options (`–silent` and `–ignore-reboot`)
 * Look for **commands that enable Hyper-V** (like `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V –All`)
 * Individual calls might yield falls-positives but in combination with a remote connection that perform VM creation or virtualization product install can be inspected by an analyst or automation.
-* **Collect telemetry on which virtual machines (and their configuration)** are installed on each host in your environments (maybe something stands out)
 * **Regularly inspect VMs that are created** and configured on your machine
 * **VM Size** - Typically VMs disks are GB in size and an adversary possibly attempts to create VMs with a rather unusual small footprint, maybe less then 500MB or smaller even. This is something to look out for.
 * **Auto Start Detection** - Looking for startup scripts or registered services that run VBoxManage vmstart might point to interesting VM use scenarios. Usage of `VBoxAutostartSvc` service, `VBOXAUTOSTART_CONFIG` environment variable 

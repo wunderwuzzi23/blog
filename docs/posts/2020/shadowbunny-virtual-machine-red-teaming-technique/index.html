@@ -157,7 +157,7 @@
 <h1 id="setup-and-configuration">Setup and Configuration</h1>
 <p>The first question is what virtualization product to choose from? There are a lot of options&hellip;. Initially, I used <strong>Hyper-V</strong>, as that ships out of box with Windows and if not present, can be quickly enabled.</p>
 <p>This post focusing on <strong>VirtualBox</strong> to help train the blue team and explore these attacks - remember the Ragnar Locker ransomware used VirtualBox. But no worries, we also cover the most important commands for Hyper-V.</p>
-<p>Personally, I have not yet used VMWare for this. Although after sharing this information with another red team in the industry, they leveraged VMWare successfully. They ended up manually installing it on a compromised host.</p>
+<p>I have not yet used VMWare for this. Although after sharing this information with another red team in the industry, they leveraged VMWare successfully. They ended up manually installing it on a compromised host. There is also many other VM products and motivated actors might implement their own.</p>
 <p>VirtualBox is a great product and it is available for multiple platforms.</p>
 <h2 id="direct-host-connections">Direct Host Connections</h2>
 <p>One important aspect is that some virtualization products can be configured to have direct host access. What I mean by this is for instance the creation of a <strong>shared folder between guest and host</strong>, depending on the product access can be given without having to authenticate over the network. <strong>This is a backdooring technique to be aware of.</strong></p>
@@ -387,15 +387,15 @@ Set-VMFirmware $VM -EnableSecureBoot Off
 Start-VM $VM
 </code></pre><p>Hyper-V does automatically resume virtual machines if the host reboots. Shared folders require a remote connection, there does not seem to be a &ldquo;direct&rdquo; connection from guest to host using Hyper-V.</p>
 <h2 id="endless-possibilities">Endless possibilities</h2>
-<p>There seem to be endless options from an adversarial perspective on how to leverage this. Oeople more familiar with Hypervisor can come up with more advanced attack scenarios even.</p>
+<p>There seem to be endless options from an adversarial perspective on how to leverage this. Someone more familiar with hypervisor can come up with much more advanced attack scenarios even.</p>
 <p><strong>Real adversaries likely have already customized and built their own virtualization products.</strong></p>
 <h1 id="detection-ideas">Detection Ideas</h1>
 <p>Adversaries likely have been using this technique for a while. To get into the weeds and build detections, the following ideas are some good starting points:</p>
 <ul>
+<li><strong>Collect telemetry on virtual machines (and their configuration)</strong> - ideally metrics at the hypervisor level can be collected, so that variations of this technique can be identified (custom VM products, etc.). Certainly also collecting the telemetry from well known VM products will help. I am very curious what threat hunters will come up with!</li>
 <li>Look for <strong>VM products that get installed silently</strong>, e.g. via command line options (<code>–silent</code> and <code>–ignore-reboot</code>)</li>
 <li>Look for <strong>commands that enable Hyper-V</strong> (like <code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V –All</code>)</li>
 <li>Individual calls might yield falls-positives but in combination with a remote connection that perform VM creation or virtualization product install can be inspected by an analyst or automation.</li>
-<li><strong>Collect telemetry on which virtual machines (and their configuration)</strong> are installed on each host in your environments (maybe something stands out)</li>
 <li><strong>Regularly inspect VMs that are created</strong> and configured on your machine</li>
 <li><strong>VM Size</strong> - Typically VMs disks are GB in size and an adversary possibly attempts to create VMs with a rather unusual small footprint, maybe less then 500MB or smaller even. This is something to look out for.</li>
 <li><strong>Auto Start Detection</strong> - Looking for startup scripts or registered services that run VBoxManage vmstart might point to interesting VM use scenarios. Usage of <code>VBoxAutostartSvc</code> service, <code>VBOXAUTOSTART_CONFIG</code> environment variable
