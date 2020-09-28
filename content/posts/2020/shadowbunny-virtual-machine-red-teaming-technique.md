@@ -10,7 +10,7 @@ tags: [
     ]
 ---
 
-This was also presented at [BSides Singapore 2020](https://bsidessg.org/). The slides are [here](/blog/downloads/Shadowbunny_BSides_Singapore_2020.pptx).
+This was also presented at [BSides Singapore 2020](https://bsidessg.org/). The slides are [here](/blog/downloads/Shadowbunny_BSides_Singapore_2020.pptx) and [video recording is here](https://www.youtube.com/watch?v=deGrbmTkRjQ).
 
 ## The origins of the Shadowbunny
 
