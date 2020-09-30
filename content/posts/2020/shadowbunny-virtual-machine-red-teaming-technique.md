@@ -493,6 +493,7 @@ Adversaries likely have been using this technique for a while. To get into the w
 * **Auto Start Detection** - Looking for startup scripts or registered services that run VBoxManage vmstart might point to interesting VM use scenarios. Usage of `VBoxAutostartSvc` service, `VBOXAUTOSTART_CONFIG` environment variable 
 **Other VM products (Hyper-V, VMWare) do auto-start on Windows** - so be aware of that.
 * **Suppressing notifications** - Looking for command line arguments that suppress notifications, similar to `setextradata global GUI/SuppressMessages "all"` might highlight places where someone actively prevents user notifications. This could be suspicious.
+* **Network Traffic Analysis** 
 
 I imagine that real adversaries are already a step ahead and customize virtualization products for their nefarious needs. We might need better lower level monitoring capabilities and telemetry to look for that as well, like at the Hypervisor level.
 

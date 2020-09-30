@@ -401,6 +401,7 @@ Start-VM $VM
 <li><strong>Auto Start Detection</strong> - Looking for startup scripts or registered services that run VBoxManage vmstart might point to interesting VM use scenarios. Usage of <code>VBoxAutostartSvc</code> service, <code>VBOXAUTOSTART_CONFIG</code> environment variable
 <strong>Other VM products (Hyper-V, VMWare) do auto-start on Windows</strong> - so be aware of that.</li>
 <li><strong>Suppressing notifications</strong> - Looking for command line arguments that suppress notifications, similar to <code>setextradata global GUI/SuppressMessages &quot;all&quot;</code> might highlight places where someone actively prevents user notifications. This could be suspicious.</li>
+<li><strong>Network Traffic Analysis</strong></li>
 </ul>
 <p>I imagine that real adversaries are already a step ahead and customize virtualization products for their nefarious needs. We might need better lower level monitoring capabilities and telemetry to look for that as well, like at the Hypervisor level.</p>
 <p>If you have good ideas, please share them, or submit Yara rules.</p>
