@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning Attack Series: SSH Agent Hijacking, Transfer Learning and Model Stealing"
-date: 2020-09-30T14:03:45-07:00
+date: 2020-10-08T05:50:21-07:00
 draft: true
 tags: [
         "machine learning",
@@ -22,9 +22,9 @@ The goal of this post is to look for ways an adversary can gain access to a mode
 At a high level there are multiple ways, but I think they can be distinguised between "direct" and "indirect" approaches. 
 
 1. **Direct approach: Gaining access to the actual model file** -  Compromise systems and hunt for the model file.
-1. **Indirect approach: Transfer Learning and Model Stealing**  - Attacker builds a separate, yet similar model themselves and uses that to create adversarial examples that work against the live systems.
+1. **Indirect approach: Transfer Learning Attacks and Model Stealing**  - Attacker builds a separate, yet similar model themselves and uses that to create adversarial examples that work against the live systems.
 
-You might think that an indirect approach is far fetched, but to pull off certain attacks one does not need access to the real physical model file that is used by the systems.
+You might think that an indirect approach is far fetched, but to pull off certain attacks one does not need access to the real physical model file that is used by the systems. I was able to trick Imagenet itself, but so far wasn't lucky to transfer created images over to bypass "Husky AI" - will need more testing.
 
 Let's explore these two in a bit more detail.
 

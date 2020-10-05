@@ -12,7 +12,7 @@ This year one of my goals was to learn about machine learning and artificial int
 
 I wrote about my journey before - including [what classes I took and books I read](/blog/posts/2020/machine-learning-basics), the [models and systems I built](/blog/posts/2020/husky-ai-walkthrough) and [operationalized](/blog/posts/2020/husky-ai-mlops-operationalize-the-model), [threat modeling it](/blog/posts/2020/husky-ai-threat-modeling-machine-learning) to [learn about practical attacks and defenses](/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce). My goal is to be knowledge enough in the AI/ML space enough to be able to help bridge the gap between research and operational red teaming - by doing practical things with life systems.
 
-In mid-August I learned that Microsoft is hosting a [Machine Learning Security Evasion Competition](https://github.com/Azure/2020-machine-learning-security-evasion-competition/blob/master/README.md).
+In mid-August I learned that Microsoft and CUJO AI are hosting a [Machine Learning Security Evasion Competition](https://github.com/Azure/2020-machine-learning-security-evasion-competition/blob/master/README.md).
 
 That aligned perfectly with my desire to continue learning more about machine learning and attacks.
 
@@ -160,14 +160,13 @@ The night before the competition ended, I noticed being in 4th place - I hoped t
 
 [![Scoreboard](/blog/images/2020/machine-learning-competition-scoreboard.png)](/blog/images/2020/machine-learning-competition-scoreboard.png)
 
-Too bad there was no a prize for third spot though. 
-
 Overall, I used 378 API queries, which I thought was not bad. 
 
+**UPDATE: The organizers reached out to inform me that I actually made 2nd place.** :) There were some issues on how scores got calculated which inflated some of the results.
 
 ## Thanks to the organizers!
 
-Thanks to the organizers of the competition. I cannot imagine how much works this must be behind the scenes. Having the malware detonate in sandboxes, watch for IOCs to make sure it’s still working and also building the frontend and web UI as well as running all the logistics to make this happen. Great job organizing this!
+Thanks to the organizers of the competition Microsoft and [CUJO AI](https://cujo.com). I cannot imagine how much works this must be behind the scenes. Having the malware detonate in sandboxes, watch for IOCs to make sure it’s still working and also building the frontend and web UI as well as running all the logistics to make this happen. Great job organizing this!
 
 Cheers,
 Johann.
@@ -184,3 +183,4 @@ Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 * [Portable Executable Image Explanation](https://upload.wikimedia.org/wikipedia/commons/1/1b/Portable_Executable_32_bit_Structure_in_SVG_fixed.svg)
 * Modified image ["hacked" by Pete Linforth](https://pixabay.com/illustrations/hacked-cyber-hacking-security-4100286/) from Pixabay
 * [Image "binary"](https://pixabay.com/illustrations/binary-binary-code-focal-point-2525243/) by Gerd Altmann from Pixabay
+* [CUJO AI](https://cujo.com/)
