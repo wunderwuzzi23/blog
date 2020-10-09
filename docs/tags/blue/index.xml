@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Wed, 23 Sep 2020 20:00:51 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2020 11:30:50 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/blue/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Coming up: Grayhat Red Team Village talk about hacking a machine learning system</title>
+      <link>https://embracethered.com/blog/posts/2020/accouncement-learning-by-doing-hacking-machine-lerning-grayhat/</link>
+      <pubDate>Fri, 09 Oct 2020 11:30:50 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/accouncement-learning-by-doing-hacking-machine-lerning-grayhat/</guid>
+      <description>Excited to announce that I will be presenting at Grayhat - Red Team Village on October 31st 2020.
+The presentation is about my machine learning journey and how to build and break a machine learning system. If you follow my blog, you can guess that there will be lots of discussion around &amp;ldquo;Husky AI&amp;rdquo;. The bits and pieces that make up a machine learning pipeline, and how to threat model such a system.</description>
+    </item>
     
     <item>
       <title>Beware of the Shadowbunny - Using virtual machines to persist and evade detections</title>
@@ -18,7 +28,7 @@
       <pubDate>Wed, 23 Sep 2020 20:00:51 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/shadowbunny-virtual-machine-red-teaming-technique/</guid>
-      <description>This was also presented at BSides Singapore 2020. The slides are here and video recording is here.
+      <description>This was also presented at BSides Singapore 2020. The slides are here and YouTube link is here.
 The origins of the Shadowbunny A few years ago, around 2016, I went on a relaxing two weeklong vacation. It was great to disconnect from work. I traveled to Austria, enjoying hiking in the mountains, and exploring Vienna.
 When I came back to the office, the team had placed a giant bunny teddy into my chair.</description>
     </item>

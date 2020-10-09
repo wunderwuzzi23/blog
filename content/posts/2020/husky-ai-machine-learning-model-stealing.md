@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning Attack Series: SSH Agent Hijacking, Transfer Learning and Model Stealing"
-date: 2020-10-08T05:50:21-07:00
+date: 2020-10-12T05:50:21-07:00
 draft: true
 tags: [
         "machine learning",

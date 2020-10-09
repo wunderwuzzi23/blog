@@ -10,7 +10,7 @@ tags: [
     ]
 ---
 
-This was also presented at [BSides Singapore 2020](https://bsidessg.org/). The slides are [here](/blog/downloads/Shadowbunny_BSides_Singapore_2020.pptx) and [video recording is here](https://www.youtube.com/watch?v=deGrbmTkRjQ).
+This was also presented at [BSides Singapore 2020](https://bsidessg.org/). The slides are [here](/blog/downloads/Shadowbunny_BSides_Singapore_2020.pptx) and [YouTube link is here](https://www.youtube.com/watch?v=deGrbmTkRjQ).
 
 ## The origins of the Shadowbunny
 
@@ -514,8 +514,15 @@ Cheers.
 Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 
 
+
+BSides Singapore 2020 - YouTube Recording:
+
+ [![YouTube Shadowbunny](/blog/images/2020/shadowbunny-youtube-video.jpg)](https://youtu.be/deGrbmTkRjQ)
+
+
 ## Disclaimer
 Penetration testing requires authorization from proper stakeholders. Information in this post is provided for research and educational purposes to advance understanding of attacks and countermeasures to help improve the security posture of infrastructure and systems. 
+
 
 
 
@@ -543,6 +550,7 @@ Penetration testing requires authorization from proper stakeholders. Information
                    |     |
 ```
 *ASCII Art from https://www.asciiart.eu/animals/rabbits*
+
 
 
 ## References
