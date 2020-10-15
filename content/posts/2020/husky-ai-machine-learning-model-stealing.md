@@ -1,5 +1,5 @@
 ---
-title: "Machine Learning Attack Series: SSH, SSH agent hijacking and stealing a model file"
+title: "Machine Learning Attack Series: SSH agent hijacking and stealing a model file"
 date: 2020-10-10T05:50:21-07:00
 draft: true
 tags: [
