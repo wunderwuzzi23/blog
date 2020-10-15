@@ -1,6 +1,6 @@
 ---
-title: "Machine Learning Attack Series: SSH Agent Hijacking, Transfer Learning and Model Stealing"
-date: 2020-10-12T05:50:21-07:00
+title: "Machine Learning Attack Series: SSH, SSH agent hijacking and stealing a model file"
+date: 2020-10-10T05:50:21-07:00
 draft: true
 tags: [
         "machine learning",
@@ -94,11 +94,13 @@ This is a threat that production systems that allow SSH access have to deal with
 
 If the compromised host of the engineer runs Linux, and not Windows the commands are basically the same.
 
-Mitigation: A mitigiaton is to provision only temporary identities and granting access on a case by case basis can help limit the exposure. This comes with engineering effort to build such a system of course.  But permanently provisioned identities on production hosts are worrisome for exactly that reason. Users can also lock `ssh-add -X` to lock the agent, so it requires a password again to keep the window of opportunity shorter.
+#### Mitigation
+
+A mitigiaton is to provision only temporary identities and granting access on a case by case basis can help limit the exposure. This comes with engineering effort to build such a system of course.  But permanently provisioned identities on production hosts are worrisome for exactly that reason. Users can also lock `ssh-add -X` to lock the agent, so it requires a password again to keep the window of opportunity shorter.
 
 ### SSH-Agent Hijacking
 
-Its even worse if Mallory gains root access on the Bastion host. Since the Bastion host typically handles many SSH connections, and using SSH Agent Hijacking Mallory (having root access) can then query and leverage all these keys of clients who forward them.
+Its even worse if Mallory gains root access on the Bastion host (jumpbox). Since the Bastion host typically handles many SSH connections, and using SSH Agent Hijacking Mallory (having root access) can then query and leverage all these keys of clients who forward them.
 
 Forwarding keys is usually done via `ssh -A` option or `AllowForwarding=yes` setting in the `ssh_config`.
 
@@ -123,23 +125,29 @@ In the case of Husky AI this allows Mallory who compromised the ML engineers lap
 This is one way to gain access to a model file, and how traditional red teamers would approach this problem. But let's look at some entirely different methods.
 
 
-## Transfer Learning and Model Stealing
+### Extracting SSH Private Keys From Windows 10 ssh-agent
 
-The indirect approach to steal a model is less obvious if you are new to machine learning. Mallory can build a model offline to create adversarial examples and then try to use those adversarial examples against the production model to find bypasses.
+The following [blog post](https://blog.ropnop.com/extracting-ssh-private-keys-from-windows-10-ssh-agent/) highlights another way on Windows on how to gain access to the private key material, which is stored DPAPI encrypted in the registry.
 
-Researches have shown that this is possible, so let's try it with Husky AI.
+That's it for SSH attacks for now.
 
-**Note about Model Stealing:** Along the same lines an adversary can steal model information by querying the external production API to get scores and labels to build a similar model themselves. In the case of Husky AI the system has a binary classifier. Stealing a model might require a lot of queries to the rate limited API endpoint. The idea would be to download thousands of husky and non-husky images and then send them to the prediction API to get the label (and confidence) values, and then build a similar model from scratch. Given the simple binary classifier for something like Husky AI this is not worth doing, its easier to build a model from scratch or use transfer learning - that also avoid running into the rate limiting issue as attacker.
+## Transfer learning, adversarial examples, and model stealing
 
+The indirect approach to steal a model is less obvious if you are new to machine learning. Mallory can build a model offline (either by maliciously querying the target model and/or transfer learning) to create adversarial examples and then try to use those adversarial examples against the target system to find bypasses. 
 
-Let's talk a little bit more about transfer learning and creation of adversarial images.
+Researches have shown and discussed that this is possible, e.g. [Knockoff Nets: Stealing Functionality of Black-Box Models](https://arxiv.org/abs/1812.02766) and [Explaining and Harnessing Adversarial Examples](https://arxiv.org/abs/1412.6572) (Fast Gradient Sign Method paper) from Ian Goodfellow also mentions that attacks can be transfered at times.
 
+**Unfortunately, I haven't succesfully done this yet against Husky AI.**
+
+Even though I created adversarial examples that succesfully misclassify images as huskies against ResNet50/MobileNet/ImageNet - those images do not yet fool Husky AI... I still need to research this more and will write a post when I have more information. 
+
+For now I moved on and focus on learning about **GANs (Generative adversarial networks)** with the goal to actually create realistic looking huskies instead - with some amazing results already! 
 
 ## Conclusion
 
-That's it for gaining access to a model. This, in combination with backdooring attacks and creation of adversarial examples we can see how individual attacks can be fit nicely together aiding an adversary to trick a AI system.
+That's it for now on gaining access to a model. 
 
-
+Hope this was interesting, I try to mix content from both traditional red teaming side and machine learning - so the content is hopefully useful and interesting. 
 
 ### Appendix 
 
@@ -155,7 +163,7 @@ Links will be added when posts are completed over the next serveral weeks/months
 5. Attacker denies modifying the model file - Repudiation Attack
 6. Attacker poisons the supply chain of third-party libraries 
 7. Attacker tampers with images on disk to impact training performance
-8. Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)
+8. [Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)](cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution.md)
 
 
 ## SSH-Agent info on Windows

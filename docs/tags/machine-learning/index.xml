@@ -7,10 +7,41 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Tue, 22 Sep 2020 14:00:41 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2020 10:35:02 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CVE 2020-16977: VS Code Python Extension Remote Code Execution</title>
+      <link>https://embracethered.com/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/</link>
+      <pubDate>Wed, 14 Oct 2020 10:35:02 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/</guid>
+      <description>While building &amp;ldquo;Husky AI&amp;rdquo; I started working a lot with Microsoft&amp;rsquo;s VS Code Python extension. It is a super convinient way to edit Jupyter Notebooks. I just use VS Code&amp;rsquo;s Remote SSH feature to get to my Linux host and work on modeling and testing there.
+When threat modeling &amp;ldquo;Husky AI&amp;rdquo; I identified backdooring of third party libraries and development tools as a potential issue to be aware of.
+So finding security issues in the tools is naturally something I am keeping an eye on.</description>
+    </item>
+    
+    <item>
+      <title>Machine Learning Attack Series: SSH, SSH agent hijacking and stealing a model file</title>
+      <link>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-model-stealing/</link>
+      <pubDate>Sat, 10 Oct 2020 05:50:21 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-model-stealing/</guid>
+      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.
+ Overview: How Husky AI was built, threat modeled and operationalized Attacks: The attacks I want to investigate, learn about, and try out  We talked about creating adversarial examples and &amp;ldquo;backdoor images&amp;rdquo; for Husky AI before. One thing that we noticed was that an adversary with model access can very efficiently come up with adversarial examples.</description>
+    </item>
+    
+    <item>
+      <title>Coming up: Grayhat Red Team Village talk about hacking a machine learning system</title>
+      <link>https://embracethered.com/blog/posts/2020/accouncement-learning-by-doing-hacking-machine-lerning-grayhat/</link>
+      <pubDate>Fri, 09 Oct 2020 11:30:50 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/accouncement-learning-by-doing-hacking-machine-lerning-grayhat/</guid>
+      <description>Excited to announce that I will be presenting at Grayhat - Red Team Village on October 31st 2020. The presentation is about my machine learning journey and how to build and break a machine learning system.
+If you follow my blog, you can guess that there will be lots of discussion around &amp;ldquo;Husky AI&amp;rdquo;. The bits and pieces that make up a machine learning pipeline, and how to threat model such a system.</description>
+    </item>
     
     <item>
       <title>Participating in the Microsoft Machine Learning Security Evasion Competition - Bypassing malware models by signing binaries</title>
