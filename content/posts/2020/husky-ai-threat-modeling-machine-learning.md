@@ -88,7 +88,7 @@ The following is the list of threats that I want to build attacks for:
 5. Attacker denies modifying the model file - Repudiation Attack
 6. Attacker poisons the supply chain of third-party libraries 
 7. Attacker tampers with images on disk to impact training performance
-8. [Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)](cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution.md)
+8. [Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)](/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/)
 
 *Note: Those marked as added were posts added to cover some content more in-depth*
 
