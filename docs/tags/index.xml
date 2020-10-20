@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Wed, 14 Oct 2020 10:35:02 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2020 15:11:33 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>pentesting</title>
+      <link>https://embracethered.com/blog/tags/pentesting/</link>
+      <pubDate>Mon, 19 Oct 2020 15:11:33 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/pentesting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>program</title>
+      <link>https://embracethered.com/blog/tags/program/</link>
+      <pubDate>Mon, 19 Oct 2020 15:11:33 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/program/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red</title>
+      <link>https://embracethered.com/blog/tags/red/</link>
+      <pubDate>Mon, 19 Oct 2020 15:11:33 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cve</title>
@@ -36,15 +63,6 @@
       <pubDate>Wed, 14 Oct 2020 10:35:02 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>red</title>
-      <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Wed, 14 Oct 2020 10:35:02 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/red/</guid>
       <description></description>
     </item>
     
@@ -90,15 +108,6 @@
       <pubDate>Mon, 24 Aug 2020 12:00:33 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/appsec/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pentesting</title>
-      <link>https://embracethered.com/blog/tags/pentesting/</link>
-      <pubDate>Mon, 24 Aug 2020 12:00:33 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/pentesting/</guid>
       <description></description>
     </item>
     

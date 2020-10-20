@@ -3,6 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/tags/pentesting/</loc>
+    <lastmod>2020-10-19T15:11:33-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2020-10-19T15:11:33-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/program/</loc>
+    <lastmod>2020-10-19T15:11:33-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2020-10-19T15:11:33-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2020-10-19T15:11:33-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2020/red-team-offensive-security-service-offerings/</loc>
+    <lastmod>2020-10-19T15:11:33-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2020-10-19T15:11:33-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/tags/cve/</loc>
     <lastmod>2020-10-14T10:35:02-07:00</lastmod>
   </url>
@@ -19,26 +54,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2020-10-14T10:35:02-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2020-10-14T10:35:02-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2020-10-14T10:35:02-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2020-10-14T10:35:02-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/</loc>
     <lastmod>2020-10-14T10:35:02-07:00</lastmod>
   </url>
   
@@ -134,11 +149,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/appsec/</loc>
-    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/pentesting/</loc>
     <lastmod>2020-08-24T12:00:33-08:00</lastmod>
   </url>
   

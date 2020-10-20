@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" What does an offensive security team actually do? &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2020/red-team-offensive-security-service-offerings/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-10-19T15:11:33-07:00" />
+  
+  <meta property="og:article:tag" content="pentesting" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="program" />
+  
+  
+
+  <title>
+     What does an offensive security team actually do? &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">What does an offensive security team actually do?</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-10-19T15:11:33-07:00">
+          Oct 19, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentesting">#pentesting</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/program">#program</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>There is a lot of discussion around terms such as red team, attack team, pentest, adversarial engineering or offensive security team and similar ones.</p>
+<p>I typically stay away from the (sometimes passionate) discussions that ensue whenever this topic comes up.</p>
+<p>Personally, I think a good strategy is to define programs and teams who operate in this space by <strong>what services the team (or teams) provide(s) to the organization</strong>.</p>
+<p>The business groups, blue team, developers, engineers, employees and clients are our customers.</p>
+<h2 id="defining-an-offensive-security-program">Defining an offensive security program</h2>
+<p>What an offensive security, red team or pentest team does can vary quite a bit - depending on an organization, there is no one size fits all.</p>
+<p>It might or might not include design level work and reviews such as threat modeling, but it certainly should include hands-on offensive security testing and finding and exploiting of vulnerabilities for defensive purposes. Most of these service offerings revolve around alternative analysis.</p>
+<blockquote>
+<p>A smaller organization might have one (red) team that does everything, and large organizations might have multiple different teams with varying service offerings and responsibilities.</p>
+</blockquote>
+<p>I generally stay away from trying to define &ldquo;Red Teaming&rdquo; in any official form, because that by itself is counter productive. A red team defines itself whatever it wants to be or do.</p>
+<p>And, if you tell yourself that what I just did is define red teaming, then congratulations: you are thinking like a red teamer!</p>
+<p>Personally, you&rsquo;ll see me often use the terms &ldquo;attack team&rdquo; and &ldquo;offensive security&rdquo;, rather than red team.</p>
+<p>Here is a list of set of services such a team might provide to an organization:</p>
+<ul>
+<li><a href="#reviews">Security Reviews and Threat Modeling Support</a></li>
+<li><a href="#assessments">Security Assessments</a></li>
+<li><a href="#redteam">Red Team Operations</a></li>
+<li><a href="#purple">Purple Team Operations</a></li>
+<li><a href="#tabletop">Tabletop Exercises</a></li>
+<li><a href="#research">Research and Development</a></li>
+<li><a href="#attackanalysis">Predictive Attack Analysis and Incident Response Support</a></li>
+<li><a href="#training">Security Education and Training</a></li>
+<li><a href="#iq">Increase the Security IQ of the organization</a></li>
+<li><a href="#ti">Gathering Threat Intelligence</a></li>
+<li><a href="#GRC">Informing Risk Management Groups and Leadership</a></li>
+<li><a href="#engineering">Integration into Engineering Processes</a></li>
+</ul>
+<p>Obviously the agenda can include other aspects that are not highlighted here as well.</p>
+<h3 id="reviews">Security Reviews and Threat Modeling Support</h3>
+<p>A good way to get the offensive security team involved early is in the design phase of a system. It’s the best way to get feedback before code is deployed or operational processes are established. Although it’s not unlikely that systems are already deployed, it’s still worthwhile to catch up and threat model systems, environments and people. Some offensive teams might object to be included in this stage as it differs slightly from their mission.</p>
+<p>Personally, I have always seen this as one of the biggest assets of having an internal offensive security team. When engineers or others in the organization have specific security questions on how to build a certain feature or develop a process to improve security the pen test team can be a great group to bounce off ideas and help improve the security early on. When teams across the organization directly reach out to your team for advice, then you must have done something right.</p>
+<h3 id="assessments">Security Assessments</h3>
+<p>An engineering team might develop a new feature or service and requests the help from the penetration test team to assess its security posture and potential vulnerabilities. These are more focused on application level vulnerability assessments with the goal to find as many issues as possible using techniques include white and black box testing and so forth. Some classify this as doing the classical penetration test.</p>
+<h3 id="redteam">Red Team Operations</h3>
+<p>Some of the most fun things for pen testers can be true red team type of work. Typically, these are covert operation where involved stakeholders are not aware of the test being performed, and the operation is authorized by leadership. Ideally, the offensive security team defines objectives, gets approval and executes towards it.</p>
+<p>Depending on the maturity level of a red team it might be possible to emulate very specific adversaries to challenge the blue team. This can reach from emulation of a specific adversary or advanced persistent threat (APT) to simulating a crypto-currency adversary or performing a physical breach of a building.</p>
+<p>Red Teaming is fun and creative – there are &ldquo;no&rdquo; rules.</p>
+<p>The biggest challenge for a mature red team is that a true adversary will break the law. A red team does have to consider legal and corporate policies when operating. This of course has implications on how realistic certain scenarios can be played through – but certain scenarios should be at least played through on paper via tabletop exercises.</p>
+<h3 id="purple">Purple Team Operations</h3>
+<p>The scope and goals are very similar to red team defined operations. The core difference to a red team operation is that the focus lies on transparency and collaboration between red, blue and engineering teams. The goal is throughout all stages of the purple team operation to improve the security posture of a system pretty much immediately by running attacks and validating detections and alerts. If attacks succeed and are not caught, detections are fixed and implemented, and attacks are re-run right away again - until there is measurable improvement.</p>
+<p>Purple Teaming is one of the most effective ways to help grow your defenses fast and help improve the maturity of the organization quickly. Especially if you do have an internal offensive security team that can work with the blue team throughout. We will discuss the benefits of close collaboration and leveraging Homefield Advantage a lot more in the next chapter.</p>
+<p>Although make sure to keep challenging your own processes and beliefs. The idea of offensives security and alternate analysis is to challenge the status quo.</p>
+<p>The reason to not only perform purple teaming but mix in red teaming is to ensure someone is validating the outside attack without limitations. If most of the organization only does purple teaming, the need to hire someone external to red team the organization increases. This becomes the test of the purple team so to speak, to see if they were successful with improving the security posture of the organization.</p>
+<h3 id="tabletop">Tabletop Exercises</h3>
+<p>At times its not possible or feasible to perform certain attack scenarios operationally. This might be due to available resource, legal and/or technical concerns. A good alternative can be to red team scenarios on paper, rather then operationally perform them in real life. Tabletop exercises can be a great way to get higher leadership and the board involved in exploring attack scenarios.</p>
+<h3 id="research">Research and Development</h3>
+<p>This category falls mainly into two buckets, the first being security and vulnerability research. This is a core priority of an offensive security team. It includes research to find new vulnerabilities and new vulnerability classes. In addition, the team also develops tools and exploits for defensive purposes to highlight implications of vulnerabilities, for use during operations and to test the countermeasure and mitigations being put in place work.</p>
+<h3 id="attackanalysis">Predictive Attack Analysis and Incident Response Support</h3>
+<p>In case a security incident occurs, the offensive security team can assist with insights on what the active adversary might be looking for. The team possibly can predict the next step the adversary will take due to their unique attacker mindset. The kudos for the term &ldquo;Predictive Attack Analysis&rdquo; go to Farzan Karimi by the way. This is part of the homefield advantage that an internal offensive security team can provide and during emergencies the team can provide critical information to be one step ahead.</p>
+<h2 id="additional-responsibilities-of-the-offensive-program">Additional Responsibilities of the Offensive Program</h2>
+<h3 id="training">Security Education and Training</h3>
+<p>The offensive security team can tremendously help change the culture of the organization and help improve the overall security IQ. As part of operations the pen testers learn a lot about people, processes and technologies of the organization. The offensive team is also in a powerful position to ignite cultural change and help the organization improve their unique understanding of security.</p>
+<h3 id="iq">Increase the Security IQ of the organization</h3>
+<p>Along the lines of education and providing training the job of the offensive program should be to improve the security IQ of the entire organization, including blue teams, service and product teams, human resources, finance, etc.</p>
+<h3 id="ti">Gathering Threat Intelligence</h3>
+<p>One role the offensive program might fill is the task to gather threat intelligence to understand current trends in offensive security and what threat actors are active and what new techniques, tools or processes threat actors are building or leveraging at the moment.<br>
+Especially in a smaller organization that will not have a dedicated threat intel program it will be the red team’s job to be up to date with the latest trends, threats and knowing about what data related to the organization flows around in the dark web.</p>
+<h3 id="GRC">Informing Risk Management Groups and Leadership</h3>
+<p>Another area to ensure involvement is to shape and actively contribute to the risk management process of the organization. Information security threats might not be correctly considered when risk stakeholders discuss the risks the business faces.</p>
+<p>Numbers like &ldquo;machines not patched&rdquo; does not mean anything to a business stakeholder – what is the risk to the business?</p>
+<p>The offensive program can provide insights to malicious activity that can results in critical business impact. Additionally, an offensive program can highlight process flaws where too many people have unvetted access to information or capabilities that could accidently impair the business negatively and lasting due to human error without malicious intent.</p>
+<p>The security industry is focused on qualitative measurements and security scores. More meaningful ways to express risks are needed. In Part 4 of the book we will explore other ideas on how to communicate risk.</p>
+<h3 id="engineering">Integration into Engineering Processes</h3>
+<p>It is advisable that the red team program integrates and has regular checks with engineering and other relevant stakeholders for evaluation. If such a collaboration does not exist, it’s time to work on it. The lack of visibility is often why vulnerabilities which could have been discovered and mitigated early on make it into production. Smaller organizations may need an engagement once per year, while a large commerce apps may benefit from multiple assessments per year.</p>
+<p>Such integration ensure that regular security assessments are performed, and that the security team can plan more complex red teaming operations that leverage and integrate the newest systems and services built to provide the best value.</p>
+<p>Another idea in this regard is to require a recurring offensive drill for each business group.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>That&rsquo;s it. Hope this was a somewhat interesting excursion into what a red team might be doing.</p>
+<p>Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2020
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

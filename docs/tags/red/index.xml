@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Wed, 14 Oct 2020 10:35:02 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2020 15:11:33 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What does an offensive security team actually do?</title>
+      <link>https://embracethered.com/blog/posts/2020/red-team-offensive-security-service-offerings/</link>
+      <pubDate>Mon, 19 Oct 2020 15:11:33 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/red-team-offensive-security-service-offerings/</guid>
+      <description>There is a lot of discussion around terms such as red team, attack team, pentest, adversarial engineering or offensive security team and similar ones.
+I typically stay away from the (sometimes passionate) discussions that ensue whenever this topic comes up.
+Personally, I think a good strategy is to define programs and teams who operate in this space by what services the team (or teams) provide(s) to the organization.
+The business groups, blue team, developers, engineers, employees and clients are our customers.</description>
+    </item>
     
     <item>
       <title>CVE 2020-16977: VS Code Python Extension Remote Code Execution</title>
