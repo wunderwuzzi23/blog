@@ -15,7 +15,7 @@ I typically stay away from the (sometimes passionate) discussions that ensue whe
 
 Personally, I think a good strategy is to define programs and teams who operate in this space by **what services the team (or teams) provide(s) to the organization**. 
 
-The business groups, blue team, developers, engineers, employees and clients are our customers. 
+The business groups, blue team, developers, engineers, employees and clients are the customers. 
 
 ## Defining an offensive security program
 
@@ -48,6 +48,7 @@ Here is a list of set of services such a team might provide to an organization:
 
 Obviously the agenda can include other aspects that are not highlighted here as well.
 
+Let's discuss them in more detail.
 
 ### Security Reviews and Threat Modeling Support{#reviews}
 
@@ -74,7 +75,7 @@ The biggest challenge for a mature red team is that a true adversary will break 
 
 The scope and goals are very similar to red team defined operations. The core difference to a red team operation is that the focus lies on transparency and collaboration between red, blue and engineering teams. The goal is throughout all stages of the purple team operation to improve the security posture of a system pretty much immediately by running attacks and validating detections and alerts. If attacks succeed and are not caught, detections are fixed and implemented, and attacks are re-run right away again - until there is measurable improvement.
 
-Purple Teaming is one of the most effective ways to help grow your defenses fast and help improve the maturity of the organization quickly. Especially if you do have an internal offensive security team that can work with the blue team throughout. We will discuss the benefits of close collaboration and leveraging Homefield Advantage a lot more in the next chapter.
+Purple Teaming is one of the most effective ways to help grow your defenses fast and help improve the maturity of the organization quickly. Especially if you do have an internal offensive security team that can work with the blue team throughout.
 
 Although make sure to keep challenging your own processes and beliefs. The idea of offensives security and alternate analysis is to challenge the status quo.
 
@@ -90,7 +91,7 @@ This category falls mainly into two buckets, the first being security and vulner
 
 ### Predictive Attack Analysis and Incident Response Support{#attackanalysis}
 
-In case a security incident occurs, the offensive security team can assist with insights on what the active adversary might be looking for. The team possibly can predict the next step the adversary will take due to their unique attacker mindset. The kudos for the term "Predictive Attack Analysis" go to Farzan Karimi by the way. This is part of the homefield advantage that an internal offensive security team can provide and during emergencies the team can provide critical information to be one step ahead. 
+In case a security incident occurs, the offensive security team can assist with insights on what the active adversary might be looking for. The team possibly can predict the next step the adversary will take due to their unique attacker mindset. The kudos for the term "Predictive Attack Analysis" go to [Farzan Karimi](https://twitter.com/_BlackRook) by the way. This is part of the homefield advantage that an internal offensive security team can provide and during emergencies the team can provide critical information to be one step ahead. 
 
 ## Additional Responsibilities of the Offensive Program
 
@@ -104,7 +105,8 @@ Along the lines of education and providing training the job of the offensive pro
 ### Gathering Threat Intelligence {#ti}
 
 One role the offensive program might fill is the task to gather threat intelligence to understand current trends in offensive security and what threat actors are active and what new techniques, tools or processes threat actors are building or leveraging at the moment.  
-Especially in a smaller organization that will not have a dedicated threat intel program it will be the red team’s job to be up to date with the latest trends, threats and knowing about what data related to the organization flows around in the dark web.
+
+Especially in a smaller organization that does not have a dedicated threat intel program it will be the red team's job to be up to date with the latest trends, threats and knowing about what data related to the organization flows around in the dark web.
 
 ### Informing Risk Management Groups and Leadership{#GRC}
 
@@ -114,12 +116,12 @@ Numbers like "machines not patched" does not mean anything to a business stakeho
 
 The offensive program can provide insights to malicious activity that can results in critical business impact. Additionally, an offensive program can highlight process flaws where too many people have unvetted access to information or capabilities that could accidently impair the business negatively and lasting due to human error without malicious intent.
 
-The security industry is focused on qualitative measurements and security scores. More meaningful ways to express risks are needed. In Part 4 of the book we will explore other ideas on how to communicate risk.
+The security industry is focused on qualitative measurements and security scores. More meaningful ways to express risks are needed - refer to my [Monte Carlo Simulations post for some alternative ideas](/blog/posts/red-teaming-and-monte-carlo-simulations/).
 
 
 ### Integration into Engineering Processes{#engineering}
 
-It is advisable that the red team program integrates and has regular checks with engineering and other relevant stakeholders for evaluation. If such a collaboration does not exist, it’s time to work on it. The lack of visibility is often why vulnerabilities which could have been discovered and mitigated early on make it into production. Smaller organizations may need an engagement once per year, while a large commerce apps may benefit from multiple assessments per year.
+It is advisable that the red team program integrates and has regular checks with engineering and other relevant stakeholders for evaluation. If such a collaboration does not exist, it's time to work on it. The lack of visibility is often why vulnerabilities which could have been discovered and mitigated early on make it into production. Smaller organizations may need an engagement once per year, while a large commerce apps may benefit from multiple assessments per year.
 
 Such integration ensure that regular security assessments are performed, and that the security team can plan more complex red teaming operations that leverage and integrate the newest systems and services built to provide the best value.
 
