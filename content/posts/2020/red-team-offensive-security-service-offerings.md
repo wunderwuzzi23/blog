@@ -1,6 +1,6 @@
 ---
 title: "What does an offensive security team actually do?"
-date: 2020-10-19T15:11:33-07:00
+date: 2020-10-19T20:00:00-07:00
 draft: true
 tags: [
         "pentesting",
@@ -93,7 +93,7 @@ This category falls mainly into two buckets, the first being security and vulner
 
 In case a security incident occurs, the offensive security team can assist with insights on what the active adversary might be looking for. The team possibly can predict the next step the adversary will take due to their unique attacker mindset. The kudos for the term "Predictive Attack Analysis" go to [Farzan Karimi](https://twitter.com/_BlackRook) by the way. This is part of the homefield advantage that an internal offensive security team can provide and during emergencies the team can provide critical information to be one step ahead. 
 
-## Additional Responsibilities of the Offensive Program
+## Additional Responsibilities 
 
 ### Security Education and Training{#training}
 The offensive security team can tremendously help change the culture of the organization and help improve the overall security IQ. As part of operations the pen testers learn a lot about people, processes and technologies of the organization. The offensive team is also in a powerful position to ignite cultural change and help the organization improve their unique understanding of security.
@@ -116,7 +116,7 @@ Numbers like "machines not patched" does not mean anything to a business stakeho
 
 The offensive program can provide insights to malicious activity that can results in critical business impact. Additionally, an offensive program can highlight process flaws where too many people have unvetted access to information or capabilities that could accidently impair the business negatively and lasting due to human error without malicious intent.
 
-The security industry is focused on qualitative measurements and security scores. More meaningful ways to express risks are needed - refer to my [Monte Carlo Simulations post for some alternative ideas](/blog/posts/red-teaming-and-monte-carlo-simulations/).
+The security industry is focused on qualitative measurements and security scores. More meaningful ways to express risks are needed - refer to my [Monte Carlo Simulations post for some alternative ideas](/blog/posts/2020/red-teaming-and-monte-carlo-simulations/).
 
 
 ### Integration into Engineering Processes{#engineering}
