@@ -14,7 +14,7 @@ For GrayHat 2020 I was asked to create a short intro video for my Red Team Villa
 
 So I put my green screen to good use and recorded this short clip for Red Team Village.
 
-Here is the link to the intro video on Twitter:
+Here is the link to the clip on Twitter:
 
 [![Red Team Village Talk](/blog/images/2020/grayhat-video.png)](https://twitter.com/RedTeamVillage_/status/1316895004447657984)
 
