@@ -1,6 +1,6 @@
 ---
 title: "Hacking neural networks - so we don't get stuck in the matrix"
-date: 2020-10-20T20:00:41-07:00
+date: 2020-10-20T14:00:41-07:00
 draft: true
 tags: [
         "machine learning",
@@ -10,7 +10,7 @@ tags: [
 ---
 
 
-For GrayHat 2020 I was asked to create a short intro video for my talk "Learning by doing: Building and breaking a machine learning system".
+For GrayHat 2020 I was asked to create a short intro video for my Red Team Village talk "Learning by doing: Building and breaking a machine learning system".
 
 So I put my green screen to good use and recorded this short clip for Red Team Village.
 

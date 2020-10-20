@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Fri, 09 Oct 2020 11:30:50 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2020 14:00:41 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/conference/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hacking neural networks - so we don&#39;t get stuck in the matrix</title>
+      <link>https://embracethered.com/blog/posts/2020/hacking-the-matrix/</link>
+      <pubDate>Tue, 20 Oct 2020 14:00:41 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/hacking-the-matrix/</guid>
+      <description>For GrayHat 2020 I was asked to create a short intro video for my Red Team Village talk &amp;ldquo;Learning by doing: Building and breaking a machine learning system&amp;rdquo;.
+So I put my green screen to good use and recorded this short clip for Red Team Village.
+
+Hope you like it. :)
+Schedule: http://redteamvillage.io/schedule
+Grayhat&amp;rsquo;s website: http://grayhat.co</description>
+    </item>
     
     <item>
       <title>Coming up: Grayhat Red Team Village talk about hacking a machine learning system</title>
