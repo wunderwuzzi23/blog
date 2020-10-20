@@ -1,6 +1,6 @@
 ---
 title: "Hacking neural networks - so we don't get stuck in the matrix"
-date: 2020-10-20T14:00:41-07:00
+date: 2020-10-20T12:00:41-07:00
 draft: true
 tags: [
         "machine learning",
@@ -14,8 +14,9 @@ For GrayHat 2020 I was asked to create a short intro video for my Red Team Villa
 
 So I put my green screen to good use and recorded this short clip for Red Team Village.
 
-[![Red Team Village Talk](/blog/images/2020/grayhat-video.png)](https://twitter.com/RedTeamVillage_/status/1316895004447657984)
+Here is the link to the intro video on Twitter:
 
+[![Red Team Village Talk](/blog/images/2020/grayhat-video.png)](https://twitter.com/RedTeamVillage_/status/1316895004447657984)
 
 Hope you like it. :)
 
