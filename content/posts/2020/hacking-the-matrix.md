@@ -19,6 +19,8 @@ So I put my green screen to good use and recorded this short clip for Red Team V
 
 Hope you like it. :)
 
+The talk will be October, 31st 2020.
+
 Schedule: http://redteamvillage.io/schedule
 
 Grayhat's website: http://grayhat.co
