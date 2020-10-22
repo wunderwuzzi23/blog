@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Tue, 20 Oct 2020 12:00:41 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2020 15:00:48 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Machine Learning Attack Series: Adversarial Robustness Toolbox Basics</title>
+      <link>https://embracethered.com/blog/posts/2020/husky-ai-adversarial-robustness-toolbox-testing/</link>
+      <pubDate>Thu, 22 Oct 2020 15:00:48 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/husky-ai-adversarial-robustness-toolbox-testing/</guid>
+      <description>I wanted to explore the &amp;ldquo;Adversarial Robustness Toolbox&amp;rdquo; (ART) for a while to understand how it can be used to create adversarial examples for Husky AI.
+A few weeks ago I described a range of perturbation attacks to modify an existing image of the plush bunny to get it misclassified as a husky.
+The goal of this post is to do the same, but leveraging ART.
+Adversarial Robustness Toolbox (ART) ART was originially created by IBM and moved to the Linux AI Foundations in July 2020.</description>
+    </item>
     
     <item>
       <title>Hacking neural networks - so we don&#39;t get stuck in the matrix</title>

@@ -3,37 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/tags/huskyai/</loc>
+    <lastmod>2020-10-22T15:00:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2020-10-22T15:00:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2020/husky-ai-adversarial-robustness-toolbox-testing/</loc>
+    <lastmod>2020-10-22T15:00:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2020-10-22T15:00:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2020-10-22T15:00:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2020-10-22T15:00:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2020-10-22T15:00:48-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/tags/conference/</loc>
     <lastmod>2020-10-20T12:00:41-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/posts/2020/hacking-the-matrix/</loc>
-    <lastmod>2020-10-20T12:00:41-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2020-10-20T12:00:41-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2020-10-20T12:00:41-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2020-10-20T12:00:41-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2020-10-20T12:00:41-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/</loc>
     <lastmod>2020-10-20T12:00:41-07:00</lastmod>
   </url>
   
@@ -59,11 +69,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/</loc>
-    <lastmod>2020-10-14T10:35:02-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/huskyai/</loc>
     <lastmod>2020-10-14T10:35:02-07:00</lastmod>
   </url>
   

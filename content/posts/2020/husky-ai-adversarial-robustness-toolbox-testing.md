@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning Attack Series: Adversarial Robustness Toolbox Basics"
-date: 2020-10-22T16:34:48-07:00
+date: 2020-10-22T15:00:48-07:00
 draft: true
 tags: [
         "machine learning",
@@ -84,7 +84,7 @@ Here is a quick description of the steps in the above code:
 [![ART FGSM Shadowbunny](/blog/images/2020/art.shadowbunny.png)](/blog/images/2020/art.shadowbunny.png)
 
 Notice how the prediction score is now at `66%`. The attack worked!
-In this case its also visible that the image slighlty changed -- observe how the white background is not entirely plain white anymore.
+In this case its also visible that the image slightly changed -- observe how the white background is not entirely plain white anymore.
 
 
 ## Conclusion
