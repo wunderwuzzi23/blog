@@ -7,20 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Thu, 22 Oct 2020 15:43:27 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2020 15:00:48 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Machine Learning Attack Series: Image Rescaling Attacks</title>
-      <link>https://embracethered.com/blog/posts/2020/husky-ai-image-rescaling-attacks/</link>
-      <pubDate>Thu, 22 Oct 2020 15:43:27 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/posts/2020/husky-ai-image-rescaling-attacks/</guid>
-      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.
- Overview: How Husky AI was built, threat modeled and operationalized Attacks: Some of the attacks I want to investigate, learn about, and try out  A few weeks ago while preparing demos for my GrayHat Red Team Village presentation I ran across &amp;ldquo;Image Scaling Attacks&amp;rdquo; in Adversarial Preprocessing: Understanding and Preventing Image-Scaling Attacks in Machine Learning by Erwin Quiring, et al.</description>
-    </item>
     
     <item>
       <title>Machine Learning Attack Series: Adversarial Robustness Toolbox Basics</title>

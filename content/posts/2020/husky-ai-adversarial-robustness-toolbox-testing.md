@@ -21,7 +21,7 @@ The goal of this post is to do the same, but leveraging ART.
 
 [ART](https://adversarial-robustness-toolbox.org/) was originially created by IBM and moved to the Linux AI Foundations in July 2020. It comes with a range of attack modules, as well as mitigation techniques and supports a wide range of machine learning frameworks.
 
-The code of creating an adversarial examples is straight forward. There is [good documentation](https://adversarial-robustness-toolbox.readthedocs.io/en/latest/modules/attacks/evasion.html#) available also. What I found missing is a  discussion forum for ART so far - although I was able to eventually figure the few things I had questions about out so far.
+The code of creating an adversarial examples is straight forward. There is [good documentation](https://adversarial-robustness-toolbox.readthedocs.io/en/latest/modules/attacks/evasion.html#) available also. 
 
 ## Basic Attack - Fast Gradient Sign Method
 
