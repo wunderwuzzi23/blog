@@ -3,15 +3,15 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Machine Learning Attack Series: Image Rescaling Attacks &middot;  wunderwuzzi blog" />
+  <meta property="og:title" content=" Machine Learning Attack Series: Repudiation Threat Deny Action Machine Learning &middot;  wunderwuzzi blog" />
   
   <meta property="og:site_name" content="wunderwuzzi blog" />
-  <meta property="og:url" content="https://embracethered.com/blog/posts/2020/husky-ai-image-rescaling-attacks/" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2020/husky-ai-repudiation-threat-deny-action-machine-learning/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2020-10-24T15:43:27-07:00" />
+  <meta property="og:article:published_time" content="2020-10-24T05:50:21-07:00" />
   
   <meta property="og:article:tag" content="machine learning" />
   
@@ -19,10 +19,12 @@
   
   <meta property="og:article:tag" content="red" />
   
+  <meta property="og:article:tag" content="ttp" />
+  
   
 
   <title>
-     Machine Learning Attack Series: Image Rescaling Attacks &middot;  wunderwuzzi blog
+     Machine Learning Attack Series: Repudiation Threat Deny Action Machine Learning &middot;  wunderwuzzi blog
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -94,12 +96,12 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Machine Learning Attack Series: Image Rescaling Attacks</h1>
+    <h1 class="text-primary">Machine Learning Attack Series: Repudiation Threat Deny Action Machine Learning</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2020-10-24T15:43:27-07:00">
+        <time datetime="2020-10-24T05:50:21-07:00">
           Oct 24, 2020
         </time>
       </div>
@@ -112,6 +114,8 @@
         
         <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
         
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
+        
       </div>
     </div>
   </header>
@@ -119,47 +123,38 @@
     <p>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &ldquo;huskyai&rdquo; to see related posts.</p>
 <ul>
 <li><a href="/blog/posts/2020/husky-ai-walkthrough/">Overview</a>: How Husky AI was built, threat modeled and operationalized</li>
-<li><a href="/blog/posts/2020/husky-ai-threat-modeling-machine-learning/">Attacks</a>: Some of the attacks I want to investigate, learn about, and try out</li>
+<li><a href="#appendix">Attacks</a>: The attacks I want to investigate, learn about, and try out</li>
 </ul>
-<p>A few weeks ago while preparing demos for my GrayHat Red Team Village presentation I ran across &ldquo;Image Scaling Attacks&rdquo; in <a href="https://www.usenix.org/system/files/sec20-quiring.pdf">Adversarial Preprocessing: Understanding and Preventing Image-Scaling Attacks in Machine Learning</a> by Erwin Quiring, et al.</p>
-<p>I thought that was so cool!</p>
-<h2 id="what-is-an-image-scaling-attack">What is an image scaling attack?</h2>
-<p>The basic idea is to hide a smaller image inside a larger image (it should be about 5-10x the size). The attack is easy to explain actually:</p>
+<p>In this post we are going to look at the &ldquo;repudiation threat&rdquo;, which is one of the threats often overlooked when performing threat modeling.</p>
+<p>Repudiation means that someone denies having performed an action. Its a &ldquo;human threat&rdquo;, machines do not repudiate - unless AI takes over one day. :)</p>
+<p>In the case of Husky AI a good example is the attacker Mallory replaced the original machine learning model file with a backdoored one, as we had done in the previous post of this series.</p>
+<p>How can we add proper logging and auditing to better understand who performed an action, and how can we have proof who indeed updated the file, or at least support an investigation to help put the pieces together to uncover the truth &ndash;&gt; and beachhead/initial compromise of the breach.</p>
+<p>A pracital way is to leverage <code>auditd</code> in Linux, and push log files up into a central monitoring system. Companies typically have a product such as Splunk, the Elastic Stack, or Azure Sentinel to name a few systems that can help analyze and visualize the logging data.</p>
+<p>To keep things scope, I will discuss the basic setup to make sure change to the model file create a proper audit event.</p>
+<h2 id="auditd">auditd</h2>
+<pre><code>sudo apt install auditd
+</code></pre><pre><code>ausearch -r
+</code></pre><h2 id="conclusion">Conclusion</h2>
+<p>That&rsquo;s it for discussing the repudation threat around modifying the model file (but also other chnges to the system).</p>
+<p>Hope it was interesting.</p>
+<p>Cheers.</p>
+<h3 id="appendix">Appendix</h3>
+<p>These are the core ML threats for Husky AI that were identified in the <a href="/blog/posts/2020/husky-ai-threat-modeling-machine-learning/">threat modeling session</a> so far and that I want to research and build attacks for.</p>
+<p>Links will be added when posts are completed over the next serveral weeks/months.</p>
 <ol>
-<li>Attacker crafts a malicious input image by hiding the desired target image inside a benign image</li>
-<li>The image is loaded by the server</li>
-<li>Pre-processing resizes the image</li>
-<li>The server acts and makes decision based on a different image then intended</li>
+<li><a href="/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/">Attacker brute forces images to find incorrect predictions/labels</a></li>
+<li><a href="/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/">Attacker applies smart ML fuzzing to find incorrect predictions</a></li>
+<li><a href="/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/">Attacker performs perturbations to misclassify existing images</a></li>
+<li><a href="/blog/posts/2020/husky-ai-machine-learning-model-stealing.md/">Attacker gains read access to the model</a></li>
+<li><a href="/blog/posts/2020/husky-ai-machine-learning-backdoor-model/">Attacker modifies persisted model file - Backdooring Attack</a></li>
+<li><strong>Attacker denies modifying the model file - Repudiation Attack (this post)</strong></li>
+<li>Attacker poisons the supply chain of third-party libraries</li>
+<li>Attacker tampers with images on disk to impact training performance</li>
+<li><a href="/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/">Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)</a></li>
 </ol>
-<p>My goal was to hide a husky image inside another image:</p>
-<p><a href="/blog/images/2020/image-rescale-attack.gif"><img src="/blog/images/2020/image-rescale-attack.gif" alt="Image Rescaling Attack"></a></p>
-<p>Here are the two images I used - before and after the modification:
-<a href="/blog/images/2020/image-rescaling-attack-schoenbrunn.png"><img src="/blog/images/2020/image-rescaling-attack-schoenbrunn.png" alt="Image Rescaling Attack"></a></p>
-<p>If you look closely, you can see that the second image does have some strange dots all around. But this is not noticable when viewed in smaller version.</p>
-<p>You can find the code on <a href="https://github.com/EQuiw/2019-scalingattack">Github</a>. I used Google Colab to run it, and there were some errors initialy but it worked - let me know if interested and I can clean up and share the Notebook also.</p>
-<h2 id="rescaling-and-magic-happens">Rescaling and magic happens!</h2>
-<p>Now, look what happens when the image is loaded and resized with <code>OpenCV</code> using default settings:</p>
-<p><a href="/blog/images/2020/image-rescaling-attack.png"><img src="/blog/images/2020/image-rescaling-attack.png" alt="Image Rescaling Attack"></a></p>
-<p>On the left you can see the original sized image, and on the left the same image downsized to 128x128 pixels.</p>
-<p><strong>That&rsquo;s amazing!</strong></p>
-<p>The downsized image is an entirely different picture now! Of course I picked a husky, since I wanted to attack &ldquo;Husky AI&rdquo; and find another bypass.</p>
-<h2 id="implications">Implications</h2>
-<p>This can have a set of implications:</p>
-<ol>
-<li><strong>Training process:</strong> Images that poisen the training data (as pre-processing rescales images)</li>
-<li><strong>Model queries:</strong> The model might predict on a different image than the one the user uploaded</li>
-<li><strong>Non ML related attacks:</strong> This can also be an issue in other, non machine learning areas.</li>
-</ol>
-<p>I guess security never gets boring, there is always something new to learn.</p>
-<h2 id="mitigations">Mitigations</h2>
-<p>Turns out that Husky AI uses PIL and that was not vulnerable to this attack by defaults. So, I got lucky, because initially the server side code of Husky AI did use <code>OpenCV</code> and it&rsquo;s default settings to resize the image! The issue can be fixed by changing and passing in an <code>interpolation</code> argument when calling the <code>resize</code> API to change the default!</p>
-<p>Cheers,
-Johann.</p>
-<p><a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
 <h2 id="references">References</h2>
 <ul>
-<li>Adversarial Preprocessing: Understanding and Preventing Image-Scaling Attacks in Machine Learning (<a href="https://www.usenix.org/system/files/sec20-quiring.pdf">https://www.usenix.org/system/files/sec20-quiring.pdf</a>) (Erwin Quiring, TU Braunschweig)</li>
-<li><a href="https://github.com/EQuiw/2019-scalingattack">https://github.com/EQuiw/2019-scalingattack</a></li>
+<li>Image &ldquo;Access Denied&rdquo; by <a href="https://pixabay.com/photos/no-access-access-denied-monitor-5043758/">Elchinator from Pixabay</a></li>
 </ul>
 
   </section>
@@ -171,7 +166,7 @@ Johann.</p>
     
     <ul class="pager">
       
-      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/red-teaming-endpoint-protection-agent-edr/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">
@@ -183,7 +178,7 @@ Johann.</p>
 
       
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/red-teaming-endpoint-protection-agent-edr/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/husky-ai-adversarial-robustness-toolbox-testing/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>

@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning Attack Series: Image Rescaling Attacks"
-date: 2020-10-24T15:43:27-07:00
+date: 2020-10-28T15:43:27-07:00
 draft: true
 tags: [
         "machine learning",

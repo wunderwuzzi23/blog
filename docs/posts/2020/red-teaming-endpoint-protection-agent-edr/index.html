@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Leveraging the Blue Team&#39;s Endpoint Agent as C2 &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2020/red-teaming-endpoint-protection-agent-edr/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-10-24T10:03:53-07:00" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="ttp" />
+  
+  <meta property="og:article:tag" content="c2" />
+  
+  
+
+  <title>
+     Leveraging the Blue Team&#39;s Endpoint Agent as C2 &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /images/bg.jpg )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Leveraging the Blue Team&#39;s Endpoint Agent as C2</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-10-24T10:03:53-07:00">
+          Oct 24, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/c2">#c2</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>A few years back the Blue Team of a company I was working with asked to be targeted in a Red Team Operation.</p>
+<p>That was a really fun excercise, because Rules of Engagement commonly prevent targeting Blue Teams. Their infrastructure and systems, which are a big Achilles&rsquo; heel in many organizations, are often out of scope.</p>
+<p>Unfortunately many companies do not have adequate protection, procedures (MFA, multi-person attestation), monitoring and auditing in place in these areas. There is often also a lack of knowledge on what Endpoint Agents are capable of doing.</p>
+<blockquote>
+<p>Blue Team infrastructure is a gold mine for credentials, recon but also for remote code execution!</p>
+</blockquote>
+<p><strong>So, what better way to compromise the blue team via their own tooling I thought? :)</strong></p>
+<p><img src="/blog/images/2020/binary.jpg" alt="Attack"></p>
+<p>This post is a reiteration of a section in my book Red Team Strategies about &ldquo;Progressive Red Team Operations&rdquo; about EDR systems being used as command control infrastructure.</p>
+<h2 id="endpoint-agents-as-c2">Endpoint Agents as C2</h2>
+<p>Endpoint Protection and Response (EDR) agents and solutions like Carbon Black, Crowdstrike&rsquo;s Falcon, Windows Defender ATP and so forth <strong>commonly provide built-in Command &amp; Control infrastructure</strong>.</p>
+<p>Obviously this can be misused by an adversary. <strong>The beauty of this is that the red team does not even have to maintain or run their own infrastructure.</strong></p>
+<h2 id="perform-an-edr-focused-red-team-operation">Perform an EDR focused Red Team Operation</h2>
+<p>Your red team should run an operation to gain administrative access to the portal of these systems.</p>
+<p>The portals are pretty much always web based, so tactics such as &ldquo;Pass the Cookie&rdquo; might be performed by adversaries after compromising blue team members.</p>
+<p>Once an adversary has access to the Web UI, there are features such as &ldquo;Go Live&rdquo;, or &ldquo;Live Response&rdquo; that allow access to any host in the organization where the EDR agent is running.</p>
+<p><strong>No kidding!</strong></p>
+<h2 id="examples">Examples</h2>
+<p>Here are some examples and information from vendors of EDR:</p>
+<ul>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/respond-machine-alerts#initiate-live-response-session">Windows Defender ATP - Initiate Live Response Session</a></p>
+<blockquote>
+<p>&ldquo;Live response is a capability that gives you instantaneous access to a device by using a remote shell connection.&rdquo;</p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://www.crowdstrike.com/blog/tech-center/remote-remediation-real-time-response/">Crowdstrike - How to Remotely Remediate an Incident</a></p>
+<blockquote>
+<p>&ldquo;With the ability to run commands, executables and scripts, the possibilities are endless.&rdquo;
+<img src="/blog/images/2020/RTR-gif.gif" alt="Attack"></p>
+</blockquote>
+</li>
+<li>
+<p>Carbon Black - During Red Team operations I have also used Carbon Black&rsquo;s &ldquo;Go Live&rdquo; feature to get quick root access on arbitrary hosts with this technique.</p>
+</li>
+</ul>
+<p>Fun times!</p>
+<h2 id="is-this-really-needed">Is this really needed?</h2>
+<p>To be fair, for some investigations a blue team member might indeed find a manual shell useful to grab certain log files or other evidence.</p>
+<p>Although, that should really be an exception - as tasks should be automated as much as possible. The goal for the red team is to ensure procedures are in place to catch misuse or identify lack of security controls.</p>
+<p>Additionally, organization need to worry about malicious insiders (blue team members) who might be taking advantage of these features.</p>
+<h2 id="so-why-should-the-red-team-test-for-this">So, why should the Red Team test for this?</h2>
+<p>A couple of things can be highlighted with such an operation:</p>
+<ol>
+<li><strong>Detection and Monitoring</strong>: Does the Blue Team and SOC have proper detections and monitoring in place to catch compromise or misuse?</li>
+<li><strong>Security Controls</strong>: Are proper security controls in place for the EDR web portal (MFA, multi-person attestation before &ldquo;going live&rdquo;),etc.</li>
+<li><strong>Auditing</strong>: Are the commands that the blue team member (or attacker) is running logged?</li>
+<li><strong>Who watches the watchers?</strong> Requiring rigorous monitoring of these features and performing regular drills to validate they are not misused is something the red can help with.</li>
+</ol>
+<p>Hope this provides some ideas on how to validate the infrastructure and procedures of the blue team is in good shape.</p>
+<p>If you found this post interesting, check out <a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869">Cybersecurity Attacks: Red Team Strategies</a>. It has an entire chapter on ideas for &ldquo;progressive&rdquo; red team operations.</p>
+<p>Cheers.
+<a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.crowdstrike.com/blog/tech-center/remote-remediation-real-time-response/">Crowdstrike - How to Remotely Remediate an Incident</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/respond-machine-alerts#initiate-live-response-session">Defender ATP - Initiate Live Response Session</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next"><a href="https://embracethered.com/blog/posts/2020/husky-ai-image-rescaling-attacks/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/husky-ai-repudiation-threat-deny-action-machine-learning/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2020
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
