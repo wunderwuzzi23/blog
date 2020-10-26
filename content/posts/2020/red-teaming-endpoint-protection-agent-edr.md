@@ -1,9 +1,9 @@
 ---
 title: "Leveraging the Blue Team's Endpoint Agent as C2"
-date: 2020-10-26T08:00:00-07:00
+date: 2020-10-26T05:00:00-07:00
 draft: true
 tags: [
-        "red",
+        "red","blue",
         "ttp",
         "c2"
     ]
@@ -13,9 +13,9 @@ A few years back the Blue Team of a company asked to be targeted in a Red Team O
 
 That was a really fun, because Rules of Engagement commonly prevent targeting Blue Teams. Their infrastructure and systems, which are a big Achilles' heel in many organizations, are often out of scope.
 
-Unfortunately many companies do not have adequate protection, procedures (MFA, multi-person attestation), monitoring and auditing in place in these areas. There is often also a lack of knowledge on what Endpoint Agents are capable of doing. 
-
 > Blue Team infrastructure is a gold mine for credentials, recon but also for remote code execution!
+
+Unfortunately many companies do not have adequate protection, procedures (MFA, multi-person attestation), monitoring and auditing in place in these areas. There is often also a lack of knowledge on what Endpoint Agents are capable of doing. 
 
 **So, what better way to compromise the blue team via their own tooling I thought? :)**
 
@@ -29,22 +29,18 @@ Endpoint Protection and Response (EDR) agents and solutions like Carbon Black, C
 
 Obviously this can be misused by an adversary. 
 
-The "beauty" of this is that the red team does not even have to maintain or run their own infrastructure.
+Using this technique is quite elegant, as it does not require the red team to maintain or run their own infrastructure. 
 
-## Perform an EDR focused Red Team Operation
-
-Your red team should run an operation to gain administrative access to the portal of these systems.
-
-The portals are pretty much always web based, so tactics such as ["Pass the Cookie"](https://attack.mitre.org/techniques/T1550/004/) might be performed by adversaries after compromising blue team members. 
+The red team can do an operation to gain administrative access to the portal of these systems in your organization. The portals are web based, so tactics such as ["Pass the Cookie"](https://attack.mitre.org/techniques/T1550/004/) might be performed by adversaries after compromising blue team members. 
 
 Once an adversary has access to the Web UI, there are features such as "Go Live", or "Live Response" that allow access to any host in the organization where the EDR agent is running.
 
 **No kidding!**
 
 
-## Examples for Endpoint Agents
+## Products and Examples
 
-Here are some examples and information from vendors of EDR:
+There is a wide range of products, but they mostly converge around a common feature set, including establishing interactive shells and command execution on hosts. Here are some examples and details from vendors:
 
 * [Windows Defender ATP - Initiate Live Response Session](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/respond-machine-alerts#initiate-live-response-session)
 
@@ -55,26 +51,31 @@ Here are some examples and information from vendors of EDR:
     > "With the ability to run commands, executables and scripts, the possibilities are endless."
     > ![Attack](/blog/images/2020/RTR-gif.gif)
 
-* Carbon Black - During Red Team operations I have also used Carbon Black's "Go Live" feature to get quick root access on arbitrary hosts with this technique. 
+* [Carbon Black - "Go Live"](https://www.carbonblack.com/blog/screenshot-demo-carbon-black-live-response-in-action/) 
+    > With Live Response, Carbon Black gives you a terminal right in our Web console and via the already-existing sensor on the endpoint. You just click “Go Live” and you’re in.
 
-Fun times!
+During red team operations I have used some of these to get quick root access on arbitrary hosts.
 
-## Is this really needed?
+**Fun times!**
 
-To be fair, for some investigations a blue team member might indeed find a manual shell useful to grab certain log files or other evidence. 
+## Are these features really needed?
 
-Although, that should really be an exception - as tasks should be automated as much as possible. The goal for the red team is to ensure procedures are in place to catch misuse or identify lack of security controls.
+To be fair, for some investigations a blue team member might indeed find a manual shell useful to grab certain log files or other evidence. Although, that should really be an exception - as tasks should be automated as much as possible. 
 
-Additionally, organization need to worry about malicious insiders (blue team members) who might be taking advantage of these features.
+But, it's also worth noting that these are cloud systems. This means that your blue team is not the only one with access. The vendor might also directly or indirectly have access to this capabilitiy. The attack surface is quite large.
+
+If these risks are acceptable to your business depends on your organization.
 
 ## So, why should the Red Team test for this?
 
 A couple of things can be highlighted with such an operation:
 
 1. **Detection and Monitoring**: Does the Blue Team and SOC have proper detections and monitoring in place to catch compromise or misuse? 
-2. **Security Controls**: Are proper security controls in place for the EDR web portal (MFA, multi-person attestation before "going live"),etc.
+2. **Security Controls**: Are proper security controls in place for the EDR web portal (MFA, multi-person attestation before "going live"), etc.
 3. **Auditing**: Are the commands that the blue team member (or attacker) is running logged?
-4. **Who watches the watchers?** Requiring rigorous monitoring of these features and performing regular drills to validate they are not misused is something the red can help with.
+4. **Raising awareness**: Interesting questions might come up as well, for instance does the IT team know about this "backdoor" access to the fleet?
+5. **Who watches the watchers?** Requiring rigorous monitoring of these features and performing drills to validate they are not misused is part of the red teams goals
+
 
 Hope this provides some ideas on how to validate the infrastructure and procedures of the blue team is in good shape.
 
@@ -86,3 +87,4 @@ Cheers.
 
 * [Crowdstrike - How to Remotely Remediate an Incident](https://www.crowdstrike.com/blog/tech-center/remote-remediation-real-time-response/)
 * [Defender ATP - Initiate Live Response Session](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/respond-machine-alerts#initiate-live-response-session)
+* [Carbon Black Go Live](https://www.carbonblack.com/blog/screenshot-demo-carbon-black-live-response-in-action/)

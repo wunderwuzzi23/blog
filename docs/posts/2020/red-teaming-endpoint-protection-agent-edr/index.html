@@ -11,9 +11,11 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2020-10-24T10:03:53-07:00" />
+  <meta property="og:article:published_time" content="2020-10-26T05:00:00-07:00" />
   
   <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="blue" />
   
   <meta property="og:article:tag" content="ttp" />
   
@@ -99,14 +101,16 @@
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2020-10-24T10:03:53-07:00">
-          Oct 24, 2020
+        <time datetime="2020-10-26T05:00:00-07:00">
+          Oct 26, 2020
         </time>
       </div>
     
       <div class="pull-right">
         
         <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/blue">#blue</a></span>
         
         <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
         
@@ -116,25 +120,24 @@
     </div>
   </header>
   <section>
-    <p>A few years back the Blue Team of a company I was working with asked to be targeted in a Red Team Operation.</p>
-<p>That was a really fun excercise, because Rules of Engagement commonly prevent targeting Blue Teams. Their infrastructure and systems, which are a big Achilles&rsquo; heel in many organizations, are often out of scope.</p>
-<p>Unfortunately many companies do not have adequate protection, procedures (MFA, multi-person attestation), monitoring and auditing in place in these areas. There is often also a lack of knowledge on what Endpoint Agents are capable of doing.</p>
+    <p>A few years back the Blue Team of a company asked to be targeted in a Red Team Operation.</p>
+<p>That was a really fun, because Rules of Engagement commonly prevent targeting Blue Teams. Their infrastructure and systems, which are a big Achilles&rsquo; heel in many organizations, are often out of scope.</p>
 <blockquote>
 <p>Blue Team infrastructure is a gold mine for credentials, recon but also for remote code execution!</p>
 </blockquote>
+<p>Unfortunately many companies do not have adequate protection, procedures (MFA, multi-person attestation), monitoring and auditing in place in these areas. There is often also a lack of knowledge on what Endpoint Agents are capable of doing.</p>
 <p><strong>So, what better way to compromise the blue team via their own tooling I thought? :)</strong></p>
 <p><img src="/blog/images/2020/binary.jpg" alt="Attack"></p>
-<p>This post is a reiteration of a section in my book Red Team Strategies about &ldquo;Progressive Red Team Operations&rdquo; about EDR systems being used as command control infrastructure.</p>
+<p>This post is a reiteration of a section in Red Team Strategies about focusing on EDR and endpoint agents, as I still think this threat needs a lot more attention.</p>
 <h2 id="endpoint-agents-as-c2">Endpoint Agents as C2</h2>
-<p>Endpoint Protection and Response (EDR) agents and solutions like Carbon Black, Crowdstrike&rsquo;s Falcon, Windows Defender ATP and so forth <strong>commonly provide built-in Command &amp; Control infrastructure</strong>.</p>
-<p>Obviously this can be misused by an adversary. <strong>The beauty of this is that the red team does not even have to maintain or run their own infrastructure.</strong></p>
-<h2 id="perform-an-edr-focused-red-team-operation">Perform an EDR focused Red Team Operation</h2>
-<p>Your red team should run an operation to gain administrative access to the portal of these systems.</p>
-<p>The portals are pretty much always web based, so tactics such as &ldquo;Pass the Cookie&rdquo; might be performed by adversaries after compromising blue team members.</p>
+<p>Endpoint Protection and Response (EDR) agents and solutions like Carbon Black, Crowdstrike&rsquo;s Falcon, Windows Defender ATP and so forth commonly provide built-in Command &amp; Control infrastructure.</p>
+<p>Obviously this can be misused by an adversary.</p>
+<p>Using this technique is quite elegant, as it does not require the red team to maintain or run their own infrastructure.</p>
+<p>The red team can do an operation to gain administrative access to the portal of these systems in your organization. The portals are web based, so tactics such as <a href="https://attack.mitre.org/techniques/T1550/004/">&ldquo;Pass the Cookie&rdquo;</a> might be performed by adversaries after compromising blue team members.</p>
 <p>Once an adversary has access to the Web UI, there are features such as &ldquo;Go Live&rdquo;, or &ldquo;Live Response&rdquo; that allow access to any host in the organization where the EDR agent is running.</p>
 <p><strong>No kidding!</strong></p>
-<h2 id="examples">Examples</h2>
-<p>Here are some examples and information from vendors of EDR:</p>
+<h2 id="products-and-examples">Products and Examples</h2>
+<p>There is a wide range of products, but they mostly converge around a common feature set, including establishing interactive shells and command execution on hosts. Here are some examples and details from vendors:</p>
 <ul>
 <li>
 <p><a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/respond-machine-alerts#initiate-live-response-session">Windows Defender ATP - Initiate Live Response Session</a></p>
@@ -150,30 +153,35 @@
 </blockquote>
 </li>
 <li>
-<p>Carbon Black - During Red Team operations I have also used Carbon Black&rsquo;s &ldquo;Go Live&rdquo; feature to get quick root access on arbitrary hosts with this technique.</p>
+<p><a href="https://www.carbonblack.com/blog/screenshot-demo-carbon-black-live-response-in-action/">Carbon Black - &ldquo;Go Live&rdquo;</a></p>
+<blockquote>
+<p>With Live Response, Carbon Black gives you a terminal right in our Web console and via the already-existing sensor on the endpoint. You just click “Go Live” and you’re in.</p>
+</blockquote>
 </li>
 </ul>
-<p>Fun times!</p>
-<h2 id="is-this-really-needed">Is this really needed?</h2>
-<p>To be fair, for some investigations a blue team member might indeed find a manual shell useful to grab certain log files or other evidence.</p>
-<p>Although, that should really be an exception - as tasks should be automated as much as possible. The goal for the red team is to ensure procedures are in place to catch misuse or identify lack of security controls.</p>
-<p>Additionally, organization need to worry about malicious insiders (blue team members) who might be taking advantage of these features.</p>
+<p>During red team operations I have used some of these to get quick root access on arbitrary hosts.</p>
+<p><strong>Fun times!</strong></p>
+<h2 id="are-these-features-really-needed">Are these features really needed?</h2>
+<p>To be fair, for some investigations a blue team member might indeed find a manual shell useful to grab certain log files or other evidence. Although, that should really be an exception - as tasks should be automated as much as possible.</p>
+<p>But, it&rsquo;s also worth noting that these are cloud systems. This means that your blue team is not the only one with access. The vendor might also directly or indirectly have access to this capabilitiy. The attack surface is quite large.</p>
+<p>If these risks are acceptable to your business depends on your organization.</p>
 <h2 id="so-why-should-the-red-team-test-for-this">So, why should the Red Team test for this?</h2>
 <p>A couple of things can be highlighted with such an operation:</p>
 <ol>
 <li><strong>Detection and Monitoring</strong>: Does the Blue Team and SOC have proper detections and monitoring in place to catch compromise or misuse?</li>
-<li><strong>Security Controls</strong>: Are proper security controls in place for the EDR web portal (MFA, multi-person attestation before &ldquo;going live&rdquo;),etc.</li>
+<li><strong>Security Controls</strong>: Are proper security controls in place for the EDR web portal (MFA, multi-person attestation before &ldquo;going live&rdquo;), etc.</li>
 <li><strong>Auditing</strong>: Are the commands that the blue team member (or attacker) is running logged?</li>
-<li><strong>Who watches the watchers?</strong> Requiring rigorous monitoring of these features and performing regular drills to validate they are not misused is something the red can help with.</li>
+<li><strong>Raising awareness</strong>: Interesting questions might come up as well, for instance does the IT team know about this &ldquo;backdoor&rdquo; access to the fleet?</li>
+<li><strong>Who watches the watchers?</strong> Requiring rigorous monitoring of these features and performing drills to validate they are not misused is part of the red teams goals</li>
 </ol>
 <p>Hope this provides some ideas on how to validate the infrastructure and procedures of the blue team is in good shape.</p>
-<p>If you found this post interesting, check out <a href="https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869">Cybersecurity Attacks: Red Team Strategies</a>. It has an entire chapter on ideas for &ldquo;progressive&rdquo; red team operations.</p>
 <p>Cheers.
 <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://www.crowdstrike.com/blog/tech-center/remote-remediation-real-time-response/">Crowdstrike - How to Remotely Remediate an Incident</a></li>
 <li><a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/respond-machine-alerts#initiate-live-response-session">Defender ATP - Initiate Live Response Session</a></li>
+<li><a href="https://www.carbonblack.com/blog/screenshot-demo-carbon-black-live-response-in-action/">Carbon Black Go Live</a></li>
 </ul>
 
   </section>
@@ -185,7 +193,7 @@
     
     <ul class="pager">
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2020/husky-ai-image-rescaling-attacks/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">
@@ -197,7 +205,7 @@
 
       
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/husky-ai-repudiation-threat-deny-action-machine-learning/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/husky-ai-adversarial-robustness-toolbox-testing/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>
