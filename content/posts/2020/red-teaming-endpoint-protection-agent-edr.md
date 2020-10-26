@@ -49,7 +49,7 @@ There is a wide range of products, but they mostly converge around a common feat
 * [Crowdstrike - How to Remotely Remediate an Incident](https://www.crowdstrike.com/blog/tech-center/remote-remediation-real-time-response/)
 
     > "With the ability to run commands, executables and scripts, the possibilities are endless."
-    > ![Attack](/blog/images/2020/RTR-gif.gif)
+    > [![FalconD](/blog/images/2020/RTR-gif.gif)](/blog/images/2020/RTR-gif.gif)
 
 * [Carbon Black - "Go Live"](https://www.carbonblack.com/blog/screenshot-demo-carbon-black-live-response-in-action/) 
     > With Live Response, Carbon Black gives you a terminal right in our Web console and via the already-existing sensor on the endpoint. You just click “Go Live” and you’re in.
