@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2020-10-26T05:00:00-07:00" />
+  <meta property="og:article:published_time" content="2020-10-26T06:00:00-07:00" />
   
   <meta property="og:article:tag" content="red" />
   
@@ -101,7 +101,7 @@
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2020-10-26T05:00:00-07:00">
+        <time datetime="2020-10-26T06:00:00-07:00">
           Oct 26, 2020
         </time>
       </div>
@@ -121,21 +121,21 @@
   </header>
   <section>
     <p>A few years back the Blue Team of a company asked to be targeted in a Red Team Operation.</p>
-<p>That was a really fun, because Rules of Engagement commonly prevent targeting Blue Teams. Their infrastructure and systems, which are a big Achilles&rsquo; heel in many organizations, are often out of scope.</p>
+<p>That was a really fun, because Rules of Engagement commonly prevent targeting Blue Teams. Blue&rsquo;s infrastructure, systems and team members are often out of scope, unfortunately.</p>
 <blockquote>
-<p>Blue Team infrastructure is a gold mine for credentials, recon but also for remote code execution!</p>
+<p>Blue team infrastructure is a gold mine for credentials, recon but also for remote code execution!</p>
 </blockquote>
-<p>Unfortunately many companies do not have adequate protection, procedures (MFA, multi-person attestation), monitoring and auditing in place in these areas. There is often also a lack of knowledge on what Endpoint Agents are capable of doing.</p>
+<p>Often companies do not have adequate protection, procedures (MFA, multi-person attestation), monitoring and auditing in place when it comes to accessing data from endpoint agents. There is also frequently a lack of knowledge on what Endpoint Agents are capable of doing.</p>
 <p><strong>So, what better way to compromise the blue team via their own tooling I thought? :)</strong></p>
 <p><img src="/blog/images/2020/binary.jpg" alt="Attack"></p>
 <p>This post is a reiteration of a section in Red Team Strategies about focusing on EDR and endpoint agents, as I still think this threat needs a lot more attention.</p>
 <h2 id="endpoint-agents-as-c2">Endpoint Agents as C2</h2>
 <p>Endpoint Protection and Response (EDR) agents and solutions like Carbon Black, Crowdstrike&rsquo;s Falcon, Windows Defender ATP and so forth commonly provide built-in Command &amp; Control infrastructure.</p>
+<p>The agents are typically managed via a web interface, so tactics such as <a href="https://attack.mitre.org/techniques/T1550/004/">&ldquo;Pass the Cookie&rdquo;</a> might be performed by adversaries after compromising blue team members.</p>
 <p>Obviously this can be misused by an adversary.</p>
-<p>Using this technique is quite elegant, as it does not require the red team to maintain or run their own infrastructure.</p>
-<p>The red team can do an operation to gain administrative access to the portal of these systems in your organization. The portals are web based, so tactics such as <a href="https://attack.mitre.org/techniques/T1550/004/">&ldquo;Pass the Cookie&rdquo;</a> might be performed by adversaries after compromising blue team members.</p>
 <p>Once an adversary has access to the Web UI, there are features such as &ldquo;Go Live&rdquo;, or &ldquo;Live Response&rdquo; that allow access to any host in the organization where the EDR agent is running.</p>
 <p><strong>No kidding!</strong></p>
+<p>Using this technique is quite elegant, as it does not require the red team to maintain or run their own infrastructure.</p>
 <h2 id="products-and-examples">Products and Examples</h2>
 <p>There is a wide range of products, but they mostly converge around a common feature set, including establishing interactive shells and command execution on hosts. Here are some examples and details from vendors:</p>
 <ul>

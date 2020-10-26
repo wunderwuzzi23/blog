@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Mon, 26 Oct 2020 05:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2020 06:00:00 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/c2/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,13 +15,13 @@
     <item>
       <title>Leveraging the Blue Team&#39;s Endpoint Agent as C2</title>
       <link>https://embracethered.com/blog/posts/2020/red-teaming-endpoint-protection-agent-edr/</link>
-      <pubDate>Mon, 26 Oct 2020 05:00:00 -0700</pubDate>
+      <pubDate>Mon, 26 Oct 2020 06:00:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/red-teaming-endpoint-protection-agent-edr/</guid>
       <description>A few years back the Blue Team of a company asked to be targeted in a Red Team Operation.
-That was a really fun, because Rules of Engagement commonly prevent targeting Blue Teams. Their infrastructure and systems, which are a big Achilles&amp;rsquo; heel in many organizations, are often out of scope.
- Blue Team infrastructure is a gold mine for credentials, recon but also for remote code execution!
- Unfortunately many companies do not have adequate protection, procedures (MFA, multi-person attestation), monitoring and auditing in place in these areas.</description>
+That was a really fun, because Rules of Engagement commonly prevent targeting Blue Teams. Blue&amp;rsquo;s infrastructure, systems and team members are often out of scope, unfortunately.
+ Blue team infrastructure is a gold mine for credentials, recon but also for remote code execution!
+ Often companies do not have adequate protection, procedures (MFA, multi-person attestation), monitoring and auditing in place when it comes to accessing data from endpoint agents.</description>
     </item>
     
   </channel>

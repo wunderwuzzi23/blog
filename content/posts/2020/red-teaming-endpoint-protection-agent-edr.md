@@ -1,6 +1,6 @@
 ---
 title: "Leveraging the Blue Team's Endpoint Agent as C2"
-date: 2020-10-26T05:00:00-07:00
+date: 2020-10-26T06:00:00-07:00
 draft: true
 tags: [
         "red","blue",
@@ -11,11 +11,11 @@ tags: [
 
 A few years back the Blue Team of a company asked to be targeted in a Red Team Operation. 
 
-That was a really fun, because Rules of Engagement commonly prevent targeting Blue Teams. Their infrastructure and systems, which are a big Achilles' heel in many organizations, are often out of scope.
+That was a really fun, because Rules of Engagement commonly prevent targeting Blue Teams. Blue's infrastructure, systems and team members are often out of scope, unfortunately.
 
-> Blue Team infrastructure is a gold mine for credentials, recon but also for remote code execution!
+> Blue team infrastructure is a gold mine for credentials, recon but also for remote code execution!
 
-Unfortunately many companies do not have adequate protection, procedures (MFA, multi-person attestation), monitoring and auditing in place in these areas. There is often also a lack of knowledge on what Endpoint Agents are capable of doing. 
+Often companies do not have adequate protection, procedures (MFA, multi-person attestation), monitoring and auditing in place when it comes to accessing data from endpoint agents. There is also frequently a lack of knowledge on what Endpoint Agents are capable of doing. 
 
 **So, what better way to compromise the blue team via their own tooling I thought? :)**
 
@@ -27,15 +27,15 @@ This post is a reiteration of a section in Red Team Strategies about focusing on
 
 Endpoint Protection and Response (EDR) agents and solutions like Carbon Black, Crowdstrike's Falcon, Windows Defender ATP and so forth commonly provide built-in Command & Control infrastructure. 
 
+The agents are typically managed via a web interface, so tactics such as ["Pass the Cookie"](https://attack.mitre.org/techniques/T1550/004/) might be performed by adversaries after compromising blue team members.
+
 Obviously this can be misused by an adversary. 
-
-Using this technique is quite elegant, as it does not require the red team to maintain or run their own infrastructure. 
-
-The red team can do an operation to gain administrative access to the portal of these systems in your organization. The portals are web based, so tactics such as ["Pass the Cookie"](https://attack.mitre.org/techniques/T1550/004/) might be performed by adversaries after compromising blue team members. 
 
 Once an adversary has access to the Web UI, there are features such as "Go Live", or "Live Response" that allow access to any host in the organization where the EDR agent is running.
 
 **No kidding!**
+
+Using this technique is quite elegant, as it does not require the red team to maintain or run their own infrastructure. 
 
 
 ## Products and Examples
