@@ -1,6 +1,6 @@
 ---
-title: "Machine Learning Attack Series: Image Rescaling Attacks"
-date: 2020-10-28T15:43:27-07:00
+title: "Machine Learning Attack Series: Image Scaling Attacks"
+date: 2020-10-28T13:00:27-07:00
 draft: true
 tags: [
         "machine learning",
@@ -15,7 +15,7 @@ This post is part of a series about machine learning and artificial intelligence
 * [Overview](/blog/posts/2020/husky-ai-walkthrough/): How Husky AI was built, threat modeled and operationalized
 * [Attacks](/blog/posts/2020/husky-ai-threat-modeling-machine-learning/): Some of the attacks I want to investigate, learn about, and try out
 
-A few weeks ago while preparing demos for my GrayHat Red Team Village presentation I ran across "Image Scaling Attacks" in [Adversarial Preprocessing: Understanding and Preventing Image-Scaling Attacks in Machine Learning](https://www.usenix.org/system/files/sec20-quiring.pdf) by Erwin Quiring, et al.
+A few weeks ago while preparing demos for my GrayHat 2020 - Red Team Village presentation I ran across "Image Scaling Attacks" in [Adversarial Preprocessing: Understanding and Preventing Image-Scaling Attacks in Machine Learning](https://www.usenix.org/system/files/sec20-quiring.pdf) by Erwin Quiring, et al.
 
 I thought that was so cool!
 
@@ -63,7 +63,13 @@ I guess security never gets boring, there is always something new to learn.
 
 ## Mitigations
 
-Turns out that Husky AI uses PIL and that was not vulnerable to this attack by defaults. So, I got lucky, because initially the server side code of Husky AI did use `OpenCV` and it's default settings to resize the image! The issue can be fixed by changing and passing in an `interpolation` argument when calling the `resize` API to change the default!
+Turns out that Husky AI uses PIL and that was not vulnerable to this attack by default. 
+
+I got lucky, because initially Husky AI did use `OpenCV` and it's default settings to resize images. But for some reason I changed that early on (not knowing it would also mitigate this attack). 
+
+If you use `OpenCV` the issue can be fixed by using the `interpolation` argument when calling the `resize` API to not have it use the default.
+
+Hope that was useful and interesting.
 
 Cheers,
 Johann.

@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Machine Learning Attack Series: Image Rescaling Attacks &middot;  wunderwuzzi blog" />
+  <meta property="og:title" content=" Machine Learning Attack Series: Image Scaling Attacks &middot;  wunderwuzzi blog" />
   
   <meta property="og:site_name" content="wunderwuzzi blog" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2020/husky-ai-image-rescaling-attacks/" />
@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2020-10-24T15:43:27-07:00" />
+  <meta property="og:article:published_time" content="2020-10-28T13:00:27-07:00" />
   
   <meta property="og:article:tag" content="machine learning" />
   
@@ -22,7 +22,7 @@
   
 
   <title>
-     Machine Learning Attack Series: Image Rescaling Attacks &middot;  wunderwuzzi blog
+     Machine Learning Attack Series: Image Scaling Attacks &middot;  wunderwuzzi blog
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -94,13 +94,13 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Machine Learning Attack Series: Image Rescaling Attacks</h1>
+    <h1 class="text-primary">Machine Learning Attack Series: Image Scaling Attacks</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2020-10-24T15:43:27-07:00">
-          Oct 24, 2020
+        <time datetime="2020-10-28T13:00:27-07:00">
+          Oct 28, 2020
         </time>
       </div>
     
@@ -121,7 +121,7 @@
 <li><a href="/blog/posts/2020/husky-ai-walkthrough/">Overview</a>: How Husky AI was built, threat modeled and operationalized</li>
 <li><a href="/blog/posts/2020/husky-ai-threat-modeling-machine-learning/">Attacks</a>: Some of the attacks I want to investigate, learn about, and try out</li>
 </ul>
-<p>A few weeks ago while preparing demos for my GrayHat Red Team Village presentation I ran across &ldquo;Image Scaling Attacks&rdquo; in <a href="https://www.usenix.org/system/files/sec20-quiring.pdf">Adversarial Preprocessing: Understanding and Preventing Image-Scaling Attacks in Machine Learning</a> by Erwin Quiring, et al.</p>
+<p>A few weeks ago while preparing demos for my GrayHat 2020 - Red Team Village presentation I ran across &ldquo;Image Scaling Attacks&rdquo; in <a href="https://www.usenix.org/system/files/sec20-quiring.pdf">Adversarial Preprocessing: Understanding and Preventing Image-Scaling Attacks in Machine Learning</a> by Erwin Quiring, et al.</p>
 <p>I thought that was so cool!</p>
 <h2 id="what-is-an-image-scaling-attack">What is an image scaling attack?</h2>
 <p>The basic idea is to hide a smaller image inside a larger image (it should be about 5-10x the size). The attack is easy to explain actually:</p>
@@ -152,7 +152,10 @@
 </ol>
 <p>I guess security never gets boring, there is always something new to learn.</p>
 <h2 id="mitigations">Mitigations</h2>
-<p>Turns out that Husky AI uses PIL and that was not vulnerable to this attack by defaults. So, I got lucky, because initially the server side code of Husky AI did use <code>OpenCV</code> and it&rsquo;s default settings to resize the image! The issue can be fixed by changing and passing in an <code>interpolation</code> argument when calling the <code>resize</code> API to change the default!</p>
+<p>Turns out that Husky AI uses PIL and that was not vulnerable to this attack by default.</p>
+<p>I got lucky, because initially Husky AI did use <code>OpenCV</code> and it&rsquo;s default settings to resize images. But for some reason I changed that early on (not knowing it would also mitigate this attack).</p>
+<p>If you use <code>OpenCV</code> the issue can be fixed by using the <code>interpolation</code> argument when calling the <code>resize</code> API to not have it use the default.</p>
+<p>Hope that was useful and interesting.</p>
 <p>Cheers,
 Johann.</p>
 <p><a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
