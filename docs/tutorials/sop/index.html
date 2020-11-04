@@ -1,0 +1,17 @@
+<html>
+  <body>
+     <h2>Same Origin Policy Demo</h2>
+     <iframe id="mail" src="https://mail.google.com/mail/u/0/#inbox" height=400 width=400></iframe>
+     <br>
+     <div id="output"></div>
+
+     <script defer>
+         var mails  = document.getElementById("mail");
+         var output = document.getElementById("output");
+         
+         //Access Denied!
+         output.innerHTML = mails.contentWindow.document.body.innerText;    
+     </script>
+  </body>
+</html>   
+
