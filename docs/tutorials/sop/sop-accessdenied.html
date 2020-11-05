@@ -1,0 +1,16 @@
+<html>
+  <body>
+     <h2>Same Origin Policy - Access Denied!</h2>
+     <iframe id="mail" src="https://outlook.com" height=400 width=800></iframe>
+     <br>
+     <div id="output"></div>
+
+     <script defer>
+         var mails  = document.getElementById("mail");
+         var output = document.getElementById("output");
+         
+         //Access Denied!
+         output.innerHTML = mails.contentWindow.document.body.innerText;    
+     </script>
+  </body>
+</html>  

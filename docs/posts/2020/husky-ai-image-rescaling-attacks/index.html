@@ -154,15 +154,16 @@
 <h2 id="mitigations">Mitigations</h2>
 <p>Turns out that Husky AI uses PIL and that was not vulnerable to this attack by default.</p>
 <p>I got lucky, because initially Husky AI did use <code>OpenCV</code> and it&rsquo;s default settings to resize images. But for some reason I changed that early on (not knowing it would also mitigate this attack).</p>
-<p>If you use <code>OpenCV</code> the issue can be fixed by using the <code>interpolation</code> argument when calling the <code>resize</code> API to not have it use the default.</p>
+<p>If you use <code>OpenCV</code> the issue can be fixed by using the <code>interpolation</code> argument when calling the <code>resize</code> API to change the default behavior.</p>
 <p>Hope that was useful and interesting.</p>
 <p>Cheers,
 Johann.</p>
-<p><a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+<p>Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
 <h2 id="references">References</h2>
 <ul>
 <li>Adversarial Preprocessing: Understanding and Preventing Image-Scaling Attacks in Machine Learning (<a href="https://www.usenix.org/system/files/sec20-quiring.pdf">https://www.usenix.org/system/files/sec20-quiring.pdf</a>) (Erwin Quiring, TU Braunschweig)</li>
 <li><a href="https://github.com/EQuiw/2019-scalingattack">https://github.com/EQuiw/2019-scalingattack</a></li>
+<li><a href="https://scaling-attacks.net">https://scaling-attacks.net</a></li>
 </ul>
 
   </section>

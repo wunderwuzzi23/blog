@@ -9,6 +9,12 @@ tags: [
     ]
 ---
 
+This post is part of a series about machine learning and artificial intelligence. Click on the blog tag "huskyai" to see related posts. 
+
+* [Overview](/blog/posts/2020/husky-ai-walkthrough/): How Husky AI was built, threat modeled and operationalized
+* [Attacks](/blog/posts/2020/husky-ai-threat-modeling-machine-learning/): Some of the attacks I want to investigate, learn about, and try out
+
+
 I wanted to explore the "Adversarial Robustness Toolbox" (ART) for a while to understand how it can be used to create adversarial examples for Husky AI. 
 
 A few weeks ago I described [a range of perturbation attacks](/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/) to modify an existing image of the plush bunny to get it misclassified as a husky.

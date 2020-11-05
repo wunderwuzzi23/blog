@@ -83,7 +83,7 @@ The following is the list of threats that I want to build attacks for:
 1. [Attacker brute forces images to find incorrect predictions/labels](/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/) - Perturbation Attack
 2. [Attacker applies smart ML fuzzing to find incorrect predictions - Perturbation Attack](/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/)
 2. [Attacker performs perturbations to misclassify existing images](/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/) - Perturbation Attack (added)
-3. Attacker gains read access to the model - Exfiltration Attack
+3. [Attacker gains read access to the model - Exfiltration Attack](/blog/posts/2020/husky-ai-machine-learning-model-stealing/)
 4. [Attacker modifies persisted model file - Backdooring Attack](/blog/posts/2020/husky-ai-machine-learning-backdoor-model/)
 5. Attacker denies modifying the model file - Repudiation Attack
 6. Attacker poisons the supply chain of third-party libraries 
@@ -103,7 +103,7 @@ For more information on machine learning threats see [Failure modes in machine l
 
 In the next post, we will do hands-on attacks against the exposed prediction API via different brute force approaches. 
 
-Now it will become interesting! **Stay tuned.**
+Now it will become interesting!
 
 
 Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
