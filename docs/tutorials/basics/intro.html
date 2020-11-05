@@ -1,0 +1,17 @@
+<html>
+  <title>
+     Embrace the Red
+  </title>
+   <body style="background-color: black; color: white">
+     <h1>Hello, World!</h1>
+
+     <div id="output"></div>
+
+     <script>
+        query_string = new URLSearchParams(window.location.search);
+        var out = document.getElementById("output");
+        out.innerText = query_string.get("name");
+     </script>
+
+   </body>
+</html>
