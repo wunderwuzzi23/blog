@@ -1,0 +1,16 @@
+<html>
+  <body>
+     <h2>Same Origin Policy - Accessing content from same origin</h2>
+     <iframe id="iframe" src="https://embracethered.com/blog/index.html" height=400 width=800></iframe>
+     <br>
+     <div id="output"></div>
+
+     <script defer>
+         var iframe_content  = document.getElementById("iframe");
+         var output = document.getElementById("output");
+         
+         //Access Allowed!
+         output.innerHTML = iframe_content.contentWindow.document.body.innerText;    
+     </script>
+  </body>
+</html>  
