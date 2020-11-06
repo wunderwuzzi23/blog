@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Wed, 28 Oct 2020 13:00:27 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2020 15:30:00 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Video: Building and breaking a machine learning system</title>
+      <link>https://embracethered.com/blog/posts/2020/learning-by-doing-building-and-breaking-machine-learning-red-team-hacking/</link>
+      <pubDate>Thu, 05 Nov 2020 15:30:00 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/learning-by-doing-building-and-breaking-machine-learning-red-team-hacking/</guid>
+      <description>My GrayHat Red Team Village talk &amp;ldquo;Learning by doing: Building and breaking a machine learning system&amp;rdquo; is now live on YouTube.
+Check it out: https://www.youtube.com/watch?v=-SV80sIBhqY and smash the Like button! :D
+
+Question? I thought of turning the content into a hands-on workshop. Let me know if that would be something that would you would attend? Trying to see if there is interest.
+Cheers, Johann
+Twitter: @wunderwuzzi23</description>
+    </item>
     
     <item>
       <title>Machine Learning Attack Series: Image Scaling Attacks</title>
