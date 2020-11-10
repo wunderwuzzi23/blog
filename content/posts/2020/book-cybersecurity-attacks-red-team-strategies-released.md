@@ -14,11 +14,11 @@ tags: [
 
 After countless evenings and weekends in coffee shops, and multiple vacations with the laptop, I'm excited to announce that my first book has been published. It took 18 months from writing the first words (at Victrola Coffee Roasters on Capitol Hill by the way) to finishing this project just a few days ago. 
 
-[![Cybersecurity Attacks - Red Team Strategies](/blog/images/red_team_strategies_f.png)](https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869)
+[![Cybersecurity Attacks - Red Team Strategies](/blog/images/red_team_strategies_f.png)](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f)
 
 Looking back its amazing how this all came together. The first intial draft had 100 pages, and in the end it ended up being 524 pages.
 
-It is available here: [Cybersecurity Attacks - Red Team Strategies](https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869)
+It is available here: [Cybersecurity Attacks - Red Team Strategies](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f)
 
 
 The challenges in front of the security community, industry and society are tremendous. The amount of information that needs protection, the amount of data stored in the cloud, the privacy concerns, the threats artificial intelligence holds, and the easy manipulation of the masses via social media are a reflection of how much work is ahead of us. 
@@ -42,7 +42,7 @@ The second part dives into technical aspects. It is however not focused on discu
 
 
 It can be ordered through various channels, easiest is probably Amazon:
-[Cybersecurity Attacks - Red Team Strategies](https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869)
+[Cybersecurity Attacks - Red Team Strategies](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f)
 
 
 ### Reviews
@@ -54,8 +54,11 @@ Many thanks go individuals who help make this book a reality - this includes the
 -- Johann Rehberger
 
 
+Twitter: @wunderwuzzi23
+
+
 ### Back Cover
 
-[![Cybersecurity Attacks - Red Team Strategies](/blog/images/red_team_strategies_b.png)](https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869)
+[![Cybersecurity Attacks - Red Team Strategies](/blog/images/red_team_strategies_b.png)](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f)
 
 "Cybersecurity Attacks - Red Team Strategies: A practical guide to building a penetration testing program having homefield advantage"

@@ -13,7 +13,7 @@ Monte Carlo simulations can be a useful tool to uplevel your red teaming skills 
 
 Red teaming is about challenging an organization. This includes analyzing business processes and methodologies, including our own.
 
-Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in [Hubbard's book about measuring cybersecurity risk](https://www.howtomeasureanything.com/cybersecurity/). Since then I have been thinking and playing around with applying these methods to security program's, especially red teaming and threat modeling.
+Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in [Hubbard's book about measuring cybersecurity risk](https://amzn.to/35dTlLw). Since then I have been thinking and playing around with applying these methods to security program's, especially red teaming and threat modeling.
 
 # What is a Monte Carlo simulation?
 
@@ -114,13 +114,13 @@ There is a fair point to be made if an analysis on a individual vulnerability le
 # Conclusion
 In this post we highlighted some ideas on how to use Monte Carlo simulations to better model threats. The idea is to move towards discussing financial implications of identified threats and vulnerabilities, rather than purely depend on a technical scoring system.
 
-If you found this post interesting or inspiring, my book [Cybersecurity Attacks: Red Team Strategies](https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869) has an entire chapter on measuring a red team program and red teaming results. 
+If you found this post interesting or inspiring, my book [Cybersecurity Attacks: Red Team Strategies](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f) has an entire chapter on measuring a red team program and red teaming results. 
 
 Also, feel free to follow or DM me on Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 
 
 # References
-* How to Measure Anything Cybersecurity Risk, Hubbard - https://www.howtomeasureanything.com/cybersecurity/
+* [How to Measure Anything Cybersecurity Risk Book, Hubbard](https://www.amazon.com/gp/product/1119085292/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1119085292&linkId=7a3a27a34532e88604cd95ba1eab5977)
 * $20000 Facebook DOM XSS https://vinothkumar.me/20000-facebook-dom-xss/
 * CVSS - https://www.first.org/cvss/
 * Royalty Free Images - (no attribution required, still providing reference though -  retrieved 6/9/2020)

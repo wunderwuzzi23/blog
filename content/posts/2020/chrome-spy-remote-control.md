@@ -183,7 +183,7 @@ Chrome also has the `--remote-debugging-address` feature, that an adversary can 
 * **I reported this to Google and it was marked as "intended behavior"**
 
 ## Red Team Strategies
-If you liked this post and found it informative or inspirational, you might be interested in the book ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM). The book is filled with further ideas, research and fundamental techniques, as well as red teaming program and people mangement aspects.
+If you liked this post and found it informative or inspirational, you might be interested in the book ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f). The book is filled with further ideas, research and fundamental techniques, as well as red teaming program and people mangement aspects.
 
 Also, feel free to follow or DM me on Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 

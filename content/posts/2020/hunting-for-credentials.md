@@ -26,7 +26,7 @@ Use the [Homefield Advantage](https://wunderwuzzi23.github.io/blog/posts/homefie
 Below is a reference sheet that I use for credential hunting during pentests. There is also a *csv* version available on my github (see the references section on bottom): 
 [![Credentials - Cheat Sheet](/blog/images/2020/hunting-for-credentials-cheat-sheet.png)](/blog/images/2020/hunting-for-credentials-cheat-sheet.png)
 
-It's nothing fancy just a reminder on what kind of information to look for and build into tooling to make sure they are not exposed widely, or accessible by adversaries. There are more examples, tools and hunting techniques in my [Red Team Strategies book](https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869) as well.
+It's nothing fancy just a reminder on what kind of information to look for and build into tooling to make sure they are not exposed widely, or accessible by adversaries. There are more examples, tools and hunting techniques in my [Red Team Strategies book](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f) as well.
 
 ### VHD Files
 
@@ -42,4 +42,4 @@ Let me know if this is something you are interested in building or working toget
 ## References
 * [Credentials Reference - Markdown](https://github.com/wunderwuzzi23/scratch/blob/master/creds.md)
 * [Credentials Reference - CSV](https://github.com/wunderwuzzi23/scratch/blob/master/creds.csv)
-* [Book: Cybersecurity Attacks - Red Team Strategies](https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869)
+* [Book: Cybersecurity Attacks - Red Team Strategies](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f)

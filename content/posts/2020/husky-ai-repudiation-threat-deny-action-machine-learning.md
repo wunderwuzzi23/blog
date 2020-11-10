@@ -1,6 +1,6 @@
 ---
-title: "Machine Learning Attack Series: Repudiation Threat Deny Action Machine Learning"
-date: 2020-11-10T05:50:21-07:00
+title: "Machine Learning Attack Series: Repudiation Threat"
+date: 2020-11-12T05:50:21-07:00
 draft: true
 tags: [
         "machine learning",

@@ -27,7 +27,7 @@ Hope you'll enjoy reading it, my article is called **"Pass the Cookie and Pivot 
 
 ## Red Team Strategies
 
-If the 2600 article about "Pass the Cookie" sparks your interest, you'll like the upcoming red teaming book [Cybersecurity Attacks - Red Team Strategies](https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869).
+If the 2600 article about "Pass the Cookie" sparks your interest, you'll like the upcoming red teaming book [Cybersecurity Attacks - Red Team Strategies](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f).
 
 
 
