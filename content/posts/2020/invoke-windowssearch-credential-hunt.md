@@ -101,7 +101,7 @@ That's it. :)
 -------
 
 ## Red Team Strategies
-If you liked this post and found it informative or inspirational follow me on Twitter  [@wunderwuzzi23](https://twitter.com/wunderwuzzi23). You might also be interested in my book ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM). 
+If you liked this post and found it informative or inspirational follow me on Twitter  [@wunderwuzzi23](https://twitter.com/wunderwuzzi23). You might also be interested in my book ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f). 
 
 ## References
 * [Windows Search - Examples](https://github.com/microsoft/Windows-classic-samples/tree/master/Samples/Win7Samples/winui/WindowsSearch)

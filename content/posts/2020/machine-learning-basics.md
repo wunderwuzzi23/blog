@@ -65,7 +65,7 @@ Below is a list of core materials I have used for acquainting myself with the to
 * [Tensorflow in practice](https://www.coursera.org/professional-certificates/tensorflow-in-practice), Laurence Moroney
 * [Hacking Neural Networks - A short introduction](https://arxiv.org/pdf/1911.07658.pdf), Michael Kissner
 * [fast.ai](https://www.fast.ai/), Jeremy Howard, Fast AI
-* [Machine Learning and Security](https://www.amazon.com/Machine-Learning-Security-Protecting-Algorithms-ebook/dp/B079C7LKKY),  Clarence Chio, David Freeman
+* [Machine Learning and Security](https://amzn.to/35g2vai),  Clarence Chio, David Freeman
 * [Failure modes in Machine Learning](https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning), Microsoft
 
 In addition, I watched countless YouTube videos, interviews and tutorials, including but not limited to content from sentdex, Lex Fridman, Josh Gordon, Fei-Fei Li and others.
@@ -164,12 +164,12 @@ Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 * [Hacking Neural Networks - A short introduction](https://arxiv.org/pdf/1911.07658.pdf), Michael Kissner
 * [TensorFlow in practice](https://www.coursera.org/professional-certificates/tensorflow-in-practice), Laurence Moroney
 * [fast.ai](https://www.fast.ai/), Jeremy Howard, Fast AI
-* [Machine Learning and Security](https://www.amazon.com/Machine-Learning-Security-Protecting-Algorithms-ebook/dp/B079C7LKKY)
+* [Machine Learning and Security](https://amzn.to/32sAWZJ)
 * [Failure modes in Machine Learning](https://docs.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning), Microsoft
 * [sentdex - YouTube Channel](https://www.youtube.com/watch?v=OGxgnH8y2NM)
 * [Autonomous Sailboat - Roboat](http://www.roboat.at/en/home/)
 * [Can machine learning be secure?](http://people.ischool.berkeley.edu/~tygar/papers/Machine_Learning_Security/asiaccs06.pdf) 
 * [Facebook AI Red Team](https://www.zdnet.com/article/cybersecurity-how-facebooks-red-team-is-pushing-boundaries-to-keep-your-data-safe/)
 * [Husky AI - Prototype and Experiments](https://github.com/wunderwuzzi23/ai/)
-* [Simulation Neuronaler Netzwerke](https://www.amazon.com/Simulation-neuronaler-Netze-Andreas-Zell/dp/3486243500), Andreas Zell
+* [Simulation Neuronaler Netzwerke](https://www.amazon.com/gp/product/3486243500/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=3486243500&linkId=7c632de0effe88dcbf2220c6150c3f99), Andreas Zell
 * [Octave](https://www.gnu.org/software/octave/)

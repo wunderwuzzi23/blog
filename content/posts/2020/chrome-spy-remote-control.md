@@ -18,7 +18,7 @@ Below screenshot shows a simulated attacker controlling the victim's browser and
 
 [![Chrome Remote Debug](/blog/images/2020/chromeremotedebugcc.PNG)](/blog/images/2020/chromeremotedebugcc.PNG)
 
-This is what we will discuss and explore more in this post, and it is a summary of one of the techniques described in the book ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM).  
+This is what we will discuss and explore more in this post, and it is a summary of one of the techniques described in the book ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f).  
 
 At a high level, remote debugging is a development/test feature which, for some reason, made it into the ordinary retail version of Chrome. 
 

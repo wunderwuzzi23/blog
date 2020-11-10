@@ -11,7 +11,7 @@ tags: [
 
 ## Conceptual Attack Graphs
 
-One question that I have gotten a few times about  ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM) is around the conceptual attack graphs in "Chapter 3, Measuring an Offensive Security Program". Specifically, how I create them.
+One question that I have gotten a few times about  ["Cybersecurity Attacks - Red Team Strategies"](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f) is around the conceptual attack graphs in "Chapter 3, Measuring an Offensive Security Program". Specifically, how I create them.
 
 In this post I will briefly go over some of the reasons for creating them, and also how I create them and share a template for others to use and adjust. 
 

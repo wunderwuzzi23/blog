@@ -64,7 +64,7 @@ If already present at this stage, red and blue team have a pure adversarial stan
 
 This is the stage where an organization **introduces an internal offensive security team** with a broad agenda, including cyber operational red teaming. The **offensive security testing process is established**, and the organization realizes not all vulnerabilities can be found and addressed and investments are done regarding detection of breaches and incident response. 
 
-This includes creation of Rules of Engagement, Operating Procedures, Issue Tracking, Engagement Management, Cleanup and Debriefs - there are lot of [useful details and guidelines in my book by the way in regards to the creation of an internal offensive security program](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM).
+This includes creation of Rules of Engagement, Operating Procedures, Issue Tracking, Engagement Management, Cleanup and Debriefs - there are lot of [useful details and guidelines in my book by the way in regards to the creation of an internal offensive security program](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f).
 
 Centralized security event aggregation is implemented to enable better response and hunting of adversaries. This is the typical stage an internal offensive security simulates malicious insiders and adversaries. Or the organization might hire external vendors regularly to perform red team operations in addition to regular security assessments.
 

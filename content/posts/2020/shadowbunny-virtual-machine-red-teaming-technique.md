@@ -507,7 +507,7 @@ We did a deep dive with VirtualBox and Hyper-V to create, register and use a Sha
 
 These techniques are not well researched, and we might see more attacks using virtual machines in the future (also when detections improve). Hence its important to shine more light on it and improve understanding of exploitation scenarios, detections and mitigations.
 
-Thanks for reading, and if you found this interesting you might also like my [red teaming book](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM).
+Thanks for reading, and if you found this interesting you might also like my [red teaming book](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f).
 
 Cheers.
 
@@ -559,7 +559,7 @@ Penetration testing requires authorization from proper stakeholders. Information
 * [Ragnar Locker ransomware](https://news.sophos.com/en-us/2020/05/21/ragnar-locker-ransomware-deploys-virtual-machine-to-dodge-security) deploys virtual machine to dodge security 
 * [VirtualBox Installation Windows](https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/installation_windows.html)
 * [PenTest Magazine](https://pentestmag.com/product/pentest-healthcare-security/) - This issue of the PenTest Magazine contains information around the Shadowbunny
-* [Cybersecurity Attacks – Red Team Strategies](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM)
+* [Cybersecurity Attacks – Red Team Strategies](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f)
 * [Hyper-V Documentation New-VM](https://docs.microsoft.com/en-us/powershell/module/hyper-v/new-vm?view=win10-ps)
 * [VBoxManage CLI](https://www.virtualbox.org/manual/ch08.html)
 * [Shadowbunny Presentation BSides Singapore 2020](/blog/downloads/Shadowbunny_BSides_Singapore_2020.pptx)

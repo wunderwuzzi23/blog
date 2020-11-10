@@ -12,10 +12,10 @@ tags: [
 
 Excited to announce the book that I have been working on:
 
-[Cybersecurity Attacks - Red Team Strategies](https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869)
+[Cybersecurity Attacks - Red Team Strategies](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f)
 
 Learn about the foundational tactics, techniques and procedures to elevate your red teaming skills and enhance the overall security posture of your organization by leveraging homefield advantage.
-[![Cybersecurity Attacks - Red Team Strategies](/blog/images/9781838828868.jpeg)](https://www.amazon.com/Cybersecurity-Attacks-Strategies-elevating-homefield/dp/1838828869)
+[![Cybersecurity Attacks - Red Team Strategies](/blog/images/9781838828868.jpeg)](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f)
 
 ### Contents and Background
 Red Team Strategies covers aspects that are not as commonly discussed in literature, including chapters around building and managing a pen test team. However, there is still plenty of technical content included as well. It is not a typical pen test book that focuses on common tools, or walks the reader through the various stages of a pen test.

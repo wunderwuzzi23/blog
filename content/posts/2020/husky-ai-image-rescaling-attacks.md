@@ -76,6 +76,8 @@ Johann.
 
 Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 
+*If you are interested in red teaming at large, check out my book [Red Team Strategies](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537).*
+
 ## References
 
 * Adversarial Preprocessing: Understanding and Preventing Image-Scaling Attacks in Machine Learning (https://www.usenix.org/system/files/sec20-quiring.pdf) (Erwin Quiring, TU Braunschweig)
