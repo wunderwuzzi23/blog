@@ -84,7 +84,9 @@ That's it.
 
 In this post we explored some simple commands to expose ports (proxy/forward them) on different network interfaces. Hope the post was informative and useful. 
 
-Feel free to follow or message me on Twitter [@wunderwuzzi23](https://twitter.com/wunderwuzzi23).
+*If you are interested in red teaming at large, check out my book [Red Team Strategies](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537).*
+
+Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 
 
 ## References
