@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Mon, 26 Oct 2020 06:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2020 16:00:21 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/blue/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Machine Learning Attack Series: Repudiation Threat and Auditing</title>
+      <link>https://embracethered.com/blog/posts/2020/husky-ai-repudiation-threat-deny-action-machine-learning/</link>
+      <pubDate>Tue, 10 Nov 2020 16:00:21 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/husky-ai-repudiation-threat-deny-action-machine-learning/</guid>
+      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.
+ Overview: How Husky AI was built, threat modeled and operationalized Attacks: The attacks I want to investigate, learn about, and try out  In this post we are going to look at the &amp;ldquo;Repudiation Threat&amp;rdquo;, which is one of the threats often overlooked when performing threat modeling, and maybe something you would not even expect in a series about machine learning.</description>
+    </item>
     
     <item>
       <title>Leveraging the Blue Team&#39;s Endpoint Agent as C2</title>

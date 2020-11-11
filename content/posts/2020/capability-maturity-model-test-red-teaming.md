@@ -117,7 +117,7 @@ In this post we looked at the CMM model for testing and how it can be used to mo
 
 Hope this was interesting and useful.
 
-There are many more examples and practical ideas on how to measure red teaming in my book about [Red Team Strategies](https://www.amazon.com/Cybersecurity-Attacks-Strategies-practical-penetration-ebook/dp/B0822G9PTM).
+There are many more examples and practical ideas on how to measure red teaming in my book about [Red Team Strategies](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f).
 
 Feel free to follow or message me on Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 

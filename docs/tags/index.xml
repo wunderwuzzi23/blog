@@ -7,10 +7,55 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Thu, 05 Nov 2020 15:30:00 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2020 16:00:21 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>blue</title>
+      <link>https://embracethered.com/blog/tags/blue/</link>
+      <pubDate>Tue, 10 Nov 2020 16:00:21 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/blue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>huskyai</title>
+      <link>https://embracethered.com/blog/tags/huskyai/</link>
+      <pubDate>Tue, 10 Nov 2020 16:00:21 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/huskyai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Tue, 10 Nov 2020 16:00:21 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red</title>
+      <link>https://embracethered.com/blog/tags/red/</link>
+      <pubDate>Tue, 10 Nov 2020 16:00:21 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ttp</title>
+      <link>https://embracethered.com/blog/tags/ttp/</link>
+      <pubDate>Tue, 10 Nov 2020 16:00:21 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ttp/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>conference</title>
@@ -22,56 +67,11 @@
     </item>
     
     <item>
-      <title>huskyai</title>
-      <link>https://embracethered.com/blog/tags/huskyai/</link>
-      <pubDate>Thu, 05 Nov 2020 15:30:00 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/huskyai/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine learning</title>
-      <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Thu, 05 Nov 2020 15:30:00 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>red</title>
-      <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Thu, 05 Nov 2020 15:30:00 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/red/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blue</title>
-      <link>https://embracethered.com/blog/tags/blue/</link>
-      <pubDate>Mon, 26 Oct 2020 06:00:00 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/blue/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>c2</title>
       <link>https://embracethered.com/blog/tags/c2/</link>
       <pubDate>Mon, 26 Oct 2020 06:00:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/c2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ttp</title>
-      <link>https://embracethered.com/blog/tags/ttp/</link>
-      <pubDate>Mon, 26 Oct 2020 06:00:00 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ttp/</guid>
       <description></description>
     </item>
     

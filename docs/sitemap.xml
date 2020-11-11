@@ -3,32 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://embracethered.com/blog/tags/conference/</loc>
-    <lastmod>2020-11-05T15:30:00-08:00</lastmod>
+    <loc>https://embracethered.com/blog/tags/blue/</loc>
+    <lastmod>2020-11-10T16:00:21-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/huskyai/</loc>
-    <lastmod>2020-11-05T15:30:00-08:00</lastmod>
+    <lastmod>2020-11-10T16:00:21-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2020-11-05T15:30:00-08:00</lastmod>
+    <lastmod>2020-11-10T16:00:21-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2020/husky-ai-repudiation-threat-deny-action-machine-learning/</loc>
+    <lastmod>2020-11-10T16:00:21-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2020-11-05T15:30:00-08:00</lastmod>
+    <lastmod>2020-11-10T16:00:21-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2020-11-05T15:30:00-08:00</lastmod>
+    <lastmod>2020-11-10T16:00:21-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2020-11-10T16:00:21-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <lastmod>2020-11-10T16:00:21-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2020-11-10T16:00:21-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/conference/</loc>
     <lastmod>2020-11-05T15:30:00-08:00</lastmod>
   </url>
   
@@ -38,18 +58,8 @@
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2020-11-05T15:30:00-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-image-rescaling-attacks/</loc>
     <lastmod>2020-10-28T13:00:27-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/blue/</loc>
-    <lastmod>2020-10-26T06:00:00-07:00</lastmod>
   </url>
   
   <url>
@@ -59,11 +69,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/2020/red-teaming-endpoint-protection-agent-edr/</loc>
-    <lastmod>2020-10-26T06:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
     <lastmod>2020-10-26T06:00:00-07:00</lastmod>
   </url>
   
