@@ -85,7 +85,7 @@ The following is the list of threats that I want to build attacks for:
 2. [Attacker performs perturbations to misclassify existing images](/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/) - Perturbation Attack (added)
 3. [Attacker gains read access to the model - Exfiltration Attack](/blog/posts/2020/husky-ai-machine-learning-model-stealing/)
 4. [Attacker modifies persisted model file - Backdooring Attack](/blog/posts/2020/husky-ai-machine-learning-backdoor-model/)
-5. Attacker denies modifying the model file - Repudiation Attack
+5. [Attacker denies modifying the model file - Repudiation Attack](/blog/posts/2020/husky-ai-repudiation-threat-deny-action-machine-learning/)
 6. Attacker poisons the supply chain of third-party libraries 
 7. Attacker tampers with images on disk to impact training performance
 8. [Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)](/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/)
