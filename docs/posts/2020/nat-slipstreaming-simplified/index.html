@@ -125,7 +125,7 @@
 <p>The <code>ALG</code> monitors traffic passing through your router. It will act on and modify requests for some protocols if enabled. One of the protocols that can be enabled is <code>SIP</code>.</p>
 <p><code>SIP</code> is a text-based protocol, just like HTTP. It is used in Voice over IP (VoIP) applications. VoIP works better peer-to-peer, so there is a <code>REGISTER</code> verb that allows punching a hole into your firewall.</p>
 <p><img src="/blog/images/2020/alg.png" alt="ALG Image"></p>
-<p>More details of the <code>SIP</code> protocol are described in <a href="https://tools.ietf.org/html/rfc3327">RFC 3327</a>.</p>
+<p>More details of the <code>SIP</code> protocol are described in <a href="https://tools.ietf.org/html/rfc5626">RFC 5626</a>.</p>
 <p>To learn more about this I implemented a simple fake SIP server and a client for Linux/macOS and also a client for PowerShell for Windows.</p>
 <h3 id="implementing-a-fake-sip-server">Implementing a fake SIP Server</h3>
 <p>The fake SIP server is just a basic TCP server written in Python. I took the core messages that are sent back and forth from Samy&rsquo;s implementation.</p>
@@ -190,7 +190,7 @@ Johann.</p>
 <p>Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
 <h2 id="references">References</h2>
 <ul>
-<li><a href="https://tools.ietf.org/html/rfc3327">RFC 3327</a></li>
+<li><a href="https://tools.ietf.org/html/rfc5626">RFC 5626</a></li>
 <li><a href="https://samy.pl/slipstream/">NAT Slipstream, Samy Kamkar</a></li>
 </ul>
 

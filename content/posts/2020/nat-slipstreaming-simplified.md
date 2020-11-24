@@ -27,7 +27,7 @@ The `ALG` monitors traffic passing through your router. It will act on and modif
 
 ![ALG Image](/blog/images/2020/alg.png)
 
-More details of the `SIP` protocol are described in [RFC 3327](https://tools.ietf.org/html/rfc3327). 
+More details of the `SIP` protocol are described in [RFC 5626](https://tools.ietf.org/html/rfc5626). 
 
 To learn more about this I implemented a simple fake SIP server and a client for Linux/macOS and also a client for PowerShell for Windows.
 
@@ -128,5 +128,5 @@ Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 
 ## References
 
-* [RFC 3327](https://tools.ietf.org/html/rfc3327)
+* [RFC 5626](https://tools.ietf.org/html/rfc5626)
 * [NAT Slipstream, Samy Kamkar](https://samy.pl/slipstream/)
