@@ -25,6 +25,8 @@ The `ALG` monitors traffic passing through your router. It will act on and modif
 
 `SIP` is a text-based protocol, just like HTTP. It is used in Voice over IP (VoIP) applications. VoIP works better peer-to-peer, so there is a `REGISTER` verb that allows punching a hole into your firewall. 
 
+![ALG Image](/blog/images/2020/alg.png)
+
 More details of the `SIP` protocol are described in [RFC 3327](https://tools.ietf.org/html/rfc3327). 
 
 To learn more about this I implemented a simple fake SIP server and a client for Linux/macOS and also a client for PowerShell for Windows.
