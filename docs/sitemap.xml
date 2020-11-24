@@ -3,6 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/posts/2020/nat-slipstreaming-simplified/</loc>
+    <lastmod>2020-11-23T23:00:57-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2020-11-23T23:00:57-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2020-11-23T23:00:57-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/research/</loc>
+    <lastmod>2020-11-23T23:00:57-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2020-11-23T23:00:57-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <lastmod>2020-11-23T23:00:57-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2020-11-23T23:00:57-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/tags/blue/</loc>
     <lastmod>2020-11-10T16:00:21-07:00</lastmod>
   </url>
@@ -19,31 +54,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-repudiation-threat-deny-action-machine-learning/</loc>
-    <lastmod>2020-11-10T16:00:21-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2020-11-10T16:00:21-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2020-11-10T16:00:21-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2020-11-10T16:00:21-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
-    <lastmod>2020-11-10T16:00:21-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/</loc>
     <lastmod>2020-11-10T16:00:21-07:00</lastmod>
   </url>
   
@@ -189,11 +199,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/2020/applying-acls-and-race-conditions/</loc>
-    <lastmod>2020-08-24T12:00:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/research/</loc>
     <lastmod>2020-08-24T12:00:33-08:00</lastmod>
   </url>
   

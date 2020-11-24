@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Tue, 10 Nov 2020 16:00:21 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2020 23:00:57 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/ttp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Abusing Application Layer Gateways (NAT Slipstreaming)</title>
+      <link>https://embracethered.com/blog/posts/2020/nat-slipstreaming-simplified/</link>
+      <pubDate>Mon, 23 Nov 2020 23:00:57 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/nat-slipstreaming-simplified/</guid>
+      <description>You might have heard about &amp;ldquo;NAT Slipstreaming&amp;rdquo; by Samy Kamkar. It&amp;rsquo;s an amazing technique that allows punching a hole in your routers firewall by just visiting a website.
+The attack depends on the router having the Application Layer Gateway enabled. This gateway can be used by anyone inside your network to open a firewall port (totally by design). Protocols such as SIP (Session Initiation Protocol) use it.
+What I will focus on in this post is the Application Layer Gateway Protocol (ALG) and SIP.</description>
+    </item>
     
     <item>
       <title>Machine Learning Attack Series: Repudiation Threat and Auditing</title>

