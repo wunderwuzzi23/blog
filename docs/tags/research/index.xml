@@ -20,7 +20,7 @@
       <guid>https://embracethered.com/blog/posts/2020/nat-slipstreaming-simplified/</guid>
       <description>You might have heard about &amp;ldquo;NAT Slipstreaming&amp;rdquo; by Samy Kamkar. It&amp;rsquo;s an amazing technique that allows punching a hole in your routers firewall by just visiting a website.
 The attack depends on the router having the Application Layer Gateway enabled. This gateway can be used by anyone inside your network to open a firewall port (totally by design). Protocols such as SIP (Session Initiation Protocol) use it.
-What I will focus on in this post is the Application Layer Gateway Protocol (ALG) and SIP.</description>
+What I will focus on in this post is the Application Layer Gateway (ALG) and SIP.</description>
     </item>
     
     <item>
