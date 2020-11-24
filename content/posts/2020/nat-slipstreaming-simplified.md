@@ -52,9 +52,9 @@ This is how the request looks like:
 
 ```
 REGISTER sip:example.org;transport=TCP SIP/2.0
-Via: SIP/2.0/TCP 192.168.1.141:5060;branch=I9hG4bK-d8754z-c2ac7de1b3ce90f7-1---d8754z-;rport;transport=TCP
+Via: SIP/2.0/TCP 192.168.0.141:5060;branch=I9hG4bK-d8754z-c2ac7de1b3ce90f7-1---d8754z-;rport;transport=TCP
 Max-Forwards: 70
-Contact: <sip:wuzzi@192.168.1.141:1433;rinstance=v40f3f83b335139c;transport=TCP>
+Contact: <sip:wuzzi@192.168.0.141:1433;rinstance=v40f3f83b335139c;transport=TCP>
 To: <sip:wuzzi@example.org;transport=TCP>
 From: <sip:wuzzi@example.org;transport=TCP>;tag=U7c3d519
 Call-ID: aaaaaaaaaaaaaaaaa0404aaaaaaaaaaaabbbbbbZjQ4M2M.
@@ -69,13 +69,13 @@ Content-Length: 0
 
 The parts of the request that require customization are:
 
-* `192.168.1.141` The IP address of the internal target machine 
+* `192.168.0.141` The IP address of the internal target machine 
 * `Port 5060` The remote port of the fake SIP Server 
 * `Port 1433` The port that we want to expose externally to the fake SIP server
 
 ### Address Translation
 
-If your router has `ALG` for `SIP` enabled, it will replace the internal IP address in the packet (in this case `192.168.1.141`) with the routers public IP address. 
+If your router has `ALG` for `SIP` enabled, it will replace the internal IP address in the packet (in this case `192.168.0.141`) with the routers public IP address. 
 
 ### SIP Response
 
