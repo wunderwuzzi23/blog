@@ -7,17 +7,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Mon, 23 Nov 2020 23:00:57 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2020 14:00:50 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>machine learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Tue, 24 Nov 2020 14:00:50 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>red</title>
       <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Mon, 23 Nov 2020 23:00:57 -0800</pubDate>
+      <pubDate>Tue, 24 Nov 2020 14:00:50 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>strategy</title>
+      <link>https://embracethered.com/blog/tags/strategy/</link>
+      <pubDate>Tue, 24 Nov 2020 14:00:50 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/strategy/</guid>
       <description></description>
     </item>
     
@@ -54,15 +72,6 @@
       <pubDate>Tue, 10 Nov 2020 16:00:21 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/huskyai/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine learning</title>
-      <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Tue, 10 Nov 2020 16:00:21 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
       <description></description>
     </item>
     
@@ -324,15 +333,6 @@
       <pubDate>Wed, 12 Feb 2020 17:03:32 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/principles/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>strategy</title>
-      <link>https://embracethered.com/blog/tags/strategy/</link>
-      <pubDate>Wed, 12 Feb 2020 17:03:32 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/strategy/</guid>
       <description></description>
     </item>
     

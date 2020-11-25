@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Assuming Bias and Responsible AI &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2020/machine-learning-attack-series-assume-bias-strategy/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-11-24T14:00:50-08:00" />
+  
+  <meta property="og:article:tag" content="machine learning" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="strategy" />
+  
+  
+
+  <title>
+     Assuming Bias and Responsible AI &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Assuming Bias and Responsible AI</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-11-24T14:00:50-08:00">
+          Nov 24, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/strategy">#strategy</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>There are plenty of examples of artificial intelligence and machine learning systems that made it into the news because of biased predictions and failures.</p>
+<p>Here are a few examples on AI/ML gone wrong:</p>
+<ul>
+<li><a href="https://www.theguardian.com/technology/2018/oct/10/amazon-hiring-ai-gender-bias-recruiting-engine">Amazon had an AI recruiting tool</a> which favored men over women for technical jobs</li>
+<li><a href="https://www.reuters.com/article/us-microsoft-twitter-bot-idUSKCN0WQ2LA">The (in)famous Microsoft chat bot named &ldquo;Tay&rdquo;</a> which turned racist and sexist rather quickly</li>
+<li><a href="https://gizmodo.com/ibm-watson-reportedly-recommended-cancer-treatments-tha-1827868882">A doctor at the Jupiter Hospital in Florida</a> referred to IBM&rsquo;s AI system for helping recommend cancer treatments as &ldquo;a piece of shit&rdquo;</li>
+<li><a href="https://mashable.com/2017/10/24/facebook-auto-translation-palestinian-man-arrest-israel/">Facebook&rsquo;s AI got someone arrested for incorrectly translating text</a></li>
+</ul>
+<p>The list of AI failures goes on&hellip;</p>
+<p>If you built and tested AI yourself you know how powerful, yet brittle machine learning can be.</p>
+<h2 id="assuming-bias-by-design">Assuming Bias by Design</h2>
+<p>In the computer network security realm, the industry has adopted an &ldquo;Assume Breach&rdquo; mindset. Assume Breach highlights that we should assume (internal and trusted) systems are compromised.</p>
+<p>Getting the thinking of &ldquo;secure zones&rdquo; or impenetrable machines out of the way allows to focus on an important question, which is:</p>
+<blockquote>
+<p>Your company is compromised. What are you going to do about it?</p>
+</blockquote>
+<p>This does not mean that one should not invest in protecting systems, but one must think beyond protection alone. Red teaming, threat hunting, detection and response are critical components of an Assume Breach security strategy.</p>
+<p>We must apply a similar thinking when it comes to AI/ML systems:</p>
+<blockquote>
+<p>Your AI has biases, and it will make incorrect predications. What are you going to do about it?</p>
+</blockquote>
+<p>Architects and designers of AI/ML systems need to embrace an &ldquo;Assume Bias&rdquo; mindset and implement mitigation, testing, detection, and response (including deprecation) strategies for AI systems.</p>
+<p><img src="/blog/images/2020/assumebias.jpg" alt="Assume Bias"></p>
+<p>For instance, a system which makes critical decisions should not solely depend on predictions of a machine learning system. The risk tolerance might vary depending on use cases.</p>
+<p>With that mindset, we can start thinking of ways to mitigate all sorts of &ldquo;fails&rdquo; (<em>I am using bias in a wider context</em>) in order to build responsible AI.</p>
+<p>Bias might not just enter a machine learning model by accidents or negligence, it might also be introduced by an adversary via an attack ==&gt; <strong>Hello, AI Red Team</strong>!</p>
+<p>&ldquo;Your model has biases. What are you going to do about it?&rdquo; is a question that I will add to my threat modeling repertoire.</p>
+<h2 id="alignment-and-control">Alignment and Control</h2>
+<p>The AI Control Problem &ldquo;is the issue of how to build a super intelligent agent that will aid its creators and avoid inadvertently building a superintelligence that will harm its creators.&rdquo; &ndash; <a href="https://en.wikipedia.org/wiki/AI_control_problem">Wikipedia, Nov 2020</a></p>
+<p>There are &ldquo;alignment approaches&rdquo; which attempt to align AI behavior with human values, and then there are also &ldquo;capability controls&rdquo;.</p>
+<p>It seems that a combination of both will be needed to succeed: Teaching AI/ML proper ethics and values, which is already difficult as human values differ quite a bit, and biases one way or another seem inevitable. At the same time AI and its creators must be held accountable via laws, policies, and treaties.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>There is a lot unpack with an &ldquo;Assume Bias&rdquo; mindset for AI and ML. Hopefully the basic idea resonates to explore this in more depth. Also in what it means for doing &ldquo;AI Red Teaming&rdquo;.</p>
+<p>And I am curious around your thoughts around this as well.</p>
+<p>Cheers.
+Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.theguardian.com/technology/2018/oct/10/amazon-hiring-ai-gender-bias-recruiting-engine">Amazon ditched AI recruiting tool that favored men for technical jobs</a></li>
+<li><a href="https://gizmodo.com/ibm-watson-reportedly-recommended-cancer-treatments-tha-1827868882">IBM Watson Reportedly Recommended Cancer Treatments That Were &lsquo;Unsafe and Incorrect&rsquo;</a></li>
+<li><a href="https://blogs.microsoft.com/blog/2016/03/25/learning-tays-introduction/">Learning from Tay’s introduction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AI_control_problem">AI control problem</a></li>
+<li><a href="https://mashable.com/2017/10/24/facebook-auto-translation-palestinian-man-arrest-israel/">Facebook&rsquo;s AI arrest</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/nat-slipstreaming-simplified/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2020
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
