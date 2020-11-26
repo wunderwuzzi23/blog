@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Machine Learning Attack Series: Generative Adversarial Networks (GANs) &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2020/machine-learning-attack-series-generative-adversarial-networks-gan/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2020-11-25T17:55:15-08:00" />
+  
+  <meta property="og:article:tag" content="machine learning" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="huskyai" />
+  
+  
+
+  <title>
+     Machine Learning Attack Series: Generative Adversarial Networks (GANs) &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Machine Learning Attack Series: Generative Adversarial Networks (GANs)</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2020-11-25T17:55:15-08:00">
+          Nov 25, 2020
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/huskyai">#huskyai</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>In this post we will explore Generative Adversarial Networks (GANs) to create fake husky images. The goal is, of course, to have &ldquo;Husky AI&rdquo; misclassify them as real huskies.</p>
+<p>If you want learn more about Husky AI visit the <a href="/blog/posts/2020/husky-ai-walkthrough/">Overview</a> post.</p>
+<h2 id="generative-adversarial-networks">Generative Adversarial Networks</h2>
+<p>One of the attacks I wanted to investigate for a while was the creation of fake images to trick Husky AI. The best approach seemed by using Generative Adversarial Networks (GANs). <a href="https://www.deeplearning.ai/generative-adversarial-networks-specialization/">It happened that right then deeplearning.ai started offering a GAN course by Sharon Zhou</a>.</p>
+<p>That was excellent timing, and I signed up right away.</p>
+<p>The course teaches the basics of GANs with plenty of examples - from building basic <code>DCGAN</code> to <code>WGAN-GP</code> and even <code>StyleGAN</code>. The cool thing is that the course teaches everything from scratch. I had only used <code>TensorFlow</code> before and this course is entirely in <code>PyTorch</code>, so I finally got to use <code>PyTorch</code> a bit as well.</p>
+<h2 id="what-is-a-gan">What is a GAN?</h2>
+<p>If you are not at all familiar with GANs, let me give you a brief overview.</p>
+<p>GANs were <a href="https://www.iangoodfellow.com/slides/2016-12-9-gans.pdf">invented by Ian Goodfellow</a>. The basic idea is that there are two neural networks, namely:</p>
+<ol>
+<li>Generator</li>
+<li>Discriminator</li>
+</ol>
+<p>These two neural networks compete in a <code>minimax</code> game.</p>
+<p><a href="/blog/images/2020/gans-minimax.png"><img src="/blog/images/2020/gans-minimax.png" alt="Husky"></a></p>
+<p>The <code>Generator</code> creates random images based on noise and sends them to the <code>Discriminator</code>. The <code>Discriminator</code> is fed both real images and fake images and predicts if an image is real or fake. Using the losses of these predictions (learnings) the neural networks of both players are adjusted and the game continues. Over time the <code>Discriminator</code> starts creating better and better images.</p>
+<p>The following image shows my progress in regard to creating fake husky images:</p>
+<p><a href="/blog/images/2020/gans.png"><img src="/blog/images/2020/gans.png" alt="Husky"></a></p>
+<p>The first image shows a <code>DCGAN</code> which failed because of a <code>mode collapse</code>, meaning it got stuck somewhere in a local minimum during training. The second image used a <code>WGAN</code>, and the third one is <code>StyleGAN2-ADA</code>.</p>
+<h2 id="stylegan2-ada">StyleGAN2-ADA</h2>
+<p><code>StyleGAN2-ADA</code> is especially great when you have a small training set, as it performs image augmentation. Here are the final and best results I had with <code>StyleGAN2-ADA</code>, look:</p>
+<p><a href="/blog/images/2020/huskies-that-dont-exist.png"><img src="/blog/images/2020/huskies-that-dont-exist.png" alt="Husky"></a></p>
+<p>Those images look pretty amazing, and <strong>remember that none of these huskies actually exist!</strong></p>
+<p>Along the way during training there were also some fun images, look:</p>
+<p><a href="/blog/images/2020/fake-huskies-fail.png"><img src="/blog/images/2020/fake-huskies-fail.png" alt="Husky"></a></p>
+<p>You can see how my training data was lacking pictures that showed huskies with legs, as those are commonly misaligned in the images the Discriminator created.</p>
+<h2 id="tricking-husky-ai-with-the-fake-images">Tricking Husky AI with the fake images</h2>
+<p>In the end I took one of the fake husky images and uploaded it to <code>Husky AI</code>. Here is the resulting prediction:</p>
+<p><a href="/blog/images/2020/husky-ai-gan-fakehusky-baypass.png"><img src="/blog/images/2020/husky-ai-gan-fakehusky-baypass.png" alt="Husky"></a></p>
+<p>As you can see <code>Husky AI</code> was entirely tricked by the fake image. I thought this was a really cool attack. Although, I was wondering if this is maybe because the images for training the production model and training the GAN were the same.</p>
+<p>So, I tried a couple of other image classification AIs out there.</p>
+<h2 id="tricking-googles-vision-ai">Tricking Google&rsquo;s Vision AI!</h2>
+<p>What about Google&rsquo;s Vision AI?</p>
+<p>Take a look at the result:</p>
+<p><a href="/blog/images/2020/googleai-huskyai.png"><img src="/blog/images/2020/googleai-huskyai.png" alt="Husky"></a></p>
+<p><strong>Wow, even Google&rsquo;s AI was tricked.</strong></p>
+<p>This really shows how difficult it is already for computers and humans to distinguish between real and fake content, and the quality of fake content and images is only going to improve.</p>
+<p>Quite scary if you think about it. A few years from now, you will not be able to trust any information, image or video you see online.</p>
+<h3 id="google-colab-notebook---code">Google Colab Notebook - Code</h3>
+<p>For <code>StyleGAN2-ADA</code>, let me show you some of the core code snippets from my Google Colab Notebook. The code for <code>StyleGAN2-ADA</code> can be downloaded from <a href="https://github.com/NVlabs/stylegan2-ada">NVidia&rsquo;s Github repo</a>.</p>
+<p>The first step was to upload the husky training images and pre-process them, so they all have the same size.</p>
+<pre><code>!unzip &quot;/content/drive/My Drive/HuskyAI/1600huskies.zip&quot; -d &quot;images/train/&quot;
+!mkdir /content/images/stylegan
+
+NUM_PX = 512
+SAVE_DIR = &quot;/content/images/stylegan&quot;
+DATA_DIR    = &quot;/content/images/train/huskies&quot;
+
+for filename in tqdm(os.listdir(DATA_DIR)):
+    path = os.path.join(DATA_DIR, filename)
+    image = Image.open(path).resize((NUM_PX, NUM_PX))
+
+    save_path = os.path.join(SAVE_DIR, filename)
+    image.save(save_path)
+</code></pre><p>Next, I used the <code>dataset_tool.py</code> of StyleGAN2 to create images of the correct format that StyleGAN requires:</p>
+<pre><code>!python dataset_tool.py create_from_images /content/datasets/huskies /content/images/stylegan/
+</code></pre><p>And then it was time to do the training:</p>
+<pre><code>!python train.py --outdir=/content/drive/My\ Drive/HuskyAI/stylegan2-ada-results --gpus=1 \ 
+--data=/content/datasets/huskies \
+--mirror=1 --snap=1 
+</code></pre><p>It&rsquo;s also possible to stop the training and resume at a later point by providing the <code>.pkl</code> files that are saved by <code>StyleGAN2</code> along the way.</p>
+<p>After the training, we can create new fake images.</p>
+<pre><code>!python generate.py generate-images \
+--network=/content/drive/My\ Drive/HuskyAI/stylegan2-ada-results/00002-huskies--mirror-auto1-resumecustom/network-snapshot-000250.pkl --seeds=670 class
+</code></pre><p>Those are the core basic steps of using StyleGAN2-ADA.</p>
+<h2 id="videos-and-interpolation">Videos and Interpolation</h2>
+<p>There is also a <a href="https://github.com/PDillis/stylegan2-ada">fork of StyleGAN2-ADA</a> by Diego Porres that can be used to create fun interpolation videos. Unfortunatley, my <code>mp4</code> video doesn&rsquo;t show up inline here in the blog.</p>
+<p>You can however <a href="https://twitter.com/wunderwuzzi23/status/1320723215686066176">watch it on Twitter</a>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>That&rsquo;s it. As you can see, GANs are super powerful and it’s quite easy to setup and train yourself. And as I mentioned this is all quite scary if you think about it. A few years from now, you won&rsquo;t be able to trust absolutely any information, image or video you see online.</p>
+<p>Cheers, Johann.</p>
+<p>Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/NVlabs/stylegan2-ada">StyleGAN2-ADA, NVIDIA</a></li>
+<li><a href="https://github.com/PDillis/stylegan2-ada">StyleGAN2-ADA, Diego Porres&rsquo;s fork for vide and interpolation</a></li>
+<li><a href="https://www.iangoodfellow.com/slides/2016-12-9-gans.pdf">GANs, Ian Goodfellow</a></li>
+<li><a href="https://www.deeplearning.ai/generative-adversarial-networks-specialization/">deeplearning.ai - GAN Spezialization</a></li>
+</ul>
+<h2 id="appendix">Appendix</h2>
+<p><a href="/blog/images/2020/fakehusky.png"><img src="/blog/images/2020/fakehusky.png" alt="Husky"></a></p>
+<h3 id="attacks-overview">Attacks Overview</h3>
+<p>These are the core ML threats for Husky AI that were identified in the <a href="/blog/posts/2020/husky-ai-threat-modeling-machine-learning/">threat modeling session</a> so far and that I want to research and build attacks for.</p>
+<p>Links will be added when posts are completed over the next serveral weeks/months. The more I learn, the more attack ideas come to mind also, so there will likely be more posts eventually.</p>
+<ol>
+<li><a href="/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/">Attacker brute forces images to find incorrect predictions/labels</a> - Bruteforce Attack</li>
+<li><a href="/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/">Attacker applies smart ML fuzzing to find incorrect predictions</a></li>
+<li><a href="/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/">Attacker performs perturbations to misclassify existing images - Perturbation Attack</a></li>
+<li><a href="/blog/posts/2020/husky-ai-machine-learning-model-stealing/">Attacker gains read access to the model - Exfiltration Attack</a></li>
+<li><a href="/blog/posts/2020/husky-ai-machine-learning-backdoor-model/">Attacker modifies persisted model file - Backdooring Attack</a></li>
+<li><a href="/blog/posts/2020/husky-ai-repudiation-threat-deny-action-machine-learning/">Attacker denies modifying the model file - Repudiation Attack</a></li>
+<li>Attacker poisons the supply chain of third-party libraries</li>
+<li>Attacker tampers with images on disk to impact training performance</li>
+<li><a href="/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/">Attacker modifies Jupyter Notebook file to insert a backdoor (key logger or data stealer)</a></li>
+<li><a href="/blog/posts/2020/machine-learning-attack-series-generative-adversarial-networks-gan/">Attacker uses Generative Adversarial Networks to create fake husky images</a> (this post)</li>
+</ol>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2020/machine-learning-attack-series-assume-bias-strategy/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2020
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

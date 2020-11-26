@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Tue, 24 Nov 2020 14:00:50 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2020 17:55:15 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Machine Learning Attack Series: Generative Adversarial Networks (GANs)</title>
+      <link>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-generative-adversarial-networks-gan/</link>
+      <pubDate>Wed, 25 Nov 2020 17:55:15 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-generative-adversarial-networks-gan/</guid>
+      <description>In this post we will explore Generative Adversarial Networks (GANs) to create fake husky images. The goal is, of course, to have &amp;ldquo;Husky AI&amp;rdquo; misclassify them as real huskies.
+If you want learn more about Husky AI visit the Overview post.
+Generative Adversarial Networks One of the attacks I wanted to investigate for a while was the creation of fake images to trick Husky AI. The best approach seemed by using Generative Adversarial Networks (GANs).</description>
+    </item>
     
     <item>
       <title>Assuming Bias and Responsible AI</title>
@@ -20,7 +31,7 @@
       <guid>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-assume-bias-strategy/</guid>
       <description>There are plenty of examples of artificial intelligence and machine learning systems that made it into the news because of biased predictions and failures.
 Here are a few examples on AI/ML gone wrong:
- Amazon had an AI recruiting tool which favored men over women for technical jobs The (in)famous Microsoft chat bot named &amp;ldquo;Tay&amp;rdquo; which turned racist and sexist rather quickly A doctor at the Jupiter Hospital in Florida referred to IBM&amp;rsquo;s AI system for helping recommend cancer treatments as &amp;ldquo;a piece of shit&amp;rdquo; Facebook&amp;rsquo;s AI got someone arrested for incorrectly translating text  The list of AI failures goes on&amp;hellip;</description>
+ Amazon had an AI recruiting tool which favored men over women for technical jobs The Microsoft chat bot named &amp;ldquo;Tay&amp;rdquo; which turned racist and sexist rather quickly A doctor at the Jupiter Hospital in Florida referred to IBM&amp;rsquo;s AI system for helping recommend cancer treatments as &amp;ldquo;a piece of sh*t&amp;rdquo; Facebook&amp;rsquo;s AI got someone arrested for incorrectly translating text  The list of AI failures goes on&amp;hellip;</description>
     </item>
     
     <item>

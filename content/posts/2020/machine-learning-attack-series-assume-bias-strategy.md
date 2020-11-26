@@ -1,4 +1,3 @@
-
 ---
 title: "Assuming Bias and Responsible AI"
 date: 2020-11-24T14:00:50-08:00
@@ -15,8 +14,8 @@ There are plenty of examples of artificial intelligence and machine learning sys
 Here are a few examples on AI/ML gone wrong:
 
 * [Amazon had an AI recruiting tool](https://www.theguardian.com/technology/2018/oct/10/amazon-hiring-ai-gender-bias-recruiting-engine) which favored men over women for technical jobs
-* [The (in)famous Microsoft chat bot named "Tay"](https://www.reuters.com/article/us-microsoft-twitter-bot-idUSKCN0WQ2LA) which turned racist and sexist rather quickly
-* [A doctor at the Jupiter Hospital in Florida](https://gizmodo.com/ibm-watson-reportedly-recommended-cancer-treatments-tha-1827868882) referred to IBM's AI system for helping recommend cancer treatments as "a piece of shit"
+* [The Microsoft chat bot named "Tay"](https://www.reuters.com/article/us-microsoft-twitter-bot-idUSKCN0WQ2LA) which turned racist and sexist rather quickly
+* [A doctor at the Jupiter Hospital in Florida](https://gizmodo.com/ibm-watson-reportedly-recommended-cancer-treatments-tha-1827868882) referred to IBM's AI system for helping recommend cancer treatments as "a piece of sh*t"
 * [Facebook's AI got someone arrested for incorrectly translating text](https://mashable.com/2017/10/24/facebook-auto-translation-palestinian-man-arrest-israel/)
 
 
@@ -25,7 +24,7 @@ The list of AI failures goes on...
 If you built and tested AI yourself you know how powerful, yet brittle machine learning can be. 
 
 
-## Assuming Bias by Design
+## Assume Bias by Design
 
 In the computer network security realm, the industry has adopted an "Assume Breach" mindset. Assume Breach highlights that we should assume (internal and trusted) systems are compromised. 
 
