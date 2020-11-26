@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Wed, 25 Nov 2020 19:55:15 -0800</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2020 09:00:51 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Machine Learning Attack Series: Overview </title>
+      <link>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-overview/</link>
+      <pubDate>Thu, 26 Nov 2020 09:00:51 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-overview/</guid>
+      <description>What a journey it has been. I wrote quite a bit about machine learning from a red teaming/security testing perspective this year. It was brought to my attention to provide a conveninent &amp;ldquo;index page&amp;rdquo; with all Husky AI and related blog posts. Here it is.
+Machine Learning Basics and Building Husky AI  Getting the hang of machine learning The machine learning pipeline and attacks Husky AI: Building a machine learning system MLOps - Operationalizing the machine learning model  Threat Modeling and Strategies  Threat modeling a machine learning system Grayhat Red Team Village Video: Building and breaking a machine learning system Assume Bias and Responsible AI  Practical Attacks and Defenses  Brute forcing images to find incorrect predictions Smart brute forcing Perturbations to misclassify existing images Adversarial Robustness Toolbox Basics Image Scaling Attacks Stealing a model file: Attacker gains read access to the model Backdooring models: Attacker modifies persisted model file Repudiation Threat and Auditing: Catching modifications and unauthorized access Attacker modifies Jupyter Notebook file to insert a backdoor CVE 2020-16977: VS Code Python Extension Remote Code Execution Using Generative Adversarial Networks (GANs) to create fake husky images  Miscellaneous  Participating in the Microsoft Machine Learning Security Evasion Competition - Bypassing malware models by signing binaries  Conclusion As you can see there are many machine learning specific attacks, but also a lot of &amp;ldquo;typical&amp;rdquo; red teaming techniques that put AI/ML systems at risk.</description>
+    </item>
     
     <item>
       <title>Machine Learning Attack Series: Generative Adversarial Networks (GANs)</title>
