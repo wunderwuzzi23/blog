@@ -11,7 +11,7 @@ tags: [
 
 In this post we will explore Generative Adversarial Networks (GANs) to create fake husky images. The goal is, of course, to have "Husky AI" misclassify them as real huskies.
 
-If you want learn more about Husky AI visit the [Overview](/blog/posts/2020/husky-ai-walkthrough/) post.
+If you want to learn more about Husky AI visit the [Overview](/blog/posts/2020/husky-ai-walkthrough/) post.
 
 
 ## Generative Adversarial Networks
@@ -156,10 +156,6 @@ Twitter: [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 [![Husky](/blog/images/2020/fakehusky.png)](/blog/images/2020/fakehusky.png)
 
 ### Attacks Overview
-
-These are the core ML threats for Husky AI that were identified in the [threat modeling session](/blog/posts/2020/husky-ai-threat-modeling-machine-learning/) so far and that I want to research and build attacks for. 
-
-Links will be added when posts are completed over the next serveral weeks/months. The more I learn, the more attack ideas come to mind also, so there will likely be more posts eventually.
 
 1. [Attacker brute forces images to find incorrect predictions/labels](/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/) - Bruteforce Attack
 2. [Attacker applies smart ML fuzzing to find incorrect predictions](/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/) 

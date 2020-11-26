@@ -19,7 +19,7 @@
       
       <guid>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-generative-adversarial-networks-gan/</guid>
       <description>In this post we will explore Generative Adversarial Networks (GANs) to create fake husky images. The goal is, of course, to have &amp;ldquo;Husky AI&amp;rdquo; misclassify them as real huskies.
-If you want learn more about Husky AI visit the Overview post.
+If you want to learn more about Husky AI visit the Overview post.
 Generative Adversarial Networks One of the attacks I wanted to investigate for a while was the creation of fake images to trick Husky AI. The best approach seemed by using Generative Adversarial Networks (GANs).</description>
     </item>
     
