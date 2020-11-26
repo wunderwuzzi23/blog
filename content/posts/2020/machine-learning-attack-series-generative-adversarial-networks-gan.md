@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning Attack Series: Generative Adversarial Networks (GANs)"
-date: 2020-11-25T17:55:15-08:00
+date: 2020-11-25T19:55:15-08:00
 draft: true
 tags: [
         "machine learning",

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Wed, 25 Nov 2020 17:55:15 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2020 19:55:15 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Machine Learning Attack Series: Generative Adversarial Networks (GANs)</title>
       <link>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-generative-adversarial-networks-gan/</link>
-      <pubDate>Wed, 25 Nov 2020 17:55:15 -0800</pubDate>
+      <pubDate>Wed, 25 Nov 2020 19:55:15 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-generative-adversarial-networks-gan/</guid>
       <description>In this post we will explore Generative Adversarial Networks (GANs) to create fake husky images. The goal is, of course, to have &amp;ldquo;Husky AI&amp;rdquo; misclassify them as real huskies.
