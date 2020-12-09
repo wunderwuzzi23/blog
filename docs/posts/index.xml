@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Thu, 26 Nov 2020 09:00:51 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Dec 2020 15:02:22 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Actively protecting pen testers and pen testing assets</title>
+      <link>https://embracethered.com/blog/posts/2020/protecting-the-pentester/</link>
+      <pubDate>Tue, 08 Dec 2020 15:02:22 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2020/protecting-the-pentester/</guid>
+      <description>Today FireEye shared that they were victim of a cyberattack and internal red teaming tooling was accessed by adversaries. More details in this NYT article.
+This reminded me that I wanted to do a post on actively protecting pen testers and pen testing assets for a while.
+Against persistent adversaries it is only a matter of time when they succeed, not if they will succeed. The big question is do you know when an adversary starts poking around, and when they succeed?</description>
+    </item>
     
     <item>
       <title>Machine Learning Attack Series: Overview </title>

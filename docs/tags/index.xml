@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Thu, 26 Nov 2020 09:00:51 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Dec 2020 15:02:22 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>blue</title>
+      <link>https://embracethered.com/blog/tags/blue/</link>
+      <pubDate>Tue, 08 Dec 2020 15:02:22 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/blue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red</title>
+      <link>https://embracethered.com/blog/tags/red/</link>
+      <pubDate>Tue, 08 Dec 2020 15:02:22 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>huskyai</title>
@@ -27,15 +45,6 @@
       <pubDate>Thu, 26 Nov 2020 09:00:51 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>red</title>
-      <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Thu, 26 Nov 2020 09:00:51 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/red/</guid>
       <description></description>
     </item>
     
@@ -63,15 +72,6 @@
       <pubDate>Mon, 23 Nov 2020 23:00:57 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ttp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blue</title>
-      <link>https://embracethered.com/blog/tags/blue/</link>
-      <pubDate>Tue, 10 Nov 2020 16:00:21 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/blue/</guid>
       <description></description>
     </item>
     
