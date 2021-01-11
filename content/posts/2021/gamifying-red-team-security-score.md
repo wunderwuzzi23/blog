@@ -43,7 +43,7 @@ Here is an example how this looks like in Excel:
 
 [![Red Team Score](/blog/images/2021/attackteamscore-excel.png)](/blog/images/2021/attackteamscore-excel.png)
 
-There are a lot of additional things to add and consider when building such a model, in particular considering an input variable that highlights the "business value" of a system or service to be considered in the calculation.
+There are a lot of additional things to add and consider when building such a model, in particular considering an input variable that highlights the "business value" of a system or service to be considered in the calculation. You might also find my post about [**Monte Carlo Simulations and Red Teaming**](https://embracethered.com/blog/posts/2020/red-teaming-and-monte-carlo-simulations/) useful.
 
 I hope that this simple example gives you a good idea on how to highlight red team and security assurance findings by gamifying security and creating scores to show on a dashboard.
 
