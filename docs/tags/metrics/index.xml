@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Wed, 10 Jun 2020 11:23:20 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 11 Jan 2021 09:00:51 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/metrics/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gamifying Security with Red Team Scores</title>
+      <link>https://embracethered.com/blog/posts/2021/gamifying-red-team-security-score/</link>
+      <pubDate>Mon, 11 Jan 2021 09:00:51 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/gamifying-red-team-security-score/</guid>
+      <description>Security metrics are an interesting topic.
+Over the years I used &amp;ldquo;scores&amp;rdquo; as a tool to identify and shine light on problematic areas or highlight lack of engineering and security quality of certain teams.
+
+A security score should not seen as an objective or absoulte measure, but it allows to compare systems with each other at a relative scale, and by sharing the score it makes people ask questions.</description>
+    </item>
     
     <item>
       <title>Red Teaming and Monte Carlo Simulations</title>

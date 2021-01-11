@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Tue, 08 Dec 2020 15:02:22 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 11 Jan 2021 09:00:51 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>assurance</title>
+      <link>https://embracethered.com/blog/tags/assurance/</link>
+      <pubDate>Mon, 11 Jan 2021 09:00:51 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/assurance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>metrics</title>
+      <link>https://embracethered.com/blog/tags/metrics/</link>
+      <pubDate>Mon, 11 Jan 2021 09:00:51 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/metrics/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>blue</title>
@@ -243,15 +261,6 @@
       <pubDate>Fri, 12 Jun 2020 10:00:25 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/sdl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>metrics</title>
-      <link>https://embracethered.com/blog/tags/metrics/</link>
-      <pubDate>Wed, 10 Jun 2020 11:23:20 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/metrics/</guid>
       <description></description>
     </item>
     
