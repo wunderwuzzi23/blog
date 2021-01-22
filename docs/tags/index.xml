@@ -7,10 +7,325 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Thu, 02 Apr 2020 00:01:09 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 22 Jan 2021 12:00:34 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>mitre</title>
+      <link>https://embracethered.com/blog/tags/mitre/</link>
+      <pubDate>Fri, 22 Jan 2021 12:00:34 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/mitre/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red</title>
+      <link>https://embracethered.com/blog/tags/red/</link>
+      <pubDate>Fri, 22 Jan 2021 12:00:34 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>assurance</title>
+      <link>https://embracethered.com/blog/tags/assurance/</link>
+      <pubDate>Mon, 11 Jan 2021 09:00:51 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/assurance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>metrics</title>
+      <link>https://embracethered.com/blog/tags/metrics/</link>
+      <pubDate>Mon, 11 Jan 2021 09:00:51 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/metrics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blue</title>
+      <link>https://embracethered.com/blog/tags/blue/</link>
+      <pubDate>Tue, 08 Dec 2020 15:02:22 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/blue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>huskyai</title>
+      <link>https://embracethered.com/blog/tags/huskyai/</link>
+      <pubDate>Thu, 26 Nov 2020 09:00:51 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/huskyai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Thu, 26 Nov 2020 09:00:51 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>strategy</title>
+      <link>https://embracethered.com/blog/tags/strategy/</link>
+      <pubDate>Tue, 24 Nov 2020 14:00:50 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/strategy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>research</title>
+      <link>https://embracethered.com/blog/tags/research/</link>
+      <pubDate>Mon, 23 Nov 2020 23:00:57 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ttp</title>
+      <link>https://embracethered.com/blog/tags/ttp/</link>
+      <pubDate>Mon, 23 Nov 2020 23:00:57 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ttp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>conference</title>
+      <link>https://embracethered.com/blog/tags/conference/</link>
+      <pubDate>Thu, 05 Nov 2020 15:30:00 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/conference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c2</title>
+      <link>https://embracethered.com/blog/tags/c2/</link>
+      <pubDate>Mon, 26 Oct 2020 06:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/c2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pentesting</title>
+      <link>https://embracethered.com/blog/tags/pentesting/</link>
+      <pubDate>Mon, 19 Oct 2020 20:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/pentesting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>program</title>
+      <link>https://embracethered.com/blog/tags/program/</link>
+      <pubDate>Mon, 19 Oct 2020 20:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/program/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cve</title>
+      <link>https://embracethered.com/blog/tags/cve/</link>
+      <pubDate>Wed, 14 Oct 2020 10:35:02 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/cve/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>threat modeling</title>
+      <link>https://embracethered.com/blog/tags/threat-modeling/</link>
+      <pubDate>Sun, 06 Sep 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/threat-modeling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>appsec</title>
+      <link>https://embracethered.com/blog/tags/appsec/</link>
+      <pubDate>Mon, 24 Aug 2020 12:00:33 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/appsec/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>book</title>
+      <link>https://embracethered.com/blog/tags/book/</link>
+      <pubDate>Fri, 31 Jul 2020 12:08:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/book/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kpi</title>
+      <link>https://embracethered.com/blog/tags/kpi/</link>
+      <pubDate>Fri, 31 Jul 2020 12:08:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/kpi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>philosophy</title>
+      <link>https://embracethered.com/blog/tags/philosophy/</link>
+      <pubDate>Fri, 31 Jul 2020 12:08:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/philosophy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>privacy</title>
+      <link>https://embracethered.com/blog/tags/privacy/</link>
+      <pubDate>Fri, 24 Jul 2020 10:00:16 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/privacy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cookies</title>
+      <link>https://embracethered.com/blog/tags/cookies/</link>
+      <pubDate>Tue, 21 Jul 2020 11:00:15 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/cookies/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>post-exploitation</title>
+      <link>https://embracethered.com/blog/tags/post-exploitation/</link>
+      <pubDate>Tue, 21 Jul 2020 11:00:15 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/post-exploitation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>passthecookie</title>
+      <link>https://embracethered.com/blog/tags/passthecookie/</link>
+      <pubDate>Wed, 15 Jul 2020 06:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/passthecookie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>https://embracethered.com/blog/tags/windows/</link>
+      <pubDate>Tue, 14 Jul 2020 20:18:51 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bug bounty</title>
+      <link>https://embracethered.com/blog/tags/bug-bounty/</link>
+      <pubDate>Wed, 01 Jul 2020 10:30:00 +0000</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/bug-bounty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>story</title>
+      <link>https://embracethered.com/blog/tags/story/</link>
+      <pubDate>Wed, 01 Jul 2020 10:30:00 +0000</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/story/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>https://embracethered.com/blog/tags/blog/</link>
+      <pubDate>Tue, 30 Jun 2020 23:45:42 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sdl</title>
+      <link>https://embracethered.com/blog/tags/sdl/</link>
+      <pubDate>Fri, 12 Jun 2020 10:00:25 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/sdl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>monte carlo</title>
+      <link>https://embracethered.com/blog/tags/monte-carlo/</link>
+      <pubDate>Wed, 10 Jun 2020 11:23:20 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/monte-carlo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bugbounty</title>
+      <link>https://embracethered.com/blog/tags/bugbounty/</link>
+      <pubDate>Wed, 13 May 2020 18:00:25 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/bugbounty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>credentials</title>
+      <link>https://embracethered.com/blog/tags/credentials/</link>
+      <pubDate>Sun, 26 Apr 2020 12:31:29 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/credentials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>attackgraph</title>
+      <link>https://embracethered.com/blog/tags/attackgraph/</link>
+      <pubDate>Mon, 06 Apr 2020 21:00:30 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/attackgraph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homefield advantage</title>
+      <link>https://embracethered.com/blog/tags/homefield-advantage/</link>
+      <pubDate>Mon, 06 Apr 2020 21:00:30 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/homefield-advantage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>presentations</title>
+      <link>https://embracethered.com/blog/tags/presentations/</link>
+      <pubDate>Mon, 06 Apr 2020 21:00:30 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/presentations/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>books</title>
@@ -22,29 +337,11 @@
     </item>
     
     <item>
-      <title>homefield advantage</title>
-      <link>https://embracethered.com/blog/tags/homefield-advantage/</link>
-      <pubDate>Thu, 02 Apr 2020 00:01:09 -0700</pubDate>
+      <title>coffeeshop</title>
+      <link>https://embracethered.com/blog/tags/coffeeshop/</link>
+      <pubDate>Sat, 15 Feb 2020 15:48:51 -0800</pubDate>
       
-      <guid>https://embracethered.com/blog/tags/homefield-advantage/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pentesting</title>
-      <link>https://embracethered.com/blog/tags/pentesting/</link>
-      <pubDate>Thu, 02 Apr 2020 00:01:09 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/pentesting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>red</title>
-      <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Thu, 02 Apr 2020 00:01:09 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/red/</guid>
+      <guid>https://embracethered.com/blog/tags/coffeeshop/</guid>
       <description></description>
     </item>
     
@@ -58,20 +355,74 @@
     </item>
     
     <item>
-      <title>strategy</title>
-      <link>https://embracethered.com/blog/tags/strategy/</link>
-      <pubDate>Wed, 12 Feb 2020 17:03:32 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/strategy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>web</title>
       <link>https://embracethered.com/blog/tags/web/</link>
       <pubDate>Wed, 12 Feb 2020 17:03:32 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cookiesforall</title>
+      <link>https://embracethered.com/blog/tags/cookiesforall/</link>
+      <pubDate>Sun, 27 Oct 2019 10:56:03 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/cookiesforall/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>breaches</title>
+      <link>https://embracethered.com/blog/tags/breaches/</link>
+      <pubDate>Sun, 01 Sep 2019 13:25:07 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/breaches/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>purple</title>
+      <link>https://embracethered.com/blog/tags/purple/</link>
+      <pubDate>Sat, 24 Aug 2019 18:46:06 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/purple/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>code</title>
+      <link>https://embracethered.com/blog/tags/code/</link>
+      <pubDate>Wed, 03 Jul 2019 21:58:01 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tool</title>
+      <link>https://embracethered.com/blog/tags/tool/</link>
+      <pubDate>Wed, 03 Jul 2019 21:58:01 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/tool/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fun</title>
+      <link>https://embracethered.com/blog/tags/fun/</link>
+      <pubDate>Tue, 21 May 2019 21:48:29 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/fun/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>phishing</title>
+      <link>https://embracethered.com/blog/tags/phishing/</link>
+      <pubDate>Thu, 10 Jan 2019 21:40:59 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/phishing/</guid>
       <description></description>
     </item>
     

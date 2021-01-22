@@ -41,25 +41,25 @@ The similarities are quite interesting when putting the matrix next to the Wikip
 
 [![MITRE ATT&CK Survivor Bias](/blog/images/2021/mitre-attack-survivorship-bias.png)](/blog/images/2021/mitre-attack-survivorship-bias.png)
 
-A picture similar to the one above correlating the MITRE ATT&CK matrix with the image of the plane from the Wikipedia article was not my idea - I saw it first by Matt Snyder from VMWare. 
+A picture similar to the one above correlating the MITRE ATT&CK matrix with the image of the plane from the Wikipedia article was not my idea - I saw it first by Matt Snyder from VMWare during one of the monthly [MITRE ATT&CK Power Hour](https://www.mitre.org/attackcon) talks. I highly recommend tuning in to the Power Hour by the way.
 
-But how could this relate to red teaming and survivorship bias?
+But how does this now relate to red teaming and survivorship bias?
 
 ## Red teaming and survivorship bias
 
-Remember that the ATT&CK matrix covers open source threat intelligence by definition. It does not cover threats and techniques that are not publicly disclosed or known. It also does not cover insider threats explicitly. This is something to be aware of when using the matrix, as it might not always be the appropriate tool by itself.
+Remember that the ATT&CK matrix covers open source threat intelligence by definition. It does not cover tactics or  techniques that are not publicly disclosed or known. It also does not cover insider threats explicitly. This is something to be aware of when using the matrix, as it might not always be the appropriate tool by itself.
 
 MITRE also offers [CAPEC](https://capec.mitre.org/) which is something to look into if you are a red teamer, as you might find additional ideas or operations hidden in the CAPEC enumerations.
 
-In my opinion a mature red team in a mature organization should focus on finding new exploits, and novel ways to bypass security controls, and leave the test validation to other teams - e.g. forming a purple team or security test validation v-team to tackle that.
+In my opinion a mature red team in a mature organization should focus on finding new exploits, and novel ways to bypass security controls, and leave the test validation to other teams - e.g. forming a purple team or security test validation v-team to tackle that is typically most efficient.
 
-A red team should focus on the areas that are not highlighted by the blue team in the matrix AND the red team should focus on expanding the matrix with relevant threats to the business that are not covered in the matrix at all.
+A red team should entertain focusing on areas that are not highlighted by the blue team in the matrix AND even more important the red team should focus on expanding the matrix with relevant threats to the business that are not covered in the matrix at all.
 
-It is quite common that resources get allocated on researching the most recent incidents and security vulnerabilities. So, keep in mind that advanced adversaries have probably moved on and are already doing the next big shortly after things like SolarWinds attack unwind.
+It is quite common that resources get allocated on researching the most recent incidents and security vulnerabilities. That is good, especially the investigation of variants for vulnerabilites is critical. But keep in mind that advanced adversaries have probably moved on and are already doing the next big shortly after giant things like the SolarWinds attack unwinds.
 
 ## Conclusion
 
-A red team should spend a significant amount of time investigating and exploring uncovered areas. If this is possible depends often on the maturity of the organization and team. To cover and validate existing detections an organization can stand up a separate purple team or build blue team automation. In my opinion that is not what a red team should spend most of their time doing, although red team's certainly can (and should) help if needed. And in smaller organization these functions overlap.
+A red team should spend a significant amount of time investigating and exploring uncovered areas and attempting to find unknowns. If this is possible depends often on the maturity of the organization and team. To cover and validate existing detections an organization can stand up a purple team or build blue team automation. In my opinion that is not what a red team should spend most of their time doing, although red team's certainly can (and should) help if needed. And in smaller organization these functions typically overlap.
 
 Remember, the matrix only covers things that have already been seen in the wild. It does not cover unknown threats or techniques that lack open source threat intel, or have not been used by real world malware.
 
