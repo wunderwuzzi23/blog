@@ -63,12 +63,19 @@ A red team should spend a significant amount of time investigating and exploring
 
 Remember, the matrix only covers things that have already been seen in the wild. It does not cover unknown threats or techniques that lack open source threat intel, or have not been used by real world malware.
 
+I will speak more about this at my talk at the [Hong Kong - Information Security Summit](https://www.issummit.org/Mr_Johann_Rehberger.html#summit-speaker-dtl) this year. Check that out as well.
+
 
 Cheers, 
+
+Johann.
+
 [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 
 ## References
 
-1. xkcd - Survivorship Bias - https://xkcd.com/1827/
-1. Survivorship Bias Wikipedia - https://en.wikipedia.org/wiki/Survivorship_bias
-1. Common Attack Pattern Enumeration - https://capec.mitre.org/
+1. [xkcd - Survivorship Bias](https://xkcd.com/1827/)
+1. [Survivorship Bias Wikipedia](https://en.wikipedia.org/wiki/Survivorship_bias)
+1. [Matt Snyder ATT&CK Power Hour Slide](https://www2.slideshare.net/attackcon2018/mitre-attckcon-power-hour-November/44)
+1. [Common Attack Pattern Enumeration](https://capec.mitre.org/)
+1. [Information Security Summit - Challenge of Securing the New Norm - the Remote, Mobile, Decentralised and Virtual Business](https://www.issummit.org/Mr_Johann_Rehberger.html#summit-speaker-dtl)
