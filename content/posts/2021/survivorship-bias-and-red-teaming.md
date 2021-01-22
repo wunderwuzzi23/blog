@@ -7,7 +7,7 @@ tags: [
     ]
 ---
 
-Survivorship bias is an interesting thing that we can observe nearly daily. It's the success stories of exponentially growing startups, the motivational speaker who shares their insights on how to be successful and so forth. 
+Survivorship bias is an interesting thing that we can observe nearly daily. It is the success stories of exponentially growing startups, the motivational speaker who shares their insights on how to be successful and so forth. 
 
 What is it exactly?
 
@@ -20,7 +20,7 @@ It occurs when focusing on a subset of information, while happily ignoring other
 > "Every inspirational speech by someone successful should have a start with a disclaimer about survivorship bias." [xkcd](https://xkcd.com/1827/)
 
 
-One of the most interesting examples of survivorship bias is the story of Abraham Wald. During World War II Wald was part of a group of researchers at Columbia University who investigated fighter planes and where they were being hit. This was investigated in order find out what areas of the plane should be improved. The US military argued to focus on the spots that showed hits, but Wald proposed that the spots that are not showing damages are the more important ones - because that's where the planes that do not return were hit!
+One of the most interesting examples of survivorship bias is the story of Abraham Wald. During World War II Wald was part of a group of researchers at Columbia University who investigated fighter planes and where they were being hit. This was investigated in order find out what areas of the plane should be improved. The US military argued to focus on the spots that showed hits, but Wald proposed that the spots that are not showing damages are the more important ones - because that is where the planes that do not return were hit!
 
 [![Survivorship Bias](/blog/images/2021/survivor.png)](/blog/images/2021/survivor.png)
 [Source Wikipedia](https://en.wikipedia.org/wiki/Survivorship_bias)
@@ -47,21 +47,21 @@ But how does this now relate to red teaming and survivorship bias?
 
 ## Red teaming and survivorship bias
 
-Remember that the ATT&CK matrix covers open source threat intelligence by definition. It does not cover tactics or  techniques that are not publicly disclosed or known. It also does not cover insider threats explicitly. This is something to be aware of when using the matrix, as it might not always be the appropriate tool by itself.
+Remember that the ATT&CK matrix covers only open-source threat intelligence by design. It does not cover behaviors, tactics or techniques that are not publicly disclosed or known. It also does not cover insider threats explicitly. This is something to be aware of when using the matrix, as it might not always be the appropriate tool by itself.
 
 MITRE also offers [CAPEC](https://capec.mitre.org/) which is something to look into if you are a red teamer, as you might find additional ideas or operations hidden in the CAPEC enumerations.
 
-In my opinion a mature red team in a mature organization should focus on finding new exploits, and novel ways to bypass security controls, and leave the test validation to other teams - e.g. forming a purple team or security test validation v-team to tackle that is typically most efficient.
+In my opinion a mature red team in a mature organization should focus on finding new exploits, and novel ways to bypass security controls, and leave the test validation to other teams - e.g., forming a purple team or security test validation v-team to tackle that is typically most efficient.
 
 A red team should entertain focusing on areas that are not highlighted by the blue team in the matrix AND even more important the red team should focus on expanding the matrix with relevant threats to the business that are not covered in the matrix at all.
 
-It is quite common that resources get allocated on researching the most recent incidents and security vulnerabilities. That is good, especially the investigation of variants for vulnerabilites is critical. But keep in mind that advanced adversaries have probably moved on and are already doing the next big shortly after giant things like the SolarWinds attack unwinds.
+It is quite common that resources get allocated on researching the most recent incidents and security vulnerabilities. That is good, especially the investigation of variants for vulnerabilities is critical. But keep in mind that advanced adversaries have probably already moved on working on the next "big thing" after things like the SolarWinds attack unwinds.
 
 ## Conclusion
 
 A red team should spend a significant amount of time investigating and exploring uncovered areas and attempting to find unknowns. If this is possible depends often on the maturity of the organization and team. To cover and validate existing detections an organization can stand up a purple team or build blue team automation. In my opinion that is not what a red team should spend most of their time doing, although red team's certainly can (and should) help if needed. And in smaller organization these functions typically overlap.
 
-Remember, the matrix only covers things that have already been seen in the wild. It does not cover unknown threats or techniques that lack open source threat intel, or have not been used by real world malware.
+Remember, the matrix only covers things that have already been seen and publicly documented in the wild. It does not cover unknown threats or techniques that lack open-source threat intel or have not been used by real world malware.
 
 I will speak more about this at my talk at the [Hong Kong - Information Security Summit](https://www.issummit.org/Mr_Johann_Rehberger.html#summit-speaker-dtl) this year. Check that out as well.
 
