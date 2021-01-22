@@ -25,9 +25,9 @@ One of the most interesting examples of survivorship bias is the story of Abraha
 [![Survivorship Bias](/blog/images/2021/survivor.png)](/blog/images/2021/survivor.png)
 [Source Wikipedia](https://en.wikipedia.org/wiki/Survivorship_bias)
 
-Another interesting story I read recently is that the during World War 1 the British Army issued helmets to soldiers and afterwards noticed an increase in head injuries. Can you figure out why that would be?
+Another interesting story I read recently is that during World War 1 the British Army issued helmets to soldiers and afterwards noticed an increase in head injuries. Why that would be?
 
-These are quite interesting stories, but how would this relate to red teaming?
+These are quite interesting stories, but how does this relate to red teaming?
 
 ## Where do adversaries hit?
 
