@@ -22,4 +22,3 @@ The distinct work flows and tool usage between foothold creation and lateral mov
 Team A  was tasked to get the foothold via quite sophisticated methods and custom tooling, and other teams then were tasked to operate within the compromised environments. This might be because of the extreme success of their operation or according to plan, that is difficult to tell. 
 
 It's all quite interesting, and I'm sure we will continue to learn more about this in future.
-
