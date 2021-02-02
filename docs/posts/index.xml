@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Fri, 22 Jan 2021 12:00:34 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 02 Feb 2021 10:35:43 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Team A and Team B: Sunburst, Teardrop and Raindrop</title>
+      <link>https://embracethered.com/blog/posts/2021/sunburst-team-a-team-b/</link>
+      <pubDate>Tue, 02 Feb 2021 10:35:43 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/sunburst-team-a-team-b/</guid>
+      <description>The other day Microsoft published a great deep dive around the second stage payloads and hands-on hacking activities of the Solarwinds/Sunburst incidents that where uncovered late 2020.
+One thing that is so interesting is the use of off the shelve Cobalt Strike tooling and templates for command &amp;amp; control. After doing all the hard work and customization to seamlessly backdoor binaries the adversaries sem to use Cobalt Strike.
+Intel for Red Teamers Although, they did add customizations with some interesting features, which are interesting for red teamers to be aware of.</description>
+    </item>
     
     <item>
       <title>Survivorship Bias and Red Teaming</title>
