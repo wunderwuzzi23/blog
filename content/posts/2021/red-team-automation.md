@@ -18,7 +18,7 @@ In my view a red team might use an existing vulnerability, discover a new vulner
 
 ## An alternative perspective 
 
-Imagine you had access to 18000 organizations but only actively acted on maybe 10% (possibly due to resources constraints). 
+Imagine you had access to 18000 organizations but only actively acted on maybe 1% (possibly due to resources constraints). 
 
 Afterwards you might think quite a bit about what parts of such an operation would benefit from automation to better scale next time. Or maybe at least have some form of "emergency exit" button to grab as much as possible when detected, and before someone pulls the plug. 
 
