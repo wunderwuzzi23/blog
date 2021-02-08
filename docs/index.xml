@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Thu, 04 Feb 2021 08:00:12 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 08 Feb 2021 11:00:20 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>An alternative perspective on the death of manual red teaming </title>
+      <link>https://embracethered.com/blog/posts/2021/red-team-automation/</link>
+      <pubDate>Mon, 08 Feb 2021 11:00:20 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/red-team-automation/</guid>
+      <description>The other day I read this blog post about &amp;ldquo;The Death of Manual Red Teams&amp;rdquo; and I thought I&amp;rsquo;d take a moment to comment on it to provide an alternative perspective.
+In my opinion the premise of the blog post is backwards, highlighting a lack of understanding of what red teaming is about.
+For instance the following sentence in the post seems quite incorrect: &amp;ldquo;Red teaming is the process of using existing, already known security bugs and vulnerabilities to hack a system.</description>
+    </item>
     
     <item>
       <title>Cybersecurity Attacks - Red Team Strategies Kindle Edition for free</title>

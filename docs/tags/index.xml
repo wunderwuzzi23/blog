@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Fri, 22 Jan 2021 12:00:34 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 08 Feb 2021 11:00:20 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>red</title>
+      <link>https://embracethered.com/blog/tags/red/</link>
+      <pubDate>Mon, 08 Feb 2021 11:00:20 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>strategy</title>
+      <link>https://embracethered.com/blog/tags/strategy/</link>
+      <pubDate>Mon, 08 Feb 2021 11:00:20 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/strategy/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>mitre</title>
@@ -18,15 +36,6 @@
       <pubDate>Fri, 22 Jan 2021 12:00:34 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/mitre/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>red</title>
-      <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Fri, 22 Jan 2021 12:00:34 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/red/</guid>
       <description></description>
     </item>
     
@@ -72,15 +81,6 @@
       <pubDate>Thu, 26 Nov 2020 09:00:51 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>strategy</title>
-      <link>https://embracethered.com/blog/tags/strategy/</link>
-      <pubDate>Tue, 24 Nov 2020 14:00:50 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/strategy/</guid>
       <description></description>
     </item>
     
