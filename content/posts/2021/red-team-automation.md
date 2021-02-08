@@ -27,3 +27,6 @@ Red teaming is there to explore the unknows and provide alternative perspectives
 ## Conclusion
 
 I don't think red teaming as a discipline is automatable, although I think adversaries (and hence red teamers) will continue to invest in automation, including AI/ML assisted tooling and decision making.
+
+
+**Edit:** The title of the original post seems to have been updated to be less clickbaity.
