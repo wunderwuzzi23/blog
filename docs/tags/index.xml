@@ -7,17 +7,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Mon, 08 Feb 2021 11:00:20 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 03 Mar 2021 11:37:20 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>conference</title>
+      <link>https://embracethered.com/blog/tags/conference/</link>
+      <pubDate>Wed, 03 Mar 2021 11:37:20 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/conference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>red</title>
       <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Mon, 08 Feb 2021 11:00:20 -0800</pubDate>
+      <pubDate>Wed, 03 Mar 2021 11:37:20 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>兵法</title>
+      <link>https://embracethered.com/blog/tags/%E5%85%B5%E6%B3%95/</link>
+      <pubDate>Wed, 03 Mar 2021 11:37:20 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/%E5%85%B5%E6%B3%95/</guid>
       <description></description>
     </item>
     
@@ -99,15 +117,6 @@
       <pubDate>Mon, 23 Nov 2020 23:00:57 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ttp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>conference</title>
-      <link>https://embracethered.com/blog/tags/conference/</link>
-      <pubDate>Thu, 05 Nov 2020 15:30:00 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/conference/</guid>
       <description></description>
     </item>
     
