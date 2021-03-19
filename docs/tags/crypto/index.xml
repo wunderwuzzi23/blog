@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>crypto on wunderwuzzi blog</title>
+    <link>https://embracethered.com/blog/tags/crypto/</link>
+    <description>Recent content in crypto on wunderwuzzi blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2020</copyright>
+    <lastBuildDate>Fri, 19 Mar 2021 10:16:02 -0700</lastBuildDate>
+    
+	<atom:link href="https://embracethered.com/blog/tags/crypto/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Broken NFT standards</title>
+      <link>https://embracethered.com/blog/posts/2021/broken-nft-standards/</link>
+      <pubDate>Fri, 19 Mar 2021 10:16:02 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/broken-nft-standards/</guid>
+      <description>You probably heard of NFTs (non-fungible tokens). They are receiving a lot of interest over the last several months. I did some digging and realized that there are some bigger issues with the standards and various interpretations and implementations of it, and how centralized many offerings are.
+What is an NFT The idea behind it is simple, use a blockchain (and cryptography) to assign and be able to proof ownership over a specific piece of digital content.</description>
+    </item>
+    
+  </channel>
+</rss>

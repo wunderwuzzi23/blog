@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Broken Nft Standards &middot;  wunderwuzzi blog" />
+  <meta property="og:title" content=" Broken NFT standards &middot;  wunderwuzzi blog" />
   
   <meta property="og:site_name" content="wunderwuzzi blog" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2021/broken-nft-standards/" />
@@ -11,12 +11,14 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2021-03-19T11:51:50-07:00" />
+  <meta property="og:article:published_time" content="2021-03-19T10:16:02-07:00" />
+  
+  <meta property="og:article:tag" content="crypto" />
   
   
 
   <title>
-     Broken Nft Standards &middot;  wunderwuzzi blog
+     Broken NFT standards &middot;  wunderwuzzi blog
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -88,23 +90,97 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Broken Nft Standards</h1>
+    <h1 class="text-primary">Broken NFT standards</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2021-03-19T11:51:50-07:00">
+        <time datetime="2021-03-19T10:16:02-07:00">
           Mar 19, 2021
         </time>
       </div>
     
       <div class="pull-right">
         
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/crypto">#crypto</a></span>
+        
       </div>
     </div>
   </header>
   <section>
-    
+    <p>You probably heard of NFTs (non-fungible tokens). They are receiving a lot of interest over the last several months. I did some digging and realized that there are some bigger issues with the standards and various interpretations and implementations of it, and how <strong>centralized</strong> many offerings are.</p>
+<h2 id="what-is-an-nft">What is an NFT</h2>
+<p>The idea behind it is simple, use a blockchain (and cryptography) to assign and be able to proof ownership over a specific piece of digital content.</p>
+<p>Some critics say NFTs make no sense because one can always just copy the bits, because they are public. I think that&rsquo;s beyond the point, because you can also take a picture of the Mona Lisa in the Louvre and hang it up at home.</p>
+<p>So, in this post I don&rsquo;t want to discuss the value of art, but focus on the technological issues around the promises NFTs make.</p>
+<h3 id="promises">Promises</h3>
+<p>Blockchain sounds awesome, because of its decentralized nature.</p>
+<p>And also, the Ethereum website states about NFTs:</p>
+<blockquote>
+<p>&ldquo;They can only have one official owner at a time and they&rsquo;re secured by the Ethereum blockchain – no one can modify the record of ownership or copy/paste a new NFT into existence.&rdquo;</p>
+</blockquote>
+<p>Unfortunately, this is not accurate, or at least misleading.</p>
+<p>The reason is that there is no required link (e.g. something like a cryptographic hash) between asset and Ethereum blockchain entry.</p>
+<p>In some cases that link (a JSON metadata file) is stored centrally by companies or in Amazon S3. So anyone with access to that, can modify the NFT directly.</p>
+<h3 id="ransomware">Ransomware</h3>
+<p>To continue that thought: What about ransomware that just encrypts the NFT content - yes, such attacks are totally possible and not considered in the NFT threat model.</p>
+<h3 id="crypto-ai-huskies">Crypto AI Huskies</h3>
+<p>I decided to mint my own NFTs to see how this all works and what the fuzz is about. I choose the AI generated huskies <a href="https://opensea.io/collection/crypto-huskies">Crypto AI Huskies</a> that you are probably familiar with if you followed my <a href="https://embracethered.com/blog/posts/2020/husky-ai-walkthrough/">Husky AI Machine Learning Attack Series</a>.</p>
+<p>And after minting my own NFTs at opensea.io and looking at some other offerings I got a bit disappointed in the actual guarantees that can be made with NFTs.</p>
+<h2 id="nft-standards-are-broken">NFT standards are broken</h2>
+<p>The NFT standards allows so much flexibility that no-one should be surprised that a few years from now many NFTs will be gone forever - even if you as the owner still have the private key. Even if you have a local copy of the digital content as well, you can&rsquo;t proof that you are the owner! No kidding.</p>
+<p>Let me explain.</p>
+<h2 id="the-standards-eip-721-and-eip-1152">The standards EIP 721 and EIP 1152</h2>
+<p>There are basically two standards, called <a href="https://eips.ethereum.org/EIPS/eip-721">EIP 721</a> and <a href="https://eips.ethereum.org/EIPS/eip-1152">EIP 1152</a>.</p>
+<p>Let&rsquo;s look at <a href="https://eips.ethereum.org/EIPS/eip-721">EIP 721</a>.</p>
+<p>It defines the <code>ERC721Metadata</code> class and its properties are:</p>
+<ul>
+<li><code>name</code> - a name of the NFT</li>
+<li><code>symbol</code> - some abbreviation symbol</li>
+<li><code>tokenURI</code> - a URI to either a metadata file or URI to the content of the NFT</li>
+</ul>
+<p>So what we have is the <code>ETH address</code> -&gt; <code>tokenURI</code> -&gt; <code>metadata file</code> -&gt; <code>content</code>.</p>
+<p><strong>The (secure) decentralized aspect of NFTs ends with the link from <code>tokenURI</code> to <code>metadata file</code>.</strong></p>
+<p>This means the only thing you can proof is that you own a specific <code>tokenURI</code>, but there is no evidence or link in the blockchain on what the digital content it links to actually is.</p>
+<h3 id="spot-the-defect">Spot the defect!?</h3>
+<p>What is missing here? <strong>A hash!</strong></p>
+<p>Yes, the smart contract does not include a hash of the actual digital content! So there is no requirement to cryptographically link the token blockchain entry to represent the actual content of the NFT.</p>
+<h2 id="metadata-file-with-the-same-issue">Metadata file with the same issue</h2>
+<p>The same goes for the <strong>metadata JSON file</strong>, it contains:</p>
+<ul>
+<li><code>name</code></li>
+<li><code>description</code></li>
+<li><code>image</code></li>
+</ul>
+<p>Again, the image can point anywhere - even to a place that might be gone one day. And here is the issue, there is no way you could proof that a particular image you stored offline, because you bought it and put it in a safe is indeed the one in the blockchain!</p>
+<h3 id="again-no-cryptographic-link-between-blockchain-and-asset">Again, no cryptographic link between blockchain and asset</h3>
+<p>Again, because there is no hash of the image available that would link the content of the NFT to the token in the blockchain.</p>
+<p><strong>If this does seem a bit broken, you are correct because it is.</strong></p>
+<h2 id="broken-standards">Broken standards</h2>
+<p>What is troublesome is that claims on the <a href="https://ethereum.org/en/nft/">Ethereum.org NFT website</a> are incorrect because of the technical limitations highlighted above:</p>
+<p>The page states that:</p>
+<blockquote>
+<p>&ldquo;if you own an NFT&rdquo; &hellip;. &ldquo;No one can manipulate it in any way.&rdquo;</p>
+</blockquote>
+<p><strong>This is fundamentally incorrect given how lax the EIP 712 standard is.</strong></p>
+<p>The image or metadata files are typically stored in a central place, maybe with Amazon S3.</p>
+<p>So it can be modified by multiple stakeholders.</p>
+<p>Some offerings do use IPFS, which seems the better place, but still what would actually help is putting a simple hash of the content in the blockchain - because then at least you can demonstrate if it was tampered with or if you have the same item.</p>
+<p>Or if it disappears and you have your own local copy, you can still proof that you are the owner of that particular NFT.</p>
+<h2 id="better-ways-and-engineers-realizing-issues">Better ways and engineers realizing issues</h2>
+<p>Some offerings, like Makerspace, appear to put the JSON metadata file into IPFS and include a <strong>digital_media_signature</strong> in the file as well.</p>
+<p>This highlights that their engineers understand the limitations of the current NFT standards expressed in the EIPs.</p>
+<h2 id="conclusion-and-recommendations">Conclusion and recommendations</h2>
+<p>Be careful on which project you choose to mint your NFTs. Many of them are quite centralized.</p>
+<p>Your NFT might just disappear one day, or it falls victim to ransomware attack and there is zero evidence that connects the token in the blockchain to the artwork you bought - because the standard does not consider this.</p>
+<p>I think the standard should be changed to require a mandatory hash to what the content of the NFT actually is representing.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://eips.ethereum.org/EIPS/eip-721">EIP 721 - Non-fungible token standard</a></li>
+<li><a href="https://ethereum.org/en/nft/">Ethereum NFT page</a></li>
+<li><a href="https://opensea.io/collection/crypto-huskies">Crypto AI Huskies on opensea.io</a></li>
+</ul>
+
   </section>
   <footer>
     
