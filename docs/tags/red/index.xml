@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Wed, 03 Mar 2021 11:37:20 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 18 Apr 2021 20:00:00 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spoofing credential dialogs on macOS, Linux and Windows</title>
+      <link>https://embracethered.com/blog/posts/2021/spoofing-credential-dialogs/</link>
+      <pubDate>Sun, 18 Apr 2021 20:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/spoofing-credential-dialogs/</guid>
+      <description>A nifty way for an adversaries to acquire passwords during post-exploitation is to spoof credential dialogs and perform a local phishing attack. This means tricking a user on a compromised computer to enter their password.
+Unfortunately, users are conditioned to enter their credentials frequently and therefore don&amp;rsquo;t question random passwords prompts too much.
+Long long time ago&amp;hellip; but nothing has changed The idea to spoof a credential dialog is one of the most simple ideas one might come up with.</description>
+    </item>
     
     <item>
       <title>Hong Kong InfoSec Summit 2021 Talk - The adversary will come to your house!</title>

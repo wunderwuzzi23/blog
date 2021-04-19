@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2021-04-18T20:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2021-04-18T20:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2021/spoofing-credential-dialogs/</loc>
+    <lastmod>2021-04-18T20:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2021-04-18T20:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <lastmod>2021-04-18T20:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2021-04-18T20:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2021/broken-nft-standards/</loc>
     <lastmod>2021-03-19T10:16:02-07:00</lastmod>
   </url>
@@ -13,32 +43,12 @@
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2021-03-19T10:16:02-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2021-03-19T10:16:02-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2021-03-19T10:16:02-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/tags/conference/</loc>
     <lastmod>2021-03-03T11:37:20-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/posts/2021/talk-information-security-summit-hong-kong/</loc>
-    <lastmod>2021-03-03T11:37:20-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
     <lastmod>2021-03-03T11:37:20-08:00</lastmod>
   </url>
   
@@ -134,11 +144,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/research/</loc>
-    <lastmod>2020-11-23T23:00:57-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
     <lastmod>2020-11-23T23:00:57-08:00</lastmod>
   </url>
   
