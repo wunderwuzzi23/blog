@@ -4,7 +4,9 @@ date: 2021-04-18T20:00:00-07:00
 draft: true
 tags: [
         "red",
-        "ttp"
+        "ttp", 
+        "pentesting", 
+        "phishing"
     ]
 ---
 
@@ -21,7 +23,6 @@ In fact, one of the first programs I wrote when learning C, some 26 years ago, w
 I was just learning about `printf` and `scanf` and put them to creative use. Obviously, I didn't use it for nefarious purposes, as I was and still am a curious person. But I remember showing it to a few friends and got surprised reactions.
 
 In this post I we will go over three scenarios on how an attacker might trick users on Mac, Linux and Windows. Given the commands, we can then also easily build detections for them.
-
 
 ### macOS: Spoofing a credential prompt using osascript
 
@@ -81,9 +82,11 @@ Special attention can be given to the `--password` and `with hidden answer` comm
 
 So, make sure that your blue teams has detections for this in place, and is able to distinguish noise from actual attacks.
 
-There are many variations attackers can use, so be on the lookout.
+There are many variations attackers can use, so be on the lookout. 
 
-Also, in Windows one used to have to press `CTRL+ALT+DEL` on the login screen to prevent some of these attacks, but these days it's possible to just spoof the entire login screen by writing a custom credential provider.
+[The MITRE ATT&CK framework also covers this via T1411](https://attack.mitre.org/techniques/T1411/). The details of the TTP have a couple of real world examples of malware doing local phishing attacks.
+
+In Windows one used to have to press `CTRL+ALT+DEL` on the login screen to prevent some of these attacks, but these days it's possible to just spoof the entire login screen by writing a custom credential provider.
 
 ## Conclusion
 
@@ -91,6 +94,5 @@ This was an overview of three common post-exploitation credential stealing techn
 
 Cheers,
 [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
-
 
 Also, if you found this interesting check out my book about [Red Teaming](https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&tag=wunderwuzzi-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1838828869&linkId=07bfd6b729fbc2b2904160e0e16c337f).

@@ -20,7 +20,7 @@
       <guid>https://embracethered.com/blog/posts/2021/spoofing-credential-dialogs/</guid>
       <description>A nifty way for an adversaries to acquire passwords during post-exploitation is to spoof credential dialogs and perform a local phishing attack. This means tricking a user on a compromised computer to enter their password.
 Unfortunately, users are conditioned to enter their credentials frequently and therefore don&amp;rsquo;t question random passwords prompts too much.
-Long long time ago&amp;hellip; but nothing has changed The idea to spoof a credential dialog is one of the most simple ideas one might come up with.</description>
+Long, long time ago&amp;hellip; but nothing has changed The idea to spoof a credential dialog is one of the most simple ideas one might come up with.</description>
     </item>
     
     <item>

@@ -17,6 +17,10 @@
   
   <meta property="og:article:tag" content="ttp" />
   
+  <meta property="og:article:tag" content="pentesting" />
+  
+  <meta property="og:article:tag" content="phishing" />
+  
   
 
   <title>
@@ -108,13 +112,17 @@
         
         <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
         
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentesting">#pentesting</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/phishing">#phishing</a></span>
+        
       </div>
     </div>
   </header>
   <section>
     <p>A nifty way for an adversaries to acquire passwords during post-exploitation is to spoof credential dialogs and perform a local phishing attack. This means tricking a user on a compromised computer to enter their password.</p>
 <p>Unfortunately, users are conditioned to enter their credentials frequently and therefore don&rsquo;t question random passwords prompts too much.</p>
-<h2 id="long-long-time-ago-but-nothing-has-changed">Long long time ago&hellip; but nothing has changed</h2>
+<h2 id="long-long-time-ago-but-nothing-has-changed">Long, long time ago&hellip; but nothing has changed</h2>
 <p>The idea to spoof a credential dialog is one of the most simple ideas one might come up with.</p>
 <p>In fact, one of the first programs I wrote when learning C, some 26 years ago, was a tool that mimicked the Novell Netware Login screen. I was amazed how simple this could be done.</p>
 <p>I was just learning about <code>printf</code> and <code>scanf</code> and put them to creative use. Obviously, I didn&rsquo;t use it for nefarious purposes, as I was and still am a curious person. But I remember showing it to a few friends and got surprised reactions.</p>
@@ -147,7 +155,8 @@ button returned:OK, text returned:S3cr3tPa$$w0rd!
 <p>Special attention can be given to the <code>--password</code> and <code>with hidden answer</code> command line arguments on Mac and Linux.</p>
 <p>So, make sure that your blue teams has detections for this in place, and is able to distinguish noise from actual attacks.</p>
 <p>There are many variations attackers can use, so be on the lookout.</p>
-<p>Also, in Windows one used to have to press <code>CTRL+ALT+DEL</code> on the login screen to prevent some of these attacks, but these days it&rsquo;s possible to just spoof the entire login screen by writing a custom credential provider.</p>
+<p><a href="https://attack.mitre.org/techniques/T1411/">The MITRE ATT&amp;CK framework also covers this via T1411</a>. The details of the TTP have a couple of real world examples of malware doing local phishing attacks.</p>
+<p>In Windows one used to have to press <code>CTRL+ALT+DEL</code> on the login screen to prevent some of these attacks, but these days it&rsquo;s possible to just spoof the entire login screen by writing a custom credential provider.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>This was an overview of three common post-exploitation credential stealing techniques red team and blue teams should be aware of and test for to ensure you can detect adversaries misusing them.</p>
 <p>Cheers,
