@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Google&#39;s FLoC - Privacy Red Teaming Opportunities &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2021/red-teaming-floc-chrome-cohort/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2021-05-01T10:10:08-07:00" />
+  
+  <meta property="og:article:tag" content="pentesting" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="privacy" />
+  
+  
+
+  <title>
+     Google&#39;s FLoC - Privacy Red Teaming Opportunities &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Google&#39;s FLoC - Privacy Red Teaming Opportunities</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2021-05-01T10:10:08-07:00">
+          May 1, 2021
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentesting">#pentesting</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/privacy">#privacy</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>Recently Google&rsquo;s FLoC proposal has been making the rounds in the news. FLoC stands for &ldquo;federated learning of cohorts&rdquo; and is Google&rsquo;s vision how to perform user profiling in Chrome going forward.</p>
+<p>Currently user tracking and profiling happens (mostly) via cookies, but many browser vendors have been supportive of protection of their users and started blocking third party and tracking cookies - or at least offer features in their browser to enable blocking.</p>
+<p>This threatens the business model of the ad industry and hence Google is looking for an alternative. Google&rsquo;s intention might be good with the introduction of FLoC, but FLoC by itself is certainly making tracking and profiling a lot easier now.</p>
+<p>This means your privacy is suffering if you are one of the guinea pigs selected for testing.</p>
+<h2 id="floc-enables-easier-fingerprinting-of-users">FLoC enables easier fingerprinting of users</h2>
+<p>The reason is that FLoC creates additional entropy that can easily be combined with just IP address (which is already a neat fingerprint). These two together can probably 99+% uniquely identify an individual, even if the user is behind a giant NAT. So it does indeed make tracking and profiling easier. Although, Google said FLoCs get recalculated regularly.</p>
+<p>It is also worth highlighting that Google does not enable FLoC for users in the European Union at the moment. This highlights that even Google is not so sure if FLoC is a privacy friendly (GDPR friendly) solution at the moment.</p>
+<p>But, what I wanted to focus on in this post is one thing that I have not seen being discussed anywhere.</p>
+<p><strong>What do advertisers and web servers do with the FLoC ID?</strong></p>
+<h2 id="how-to-access-the-floc-id-via-javascript">How to access the FLoC ID via JavaScript?</h2>
+<p>Let&rsquo;s start with the web page first.</p>
+<p>FLoC assigns you to a cohort, which can be queried by any website you visit using the DOM API:</p>
+<p><code>document.interestCohort()</code></p>
+<p>This returns the cohort you are currently in. To test this, I launched the latest Chrome version using the following command line arguments to enable FLoC voluntarily:</p>
+<pre><code>&amp; &quot;C:\Program Files (x86)\Google\Chrome\Application\chrome.exe&quot; --enable-blink-features=InterestCohortAPI --enable-features=&quot;FederatedLearningOfCohorts:update_interval/10s/minimum_history_domain_size_required/1,FlocIdSortingLshBasedComputation,InterestCohortFeaturePolicy&quot;
+</code></pre><p>And then I hosted a website with the following HTML:</p>
+<pre><code>&lt;html&gt;
+
+Hello, Cohort!
+&lt;br&gt;&lt;br&gt;
+Cohort: &lt;span id=&quot;id&quot;&gt;&lt;/span&gt;&lt;br&gt;
+Version: &lt;span id=&quot;version&quot;&gt;&lt;/span&gt;
+
+&lt;script&gt;
+async function getFLoC() 
+{
+    const { id, version } = await document.interestCohort();
+    document.getElementById(&quot;id&quot;).innerText = id
+    document.getElementById(&quot;version&quot;).innerText = version
+}
+getFLoC(); 
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre><p>That&rsquo;s it. Now when I visit that website, it shows my Cohort/FLoC ID. The identifier is calculated by hashing the domain names of your browsing history using something called <code>simhash</code>.</p>
+<p>In my experiments it was a 4-5 digit number, such as: <code>32536</code>, <code>22521</code> or <code>6419</code>.</p>
+<p>After deleting my browsing history in Chrome, the Cohort API returns nothing.</p>
+<p>Then I visited two websites, including <code>https://grc.com/</code> and I was put in the following cohort: <code>19802</code>.</p>
+<p><em>Note: Via command line I had set <code>setting minimum_history_domain_size_required/1</code> which seems to cause FLoC calculation happening as soon as one site is visited. I&rsquo;m assuming by default Google requires more then just one website to calculate the FLoC ID.</em></p>
+<p>This is how a webpage can get access to the user&rsquo;s cohort. But what to do with that cohort ID?</p>
+<h2 id="what-about-matching-cohorts-to-interests">What about matching cohorts to interests?</h2>
+<p>The piece I have not yet seen described by Google is how do advertisers come into the picture now - How can they show ads based on &ldquo;interests&rdquo; the cohort with the ID <code>19802</code> reflects. So, they can start a bid or show an ad? This is needed for targeted advertising.</p>
+<p>I read about something called <a href="https://github.com/WICG/turtledove">TURTLEDOVE</a> when trying to understand this better. But I have not figured out how this relates to FLoC.</p>
+<p>The TURTLEDOVE paper has some interesting points, as it states everything related to ads and auctions will be done client side - not server side.</p>
+<p>That said, the information and resources for these topics are quite dispersed, and I haven&rsquo;t found a single resource from Google that would explain how this all is actually going to work.</p>
+<p>Curious if anyone knows more?</p>
+<h2 id="privacy-red-teaming-opportunities">Privacy Red Teaming Opportunities!</h2>
+<p>There are certainly a set of privacy focused red teaming opportunities here:</p>
+<ul>
+<li>Is is possible to re-identify webpages a user visits based on Cohort ID?</li>
+<li>Furthermore, it would be neat to have a website that shows what &ldquo;profile&rdquo; and &ldquo;interests&rdquo; you have, rather than just the FLoC ID. Wonder if that is possible?</li>
+<li>Can a &ldquo;rainbow table of FLoCs&rdquo; be precalcuated? This would allow to re-identify certain browsing habits of users</li>
+<li><strong>In fact what if someone creates a Chrome extension that publishes visited domain names and their resulting FLoC ID - Imagine many people download and use it for fun! This would sort of decentralize the previous mentioned de-identifcation attacks and render FLoC useless for all other privacy concerned users.</strong></li>
+<li>How much easier is it now to track a user with just <code>IP address + FLoC ID</code> now</li>
+</ul>
+<p>These are some of the privacy focused threats that I can think of.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Overall, I think the intention are not bad with this. Google is looking for a legitimate and privacy friendly way to keep their business model alive in a world very privacy becomes more and more important. I&rsquo;m wondering though, if detailed profiling is really needed to serve good ads and make a living.</p>
+<p>One criticism at the moment is the lack of transparency and detailed explaination on how this is all going to work is probably the reason Google faces great pushback because the system is not well defined or communicated yet.</p>
+<p>It will be good to keep an eye on the progress and changes.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.eff.org/deeplinks/2021/03/googles-floc-terrible-idea">EFF - Google&rsquo;s FLOC is a terrible idea</a></li>
+<li><a href="https://docs.google.com/a/google.com/viewer?a=v&amp;pid=sites&amp;srcid=Y2hyb21pdW0ub3JnfGRldnxneDo1Mzg4MjYzOWI2MzU2NDgw">Google - Measuring Sensitivity of Cohorts Generated by the FLoC API</a></li>
+<li><a href="https://github.com/WICG/turtledove">TURTLEDOVE</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2021/spoofing-credential-dialogs/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2020
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

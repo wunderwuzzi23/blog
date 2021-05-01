@@ -10,7 +10,7 @@ tags: [
     ]
 ---
 
-A nifty way for an adversaries to acquire passwords during post-exploitation is to spoof credential dialogs and perform a local phishing attack. This means tricking a user on a compromised computer to enter their password.
+A nifty way for adversaries to acquire passwords during post-exploitation is to spoof credential dialogs and perform a local phishing attack. This means tricking a user on a compromised computer to enter their password.
 
 Unfortunately, users are conditioned to enter their credentials frequently and therefore don't question random passwords prompts too much. 
 
@@ -20,9 +20,9 @@ The idea to spoof a credential dialog is one of the most simple ideas one might 
 
 In fact, one of the first programs I wrote when learning C, some 26 years ago, was a tool that mimicked the Novell Netware Login screen. I was amazed how simple this could be done. 
 
-I was just learning about `printf` and `scanf` and put them to creative use. Obviously, I didn't use it for nefarious purposes, as I was and still am a curious person. But I remember showing it to a few friends and got surprised reactions.
+I was just learning about `printf` and `scanf` and put them to creative use. Obviously, I didn't use it for nefarious purposes -  I was and still am a curious person. But I remember showing it to a few friends and got surprised reactions.
 
-In this post I we will go over three scenarios on how an attacker might trick users on Mac, Linux and Windows. Given the commands, we can then also easily build detections for them.
+In this post we will go over three scenarios on how an attacker might trick users on Mac, Linux and Windows. Given the commands, we can then also easily build detections for them.
 
 ### macOS: Spoofing a credential prompt using osascript
 

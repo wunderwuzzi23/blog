@@ -14,10 +14,10 @@
     
     <item>
       <title>Google&#39;s FLoC - Privacy Red Teaming Opportunities</title>
-      <link>https://embracethered.com/blog/posts/2021/floc-chrome-cohort/</link>
+      <link>https://embracethered.com/blog/posts/2021/red-teaming-floc-chrome-cohort/</link>
       <pubDate>Sat, 01 May 2021 10:10:08 -0700</pubDate>
       
-      <guid>https://embracethered.com/blog/posts/2021/floc-chrome-cohort/</guid>
+      <guid>https://embracethered.com/blog/posts/2021/red-teaming-floc-chrome-cohort/</guid>
       <description>Recently Google&amp;rsquo;s FLoC proposal has been making the rounds in the news. FLoC stands for &amp;ldquo;federated learning of cohorts&amp;rdquo; and is Google&amp;rsquo;s vision how to perform user profiling in Chrome going forward.
 Currently user tracking and profiling happens (mostly) via cookies, but many browser vendors have been supportive of protection of their users and started blocking third party and tracking cookies - or at least offer features in their browser to enable blocking.</description>
     </item>
@@ -28,7 +28,7 @@ Currently user tracking and profiling happens (mostly) via cookies, but many bro
       <pubDate>Sun, 18 Apr 2021 20:00:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2021/spoofing-credential-dialogs/</guid>
-      <description>A nifty way for an adversaries to acquire passwords during post-exploitation is to spoof credential dialogs and perform a local phishing attack. This means tricking a user on a compromised computer to enter their password.
+      <description>A nifty way for adversaries to acquire passwords during post-exploitation is to spoof credential dialogs and perform a local phishing attack. This means tricking a user on a compromised computer to enter their password.
 Unfortunately, users are conditioned to enter their credentials frequently and therefore don&amp;rsquo;t question random passwords prompts too much.
 Long, long time ago&amp;hellip; but nothing has changed The idea to spoof a credential dialog is one of the most simple ideas one might come up with.</description>
     </item>
