@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Sun, 18 Apr 2021 20:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 01 May 2021 10:10:08 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,27 @@
     <item>
       <title>pentesting</title>
       <link>https://embracethered.com/blog/tags/pentesting/</link>
-      <pubDate>Sun, 18 Apr 2021 20:00:00 -0700</pubDate>
+      <pubDate>Sat, 01 May 2021 10:10:08 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/pentesting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>privacy</title>
+      <link>https://embracethered.com/blog/tags/privacy/</link>
+      <pubDate>Sat, 01 May 2021 10:10:08 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/privacy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red</title>
+      <link>https://embracethered.com/blog/tags/red/</link>
+      <pubDate>Sat, 01 May 2021 10:10:08 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/red/</guid>
       <description></description>
     </item>
     
@@ -27,15 +45,6 @@
       <pubDate>Sun, 18 Apr 2021 20:00:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/phishing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>red</title>
-      <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Sun, 18 Apr 2021 20:00:00 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/red/</guid>
       <description></description>
     </item>
     
@@ -216,15 +225,6 @@
       <pubDate>Fri, 31 Jul 2020 12:08:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/philosophy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>privacy</title>
-      <link>https://embracethered.com/blog/tags/privacy/</link>
-      <pubDate>Fri, 24 Jul 2020 10:00:16 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/privacy/</guid>
       <description></description>
     </item>
     
