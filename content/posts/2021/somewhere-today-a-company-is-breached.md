@@ -1,6 +1,6 @@
 ---
-title: "Somewhere today a company is breached."
-date: 2021-06-06T10:10:00-07:00
+title: "Somewhere today a company is breached"
+date: 2021-06-09T06:10:00-07:00
 draft: true
 tags: [
         "red",
@@ -8,7 +8,7 @@ tags: [
     ]
 ---
 
-In this lenghty post I will dive into reasons for having an offensive security program and how a red team can help improve the immune system of your organization.
+This rather lengthy post is will dive into reasons for having an offensive security program and in particular, on how a red team can help improve the immune system of your organization. This is the high-level outline of the post:
 
 - [Security breaches cannot be entirely prevented](#security-breaches-cannot-be-entirely-prevented)
 - [Implications of a breach](#implications-of-a-breach)
@@ -16,28 +16,32 @@ In this lenghty post I will dive into reasons for having an offensive security p
 - [Security investments - run as fast as you can, just to stay in place](#security-investments)
 - [Creating effective defense to withstand real world adversaries](#creating-effective-defense-to-withstand-real-world-adversaries)
 - [The immune system of your organization](#the-immune-system-of-your-organization)
-- [Embracing the Red](#embracing-the-red)
+- [Embracing the red](#embracing-the-red)
 
 
 With regular cadence companies are compromised and suffer breaches. Organizations do not realize a compromise until many days, months, sometimes even years later.
 
 # Security breaches cannot be entirely prevented
 
-One of the challenges someone who wants to build out an offensive security program faces within an organization is the assumption that all breaches can be prevented, and that investing in protective measurements alone is enough to secure the organization. 
+One of the many challenges someone who wants to build out an offensive security program faces within an organization is the assumption that breaches can be prevented, and that investing in protective measurements alone is enough to secure the organization. 
 
-This philosophy and thinking is unfortunately misguided. It reflects a defensive and immature way to look at security and how to manage risks. Given enough resources an adversary will always succeed in compromising a target. 
-
-An organization that focuses solely on protective measurements will find themselves in a situation of not even detecting a breach themselves. Or if detected, there is no clear understanding on how to investigate or recover from such an incident. 
+This philosophy and thinking is unfortunately misguided. It reflects a defensive and immature way to look at security and how to manage risks. Given enough resources an adversary will always succeed in compromising a target.
 
 ![/blog/images/2021/hacked.jpg](/blog/images/2021/hacked.jpg)
 
+An organization that focuses solely on protective measurements will find themselves in a situation of not even detecting a breach themselves. Or if detected, there is no clear understanding on how to investigate or recover from such an incident. 
+
+> Offensive security reduces uncertainty around the state of the security of an organization. Therefore, an offensive security program is perfectly positioned to inform the risk management process to help make informed business decisions.
+
 If the security program was built out to focus on preventive measures alone, in the end its inability to effectively respond to a breach falls flat and the adversary potentially even stays entirely undetected.
 
-Most organization realize the need for penetration testing. 
+## Identifying security vulnerabilities
 
-Typically, it is forced upon them via compliance requirements. Less mature organization focus efforts on high value systems only, rather than more holistic strategy across the organization, including internal and external attack surface, people, processes and technologies. 
+Most organization realize the need for penetration testing. Typically, it is forced upon them via compliance requirements. But there is a entire offensive security world beyond pentesting.
 
-Recently I talked with a security engineer of a large telecommunication provider who must creatively work around, because it is only allowed to perform penetration testing during maintenance windows. 
+Less mature organizations do not have a holistic red teaming strategy across the organization, including internal and external attack surface, people, processes, and technologies. 
+
+Recently I talked with a security engineer of a large telecommunication provider who must creatively work around internal policies, because it is only allowed to perform penetration testing during maintenance windows. 
 
 This limits the effectiveness and realism a real adversary has. It reminded me of the earlier days in my career facing similar issues when proposing offensive ideas and testing techniques to leadership.
 
@@ -45,48 +49,50 @@ The longer your organization does not have a security event, the more you should
 
 # Implications of a breach
 
-Consider that your organization is breached right now – chances are pretty good that it actually is while you are reading this. 
+Consider that your organization is breached right now – chances are fairly good that it actually compromised while you are reading this. 
 
-Many breaches stay entirely unnoticed. An employee might click a phishing email and their computer is compromised or their password stolen. There is a wide range of attacks an adversary might perform, including data theft, leverage compromised resources for their own gain, sit and wait, disrupt or destroy the data or service offerings. 
+Many breaches stay entirely unnoticed. An employee might click a phishing email and their computer is compromised or their password stolen. There is a wide range of attacks an adversary might perform, including data theft, leverage compromised resources for their own gain, sit and wait, disrupt, or destroy the data or service offerings. 
 
 ## What is the core business of your organization?
 
 A good way to analyze business risks and put them in a security context is to ask the business owners what the most existential risks to the core of their business are. 
 
-The business owners see risks from different perspectives and good cyber security engineers highlight and put security threats into an understandable business context. 
+The business owners see risks from different perspectives and good security engineers highlight and put security threats into an understandable business context. 
 
-A business owner doesn't understand the meaning or risk of a legacy server not being patched. In discussions with stakeholders one might hear that a system is **legacy** to downplay a risk. There are no legacy systems, if a system is in use and processes data or is connected to other infrastructure it is not legacy.
+A business owner does not understand the meaning or risk of a legacy server not being patched. In discussions with stakeholders, one might hear that a system is **legacy** to downplay a risk. There are no legacy systems, if a system is in use and processes data or is connected to other infrastructure it is not legacy.
 
 ![/blog/images/2021/ransomware.jpg](/blog/images/2021/ransomware.jpg)
 
-Ransomware has become very common over the last several years. The outbreak of [WannaCry Ransomware](https://en.wikipedia.org/wiki/WannaCry_ransomware_attack) was a great reminder how vulnerable the ecosystem and organizations are. 
+Ransomware has become quite common over the last several years. Colonial Pipelines for instance, or take the outbreak [WannaCry Ransomware](https://en.wikipedia.org/wiki/WannaCry_ransomware_attack) was a great reminder how vulnerable the ecosystem and organizations are. 
 
-WannaCry leveraged an already patched vulnerability to compromise hosts and encrypt data to hold for ransomware, it spread to infect other reachable hosts which caused a networking effect. Thousands of organizations were impacted, and for many it had drastic impact on their day to day operations. 
+WannaCry leveraged an already patched vulnerability to compromise hosts and encrypt data to hold for ransomware, it spread to infect other reachable hosts which caused a networking effect. Thousands of organizations were impacted, and for many it had drastic impact on their day-to-day operations. 
 
 The National Health Service Hospitals in the England and Scotland had computers infected, other impact organization included Renault, Nissan and countless others. 
 
-Overall it has been reported that at least 200.000 computer systems were compromised across pretty much every country on earth. 
+Overall, it has been reported that at least 200.000 computer systems were compromised across pretty much every country on earth. 
 
 The WannaCry ransomware (or the recent [Exchange Server vulnerabilities](https://www.fireeye.com/blog/threat-research/2021/03/detection-response-to-exploitation-of-microsoft-exchange-zero-day-vulnerabilities.html)) show that organizations do not patch their (internal) infrastructure fast enough, and as a result many were breached and could not operate for days. And they ended up in news reports damaging the corporate image and trust. 
 
-Recenly more even more ransomware attacks have made the news, such as [Colonial Pipeline Attack](https://en.wikipedia.org/wiki/Colonial_Pipeline_cyber_attack) and other similar attacks.
+More even more ransomware attacks have made the news, such as [Colonial Pipeline Attack](https://en.wikipedia.org/wiki/Colonial_Pipeline_cyber_attack) and other similar attacks. Information about attacks can be read daily in the news for quite a while.
 
-A simple vulnerability, like an unpatched machine or a weak password can lead to drastic implications for the overall business.
+A preventable vulnerability, like an unpatched machine or a weak password can lead to drastic implications for the overall business.
 
 
 # Automated malware can hit your organization at any time
 
-The idea of malware spreading automatically is well-known and the industry has seen successful large-scale malware like this before. 
+The idea of malware spreading automatically is well-known and the industry has seen successful large-scale malware like this before.
 
 For instance, the [SQL Slammer Worm](https://en.wikipedia.org/wiki/SQL_Slammer) comes to mind which caused major service disruption across the entire Internet when it started spreading end of January 2003. It infected tens of thousands of machines within minutes.
 
 **It is worth highlighting that the worst case was by far not reached or attempted so far.**
 
-Technically an adversary can create malware that fully automates compromising, post exploitation credential discovery to pivot from one target destination to another automatically. 
+Technically an adversary can create malware is fully automated and autonomous. Compromising, credential discovery and pivot from one target destination to another entirely automatically.
 
-Imagine malware that infects your computer, automatically reads all the passwords and cookies stored on your machine and then automatically uses these passwords to navigate to other systems, including your social media account, your online backups, your bank account and so forth. 
+Imagine malware that infects your computer. Afterwards it automatically reads all passwords and cookies stored on your machine and uses these passwords to navigate to other systems, including social media accounts, your online backups, your bank account and so forth. 
 
-The implications and damage to individuals and the industry would be disastrous. Luckily WannaCry did not attempt such an attack and let’s hope something like this won’t happen anytime soon. 
+Certain threat actors are also becoming more courageous. Rather than performing targeted attacks they compromise as many targets as possible via automation or supply chain attacks. Becoming collateral damage is quite likely these days for an organization.
+
+The implications and damage to individuals and the industry is already quite disastrous and further malware automation will make this worse. Luckily WannaCry and more recent malware have not attempted fully automated and autonomous attacks and let’s hope something like this won’t happen anytime soon.
 
 **Hoping that this won’t happen is probably not the best strategy though.**
 
@@ -94,22 +100,21 @@ The industry has made great progress and leveraging security measures like encry
 
 Despite this, many organizations are not correctly prioritizing investments to help protect themselves from real world threats.
 
-# Security investments
+# Continous security investments
 
 Lewis Carroll already knew about these security challenges:
 
 > "My dear, here we must run as fast as we can, just to stay in place. And if you wish to go anywhere you must run twice as fast as that." (Alice in Wonderland)
 
-This phrase frequently pops into my head when discussing security threats, triaging vulnerabilities and considering long term investments and strategic design decisions. 
+This phrase frequently pops into my head when discussing security threats, triaging vulnerabilities, and considering long term investments and strategic design decisions. 
 
 ![/blog/images/2021/coins.jpg](/blog/images/2021/coins.jpg)
 
-
 To effectively secure systems today and in the future, active measures must be taken. 
 
-Your organization must stay ahead of the curve and ensure that legacy systems are being updated and patched, and that breaches can be detected and mitigated. 
+Your organization must stay ahead of the curve and ensure that systems are being updated and patched, and that breaches can be detected and mitigated. 
 
-Just staying in place will work against you. A good example is cryptography: 
+Just staying in place works against you. A great example is cryptography: 
 
 - If your organization is encrypting data right now, what are you doing to ensure that five years from now you will be able to upgrade the old data to newer algorithms? 
 - Is your organization considering the cost and making the right design decision today to ensure a seamless upgrade will be possible? 
@@ -117,9 +122,9 @@ Just staying in place will work against you. A good example is cryptography:
 - How will you store the metadata about what algorithm has been used? 
 - How will the certificates and keys be stored? If you are using TLS are you supporting perfect forward secrecy?
 
-Your adversaries have a seemingly easy task, all a current (or a future adversary) must do is find one unpatched system or one exposed vulnerability, while the defenders need to protect from all and every possible threat, even those that are not yet known. 
+Your adversaries have a seemingly easy task. All a current (or a future adversary) must do is find an unpatched system or one exposed vulnerability, while the defenders need to protect from all and every possible threat, even those that are not yet known! 
 
-Staying in place in the security race will render your organization vulnerable. If you are in an acceptable shape today, a year from now you are not.
+> Staying in place in the security race will render your organization vulnerable. If you are in an acceptable shape today, a year from now you are not.
 
 What can an organization do to tackle these challenges, to identify weaknesses and highlight areas for investment to actively protect the business? 
 
@@ -127,7 +132,7 @@ What can an organization do to test the response capabilities and disaster recov
 
 # Creating effective defense to withstand real world adversaries
 
-Consider patching. Organizations strive towards patching infrastructure regularly, depending on the scale and size this can be a complex task and there is the risk of a patch breaking critical production infrastructure. Some organization are very conservative in rolling out patches. 
+Consider patching. Organizations strive towards patching infrastructure regularly, depending on the scale and size this can be a complex task and there is the risk of a patch breaking critical production infrastructure. Some organizations are very conservative in rolling out patches. 
 
 Rather than applying them immediately patches undergo intense testing before being applied. 
 
@@ -149,11 +154,11 @@ In case it gets extremely cold we put on additional measures like a face mask an
 
 These are all great preventive measures to help protect our body from external threats. Besides clothes you likely also enjoy some hot chocolate, or some refreshing and activating tea to warm up. Having a healthy diverse diet with lots of vitamins helps also. 
 
-People get vaccinations for the flu to ensure active protection against possibly falling sick during times of elevated threat conditions. Additionally, people cover their coughs (and wear masks!) at home, as we all did the last 12 months. 
+People get vaccinated to ensure active protection against possibly falling sick during times of elevated threat conditions. Additionally, people cover their coughs (and wear masks - as we all did the last 12 months). 
 
-These measures are taken to support our immune system to keep us healthy. In the end though, we still might get sick and, in that case, our immune system will take additional measures and concerted and concentrated efforts to ensure a speedy recover. 
+These measures are taken to support our immune system to keep us and our communities healthy. In the end though, we still might get sick and, in that case, our immune system will take additional measures and concerted and concentrated efforts to ensure a speedy recover. 
 
-The immune system has amazing capabilities for preventing, responding and recovering from attacks. Our white blood cells are actively scanning cells for malicious or cancerous infections. In the case they encounter a threat they can kill off these cells as necessary to prevent disease or infections from spreading. 
+The immune system has amazing capabilities for preventing, responding, and recovering from attacks. Our white blood cells are actively scanning cells for malicious or cancerous infections. In the case they encounter a threat they can kill off these cells as necessary to prevent disease or infections from spreading. 
 
 They also help with active defense to ensure our immune system better adapts to real world threats and viruses. To boost the immune system, it helps if we expose ourselves to real world threats. 
 
@@ -161,62 +166,65 @@ They also help with active defense to ensure our immune system better adapts to 
 
 Kids that play in the dirt improve their immune system to build up the strength to fight of the real adversary. Many organizations invest in firewalls, intrusion prevention systems, anti-virus detection, spam filters, with the assumption that a breach is preventable. 
 
-All those actions are very useful to build a strong security posture. Despite all these preventive measures (like hats, gloves, vitamins, cough masks, etc..) some threats will bypass and go beyond those preventive measures and your organization will get sick.
+All those actions are useful to build a strong security posture. Despite preventive measures (like hats, gloves, vitamins, masks, etc..) some threats will still get your organization sick.
 
 This analogy can be applied to computer systems and networks. Exposure to threats helps to actively defend systems and to improve our defensive capabilities. We can build up the strength to fight off real adversaries and their attacks should the situation arise. 
 
-# Does your organizations possess a functional and effective immune system? 
+# Does your organizations possess an effective immune system? 
 
 Do you regularly challenge your defense and detection capabilities to ensure it can withstand real world threats before they impact your business?
 
-The take away of this analogy is that as much as we would like to be able to prevent a breach, it is not possible. 
+The takeaway of this analogy is that as much as we would like to be able to prevent a breach, it is not possible. 
 
-Organizations have to change the threat model they operate with to embrace the mentality that preventive measures will fail and that we have to strengthen our ways and remedies on what happens while and after a breach occurs. How will you manage risks knowing that you are breached?
+Organizations must change the threat model they operate with to embrace the mentality that preventive measures will fail and that we have to strengthen our ways and remedies on what happens while and after a breach occurs. How will you manage risks knowing that you are breached?
 
 The defenders in most organization are referred to as the blue team. They take on the task to protect the organization from adversaries and breaches. 
 
 They are there to protect, monitor and respond to security events. Typically, there is a core team of responders that work shifts to provide 24/7 coverage. 
 
-In extension the blue team gets help and support from everyone else in the organization. So many ways in the blue team is the immune system of a healthy organization. 
+> Effective defense is difficult to achieve without having resources dedicated to testing, measuring and improve the organization’s immune system, and this is where an Offensive Security Program comes into the picture.
 
-It is there to attempt to prevent breaches, but also to help detect breaches and direct and concert the efforts for successful response and remediation of the threats the organization must deal with. 
+In extension the blue team gets help and support from everyone else in the organization. So, in many ways in the blue team is the immune system of a healthy organization. 
 
 ## Changing the threat model
 
-A modern threat model has to assume that the organization or certain systems have already been breached. 
+A modern threat model must assume that the organization or certain systems have already been breached. 
 
 ![/blog/images/2020/binary.jpg](/blog/images/2020/binary.jpg)
 
 The idea is that a breach cannot be prevented and rather than focusing all your resources on the prevention side, one should invest similarly with the mindset that a breach has already occurred and that there are compromised assets in the organization. 
 
+
 ## Zero Trust and Assume Breach
 
 This is even more important if you are not just founding a company but work for an organization that has been operating for many years with focus on preventive or perimeter defenses only.
 
-Google introduced the BeyondCorp security approach after their perimeter was breached. BeyondCorp is based upon the network security principle of **Zero Trust**, which means that perimeter defense by itself is not an effective security measure. 
+- Google introduced the BeyondCorp security approach after their perimeter was breached. BeyondCorp is based upon the network security principle of **Zero Trust**, which means that perimeter defense by itself is not an effective security measure. 
 
-Microsoft has embraced an **Assume Breach** mindset as core security strategy.  
+- Microsoft has embraced an **Assume Breach** mindset as core security strategy.  
 
 Chances are that if you work in a mid-size to large company, your organization most likely has already been breached. Maybe your organization was not victim of a targeted attack of a competitor or nation state but just collateral damage of wide-ranging attacks that occur across the landscape, like the WannaCry worm or mass phishing attacks. 
 
-And if you are a small sized business, you aren’t safe either, 74% of small and mid-sized companies have experienced a breach according to UK Government survey, compared to 90% of large organizations. To change the discussion, we must shift from purely preventive measures to include detection, remediation, eviction and full recovery from adversarial events. 
+And if you are a small sized business, you aren’t safe either, 74% of small and mid-sized companies have experienced a breach according to UK Government survey, compared to 90% of large organizations. To change the discussion, we must shift from purely preventive measures to include detection, remediation, eviction, and full recovery from adversarial events. 
 
-Do not wait for an external occurrence of a breach, go and actively prepare for such events and conditions. Consider your organization breached right now - you just have not found the adversary yet. 
+> Do not wait for an external occurrence of a breach. Go, and actively prepare for such events and conditions. Consider your organization breached right now - you just have not found the adversary yet. 
 
 Effective defense is difficult to achieve without having resources dedicated to testing, measuring and improve the organization’s immune system, and this is where an Offensive Security Program comes into the picture.
 
 # Embracing the Red  
 
-Invest in offensive security to breach yourself. Establishing an internal offensive security program can help build up and improve the immune system of an organization. It gives the organization the opportunity to develop a better understanding of and resilience to attacks.
+Invest in offensive security to breach yourself. Establishing an internal offensive security program will help build up and improve the immune system of an organization. It gives the organization the opportunity to develop a better understanding of and resilience to attacks.
 
 ![/blog/images/2021/matrix2.jpg](/blog/images/2021/matrix2.jpg)
 
-If real breaches occur, then the organization can effectively act to detect and remediate the adversary. The overarching goal is to help the organization improve protection, detection and response capabilities of an organization. 
+If real breaches occur, the organization can effectively act to detect and remediate the threat. The overarching goal is to help the organization improve protection, detection, and response capabilities. 
 
-To put another spin on the topic offensive security reduces uncertainty around the state of the security of an organization. Therefore, an offensive security program is perfectly positioned to inform the risk management process to help make informed business decisions.
+Offensive security reduces uncertainty around the state of the security of an organization. Therefore, an offensive security program is perfectly positioned to inform the risk management process to help make informed business decisions.
 
-Cheers, Johann.
+Cheers.
 [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
+
+
 
 
 
@@ -238,5 +246,6 @@ Cheers, Johann.
 4. [Matrix Computer](https://pixabay.com/illustrations/matrix-computer-hacker-code-2354492/)
 5. [Ransomware](https://pixabay.com/get/g6dfbd8c96574b4057c20eae1499f1ea812b96561023c41ed1df3b48e386c3a4401835c7cfd71e1fa0bca0dcb1265fbd4_1280.jpg)
 6. [Coins](https://pixabay.com/get/g2dd8e6c6e25a8f878d4baa408612279b98c284076c54e540a7289d42562928f7bfd907198aeb127b2d104c48124bdaf4_1280.jpg)
+7. [Hacker Cybercrime](https://pixabay.com/illustrations/hacker-cyber-crime-internet-2300772/)
 
-Most images have been slightly modified.
+*Images have been slightly modified (mostly cropped)*
