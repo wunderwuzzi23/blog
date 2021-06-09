@@ -6,11 +6,21 @@
     <description>Recent content in Posts on wunderwuzzi blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Sat, 01 May 2021 10:10:08 -0700</lastBuildDate>
+    <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
+    <lastBuildDate>Wed, 09 Jun 2021 08:30:00 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Somewhere today a company is breached</title>
+      <link>https://embracethered.com/blog/posts/2021/somewhere-today-a-company-is-breached/</link>
+      <pubDate>Wed, 09 Jun 2021 08:30:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/somewhere-today-a-company-is-breached/</guid>
+      <description>This rather lengthy post goes into reasons for having an offensive security program and in particular, on how a red team can help improve the immune system of your organization. This is the high-level outline of the post:
+ Security breaches cannot be entirely prevented Implications of a breach Automated malware can hit your organization at any time Security investments - run as fast as you can, just to stay in place The immune system of your organization Embracing the red  With regular cadence companies are compromised and suffer breaches.</description>
+    </item>
     
     <item>
       <title>Google&#39;s FLoC - Privacy Red Teaming Opportunities</title>
