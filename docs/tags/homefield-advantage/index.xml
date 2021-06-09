@@ -6,22 +6,11 @@
     <description>Recent content in homefield advantage on wunderwuzzi blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2020</copyright>
-    <lastBuildDate>Mon, 06 Apr 2020 21:00:30 -0700</lastBuildDate>
+    <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
+    <lastBuildDate>Thu, 02 Apr 2020 00:01:09 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/homefield-advantage/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Attack Graphs - How to create and present them</title>
-      <link>https://embracethered.com/blog/posts/2020/conceptual-attack-graphs/</link>
-      <pubDate>Mon, 06 Apr 2020 21:00:30 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/posts/2020/conceptual-attack-graphs/</guid>
-      <description>Conceptual Attack Graphs One question that I have gotten a few times about &amp;ldquo;Cybersecurity Attacks - Red Team Strategies&amp;rdquo; is around the conceptual attack graphs in &amp;ldquo;Chapter 3, Measuring an Offensive Security Program&amp;rdquo;. Specifically, how I create them.
-In this post I will briefly go over some of the reasons for creating them, and also how I create them and share a template for others to use and adjust.
-I&amp;rsquo;m not a graphic designer, so I&amp;rsquo;m sure there are better ways of doing this.</description>
-    </item>
     
     <item>
       <title>Cybersecurity Attacks - Red Team Strategies has been released.</title>
@@ -32,18 +21,6 @@ I&amp;rsquo;m not a graphic designer, so I&amp;rsquo;m sure there are better way
       <description>Announcement After countless evenings and weekends in coffee shops, and multiple vacations with the laptop, I&amp;rsquo;m excited to announce that my first book has been published. It took 18 months from writing the first words (at Victrola Coffee Roasters on Capitol Hill by the way) to finishing this project just a few days ago.
 
 Looking back its amazing how this all came together. The first intial draft had 100 pages, and in the end it ended up being 524 pages.</description>
-    </item>
-    
-    <item>
-      <title>Book: Cybersecurity Attacks - Red Team Strategies</title>
-      <link>https://embracethered.com/blog/posts/book-cybersecurity-attacks-red-team-strategies/</link>
-      <pubDate>Mon, 02 Dec 2019 17:09:57 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/posts/book-cybersecurity-attacks-red-team-strategies/</guid>
-      <description>Excited to announce the book that I have been working on:
-Cybersecurity Attacks - Red Team Strategies
-Learn about the foundational tactics, techniques and procedures to elevate your red teaming skills and enhance the overall security posture of your organization by leveraging homefield advantage. 
-Contents and Background Red Team Strategies covers aspects that are not as commonly discussed in literature, including chapters around building and managing a pen test team.</description>
     </item>
     
   </channel>
