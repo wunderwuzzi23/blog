@@ -14,7 +14,6 @@ This rather lengthy post goes into reasons for having an offensive security prog
 - [Implications of a breach](#implications-of-a-breach)
 - [Automated malware can hit your organization at any time](#automated-malware-can-hit-your-organization-at-any-time)
 - [Security investments - run as fast as you can, just to stay in place](#security-investments)
-- [Creating effective defense to withstand real world adversaries](#creating-effective-defense-to-withstand-real-world-adversaries)
 - [The immune system of your organization](#the-immune-system-of-your-organization)
 - [Embracing the red](#embracing-the-red)
 
@@ -24,7 +23,7 @@ With regular cadence companies are compromised and suffer breaches. Organization
 # Security breaches cannot be entirely prevented
 
 One of the challenges building out an internal offensive security program is to get buy-in and support from leadership. 
-Often there is an assumption that breaches can be prevented, and that investing in protective measurements alone is enough to secure the organization. 
+Often there is a lack of awareness of threat landscape, including assumption that breaches can be prevented, and that investing in protective measurements alone is enough to secure the organization. 
 
 ![/blog/images/2021/hacked.jpg](/blog/images/2021/hacked.jpg)
 
@@ -55,7 +54,9 @@ The longer your organization does not have a security event, the more you should
 
 Consider that your organization is breached right now – chances are fairly high that it is while you are reading this. 
 
-Many breaches stay entirely unnoticed. An employee might click a phishing email and their computer is compromised or their password stolen. There is a wide range of attacks an adversary might perform, including data theft, leverage compromised resources for their own gain, sit and wait, disrupt, or destroy the data or service offerings. 
+Many breaches stay entirely unnoticed. An employee might click a phishing email and their computer is compromised or their password stolen. 
+
+There is a wide range of attacks an adversary might perform, including data theft, leverage compromised resources for their own gain, sit and wait, disrupt, or destroy the data or service offerings. 
 
 ## What is the core business of your organization?
 
@@ -92,21 +93,19 @@ For instance, the [SQL Slammer Worm](https://en.wikipedia.org/wiki/SQL_Slammer) 
 
 Technically an adversary can create malware is fully automated and autonomous. Compromising, credential discovery and pivot from one target destination to another entirely automatically.
 
-Imagine malware that infects your computer. Afterwards it automatically reads all passwords and cookies stored on your machine and uses these passwords to navigate to other systems, including social media accounts, your online backups, your bank account and so forth. 
+> Imagine malware that infects your computer. Afterwards it automatically reads all passwords and cookies stored on your machine and uses that information to navigate to other systems, including your WiFi router, phone, social media accounts, online backups, your bank account and so forth. 
 
 Certain threat actors are also becoming more courageous. Rather than performing targeted attacks they compromise as many targets as possible via automation or supply chain attacks. Becoming collateral damage is quite likely these days for an organization.
 
 The implications and damage to individuals and the industry is already quite disastrous and further malware automation will make this worse. Luckily WannaCry and more recent malware have not attempted fully automated and autonomous attacks and let’s hope something like this won’t happen anytime soon.
 
-**Hoping that this won’t happen is probably not the best strategy though.**
-
-The industry has made great progress and leveraging security measures like encryption, multi-factor authentication, encryption, FIDO, etc. and all are there to help improve the security posture and protect our information. 
-
-Despite this, many organizations are not correctly prioritizing investments to help protect themselves from real world threats.
+Hoping that this won’t happen is probably not the best strategy though.
 
 # Continous security investments
 
-Lewis Carroll already knew about these security challenges:
+The industry has made great progress and leveraging security measures like encryption, multi-factor authentication, encryption, FIDO, etc. and all are there to help improve the security posture and protect our information. 
+
+Despite this, many organizations are not correctly prioritizing investments to help protect themselves from real world threats. Lewis Carroll already knew about these security challenges:
 
 > "My dear, here we must run as fast as we can, just to stay in place. And if you wish to go anywhere you must run twice as fast as that." (Alice in Wonderland)
 
@@ -130,23 +129,7 @@ Your adversaries have a seemingly easy task. All a current (or a future adversar
 
 > Staying in place in the security race will render your organization vulnerable. If you are in an acceptable shape today, a year from now you are not.
 
-What can an organization do to tackle these challenges, to identify weaknesses and highlight areas for investment to actively protect the business? 
-
-What can an organization do to test the response capabilities and disaster recovery plans and incident response procedures?
-
-# Creating effective defense to withstand real world adversaries
-
-Consider patching. Organizations strive towards patching infrastructure regularly, depending on the scale and size this can be a complex task and there is the risk of a patch breaking critical production infrastructure. Some organizations are very conservative in rolling out patches. 
-
-Rather than applying them immediately patches undergo intense testing before being applied. 
-
-Sometimes systems stay unpatched for months, often years.
-
-There are also unknown vulnerabilities - unknown to the public and software vendors. Advanced adversaries and nation states leverage such unknown vulnerabilities to breach corporations. 
-
-And in fact, it turns out that some of the nation states are themselves not as skilled in protecting their infrastructure exploit code effectively, so at times these weapons become accessible to the public. 
-
-This for instance happened with the Shadow Brokers leak that included the information that was the basis of the WannaCry ransomware discussed earlier. 
+What can an organization do to tackle these challenges, to identify weaknesses and highlight areas for investment to actively protect the business? How can it be measured?
 
 # The immune system of your organization
 
