@@ -1,6 +1,6 @@
 ---
 title: "Somewhere today a company is breached"
-date: 2021-06-09T06:10:00-07:00
+date: 2021-06-09T08:04:00-07:00
 draft: true
 tags: [
         "red",
@@ -8,7 +8,7 @@ tags: [
     ]
 ---
 
-This rather lengthy post is will dive into reasons for having an offensive security program and in particular, on how a red team can help improve the immune system of your organization. This is the high-level outline of the post:
+This rather lengthy post goes into reasons for having an offensive security program and in particular, on how a red team can help improve the immune system of your organization. This is the high-level outline of the post:
 
 - [Security breaches cannot be entirely prevented](#security-breaches-cannot-be-entirely-prevented)
 - [Implications of a breach](#implications-of-a-breach)
@@ -23,33 +23,37 @@ With regular cadence companies are compromised and suffer breaches. Organization
 
 # Security breaches cannot be entirely prevented
 
-One of the many challenges someone who wants to build out an offensive security program faces within an organization is the assumption that breaches can be prevented, and that investing in protective measurements alone is enough to secure the organization. 
-
-This philosophy and thinking is unfortunately misguided. It reflects a defensive and immature way to look at security and how to manage risks. Given enough resources an adversary will always succeed in compromising a target.
+One of the challenges building out an internal offensive security program is to get buy-in and support from leadership. 
+Often there is an assumption that breaches can be prevented, and that investing in protective measurements alone is enough to secure the organization. 
 
 ![/blog/images/2021/hacked.jpg](/blog/images/2021/hacked.jpg)
 
-An organization that focuses solely on protective measurements will find themselves in a situation of not even detecting a breach themselves. Or if detected, there is no clear understanding on how to investigate or recover from such an incident. 
+
+This philosophy and thinking is misguided. It reflects a defensive and immature way to look at security and how to manage risks. Given enough resources (or by chance) an adversary will succeed in compromising targets.
+
+An organization that focuses solely on protective measurements will find themselves in a situation of not detecting a breach themselves. Or if detected, there is no clear understanding on how to investigate or recover from such an incident. 
 
 > Offensive security reduces uncertainty around the state of the security of an organization. Therefore, an offensive security program is perfectly positioned to inform the risk management process to help make informed business decisions.
 
-If the security program was built out to focus on preventive measures alone, in the end its inability to effectively respond to a breach falls flat and the adversary potentially even stays entirely undetected.
+If a security program is built on preventive measures alone it, the inability to effectively respond to a breach falls flat and the adversary potentially even stays entirely undetected.
 
 ## Identifying security vulnerabilities
 
-Most organization realize the need for penetration testing. Typically, it is forced upon them via compliance requirements. But there is a entire offensive security world beyond pentesting.
+Most organization realize the need for penetration testing. Typically, it is forced upon them via compliance requirements. But there is a entire offensive security world beyond that has to be explored.
 
 Less mature organizations do not have a holistic red teaming strategy across the organization, including internal and external attack surface, people, processes, and technologies. 
+
+> Consider that your organization is breached right now – chances are fairly high that it is while you are reading this. 
 
 Recently I talked with a security engineer of a large telecommunication provider who must creatively work around internal policies, because it is only allowed to perform penetration testing during maintenance windows. 
 
 This limits the effectiveness and realism a real adversary has. It reminded me of the earlier days in my career facing similar issues when proposing offensive ideas and testing techniques to leadership.
 
-The longer your organization does not have a security event, the more you should entertain the idea that there might be a larger blind spot and that you are not capable currently to detect the foothold an adversary might have established already.
+The longer your organization does not have a security event, the more you should entertain the idea that there might be a larger blind spot. An adversary might already have established a foothold, but is undetected.
 
 # Implications of a breach
 
-Consider that your organization is breached right now – chances are fairly good that it actually compromised while you are reading this. 
+Consider that your organization is breached right now – chances are fairly high that it is while you are reading this. 
 
 Many breaches stay entirely unnoticed. An employee might click a phishing email and their computer is compromised or their password stolen. There is a wide range of attacks an adversary might perform, including data theft, leverage compromised resources for their own gain, sit and wait, disrupt, or destroy the data or service offerings. 
 
@@ -195,13 +199,16 @@ A modern threat model must assume that the organization or certain systems have 
 The idea is that a breach cannot be prevented and rather than focusing all your resources on the prevention side, one should invest similarly with the mindset that a breach has already occurred and that there are compromised assets in the organization. 
 
 
-## Zero Trust and Assume Breach
+## Zero Trust, Assume Breach and Homefield Advantage
 
 This is even more important if you are not just founding a company but work for an organization that has been operating for many years with focus on preventive or perimeter defenses only.
 
-- Google introduced the BeyondCorp security approach after their perimeter was breached. BeyondCorp is based upon the network security principle of **Zero Trust**, which means that perimeter defense by itself is not an effective security measure. 
+-  **Zero Trust** highlights that perimeter defense by itself is not an effective security measure. Google introduced the BeyondCorp security approach after their perimeter was breached. BeyondCorp is based on Zero Trust.
 
 - Microsoft has embraced an **Assume Breach** mindset as core security strategy.  
+
+- **Homefield Advantage** is what makes it possible to stay ahead of adversaries. Its best described with this picture:
+![/blog/images/homefield-advantage.png](/blog/images/homefield-advantage.png)
 
 Chances are that if you work in a mid-size to large company, your organization most likely has already been breached. Maybe your organization was not victim of a targeted attack of a competitor or nation state but just collateral damage of wide-ranging attacks that occur across the landscape, like the WannaCry worm or mass phishing attacks. 
 
