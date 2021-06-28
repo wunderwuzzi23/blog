@@ -72,7 +72,7 @@ The code I stitched together looks like this:
 
 [A simple webpage to check for Airtags is hosted here](/blog/bluetooth/scan.html).
 
-*Note: It requires Chrome 92+ ([currently in beta for Android users](https://chromereleases.googleblog.com/2021/06/chrome-beta-for-android-update_0893144828.html)) to work. Sometimes it seems flacky. I'm not sure exactly how frequently an Airtag indeed emits an Bluetooth advertisement.*
+*Note: It requires Chrome 92+ ([currently in beta for Android users](https://chromereleases.googleblog.com/2021/06/chrome-beta-for-android-update_0893144828.html)) to work. Sometimes it seems flacky. I'm not sure exactly how frequently an Airtag emits its Bluetooth advertisement. During experiements it seemed that advertisements are only starting to happen after an iPhone using "Find My" NFC is close by. Overall, this needs more testing.*
 
 ![Airtag Browser Scan](/blog/images/2021/airtag-browser-scan.png)
 
