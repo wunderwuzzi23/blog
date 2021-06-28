@@ -72,8 +72,11 @@ The code I stitched together looks like this:
 
 [A simple webpage to check for Airtags is hosted here](/blog/bluetooth/scan.html).
 
-*Note: It requires Chrome 92+ ([currently in beta for Android users](https://chromereleases.googleblog.com/2021/06/chrome-beta-for-android-update_0893144828.html)) to work. Sometimes it seems flacky, not sure exactly how frequently the Airtag indeed emits an advertisement.*
+*Note: It requires Chrome 92+ ([currently in beta for Android users](https://chromereleases.googleblog.com/2021/06/chrome-beta-for-android-update_0893144828.html)) to work. Sometimes it seems flacky. I'm not sure exactly how frequently an Airtag indeed emits an Bluetooth advertisement.*
 
+![Airtag Browser Scan](/blog/images/2021/airtag-browser-scan.png)
+
+Above you can see a scan run on my Android device which shows that two Airtags are close by.
 
 # Novel Data Exfiltration
 
