@@ -1,5 +1,5 @@
 ---
-title: "Airtag hacks - scanning via browser, removing speaker and data exfil"
+title: "Airtag hacks - scanning via browser, removing speaker and data exfiltration"
 date: 2021-06-28T08:00:52-07:00
 draft: true
 tags: [
