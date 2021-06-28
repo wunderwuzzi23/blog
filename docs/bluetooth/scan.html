@@ -1,0 +1,54 @@
+<html>
+<script>
+
+function check() {
+  console.log("checking...");
+  if (navigator.bluetooth == null) {
+   document.getElementById("out").innerText = "Sorry, your browser does not support Bluetooth connectivity.";
+  }
+}
+function onShowClick() {
+  console.log("getting devices...");
+  
+  check()
+
+  navigator.bluetooth.requestDevice({
+      filters: [{ manufacturerData: [ 
+                  {  
+                    companyIdentifier: 0x004c,            // Apple 
+                    dataPrefix: new Uint8Array([0x12])    // Airtag
+               }],
+      optionalServices: ['battery_service']  
+     }]   
+  })
+  .then(function(device) {
+    console.log('Name: ' + device.name);
+  })
+  .catch(function(error) {
+    document.getElementById("out").innerText = error;
+    console.log("Something went wrong. " + error);
+  });
+ }
+</script>
+
+<style>
+  body { font-family: arial, verdana } 
+  p { font-size: 22px }
+  button { font-size: 32px }
+</style>
+
+
+<body>
+  <h1>Show Airtags</h1>
+  <p>This page uses your browser (requires Chrome 92+) to see if there are Airtags around you.</p>
+  <p>After clicking the "Scan" button the Bluetooth device selection of the browser is shown and filtering for Airtags.</p>
+  <p>If any devices appear in the list, then an Airtag is in your vicinity. Scanning can take up to 15 seconds for good coverage.</p>
+  <p>Click the below button to see if there are any Airtags around you.</p>
+  <br>
+  <button onclick="onShowClick()">Show nearby devices</button>
+  <p style="color: red" id="out"></p>
+  <script>check()</script>
+  <p>Twitter: <a href="https://twitter.com/@wunderwuzzi23">@wunderwuzzi23</a></p>
+</body>
+
+</html>

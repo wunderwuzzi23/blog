@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hardware on wunderwuzzi blog</title>
+    <link>https://embracethered.com/blog/tags/hardware/</link>
+    <description>Recent content in hardware on wunderwuzzi blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
+    <lastBuildDate>Mon, 28 Jun 2021 08:00:52 -0700</lastBuildDate>
+    
+	<atom:link href="https://embracethered.com/blog/tags/hardware/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Airtag hacks - scanning via browser, removing speaker and data exfiltration</title>
+      <link>https://embracethered.com/blog/posts/2021/airtag-hacks/</link>
+      <pubDate>Mon, 28 Jun 2021 08:00:52 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/airtag-hacks/</guid>
+      <description>Until the Apple Airtag came out a few months ago I hadn&amp;rsquo;t really looked into the tag tracking market. Turns out there were already quite a lot of offerings available before Apple joined the market, most notably Tile.
+However, I wanted to try out the Airtag and ended up ordering a few.
+This post will explore three things:
+ Removing the speaker of my Airtag Using Browser APIs to scan for Airtags (if you don&amp;rsquo;t have an iPhone but someone tries to stalk you this might be handy) Explore data exfiltration via Airtags and Apple&amp;rsquo;s &amp;ldquo;Find My&amp;rdquo; network  By the way, when you order your Airtags online you can customize them.</description>
+    </item>
+    
+  </channel>
+</rss>
