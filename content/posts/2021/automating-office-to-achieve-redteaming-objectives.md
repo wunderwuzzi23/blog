@@ -7,19 +7,19 @@ tags: [
     ]
 ---
 
-Many Windows applications and services are implemented using a powerful automation infrastructure called `Component Object Model (COM)`. 
+Many Windows applications and services are implemented using an automation infrastructure called `Component Object Model (COM)`. 
 
-`COM` has been around for decades and to this day its useful for programming, sharing of code at binary level, usage from scripting languages, and well, red teaming. 
+`COM` has been around for decades and its useful for programming, sharing of code at binary level, usage from scripting languages, and well, red teaming. 
 
 ## Wide Usage of Component Object Model
 
-Many Microsoft products are implemented as COM objects, including Microsoft Office. Using `PowerShell` (or other languages) COM objects can be created to fully automate with applications. 
+Many products are implemented as COM objects, including Microsoft Office. Using `PowerShell` (or other languages) `COM` objects can be created to fully automate with applications. 
 
 There is even a [Golang project to show how to invoke COM](https://github.com/go-ole/go-ole) from Go, which I'm certain real-world malware will pick up on soon.
 
 ## Exploring the Attack Angle
 
-If a victim of a cyber attack has the Office suite installed malware can use COM in malicous and subversive ways. 
+If a victim of a cyber attack has the Office suite installed malware can use `COM` in malicous and subversive ways. 
 
 Importantly, this might be something that your Blue Teams is not yet trained to look for, so doing an operation in this space will be useful to build detection and investigation muscles.
 
@@ -100,6 +100,8 @@ Alternatively you could just use the Excel built in `SendMail` API which is [doc
 
 Using these COM automation techniques its possible to use off the shelve applications installed on a compromised machine to exfiltrate data, but also to establish an entire C2 infrastructure and message communication. 
 
+The MITRE ATT&CK matrix also [highlights a couple of real world attacks](https://attack.mitre.org/techniques/T1559/001/) that have used COM.
+
 ## Conclusion
 
 COM Automation and scripting langauges are a powerful way to exfiltrate data using existing applications already present on a compromised host. 
@@ -117,3 +119,4 @@ If you found this interesting check out my book about [Cybersecurity Attacks - R
 
 1. [Golang projects that show how to use COM from Go](https://github.com/go-ole/go-ole). 
 1. [SendMail Excel API](https://docs.microsoft.com/en-us/office/vba/api/excel.workbook.sendmail)
+1. [COM and MITRE Attack](https://attack.mitre.org/techniques/T1559/001/)
