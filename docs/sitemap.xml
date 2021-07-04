@@ -3,32 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/posts/2021/automating-office-to-achieve-redteaming-objectives/</loc>
+    <lastmod>2021-07-02T12:17:54-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2021-07-02T12:17:54-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2021-07-02T12:17:54-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2021-07-02T12:17:54-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <lastmod>2021-07-02T12:17:54-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2021-07-02T12:17:54-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/2021/airtag-hacks/</loc>
     <lastmod>2021-06-28T08:00:52-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/hardware/</loc>
-    <lastmod>2021-06-28T08:00:52-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2021-06-28T08:00:52-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2021-06-28T08:00:52-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2021-06-28T08:00:52-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/</loc>
     <lastmod>2021-06-28T08:00:52-07:00</lastmod>
   </url>
   
@@ -64,11 +74,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/2021/spoofing-credential-dialogs/</loc>
-    <lastmod>2021-04-18T20:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
     <lastmod>2021-04-18T20:00:00-07:00</lastmod>
   </url>
   
