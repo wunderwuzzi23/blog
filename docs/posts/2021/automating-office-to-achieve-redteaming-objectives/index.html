@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2021-07-02T12:17:54-07:00" />
+  <meta property="og:article:published_time" content="2021-07-05T13:00:54-07:00" />
   
   <meta property="og:article:tag" content="red" />
   
@@ -97,8 +97,8 @@
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2021-07-02T12:17:54-07:00">
-          Jul 2, 2021
+        <time datetime="2021-07-05T13:00:54-07:00">
+          Jul 5, 2021
         </time>
       </div>
     
@@ -115,10 +115,10 @@
     <p>Many Windows applications and services are implemented using an automation infrastructure called <code>Component Object Model (COM)</code>.</p>
 <p><code>COM</code> has been around for decades and its useful for programming, sharing of code at binary level, usage from scripting languages, and well, red teaming.</p>
 <h2 id="wide-usage-of-component-object-model">Wide Usage of Component Object Model</h2>
-<p>Many products are implemented as COM objects, including Microsoft Office. Using <code>PowerShell</code> (or other languages) <code>COM</code> objects can be created to fully automate with applications.</p>
+<p>Many products are implemented as COM objects, including Microsoft Office. Using <code>PowerShell</code> (or other languages) <code>COM</code> objects can be created to fully automate applications and services.</p>
 <p>There is even a <a href="https://github.com/go-ole/go-ole">Golang project to show how to invoke COM</a> from Go, which I&rsquo;m certain real-world malware will pick up on soon.</p>
 <h2 id="exploring-the-attack-angle">Exploring the Attack Angle</h2>
-<p>If a victim of a cyber attack has the Office suite installed malware can use <code>COM</code> in malicous and subversive ways.</p>
+<p>If a victim of a cyber attack has the Microsoft Office Suite installed malware can use <code>COM</code> in malicous and subversive ways.</p>
 <p>Importantly, this might be something that your Blue Teams is not yet trained to look for, so doing an operation in this space will be useful to build detection and investigation muscles.</p>
 <p>Let&rsquo;s explore some scenarios and code examples in this blog post.</p>
 <h2 id="automating-microsoft-excel">Automating Microsoft Excel</h2>
@@ -157,13 +157,13 @@ $mail.To = $to
 $mail.HTMLBody = $content
 
 $mail.Send()
-</code></pre><p>Note, by default this should use the current users Outlook profile.</p>
+</code></pre><p>Note, this will use the current users Outlook profile.</p>
 <p>Alternatively you could just use the Excel built in <code>SendMail</code> API which is <a href="https://docs.microsoft.com/en-us/office/vba/api/excel.workbook.sendmail">documented here</a>.</p>
 <h2 id="command--control-via-office-automation">Command &amp; Control via Office Automation</h2>
 <p>Using these COM automation techniques its possible to use off the shelve applications installed on a compromised machine to exfiltrate data, but also to establish an entire C2 infrastructure and message communication.</p>
 <p>The MITRE ATT&amp;CK matrix also <a href="https://attack.mitre.org/techniques/T1559/001/">highlights a couple of real world attacks</a> that have used COM.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>COM Automation and scripting langauges are a powerful way to exfiltrate data using existing applications already present on a compromised host.</p>
+<p>COM Automation and scripting langauges are a powerful way for malware to perform operations, including data exfiltration. It uses existing applications already present on a compromised host which can make malicious usage difficult to detect. Hence it&rsquo;s important to monitor for untypically COM usage.</p>
 <p><strong>In my opinion these TTPs are a good candidates for a purple team operations.</strong></p>
 <p>Cheers,
 <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Fri, 02 Jul 2021 12:17:54 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 05 Jul 2021 13:00:54 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,12 +15,12 @@
     <item>
       <title>Automating Microsoft Office to Achieve Red Teaming Objectives</title>
       <link>https://embracethered.com/blog/posts/2021/automating-office-to-achieve-redteaming-objectives/</link>
-      <pubDate>Fri, 02 Jul 2021 12:17:54 -0700</pubDate>
+      <pubDate>Mon, 05 Jul 2021 13:00:54 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2021/automating-office-to-achieve-redteaming-objectives/</guid>
       <description>Many Windows applications and services are implemented using an automation infrastructure called Component Object Model (COM).
 COM has been around for decades and its useful for programming, sharing of code at binary level, usage from scripting languages, and well, red teaming.
-Wide Usage of Component Object Model Many products are implemented as COM objects, including Microsoft Office. Using PowerShell (or other languages) COM objects can be created to fully automate with applications.</description>
+Wide Usage of Component Object Model Many products are implemented as COM objects, including Microsoft Office. Using PowerShell (or other languages) COM objects can be created to fully automate applications and services.</description>
     </item>
     
     <item>

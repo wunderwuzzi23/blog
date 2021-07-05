@@ -1,6 +1,6 @@
 ---
 title: "Automating Microsoft Office to Achieve Red Teaming Objectives"
-date: 2021-07-02T12:17:54-07:00
+date: 2021-07-05T13:00:54-07:00
 draft: true
 tags: [
         "red", "ttp"
@@ -13,13 +13,13 @@ Many Windows applications and services are implemented using an automation infra
 
 ## Wide Usage of Component Object Model
 
-Many products are implemented as COM objects, including Microsoft Office. Using `PowerShell` (or other languages) `COM` objects can be created to fully automate with applications. 
+Many products are implemented as COM objects, including Microsoft Office. Using `PowerShell` (or other languages) `COM` objects can be created to fully automate applications and services. 
 
 There is even a [Golang project to show how to invoke COM](https://github.com/go-ole/go-ole) from Go, which I'm certain real-world malware will pick up on soon.
 
 ## Exploring the Attack Angle
 
-If a victim of a cyber attack has the Office suite installed malware can use `COM` in malicous and subversive ways. 
+If a victim of a cyber attack has the Microsoft Office Suite installed malware can use `COM` in malicous and subversive ways. 
 
 Importantly, this might be something that your Blue Teams is not yet trained to look for, so doing an operation in this space will be useful to build detection and investigation muscles.
 
@@ -91,7 +91,7 @@ $mail.HTMLBody = $content
 $mail.Send()
 ```
 
-Note, by default this should use the current users Outlook profile.
+Note, this will use the current users Outlook profile.
 
 Alternatively you could just use the Excel built in `SendMail` API which is [documented here](https://docs.microsoft.com/en-us/office/vba/api/excel.workbook.sendmail).
 
@@ -104,7 +104,7 @@ The MITRE ATT&CK matrix also [highlights a couple of real world attacks](https:/
 
 ## Conclusion
 
-COM Automation and scripting langauges are a powerful way to exfiltrate data using existing applications already present on a compromised host. 
+COM Automation and scripting langauges are a powerful way for malware to perform operations, including data exfiltration. It uses existing applications already present on a compromised host which can make malicious usage difficult to detect. Hence it's important to monitor for untypically COM usage.
 
 **In my opinion these TTPs are a good candidates for a purple team operations.**
 
