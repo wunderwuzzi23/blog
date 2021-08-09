@@ -1,5 +1,5 @@
 ---
-title: "Using The Silver Searcher to search through code and files quickly"
+title: "The Silver Searcher - search through code and files quickly"
 date: 2021-07-28T11:44:20-07:00
 draft: true
 tags: [
