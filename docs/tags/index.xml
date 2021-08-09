@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Mon, 05 Jul 2021 13:00:54 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 09 Aug 2021 10:00:20 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,18 @@
     <item>
       <title>red</title>
       <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Mon, 05 Jul 2021 13:00:54 -0700</pubDate>
+      <pubDate>Mon, 09 Aug 2021 10:00:20 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>https://embracethered.com/blog/tags/tools/</link>
+      <pubDate>Mon, 09 Aug 2021 10:00:20 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/tools/</guid>
       <description></description>
     </item>
     

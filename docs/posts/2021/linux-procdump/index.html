@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Using procdump on Linux to dump credentials &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2021/linux-procdump/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2021-08-09T10:00:20-07:00" />
+  
+  <meta property="og:article:tag" content="tools" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  
+
+  <title>
+     Using procdump on Linux to dump credentials &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Using procdump on Linux to dump credentials</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2021-08-09T10:00:20-07:00">
+          Aug 9, 2021
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/tools">#tools</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>I like using <code>procdump</code> on Windows.</p>
+<p>It’s quite handy for software development when systems have memory leaks or performance issues, <code>procdump</code> allows to set thresholds to trigger creation of a core dump.</p>
+<p><strong>BUT, it’s also super useful to search processes for secrets and other information.</strong></p>
+<p>For instance, this one liner will dump the memory of all processes to hard disk and then you can search them as you see fit.</p>
+<pre><code>Get-Process | % { procdump.exe -ma $_.Id }
+</code></pre><p>This is not the most elegant way of course, but I have found this extremely useful at times.</p>
+<p>This post is solely focused on <code>procdump</code>, so I wanted to highlight that there is another useful tool on Windows called <a href="https://github.com/putterpanda/mimikittenz"><code>Mimikittenz</code></a>, which utilizes <code>ReadProcesMemory</code> to search process memory without creating a file on disk. <strong>But, let&rsquo;s focuson on procdump and Linux!</strong></p>
+<h2 id="procdump-on-linux">Procdump on Linux!</h2>
+<p><code>procdump</code> is has also available on Linux for some time now. Although it has not gotten as much attention from the security community and pen testers.</p>
+<p><img src="https://raw.githubusercontent.com/Sysinternals/ProcDump-for-Linux/master/procdump.gif" alt="procdump in action"></p>
+<p>In this post I want to highlight some examples on how to use it on Linux to improve your pen testing skills.</p>
+<h2 id="installation">Installation</h2>
+<p>On Ubuntu the Microsoft keys are not trusted by default, so you can either manually build the project or download and trust Microsoft&rsquo;s keys, and then use <code>sudo apt</code> to install. Detailed instructions for various platforms are located <a href="https://github.com/Sysinternals/ProcDump-for-Linux/blob/master/INSTALL.md">here</a>.</p>
+<h3 id="installing-microsofts-key-on-ubuntu">Installing Microsoft&rsquo;s key on Ubuntu</h3>
+<pre><code>wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+</code></pre><h3 id="installing-procdump">Installing <code>procdump</code></h3>
+<pre><code>sudo apt-get update
+sudo apt-get install procdump
+</code></pre><h3 id="building-procdump-from-scratch">Building <code>procdump</code> from scratch</h3>
+<p>For pen testing the preferred option (if the tool is not yet available) to build it from scratch. Instructions can be found on <a href="https://github.com/Sysinternals/ProcDump-for-Linux/blob/master/INSTALL.md"><code>procdump</code>'s Github repo</a>.</p>
+<h2 id="basic-usage">Basic Usage</h2>
+<p>When invoking <code>procdump</code> specify the <code>PID</code> and the tool will do its magic to create a core memory dump.</p>
+<pre><code>sudo procdump -o /tmp -p 27390
+</code></pre><p>Above I also specified the <code>-o</code> to write the dump to a specific folder.</p>
+<p>Most features are useful for debugging performance and memory leak kind of issues. For instance, it’s possible to dump the memory when the CPU is under a certain load and so on.</p>
+<p>These features are less interesting for red teamer&rsquo;s nefarious purposes.</p>
+<p>It&rsquo;s also possible to use the <code>imagename</code> instead of the <code>PID</code> with the <code>-w</code> options, for instance:</p>
+<pre><code>sudo procdump -w firefox
+</code></pre><p>This will write a core memory dump of the browser to the hard drive, and afterwards one go <a href="/blog/posts/2020/hunting-for-credentials">credential hunting and look for passwords and cookies</a> inside it.</p>
+<h2 id="simple-demo-scenario">Simple Demo Scenario</h2>
+<p>Let&rsquo;s say the malicious engineer wants to see what another user is up to on a Jumpbox.</p>
+<p>The attacker already pivoted onto that host and now is inspecting the processes and notices that user <code>Bob</code> is working in nano.</p>
+<h3 id="attacker-uses-procdump-on-nano">Attacker uses <code>procdump</code> on nano</h3>
+<pre><code>sudo procdump -w nano
+</code></pre><p>This is how the output looks like:
+<img src="/blog/images/2021/procdump.png" alt="Attacker dumping nano"></p>
+<h3 id="attacker-searches-the-core-memory-dump-for-interesting-information">Attacker searches the core memory dump for interesting information</h3>
+<p>The next step is to analyze the memory dump, let&rsquo;s to a simple string search and grep:</p>
+<pre><code>~$ strings nano_time_2021-08-09_10\:23\:42.3197  | grep password
+password=&quot;
+password=helloWorld!
+</code></pre><p>Screenshot of the procedure:</p>
+<p><img src="/blog/images/2021/procdump_grep.png" alt="Attacker searching for passwords"></p>
+<p>After getting a hold of the process memory, you can use <code>grep</code>, <code>strings</code> or the previously mentioned <a href="/blog/2021/silversearcher-ag">Silver Searcher</a> to search through the core dump files.</p>
+<h3 id="what-did-bob-see-work-on-exactly-at-that-moment">What did Bob see work on exactly at that moment?</h3>
+<p>Finally, as a reference, this is how Bob&rsquo;s session looked like at that point. He was working in <code>nano</code>, using it as a scratchpad for passwords, which he does never store onto disk.</p>
+<p><img src="/blog/images/2021/procdump_nano.png" alt="Bob uses nano"></p>
+<p>The interesting thing is that many developers and engineers do exactly as Bob did. They use ephemeral, non-persistent notepad files, etc. to temporarily store credentials.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The usage of <code>procdump</code> can be quite neat and userful. Hope this mini-introduction was helpful to learn more about <code>procdump</code> and its existance on Linux.</p>
+<p>Cheers,
+<a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/microsoft/procdump-for-linux">Microsoft Github Repo - ProcDump for Linux</a></li>
+<li><a href="https://github.com/putterpanda/mimikittenz">Mimikittenz</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2021/silversearcher-ag/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2021
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tools on wunderwuzzi blog</title>
+    <link>https://embracethered.com/blog/tags/tools/</link>
+    <description>Recent content in tools on wunderwuzzi blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
+    <lastBuildDate>Mon, 09 Aug 2021 10:00:20 -0700</lastBuildDate>
+    
+	<atom:link href="https://embracethered.com/blog/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using procdump on Linux to dump credentials</title>
+      <link>https://embracethered.com/blog/posts/2021/linux-procdump/</link>
+      <pubDate>Mon, 09 Aug 2021 10:00:20 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/linux-procdump/</guid>
+      <description>I like using procdump on Windows.
+It’s quite handy for software development when systems have memory leaks or performance issues, procdump allows to set thresholds to trigger creation of a core dump.
+BUT, it’s also super useful to search processes for secrets and other information.
+For instance, this one liner will dump the memory of all processes to hard disk and then you can search them as you see fit.</description>
+    </item>
+    
+    <item>
+      <title>Using The Silver Searcher to search through code and files quickly</title>
+      <link>https://embracethered.com/blog/posts/2021/silversearcher-ag/</link>
+      <pubDate>Wed, 28 Jul 2021 11:44:20 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/silversearcher-ag/</guid>
+      <description>In this very short post I wanna talk mention The Silver Searcher, which I just learned about a few weeks ago.
+In the past I have written quite a bit about the importance of credential hunting for your organization and some cool built-in operating system indexing features that can be used as well.
+Of course grep and findstr are also in every red teamers toolbox.
+As part of a coding project I recently learned about &amp;ldquo;The Silver Searcher&amp;rdquo;, which is very fast and has some neat features built it.</description>
+    </item>
+    
+  </channel>
+</rss>

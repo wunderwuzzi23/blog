@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Mon, 05 Jul 2021 13:00:54 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 09 Aug 2021 10:00:20 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using procdump on Linux to dump credentials</title>
+      <link>https://embracethered.com/blog/posts/2021/linux-procdump/</link>
+      <pubDate>Mon, 09 Aug 2021 10:00:20 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/linux-procdump/</guid>
+      <description>I like using procdump on Windows.
+It’s quite handy for software development when systems have memory leaks or performance issues, procdump allows to set thresholds to trigger creation of a core dump.
+BUT, it’s also super useful to search processes for secrets and other information.
+For instance, this one liner will dump the memory of all processes to hard disk and then you can search them as you see fit.</description>
+    </item>
     
     <item>
       <title>Automating Microsoft Office to Achieve Red Teaming Objectives</title>
