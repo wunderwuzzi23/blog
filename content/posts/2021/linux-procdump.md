@@ -109,7 +109,7 @@ Screenshot of the procedure:
 
 After getting a hold of the process memory, you can use `grep`, `strings` or the previously mentioned [Silver Searcher](/blog/2021/silversearcher-ag) to search through the core dump files.
 
-### What did Bob see work on exactly at that moment?
+### What did Bob work on at that moment?
 
 Finally, as a reference, this is how Bob's session looked like at that point. He was working in `nano`, using it as a scratchpad for passwords, which he does never store onto disk.
 
