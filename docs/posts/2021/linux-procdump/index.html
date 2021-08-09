@@ -133,7 +133,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get install procdump
 </code></pre><h3 id="building-procdump-from-scratch">Building <code>procdump</code> from scratch</h3>
 <p>For pen testing the preferred option (if the tool is not yet available) to build it from scratch. Instructions can be found on <a href="https://github.com/Sysinternals/ProcDump-for-Linux/blob/master/INSTALL.md"><code>procdump</code>'s Github repo</a>.</p>
-<h2 id="basic-usage">Basic Usage</h2>
+<h2 id="basic-usage-and-features">Basic usage and features</h2>
 <p>When invoking <code>procdump</code> specify the <code>PID</code> and the tool will do its magic to create a core memory dump.</p>
 <pre><code>sudo procdump -o /tmp -p 27390
 </code></pre><p>Above I also specified the <code>-o</code> to write the dump to a specific folder.</p>
@@ -142,10 +142,10 @@ sudo apt-get install procdump
 <p>It&rsquo;s also possible to use the <code>imagename</code> instead of the <code>PID</code> with the <code>-w</code> options, for instance:</p>
 <pre><code>sudo procdump -w firefox
 </code></pre><p>This will write a core memory dump of the browser to the hard drive, and afterwards one go <a href="/blog/posts/2020/hunting-for-credentials">credential hunting and look for passwords and cookies</a> inside it.</p>
-<h2 id="simple-demo-scenario">Simple Demo Scenario</h2>
+<h2 id="demo-scenario">Demo Scenario</h2>
 <p>Let&rsquo;s say the malicious engineer wants to see what another user is up to on a Jumpbox.</p>
 <p>The attacker already pivoted onto that host and now is inspecting the processes and notices that user <code>Bob</code> is working in nano.</p>
-<h3 id="attacker-uses-procdump-on-nano">Attacker uses <code>procdump</code> on nano</h3>
+<h3 id="attacker-uses-procdump-on-bobs-nano-process">Attacker uses <code>procdump</code> on Bob&rsquo;s nano process</h3>
 <pre><code>sudo procdump -w nano
 </code></pre><p>This is how the output looks like:
 <img src="/blog/images/2021/procdump.png" alt="Attacker dumping nano"></p>
@@ -160,9 +160,9 @@ password=helloWorld!
 <h3 id="what-did-bob-see-work-on-exactly-at-that-moment">What did Bob see work on exactly at that moment?</h3>
 <p>Finally, as a reference, this is how Bob&rsquo;s session looked like at that point. He was working in <code>nano</code>, using it as a scratchpad for passwords, which he does never store onto disk.</p>
 <p><img src="/blog/images/2021/procdump_nano.png" alt="Bob uses nano"></p>
-<p>The interesting thing is that many developers and engineers do exactly as Bob did. They use ephemeral, non-persistent notepad files, etc. to temporarily store credentials.</p>
+<p>The interesting thing is that many developers and engineers do exactly as Bob did. They use ephemeral, non-persistent notepad files, etc. to temporarily hold credentials.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>The usage of <code>procdump</code> can be quite neat and userful. Hope this mini-introduction was helpful to learn more about <code>procdump</code> and its existance on Linux.</p>
+<p><code>procdump</code> is quite neat and useful. Hope this mini-intro was helpful to learn more about <code>procdump</code> and its existance on Linux.</p>
 <p>Cheers,
 <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
 <h2 id="references">References</h2>

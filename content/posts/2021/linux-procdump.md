@@ -56,7 +56,7 @@ sudo apt-get install procdump
 For pen testing the preferred option (if the tool is not yet available) to build it from scratch. Instructions can be found on [`procdump`'s Github repo](https://github.com/Sysinternals/ProcDump-for-Linux/blob/master/INSTALL.md).
 
 
-## Basic Usage
+## Basic usage and features
 
 When invoking `procdump` specify the `PID` and the tool will do its magic to create a core memory dump.
 
@@ -78,13 +78,13 @@ sudo procdump -w firefox
 
 This will write a core memory dump of the browser to the hard drive, and afterwards one go [credential hunting and look for passwords and cookies](/blog/posts/2020/hunting-for-credentials) inside it.
 
-## Simple Demo Scenario
+## Demo Scenario
 
 Let's say the malicious engineer wants to see what another user is up to on a Jumpbox. 
 
 The attacker already pivoted onto that host and now is inspecting the processes and notices that user `Bob` is working in nano. 
 
-### Attacker uses `procdump` on nano
+### Attacker uses `procdump` on Bob's nano process
 
 ```
 sudo procdump -w nano
@@ -115,11 +115,11 @@ Finally, as a reference, this is how Bob's session looked like at that point. He
 
 ![Bob uses nano](/blog/images/2021/procdump_nano.png)
 
-The interesting thing is that many developers and engineers do exactly as Bob did. They use ephemeral, non-persistent notepad files, etc. to temporarily store credentials.
+The interesting thing is that many developers and engineers do exactly as Bob did. They use ephemeral, non-persistent notepad files, etc. to temporarily hold credentials.
 
 ## Conclusion
 
-The usage of `procdump` can be quite neat and userful. Hope this mini-introduction was helpful to learn more about `procdump` and its existance on Linux.
+`procdump` is quite neat and useful. Hope this mini-intro was helpful to learn more about `procdump` and its existance on Linux.
 
 
 Cheers,
