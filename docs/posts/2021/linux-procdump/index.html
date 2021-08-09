@@ -157,7 +157,7 @@ password=helloWorld!
 </code></pre><p>Screenshot of the procedure:</p>
 <p><img src="/blog/images/2021/procdump_grep.png" alt="Attacker searching for passwords"></p>
 <p>After getting a hold of the process memory, you can use <code>grep</code>, <code>strings</code> or the previously mentioned <a href="/blog/2021/silversearcher-ag">Silver Searcher</a> to search through the core dump files.</p>
-<h3 id="what-did-bob-see-work-on-exactly-at-that-moment">What did Bob see work on exactly at that moment?</h3>
+<h3 id="what-did-bob-work-on-at-that-moment">What did Bob work on at that moment?</h3>
 <p>Finally, as a reference, this is how Bob&rsquo;s session looked like at that point. He was working in <code>nano</code>, using it as a scratchpad for passwords, which he does never store onto disk.</p>
 <p><img src="/blog/images/2021/procdump_nano.png" alt="Bob uses nano"></p>
 <p>The interesting thing is that many developers and engineers do exactly as Bob did. They use ephemeral, non-persistent notepad files, etc. to temporarily hold credentials.</p>
