@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Using Counterfit to create adversarial examples for Husky AI &middot;  wunderwuzzi blog" />
+  
+  <meta property="og:site_name" content="wunderwuzzi blog" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2021/huskyai-using-azure-counterfit/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2021-08-15T12:36:26-07:00" />
+  
+  <meta property="og:article:tag" content="machine learning" />
+  
+  <meta property="og:article:tag" content="huskyai" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  
+
+  <title>
+     Using Counterfit to create adversarial examples for Husky AI &middot;  wunderwuzzi blog
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">wunderwuzzi blog</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        Embrace the Red
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Using Counterfit to create adversarial examples for Husky AI</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2021-08-15T12:36:26-07:00">
+          Aug 15, 2021
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/huskyai">#huskyai</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &ldquo;huskyai&rdquo; to see related posts.</p>
+<ul>
+<li><a href="/blog/posts/2020/husky-ai-walkthrough/">Overview</a>: How Husky AI was built, threat modeled and operationalized</li>
+<li><a href="/blog/posts/2020/husky-ai-threat-modeling-machine-learning/">Attacks</a>: Some of the attacks I investigated and tried out</li>
+</ul>
+<p>It&rsquo;s been a while that I did a Husky AI and offensive machine learning related post. This weekend I had some time to try out <a href="https://github.com/Azure/counterfit/wiki">Counterfit</a>. My goals was to turn the Shadowbunny into a husky using Counterfit.</p>
+<p><img src="/blog/images/2020/huskyai-shadowbunny.png" alt="Shadowbunny"></p>
+<p>Let&rsquo;s get started.</p>
+<h2 id="what-is-counterfit">What is Counterfit?</h2>
+<p>With Counterfit you can test your machine learning models and endpoints for specific adversarial attacks.</p>
+<p>It is basically a generic toolset that hosts attack modules from various sources and security researchers and can be extended with additional attacks and targets. Quite cool actually.</p>
+<blockquote>
+<p>It&rsquo;s kinda like Metasploit, but for adversarial machine learning.</p>
+</blockquote>
+<p>After launching the tool we are greeted with Metasploit like screen, showing number of supported attacks and targets.</p>
+<p><img src="/blog/images/2021/huskyai-counterfit-list-targets.png" alt="list targets"></p>
+<p>Out of the box there are two attack frameworks supported:</p>
+<ul>
+<li><strong><a href="https://adversarial-robustness-toolbox.org/">Adversarial Robustness Toolbox</a></strong>  - Initially created by IBM and now run by the Linux foundation. I wrote about ART and how to use it in a <a href="/blog/posts/2020/husky-ai-adversarial-robustness-toolbox-testing/">seperate post</a></li>
+<li><strong><a href="https://github.com/QData/TextAttack">TextAttacks</a></strong> - a set of attacks for Natural Language Processing models.</li>
+</ul>
+<p>The focus at the moment seems to be on &ldquo;attack evasion&rdquo;, and attacks that do not require access to model files and weights.</p>
+<p>Hence, attacks such as <code>Fast Gradient Sign Method</code> or other techniques such as backdooring models are not (yet, I assume) present.</p>
+<h2 id="installation-and-setup">Installation and setup</h2>
+<p>The <a href="https://github.com/Azure/counterfit/wiki">Counterfit Github repo</a> has instructions for a variety of install options.</p>
+<p>I like using disposable environments (like Google Colab, too bad Azure Notebooks is gone). I ended up doing a quick &ldquo;zombie&rdquo; install via a Google Colab Terminal. I put the instructions for that at the very end, if anyone is curious, but it&rsquo;s not that important.</p>
+<p><code>Counterfit</code> is a interactive command line tool, so its not designed to be used within Jupyter - at least I haven&rsquo;t figured out a good way to use it from Google Colab Notebooks directly. A terminal is preferred.</p>
+<h2 id="creating-a-new-husky-ai-attack-target">Creating a new Husky AI attack target</h2>
+<p>The first step I looked into is how to create a new target, which is done via the <code>new</code> command:</p>
+<p><img src="/blog/images/2021/huskyai-counterfit-new-target.png" alt="new target"></p>
+<p>This scaffolds a couple of files that implement <code>initialization</code> and <code>prediction</code> methods for the target that <code>counterfit</code> can then call when needed.</p>
+<h3 id="implementing-the-target">Implementing the target</h3>
+<p>Next I implemented the two mandatory methods for <code>init</code> and <code>call</code>.</p>
+<p>I&rsquo;m using <code>keras</code> to load a set of husky images via the <code>ImageDataGenerator</code> from the disk via <code>flow_from_directory</code>. That way I have samples to work with inside <code>counterfit</code>, and later can also add automatic image augmentation.</p>
+<p>Additionally, my Husky AI target does predictions directly against the model. For real attacks, I want to call the Husky AI web endpoint. Which I will work on in an upcoming post.</p>
+<p><img src="/blog/images/2021/huskyai-counterfit-new-code.png" alt="code"></p>
+<p>The complete Husky AI target implementaion looks like the following:</p>
+<pre><code>import keras
+import numpy
+
+from counterfit.core.targets import ArtTarget
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+class Huskyai(ArtTarget):
+    model_name = &quot;huskyai&quot;
+    model_data_type = &quot;image&quot;
+    model_endpoint = &quot;/tmp/huskymodel.h5&quot;
+    model_input_shape = (128,128,3)
+    model_output_classes = [&quot;husky&quot;, &quot;not_husky&quot;]
+    X = []
+
+    def __init__(self):
+
+        self.clip_values = (0, 1)
+        self.channels_first = False
+        self.model = keras.models.load_model(self.model_endpoint)
+        
+        datagen = ImageDataGenerator(rescale=1/255)
+        generator = datagen.flow_from_directory(
+            &quot;/tmp/images/val&quot;, 
+            target_size=(128, 128), 
+            batch_size=1,
+            class_mode='binary')
+
+        all_images = []
+        batch_index = 0
+
+        while batch_index &lt;= generator.batch_index:
+            image, label = generator.next()
+            all_images.append(image)
+            batch_index = batch_index + 1
+
+        self.sample_data = numpy.vstack(all_images)
+        self.X = self.sample_data
+
+        print(&quot;shape of sample list&quot;)
+        print(self.sample_data.shape)
+
+
+    def __call__(self, x):
+        confidence_tensor = self.model.predict(x[0].reshape(-1,128,128,3))
+
+        husky_confidence = float(confidence_tensor)
+        not_husky_confidence = 1 - husky_confidence
+      
+        return [[husky_confidence, not_husky_confidence]]    
+</code></pre><h2 id="using-the-newly-created-husky-ai-target">Using the newly created Husky AI target</h2>
+<p>The <code>interact</code> command is used to switch to a specific target.</p>
+<pre><code>counterfit&gt; interact huskyai
+Found 1316 images belonging to 2 classes.
+shape of sample list
+(1316, 128, 128, 3)
+huskyai&gt; 
+</code></pre><h2 id="debugging-the-target-and-running-a-prediction">Debugging the target and running a prediction</h2>
+<p>There are some commands to know about while developing and debugging your target: <code>reload</code> and <code>predict</code>. If you make changes to the target implementation <code>reload</code> refreshes them on the fly, and <code>predict</code> is used to invoke the implemented prediction code.</p>
+<p>Doing a prediction looks as follows:</p>
+<pre><code>huskyai&gt; predict --index 0
+
+Sample                                                  Output Scores         
+Index               Sample                              ['husky' 'not_husky']     
+------------------------------------------------------------------------------
+0                   huskyai-sample-e412a1a2.png         [0.02 0.98]
+
+huskyai&gt;
+</code></pre><p>You can see the outputed predictions scores, and also a saved image of the processed sample. In this case the sample image at index zero is the &ldquo;shadowbunny image&rdquo; which we also used in previous Husky AI posts.</p>
+<p>You can see it&rsquo;s correctly classified as not being a husky.</p>
+<h2 id="performing-an-attack">Performing an attack</h2>
+<p>Now let&rsquo;s move to the interesting parts of attacking the newly created targeted.</p>
+<p>Our goal is to turn the plush Shadowbunny mascot into a husky!</p>
+<p><img src="/blog/images/2020/huskyai-shadowbunny.png" alt="Shadowbunny"></p>
+<p>First an attack framework needs to be loaded.</p>
+<pre><code>huskyai&gt; load art
+</code></pre><p>Next you can view all the available attacks via <code>list attacks</code>, and then <code>use</code> a particular one.</p>
+<pre><code>huskyai&gt; use hop_skip_jump
+
+[+] Using hop_skip_jump f19e89fb
+
+huskyai&gt;hop_skip_jump&gt; 
+</code></pre><p>Like with Metasploit you can set options to change the default behavior of the attack.</p>
+<pre><code>huskyai&gt;hop_skip_jump&gt; show options
+
+Attack Parameter (type)      Default       Current   
+-----------------------------------------------------
+          targeted (bool)  False         False       
+               norm (int)  2             2           
+           max_iter (int)  50            50          
+           max_eval (int)  1000          1000        
+          init_eval (int)  100           100         
+          init_size (int)  100           100         
+       sample_index (int)  0             0           
+       target_class (int)  0             0           
+
+huskyai&gt;hop_skip_jump&gt;   
+</code></pre><p>To update the options and play around with settings, use <code>set option=value</code>.</p>
+<p>The test is launched with the <code>run</code> command.</p>
+<pre><code>huskyai&gt;hop_skip_jump&gt; run
+
+[+] Running hop_skip_jump on huskyai
+...
+</code></pre><p>This is how it all looks in action:</p>
+<p><img src="/blog/images/2021/huskyai-counterfit-run-attack.png" alt="run attack"></p>
+<p>The result files are in the <code>results</code> folder for both before and after attack.</p>
+<p>For reference, this is the adversarial example that tricked the model:</p>
+<p><img src="/blog/images/2021/huskyai-counterfit-adv-example.png" alt="adversarial example"></p>
+<p>Easy to use and fast result. Pretty neat.</p>
+<h2 id="gotchas-and-tips">Gotchas and tips!</h2>
+<p>Here are some userful tips and issues I ran across that might speed up your experience.</p>
+<ul>
+<li>
+<p><strong>Restarting counterfit when changing framework code.</strong>
+At times you&rsquo;ll have to debug/change the <code>counterfit</code> code. In case of updating core framework files, like <code>target.py</code>. For instance I had issues around dimensions being off, and counterfit internally does some magic with transpositions and channels when saving files. Whenever you update the core framework you have to restart <code>counterfit</code>.</p>
+</li>
+<li>
+<p><strong>Handling of channel information.</strong> There is an internal variable <code>self.channels_first</code> that is used to do some <em>magic</em> once in a while depending on if first or last index in the image shape contains the channel information. So be sure to set <code>model.input_shape</code> correctly and know that <code>self.channels_first</code> is set to <code>True</code> by default.</p>
+</li>
+<li>
+<p><strong>Crashes and errors.</strong> For some ART attacks I&rsquo;m getting crashes here and there, like <code>tmalloc</code> errors when using <code>threshold</code>.. I will need to do more digging to figure this out.</p>
+</li>
+<li>
+<p><strong>Algorithms, attacks and parameters</strong>.  As you can see the resulting shadowbunny adversarial example got pretty strongly perturbed, so trying out different scenarios and playing with parameters will likely improve the outcomes.</p>
+</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Hope this intro on how to use it and my experiences implementing an attack traget can help others bootstrap their efforts as well.</p>
+<p>Greetings,
+<a href="https://twitter.com/wunderwuzzi23">Johann</a></p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://github.com/Azure/counterfit/wiki">Microsoft Counterfit</a></li>
+<li><a href="https://adversarial-robustness-toolbox.org/">Adversarial Robustness Toolbox</a></li>
+<li><a href="https://github.com/QData/TextAttack">TextAttacks</a></li>
+<li><a href="https://www.youtube.com/watch?v=-SV80sIBhqY">Building and Breaking a Machine Learning System</a></li>
+</ul>
+<h2 id="appendix-google-colab-terminal-setup">Appendix: Google Colab Terminal Setup</h2>
+<p>The terminal is only available in the Pro version of Google Colab.</p>
+<p><img src="/blog/images/2021/huskyai-counterfit-colab.png" alt="Google Colab Terminal"></p>
+<ol>
+<li>Click the Terminal button on the bottom right and run the following commands:</li>
+</ol>
+<pre><code>cd /tmp
+git clone https://github.com/Azure/counterfit.git
+cd /tmp/counterfit
+pip3 install -r requirements.txt
+pip install zip
+</code></pre><ol start="2">
+<li>I unzipped bunch of my Husky AI training data into a temp folder to have some data to work with using <code>python3</code> shell:</li>
+</ol>
+<pre><code>import zipfile
+
+zip_filename = &quot;/content/drive/MyDrive/HuskyAI/husky.train.zip&quot;
+
+# Extract files
+zfiles = zipfile.ZipFile(zip_filename, 'r')
+zfiles.extractall('/tmp')
+zfiles.close()
+</code></pre><ol start="3">
+<li>Finally, I uploaded the modelfile <code>huskymodel.h5</code> to <code>/tmp/huskymodel.h5</code> as well</li>
+</ol>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2021/linux-procdump/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2021
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
