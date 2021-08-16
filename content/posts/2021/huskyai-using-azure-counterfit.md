@@ -1,6 +1,6 @@
 ---
-title: "Using Counterfit to create adversarial examples for Husky AI"
-date: 2021-08-15T12:36:26-07:00
+title: "Using Azure Counterfit to create adversarial examples for Husky AI"
+date: 2021-08-16T10:00:26-07:00
 draft: true
 tags: [
         "machine learning",
@@ -14,7 +14,7 @@ This post is part of a series about machine learning and artificial intelligence
 * [Overview](/blog/posts/2020/husky-ai-walkthrough/): How Husky AI was built, threat modeled and operationalized
 * [Attacks](/blog/posts/2020/husky-ai-threat-modeling-machine-learning/): Some of the attacks I investigated and tried out
 
-It's been a while that I did a Husky AI and offensive machine learning related post. This weekend I had some time to try out [Counterfit](https://github.com/Azure/counterfit/wiki). My goals was to turn the Shadowbunny into a husky using Counterfit.
+It's been a while that I did a Husky AI and offensive machine learning related post. This weekend I had some time to try out [Counterfit](https://github.com/Azure/counterfit/wiki). My goal was to understand what Counterfit is, how it works, and use it to turn Shadowbunny into a husky.
 
 ![Shadowbunny](/blog/images/2020/huskyai-shadowbunny.png)
 
@@ -24,12 +24,9 @@ Let's get started.
 
 With Counterfit you can test your machine learning models and endpoints for specific adversarial attacks. 
 
-It is basically a generic toolset that hosts attack modules from various sources and security researchers and can be extended with additional attacks and targets. Quite cool actually.
+It is basically a generic toolset that hosts attack modules from various sources and security researchers. It can also be extended with additional attacks and targets. Quite cool actually.
 
-> It's kinda like Metasploit, but for adversarial machine learning.
-
-
-After launching the tool we are greeted with Metasploit like screen, showing number of supported attacks and targets.
+After launching the tool, we are greeted with Metasploit-like screen, showing number of supported attacks and configured targets.
 
 ![list targets](/blog/images/2021/huskyai-counterfit-list-targets.png)
 
@@ -38,7 +35,7 @@ Out of the box there are two attack frameworks supported:
 * **[TextAttacks](https://github.com/QData/TextAttack)** - a set of attacks for Natural Language Processing models.
 
 
-The focus at the moment seems to be on "attack evasion", and attacks that do not require access to model files and weights. 
+The focus now seems to be on "attack evasion", and attacks that do not require access to model files and weights. 
 
 Hence, attacks such as `Fast Gradient Sign Method` or other techniques such as backdooring models are not (yet, I assume) present.
 
@@ -47,13 +44,13 @@ Hence, attacks such as `Fast Gradient Sign Method` or other techniques such as b
 
 The [Counterfit Github repo](https://github.com/Azure/counterfit/wiki) has instructions for a variety of install options.
 
-I like using disposable environments (like Google Colab, too bad Azure Notebooks is gone). I ended up doing a quick "zombie" install via a Google Colab Terminal. I put the instructions for that at the very end, if anyone is curious, but it's not that important.
+I like using disposable environments (like Google Colab, too bad the free Azure Notebooks is gone). I ended up doing a quick "zombie" install via a Google Colab Terminal. I put the instructions for that at the very end, if anyone is curious, but it's not that important.
 
-`Counterfit` is a interactive command line tool, so its not designed to be used within Jupyter - at least I haven't figured out a good way to use it from Google Colab Notebooks directly. A terminal is preferred. 
+`Counterfit` is a interactive command line tool, so it’s not designed to be used within Jupyter - at least I haven't figured out a good way to use it from Google Colab Notebooks directly. A terminal is preferred. 
 
-## Creating a new Husky AI attack target
+## Creating the Husky AI Attack Target
 
-The first step I looked into is how to create a new target, which is done via the `new` command:
+The first step I investigated is how to create a new target, which is done via the `new` command:
 
 ![new target](/blog/images/2021/huskyai-counterfit-new-target.png)
 
@@ -70,7 +67,7 @@ Additionally, my Husky AI target does predictions directly against the model. Fo
 
 ![code](/blog/images/2021/huskyai-counterfit-new-code.png)
 
-The complete Husky AI target implementaion looks like the following:
+The complete Husky AI target implementation looks like the following:
 
 ```
 import keras
@@ -136,11 +133,9 @@ shape of sample list
 huskyai> 
 ```
 
-## Debugging the target and running a prediction
+## Running a prediction and debugging
 
-There are some commands to know about while developing and debugging your target: `reload` and `predict`. If you make changes to the target implementation `reload` refreshes them on the fly, and `predict` is used to invoke the implemented prediction code.
-
-Doing a prediction looks as follows:
+Doing a quick prediction on a specific sample in the set looks as follows:
 
 ```
 huskyai> predict --index 0
@@ -153,9 +148,13 @@ Index               Sample                              ['husky' 'not_husky']
 huskyai>
 ```
 
-You can see the outputed predictions scores, and also a saved image of the processed sample. In this case the sample image at index zero is the "shadowbunny image" which we also used in previous Husky AI posts. 
+You can see the outputted predictions scores, and a saved image of the processed sample. In this case the sample image at index zero is the "shadowbunny image" which we also used in previous Husky AI posts. 
 
 You can see it's correctly classified as not being a husky.
+
+There are some other useful commands to know, like `reload`. If you make changes to the target implementation that command will reload your code on the fly.
+
+
 
 ## Performing an attack
 
@@ -217,7 +216,7 @@ This is how it all looks in action:
 
 The result files are in the `results` folder for both before and after attack.
 
-For reference, this is the adversarial example that tricked the model:
+For reference, this is the adversarial example the `hop_skip_jump` attack produced:
 
 ![adversarial example](/blog/images/2021/huskyai-counterfit-adv-example.png)
 
@@ -226,10 +225,10 @@ Easy to use and fast result. Pretty neat.
 
 ## Gotchas and tips!
 
-Here are some userful tips and issues I ran across that might speed up your experience.
+Here are some useful tips and issues I ran across that might speed up your experience.
 
 * **Restarting counterfit when changing framework code.**
-At times you'll have to debug/change the `counterfit` code. In case of updating core framework files, like `target.py`. For instance I had issues around dimensions being off, and counterfit internally does some magic with transpositions and channels when saving files. Whenever you update the core framework you have to restart `counterfit`. 
+At times you'll have to debug/change the `counterfit` code. In case of updating core framework files, like `target.py`. For instance, I had issues around dimensions being off, and counterfit internally does some magic with transpositions and channels when saving files. Whenever you update the core framework you have to restart `counterfit`. 
 
 * **Handling of channel information.** There is an internal variable `self.channels_first` that is used to do some *magic* once in a while depending on if first or last index in the image shape contains the channel information. So be sure to set `model.input_shape` correctly and know that `self.channels_first` is set to `True` by default.
 
@@ -240,16 +239,18 @@ At times you'll have to debug/change the `counterfit` code. In case of updating 
 
 ## Conclusion
 
-Hope this intro on how to use it and my experiences implementing an attack traget can help others bootstrap their efforts as well.
+Hope this intro on how to use it and my experiences implementing an attack target can help others bootstrap their efforts as well. It will be interesting to watch the project to see if catches traction and becomes more widely used.
 
 
 Greetings,
+
 [Johann](https://twitter.com/wunderwuzzi23)
 
 
 # References 
 
 * [Microsoft Counterfit](https://github.com/Azure/counterfit/wiki)
+* [Husky AI Github Repo](https://github.com/wunderwuzzi23/huskyai) 
 * [Adversarial Robustness Toolbox](https://adversarial-robustness-toolbox.org/)
 * [TextAttacks](https://github.com/QData/TextAttack)
 * [Building and Breaking a Machine Learning System](https://www.youtube.com/watch?v=-SV80sIBhqY)
@@ -283,7 +284,8 @@ zfiles = zipfile.ZipFile(zip_filename, 'r')
 zfiles.extractall('/tmp')
 zfiles.close()
 ```
+You can also use any images you have, it doesn’t have to be huskies.
 
-3. Finally, I uploaded the modelfile `huskymodel.h5` to `/tmp/huskymodel.h5` as well
+3. Finally, I uploaded the model file `huskymodel.h5` to `/tmp/huskymodel.h5` as well (you can find it on my Husky AI Github https://github.com/wunderwuzzi23/huskyai)
 
 

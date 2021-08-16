@@ -7,20 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Sun, 15 Aug 2021 12:36:26 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 09 Aug 2021 10:00:20 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Using Counterfit to create adversarial examples for Husky AI</title>
-      <link>https://embracethered.com/blog/posts/2021/huskyai-using-azure-counterfit/</link>
-      <pubDate>Sun, 15 Aug 2021 12:36:26 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/posts/2021/huskyai-using-azure-counterfit/</guid>
-      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.
- Overview: How Husky AI was built, threat modeled and operationalized Attacks: Some of the attacks I investigated and tried out  It&amp;rsquo;s been a while that I did a Husky AI and offensive machine learning related post. This weekend I had some time to try out Counterfit.</description>
-    </item>
     
     <item>
       <title>Using procdump on Linux to dump credentials</title>
