@@ -40,7 +40,7 @@ What a journey it has been. I wrote quite a bit about machine learning from a re
 * [Attacker modifies Jupyter Notebook file to insert a backdoor](/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/)
 * [CVE 2020-16977: VS Code Python Extension Remote Code Execution](/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/)
 * [Using Generative Adversarial Networks (GANs) to create fake husky images](/blog/posts/2020/machine-learning-attack-series-generative-adversarial-networks-gan/)
-* [Using Azure Counterfit to create adversarial examples(/blog/posts/2020/huskyai-using-azure-counterfit/)]
+* [Using Microsoft Counterfit to create adversarial examples](/blog/posts/2020/huskyai-using-azure-counterfit/)
 
 ## Miscellaneous
 
