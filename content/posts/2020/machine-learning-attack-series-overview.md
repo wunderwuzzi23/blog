@@ -40,11 +40,12 @@ What a journey it has been. I wrote quite a bit about machine learning from a re
 * [Attacker modifies Jupyter Notebook file to insert a backdoor](/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/)
 * [CVE 2020-16977: VS Code Python Extension Remote Code Execution](/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/)
 * [Using Generative Adversarial Networks (GANs) to create fake husky images](/blog/posts/2020/machine-learning-attack-series-generative-adversarial-networks-gan/)
+* [Using Azure Counterfit to create adversarial examples(/blog/posts/2020/huskyai-using-azure-counterfit/)]
 
 ## Miscellaneous
 
 * [Participating in the Microsoft Machine Learning Security Evasion Competition - Bypassing malware models by signing binaries](/blog/posts/2020/microsoft-machine-learning-security-evasion-competition/)
-
+* [Husky AI Github Repo](https://github.com/wunderwuzzi23/huskyai/)
 
 
 ## Conclusion
@@ -54,6 +55,8 @@ As you can see there are many machine learning specific attacks, but also a lot 
 Hope the content is helpful and maybe even inspiring for others to start building, breaking and better protecting AI/ML systems. 
 
 Reach out if there are specific topics you would like me to cover, or if you have any feedback. Also, if you enjoyed reading about this series, I'd appreciate a note. :)
+
+Also, if you'd like to build Husky AI yourself, the resources are available at [Husky AI Github Repo](https://github.com/wunderwuzzi23/huskyai/).
 
 Stay safe, Johann.
 

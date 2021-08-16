@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Thu, 26 Nov 2020 09:00:51 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 16 Aug 2021 10:00:26 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/huskyai/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using Azure Counterfit to create adversarial examples for Husky AI</title>
+      <link>https://embracethered.com/blog/posts/2021/huskyai-using-azure-counterfit/</link>
+      <pubDate>Mon, 16 Aug 2021 10:00:26 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/huskyai-using-azure-counterfit/</guid>
+      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.
+ Overview: How Husky AI was built, threat modeled and operationalized Attacks: Some of the attacks I investigated and tried out  It&amp;rsquo;s been a while that I did a Husky AI and offensive machine learning related post. This weekend I had some time to try out Counterfit.</description>
+    </item>
     
     <item>
       <title>Machine Learning Attack Series: Overview </title>
@@ -19,7 +29,7 @@
       
       <guid>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-overview/</guid>
       <description>What a journey it has been. I wrote quite a bit about machine learning from a red teaming/security testing perspective this year. It was brought to my attention to provide a conveninent &amp;ldquo;index page&amp;rdquo; with all Husky AI and related blog posts. Here it is.
-Machine Learning Basics and Building Husky AI  Getting the hang of machine learning The machine learning pipeline and attacks Husky AI: Building a machine learning system MLOps - Operationalizing the machine learning model  Threat Modeling and Strategies  Threat modeling a machine learning system Grayhat Red Team Village Video: Building and breaking a machine learning system Assume Bias and Responsible AI  Practical Attacks and Defenses  Brute forcing images to find incorrect predictions Smart brute forcing Perturbations to misclassify existing images Adversarial Robustness Toolbox Basics Image Scaling Attacks Stealing a model file: Attacker gains read access to the model Backdooring models: Attacker modifies persisted model file Repudiation Threat and Auditing: Catching modifications and unauthorized access Attacker modifies Jupyter Notebook file to insert a backdoor CVE 2020-16977: VS Code Python Extension Remote Code Execution Using Generative Adversarial Networks (GANs) to create fake husky images  Miscellaneous  Participating in the Microsoft Machine Learning Security Evasion Competition - Bypassing malware models by signing binaries  Conclusion As you can see there are many machine learning specific attacks, but also a lot of &amp;ldquo;typical&amp;rdquo; red teaming techniques that put AI/ML systems at risk.</description>
+Machine Learning Basics and Building Husky AI  Getting the hang of machine learning The machine learning pipeline and attacks Husky AI: Building a machine learning system MLOps - Operationalizing the machine learning model  Threat Modeling and Strategies  Threat modeling a machine learning system Grayhat Red Team Village Video: Building and breaking a machine learning system Assume Bias and Responsible AI  Practical Attacks and Defenses  Brute forcing images to find incorrect predictions Smart brute forcing Perturbations to misclassify existing images Adversarial Robustness Toolbox Basics Image Scaling Attacks Stealing a model file: Attacker gains read access to the model Backdooring models: Attacker modifies persisted model file Repudiation Threat and Auditing: Catching modifications and unauthorized access Attacker modifies Jupyter Notebook file to insert a backdoor CVE 2020-16977: VS Code Python Extension Remote Code Execution Using Generative Adversarial Networks (GANs) to create fake husky images [Using Azure Counterfit to create adversarial examples(/blog/posts/2020/huskyai-using-azure-counterfit/)]  Miscellaneous  Participating in the Microsoft Machine Learning Security Evasion Competition - Bypassing malware models by signing binaries Husky AI Github Repo  Conclusion As you can see there are many machine learning specific attacks, but also a lot of &amp;ldquo;typical&amp;rdquo; red teaming techniques that put AI/ML systems at risk.</description>
     </item>
     
     <item>

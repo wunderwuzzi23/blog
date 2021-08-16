@@ -3,18 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/tags/huskyai/</loc>
+    <lastmod>2021-08-16T10:00:26-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2021-08-16T10:00:26-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2021-08-09T10:00:20-07:00</lastmod>
+    <lastmod>2021-08-16T10:00:26-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2021-08-09T10:00:20-07:00</lastmod>
+    <lastmod>2021-08-16T10:00:26-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2021-08-09T10:00:20-07:00</lastmod>
+    <lastmod>2021-08-16T10:00:26-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2021/huskyai-using-azure-counterfit/</loc>
+    <lastmod>2021-08-16T10:00:26-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2021-08-16T10:00:26-07:00</lastmod>
   </url>
   
   <url>
@@ -24,11 +44,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/2021/linux-procdump/</loc>
-    <lastmod>2021-08-09T10:00:20-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/</loc>
     <lastmod>2021-08-09T10:00:20-07:00</lastmod>
   </url>
   
@@ -170,16 +185,6 @@
   <url>
     <loc>https://embracethered.com/blog/tags/blue/</loc>
     <lastmod>2020-12-08T15:02:22-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/huskyai/</loc>
-    <lastmod>2020-11-26T09:00:51-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2020-11-26T09:00:51-08:00</lastmod>
   </url>
   
   <url>
