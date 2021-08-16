@@ -1,5 +1,5 @@
 ---
-title: "Using Azure Counterfit to create adversarial examples for Husky AI"
+title: "Using Microsoft Counterfit to create adversarial examples for Husky AI"
 date: 2021-08-16T10:00:26-07:00
 draft: true
 tags: [
