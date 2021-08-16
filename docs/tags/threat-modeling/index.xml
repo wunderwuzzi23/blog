@@ -18,7 +18,7 @@
       <pubDate>Sun, 06 Sep 2020 00:00:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/husky-ai-threat-modeling-machine-learning/</guid>
-      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see all the posts, or visit the overview section.
+      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see all the posts, or visit the machine learning attack series overview section.
 In the previous post we walked through the steps required to gather training data, build and test a model to build &amp;ldquo;Husky AI&amp;rdquo;.
 This post is all about threat modeling the system to identify scenarios for attacks which we will perform in the upcoming posts.</description>
     </item>

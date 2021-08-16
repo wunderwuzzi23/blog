@@ -8,11 +8,12 @@ tags: [
     ]
 ---
 
-This post is part of a series about machine learning and artificial intelligence. 
+This post is part of a [series](/blog/posts/2020/machine-learning-attack-series-overview/) about machine learning and artificial intelligence. 
 
 In the [previous post](/blog/posts/2020/husky-ai-building-the-machine-learning-model/) we walked through the steps required to gather training data, build and test a model.
 
 In this post we dive into "Operationalizing" the model. The scenario is the creation of Husky AI and my experiences and learnings from that.
+
 
 
 # Part 3 - Operationalizing the Husky AI model{#part3}

@@ -9,7 +9,7 @@ tags: [
     ]
 ---
 
-This post is part of a series about machine learning and artificial intelligence. Click on the blog tag ["huskyai"](/blog/tags/huskyai/) to see all the posts, or visit the [overview section](/blog/posts/2020/husky-ai-walkthrough/).
+This post is part of a series about machine learning and artificial intelligence. Click on the blog tag ["huskyai"](/blog/tags/huskyai/) to see all the posts, or visit the [machine learning attack series overview section](/blog/posts/2020/machine-learning-attack-series-overview/).
 
 In the [previous post](/blog/posts/2020/husky-ai-building-the-machine-learning-model/) we walked through the steps required to gather training data, build and test a model to build "Husky AI".
 

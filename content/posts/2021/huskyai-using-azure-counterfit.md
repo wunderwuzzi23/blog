@@ -9,9 +9,9 @@ tags: [
     ]
 ---
 
-This post is part of a series about machine learning and artificial intelligence. Click on the blog tag "huskyai" to see related posts. 
+This post is part of a series about machine learning and artificial intelligence. 
 
-* [Overview](/blog/posts/2020/husky-ai-walkthrough/): How Husky AI was built, threat modeled and operationalized
+* [Overview](/blog/posts/2020/machine-learning-attack-series-overview/): How Husky AI was built, threat modeled and operationalized
 * [Attacks](/blog/posts/2020/husky-ai-threat-modeling-machine-learning/): Some of the attacks I investigated and tried out
 
 It's been a while that I did a Husky AI and offensive machine learning related post. This weekend I had some time to try out [Counterfit](https://github.com/Azure/counterfit/wiki). My goal was to understand what Counterfit is, how it works, and use it to turn Shadowbunny into a husky.

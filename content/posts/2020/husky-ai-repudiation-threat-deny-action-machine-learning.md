@@ -13,7 +13,7 @@ tags: [
 
 This post is part of a series about machine learning and artificial intelligence. Click on the blog tag "huskyai" to see related posts. 
 
-* [Overview](/blog/posts/2020/husky-ai-walkthrough/): How Husky AI was built, threat modeled and operationalized
+* [Overview](/blog/posts/2020/machine-learning-attack-series-overview/): How Husky AI was built, threat modeled and operationalized
 * [Attacks](#appendix): The attacks I want to investigate, learn about, and try out
 
 In this post we are going to look at the "Repudiation Threat", which is one of the threats often overlooked when performing threat modeling, and maybe something you would not even expect in a series about machine learning.

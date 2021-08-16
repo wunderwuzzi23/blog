@@ -8,7 +8,7 @@ tags: [
     ]
 ---
 
-This post is part of a series about machine learning and artificial intelligence.
+This post is part of a [series](/blog/posts/2020/machine-learning-attack-series-overview/) about machine learning and artificial intelligence.
 
 In the [previous post](/blog/posts/2020/machine-learning-basics/) I talked about good resources for learning more about artificial intelligence and machine learning in general, and how I started my journey in this space. 
 

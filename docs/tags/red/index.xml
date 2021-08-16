@@ -18,8 +18,8 @@
       <pubDate>Mon, 16 Aug 2021 10:00:26 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2021/huskyai-using-azure-counterfit/</guid>
-      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.
- Overview: How Husky AI was built, threat modeled and operationalized Attacks: Some of the attacks I investigated and tried out  It&amp;rsquo;s been a while that I did a Husky AI and offensive machine learning related post. This weekend I had some time to try out Counterfit.</description>
+      <description>This post is part of a series about machine learning and artificial intelligence.
+ Overview: How Husky AI was built, threat modeled and operationalized Attacks: Some of the attacks I investigated and tried out  It&amp;rsquo;s been a while that I did a Husky AI and offensive machine learning related post. This weekend I had some time to try out Counterfit. My goal was to understand what Counterfit is, how it works, and use it to turn Shadowbunny into a husky.</description>
     </item>
     
     <item>

@@ -18,8 +18,8 @@
       <pubDate>Mon, 16 Aug 2021 10:00:26 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2021/huskyai-using-azure-counterfit/</guid>
-      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.
- Overview: How Husky AI was built, threat modeled and operationalized Attacks: Some of the attacks I investigated and tried out  It&amp;rsquo;s been a while that I did a Husky AI and offensive machine learning related post. This weekend I had some time to try out Counterfit.</description>
+      <description>This post is part of a series about machine learning and artificial intelligence.
+ Overview: How Husky AI was built, threat modeled and operationalized Attacks: Some of the attacks I investigated and tried out  It&amp;rsquo;s been a while that I did a Husky AI and offensive machine learning related post. This weekend I had some time to try out Counterfit. My goal was to understand what Counterfit is, how it works, and use it to turn Shadowbunny into a husky.</description>
     </item>
     
     <item>
@@ -201,7 +201,7 @@ The previous four posts explained the architecture and how Husky AI was built, t
       <pubDate>Sun, 06 Sep 2020 00:00:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2020/husky-ai-threat-modeling-machine-learning/</guid>
-      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see all the posts, or visit the overview section.
+      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see all the posts, or visit the machine learning attack series overview section.
 In the previous post we walked through the steps required to gather training data, build and test a model to build &amp;ldquo;Husky AI&amp;rdquo;.
 This post is all about threat modeling the system to identify scenarios for attacks which we will perform in the upcoming posts.</description>
     </item>

@@ -11,7 +11,7 @@ tags: [
 
 This post is part of a series about machine learning and artificial intelligence. Click on the blog tag "huskyai" to see related posts. 
 
-* [Overview](/blog/posts/2020/husky-ai-walkthrough/): How Husky AI was built, threat modeled and operationalized
+* [Overview](/blog/posts/2020/machine-learning-attack-series-overview/): How Husky AI was built, threat modeled and operationalized
 * [Attacks](#appendix): The attacks I want to investigate, learn about, and try out
 
 The previous post covered some neat smart fuzzing techniques to improve generation of fake husky images.
