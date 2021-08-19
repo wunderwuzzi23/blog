@@ -225,7 +225,7 @@ Easy to use and fast result. Pretty neat.
 Here are some useful tips and issues I ran across that might speed up your experience.
 
 * **Restarting counterfit when changing framework code.**
-At times you'll have to debug/change the `counterfit` code. In case of updating core framework files, like `target.py`. For instance, I had issues around dimensions being off, and counterfit internally does some magic with transpositions and channels when saving files. Whenever you update the core framework you have to restart `counterfit`. 
+At times you'll have to debug/change the `counterfit` code. In case of updating core framework files, like `target.py`. For instance, I had issues around dimensions being off, and counterfit internally does some magic with transpositions and channels when saving files. Whenever you update the core framework you have to restart `counterfit`, for changes to your target implementation you can use the `reload` command on the fly.
 
 * **Handling of channel information.** There is an internal variable `self.channels_first` that is used to do some *magic* once in a while depending on if first or last index in the image shape contains the channel information. So be sure to set `model.input_shape` correctly and know that `self.channels_first` is set to `True` by default.
 

@@ -259,7 +259,7 @@ huskyai&gt;hop_skip_jump&gt;
 <ul>
 <li>
 <p><strong>Restarting counterfit when changing framework code.</strong>
-At times you&rsquo;ll have to debug/change the <code>counterfit</code> code. In case of updating core framework files, like <code>target.py</code>. For instance, I had issues around dimensions being off, and counterfit internally does some magic with transpositions and channels when saving files. Whenever you update the core framework you have to restart <code>counterfit</code>.</p>
+At times you&rsquo;ll have to debug/change the <code>counterfit</code> code. In case of updating core framework files, like <code>target.py</code>. For instance, I had issues around dimensions being off, and counterfit internally does some magic with transpositions and channels when saving files. Whenever you update the core framework you have to restart <code>counterfit</code>, for changes to your target implementation you can use the <code>reload</code> command on the fly.</p>
 </li>
 <li>
 <p><strong>Handling of channel information.</strong> There is an internal variable <code>self.channels_first</code> that is used to do some <em>magic</em> once in a while depending on if first or last index in the image shape contains the channel information. So be sure to set <code>model.input_shape</code> correctly and know that <code>self.channels_first</code> is set to <code>True</code> by default.</p>
