@@ -62,7 +62,7 @@ Neat.
 
 Its unlikely, but if you encounter a BSD system you might actually see two user's with uid 0. One is name `root` and the other one `toor`. So on non-BSD systems a nifty attacker might attempt to trick Unix administrators and hide an additional backdoor user with the name `toor`.
 
-In case you find backdoor users in your environment - I'd be curious to know. It seeems that MITRE ATT&CK framework does not yet contain this specific tactic. 
+In case you find backdoor users in your environment - I'd be curious to know. 
 
 ## Conclusion
 

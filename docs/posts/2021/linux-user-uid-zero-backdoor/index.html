@@ -140,7 +140,7 @@ root@saturn:/#
 <p><img src="/blog/images/2021/user-uid0.png" alt="uid 0 backdoor"></p>
 <p>Neat.</p>
 <p>Its unlikely, but if you encounter a BSD system you might actually see two user&rsquo;s with uid 0. One is name <code>root</code> and the other one <code>toor</code>. So on non-BSD systems a nifty attacker might attempt to trick Unix administrators and hide an additional backdoor user with the name <code>toor</code>.</p>
-<p>In case you find backdoor users in your environment - I&rsquo;d be curious to know. It seeems that MITRE ATT&amp;CK framework does not yet contain this specific tactic.</p>
+<p>In case you find backdoor users in your environment - I&rsquo;d be curious to know.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Be aware that <code>uid=0</code> are root users. It&rsquo;s hardcoded.</p>
 <p>One would expect the system to break, but things <em>seem</em> to continue working fine. I always assumed that the configuration is not really supported, but malware and malicious users rarely care about supported configurations.</p>
