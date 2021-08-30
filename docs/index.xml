@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Mon, 16 Aug 2021 10:00:26 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 30 Aug 2021 09:22:40 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Backdoor users on Linux with uid=0</title>
+      <link>https://embracethered.com/blog/posts/2021/linux-user-uid-zero-backdoor/</link>
+      <pubDate>Mon, 30 Aug 2021 09:22:40 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/linux-user-uid-zero-backdoor/</guid>
+      <description>On Unix/Linux users with a uid=0 are root. This means any security checks are bypassed for them.
+An adversary might go ahead and create a new account, or set an existing account&amp;rsquo;s user identifier (uid) or group identifier to zero.
+A simple way to do this is to update /etc/passwd of an account, or use usermod -u 0 -o mallory.
+Let&amp;rsquo;s create a new user named mallory:
+wuzzi@saturn:/$ sudo adduser mallory [.</description>
+    </item>
     
     <item>
       <title>Using Microsoft Counterfit to create adversarial examples for Husky AI</title>

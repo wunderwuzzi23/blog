@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/posts/2021/linux-user-uid-zero-backdoor/</loc>
+    <lastmod>2021-08-30T09:22:40-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2021-08-30T09:22:40-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2021-08-30T09:22:40-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2021-08-30T09:22:40-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <lastmod>2021-08-30T09:22:40-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2021-08-30T09:22:40-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/tags/huskyai/</loc>
     <lastmod>2021-08-16T10:00:26-07:00</lastmod>
   </url>
@@ -13,27 +43,7 @@
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2021-08-16T10:00:26-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2021-08-16T10:00:26-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2021-08-16T10:00:26-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/posts/2021/huskyai-using-azure-counterfit/</loc>
-    <lastmod>2021-08-16T10:00:26-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/</loc>
     <lastmod>2021-08-16T10:00:26-07:00</lastmod>
   </url>
   
@@ -54,11 +64,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/2021/automating-office-to-achieve-redteaming-objectives/</loc>
-    <lastmod>2021-07-05T13:00:54-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
     <lastmod>2021-07-05T13:00:54-07:00</lastmod>
   </url>
   
