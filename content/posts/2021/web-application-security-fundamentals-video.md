@@ -5,6 +5,14 @@ draft: true
 tags: [
         "pentest", "appsec","webapp"
     ]
+
+twitter:
+  card: "Web Application Security Fundamentals"
+  site: "@wunderwuzzi23"
+  title: "Video: Web Application Security Fundamentals"
+  description: "This video covers the basic building blocks of web applications, such as HTML, HTTP, JavaScript and Cookies."
+  image: "/blog/images/2021/webappsecfundamentals.png"
+
 ---
 
 In this 25 minute video I'm explaining the foundations of `Web Application Security`. 

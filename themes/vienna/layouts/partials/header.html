@@ -41,6 +41,9 @@
   <link href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
   {{ end }}
 
+  {{ partial "twitter-card" . }}
+
+
 </head>
 <body>
     <header class="global-header"  style="background-image:url({{ if isset .Params "image" }}{{ .Params.image }} {{ else }} /blog/images/bg.png {{ end }})">
