@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>appsec on Embrace The Red</title>
-    <link>https://embracethered.com/blog/tags/appsec/</link>
-    <description>Recent content in appsec on Embrace The Red</description>
+    <title>webapp on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/webapp/</link>
+    <description>Recent content in webapp on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
     <lastBuildDate>Mon, 06 Sep 2021 07:45:44 -0700</lastBuildDate>
     
-	<atom:link href="https://embracethered.com/blog/tags/appsec/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://embracethered.com/blog/tags/webapp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -23,17 +23,6 @@ The video covers the basic building blocks of web applications, such as HTML, HT
 Furthermore core web applications security concepts such as the Same-Origin Policy are discussed in detail to provide the foundation to understand the web app security vulnerabilities that will be covered in this series
 
 I presentatied content like this to thousands of engineers at large organiztions and cloud providers in the past, hence its quite optimized for best learning and comprehension outcome.</description>
-    </item>
-    
-    <item>
-      <title>Race conditions when applying ACLs</title>
-      <link>https://embracethered.com/blog/posts/2020/applying-acls-and-race-conditions/</link>
-      <pubDate>Mon, 24 Aug 2020 12:00:33 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/posts/2020/applying-acls-and-race-conditions/</guid>
-      <description>Today I&amp;rsquo;m gonna talk about a class of application security issues I ran across a few times over the years. In particular, let&amp;rsquo;s discuss race conditions when it comes to files with sensitive content and permissions.
-Race conditions can allow an adversary to gain access to sensitive information on machines. Assume a system creates a file that contains sensitive information and afterwards applies permissions to lockdown that file.
-Understanding the race condition Let&amp;rsquo;s look at a practical example seen in the wild a few times.</description>
     </item>
     
   </channel>

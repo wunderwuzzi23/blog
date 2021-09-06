@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Mon, 30 Aug 2021 09:22:40 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 06 Sep 2021 07:45:44 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Video: Web Application Security Fundamentals</title>
+      <link>https://embracethered.com/blog/posts/2021/web-application-security-fundamentals-video/</link>
+      <pubDate>Mon, 06 Sep 2021 07:45:44 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/web-application-security-fundamentals-video/</guid>
+      <description>I put up a 25 minute video that covers the fundamentals of Web Application Security.
+The video covers the basic building blocks of web applications, such as HTML, HTTP, JavaScript and Cookies!
+Furthermore core web applications security concepts such as the Same-Origin Policy are discussed in detail to provide the foundation to understand the web app security vulnerabilities that will be covered in this series
+
+I presentatied content like this to thousands of engineers at large organiztions and cloud providers in the past, hence its quite optimized for best learning and comprehension outcome.</description>
+    </item>
     
     <item>
       <title>Backdoor users on Linux with uid=0</title>

@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Mon, 30 Aug 2021 09:22:40 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 06 Sep 2021 07:45:44 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>appsec</title>
+      <link>https://embracethered.com/blog/tags/appsec/</link>
+      <pubDate>Mon, 06 Sep 2021 07:45:44 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/appsec/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pentest</title>
+      <link>https://embracethered.com/blog/tags/pentest/</link>
+      <pubDate>Mon, 06 Sep 2021 07:45:44 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/pentest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>webapp</title>
+      <link>https://embracethered.com/blog/tags/webapp/</link>
+      <pubDate>Mon, 06 Sep 2021 07:45:44 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/webapp/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>red</title>
@@ -207,15 +234,6 @@
       <pubDate>Sun, 06 Sep 2020 00:00:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/threat-modeling/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>appsec</title>
-      <link>https://embracethered.com/blog/tags/appsec/</link>
-      <pubDate>Mon, 24 Aug 2020 12:00:33 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/appsec/</guid>
       <description></description>
     </item>
     
