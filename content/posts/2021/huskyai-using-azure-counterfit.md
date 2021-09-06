@@ -7,6 +7,13 @@ tags: [
         "huskyai",
         "red"
     ]
+twitter:
+  card: "summary_large_image"
+  site: "@wunderwuzzi23"
+  creator: "@wunderwuzzi23"
+  title: "Using Microsoft Counterfit to create adversarial examples for Husky AI"
+  description: "Spent some time playing around with #counterfit to create adversarial examples for #huskyai and have it misclassify images."
+  image: "https://embracethered.com/blog/images/2021/huskyai-counterfit-list-targets.png"
 ---
 
 This post is part of the [machine learning attack series](/blog/posts/2020/machine-learning-attack-series-overview/).
