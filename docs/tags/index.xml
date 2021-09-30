@@ -7,10 +7,55 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Mon, 06 Sep 2021 08:02:00 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 30 Sep 2021 00:00:00 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>blue</title>
+      <link>https://embracethered.com/blog/tags/blue/</link>
+      <pubDate>Thu, 30 Sep 2021 00:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/blue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bpf</title>
+      <link>https://embracethered.com/blog/tags/bpf/</link>
+      <pubDate>Thu, 30 Sep 2021 00:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/bpf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pentest</title>
+      <link>https://embracethered.com/blog/tags/pentest/</link>
+      <pubDate>Thu, 30 Sep 2021 00:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/pentest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red</title>
+      <link>https://embracethered.com/blog/tags/red/</link>
+      <pubDate>Thu, 30 Sep 2021 00:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>research</title>
+      <link>https://embracethered.com/blog/tags/research/</link>
+      <pubDate>Thu, 30 Sep 2021 00:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/research/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>appsec</title>
@@ -22,29 +67,11 @@
     </item>
     
     <item>
-      <title>pentest</title>
-      <link>https://embracethered.com/blog/tags/pentest/</link>
-      <pubDate>Mon, 06 Sep 2021 08:02:00 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/pentest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>webapp</title>
       <link>https://embracethered.com/blog/tags/webapp/</link>
       <pubDate>Mon, 06 Sep 2021 08:02:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/webapp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>red</title>
-      <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Mon, 30 Aug 2021 09:22:40 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/red/</guid>
       <description></description>
     </item>
     
@@ -189,24 +216,6 @@
       <pubDate>Mon, 11 Jan 2021 09:00:51 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/metrics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blue</title>
-      <link>https://embracethered.com/blog/tags/blue/</link>
-      <pubDate>Tue, 08 Dec 2020 15:02:22 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/blue/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>research</title>
-      <link>https://embracethered.com/blog/tags/research/</link>
-      <pubDate>Mon, 23 Nov 2020 23:00:57 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/research/</guid>
       <description></description>
     </item>
     

@@ -8,6 +8,15 @@ tags: [
         "ttp",
         "conference"
     ]
+
+twitter:
+  card: "summary_large_image"
+  site: "@wunderwuzzi23"
+  creator: "@wunderwuzzi23"
+  title: "Beware of the Shadowbunny - Using virtual machines to persist and evade detections"
+  description: "Using virtual machines to persist and evade detections"
+  image: "https://embracethered.com/blog/images/2020/shadowbunny-transparent.png"
+
 ---
 
 This was also presented at [BSides Singapore 2020](https://bsidessg.org/). The slides are [here](/blog/downloads/Shadowbunny_BSides_Singapore_2020.pptx) and [YouTube link is here](https://www.youtube.com/watch?v=deGrbmTkRjQ).

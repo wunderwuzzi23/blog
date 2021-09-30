@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Offensive BPF! Getting started. &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2021/offensive-bpf/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2021-09-30T00:00:00-07:00" />
+  
+  <meta property="og:article:tag" content="pentest" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="research" />
+  
+  <meta property="og:article:tag" content="bpf" />
+  
+  <meta property="og:article:tag" content="blue" />
+  
+  
+
+  <title>
+     Offensive BPF! Getting started. &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Offensive BPF! Getting started.">
+<meta name="twitter:description" content="Learning by doing series: Using eBPF in offensive security settings and mitigations">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2021/offensive-bpf.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Offensive BPF! Getting started.</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2021-09-30T00:00:00-07:00">
+          Sep 30, 2021
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentest">#pentest</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/research">#research</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/bpf">#bpf</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/blue">#blue</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>Over the last few years eBPF has gained a lot of traction in the Linux community and beyond.</p>
+<p>eBPF&rsquo;s offensive usage is also slowly getting more attention. So, I decided to dive into the topic from a red teaming point of view to learn about it to raise awareness and share the journey.</p>
+<p><img src="/blog/images/2021/offensive-bpf.png" alt="Offensive BPF"></p>
+<p>Similar to the format of my <a href="/blog/posts/2020/machine-learning-attack-series-overview/">Machine Learning Attack Series</a>, there will be a serious of posts around BPF usage in offensive settings, and also how its misuse can be detected.</p>
+<p>Click the <a href="/blog/tags/bpf">&ldquo;bpf&rdquo;</a> tag to see all relevant posts (for now there is only this post).</p>
+<p>So, let&rsquo;s get started.</p>
+<h2 id="what-is-berkeley-packet-filtering">What is Berkeley Packet Filtering?</h2>
+<p>Classic BPF allows a user space program (e.g., <code>tcpdump</code>) to receive certain network packets based on a provided filter. The actual filtering is run inside the kernel. This greatly improves performance because only packets that pass the filter need to be copied to user space.</p>
+<p>What makes <code>eBPF</code> <strong>extended</strong> is that it is a general purpose technology for tracing and hooking.</p>
+<blockquote>
+<p>It is used to safely and efficiently extend the capabilities of the kernel without requiring changing kernel source code or load kernel modules. <em>(ebpf.io)</em></p>
+</blockquote>
+<p>Nowadays, when people talk about BPF, they typically refer to the newer, extended version (rather the classic BPF), so I will just use the term BPF going forward.</p>
+<p>BPF allows users to write small, sandboxed programs that run inside the kernel.</p>
+<h3 id="bpf-use-cases">BPF Use Cases</h3>
+<p>It is possible to run BPF programs basically anywhere in the kernel or user space, and even directly on network cards that support it.</p>
+<p><img src="/blog/images/2021/ebpio-overview.png" alt="EBPF Overview"></p>
+<p><em>Note: Modified image (original image from <a href="https://ebpf.io">https://ebpf.io</a>)</em></p>
+<p>Being able to offload BPF programs to a NIC is interesting for offensive security reasons. This means that the program runs on the NIC, and the kernel can only process packets after the BPF program ran.</p>
+<p>The core use-cases are <strong>tracing</strong>, <strong>observability</strong>, <strong>perfomance measuring</strong> and <strong>security tooling</strong>.</p>
+<p>A lot of the latest detection, monitoring software and performance tracing tools are written in BPF and in the cloud native space BPF is seeing a lot of adoption (e.g. <a href="https://docs.cilium.io/en/v1.8/intro/">Cilium</a>).</p>
+<h3 id="bpf-programs-maps-and-events">BPF programs, Maps and Events</h3>
+<p>The BPF infrastructure is made up of a set of core paradigms.</p>
+<p><img src="/blog/images/2021/prog.map.events.png" alt="Programs, Maps, Events"></p>
+<p>The foundational pieces are:</p>
+<ol>
+<li><strong>BPF Programs</strong>: Typically written in a C-like language and compiled (JIT) to BPF byte code.</li>
+<li><strong>Maps</strong>: Communication between kernel and user space happens via these data structures.</li>
+<li><strong>Events</strong>: The programs are run upon events (e.g., entry/exit of kernel functions).</li>
+</ol>
+<p>BPF programs allow us to run user programs in kernel space. They are like flexible light-weight kernel modules. But compared to kernel modules, they have much higher reliability guarantees.</p>
+<p>A dedicated <strong>Verifier</strong> makes sure that they are stable and will not crash the operating system.</p>
+<h3 id="loading-bpf-programs">Loading BPF programs</h3>
+<p>A BPF program is loaded into the kernel by a privileged user using the <code>bpf()</code> syscall.</p>
+<p>The call requires <code>root</code> or the <code>CAP_BPF</code> capability for most BPF program types (see <a href="#appendix">Appendix</a>).</p>
+<p>The loading of a program goes approximately like this:</p>
+<ol>
+<li><strong>Load</strong>: A user space program calls <code>bpf()</code> using the <code>BPF_PROG_LOAD</code> parameter to load the program (it might also create maps, if needed).</li>
+<li><strong>Configure</strong>: The user space program associates the BPF program with events/probes. For instance via <code>ioctl()</code> calls (e.g. <code>PERF_EVENT_IOC_SET_BPF</code>).</li>
+<li><strong>Execute</strong>: Now, whenever a trigger event occurs, the BPF program will run in the given context!</li>
+</ol>
+<p><strong>All this gives developers (and attackers) great flexibility and power.</strong></p>
+<p><strong>Non-persistent</strong>: BPF programs are not persistent across reboots (so they have to be started again).</p>
+<h2 id="offensive-bpf---the-alternate-use-case">Offensive BPF - The alternate use case!</h2>
+<p><img src="/blog/images/2021/obpf.png" alt="Offensive BPF"></p>
+<p>BPF is interesting from an offsec perspective, because BPF programs have superpowers and from what I know so far they can:</p>
+<ul>
+<li>Hook into <strong>syscalls</strong> and <strong>user space function calls</strong> a like</li>
+<li><strong>Manipulate</strong> user space data structures</li>
+<li><strong>Overwrite syscall return values</strong></li>
+<li>Call <strong>system()</strong> to spawn a new process (built-in <code>bpftrace</code> feature)</li>
+<li>Some BPF programs <strong>can be off-loaded to hardware devices</strong> (like network cards)</li>
+<li><strong>New opportunities for supply chain attacks</strong> by targeting BPF code</li>
+<li><strong>Mingle with security and detection tooling</strong> (e.g., by hooking the <code>bpf</code> call itself)</li>
+</ul>
+<p>An Offensive BPF program is one that might install itself as a <strong>rootkit</strong> on the machine, and BPF has also been used to succesfully break out of containers.</p>
+<p>Quite exciting, and some great opportunities to perform red teaming ops to help raise awareness and detection capabilities.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>There are three levels of sophistication for using/building BPF programs:</p>
+<ol>
+<li><strong>Level 1:</strong> Live off the land and use existing BPF programs, e.g. there is <code>sslsniff-bpcc</code>.</li>
+<li><strong>Level 2:</strong> Write you own little malicious programs and run them with <code>bpftrace</code></li>
+<li><strong>Level 3:</strong> Write more complex programs using libbpf and other lower level frameworks. Compile to BPF bytecode via tools like <code>clang</code>.</li>
+</ol>
+<p>One could also write BPF bytecode directly, which might be Level 4. :)</p>
+<p>My goal is to explore each of these in more detail (some of them I have already) and post about outcomes and learnings.</p>
+<h2 id="learning-resources">Learning Resources</h2>
+<p>To conclude this initial post, I wanted to shrae the most useful resources I used to get started.</p>
+<p>For general BPF information, sample code and code snippets I find the talks from <strong>Liz Rice</strong> and <strong>Brendan Gregg</strong> extremely useful - their talks help you understand what BPF can do and how it is used for good:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=uBqRv8bDro">A beginners guide to eBPF programming</a>, Liz Rice GOTO 2021</li>
+<li><a href="https://www.youtube.com/watch?v=16slh29iN1g">BPF performance analysis at Netflix</a>, Bredan Gregg, 2019</li>
+</ul>
+<p>On the offensive side there is not yet a lot of content, but these three talks are high quality:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=5zixNDolLrg">DEFCON 29 - eBPF, I thought we were friends</a>, Guillaume Fourndier, et al.</li>
+<li><a href="https://www.youtube.com/watch?v=g6SKWT7sROQ">DEFCON 29 - Warping Reality</a>, @pathtofile</li>
+<li><a href="https://www.youtube.com/watch?v=yrrxFZfyEsw">DEFCON 27 - Evil eBPF</a> Jeff Dileo, NCC Group 2019</li>
+</ul>
+<p>All these talks provide great insights and are very informative.</p>
+<p>Cheers.</p>
+<p><a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+<p>PS.: Any feedback or ideas, feel free send me a message</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://www.kernel.org/doc/html/latest/userspace-api/ebpf/syscall.html">BPF syscall</a></li>
+<li><a href="https://www.kernel.org/doc/html/latest/bpf/index.html">BPF Documentation</a></li>
+<li><a href="https://docs.cilium.io/en/v1.8/intro/">Cilium</a></li>
+<li><a href="https://ebpf.io">epbf.io</a></li>
+</ul>
+<h2 id="appendix">Appendix</h2>
+<p>There are different types of BPF programs, like TRACEPOINT, KPROBE, XDP, PERF_EVENT.</p>
+<p><a href="https://elixir.bootlin.com/linux/latest/source/kernel/bpf/syscall.c#L2134">Some programs can be created by a low privileged user</a>:</p>
+<ul>
+<li><code>BPF_PROG_TYPE_SOCKET_FILTER</code></li>
+<li><code>BPF_PROG_TYPE_CGROUP_SKB</code></li>
+</ul>
+<p>To see if unprivileged BPF is enabled/disabled is:</p>
+<pre><code>cat /proc/sys/kernel/unprivileged_bpf_disabled
+</code></pre><p>Change via:</p>
+<pre><code>sudo sysctl kernel.unprivileged_bpf_disabled=1
+</code></pre>
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2021/web-application-security-fundamentals-video/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2021
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
