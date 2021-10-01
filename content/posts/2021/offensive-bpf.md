@@ -3,7 +3,7 @@ title: "Offensive BPF! Getting started."
 date: 2021-09-30T00:00:00-07:00
 draft: true
 tags: [
-        "pentest", "red","research","bpf","blue"
+        "pentest", "red","research","ebpf","blue"
     ]
 
 twitter:
@@ -24,7 +24,7 @@ eBPF's offensive usage is also slowly getting more attention. So, I decided to d
 
 Similar to the format of my [Machine Learning Attack Series](/blog/posts/2020/machine-learning-attack-series-overview/), there will be a serious of posts around BPF usage in offensive settings, and also how its misuse can be detected. 
 
-Click the ["bpf"](/blog/tags/bpf) tag to see all relevant posts (for now there is only this post).
+Click the ["ebpf"](/blog/tags/ebpf) tag to see all relevant posts.
 
 
 So, let's get started.

@@ -2,9 +2,19 @@
 title: "Offensive BPF Handy Tools"
 date: 2021-10-28T18:14:59-07:00
 draft: true
+tags: [
+        "pentest", "red","research","ebpf","blue"
+    ]
+
+twitter:
+  card: "summary_large_image"
+  site: "@wunderwuzzi23"
+  creator: "@wunderwuzzi23"
+  title: "Offensive BPF - Handy tools"
+  description:  "Using eBPF in offensive security settings and mitigations"
+  image: "https://embracethered.com/blog/images/2021/obpf.png"
+
 ---
-
-
 
 ### Level 1: Living off the land - bpfcc-tools
 

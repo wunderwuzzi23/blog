@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Thu, 30 Sep 2021 00:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 01 Oct 2021 08:00:58 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Offensive BPF - Malicious deeds with bpftrace</title>
+      <link>https://embracethered.com/blog/posts/2021/offensive-bpf-bpftrace/</link>
+      <pubDate>Fri, 01 Oct 2021 08:00:58 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/offensive-bpf-bpftrace/</guid>
+      <description>This post is part of a series about Offensive BPF that I&amp;rsquo;m working on to learn about BPF to understand attacks and defenses, click the &amp;ldquo;ebpf&amp;rdquo; tag to see all relevant posts.
+What is bpftrace bpftrace is a versatile tool used to create custom bpf programs without having to deal with too many low-level things. The bpftrace&amp;rsquo;s homepage calls it a &amp;ldquo;High-level tracing language for Linux systems&amp;rdquo;, and it has a cute logo.</description>
+    </item>
     
     <item>
       <title>Offensive BPF! Getting started.</title>

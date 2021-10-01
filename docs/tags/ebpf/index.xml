@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>pentest on Embrace The Red</title>
-    <link>https://embracethered.com/blog/tags/pentest/</link>
-    <description>Recent content in pentest on Embrace The Red</description>
+    <title>ebpf on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/ebpf/</link>
+    <description>Recent content in ebpf on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
     <lastBuildDate>Fri, 01 Oct 2021 08:00:58 -0700</lastBuildDate>
     
-	<atom:link href="https://embracethered.com/blog/tags/pentest/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://embracethered.com/blog/tags/ebpf/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -31,19 +31,6 @@ What is bpftrace bpftrace is a versatile tool used to create custom bpf programs
       <description>Over the last few years eBPF has gained a lot of traction in the Linux community and beyond.
 eBPF&amp;rsquo;s offensive usage is also slowly getting more attention. So, I decided to dive into the topic from a red teaming point of view to learn about it to raise awareness and share the journey.
 Similar to the format of my Machine Learning Attack Series, there will be a serious of posts around BPF usage in offensive settings, and also how its misuse can be detected.</description>
-    </item>
-    
-    <item>
-      <title>Video: Web Application Security Fundamentals</title>
-      <link>https://embracethered.com/blog/posts/2021/web-application-security-fundamentals-video/</link>
-      <pubDate>Mon, 06 Sep 2021 08:02:00 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/posts/2021/web-application-security-fundamentals-video/</guid>
-      <description>In this 25 minute video I&amp;rsquo;m explaining the foundations of Web Application Security.
-The video covers the basic building blocks of web applications, such as HTML, HTTP, JavaScript and Cookies. Furthermore core web applications security concepts such as the Same-Origin Policy are discussed in detail.
-
-The goal is to provide foundational knowledge to help grasp security vulnerabilities, such as XSS, CSRF, SQLi, tab-nabbing, etc. later on.
-In the past I have trained and presented content like this to thousands of engineers at large organizations and cloud providers, hence its quite optimized for best learning and comprehension outcome.</description>
     </item>
     
   </channel>
