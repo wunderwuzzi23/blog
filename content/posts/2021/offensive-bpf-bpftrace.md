@@ -1,5 +1,5 @@
 ---
-title: "Offensive BPF - Creating a simple command backdoor with bpftrace 🤯"
+title: "Offensive BPF - Malicious bpftrace 🤯"
 date: 2021-10-05T08:00:58-07:00
 draft: true
 tags: [
@@ -10,7 +10,7 @@ twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "Offensive BPF - Creating a simple backdoor with bpftrace 🤯"
+  title: "Offensive BPF - Malicious bpftrace 🤯"
   description:  "Using eBPF in offensive security settings and mitigations"
   image: "https://embracethered.com/blog/images/2021/obpf.png"
 
