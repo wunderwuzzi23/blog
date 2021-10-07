@@ -1,6 +1,6 @@
 ---
 title: "Offensive BPF: Detection Ideas"
-date: 2021-10-07T02:00:00-07:00
+date: 2021-10-07T08:00:00-07:00
 draft: true
 tags: [
         "research","ebpf","blue"

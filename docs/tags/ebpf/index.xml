@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Thu, 07 Oct 2021 02:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 07 Oct 2021 08:00:00 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/ebpf/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Offensive BPF: Detection Ideas</title>
       <link>https://embracethered.com/blog/posts/2021/offensive-bpf-detections-initial-ideas/</link>
-      <pubDate>Thu, 07 Oct 2021 02:00:00 -0700</pubDate>
+      <pubDate>Thu, 07 Oct 2021 08:00:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2021/offensive-bpf-detections-initial-ideas/</guid>
       <description>This post is part of a series about Offensive BPF that I&amp;rsquo;m working on to learn how BPFs use will impact offensive security, malware and detection engineering.
