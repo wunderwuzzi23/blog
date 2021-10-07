@@ -1,16 +1,16 @@
 ---
-title: "Offensive BPF: Initial Detection Ideas"
-date: 2021-10-07T20:00:43-07:00
+title: "Offensive BPF: Basic Detection Ideas"
+date: 2021-10-07T00:01:43-07:00
 draft: true
 tags: [
-        "pentest", "red","research","ebpf","blue"
+        "research","ebpf","blue"
     ]
 
 twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "Offensive BPF: Initial Detection Ideas"
+  title: "Offensive BPF: Basic Detection Ideas"
   description:  "Using eBPF in offensive security settings and mitigations"
   image: "https://embracethered.com/blog/images/2021/obpf-detections.png"
 
@@ -20,7 +20,7 @@ This post is part of a series about **Offensive BPF** that I'm working on to lea
 
 ![Offensive BPF](/blog/images/2021/offensive-bpf.png)
 
-In the last few posts we talked about a `bpftrace` and how attackers can use it to their advantage.
+In the last few posts, we talked about a `bpftrace` and how attackers can use it to their advantage.
 
 This post is about detecting malicious usage.
 
@@ -61,9 +61,9 @@ I haven't seen any signature validation approaches yet, which could help detect 
 
 Creating and maintaining and inventory of valid BPF programs of your environments seems a good strategy. This allows catching unknown ones to investigate.
 
-### Perform a Red Team Excercise using the BPF TTP
+### Perform a Red Team Exercise using the BPF TTP
 
-Assume Breach operations can help identify detection and prevention opportunities in your environments. Hence I'd recommend performing a red or purple team operation that emulates usage of malicious BPF programs.
+Assume Breach operations can help identify detection and prevention opportunities in your environments. Hence, I'd recommend performing a red or purple team operation that emulates usage of malicious BPF programs.
 
 ![OBPF Detections](/blog/images/2021/obpf-detections.png)
 
@@ -75,10 +75,10 @@ Performing static analysis on BPF programs can help identify such programs, as c
 
 ### Investigate and leverage existing BPF malware detection kits
 
-There has not been a lot of work in this regards, but there are two projects I want to look at more closely when it comes to detections:
+There has not been a lot of work in this regard, but there are two projects I want to look at more closely when it comes to detections:
 
 * https://github.com/Gui774ume/ebpfkit-monitor
-* https://github.com/pathtofile/bpf-hookdetect (migth not be just about eBPF, but general kernel rootkits)
+* https://github.com/pathtofile/bpf-hookdetect (might not be just about eBPF, but general kernel rootkits)
 
 
 ## Conclusion

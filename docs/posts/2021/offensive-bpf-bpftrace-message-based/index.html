@@ -250,7 +250,7 @@ END
 </code></pre><p>After these changes the program works, and without noise.</p>
 <h2 id="system-command">Command parsing and simulating data exfiltration</h2>
 <p>To add command processing via a trigger word was the final feature I wanted to see if it can be implemented via <code>bpftrace</code>.</p>
-<p>The trigger word the code looks for is &ldquo;OhhhBPF: &ldquo;. If it is encountered it will invoke certain internal features, like run commands or call a web server. For the later part there is a command line argument being introduced <code>$1</code>, which is the destination web server for the <code>curl</code> post which the <code>!exfil</code> command uses.</p>
+<p>The trigger word the code looks for is &ldquo;OhhhBPF: &ldquo;. If it is encountered it will invoke certain internal features.</p>
 <pre><code>tracepoint:syscalls:sys_exit_read
 {
   $len = args-&gt;ret;
@@ -278,7 +278,7 @@ END
     }
   } 
 }
-</code></pre><p><strong>Important:</strong> This doesn&rsquo;t encrypt incoming traffic and also has no IP filter (like we had in <a href="/blog/posts/2021/offensive-bpf-bpftrace">the previous post</a>) nor authentication or does malcious stuff - it&rsquo;s for demonstration purposes and learning to raise awareness of these kinds of attacks.</p>
+</code></pre><p><strong>Important:</strong> This doesn&rsquo;t encrypt incoming traffic and also has no IP filter (like we had in <a href="/blog/posts/2021/offensive-bpf-bpftrace">the previous post</a>) nor authentication or does malicious stuff - it&rsquo;s for demonstration purposes and learning to raise awareness of these kinds of attacks.</p>
 <p>This works well with <code>nc</code> and a set of other services, but unfortunately the trigger mechanism didn&rsquo;t work with <code>nginx</code> or <code>OpenSSH server</code>.</p>
 <h2 id="getting-it-to-work-with-nginx">Getting it to work with nginx!</h2>
 <p>To debug this for <code>nginx</code>, I ran <code>strace -p</code> to see which syscalls <code>nginx</code> performs when reading the data from the wire.</p>

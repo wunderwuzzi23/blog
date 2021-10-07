@@ -178,7 +178,7 @@ After these changes the program works, and without noise.
 
 To add command processing via a trigger word was the final feature I wanted to see if it can be implemented via `bpftrace`.
 
-The trigger word the code looks for is "OhhhBPF: ". If it is encountered it will invoke certain internal features, like run commands or call a web server. For the later part there is a command line argument being introduced `$1`, which is the destination web server for the `curl` post which the `!exfil` command uses.
+The trigger word the code looks for is "OhhhBPF: ". If it is encountered it will invoke certain internal features. 
  
 ```
 tracepoint:syscalls:sys_exit_read
@@ -210,7 +210,7 @@ tracepoint:syscalls:sys_exit_read
 }
 ```
 
-**Important:** This doesn't encrypt incoming traffic and also has no IP filter (like we had in [the previous post](/blog/posts/2021/offensive-bpf-bpftrace)) nor authentication or does malcious stuff - it's for demonstration purposes and learning to raise awareness of these kinds of attacks. 
+**Important:** This doesn't encrypt incoming traffic and also has no IP filter (like we had in [the previous post](/blog/posts/2021/offensive-bpf-bpftrace)) nor authentication or does malicious stuff - it's for demonstration purposes and learning to raise awareness of these kinds of attacks. 
 
 This works well with `nc` and a set of other services, but unfortunately the trigger mechanism didn't work with `nginx` or `OpenSSH server`. 
 
