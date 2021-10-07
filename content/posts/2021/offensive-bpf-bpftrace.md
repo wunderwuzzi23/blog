@@ -1,5 +1,5 @@
 ---
-title: "Offensive BPF - Malicious bpftrace 🤯"
+title: "Offensive BPF: Malicious bpftrace 🤯"
 date: 2021-10-05T08:00:58-07:00
 draft: true
 tags: [
@@ -79,8 +79,6 @@ bpftrace --unsafe -e 'BEGIN { printf("Hello Offensive BPF!\n");  system("whoami"
 Notice that this requires the use of the `--unsafe` command line option.
 
 **Detection Tip:** Look for any unsafe bpftrace usage.
-
-**Caveat:** The string passed in to `system()` has to be a string literal and can't be a variable. This makes writing a generic command execution backdoor a little less straight forward – have some ideas now how to improve this – will be a separate post down the road.
 
 
 # Building backdoors with bpftrace

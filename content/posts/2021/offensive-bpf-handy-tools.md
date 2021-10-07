@@ -114,11 +114,9 @@ Given the amount of superpowers BPF programs have there seems to be general lack
 
 ## Detections and Threat Hunting
 
-
 For living off the land style attacks, detection is often a bit tricky, since it can lead to creation or a lot of false-positives. Generally making sure to get logs off machines to analyze information is important.
 
 In particular, it would be interesting to hunt for usage of tools such as `sslsniff-bpfcc`. 
-
 
 
 # References
