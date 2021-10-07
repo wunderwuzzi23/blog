@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Wed, 06 Oct 2021 20:00:13 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 07 Oct 2021 02:00:00 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>blue</title>
       <link>https://embracethered.com/blog/tags/blue/</link>
-      <pubDate>Wed, 06 Oct 2021 20:00:13 -0700</pubDate>
+      <pubDate>Thu, 07 Oct 2021 02:00:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/blue/</guid>
       <description></description>
@@ -24,9 +24,18 @@
     <item>
       <title>ebpf</title>
       <link>https://embracethered.com/blog/tags/ebpf/</link>
-      <pubDate>Wed, 06 Oct 2021 20:00:13 -0700</pubDate>
+      <pubDate>Thu, 07 Oct 2021 02:00:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ebpf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>research</title>
+      <link>https://embracethered.com/blog/tags/research/</link>
+      <pubDate>Thu, 07 Oct 2021 02:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/research/</guid>
       <description></description>
     </item>
     
@@ -45,15 +54,6 @@
       <pubDate>Wed, 06 Oct 2021 20:00:13 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/red/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>research</title>
-      <link>https://embracethered.com/blog/tags/research/</link>
-      <pubDate>Wed, 06 Oct 2021 20:00:13 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/research/</guid>
       <description></description>
     </item>
     

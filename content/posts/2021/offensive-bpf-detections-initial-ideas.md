@@ -1,6 +1,6 @@
 ---
-title: "Offensive BPF: Basic Detection Ideas"
-date: 2021-10-07T00:01:43-07:00
+title: "Offensive BPF: Detection Ideas"
+date: 2021-10-07T02:00:00-07:00
 draft: true
 tags: [
         "research","ebpf","blue"
@@ -10,20 +10,19 @@ twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "Offensive BPF: Basic Detection Ideas"
+  title: "Offensive BPF: Detection Ideas"
   description:  "Using eBPF in offensive security settings and mitigations"
   image: "https://embracethered.com/blog/images/2021/obpf-detections.png"
 
 ---
 
-This post is part of a series about **Offensive BPF** that I'm working on to learn how BPFs use will impact offensive security, malware and detection engineering. Click the ["ebpf"](/blog/tags/ebpf) tag to see all relevant posts.
+This post is part of a series about **Offensive BPF** that I'm working on to learn how BPFs use will impact offensive security, malware and detection engineering. 
+
+Click the ["ebpf"](/blog/tags/ebpf) tag to see all relevant posts.
 
 ![Offensive BPF](/blog/images/2021/offensive-bpf.png)
 
-In the last few posts, we talked about a `bpftrace` and how attackers can use it to their advantage.
-
-This post is about detecting malicious usage.
-
+In the last few posts, we talked about a `bpftrace` and how attackers can use it to their advantage. This post is about my initial ideas and strategies to detecting malicious usage. 
 
 ## Detecting BPF misuse
 
@@ -31,9 +30,9 @@ There are a set of detection ideas for Blue Teams. Since we primarily talked abo
 
 There will be more recommendations down the road as I learn and understand BPF better.
 
-### Collecting Telemetry
+### Telemetry
 
-Getting the telemetry around BPF syscalls is a crucial to getting insights into its usage across the fleet.
+Collecting telemetry around [BPF syscalls](https://www.kernel.org/doc/html/latest/userspace-api/ebpf/syscall.html) is a crucial to getting insights into its usage across the fleet. Make sure that whatever tool or product you are using does collect the proper information and that it is centrally available in your threat detection pipeline.
 
 ### Inspecting loaded BPF programs
 
@@ -42,6 +41,8 @@ Loaded BPF programs can be inspected via the `bpftool`.
 For instance, `bpftool prog` will show you the details and you can see the loaded programs:
 
 ![BPF prog output](/blog/images/2021/bpfprog.png)
+
+Collecting this information will allow to build an inventory on what BPF running, and if there are any unexpected outliers.
 
 ### Unsafe bpftrace usage and system() calls
 
