@@ -11,7 +11,7 @@ twitter:
   creator: "@wunderwuzzi23"
   title: "Video: What is Tabnabbing?"
   description: "Tabnabbing is a web application security vulnerability that can be used to perform phishing attacks, so its important to be aware of it as a developer and penetration tester."
-  image: "https://embracethered.com/blog/images/2021/webappsecfundamentals.png"
+  image: "https://embracethered.com/blog/images/2021/tabnabbing.png"
 
 ---
 

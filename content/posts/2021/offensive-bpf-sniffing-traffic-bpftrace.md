@@ -80,7 +80,7 @@ $ sudo pldd 88953 | grep nss
 
 Bingo. Now I was sure the local NSS libraries are being used.
 
-### Creating the bpftrace program using uprobes 
+### Creating the bpftrace script using uprobes 
 
 Finding the correct function took a while. Using the following line, I searched for clues by dumping symbols:
 
