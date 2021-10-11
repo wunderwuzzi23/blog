@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Thu, 07 Oct 2021 08:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 10 Oct 2021 10:10:51 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Video: What is Tabnabbing?</title>
+      <link>https://embracethered.com/blog/posts/2021/what-is-tab-nabbing/</link>
+      <pubDate>Sun, 10 Oct 2021 10:10:51 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/what-is-tab-nabbing/</guid>
+      <description>Tabnabbing is a web application security vulnerability that can be used to perform phishing attacks, so its important to be aware of it as a developer and penetration tester.
+It is easy to mitigate and in this short video we cover both attacks and mitigations.
+
+Thanks for reading and happy hacking!
+@wunderwuzzi23</description>
+    </item>
     
     <item>
       <title>Offensive BPF: Detection Ideas</title>

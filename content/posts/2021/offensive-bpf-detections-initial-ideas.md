@@ -42,7 +42,13 @@ For instance, `bpftool prog` will show you the details and you can see the loade
 
 ![BPF prog output](/blog/images/2021/bpfprog.png)
 
-Collecting this information will allow to build an inventory on what BPF running, and if there are any unexpected outliers.
+With the BPF tools also comes `bpflist`, which lists all user space programs currently running BPF:
+
+![BPF prog output](/blog/images/2021/bpflist.png)
+
+Collecting this information will allow to build an inventory on what BPF running, and if there are any unexpected outliers. 
+
+One challenge remaining for defenders is that if a malicous BPF program starts running before log collection or detection tools run, then a BPF program can install itself as a rootkit to evade detections. Be aware of that.
 
 ### Unsafe bpftrace usage and system() calls
 

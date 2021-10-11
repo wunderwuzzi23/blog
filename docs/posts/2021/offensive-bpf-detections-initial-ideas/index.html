@@ -142,7 +142,10 @@
 <p>Loaded BPF programs can be inspected via the <code>bpftool</code>.</p>
 <p>For instance, <code>bpftool prog</code> will show you the details and you can see the loaded programs:</p>
 <p><img src="/blog/images/2021/bpfprog.png" alt="BPF prog output"></p>
+<p>With the BPF tools also comes <code>bpflist</code>, which lists all user space programs currently running BPF:</p>
+<p><img src="/blog/images/2021/bpflist.png" alt="BPF prog output"></p>
 <p>Collecting this information will allow to build an inventory on what BPF running, and if there are any unexpected outliers.</p>
+<p>One challenge remaining for defenders is that if a malicous BPF program starts running before log collection or detection tools run, then a BPF program can install itself as a rootkit to evade detections. Be aware of that.</p>
 <h3 id="unsafe-bpftrace-usage-and-system-calls">Unsafe bpftrace usage and system() calls</h3>
 <p>The usage of a <code>system()</code> call seems very unusual. So, looking for command line logs that contain <code>bpftrace --unsafe</code> seems a good way to catch <strong>dangerous</strong> bpf programs also.</p>
 <h3 id="persistence">Persistence</h3>
@@ -179,7 +182,7 @@
     
     <ul class="pager">
       
-      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2021/what-is-tab-nabbing/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">

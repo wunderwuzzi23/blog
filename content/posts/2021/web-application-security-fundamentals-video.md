@@ -3,7 +3,7 @@ title: "Video: Web Application Security Fundamentals"
 date: 2021-09-06T08:02:00-07:00
 draft: true
 tags: [
-        "pentest", "appsec","webapp"
+        "pentest", "appsec","webapp","video"
     ]
 
 twitter:
