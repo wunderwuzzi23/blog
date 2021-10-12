@@ -1,6 +1,6 @@
 ---
 title: "Sniffing Firefox traffic with bpftrace"
-date: 2021-10-12T18:00:16-07:00
+date: 2021-10-12T00:10:16-07:00
 draft: true
 tags: [
         "pentest", "red","research","ebpf","blue"
@@ -80,7 +80,7 @@ $ sudo pldd 88953 | grep nss
 
 Bingo. Now I was sure the local NSS libraries are being used.
 
-### Creating the bpftrace script using uprobes 
+### Creating the bpftrace script with uprobes 
 
 Finding the correct function took a while. Using the following line, I searched for clues by dumping symbols:
 

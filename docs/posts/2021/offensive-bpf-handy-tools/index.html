@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Offensive BPF: Tools &middot;  Embrace The Red" />
+  <meta property="og:title" content=" What&#39;s in the bpfcc-tools box? &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2021/offensive-bpf-handy-tools/" />
@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2021-10-01T12:14:59-07:00" />
+  <meta property="og:article:published_time" content="2021-10-09T14:00:59-07:00" />
   
   <meta property="og:article:tag" content="pentest" />
   
@@ -26,7 +26,7 @@
   
 
   <title>
-     Offensive BPF: Tools &middot;  Embrace The Red
+     What&#39;s in the bpfcc-tools box? &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -42,7 +42,7 @@
   
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wunderwuzzi23">
-<meta name="twitter:title" content="Offensive BPF: Tools">
+<meta name="twitter:title" content="What is in the bpfcc-tools box">
 <meta name="twitter:description" content="Using eBPF in offensive security settings and mitigations">
 <meta name="twitter:image" content="https://embracethered.com/blog/images/2021/obpf.png">
 
@@ -111,13 +111,13 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Offensive BPF: Tools</h1>
+    <h1 class="text-primary">What&#39;s in the bpfcc-tools box?</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2021-10-01T12:14:59-07:00">
-          Oct 1, 2021
+        <time datetime="2021-10-09T14:00:59-07:00">
+          Oct 9, 2021
         </time>
       </div>
     
@@ -137,28 +137,34 @@
     </div>
   </header>
   <section>
-    <p>This post is part of a series about <strong>Offensive BPF</strong> that I&rsquo;m working on to learn about BPF to understand attacks and defenses, click the <a href="/blog/tags/ebpf">&ldquo;ebpf&rdquo;</a> tag to see all relevant posts.</p>
-<p>I&rsquo;m learning BPF and to understand how its use will impact offensive security, malware and detection engineering.</p>
+    <p>This post is part of a series about <strong>Offensive BPF</strong> that I&rsquo;m working on to learn about BPF to understand attacks and defenses. Click the <a href="/blog/tags/ebpf">&ldquo;ebpf&rdquo;</a> tag to see all relevant posts.</p>
 <p><img src="/blog/images/2021/offensive-bpf.png" alt="Offensive BPF"></p>
-<p>This post is focused on &ldquo;Level 1&rdquo; on how to use existing BPF tools. Level 1 means using tools that are already written to get familiar with the regular use cases for BPF.</p>
-<h1 id="toolset-and-installation">Toolset and Installation</h1>
-<p>Performance and observability teams are pushing for BPF tooling to be present in production. Due to its usefulness, this is likely going to increase. I know this, because I have been watching lots of talks and am doing a lot of reading around this space and leaders in the industry are pushing for its installation.</p>
-<p>Here is a <a href="https://www.slideshare.net/brendangregg/systemsscale-2021-bpf-performance-getting-started">slide</a> from a presentation Facebook&rsquo;s Systems@Scale conference where a Netflix engineer presented:</p>
-<p><img src="/blog/images/2021/bpt-tools-install.png" alt="BPF Tools Installation"></p>
-<p>For offensive security this means that it will become more likley that adversaries will leverage already installed tooling to do their deeds.</p>
-<p>In the offensive security space we call this &ldquo;Living off the land&rdquo;.</p>
+<p>In the previous posts I spend time learning about <code>bpftrace</code> which is quite powerful. This post is focused on basics and using existing BPF tools, rather then building new BPF programs from scratch.</p>
+<h1 id="living-off-the-land-bpfcc-tools">Living off the land: bpfcc-tools</h1>
+<p>Performance and observability teams are pushing for BPF tooling to be present in production. Due to its usefulness, this is likely going to increase.</p>
+<p>Influencers in the industry are pushing for the installation of a common toolset.</p>
+<p>For instance, here is a <a href="https://www.slideshare.net/brendangregg/systemsscale-2021-bpf-performance-getting-started">slide</a> from a Systems@Scale 2021 conference presentation.</p>
+<p><img src="/blog/images/2021/bpf-tools-install.png" alt="BPF Tools Installation"></p>
+<p>For offensive security this means that it will become more likely that adversaries will leverage already installed tooling to do their deeds.</p>
+<p>This certainly also applies to the even more flexible <code>bpftrace</code> tool <a href="/blog/posts/2021/obpf-bpftrace/">discussed previously</a>.</p>
+<p>In the offensive security space we call this <strong>&ldquo;Living off the land&rdquo;</strong>.</p>
 <h3 id="living-off-the-land---bpfcc-tools">Living off the land - bpfcc-tools</h3>
 <p>To get an idea of some cool tools, check out the <code>bpfcc-tools</code> suite.</p>
-<pre><code>sudo apt-get install bpfcc-tools linux-headers-$(uname -r)
-</code></pre><p>In some production environemnts some of these tools are installed to allow troubleshooting and gain tracing insights.</p>
-<p>On my Ubuntu install, the tools are at <code>ls /usr/sbin/*bpfcc</code>.</p>
-<p>For instance there is a tool that hooks OpenSSL <code>PR_Read</code> and <code>PR_Write</code> calls and dumps the clear text, so you can sniff TLS traffic of <code>curl</code> and related tools, or <code>tcp_connect</code> to get ideas on targets to pivot to and so forth.</p>
-<pre><code>wuzzi23@ubuntu:~$ sudo sslsniff-bpfcc 
+<pre><code>sudo apt-get install bpfcc-tools
+</code></pre><p>As mentioned even in production environments these tools might already be installed.</p>
+<p>The tools in <code>bpfcc-tools</code> generally all end with <code>-bpfcc</code>. On my Ubuntu install the tools are at <code>ls /usr/sbin/*bpfcc</code>, but they might lack this suffix, and older versions of the tools were written in Python.</p>
+<p>Let&rsquo;s look at some tools and what they can do for recon and mapping out the homefield.</p>
+<h2 id="sniffing-tls-traffic">Sniffing TLS traffic</h2>
+<p>Sniffing TLS traffic is a common post exploitation attack angle to get access to sensitive information, such as Cookies or Bearer tokens.</p>
+<p>Tracing traffic inside the kernel with existing techniques such as <code>tcpdump</code> does typically not lead to desired results (unless you have session keys for TLS - I wrote about this in my book by the way).</p>
+<p>What BPF allows now is to create hook points for popular user mode functions that deal with reading/writing the TLS information before (or rigth after) it is encrypted.</p>
+<p>A tool that hooks OpenSSL&rsquo;s <code>PR_Read</code> and <code>PR_Write</code> calls to dump clear text is part of the bpfcc-tools.</p>
+<pre><code>hacker@server:~$ sudo sslsniff-bpfcc 
 FUNC         TIME(s)            COMM             PID    LEN   
 WRITE/SEND   0.000000000        curl             2781502 73    
 ----- DATA -----
 GET / HTTP/1.1
-Host: wuzzi.net
+Host: example.org
 User-Agent: curl/7.68.0
 Accept: */*
 
@@ -171,6 +177,7 @@ Server: nginx/1.14.0 (Ubuntu)
 Date: Tue, 28 Sep 2021 16:55:13 GMT
 Content-Type: text/html
 Content-Length: 511
+Set-Cookie: **ThisShouldBeASecret!**
 Last-Modified: Tue, 03 Nov 2020 18:54:15 GMT
 Connection: keep-alive
 ETag: &quot;5fa1a757-1ff&quot;
@@ -179,14 +186,35 @@ Accept-Ranges: bytes
 
 &lt;!doctype html&gt;
 &lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Embrace The Red - Cybersecurity Attacks and Red Team Strategies&lt;/title&gt;
-    &lt;meta http-equiv=&quot;Refresh&quot; content
------ END DATA (TRUNCATED, 358 bytes lost) -----
-</code></pre><p>There is a lot to explore with the existing tools, and when working in production environments, it is actually not uncommon that some of these tools are already installed - making it quite useful for attackers to <strong>live off the land</strong>.</p>
+...
+</code></pre><p>My goal was to sniff traffic from Firefox or Chrome, but the <code>sslsniff-bpfcc</code> tool did not work there.</p>
+<p>Check out my other post about <a href="/blog/posts/2021/offensive-bpf-sniffing-traffic-bpftrace/">sniffing some Firefox traffic</a> with <code>bpftrace</code>.</p>
+<h2 id="what-other-tools-are-in-this-toolset">What other tools are in this toolset?</h2>
+<p>Brendan Gregg has a great diagram on his website that shows all the tools and where in the stack they are appliable to:</p>
+<p><img src="/blog/images/2021/bpf_performance_tools.png" alt="BPF Tools"></p>
+<p>This is quite the list of observability and performance tools.</p>
+<h2 id="reconaissance-credential-hunting-etc">Reconaissance, Credential Hunting, etc&hellip;</h2>
+<p>The tools in the BFP toolset are powerful and might be used by an adversary (incl. a malicious insider):</p>
+<ul>
+<li><code>execsnoop-bpfcc</code>: shows the path and arguments of all exec calls</li>
+<li><code>opensnoop-bpfcc</code>: shows all the <code>open()</code> syscalls, can filter by UID, PID, etc&hellip;</li>
+<li><code>tcptracer-bpfcc</code>, <code>tcpconnect</code> and <code>tcplife</code>: Recon on TCP connections (source, destination, port)</li>
+<li><code>tcpaccept-bpfcc</code>: who connects to this machine?</li>
+<li><code>solisten-bpfcc</code>: shows any new socket that starts listening</li>
+<li><code>ttysnoop-bpfcc</code>: snoop on other tty sessions (could be quite useful when hunting for credentials)</li>
+<li><code>sslsniff-bpfcc</code>: sniffing TLS traffic (e.g. openssl)</li>
+<li><code>inject-bpfcc</code>: allows to fail kernel calls when certain conditions are met</li>
+</ul>
+<p><em>Note:</em> The binaries/tools might not end with <code>-bpfcc</code> on your machine depending on version and how they got installed. Older versions of these tools were Python based for instance.</p>
+<h2 id="detections-and-threat-hunting">Detections and Threat Hunting</h2>
+<p>For living off the land style attacks, detection is tricky, since it can lead to creation or a lot of false-positives. Generally making sure to get logs off machines to analyze information is important.</p>
+<p>Check out the previous post about <a href="/blog/posts/2012/obpf/detections/">detecting offensive BPF usage</a> as these are applicable.</p>
+<p>In particular, it would be interesting to hunt or investigate usage of tools such as <code>sslsniff</code> or <code>ttysnoop</code>.</p>
+<p>Cheers.</p>
 <h1 id="references">References</h1>
 <ul>
 <li><a href="https://www.slideshare.net/brendangregg/systemsscale-2021-bpf-performance-getting-started">https://www.slideshare.net/brendangregg/systemsscale-2021-bpf-performance-getting-started</a></li>
+<li><a href="https://www.brendangregg.com/blog/images/2019/bpf_performance_tools.png">https://www.brendangregg.com/blog/images/2019/bpf_performance_tools.png</a></li>
 </ul>
 
   </section>
@@ -198,7 +226,7 @@ Accept-Ranges: bytes
     
     <ul class="pager">
       
-      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2021/what-is-tab-nabbing/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">
@@ -210,7 +238,7 @@ Accept-Ranges: bytes
 
       
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2021/offensive-bpf-bpftrace/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2021/offensive-bpf-detections-initial-ideas/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>

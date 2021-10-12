@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Sniffing Firefox traffic with bpftrace &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2021/offensive-bpf-sniffing-traffic-bpftrace/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2021-10-11T16:10:16-07:00" />
+  
+  <meta property="og:article:tag" content="pentest" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="research" />
+  
+  <meta property="og:article:tag" content="ebpf" />
+  
+  <meta property="og:article:tag" content="blue" />
+  
+  
+
+  <title>
+     Sniffing Firefox traffic with bpftrace &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Sniffing Firefox traffic with bpftrace">
+<meta name="twitter:description" content="Using eBPF in offensive security settings and mitigations">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2021/obpf.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Sniffing Firefox traffic with bpftrace</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2021-10-11T16:10:16-07:00">
+          Oct 11, 2021
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentest">#pentest</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/research">#research</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ebpf">#ebpf</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/blue">#blue</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>This post is part of a series about <strong>Offensive BPF</strong> that I&rsquo;m working on to learn how BPFs use will impact offensive security, malware, and detection engineering.</p>
+<p>Click the <a href="/blog/tags/ebpf">&ldquo;ebpf&rdquo;</a> tag to see all relevant posts.</p>
+<p><img src="/blog/images/2021/offensive-bpf.png" alt="Offensive BPF"></p>
+<p>One of the issues I ran into when trying out <code>sslsniff-bpfcc</code> was that it did not work with Firefox or Chrome traffic.</p>
+<p>This post is about me learning how to hook user space APIs with <code>bpftrace</code> using uprobes.</p>
+<h2 id="network-security-services-library">Network Security Services Library</h2>
+<p>The first question I had was what library does Firefox use for TLS?</p>
+<p>I used the <code>ldd</code> tool to look at linked libraries.</p>
+<pre><code>$ ldd  /usr/lib/firefox/firefox
+	linux-vdso.so.1 (0x00007ffcf8d50000)
+	libpthread.so.0 =&gt; /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f2f49f80000)
+	libdl.so.2 =&gt; /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f2f49f79000)
+	libstdc++.so.6 =&gt; /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f2f49d60000)
+	libm.so.6 =&gt; /lib/x86_64-linux-gnu/libm.so.6 (0x00007f2f49c12000)
+	libgcc_s.so.1 =&gt; /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f2f49bf7000)
+	libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f2f49a0b000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f2f4a06e000)
+</code></pre><p>Mmmmh. This didn&rsquo;t provide any clue to which SSL library is being used.</p>
+<p>A few Google searches revealed that Mozilla has a library called <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS">NSS (Network Security Services)</a>.</p>
+<p>The Firefox executable was found at <code>/usr/lib/firefox/firefox</code>. In that same directory are NSS and related libraries.</p>
+<pre><code>$ ls -lha /usr/lib/firefox
+
+[....]
+-rw-r--r--   1 root root 234K Sep 30 14:39 libnspr4.so
+-rw-r--r--   1 root root 667K Sep 30 14:39 libnss3.so
+-rw-r--r--   1 root root 514K Sep 30 14:39 libnssckbi.so
+-rw-r--r--   1 root root 199K Sep 30 14:39 libnssutil3.so
+-rw-r--r--   1 root root  23K Sep 30 14:39 libplc4.so
+-rw-r--r--   1 root root  19K Sep 30 14:39 libplds4.so
+-rw-r--r--   1 root root 156K Sep 30 14:39 libsmime3.so
+-rw-rw-r--   1 root root  899 Sep 30 14:39 libsoftokn3.chk
+-rw-r--r--   1 root root 323K Sep 30 14:39 libsoftokn3.so
+-rw-r--r--   1 root root 390K Sep 30 14:39 libssl3.so
+[...]
+</code></pre><p>My assumption was that Firefox is loading these, rather than generic system libraries. I&rsquo;m pretty sure now that this is the reason that <code>sslsniff-bpfcc</code> is not working with Firefox.</p>
+<p>Since I didn&rsquo;t find the library dependencies via <code>ldd</code> or <code>objdump</code> I used <code>pldd</code> to attach to an already running Firefox instance to see what libraries it had loaded:</p>
+<pre><code>$ sudo pldd 88953 | grep nss
+/usr/lib/firefox/libnssutil3.so
+/usr/lib/firefox/libnss3.so
+[...]
+</code></pre><p>Bingo. Now I was sure the local NSS libraries are being used.</p>
+<h3 id="creating-the-bpftrace-script-with-uprobes">Creating the bpftrace script with uprobes</h3>
+<p>Finding the correct function took a while. Using the following line, I searched for clues by dumping symbols:</p>
+<pre><code>objdump -tT *.so | grep -i write
+</code></pre><p>I also searched Mozilla&rsquo;s NSS documentation, and found this article about <a href="https://confused.ai/posts/intercepting-zoom-tls-encryption-bpf-uprobes">dumping Zoom traffic</a> quite useful and interesting.</p>
+<p>After identifying <code>PR_Read</code> and <code>PR_Write</code> as the functions of interest, I wrote up a little <code>bpftrace</code> script to hook <code>PR_Write</code> in <code>libnspr4.so</code>.</p>
+<pre><code>uprobe:/usr/lib/firefox/libnspr4.so:PR_Write
+{ 
+    printf(&quot;%s[%d](len=%d): %s (%r)\n&quot;, 
+        comm, pid, arg2, 
+        str(arg1, arg2), 
+        buf(arg1, arg2));
+}
+</code></pre><p>The idea is to just print the buffers that Firefox sends in to these functions.</p>
+<p>I found the arguments and their order in an <a href="https://www-archive.mozilla.org/projects/nspr/reference/html/priofnc.html#19250">older Mozilla archive website</a>. Interestingly the latest NSS documentation&rsquo;s hyperlinks are all broken&hellip;</p>
+<ul>
+<li><code>comm</code>: is the name of the process/thread</li>
+<li><code>pid</code>: is the process identifier</li>
+<li><code>arg1</code>: is the user space buffer</li>
+<li><code>arg2</code>: is the length of the buffer</li>
+</ul>
+<p>If you read <a href="/blog/posts/2021/offensive-bpf-bpftrace-message-based/">my previous post about BPF function hooking</a>, you know that for some APIs we have to trace both <code>uprobe</code> and <code>uretprobe</code> calls in order to access buffers.</p>
+<p>This pattern would have to be followed here as well for the <code>PR_Read</code> call. Because only in the <code>uretprobe</code> of <code>PR_Read</code> the buffer is filled. Since we deal with <code>PR_Write</code> this isn&rsquo;t needed here and keeps it quite simple.</p>
+<h2 id="initial-results---seeing-traffic">Initial results - seeing traffic!</h2>
+<p>This <code>bpftrace</code> script already gave great results and allowed to understand the details of what’s going on a bit better, here is some output of the BPF program running:</p>
+<pre><code>$ sudo bpftrace scratch.bt
+Attaching 1 probe...
+Socket Thread[88953](len=17):  (\x00\x00\x08\x07\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00)
+Timer[88953](len=1): M (M)
+GeckoMain[88953](len=1): M (M)
+Socket Thread[88953](len=148): PRI * HTTP/2.0
+
+SM
+
+ (PRI * HTTP/2.0\x0d\x0a\x0d\x0aSM\x0d\x0a\x0d\x0a\x00\x00\x12\x04\x00\x00\x00\x00\x00\x00\x01\x00\x01\x00\x00\x00\x04\x00\x02\x00\x00\x00\x05\x00\x00@\x00\x00\x00\x04\x08\x00\x00\x00\x00\x00\x00\xbf\x00\x01)
+Socket Thread[88953](len=488): GET / HTTP/1.1
+Host: example.org
+User-Agent: Mozilla/5.0 (X1 (GET / HTTP/1.1\x0d\x0aHost: example.org\x0d\x0aUser-Agent: User-Agent: Mozilla/5.0 (X1)
+Web Content[89017](len=1): M (M)
+Web Content[89017](len=1): M (M)
+[...]
+</code></pre><p>Great, there is data! But what are we looking at?</p>
+<h3 id="initial-analysis">Initial analysis</h3>
+<p>There was a lot of information dumped that was not of interest. Here are my initial observations:</p>
+<ul>
+<li>Looking the output of <code>comm</code>, I learned that &ldquo;Socket Thread&rdquo; is really what I want to filter on</li>
+<li>Many websites support HTTP/2 these days and Firefox uses that. It&rsquo;s a binary protocol - so dumping traffic at this level will not be useful for HTTP/2 web servers. We would need to hook higher level APIs or parse HTTP/2 (which might be challenging within <code>bpftrace</code>)</li>
+<li>Most importantly, the <code>str()</code> function cuts off our buffer! <strong>Look at GET request to example.org and the <code>User-Agent</code>. Notice how it abruptly ends, even though the buffer length (<code>arg2</code>) is way over 400 characters long.</strong></li>
+</ul>
+<p>The problem with this approach is that <code>bpftrace</code> <code>str</code> function only allows to read buffers of up to 60 bytes. There is an environment variable to increase this called <code>BPFTRACE_STRLEN=n</code>, but there is an upper boundary of a few hundred.</p>
+<p>Dealing with storage limitations on the stack is quite a common problem with BPF programs I have learned already. This goes along the same lines.</p>
+<p>The solution I came up is the following:</p>
+<pre><code>  $i = (int64)0;
+ 
+  while ($i &lt;= 4096)  //ideally this would be arg2, but Verifier complains
+  {       
+     printf(&quot;%s&quot;, str(arg1+$i, 16));  //doesn't read beyond it seems (see appendix for better version though)
+     $i = $i + 16;
+     if ($i &gt; arg2)
+     {
+       printf(&quot;\n&quot;);
+       break;
+     }
+   }
+</code></pre><p>This basically loops over the buffer sequentially while printing it out along the way.</p>
+<p>And it does work:</p>
+<pre><code>$ sudo bpftrace foxsniff.bt 
+Attaching 3 probes...
+Welcome to Offensive BPF... Use Ctrl-C to exit.
+
+GET / HTTP/1.1
+Host: example.org
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+DNT: 1
+Sec-GPC: 1
+Pragma: no-cache
+Cache-Control: no-cache
+</code></pre><p>Pretty cool. This dumps HTTP headers of requests - which is what I wanted.</p>
+<p>If you want to dump the <code>PR_Read</code> requests you can follow the same approach, but I noticed that most HTTP responses have a Content-Type of <code>gzip</code>, so they are also binary and hence not as useful, unless you are drooling for <code>Set-Cookie</code> headers in a red team op. :)</p>
+<p>Hope this was interesting and useful.</p>
+<p>Cheers!</p>
+<p><a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS">Mozilla Network Security Services</a></li>
+<li><a href="https://www-archive.mozilla.org/projects/nspr/reference/html/priofnc.html#19250">Mozilla NSPR Documentaiton</a></li>
+<li><a href="https://confused.ai/posts/intercepting-zoom-tls-encryption-bpf-uprobes">Sniffing Zoom Traffic Post</a></li>
+</ul>
+<h2 id="appendix">Appendix</h2>
+<p>The following is the complete program.</p>
+<pre><code>#include &lt;net/sock.h&gt;
+
+// Basic demo on how to hook user space APIs. This bpftrace script that 
+// traces uprobes for Firefox (NSS) write API and prints out the buffer as string. 
+// There is a filter for &quot;Socket Thread&quot;.
+
+BEGIN
+{
+  printf(&quot;Welcome to Offensive BPF... Use Ctrl-C to exit.\n&quot;);
+}
+
+uprobe:/usr/lib/firefox/libnspr4.so:PR_Write
+/ comm == &quot;Socket Thread&quot; /
+{ 
+    $i   = (uint64) 0; 
+    $adj = (uint64) 0;
+
+    if ((str(arg1, 14) == &quot;PRI * HTTP/2.0&quot;))
+    {
+          //HTTP/2 Connection
+          //return;
+    }
+
+    while ($i &lt;= 4096)  //ideally this would be arg2, but Verifier complains
+    {        
+      if ((4096 - $i) &lt; 0)
+      {
+         $adj = 4096 - $i;
+      }
+
+      printf(&quot;%s&quot;, str(arg1+$i, 16-$adj));  
+      $i = $i + 16;
+      if ($i &gt; arg2)
+      {
+        printf(&quot;\n&quot;);
+        break;
+      }
+    }
+}
+
+END
+{ 
+  printf(&quot;Exiting. Bye.\n&quot;);
+}
+</code></pre>
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2021/what-is-tab-nabbing/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2021
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

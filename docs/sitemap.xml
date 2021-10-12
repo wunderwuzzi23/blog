@@ -44,12 +44,27 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/blue/</loc>
-    <lastmod>2021-10-07T08:00:00-07:00</lastmod>
+    <lastmod>2021-10-09T14:00:59-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/ebpf/</loc>
-    <lastmod>2021-10-07T08:00:00-07:00</lastmod>
+    <lastmod>2021-10-09T14:00:59-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2021-10-09T14:00:59-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/research/</loc>
+    <lastmod>2021-10-09T14:00:59-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2021/offensive-bpf-handy-tools/</loc>
+    <lastmod>2021-10-09T14:00:59-07:00</lastmod>
   </url>
   
   <url>
@@ -58,17 +73,7 @@
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/tags/research/</loc>
-    <lastmod>2021-10-07T08:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/posts/2021/offensive-bpf-bpftrace-message-based/</loc>
-    <lastmod>2021-10-06T20:00:13-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
     <lastmod>2021-10-06T20:00:13-07:00</lastmod>
   </url>
   

@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Thu, 07 Oct 2021 08:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 09 Oct 2021 14:00:59 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/research/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What&#39;s in the bpfcc-tools box?</title>
+      <link>https://embracethered.com/blog/posts/2021/offensive-bpf-handy-tools/</link>
+      <pubDate>Sat, 09 Oct 2021 14:00:59 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/offensive-bpf-handy-tools/</guid>
+      <description>This post is part of a series about Offensive BPF that I&amp;rsquo;m working on to learn about BPF to understand attacks and defenses. Click the &amp;ldquo;ebpf&amp;rdquo; tag to see all relevant posts.
+In the previous posts I spend time learning about bpftrace which is quite powerful. This post is focused on basics and using existing BPF tools, rather then building new BPF programs from scratch.
+Living off the land: bpfcc-tools Performance and observability teams are pushing for BPF tooling to be present in production.</description>
+    </item>
     
     <item>
       <title>Offensive BPF: Detection Ideas</title>
