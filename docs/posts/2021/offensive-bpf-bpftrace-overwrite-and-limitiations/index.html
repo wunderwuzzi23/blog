@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Offensive BPF: Overwriting syscall return values and bpftrace limitations &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2021/offensive-bpf-bpftrace-overwrite-and-limitiations/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2021-10-12T01:02:26-07:00" />
+  
+  <meta property="og:article:tag" content="pentest" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="research" />
+  
+  <meta property="og:article:tag" content="ebpf" />
+  
+  <meta property="og:article:tag" content="blue" />
+  
+  
+
+  <title>
+     Offensive BPF: Overwriting syscall return values and bpftrace limitations &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Sniffing Firefox traffic with bpftrace">
+<meta name="twitter:description" content="Using eBPF in offensive security settings and mitigations">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2021/obpf.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Offensive BPF: Overwriting syscall return values and bpftrace limitations</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2021-10-12T01:02:26-07:00">
+          Oct 12, 2021
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentest">#pentest</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/research">#research</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ebpf">#ebpf</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/blue">#blue</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>This post is part of a series about <strong>Offensive BPF</strong> that I&rsquo;m working on to learn how BPFs use will impact offensive security, malware, and detection engineering.</p>
+<p>Click the <a href="/blog/tags/ebpf">&ldquo;ebpf&rdquo;</a> tag to see all relevant posts.</p>
+<p><img src="/blog/images/2021/offensive-bpf.png" alt="Offensive BPF"></p>
+<p>In this series so far we used eBPF in passive &ldquo;tracing and sniffing&rdquo; techniques. The next thing I wanted to investigate is what options are available to actually modify data structures during BPF execution.</p>
+<p>What I wanted to do is make it impossible for someone to read contents of files under <code>/tmp/test</code>. This by preventing calls to the folder to fail, or by modifying the file system contents itself on the fly.</p>
+<p>The later is what I really wanted to achieve long term as it is something I need for Red Teaming Ransomware simulation in the near future.</p>
+<p>At a high level, I identified two scenarios that should be possible:</p>
+<ul>
+<li>Overwriting syscall return values</li>
+<li>Overwriting user space buffers to modify file contents on the fly</li>
+</ul>
+<p>Since, so far I exclusively used <code>bpftrace</code> to write BPF programs, that what I wanted to do in this scenario as well.</p>
+<h2 id="modifying-return-values-of-syscalls">Modifying return values of syscalls</h2>
+<p><code>bpftrace</code> does allow modificiation of <code>retval</code> during execution, but only for <code>kprobes</code>.</p>
+<p>I found this feature while reading through the <a href="https://github.com/iovisor/bpftrace/blob/master/docs/reference_guide.md#20-override-override-return-value">Refernence Guide</a>.</p>
+<p>There are two pre-conditions for using this feature:</p>
+<ol>
+<li>The kernel has to be compiled using <code>CONFIG_BPF_KPROBE_OVERRIDE</code></li>
+<li>Only functions tagged with <code>ALLOW_ERROR_INJECTION()</code> macro can be traced using an overwrite.</li>
+</ol>
+<p>Quickly checking my kernel and build settings:</p>
+<p><img src="/blog/images/2021/obpf-config-override.png" alt="OBPF override settings"></p>
+<p>All good to go!</p>
+<pre><code>$ sudo bpftrace -lv kprobe:*openat*
+BTF: using data from /sys/kernel/btf/vmlinux
+kprobe:do_sys_openat2
+kprobe:__ia32_sys_openat2
+kprobe:__x64_sys_openat2
+kprobe:__x32_compat_sys_openat
+kprobe:__x64_sys_openat
+kprobe:__ia32_compat_sys_openat
+kprobe:__ia32_sys_openat
+kprobe:path_openat
+kprobe:__io_openat_prep
+kprobe:io_openat2
+</code></pre><p>I received the following error when override is not possible for the given kprobe:</p>
+<pre><code>ioctl(PERF_EVENT_IOC_SET_BPF): Invalid argument
+Error attaching probe: 'kprobe:do_sys_openat2'
+</code></pre><blockquote>
+<p>&ldquo;One of the major advantages of having an in-kernel BPF sandbox is to never crash the kernel - and allowing BPF programs to just randomly modify the return value of kernel functions sounds immensely broken to me.&rdquo;</p>
+</blockquote>
+<p>This is became apparent when I did my first experiments and crashed the OS:</p>
+<p><img src="/blog/images/2021/obpf-config-crash.png" alt="OBPF override crash"></p>
+<p>:)</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/iovisor/bpftrace/blob/master/docs/reference_guide.md#20-override-override-return-value">https://github.com/iovisor/bpftrace/blob/master/docs/reference_guide.md#20-override-override-return-value</a></li>
+<li>BPF based Error Injection: <a href="https://lwn.net/Articles/740146/">https://lwn.net/Articles/740146/</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next"><a href="https://embracethered.com/blog/posts/2021/video-image-scaling-attacks/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2021/offensive-bpf-sniffing-traffic-bpftrace/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2021
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

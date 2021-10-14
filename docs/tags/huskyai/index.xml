@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Mon, 16 Aug 2021 10:00:26 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 14 Oct 2021 00:02:00 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/huskyai/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Video: Understanding Image Scaling Attacks</title>
+      <link>https://embracethered.com/blog/posts/2021/video-image-scaling-attacks/</link>
+      <pubDate>Thu, 14 Oct 2021 00:02:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/video-image-scaling-attacks/</guid>
+      <description>Today you are in for a special treat. Did you know that an adversary can hide a smaller image within a larger one?
+This video demonstrates how a small image becomes magically visible when the computer resizes the large image, and also how to mitigate the vulnerability.
+
+This is possible when vulnerable code uses insecure interpolation.
+If you like this one check out the overall Machine Learning Attack Series.</description>
+    </item>
     
     <item>
       <title>Using Microsoft Counterfit to create adversarial examples for Husky AI</title>
