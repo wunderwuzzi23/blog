@@ -1,5 +1,5 @@
 ---
-title: "What's in the bpfcc-tools box?"
+title: "Offensive BPF: What's in the bpfcc-tools box?"
 date: 2021-10-09T14:00:59-07:00
 draft: true
 tags: [

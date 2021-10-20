@@ -7,15 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Tue, 12 Oct 2021 00:10:16 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 20 Oct 2021 00:14:16 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Sniffing Firefox traffic with bpftrace</title>
+      <title>Running Ad Campaigns during Red Teaming Engagements</title>
+      <link>https://embracethered.com/blog/posts/2021/red-teaming-ad-phishing-campaigns/</link>
+      <pubDate>Wed, 20 Oct 2021 00:14:16 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/red-teaming-ad-phishing-campaigns/</guid>
+      <description>Running ads as part of red teaming to achieve objectivs is something I wanted to look into for a while.
+It&amp;rsquo;s well [known](](https://time.com/5197255/facebook-cambridge-analytica-donald-trump-ads-data/) that state actors (both local and foreign) use this technique to manipulate voter opion.
+Marketing is a red teaming tool.
+Recent research from the
+Selecting Victims - Ad Campaign Manager When looking at this the first time it seems surreal, and kind of gives an idea how creepy the ad business industry can be.</description>
+    </item>
+    
+    <item>
+      <title>Offensive BPF: Understanding and using bpf_probe_write_user</title>
+      <link>https://embracethered.com/blog/posts/2021/offensive-bpf-libbpf-bpf_probe_write_user/</link>
+      <pubDate>Wed, 20 Oct 2021 00:04:40 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2021/offensive-bpf-libbpf-bpf_probe_write_user/</guid>
+      <description>This post is part of a series about Offensive BPF to learn how BPFs use will impact offensive security, malware, and detection engineering.
+Click the &amp;ldquo;ebpf&amp;rdquo; tag to see all relevant posts.
+Building advanced BPF programs So far in this Offensive BPF series the focus was on bpftrace to build and run BPF programs.
+The next thing I wanted to investigate is what options are available to modify data structures during BPF execution.</description>
+    </item>
+    
+    <item>
+      <title>Offensive BPF: Sniffing Firefox traffic with bpftrace</title>
       <link>https://embracethered.com/blog/posts/2021/offensive-bpf-sniffing-traffic-bpftrace/</link>
-      <pubDate>Tue, 12 Oct 2021 00:10:16 -0700</pubDate>
+      <pubDate>Thu, 14 Oct 2021 00:10:16 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2021/offensive-bpf-sniffing-traffic-bpftrace/</guid>
       <description>This post is part of a series about Offensive BPF that I&amp;rsquo;m working on to learn how BPFs use will impact offensive security, malware, and detection engineering.
@@ -25,7 +50,7 @@ This post is about me learning how to hook user space APIs with bpftrace using u
     </item>
     
     <item>
-      <title>What&#39;s in the bpfcc-tools box?</title>
+      <title>Offensive BPF: What&#39;s in the bpfcc-tools box?</title>
       <link>https://embracethered.com/blog/posts/2021/offensive-bpf-handy-tools/</link>
       <pubDate>Sat, 09 Oct 2021 14:00:59 -0700</pubDate>
       

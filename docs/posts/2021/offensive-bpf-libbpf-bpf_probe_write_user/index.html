@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Offensive BPF: Understanding and using bpf_probe_write_user &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2021/offensive-bpf-libbpf-bpf_probe_write_user/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2021-10-20T00:04:40-07:00" />
+  
+  <meta property="og:article:tag" content="pentest" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="research" />
+  
+  <meta property="og:article:tag" content="ebpf" />
+  
+  <meta property="og:article:tag" content="blue" />
+  
+  
+
+  <title>
+     Offensive BPF: Understanding and using bpf_probe_write_user &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content=" Offensive BPF: Understanding and using bpf_probe_write_user ">
+<meta name="twitter:description" content="Using eBPF in offensive security settings and mitigations">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2021/bpf_probe_write_user.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Offensive BPF: Understanding and using bpf_probe_write_user</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2021-10-20T00:04:40-07:00">
+          Oct 20, 2021
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentest">#pentest</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/research">#research</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ebpf">#ebpf</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/blue">#blue</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>This post is part of a series about <strong>Offensive BPF</strong> to learn how BPFs use will impact offensive security, malware, and detection engineering.</p>
+<p>Click the <a href="/blog/tags/ebpf">&ldquo;ebpf&rdquo;</a> tag to see all relevant posts.</p>
+<p><img src="/blog/images/2021/offensive-bpf.png" alt="Offensive BPF"></p>
+<h2 id="building-advanced-bpf-programs">Building advanced BPF programs</h2>
+<p>So far in this Offensive BPF series the focus was on <code>bpftrace</code> to build and run BPF programs.</p>
+<p>The next thing I wanted to investigate is what options are available to <strong>modify data structures during BPF execution</strong>. This is where I hit limitations with <code>bpftrace</code>.</p>
+<p>There is a bpf helper function named <a href="https://www.man7.org/linux/man-pages/man7/bpf-helpers.7.html">bpf_probe_write_user</a> that I want to use to manipulate data structures inside a BPF program.</p>
+<p>Unfortunately, <code>bpf_probe_write_user</code> seems not available or accessible from inside a <code>bpftrace</code> program, so I had to go a level lower and write BPF programs in C.</p>
+<p>There are a couple goals I have with overwriting user space data:</p>
+<ol>
+<li><strong>Modify Filenames</strong>: Modify data on the fly with <code>bpf_probe_write_user</code>. Initially my goal is to replace filenames and put something like &ldquo;OhBPF&rdquo; in the name when tools such as <code>ls</code> are being used. The knowledge acquired to do this should aid in building a BPF rootkit later.</li>
+<li><strong>Hiding Directories/Rootkit</strong>: Continuing the filename modification path, the next step is to hide directory info and hence process information (via the <code>/proc/</code> filesystem) on the fly. See <a href="https://xcellerator.github.io/posts/linux_rootkits_06/">Linux Rootkits Part 6 - Hiding Directories</a> and <a href="https://github.com/pathtofile/bad-bpf">Bad-BPF Github Repo</a>.</li>
+<li><strong>Ransomware Simulation</strong>: Currently red teams typically offer table-top exercise services when it comes to ransomware simulations. To help train the blue team and perform ransomware simulations safely, a non-malicious tool could help. BPF&rsquo;s temporary nature seems a good candidate to build some tooling in that space.</li>
+<li><strong>Detections</strong>: While building more advanced BPF programs, I will continue to keep an eye on ways to detect malicious BPF programs and how they can be detected</li>
+<li><strong>More fun stuff</strong>: As I&rsquo;m learning more about BPF more and more interesting ideas come up.</li>
+</ol>
+<p>After spending some time reading up on things, <code>libbpf</code> and <code>libbpf-bootstrap</code> seemed good starting points for building BPF apps in C which then get compiled to BPF bytecode via clang. <code>clang</code> has a neat <code>-target bpf</code> argument that can be used for this.</p>
+<h2 id="using-libbpf-bootstrap">Using libbpf-bootstrap</h2>
+<p><a href="https://github.com/libbpf/libbpf-bootstrap">libbp-bootstrap</a> allows to quickly scaffold BPF programs. It uses <code>libbpf</code> and depends on BPF Compile Once - Run Everywhere (CO-RE). This requires a Linux kernel that is built with <code>CONFIG_DEBUG_INFO_BTF=y</code>.</p>
+<p>To get started I enlisted the repo, built it, and then played around with the examples.</p>
+<p>While doing so I discovered the following <a href="https://nakryiko.com/posts/libbpf-bootstrap">blog post</a> which was super helpful in understand the technical details. There is another project I found called <a href="https://github.com/pathtofile/bad-bpf">Bad-BPF</a> by pathtofile that I used to understand how this all works. I’m not the first one exploring this (obviously).</p>
+<p>To create my own BPF program, there are basically three files that make it up:</p>
+<ol>
+<li><code>obpf.h</code> - header file (copied from <code>bootstrap.h</code>)</li>
+<li><code>obpf.c</code> -  App that loads the BPF program (copied from <code>bootstrap.c</code>)</li>
+<li><code>obpf.bpf.c</code> - The actual bpf program file named <code>obpf.bpf.c</code></li>
+</ol>
+<p>Inside the files I had to rename a few strings from <code>bootstrap</code> to <code>obpf</code> (like includes, etc.) and update the <code>Makefile</code> to make sure <code>obpf</code> gets built.</p>
+<p>You can find the <a href="https://github.com/wunderwuzzi23/offensive-bpf/obpf">source code here</a>, but be aware that this will change a lot while I work on this series.</p>
+<h2 id="creating-a-bpf-program-using-libbpf">Creating a BPF program using libbpf</h2>
+<p>This is now where the knowledge I had acquired exploring <code>bpftrace</code> the last few weeks came in very handy.</p>
+<p>I quickly understood what was going on. <code>libbpf</code> uses lower-level constructs and BPF programs are written in C compared <code>bpftrace</code>, which is an abstraction to write simple &ldquo;script-like&rdquo; BPF programs quickly. Hence, <code>libbpf</code> allows for more functionality and control, but means writing more code.</p>
+<p>Here are some of the things that involve a little more work now.</p>
+<h3 id="maps">Maps</h3>
+<p>With <code>bpftrace</code> maps where just simple variable names - there was nothing else needed. In libbpf we have to define structs now to hold the data, and use <a href="https://www.man7.org/linux/man-pages/man7/bpf-helpers.7.html">bpf_helper functions</a> to update or delete values.</p>
+<p>To give the example, I&rsquo;m using the following map to allow sending pointers from <code>sys_enter_getdents64</code> to <code>sys_exit_getdents64</code> trace points:</p>
+<pre><code>struct
+{
+    __uint(type, BPF_MAP_TYPE_HASH);
+    __uint(max_entries, 8192);
+    __type(key, tid_t);
+    __type(value, u64);
+} dir_entries SEC(&quot;.maps&quot;);
+</code></pre><p>This defines the structure of the map using the <code>SEC</code> macro.</p>
+<h3 id="hook-points-trace-points-and-probes">Hook points, trace points and probes</h3>
+<p>Reading through <a href="https://xcellerator.github.io/posts/linux_rootkits_06/">Linux Rootkits Part 6 - Hiding Directories</a> I learned that I needed to leverage <code>getdents64</code> syscalls to access or manipulate directory listings. This is also needed if one wants to build a rootkit.</p>
+<p>To get the arguments of the syscall <code>bpftrace -lv tracepoint:syscalls:sys*getdents*</code>.</p>
+<pre><code>$ sudo bpftrace -lv tracepoint:syscalls:sys*dents64
+BTF: using data from /sys/kernel/btf/vmlinux
+tracepoint:syscalls:sys_enter_getdents64
+    int __syscall_nr;
+    unsigned int fd;
+    struct linux_dirent64 * dirent;
+    unsigned int count;
+tracepoint:syscalls:sys_exit_getdents64
+    int __syscall_nr;
+    long ret;
+</code></pre><p>The man page <code>man getdents64</code> contains further details and explanations.</p>
+<p>The code to hook <code>sys_enter_getdents64</code> is short - here is entire snippet:</p>
+<pre><code>SEC(&quot;tracepoint/syscalls/sys_enter_getdents64&quot;)
+int handle_enter_getdents64(struct trace_event_raw_sys_enter *ctx)
+{
+    tid_t tid = bpf_get_current_pid_tgid();
+
+    struct linux_dirent64 *d_entry = (struct linux_dirent64 *) ctx-&gt;args[1]; 
+    if (d_entry == NULL)
+    {
+        return 0;
+    }
+
+    bpf_map_update_elem(&amp;dir_entries, &amp;tid, &amp;d_entry, BPF_ANY);
+    
+    return 0;
+}
+</code></pre><p>This uses <a href="https://www.man7.org/linux/man-pages/man7/bpf-helpers.7.html">bpf_helper functions</a>, such as <code>bpf_get_current_pid_tgid</code> and <code>bpf_map_update_elem</code>.</p>
+<p>The goal of this code is to store the pointer to <code>d_entry</code> in the map, so that in <code>sys_exit_getdents64</code> we can access the pointer and read the directory information which was populated by then.</p>
+<p>In comparison the following (much shorter) script is the <code>bpftrace</code> version:</p>
+<pre><code>tracepoint:syscalls:sys_enter_getdents64
+{  
+  @dir_entries[tid] = args-&gt;dirent;
+}
+</code></pre><p>With <code>bpftrace</code> we don&rsquo;t have to define a map or anything - so it&rsquo;s a lot less code!</p>
+<p>BUT, <code>bpftrace</code> can&rsquo;t overwrite user space data structures - which is what we need for a rootkit or modifying filenames, and I also noticed that navigating/iterating over structs is sometimes quite difficult with <code>bpftrace</code>.</p>
+<p>So let&rsquo;s continue on our libbpf journey~~~</p>
+<h2 id="hooking-the-exit-call-and-manipulating-filenames">Hooking the exit call and manipulating filenames</h2>
+<p>Let&rsquo;s walk through the code of the exit function.</p>
+<p>First, I defined the hook point for the <code>sys_exit_getdents64</code> trace point.</p>
+<pre><code>SEC(&quot;tracepoint/syscalls/sys_exit_getdents64&quot;)
+int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
+{
+</code></pre><p>Next, we grab the thread group ID that we can use as identifier for the call going forward.</p>
+<pre><code>    tid_t tid = bpf_get_current_pid_tgid();
+</code></pre><p>Following the same coding pattern from before with <code>bpftrace</code> we look up the pointer to the <code>dir_entries</code> from the map data structure. This is the pointer that <code>sys_enter_getdents64</code> stored in the map.</p>
+<pre><code>    long unsigned int * dir_addr  = bpf_map_lookup_elem(&amp;dir_entries, &amp;tid);
+    if (dir_addr == NULL)
+    {
+        return 0;
+    }
+
+    bpf_map_delete_elem(&amp;dir_entries, &amp;tid);
+</code></pre><p>After reading the value, we clean up and delete it from the map.</p>
+<p>Next is the actual logic to loop through the directory. The code looks at each filename (<code>d_name</code>) and modify it using <code>bpf_probe_write_user</code>. I defined a bunch of variables that are used throughout the looping code.</p>
+<pre><code>    /* Loop over directory entries */
+    struct linux_dirent64 * d_entry;
+    unsigned short int      d_reclen;
+    unsigned short int      d_name_len; 
+    long                    offset = 0;
+
+    long unsigned int d_entry_base_addr = *dir_addr;
+    long              ret               = ctx-&gt;ret;
+
+    //MAX_D_NAME_LEN == 128 - const isn't working with allocation here...
+    char d_name[128];  
+</code></pre><p><code>ctx-&gt;ret</code> is the return value of the <code>getdents64</code> call and contains the overall length of the buffer, <code>d_entry_base_addr</code> is pointing to the beginning of that buffer.</p>
+<p>Let&rsquo;s start the loop.</p>
+<pre><code>    int i=0;
+    while (i &lt; 256)   // limitation for now, only examine the first 256 entries
+    {
+        bpf_printk(&quot;Loop %d: offset: %d, total len: %d&quot;, i, offset, ret);
+
+        if (offset &gt;= ret)
+        {
+            break;
+        }
+</code></pre><p>BPF programs have limitations around their complexity. There is a Verifier that analyzes the program to make sure it executes safely.</p>
+<p>These limitations are something I noticed quite often - so I had to limit the iterations to 256. To work around that we could perform a <code>tails</code> call to invoke a helper BPF program, but I wanted to keep it simple for now. Another thing is that it&rsquo;s not possible to do dynamic allocation of memory, buffer sizes have to be known up front.</p>
+<p>Another thing to highlight here is the debug prints using <code>bpf_printk</code>. In order to view these, you can cat the following file:
+<code>sudo cat /sys/kernel/debug/tracing/trace_pipe</code> during executiong.</p>
+<p>The following part of the loop navigates to the next directory entry (<code>d_entry</code>) by adding the <code>offset</code> to the <code>d_entry_base_addr</code> and then reads the <code>d_reclen</code> and <code>d_name</code> (which is the filename) of the entry.</p>
+<pre><code>        d_entry = (struct linux_dirent64 *) (d_entry_base_addr + offset);
+
+        // read d_reclen
+        bpf_probe_read_user(&amp;d_reclen, sizeof(d_reclen), &amp;d_entry-&gt;d_reclen);
+
+        //read d_name
+        d_name_len = d_reclen - 2 - (offsetof(struct linux_dirent64, d_name));
+        long success = bpf_probe_read_user(&amp;d_name, MAX_D_NAME_LEN, d_entry-&gt;d_name);
+        if ( success != 0 )
+        {
+            offset += d_reclen;
+            i++;
+            continue;
+        }
+
+        bpf_printk(&quot;d_reclen: %d, d_name_len: %d, %s&quot;, d_reclen, d_name_len, d_name);
+</code></pre><p>You can also read <code>d_type</code> and make sure it is not equal to <code>DT_DIR</code> (4) to skip directories and only manipulate filenames.</p>
+<p>The next step is the logic to only overwrite a file that matches a certain string, etc. To keep the example here straight forward the code just targets every filename that is longer than 6 characters and overwrite the initial 6 characters with <code>OhBPF</code> using <code>bpf_probe_write_user</code>. :)</p>
+<pre><code>        if ( d_name_len &gt; 6 )
+        {	
+            bpf_printk(&quot;** sys_enter_getdents64 ** OVERWRITING&quot;); 		
+            
+            char replace[6] = &quot;OhhBPF&quot;;
+
+            long success = bpf_probe_write_user((char *) &amp;d_entry-&gt;d_name, (char *) replace, sizeof(replace));
+            bpf_printk(&quot;** RESULT %d&quot;, success);  
+        }
+</code></pre><p>Finally, we increase the <code>offset</code> by the record length (<code>d_reclen</code>) to move to the next directory entry, and in case we reached the end of the loop we return.</p>
+<pre><code>        offset += d_reclen;
+        i++;
+    }
+
+    return 0;
+}
+</code></pre><p>The bpf helper <code>bpf_probe_write_user</code> is really what enables this magic experience. It allows to manipulate the data that user space programs see.</p>
+<p>When the BPF program runs now, all programs that enumerate filenames will see filenames with 6 or more characters be overwritten by the BPF program!</p>
+<p><a href="/blog/images/2021/bpf_probe_write_user_2.png"><img src="/blog/images/2021/bpf_probe_write_user_2.png" alt="Offensive BPF - bpf_probe_write_user"></a></p>
+<p>It&rsquo;s pretty awesome - even Visual Studio Code gets fooled.</p>
+<h2 id="detections---bpf_probe_write_user">Detections - <code>bpf_probe_write_user</code></h2>
+<p>Although this program doesn&rsquo;t do anything too malicious, it already points us to the potential for misuse of the <code>bpf_probe_write_user</code> function.</p>
+<p>Luckily, whenever a BPF program invokes it, there will be an entry in the <code>syslog</code>.</p>
+<p>This is how the <code>bpf_probe_write_user</code> call gets logged:</p>
+<pre><code>ubuntu kernel: [86495.892139] obpf[188278] is installing a program with bpf_probe_write_user helper that may corrupt user memory!
+</code></pre><p>Theoretically this can probably be bypassed by creating a BPF program that hooks the <code>syslog</code> syscall. As mentioned before tracking <code>bpf</code> syscalls is important as that is the source of the &ldquo;BPF inception&rdquo;.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this post we moved on from <code>bpftrace</code> to writing &ldquo;native&rdquo; BPF programs in C using the <code>libbpf-bootsrap</code> framework to get started quickly.</p>
+<p>Tinkering with syscalls and manipulating user space data structures provides a rich playground for adversaries and malware.</p>
+<p>We identified and highlighted the <code>bpf_probe_write_user</code> call to look for to identify suspicious activity.</p>
+<p>Cheers!</p>
+<p><a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://xcellerator.github.io/posts/linux_rootkits_06/">Linux Rootkits Part 6 - Hiding Directories</a></li>
+<li><a href="https://www.man7.org/linux/man-pages/man7/bpf-helpers.7.html">bpf_helper functions</a></li>
+<li><a href="https://github.com/pathtofile/bad-bpf">Bad-BPF Github Repo</a></li>
+<li><a href="https://nakryiko.com/posts/libbpf-bootstrap/">Building BPF applications with libbpf-bootstrap</a></li>
+<li><a href="https://github.com/libbpf/libbpf-bootstrap">libbpf-bootstrap Github Repo</a></li>
+</ul>
+<h2 id="appendix---obpfbpfc">Appendix - obpf.bpf.c</h2>
+<p>This is the core source code of the BPF program discussed in this post. I will release the repo once I complete the Offensive BPF series - since there is still a lot of code churn and changes.</p>
+<pre><code>// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
+
+#include &quot;vmlinux.h&quot;
+#include &lt;bpf/bpf_helpers.h&gt;
+#include &lt;bpf/bpf_tracing.h&gt;
+#include &lt;bpf/bpf_core_read.h&gt;
+#include &quot;obpf.h&quot;
+
+char LICENSE[] SEC(&quot;license&quot;) = &quot;Dual BSD/GPL&quot;;
+
+struct
+{
+    __uint(type, BPF_MAP_TYPE_RINGBUF);
+    __uint(max_entries, 256 * 1024);
+} rb SEC(&quot;.maps&quot;);
+
+struct
+{
+    __uint(type, BPF_MAP_TYPE_HASH);
+    __uint(max_entries, 8192);
+    __type(key, tid_t);
+    __type(value, u64);
+} dir_entries SEC(&quot;.maps&quot;);
+
+const int            MAX_D_NAME_LEN = 128;
+const volatile char* PATTERN;
+const char           DT_DIR = 4;
+//const char           DT_REG = 8;
+
+SEC(&quot;tracepoint/syscalls/sys_enter_getdents64&quot;)
+int handle_enter_getdents64(struct trace_event_raw_sys_enter *ctx)
+{
+    tid_t tid = bpf_get_current_pid_tgid();
+
+    struct linux_dirent64 *d_entry = (struct linux_dirent64 *) ctx-&gt;args[1]; 
+    if (d_entry == NULL)
+    {
+        return 0;
+    }
+
+    bpf_map_update_elem(&amp;dir_entries, &amp;tid, &amp;d_entry, BPF_ANY);
+
+    return 0;
+}
+
+SEC(&quot;tracepoint/syscalls/sys_exit_getdents64&quot;)
+int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
+{
+    struct task_struct *task;
+    struct event       *e;
+
+    task = (struct task_struct *)bpf_get_current_task();
+    tid_t tid = bpf_get_current_pid_tgid();
+
+    long unsigned int * dir_addr  = bpf_map_lookup_elem(&amp;dir_entries, &amp;tid);
+    if (dir_addr == NULL)
+    {
+        return 0;
+    }
+
+    bpf_map_delete_elem(&amp;dir_entries, &amp;tid);
+
+    /* Loop over directory entries */
+    struct linux_dirent64 * d_entry;
+    unsigned short int      d_reclen;
+    unsigned short int      d_name_len; 
+    long                    offset = 0;
+
+    long unsigned int d_entry_base_addr = *dir_addr;
+    long              ret               = ctx-&gt;ret;
+
+    //MAX_D_NAME_LEN == 128 - const isn't working with allocation here...
+    char d_name[128];  
+    int  count = 16;
+    char d_type;
+
+    int i=0;
+    while (i &lt; 256)   // limitation for now, only examine the first 256 entries
+    {
+        bpf_printk(&quot;Loop %d: offset: %d, total len: %d&quot;, i, offset, ret);
+
+        if (offset &gt;= ret)
+        {
+            break;
+        }
+
+        d_entry = (struct linux_dirent64 *) (d_entry_base_addr + offset);
+
+        // read d_reclen
+        bpf_probe_read_user(&amp;d_reclen, sizeof(d_reclen), &amp;d_entry-&gt;d_reclen);
+
+        // skip if it's a directory entry
+        bpf_probe_read_user(&amp;d_type, sizeof(d_type), &amp;d_entry-&gt;d_type);
+        if (d_type == DT_DIR)
+        {
+            offset += d_reclen;
+            i++;
+            continue;
+        }
+
+        //read d_name
+        d_name_len = d_reclen - 2 - (offsetof(struct linux_dirent64, d_name));
+        long success = bpf_probe_read_user(&amp;d_name, MAX_D_NAME_LEN, d_entry-&gt;d_name);
+        if ( success != 0 )
+        {
+            offset += d_reclen;
+            i++;
+            continue;
+        }
+
+        bpf_printk(&quot;d_reclen: %d, d_name_len: %d, %s&quot;, d_reclen, d_name_len, d_name);
+
+        /* match and overwrite */
+        if ( d_name_len &gt; 6 )
+        {	
+            bpf_printk(&quot;** sys_enter_getdents64 ** OVERWRITING&quot;); 		
+            
+            char replace[] = &quot;xxxxxx&quot;;
+           
+            // overwrite the user space d_name buffer
+            long success = bpf_probe_write_user((char *) &amp;d_entry-&gt;d_name, (char *) replace, sizeof(char) * 6);
+            bpf_printk(&quot;** RESULT %d&quot;, success);  
+        }
+
+        offset += d_reclen;
+        i++;
+    }
+	
+    return 0;
+}
+</code></pre>
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next"><a href="https://embracethered.com/blog/posts/2021/red-teaming-ad-phishing-campaigns/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2021/offensive-bpf-sniffing-traffic-bpftrace/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2021
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

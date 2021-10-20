@@ -7,51 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Thu, 14 Oct 2021 00:02:00 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 20 Oct 2021 00:14:16 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>appsec</title>
-      <link>https://embracethered.com/blog/tags/appsec/</link>
-      <pubDate>Thu, 14 Oct 2021 00:02:00 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/appsec/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>huskyai</title>
-      <link>https://embracethered.com/blog/tags/huskyai/</link>
-      <pubDate>Thu, 14 Oct 2021 00:02:00 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/huskyai/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine learning</title>
-      <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Thu, 14 Oct 2021 00:02:00 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>video</title>
-      <link>https://embracethered.com/blog/tags/video/</link>
-      <pubDate>Thu, 14 Oct 2021 00:02:00 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/video/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>blue</title>
       <link>https://embracethered.com/blog/tags/blue/</link>
-      <pubDate>Tue, 12 Oct 2021 00:10:16 -0700</pubDate>
+      <pubDate>Wed, 20 Oct 2021 00:14:16 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/blue/</guid>
       <description></description>
@@ -60,7 +24,7 @@
     <item>
       <title>ebpf</title>
       <link>https://embracethered.com/blog/tags/ebpf/</link>
-      <pubDate>Tue, 12 Oct 2021 00:10:16 -0700</pubDate>
+      <pubDate>Wed, 20 Oct 2021 00:14:16 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ebpf/</guid>
       <description></description>
@@ -69,7 +33,7 @@
     <item>
       <title>pentest</title>
       <link>https://embracethered.com/blog/tags/pentest/</link>
-      <pubDate>Tue, 12 Oct 2021 00:10:16 -0700</pubDate>
+      <pubDate>Wed, 20 Oct 2021 00:14:16 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/pentest/</guid>
       <description></description>
@@ -78,7 +42,7 @@
     <item>
       <title>red</title>
       <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Tue, 12 Oct 2021 00:10:16 -0700</pubDate>
+      <pubDate>Wed, 20 Oct 2021 00:14:16 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/red/</guid>
       <description></description>
@@ -87,9 +51,45 @@
     <item>
       <title>research</title>
       <link>https://embracethered.com/blog/tags/research/</link>
-      <pubDate>Tue, 12 Oct 2021 00:10:16 -0700</pubDate>
+      <pubDate>Wed, 20 Oct 2021 00:14:16 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>appsec</title>
+      <link>https://embracethered.com/blog/tags/appsec/</link>
+      <pubDate>Tue, 12 Oct 2021 00:02:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/appsec/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>huskyai</title>
+      <link>https://embracethered.com/blog/tags/huskyai/</link>
+      <pubDate>Tue, 12 Oct 2021 00:02:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/huskyai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Tue, 12 Oct 2021 00:02:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>video</title>
+      <link>https://embracethered.com/blog/tags/video/</link>
+      <pubDate>Tue, 12 Oct 2021 00:02:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/video/</guid>
       <description></description>
     </item>
     

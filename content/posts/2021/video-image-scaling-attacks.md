@@ -1,6 +1,6 @@
 ---
 title: "Video: Understanding Image Scaling Attacks"
-date: 2021-10-14T00:02:00-07:00
+date: 2021-10-12T00:02:00-07:00
 draft: true
 tags: [
         "appsec","machine learning","huskyai","video"

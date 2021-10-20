@@ -3,28 +3,30 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Video: Understanding Image Scaling Attacks &middot;  Embrace The Red" />
+  <meta property="og:title" content=" Running Ad Campaigns during Red Teaming Engagements &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
-  <meta property="og:url" content="https://embracethered.com/blog/posts/2021/video-image-scaling-attacks/" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2021/red-teaming-ad-phishing-campaigns/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2021-10-12T00:02:00-07:00" />
+  <meta property="og:article:published_time" content="2021-10-20T00:14:16-07:00" />
   
-  <meta property="og:article:tag" content="appsec" />
+  <meta property="og:article:tag" content="pentest" />
   
-  <meta property="og:article:tag" content="machine learning" />
+  <meta property="og:article:tag" content="red" />
   
-  <meta property="og:article:tag" content="huskyai" />
+  <meta property="og:article:tag" content="research" />
   
-  <meta property="og:article:tag" content="video" />
+  <meta property="og:article:tag" content="ebpf" />
+  
+  <meta property="og:article:tag" content="blue" />
   
   
 
   <title>
-     Video: Understanding Image Scaling Attacks &middot;  Embrace The Red
+     Running Ad Campaigns during Red Teaming Engagements &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -40,9 +42,9 @@
   
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wunderwuzzi23">
-<meta name="twitter:title" content="Video: Understanding Image Scaling Attacks">
-<meta name="twitter:description" content="With an Image Scaling Attacks an adversary can hide a smaller image within a larger image. This video demonstrates how a small image becomes magically visible when the computer resizes the large image, and also how to mitigate the vulnerability.">
-<meta name="twitter:image" content="https://embracethered.com/blog/images/2021/image-scaling-attacks.png">
+<meta name="twitter:title" content="Running Ad Campaigns during Red Teaming Engagements">
+<meta name="twitter:description" content="Running Ad Campaigns during Red Teaming Engagements">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2021/obpf.png">
 
 <meta name="twitter:creator" content="@wunderwuzzi23">
 
@@ -109,38 +111,53 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Video: Understanding Image Scaling Attacks</h1>
+    <h1 class="text-primary">Running Ad Campaigns during Red Teaming Engagements</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2021-10-12T00:02:00-07:00">
-          Oct 12, 2021
+        <time datetime="2021-10-20T00:14:16-07:00">
+          Oct 20, 2021
         </time>
       </div>
     
       <div class="pull-right">
         
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/appsec">#appsec</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentest">#pentest</a></span>
         
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
         
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/huskyai">#huskyai</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/research">#research</a></span>
         
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/video">#video</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ebpf">#ebpf</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/blue">#blue</a></span>
         
       </div>
     </div>
   </header>
   <section>
-    <p>Today you are in for a special treat. Did you know that an adversary can hide a smaller image within a larger one?</p>
-<p>This video demonstrates how a small image becomes magically visible when the computer resizes the large image, and also how to mitigate the vulnerability.</p>
-<p><a href="https://www.youtube.com/watch?v=UItbZNBtfaQ"><img src="/blog/images/2021/image-scaling-attack.png" alt="Image Scaling Attacks"></a></p>
-<p>This is possible when vulnerable code uses insecure interpolation.</p>
-<p>If you like this one check out the overall <a href="https://embracethered.com/blog/posts/2020/machine-learning-attack-series-overview/">Machine Learning Attack Series</a>.</p>
-<p>Credit for <a href="https://scaling-attacks.net/">original research</a>, Erwing Quiring, et al., TU Braunschweig.</p>
-<p>Stay cool and happy hacking!</p>
-<p><a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+    <p>Running ads as part of red teaming to achieve objectivs is something I wanted to look into for a while.</p>
+<p>It&rsquo;s <a href="https://www.nytimes.com/2017/11/01/us/politics/russia-2016-election-facebook.html">well</a> [known](](<a href="https://time.com/5197255/facebook-cambridge-analytica-donald-trump-ads-data/">https://time.com/5197255/facebook-cambridge-analytica-donald-trump-ads-data/</a>) that state actors (both local and foreign) use this technique to manipulate voter opion.</p>
+<p>Marketing is a red teaming tool.</p>
+<p>Recent research from the</p>
+<h2 id="selecting-victims---ad-campaign-manager">Selecting Victims - Ad Campaign Manager</h2>
+<p>When looking at this the first time it seems surreal, and kind of gives an idea how creepy the ad business industry can be.</p>
+<p>A nice, user-friendly UI allows you to select the location (address), age and gender of your victims.</p>
+<h2 id="attack-scenarios">Attack Scenarios</h2>
+<ul>
+<li>Running an ad campaign to target employees of a specific company</li>
+<li>Phishing, IP space reconaissance</li>
+<li>Manipulate the masses</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>It also makes you realize that the lines between malicous and &ldquo;intented&rdquo; advertisements are gray, and that marketing itself is a red teaming tool.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://arxiv.org/pdf/2110.06636.pdf">Unique on Facebook: Formulation and Evidence of (Nano)targeting Individual Users with non-PII Data</a></li>
+<li><a href="https://www.nytimes.com/2017/11/01/us/politics/russia-2016-election-facebook.html">These are the ads Russia bought on Facebook</a></li>
+<li><a href="https://time.com/5197255/facebook-cambridge-analytica-donald-trump-ads-data/">Facebook’s New Controversy Shows How Easily Online Political Ads Can Manipulate You</a></li>
+</ul>
 
   </section>
   <footer>
@@ -151,7 +168,7 @@
     
     <ul class="pager">
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2021/offensive-bpf-sniffing-traffic-bpftrace/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">
@@ -163,7 +180,7 @@
 
       
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2021/what-is-tab-nabbing/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2021/offensive-bpf-libbpf-bpf_probe_write_user/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>

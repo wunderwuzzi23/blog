@@ -1,6 +1,6 @@
 ---
-title: "Sniffing Firefox traffic with bpftrace"
-date: 2021-10-12T00:10:16-07:00
+title: "Offensive BPF: Sniffing Firefox traffic with bpftrace"
+date: 2021-10-14T00:10:16-07:00
 draft: true
 tags: [
         "pentest", "red","research","ebpf","blue"
