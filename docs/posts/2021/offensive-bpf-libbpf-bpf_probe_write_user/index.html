@@ -165,7 +165,6 @@
 <li><code>obpf.bpf.c</code> - The actual bpf program file named <code>obpf.bpf.c</code></li>
 </ol>
 <p>Inside the files I had to rename a few strings from <code>bootstrap</code> to <code>obpf</code> (like includes, etc.) and update the <code>Makefile</code> to make sure <code>obpf</code> gets built.</p>
-<p>You can find the <a href="https://github.com/wunderwuzzi23/offensive-bpf/obpf">source code here</a>, but be aware that this will change a lot while I work on this series.</p>
 <h2 id="creating-a-bpf-program-using-libbpf">Creating a BPF program using libbpf</h2>
 <p>This is now where the knowledge I had acquired exploring <code>bpftrace</code> the last few weeks came in very handy.</p>
 <p>I quickly understood what was going on. <code>libbpf</code> uses lower-level constructs and BPF programs are written in C compared <code>bpftrace</code>, which is an abstraction to write simple &ldquo;script-like&rdquo; BPF programs quickly. Hence, <code>libbpf</code> allows for more functionality and control, but means writing more code.</p>
@@ -466,7 +465,7 @@ int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
     
     <ul class="pager">
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2021/red-teaming-ad-phishing-campaigns/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">

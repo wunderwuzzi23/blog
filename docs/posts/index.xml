@@ -7,23 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Wed, 20 Oct 2021 00:14:16 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 20 Oct 2021 00:04:40 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Running Ad Campaigns during Red Teaming Engagements</title>
-      <link>https://embracethered.com/blog/posts/2021/red-teaming-ad-phishing-campaigns/</link>
-      <pubDate>Wed, 20 Oct 2021 00:14:16 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/posts/2021/red-teaming-ad-phishing-campaigns/</guid>
-      <description>Running ads as part of red teaming to achieve objectivs is something I wanted to look into for a while.
-It&amp;rsquo;s well [known](](https://time.com/5197255/facebook-cambridge-analytica-donald-trump-ads-data/) that state actors (both local and foreign) use this technique to manipulate voter opion.
-Marketing is a red teaming tool.
-Recent research from the
-Selecting Victims - Ad Campaign Manager When looking at this the first time it seems surreal, and kind of gives an idea how creepy the ad business industry can be.</description>
-    </item>
     
     <item>
       <title>Offensive BPF: Understanding and using bpf_probe_write_user</title>

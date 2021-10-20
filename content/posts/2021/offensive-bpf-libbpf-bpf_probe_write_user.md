@@ -58,8 +58,6 @@ To create my own BPF program, there are basically three files that make it up:
 
 Inside the files I had to rename a few strings from `bootstrap` to `obpf` (like includes, etc.) and update the `Makefile` to make sure `obpf` gets built.
 
-You can find the [source code here](https://github.com/wunderwuzzi23/offensive-bpf/obpf), but be aware that this will change a lot while I work on this series.
-
 ## Creating a BPF program using libbpf
 
 This is now where the knowledge I had acquired exploring `bpftrace` the last few weeks came in very handy. 
