@@ -12,7 +12,7 @@ twitter:
   creator: "@wunderwuzzi23"
   title: " Offensive BPF: Understanding and using bpf_probe_write_user "
   description:  "Using eBPF in offensive security settings and mitigations"
-  image: "https://embracethered.com/blog/images/2021/bpf_probe_write_user.png"
+  image: "https://embracethered.com/blog/images/2021/bpf_probe_write_user_2.png"
 
 ---
 
