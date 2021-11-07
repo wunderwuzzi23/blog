@@ -3,17 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2021-11-07T08:10:12-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2021-11-07T08:10:12-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2021-11-07T08:10:12-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2021-11-07T08:10:12-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <lastmod>2021-11-07T08:10:12-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/video/</loc>
+    <lastmod>2021-11-07T08:10:12-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2021/video-anatomy-of-a-compromise/</loc>
+    <lastmod>2021-11-07T08:10:12-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/tags/blue/</loc>
     <lastmod>2021-10-20T00:04:40-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/ebpf/</loc>
-    <lastmod>2021-10-20T00:04:40-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/</loc>
     <lastmod>2021-10-20T00:04:40-07:00</lastmod>
   </url>
   
@@ -28,22 +58,7 @@
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2021-10-20T00:04:40-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2021-10-20T00:04:40-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/tags/research/</loc>
-    <lastmod>2021-10-20T00:04:40-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2021-10-20T00:04:40-07:00</lastmod>
   </url>
   
@@ -64,11 +79,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2021-10-12T00:02:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/video/</loc>
     <lastmod>2021-10-12T00:02:00-07:00</lastmod>
   </url>
   
@@ -119,11 +129,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/2021/linux-user-uid-zero-backdoor/</loc>
-    <lastmod>2021-08-30T09:22:40-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
     <lastmod>2021-08-30T09:22:40-07:00</lastmod>
   </url>
   

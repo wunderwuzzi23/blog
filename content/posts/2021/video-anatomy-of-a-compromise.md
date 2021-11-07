@@ -1,6 +1,6 @@
 ---
 title: "Video: Anatomy of a compromise"
-date: 2021-11-01T00:10:12-07:00
+date: 2021-11-07T08:10:12-07:00
 draft: true
 tags: [
         "red","ttp","video"
@@ -23,6 +23,6 @@ This video gives an overview of the anatomy of a compromise:
 [![Anatomy of a compromise](/blog/images/2021/anatomy-of-compromise.png)](https://www.youtube.com/watch?v=QzwLCTiAsDk)
 
 
-Stay cool and happy hacking!
+Cheers.
 
 [@wunderwuzzi23](https://twitter.com/wunderwuzzi23)

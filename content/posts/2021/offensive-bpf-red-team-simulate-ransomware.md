@@ -1,6 +1,6 @@
 ---
-title: "Offensive BPF - Red Team Ransomware Simulation Excercises"
-date: 2021-10-20T12:25:25-07:00
+title: "xxxOffensive BPF - Red Team Ransomware Simulation Excercises"
+date: 2021-11-10T12:25:25-07:00
 draft: true
 tags: [
         "pentest", "red","research","ebpf","blue"

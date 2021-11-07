@@ -1,6 +1,6 @@
 ---
-title: "Offensive BPF: Overwriting syscall return values and bpftrace limitations"
-date: 2021-10-22T01:02:26-07:00
+title: "xxxOffensive BPF: Overwriting syscall return values and bpftrace limitations"
+date: 2021-11-22T01:02:26-07:00
 draft: true
 tags: [
         "pentest", "red","research","ebpf","blue"
