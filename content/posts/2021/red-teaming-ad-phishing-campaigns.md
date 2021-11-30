@@ -1,6 +1,6 @@
 ---
-title: "Running Ad Campaigns during Red Teaming Engagements"
-date: 2021-11-20T00:14:16-07:00
+title: "xxxRunning Ad Campaigns during Red Teaming Engagements"
+date: 2021-12-22T00:14:16-07:00
 draft: true
 tags: [
         "pentest", "red","research","ebpf","blue"

@@ -3,26 +3,26 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Video: Anatomy of a compromise &middot;  Embrace The Red" />
+  <meta property="og:title" content=" Shadowbunny goes QEMU &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
-  <meta property="og:url" content="https://embracethered.com/blog/posts/2021/video-anatomy-of-a-compromise/" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2021/qemu-shadowbunny-red-team/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2021-11-08T08:10:12-07:00" />
+  <meta property="og:article:published_time" content="2021-11-10T11:17:58-07:00" />
   
-  <meta property="og:article:tag" content="red" />
+  <meta property="og:article:tag" content="pentest" />
   
-  <meta property="og:article:tag" content="ttp" />
+  <meta property="og:article:tag" content="appsec" />
   
-  <meta property="og:article:tag" content="video" />
+  <meta property="og:article:tag" content="webapp" />
   
   
 
   <title>
-     Video: Anatomy of a compromise &middot;  Embrace The Red
+     Shadowbunny goes QEMU &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -38,9 +38,9 @@
   
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wunderwuzzi23">
-<meta name="twitter:title" content="Video: Anatomy of a compromise">
-<meta name="twitter:description" content="Cybersecurity breaches follow common patterns and stages - from an initial Beachhead to accomplishing Objectives.">
-<meta name="twitter:image" content="https://embracethered.com/blog/images/2021/image-scaling-attacks.png">
+<meta name="twitter:title" content="Shadowbunny goes QEMU">
+<meta name="twitter:description" content="Using virtual machines to persist and evade detections">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2020/shadowbunny-transparent.png">
 
 <meta name="twitter:creator" content="@wunderwuzzi23">
 
@@ -107,33 +107,54 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Video: Anatomy of a compromise</h1>
+    <h1 class="text-primary">Shadowbunny goes QEMU</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2021-11-08T08:10:12-07:00">
-          Nov 8, 2021
+        <time datetime="2021-11-10T11:17:58-07:00">
+          Nov 10, 2021
         </time>
       </div>
     
       <div class="pull-right">
         
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentest">#pentest</a></span>
         
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/appsec">#appsec</a></span>
         
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/video">#video</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/webapp">#webapp</a></span>
         
       </div>
     </div>
   </header>
   <section>
-    <p>Cybersecurity breaches follow common patterns and stages - from an initial Beachhead to accomplishing Objectives.</p>
-<p>This video gives an overview of the anatomy of a compromise:</p>
-<p><a href="https://www.youtube.com/watch?v=QzwLCTiAsDk"><img src="/blog/images/2021/anatomy-of-compromise.png" alt="Anatomy of a compromise"></a></p>
-<p>Cheers.</p>
-<p><a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+    <p>For the last serveral years ransomware has become more and more prevelant, and modern day malware leverages virutalization technologies more commonly to do the dirty deats.</p>
+<p>I wrote about how it is important that red teams perform operations to emulate such threats, or at least do some table-top excercises, and we also talked about detections strategies for virtualization based malware.</p>
+<p>A good summary is my <a href="/blog/posts/2020/shadowbunny-virtual-machine-red-teaming-technique">Shadowbunny post</a> and <a href="https://www.youtube.com/watch?v=deGrbmTkRjQ">BSides Singapore talk</a>.</p>
+<h2 id="what-is-qemu">What is QEMU?</h2>
+<p>According to the QEMU wiki pages, it is &ldquo;a generic and open source machine emulator and virtualizer&rdquo;.</p>
+<p>&ldquo;When used as a machine emulator, QEMU can run OSes and programs made for one machine (e.g. an ARM board) on a different machine (e.g. your own PC). By using dynamic translation, it achieves very good performance.&rdquo;</p>
+<p>&ldquo;When used as a virtualizer, QEMU achieves near native performance by executing the guest code directly on the host CPU. QEMU supports virtualization when executing under the Xen hypervisor or using the KVM kernel module in Linux. When using KVM, QEMU can virtualize x86, server and embedded PowerPC, 64-bit POWER, S390, 32-bit and 64-bit ARM, and MIPS guests.&rdquo;</p>
+<p>So this means that under Windows we won&rsquo;t be having the same isolation and performance as under Xen or KVM.</p>
+<p>In this post I will focus on Windows</p>
+<h2 id="installing">Installing</h2>
+<p>Head over to <a href="https://qemu.weilnetz.de/">https://qemu.weilnetz.de/</a> to download the Windows port.</p>
+<p><code>--accel whpx</code></p>
+<p>&ldquo;If you want to have a fast x86 emulation running on Windows
+without such restrictions, I suggest using VirtualBox instead
+of QEMU.&rdquo;</p>
+<h2 id="sharing-folders-and-making-host-accessible-to-guest">Sharing folders and making host accessible to guest</h2>
+<p><a href="https://wiki.qemu.org/Documentation/9psetup">https://wiki.qemu.org/Documentation/9psetup</a></p>
+<h2 id="detections">Detections</h2>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://wiki.qemu.org/Main_Page">QEMU Wiki</a></li>
+<li><a href="https://qemu.weilnetz.de/">QEMU Windows Download</a></li>
+<li><a href="/blog/posts/2020/shadowbunny-virtual-machine-red-teaming-technique">Shadowbunny post</a></li>
+<li><a href="https://www.youtube.com/watch?v=deGrbmTkRjQ">BSides Singapore Shadowbunny talk</a></li>
+<li></li>
+</ul>
 
   </section>
   <footer>
@@ -144,7 +165,7 @@
     
     <ul class="pager">
       
-      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2021/offensive-bpf-red-team-simulate-ransomware/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">
@@ -156,7 +177,7 @@
 
       
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2021/offensive-bpf-libbpf-bpf_probe_write_user/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2021/video-anatomy-of-a-compromise/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>

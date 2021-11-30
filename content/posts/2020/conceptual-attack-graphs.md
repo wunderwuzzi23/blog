@@ -79,8 +79,8 @@ These graphs are useful for discussions, presentations and also in reports when 
 
 You can find the PowerPoint presentation at the below link, feel free to use and adjust as you see fit for your own presentations: 
 
-- [PowerPoint Examples Download - Attack Graph Ideas and Presentations.pptx.](/blog/downloads/Attack Graph Ideas and Presentations.pptx)
-- [PowerPoint Examples - Online](https://1drv.ms/p/s!AiSLjmP7QphXhaoSNOxA0gUBqRSRVw)
+- [Attack Graphs PowerPoint Examples](https://embracethered.com/blog/downloads/Attack%20Graph%20Ideas%20and%20Presentations.pptx)
+
 
 Let me know if this is useful, and I'm also curious how others present attack graphs during debriefs. 
 

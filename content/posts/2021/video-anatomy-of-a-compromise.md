@@ -1,6 +1,6 @@
 ---
 title: "Video: Anatomy of a compromise"
-date: 2021-11-07T08:10:12-07:00
+date: 2021-11-08T08:10:12-07:00
 draft: true
 tags: [
         "red","ttp","video"
