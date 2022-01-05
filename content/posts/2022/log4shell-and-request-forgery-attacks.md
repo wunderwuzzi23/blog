@@ -38,7 +38,7 @@ Request Forgery Attacks create requests that have unintended consequences for th
 
 These can typically be put in two categories, based on where the request is forged (client or server)
  
-1. **Cross-Site Request Forgery Attacks** (CSRF) - these attacks make the client/browser connect to resources and trigger unintended actions. This attactypically leverages authentication tokens to invoke privileged operations on the users behalf via a web browser.
+1. **Cross-Site Request Forgery Attacks** (CSRF) - these attacks make the client/browser connect to resources and trigger unintended actions. This attack typically leverages authentication tokens to invoke privileged operations on the users behalf via a web browser.
 2. **Server-Side Request Forgery Attacks** (SSRF) - these attacks create a request on the server side, where an attacker is able to provide a URL to the server and the server will later connect to that URL. This could be via a wide range of destinations and protocols (localhost, internal networks, http, ftp, ldap,...)
 
 Both kinds of request forgery vulnerabilities are quite common in web application and services. Also see the [confused deputy problem](https://en.wikipedia.org/wiki/Confused_deputy_problem) for a generic explanation of this kind of security issue.
