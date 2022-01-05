@@ -16,7 +16,7 @@ twitter:
 ---
 
 
-The last weeks of 2021 got quite interesting for security professionals and software engineers  . 
+The last weeks of 2021 got quite interesting for security professionals and software engineers. 
 
 Apache's [log4j library](https://logging.apache.org/log4j/2.x/) and its now prominent [Java Naming and Directory Interface support](https://docs.oracle.com/javase/tutorial/jndi/overview/index.html), which enables easy remote code execution, made the news across the industry. 
 
