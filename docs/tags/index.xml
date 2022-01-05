@@ -6,18 +6,36 @@
     <description>Recent content in Tags on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Mon, 08 Nov 2021 08:10:12 -0700</lastBuildDate>
+    <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
+    <lastBuildDate>Tue, 04 Jan 2022 15:18:18 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>pentest</title>
+      <link>https://embracethered.com/blog/tags/pentest/</link>
+      <pubDate>Tue, 04 Jan 2022 15:18:18 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/pentest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>red</title>
       <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Mon, 08 Nov 2021 08:10:12 -0700</pubDate>
+      <pubDate>Tue, 04 Jan 2022 15:18:18 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>research</title>
+      <link>https://embracethered.com/blog/tags/research/</link>
+      <pubDate>Tue, 04 Jan 2022 15:18:18 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/research/</guid>
       <description></description>
     </item>
     
@@ -54,24 +72,6 @@
       <pubDate>Wed, 20 Oct 2021 00:04:40 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ebpf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pentest</title>
-      <link>https://embracethered.com/blog/tags/pentest/</link>
-      <pubDate>Wed, 20 Oct 2021 00:04:40 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/pentest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>research</title>
-      <link>https://embracethered.com/blog/tags/research/</link>
-      <pubDate>Wed, 20 Oct 2021 00:04:40 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/research/</guid>
       <description></description>
     </item>
     

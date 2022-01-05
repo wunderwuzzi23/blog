@@ -6,11 +6,24 @@
     <description>Recent content in red on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2021</copyright>
-    <lastBuildDate>Mon, 08 Nov 2021 08:10:12 -0700</lastBuildDate>
+    <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
+    <lastBuildDate>Tue, 04 Jan 2022 15:18:18 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Log4Shell and Request Forgery Attacks</title>
+      <link>https://embracethered.com/blog/posts/2022/log4shell-and-request-forgery-attacks/</link>
+      <pubDate>Tue, 04 Jan 2022 15:18:18 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/log4shell-and-request-forgery-attacks/</guid>
+      <description>The last weeks of 2021 got quite interesting for security professionals.
+Apache&amp;rsquo;s log4j library and its now prominent Java Naming and Directory Interface support, which enables easy remote code execution, made the news across the industry.
+What makes Log4Shell scary is the widespread adoption of the log4j library amongst Java applications, and the ease of remote exploitation.
+A dangerous combination.
+Patches got released, bypasses were discovered more patches were released and so forth.</description>
+    </item>
     
     <item>
       <title>Video: Anatomy of a compromise</title>
