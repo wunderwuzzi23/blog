@@ -18,7 +18,7 @@
       <pubDate>Tue, 04 Jan 2022 15:18:18 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2022/log4shell-and-request-forgery-attacks/</guid>
-      <description>The last weeks of 2021 got quite interesting for security professionals and software engineers .
+      <description>The last weeks of 2021 got quite interesting for security professionals and software engineers.
 Apache&amp;rsquo;s log4j library and its now prominent Java Naming and Directory Interface support, which enables easy remote code execution, made the news across the industry.
 What makes Log4Shell scary is the widespread adoption of the Log4j library amongst Java applications, and the ease of remote exploitation.
 A dangerous combination.
