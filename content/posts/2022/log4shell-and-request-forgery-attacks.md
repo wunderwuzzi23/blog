@@ -16,11 +16,11 @@ twitter:
 ---
 
 
-The last weeks of 2021 got quite interesting for security professionals. 
+The last weeks of 2021 got quite interesting for security professionals and software engineers  . 
 
 Apache's [log4j library](https://logging.apache.org/log4j/2.x/) and its now prominent [Java Naming and Directory Interface support](https://docs.oracle.com/javase/tutorial/jndi/overview/index.html), which enables easy remote code execution, made the news across the industry. 
 
-What makes Log4Shell scary is the widespread adoption of the log4j library amongst Java applications, and the ease of remote exploitation. 
+What makes Log4Shell scary is the widespread adoption of the Log4j library amongst Java applications, and the ease of remote exploitation. 
 
 **A dangerous combination.** 
 
@@ -30,7 +30,7 @@ A lot has been written and great information is out there around [discovery](htt
 
 ![Log4Shell and Request Forgery Attacks](/blog/images/2022/log4shell.png)
 
-However, an area that has not gotten a lot of attention is the exploitation of Log4Shell in Request Forgery Attacks that target internal infrastructure and web servers from the outside by using the browser or a vulnerable service as confused deputy.
+However, an area that has not gotten a lot of attention is the exploitation of Log4Shell in Request Forgery Attacks that target internal infrastructure and web servers by using the browser or a vulnerable service as confused deputy.
 
 ## What are Request Forgery Attacks?
 

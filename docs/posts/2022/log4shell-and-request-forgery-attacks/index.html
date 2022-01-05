@@ -129,19 +129,19 @@
     </div>
   </header>
   <section>
-    <p>The last weeks of 2021 got quite interesting for security professionals.</p>
+    <p>The last weeks of 2021 got quite interesting for security professionals and software engineers  .</p>
 <p>Apache&rsquo;s <a href="https://logging.apache.org/log4j/2.x/">log4j library</a> and its now prominent <a href="https://docs.oracle.com/javase/tutorial/jndi/overview/index.html">Java Naming and Directory Interface support</a>, which enables easy remote code execution, made the news across the industry.</p>
-<p>What makes Log4Shell scary is the widespread adoption of the log4j library amongst Java applications, and the ease of remote exploitation.</p>
+<p>What makes Log4Shell scary is the widespread adoption of the Log4j library amongst Java applications, and the ease of remote exploitation.</p>
 <p><strong>A dangerous combination.</strong></p>
 <p>Patches got released, bypasses were discovered more patches were released and so forth.</p>
 <p>A lot has been written and great information is out there around <a href="https://www.microsoft.com/security/blog/2021/12/11/guidance-for-preventing-detecting-and-hunting-for-cve-2021-44228-log4j-2-exploitation/">discovery</a>, <a href="https://unit42.paloaltonetworks.com/apache-log4j-vulnerability-cve-2021-44228/#exploit">exploitation</a> as well as <a href="https://www.cisa.gov/uscert/apache-log4j-vulnerability-guidance">mitigations</a>. This post is not intended to repeat that information.</p>
 <p><img src="/blog/images/2022/log4shell.png" alt="Log4Shell and Request Forgery Attacks"></p>
-<p>However, an area that has not gotten a lot of attention is the exploitation of Log4Shell in Request Forgery Attacks that target internal infrastructure and web servers from the outside by using the browser or a vulnerable service as confused deputy.</p>
+<p>However, an area that has not gotten a lot of attention is the exploitation of Log4Shell in Request Forgery Attacks that target internal infrastructure and web servers by using the browser or a vulnerable service as confused deputy.</p>
 <h2 id="what-are-request-forgery-attacks">What are Request Forgery Attacks?</h2>
 <p>Request Forgery Attacks create requests that have unintended consequences for the victim of the attack.</p>
 <p>These can typically be put in two categories, based on where the request is forged (client or server)</p>
 <ol>
-<li><strong>Cross-Site Request Forgery Attacks</strong> - these attacks make the client/browser connect to resources and trigger unintended actions. This attactypically leverages authentication tokens to invoke privileged operations on the users behalf via a web browser.</li>
+<li><strong>Cross-Site Request Forgery Attacks</strong> (CSRF) - these attacks make the client/browser connect to resources and trigger unintended actions. This attactypically leverages authentication tokens to invoke privileged operations on the users behalf via a web browser.</li>
 <li><strong>Server-Side Request Forgery Attacks</strong> (SSRF) - these attacks create a request on the server side, where an attacker is able to provide a URL to the server and the server will later connect to that URL. This could be via a wide range of destinations and protocols (localhost, internal networks, http, ftp, ldap,&hellip;)</li>
 </ol>
 <p>Both kinds of request forgery vulnerabilities are quite common in web application and services. Also see the <a href="https://en.wikipedia.org/wiki/Confused_deputy_problem">confused deputy problem</a> for a generic explanation of this kind of security issue.</p>
