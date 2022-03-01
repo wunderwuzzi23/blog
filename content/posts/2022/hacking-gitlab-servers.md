@@ -137,9 +137,15 @@ Interestingly, just two days ago there was a [critical CVE issued](https://about
 
 Admins can also get [SSH keys for users](https://docs.gitlab.com/ee/api/keys.html) - I have not tried this yet, but it seems like one of these features that shouldn't exist, and I thought to point it out.
 
-## Detecting Access Anomalies
+## Detecting Access Anomalies and Mitigations
 
-For Blue Teamers identifying access anomalies seems like a good approach to identify if a token has leaked and is actively being abused by an adversary.
+At a high level the biggest challenge for defenders is that it's not obvious when a token was stolen, if it's use is coming from a legitimate user or not.
+
+* For Blue Teamers identifying access anomalies is a good approach to identify if a token has leaked and is actively being abused by an adversary.
+* Using Protected Branches and Protected Variables can also help limit exposure - so educate your engineeres and leverage them.
+
+There is a lot of good information availabe on the Gitlab documentation pages on how to [lock down](https://docs.gitlab.com/runner/security/) tokens and runners as well, so review the information there for more details.
+
 
 ## Conclusion
 

@@ -201,10 +201,15 @@ curl --silent --header &quot;Authorization: Bearer $TOKEN&quot; \
 <p>Interestingly, just two days ago there was a <a href="https://about.gitlab.com/releases/2022/02/25/critical-security-release-gitlab-14-8-2-released/#runner-registration-token-disclosure-through-quick-actions">critical CVE issued</a> by Gitlab regarding Runner Registration Tokens.</p>
 <h2 id="ssh-keys">SSH Keys</h2>
 <p>Admins can also get <a href="https://docs.gitlab.com/ee/api/keys.html">SSH keys for users</a> - I have not tried this yet, but it seems like one of these features that shouldn&rsquo;t exist, and I thought to point it out.</p>
-<h2 id="detecting-access-anomalies">Detecting Access Anomalies</h2>
-<p>For Blue Teamers identifying access anomalies seems like a good approach to identify if a token has leaked and is actively being abused by an adversary.</p>
+<h2 id="detecting-access-anomalies-and-mitigations">Detecting Access Anomalies and Mitigations</h2>
+<p>At a high level the biggest challenge for defenders is that it&rsquo;s not obvious when a token was stolen, if it&rsquo;s use is coming from a legitimate user or not.</p>
+<ul>
+<li>For Blue Teamers identifying access anomalies is a good approach to identify if a token has leaked and is actively being abused by an adversary.</li>
+<li>Using Protected Branches and Protected Variables can also help limit exposure - so educate your engineeres and leverage them.</li>
+</ul>
+<p>There is a lot of good information availabe on the Gitlab documentation pages on how to <a href="https://docs.gitlab.com/runner/security/">lock down</a> tokens and runners as well, so review the information there for more details.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>This is a short introduction around Gitlab based recon and CI/CD attacks. There are really a lot of fun avenues for adversaries to abuse DevOps infrastructure. There is a lot of information accessible once on gains access to a Gitlab instance/project. Keep an eye out as I will be posting more interesting research down the road.</p>
+<p>This is a short introduction around Gitlab based recon and CI/CD attacks. There are really a lot of fun avenues for adversaries to abuse DevOps infrastructure. There is a lot of information accessible once one gains access to DevOps infrastructure. Keep an eye out as I will be posting more interesting research down the road.</p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://docs.gitlab.com/ee/api">Gitlab API Documentation</a></li>
