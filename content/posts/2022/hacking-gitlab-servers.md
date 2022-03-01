@@ -143,7 +143,7 @@ For Blue Teamers identifying access anomalies seems like a good approach to iden
 
 ## Conclusion
 
-This is a short introduction around Gitlab based recon and CI/CD attacks. There are really a lot of fun avenues for adversaries to abuse DevOps infrastructure. There is a lot of information accessible once on gains access to a Gitlab instance/project. Keep an eye out as I will be posting more interesting research down the road.
+This is a short introduction around Gitlab based recon and CI/CD attacks. There are really a lot of fun avenues for adversaries to abuse DevOps infrastructure. There is a lot of information accessible once one gains access to DevOps infrastructure. Keep an eye out as I will be posting more interesting research down the road.
 
 
 ## References
