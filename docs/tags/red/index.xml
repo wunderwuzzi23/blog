@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Tue, 04 Jan 2022 15:18:18 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 28 Feb 2022 04:22:22 -2222</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gitlab Reconnaissance Introduction</title>
+      <link>https://embracethered.com/blog/posts/2022/hacking-gitlab-servers/</link>
+      <pubDate>Mon, 28 Feb 2022 04:22:22 -2222</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/hacking-gitlab-servers/</guid>
+      <description>Although Gitlab is not as popular as Github, it’s common to run across it these days. Especially after Microsoft acquired Github it seemed more individuals and organizations flocked over to Gitlab.
+In this post I want to document a couple of recon commands that are useful post-exploitation, and for blue teamers to watch out for.
+Let&amp;rsquo;s assume one has access to a Gitlab Token as a precursor. Let&amp;rsquo;s walk through some interesting commands and script snippets to leverage to find out more.</description>
+    </item>
     
     <item>
       <title>Log4Shell and Request Forgery Attacks</title>

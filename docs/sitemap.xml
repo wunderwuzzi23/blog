@@ -3,37 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2022-01-04T15:18:18-08:00</lastmod>
+    <loc>https://embracethered.com/blog/tags/cicd/</loc>
+    <lastmod>2022-02-28T04:22:22-22:22</lastmod>
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/posts/2022/log4shell-and-request-forgery-attacks/</loc>
-    <lastmod>2022-01-04T15:18:18-08:00</lastmod>
+    <loc>https://embracethered.com/blog/tags/devops/</loc>
+    <lastmod>2022-02-28T04:22:22-22:22</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2022-02-28T04:22:22-22:22</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2022/hacking-gitlab-servers/</loc>
+    <lastmod>2022-02-28T04:22:22-22:22</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/pentest/</loc>
-    <lastmod>2022-01-04T15:18:18-08:00</lastmod>
+    <lastmod>2022-02-28T04:22:22-22:22</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2022-01-04T15:18:18-08:00</lastmod>
+    <lastmod>2022-02-28T04:22:22-22:22</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2022-01-04T15:18:18-08:00</lastmod>
+    <lastmod>2022-02-28T04:22:22-22:22</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/research/</loc>
-    <lastmod>2022-01-04T15:18:18-08:00</lastmod>
+    <lastmod>2022-02-28T04:22:22-22:22</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2022-02-28T04:22:22-22:22</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2022/log4shell-and-request-forgery-attacks/</loc>
     <lastmod>2022-01-04T15:18:18-08:00</lastmod>
   </url>
   

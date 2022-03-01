@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cicd on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/cicd/</link>
+    <description>Recent content in cicd on Embrace The Red</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
+    <lastBuildDate>Mon, 28 Feb 2022 04:22:22 -2222</lastBuildDate>
+    
+	<atom:link href="https://embracethered.com/blog/tags/cicd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gitlab Reconnaissance Introduction</title>
+      <link>https://embracethered.com/blog/posts/2022/hacking-gitlab-servers/</link>
+      <pubDate>Mon, 28 Feb 2022 04:22:22 -2222</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/hacking-gitlab-servers/</guid>
+      <description>Although Gitlab is not as popular as Github, it’s common to run across it these days. Especially after Microsoft acquired Github it seemed more individuals and organizations flocked over to Gitlab.
+In this post I want to document a couple of recon commands that are useful post-exploitation, and for blue teamers to watch out for.
+Let&amp;rsquo;s assume one has access to a Gitlab Token as a precursor. Let&amp;rsquo;s walk through some interesting commands and script snippets to leverage to find out more.</description>
+    </item>
+    
+  </channel>
+</rss>
