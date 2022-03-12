@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Mon, 28 Feb 2022 04:22:22 -2222</lastBuildDate>
+    <lastBuildDate>Sat, 12 Mar 2022 10:42:14 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cloud</title>
+      <link>https://embracethered.com/blog/tags/cloud/</link>
+      <pubDate>Sat, 12 Mar 2022 10:42:14 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pentest</title>
+      <link>https://embracethered.com/blog/tags/pentest/</link>
+      <pubDate>Sat, 12 Mar 2022 10:42:14 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/pentest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red</title>
+      <link>https://embracethered.com/blog/tags/red/</link>
+      <pubDate>Sat, 12 Mar 2022 10:42:14 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cicd</title>
@@ -27,24 +54,6 @@
       <pubDate>Mon, 28 Feb 2022 04:22:22 -2222</pubDate>
       
       <guid>https://embracethered.com/blog/tags/devops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pentest</title>
-      <link>https://embracethered.com/blog/tags/pentest/</link>
-      <pubDate>Mon, 28 Feb 2022 04:22:22 -2222</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/pentest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>red</title>
-      <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Mon, 28 Feb 2022 04:22:22 -2222</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/red/</guid>
       <description></description>
     </item>
     

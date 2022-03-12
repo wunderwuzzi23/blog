@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Mon, 28 Feb 2022 04:22:22 -2222</lastBuildDate>
+    <lastBuildDate>Sat, 12 Mar 2022 10:42:14 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AWS Scaled Command Bash Script - Run AWS commands for many profiles</title>
+      <link>https://embracethered.com/blog/posts/2022/aws-scaled-command/</link>
+      <pubDate>Sat, 12 Mar 2022 10:42:14 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/aws-scaled-command/</guid>
+      <description>One area that I have encountered quite often over the years is that during recon phase of a bug bounty hunt or pentest a set of AWS access keys are being discovered.
+Let&amp;rsquo;s say you found 50 AWS access keys by drooling and hunting through public Github repos and using other nifty tricks and means.
+How do you go about checking their validity? And what do they have access to and provide the Bug Bounty Program or Blue Team the dates, times, and IP address when those keys were used?</description>
+    </item>
     
     <item>
       <title>Gitlab Reconnaissance Introduction</title>
