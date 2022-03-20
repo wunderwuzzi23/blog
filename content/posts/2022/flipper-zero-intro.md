@@ -91,7 +91,6 @@ The default example script that ships with the device just opens notepad and wri
 
 If you are familiar with [BashBunny](https://shop.hak5.org/products/bash-bunny) or Rubber Ducky this will look quite familiar, and you can also use scripts from the former to run on the Flipper Zero.
 
-These tactics are also used to steal hashes from machines during red team ops. The Flipper Zero should be able to aid in doing the same. :)
 
 ## Radio 
 
@@ -108,7 +107,7 @@ The Flipper Zero comes with several other features and gimmicks! For instance, y
 
 ## Conclusion
 
-Overall, the product is very good and polished already, and future software and firmware updates will just make it better. 
+Overall, the product is very good and polished already, and future software and firmware updates should improve it further.
 
 ## References
 
