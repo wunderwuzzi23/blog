@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>flipper on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/flipper/</link>
+    <description>Recent content in flipper on Embrace The Red</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
+    <lastBuildDate>Fri, 18 Mar 2022 23:58:26 -0700</lastBuildDate>
+    
+	<atom:link href="https://embracethered.com/blog/tags/flipper/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Flipper Zero - Initial Thoughts</title>
+      <link>https://embracethered.com/blog/posts/2022/flipper-zero-intro/</link>
+      <pubDate>Fri, 18 Mar 2022 23:58:26 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/flipper-zero-intro/</guid>
+      <description>After a bit of a delay my Flipper Zero finally arrived in the mail. If you are not familiar with Flipper Zero at all, check out the original Kickstarter page from a few years back.
+This is what the package looks like after opening. It contains the device, a USB cable, a quick start manual (mostly pointing you to the Flipper Zero website), and a Flipper &amp;ldquo;Hack the planet&amp;rdquo; sticker.</description>
+    </item>
+    
+  </channel>
+</rss>

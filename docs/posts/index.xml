@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Sat, 12 Mar 2022 10:42:14 -0800</lastBuildDate>
+    <lastBuildDate>Fri, 18 Mar 2022 23:58:26 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Flipper Zero - Initial Thoughts</title>
+      <link>https://embracethered.com/blog/posts/2022/flipper-zero-intro/</link>
+      <pubDate>Fri, 18 Mar 2022 23:58:26 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/flipper-zero-intro/</guid>
+      <description>After a bit of a delay my Flipper Zero finally arrived in the mail. If you are not familiar with Flipper Zero at all, check out the original Kickstarter page from a few years back.
+This is what the package looks like after opening. It contains the device, a USB cable, a quick start manual (mostly pointing you to the Flipper Zero website), and a Flipper &amp;ldquo;Hack the planet&amp;rdquo; sticker.</description>
+    </item>
     
     <item>
       <title>AWS Scaled Command Bash Script - Run AWS commands for many profiles</title>

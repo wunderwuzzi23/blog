@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Flipper Zero - Initial Thoughts &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2022/flipper-zero-intro/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2022-03-18T23:58:26-07:00" />
+  
+  <meta property="og:article:tag" content="research" />
+  
+  <meta property="og:article:tag" content="flipper" />
+  
+  <meta property="og:article:tag" content="hardware" />
+  
+  
+
+  <title>
+     Flipper Zero - Initial Thoughts &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Flipper Zero - Initial Thoughts">
+<meta name="twitter:description" content="Flipper Zero - the multi-tool educational device">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2020/flipper-update.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Flipper Zero - Initial Thoughts</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2022-03-18T23:58:26-07:00">
+          Mar 18, 2022
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/research">#research</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/flipper">#flipper</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/hardware">#hardware</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>After a bit of a delay my <strong>Flipper Zero</strong> finally arrived in the mail. If you are not familiar with Flipper Zero at all, check out the <a href="https://www.kickstarter.com/projects/flipper-devices/flipper-zero-tamagochi-for-hackers">original Kickstarter page</a> from a few years back.</p>
+<p>This is what the package looks like after opening. It contains the device, a USB cable, a quick start manual (mostly pointing you to the Flipper Zero website), and a Flipper &ldquo;Hack the planet&rdquo; sticker.</p>
+<p><img src="/blog/images/2022/flipper-package.png" alt="Flipper Zero - Package"></p>
+<p>Even though the software is still being worked on, it already feels quite polished and intuitive.</p>
+<p>Be aware that you need a microSD card to update to the latest firmware and store your data.</p>
+<p><img src="/blog/images/2022/flipper-zero-update.png" alt="Flipper Zero - Package"></p>
+<p>Some of the info in this post will quickly be outdated, due to the current velocity of discussions and hacks that are being created. Especially the <a href="https://flipp.dev/discord">Flipper Zero Discord Channel</a> is on fire at the moment!</p>
+<h2 id="qflipper---the-companion-desktop-app">qFlipper - The Companion Desktop App</h2>
+<p>The Flipper Zero comes with a companion app to install the firmware.</p>
+<p><img src="/blog/images/2022/flipper-zero-file-manager.png" alt="Flipper Zero - File Manager"></p>
+<p>The firmware update was very smooth. Very soon there will be apps for Android and iOS.</p>
+<p>There are also beta builds available that include future features updates, like a file manager to copy files over.  <a href="https://update.flipperzero.one/builds/qFlipper/file-manager">You can get it here</a>.</p>
+<p><img src="/blog/images/2022/flipper-zero-file-manager-files.png" alt="Flipper Zero - File Manager"></p>
+<p>Chances are that by the you read this, the latest version of the qFlipper already includes the File Manager.</p>
+<h2 id="nfc">NFC</h2>
+<p>The first feature I investigated was the NFC capabilities by testing the following devices:</p>
+<ol>
+<li>Physical Card - wow, I can see my credit card numbers!</li>
+<li>Apple Watch - wow, I can see my credit card numbers!</li>
+<li>Airtags - was able to read the Device ID</li>
+<li>Ski-passes and random other things - grabs NFC UID without issues</li>
+</ol>
+<p>All of them worked. There is also an emulation mode, that allows you to emulate a stored device - be careful though and understand the risks involved in doing so (also don&rsquo;t do anything illegal obviously).</p>
+<p>For the debit/credit cards and the Apple Watch (once opend to scan the card in the wallet) it was possible to read the card number from the devices!</p>
+<p><img src="/blog/images/2022/flipper-nfc.png" alt="NFC Reading"></p>
+<p>The above screenshot shows the example of an old pre-paid card. Even though its sort of obvious that this is possible, it is quite scary to realize how simple it actually is.</p>
+<p><strong>This really drives the point home to invest in sleeves that shield cards to prevent arbitrary devices from reading your credit card numbers.</strong></p>
+<h2 id="rfid">RFID</h2>
+<p>The Flipper Zero reads key fobs and cards seamlessly. It can also emulate a previously scanned fob, which is quite handy. There is also a <strong>write</strong> feature that allows to write the info of a scanned RFID chip from one key fob to another for instance.</p>
+<p><strong>One thing I learned is that there are actually people that have RFID implants under their skin! I am not kidding!</strong></p>
+<h2 id="infrared">Infrared</h2>
+<p>The infrared feature is very simple to use. It&rsquo;s easy to capture and record commands from your own remote for instance. Afterwards you can replay them.</p>
+<p>One can also download from a large collection of command sequences from <a href="https://github.com/Lucaslhm/Flipper-IRDB">here</a>.</p>
+<p>There is a short video <a href="https://www.youtube.com/shorts/drcEkZ6mCcM">here</a> that shows how to turn an XBox on.</p>
+<h2 id="bad-usb">Bad-USB</h2>
+<p>Bad-USB is a feature that turns the Flipper Zero into a USB devices, such as a keyboard, and one can send in a pre-defined sequence of commands.</p>
+<p>The default example script that ships with the device just opens notepad and writes the following text:</p>
+<p><img src="/blog/images/2022/flipper-zero-bad-usb.png" alt="Bad USB Example"></p>
+<p>If you are familiar with <a href="https://shop.hak5.org/products/bash-bunny">BashBunny</a> or Rubber Ducky this will look quite familiar, and you can also use scripts from the former to run on the Flipper Zero.</p>
+<p>These tactics are also used to steal hashes from machines during red team ops. The Flipper Zero should be able to aid in doing the same. :)</p>
+<h2 id="radio">Radio</h2>
+<p>This feature comes with a frequency analyzer which I find very neat. I tried to clone my car key fob, and am able to analyze and record the sequence, but wasn&rsquo;t yet succesful with replaying it to actually open the doors. It probably means that my key fob has mitigations (like a rolling key) – which is good to know.</p>
+<p><strong>Also, be careful when doing these kinds of things because modern key fobs have rolling keys, and its possible to brick your own key fob by desyncing it! After all remember that the Flipper Zero is an educational device, so don&rsquo;t use it for bad things or on anything important you actually rely on.</strong></p>
+<p>There are videos floating around with people opening their Tesla&rsquo;s charging lid, because all Tesla&rsquo;s share the same key for opening that.</p>
+<h2 id="misc-and-custom-code">Misc. and custom code</h2>
+<p>The Flipper Zero comes with several other features and gimmicks! For instance, you can play a round of Snake, or leverage the devices as U2F Device + lots of other things.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Overall, the product is very good and polished already, and future software and firmware updates will just make it better.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://update.flipperzero.one/builds/qFlipper/file-manager">qFlipper Builds</a></li>
+<li><a href="https://shop.hak5.org/products/bash-bunny">Bash Bunny</a></li>
+<li><a href="https://github.com/Lucaslhm/Flipper-IRDB">IR Sequence Packages</a></li>
+<li><a href="https://www.kickstarter.com/projects/flipper-devices/flipper-zero-tamagochi-for-hackers">Flipper Zero - Kickstarter</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2022/aws-scaled-command/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2022
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

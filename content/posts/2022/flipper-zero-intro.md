@@ -1,5 +1,5 @@
 ---
-title: "Flipper Zero Hacking"
+title: "Flipper Zero - Initial Thoughts"
 date: 2022-03-18T23:58:26-07:00
 draft: true
 tags: [
@@ -10,13 +10,13 @@ twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "Flipper Zero - the multi-tool educational device"
+  title: "Flipper Zero - Initial Thoughts"
   description:  "Flipper Zero - the multi-tool educational device"
   image: "https://embracethered.com/blog/images/2020/flipper-update.png"
 ---
 
 
-After years of waiting my **Flipper Zero** finally arrived in the mail.
+After a bit of a delay my **Flipper Zero** finally arrived in the mail. If you are not familiar with Flipper Zero at all, check out the [original Kickstarter page](https://www.kickstarter.com/projects/flipper-devices/flipper-zero-tamagochi-for-hackers) from a few years back.
 
 This is what the package looks like after opening. It contains the device, a USB cable, a quick start manual (mostly pointing you to the Flipper Zero website), and a Flipper "Hack the planet" sticker.
 
@@ -116,3 +116,4 @@ Overall, the product is very good and polished already, and future software and 
 * [qFlipper Builds](https://update.flipperzero.one/builds/qFlipper/file-manager)
 * [Bash Bunny](https://shop.hak5.org/products/bash-bunny)
 * [IR Sequence Packages](https://github.com/Lucaslhm/Flipper-IRDB)
+* [Flipper Zero - Kickstarter](https://www.kickstarter.com/projects/flipper-devices/flipper-zero-tamagochi-for-hackers)
