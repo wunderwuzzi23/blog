@@ -11,7 +11,7 @@ twitter:
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
   title: "Grabbing and cracking macOS hashes"
-  description:  "Let's dive into the details on grabbing hashes from Mac's!"
+  description:  "Let's dive into the details on grabbing hashes from Macs!"
   image: "https://embracethered.com/blog/images/2022/macos-dscl-hashes-2.png"
 ---
 
