@@ -12,7 +12,7 @@ twitter:
   creator: "@wunderwuzzi23"
   title: "Flipper Zero - Initial Thoughts"
   description:  "Flipper Zero - the multi-tool educational device"
-  image: "https://embracethered.com/blog/images/2022/flipper-update.png"
+  image: "https://embracethered.com/blog/images/2022/flipper-zero-update.png"
 ---
 
 
