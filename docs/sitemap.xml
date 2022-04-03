@@ -4,7 +4,42 @@
   
   <url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2022-03-18T23:58:26-07:00</lastmod>
+    <lastmod>2022-04-03T10:46:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2022/grabbing-and-cracking-macos-hashes/</loc>
+    <lastmod>2022-04-03T10:46:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/macos/</loc>
+    <lastmod>2022-04-03T10:46:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/pentest/</loc>
+    <lastmod>2022-04-03T10:46:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2022-04-03T10:46:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/research/</loc>
+    <lastmod>2022-04-03T10:46:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2022-04-03T10:46:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <lastmod>2022-04-03T10:46:07-07:00</lastmod>
   </url>
   
   <url>
@@ -23,32 +58,12 @@
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2022-03-18T23:58:26-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/research/</loc>
-    <lastmod>2022-03-18T23:58:26-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2022-03-18T23:58:26-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/posts/2022/aws-scaled-command/</loc>
     <lastmod>2022-03-12T10:42:14-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/cloud/</loc>
-    <lastmod>2022-03-12T10:42:14-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/pentest/</loc>
     <lastmod>2022-03-12T10:42:14-08:00</lastmod>
   </url>
   
@@ -75,11 +90,6 @@
   <url>
     <loc>https://embracethered.com/blog/posts/2022/log4shell-and-request-forgery-attacks/</loc>
     <lastmod>2022-01-04T15:18:18-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
-    <lastmod>2021-11-08T08:10:12-07:00</lastmod>
   </url>
   
   <url>

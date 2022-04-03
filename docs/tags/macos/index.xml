@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>macos on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/macos/</link>
+    <description>Recent content in macos on Embrace The Red</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
+    <lastBuildDate>Sun, 03 Apr 2022 10:46:07 -0700</lastBuildDate>
+    
+	<atom:link href="https://embracethered.com/blog/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Grabbing and cracking macOS hashes</title>
+      <link>https://embracethered.com/blog/posts/2022/grabbing-and-cracking-macos-hashes/</link>
+      <pubDate>Sun, 03 Apr 2022 10:46:07 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/grabbing-and-cracking-macos-hashes/</guid>
+      <description>Information for red teaming macOS and info on real world TTPs are still a bit sparse. That makes it difficult for defenders to know what attackers do on macOS compared to Windows. Some organizations might have a bigger blind spot when it comes to macOS.
+This post describes how an adversary can grab hashes from a macOS machine, how to convert it to a hashcat friendly format and use hashcat to crack it.</description>
+    </item>
+    
+  </channel>
+</rss>

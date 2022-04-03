@@ -7,10 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Fri, 18 Mar 2022 23:58:26 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 03 Apr 2022 10:46:07 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>macos</title>
+      <link>https://embracethered.com/blog/tags/macos/</link>
+      <pubDate>Sun, 03 Apr 2022 10:46:07 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pentest</title>
+      <link>https://embracethered.com/blog/tags/pentest/</link>
+      <pubDate>Sun, 03 Apr 2022 10:46:07 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/pentest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>research</title>
+      <link>https://embracethered.com/blog/tags/research/</link>
+      <pubDate>Sun, 03 Apr 2022 10:46:07 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ttp</title>
+      <link>https://embracethered.com/blog/tags/ttp/</link>
+      <pubDate>Sun, 03 Apr 2022 10:46:07 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ttp/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>flipper</title>
@@ -31,29 +67,11 @@
     </item>
     
     <item>
-      <title>research</title>
-      <link>https://embracethered.com/blog/tags/research/</link>
-      <pubDate>Fri, 18 Mar 2022 23:58:26 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/research/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>cloud</title>
       <link>https://embracethered.com/blog/tags/cloud/</link>
       <pubDate>Sat, 12 Mar 2022 10:42:14 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/cloud/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pentest</title>
-      <link>https://embracethered.com/blog/tags/pentest/</link>
-      <pubDate>Sat, 12 Mar 2022 10:42:14 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/pentest/</guid>
       <description></description>
     </item>
     
@@ -81,15 +99,6 @@
       <pubDate>Mon, 28 Feb 2022 04:22:22 -2222</pubDate>
       
       <guid>https://embracethered.com/blog/tags/devops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ttp</title>
-      <link>https://embracethered.com/blog/tags/ttp/</link>
-      <pubDate>Mon, 08 Nov 2021 08:10:12 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ttp/</guid>
       <description></description>
     </item>
     
