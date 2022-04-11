@@ -54,6 +54,6 @@ Very cool.
 
 Cheers,
 
-[Johann](https://twitter.com/wunderwuzzi23)
+[@wunderwuzzi23](https://twitter.com/wunderwuzzi23)
 
 
