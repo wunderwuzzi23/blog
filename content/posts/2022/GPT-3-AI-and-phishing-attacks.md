@@ -5,8 +5,15 @@ draft: true
 tags: [
         "machine learning","ai", "red","phishing"
     ]
----
 
+twitter:
+  card: "summary_large_image"
+  site: "@wunderwuzzi23"
+  creator: "@wunderwuzzi23"
+  title: "GPT-3 and Phishing Attacks"
+  description:  "Leveraging the power of AI"
+  image: "https://embracethered.com/blog/images/2022/ai-game-over.png"
+---
 
 
 In this post, we'll examine how GPT-3 could be used by red teams or adversaries to perform successful phishing attacks. We'll also discuss some potential countermeasures that organizations can take to protect themselves against this type of threat.
