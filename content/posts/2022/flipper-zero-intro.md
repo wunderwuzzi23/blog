@@ -52,7 +52,7 @@ Chances are that by the you read this, the latest version of the qFlipper alread
 The first feature I investigated was the NFC capabilities by testing the following devices:
 
 1. Physical Card - wow, I can see my credit card numbers!
-2. Apple Watch - wow, I can see my credit card numbers!
+2. Apple Watch - wow, I can see card numbers! 
 3. Airtags - was able to read the Device ID
 4. Ski-passes and random other things - grabs NFC UID without issues
 

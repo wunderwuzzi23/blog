@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ai on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/ai/</link>
+    <description>Recent content in ai on Embrace The Red</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
+    <lastBuildDate>Mon, 11 Apr 2022 08:00:43 -0700</lastBuildDate>
+    
+	<atom:link href="https://embracethered.com/blog/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GPT-3 and Phishing Attacks</title>
+      <link>https://embracethered.com/blog/posts/2022/gpt-3-ai-and-phishing-attacks/</link>
+      <pubDate>Mon, 11 Apr 2022 08:00:43 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/gpt-3-ai-and-phishing-attacks/</guid>
+      <description>In this post, we&amp;rsquo;ll examine how GPT-3 could be used by red teams or adversaries to perform successful phishing attacks. We&amp;rsquo;ll also discuss some potential countermeasures that organizations can take to protect themselves against this type of threat.
+What is GPT-3? GPT-3 is a neural network-based machine learning system that was developed by OpenAI, a research lab focused on artificial intelligence. It is designed to generate text that sounds realistic and human-like, and it has been trained on a large corpus of text, including billions of words from the internet.</description>
+    </item>
+    
+  </channel>
+</rss>
