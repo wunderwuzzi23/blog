@@ -3,12 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://embracethered.com/blog/tags/ai/</loc>
-    <lastmod>2022-04-11T08:00:43-07:00</lastmod>
+    <loc>https://embracethered.com/blog/posts/2022/hacker-shell-prompts/</loc>
+    <lastmod>2022-05-28T14:00:54-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/documentation/</loc>
+    <lastmod>2022-05-28T14:00:54-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2022-05-28T14:00:54-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/pentest/</loc>
+    <lastmod>2022-05-28T14:00:54-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2022-05-28T14:00:54-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2022-05-28T14:00:54-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2022-05-28T14:00:54-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/ai/</loc>
     <lastmod>2022-04-11T08:00:43-07:00</lastmod>
   </url>
   
@@ -28,32 +58,12 @@
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2022-04-11T08:00:43-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2022-04-11T08:00:43-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2022-04-11T08:00:43-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/posts/2022/grabbing-and-cracking-macos-hashes/</loc>
     <lastmod>2022-04-03T10:46:07-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/macos/</loc>
-    <lastmod>2022-04-03T10:46:07-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/pentest/</loc>
     <lastmod>2022-04-03T10:46:07-07:00</lastmod>
   </url>
   

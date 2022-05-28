@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Mon, 11 Apr 2022 08:00:43 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 28 May 2022 14:00:54 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>documentation</title>
+      <link>https://embracethered.com/blog/tags/documentation/</link>
+      <pubDate>Sat, 28 May 2022 14:00:54 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/documentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pentest</title>
+      <link>https://embracethered.com/blog/tags/pentest/</link>
+      <pubDate>Sat, 28 May 2022 14:00:54 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/pentest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red</title>
+      <link>https://embracethered.com/blog/tags/red/</link>
+      <pubDate>Sat, 28 May 2022 14:00:54 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ai</title>
@@ -40,29 +67,11 @@
     </item>
     
     <item>
-      <title>red</title>
-      <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Mon, 11 Apr 2022 08:00:43 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/red/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>macos</title>
       <link>https://embracethered.com/blog/tags/macos/</link>
       <pubDate>Sun, 03 Apr 2022 10:46:07 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/macos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pentest</title>
-      <link>https://embracethered.com/blog/tags/pentest/</link>
-      <pubDate>Sun, 03 Apr 2022 10:46:07 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/pentest/</guid>
       <description></description>
     </item>
     

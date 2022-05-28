@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>strategy on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/strategy/</link>
+    <description>Recent content in strategy on Embrace The Red</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
+    <lastBuildDate>Wed, 12 Feb 2020 17:03:32 -0800</lastBuildDate>
+    
+	<atom:link href="https://embracethered.com/blog/tags/strategy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web Application Security Principles Revisited</title>
+      <link>https://embracethered.com/blog/posts/importance-security-principles/</link>
+      <pubDate>Wed, 12 Feb 2020 17:03:32 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/importance-security-principles/</guid>
+      <description>Final Year Project - Web Application Security Principles About 18 years ago I worked on the final year project for my Bachelor&amp;rsquo;s degree in Computer Science. I had just gotten interested in security and was learning about security principles.
+The title of the project was &amp;ldquo;Web Application Security Principles - Designing Secure Web Based Enterprise Solutions&amp;rdquo;.
+Looking back, a really cool thing was that I had just started working at Microsoft as an Associate Development Consultant and was bold enough to send the paper last minute over to Michael Howard - who responded and indeed reviewed it!</description>
+    </item>
+    
+    <item>
+      <title>Zero Trust and Disabling Remote Management Endpoints</title>
+      <link>https://embracethered.com/blog/posts/zero-trust/</link>
+      <pubDate>Thu, 06 Feb 2020 14:08:55 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/zero-trust/</guid>
+      <description>This post highlights a simple mitigation to improve the security posture of your organization. The idea is to, by practical means, limit attack surface and prevent spreading of automated malware, as well as limiting lateral movement by adversaries.
+Network security over the last 15 years Malware can spread fast and damage businesses at scale.
+SQL Slammer [1] and WannaCry [2] are two well-known cases that showed how quickly and damaging this can be.</description>
+    </item>
+    
+  </channel>
+</rss>

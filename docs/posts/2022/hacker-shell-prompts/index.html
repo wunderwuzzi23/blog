@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Customized Hacker Shell Prompts &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2022/hacker-shell-prompts/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2022-05-28T14:00:54-07:00" />
+  
+  <meta property="og:article:tag" content="pentest" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="documentation" />
+  
+  
+
+  <title>
+     Customized Hacker Shell Prompts &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Customized Hacker Shell Promptsn">
+<meta name="twitter:description" content="Adding date and time to your shell prompts">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2022/ps1.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Customized Hacker Shell Prompts</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2022-05-28T14:00:54-07:00">
+          May 28, 2022
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentest">#pentest</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/documentation">#documentation</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>As the saying goes, a picture is worth a thousand words.</p>
+<p>In order to improve your documentation and uplevel red team and pentest reporting, it&rsquo;s useful to add date and time information to screenshots and <a href="https://www.man7.org/linux/man-pages/man1/script.1.html"><code>script</code> logs</a>.</p>
+<p>This helps the Blue Team (and yourself) reviewing past activity, reports and when deconflicting activity is required. Depending on the shell that is used there are different ways to go about it. Let&rsquo;s cover three common ones.</p>
+<h2 id="bash">Bash</h2>
+<p>In Bash adding time information is pretty straight forward, and below example also adds some more color:</p>
+<pre><code>PS1=&quot;[\d \t\[\033[0m\]]\[\033[1;32m\] \u@\h:\[\033[1;34m\]\w\[\033[0m\]\$ \[\e]0;Embrace the Red\a\]&quot;
+</code></pre><p>And this is how it looks like:
+<img src="/blog/images/2022/ps1.png" alt="Bash PS1"></p>
+<p>Implicitly documenting commands with timestamps is pretty neat. The the above example also updates the title of the shell, which is an additional neat thing that can be done.</p>
+<p>You can also add this to the <code>~/.bashrc</code> file, so every new bash shell gets it.</p>
+<h2 id="macos---zsh">macOS - zsh</h2>
+<p>On macOS it&rsquo;s possible to do it this way:</p>
+<pre><code>PS1=&quot;[20%D %T] %n@%m %1~ %# &quot;
+</code></pre><p>The result is as follows:</p>
+<pre><code>[2022-05-28 14:17] alice@alice-MAC ~ % 
+</code></pre><p>The startup script for zsh is at <code>~/.zshrc</code> in case you are wondering where to set this.</p>
+<h2 id="powershell">PowerShell</h2>
+<p>In PowerShell the prompt is controlled by implementing the <code>Prompt</code> function.</p>
+<pre><code>function Prompt { &quot;[$(get-date )] $Env:USERNAME@$Env:COMPUTERNAME  [$PWD] PS&gt; &quot; }
+</code></pre><p>The PowerShell documentation is <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_prompts?view=powershell-7.2">here</a> if you&rsquo;d like to read up more on it.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Leverage custom command prompts to improve reporting and logging.
+Share your favorite prompts!</p>
+<p>Happy hacking~~~</p>
+<p><a href="https://twitter.com/wunderwuzzi23">@wunderwuzzi23</a></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.man7.org/linux/man-pages/man1/script.1.html">script man page</a></li>
+<li><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_prompts?view=powershell-7.2">PowerShell Prompt</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2022/gpt-3-ai-and-phishing-attacks/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2022
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

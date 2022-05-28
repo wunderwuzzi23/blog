@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Mon, 11 Apr 2022 08:00:43 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 28 May 2022 14:00:54 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Customized Hacker Shell Prompts</title>
+      <link>https://embracethered.com/blog/posts/2022/hacker-shell-prompts/</link>
+      <pubDate>Sat, 28 May 2022 14:00:54 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/hacker-shell-prompts/</guid>
+      <description>As the saying goes, a picture is worth a thousand words.
+In order to improve your documentation and uplevel red team and pentest reporting, it&amp;rsquo;s useful to add date and time information to screenshots and script logs.
+This helps the Blue Team (and yourself) reviewing past activity, reports and when deconflicting activity is required. Depending on the shell that is used there are different ways to go about it. Let&amp;rsquo;s cover three common ones.</description>
+    </item>
     
     <item>
       <title>GPT-3 and Phishing Attacks</title>
