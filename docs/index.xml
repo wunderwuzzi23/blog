@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Sat, 28 May 2022 14:00:54 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jun 2022 22:50:18 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Post Exploitation: Sniffing Logon Passwords with PAM</title>
+      <link>https://embracethered.com/blog/posts/2022/post-exploit-pam-ssh-password-grabbing/</link>
+      <pubDate>Sun, 26 Jun 2022 22:50:18 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/post-exploit-pam-ssh-password-grabbing/</guid>
+      <description>Pluggable Authentication Modules (PAM) on Unix based systems are useful to change logon behavior and enforce authentication via various means.
+In &amp;ldquo;Red Team Strategies&amp;rdquo; the chapter &amp;ldquo;Protecting the Pentester&amp;rdquo; walks the reader through the configuration of a PAM module to get notified in real-time via a pop-up when someone logs on to the machine (e.g. system compromise).
+But there are also bad things that can be done with PAM (especially post-exploitation) and this is what this post is about.</description>
+    </item>
     
     <item>
       <title>Customized Hacker Shell Prompts</title>
