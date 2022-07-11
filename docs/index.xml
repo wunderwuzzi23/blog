@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Sun, 26 Jun 2022 22:50:18 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 Jul 2022 20:00:13 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Offensive BPF: Using bpftrace to sniff PAM logon passwords</title>
+      <link>https://embracethered.com/blog/posts/2022/offensive-bpf-bpftrace-sniff-logon-pam-passwords/</link>
+      <pubDate>Sun, 10 Jul 2022 20:00:13 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/offensive-bpf-bpftrace-sniff-logon-pam-passwords/</guid>
+      <description>This post is part of a series about Offensive BPF. Click the &amp;ldquo;ebpf&amp;rdquo; tag to see all related posts.
+It has been a while that we posted something in the &amp;ldquo;Offensive BPF&amp;rdquo; series. But recently there have been a couple of new cool ebpf based tools, such as TripleCross, boopkit and pamspy.
+So, I thought it be quite fitting to do another post in the Offensive BPF series to keep raising awareness.</description>
+    </item>
     
     <item>
       <title>Post Exploitation: Sniffing Logon Passwords with PAM</title>

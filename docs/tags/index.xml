@@ -7,15 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Sun, 26 Jun 2022 22:50:18 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 Jul 2022 20:00:13 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>ebpf</title>
+      <link>https://embracethered.com/blog/tags/ebpf/</link>
+      <pubDate>Sun, 10 Jul 2022 20:00:13 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ebpf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>pentest</title>
       <link>https://embracethered.com/blog/tags/pentest/</link>
-      <pubDate>Sun, 26 Jun 2022 22:50:18 -0800</pubDate>
+      <pubDate>Sun, 10 Jul 2022 20:00:13 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/pentest/</guid>
       <description></description>
@@ -24,7 +33,7 @@
     <item>
       <title>red</title>
       <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Sun, 26 Jun 2022 22:50:18 -0800</pubDate>
+      <pubDate>Sun, 10 Jul 2022 20:00:13 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/red/</guid>
       <description></description>
@@ -33,7 +42,7 @@
     <item>
       <title>research</title>
       <link>https://embracethered.com/blog/tags/research/</link>
-      <pubDate>Sun, 26 Jun 2022 22:50:18 -0800</pubDate>
+      <pubDate>Sun, 10 Jul 2022 20:00:13 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/research/</guid>
       <description></description>
@@ -153,15 +162,6 @@
       <pubDate>Wed, 20 Oct 2021 00:04:40 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/blue/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ebpf</title>
-      <link>https://embracethered.com/blog/tags/ebpf/</link>
-      <pubDate>Wed, 20 Oct 2021 00:04:40 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ebpf/</guid>
       <description></description>
     </item>
     
