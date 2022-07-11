@@ -57,6 +57,8 @@ BEGIN
 }
 ```
 
+## Hooking the pam_get_authtok function
+
 Now we create the core of the bpftrace program by hooking the `pam_getauthtok` call, reading the username and the password into a variable and printing them out once the function returns. 
 
 ```
