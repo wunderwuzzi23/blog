@@ -27,7 +27,7 @@ So, I thought it be quite fitting to do another post in the Offensive BPF series
 
 # Let's sniff PAM again - pamsnoop.bt
 
-A few weeks back we discussed a [backdoor PAM module](/blog/posts/2022/post-exploit-pam-ssh-password-grabbing/) to grab `authtok` tokens (e.g. SSH passwords) when someone logs on to a machine. In this post we will build an eBPF program using `bpftrace` to do the same. Kudos for the idea go to [citronneur](https://github.com/citronneur/pamspy).
+A few weeks back we discussed a [backdoor PAM module](/blog/posts/2022/post-exploit-pam-ssh-password-grabbing/) to grab `authtok` tokens (e.g. SSH passwords) when someone logs on to a machine. In this post we will build an eBPF program using `bpftrace` to do the same. Kudos for the idea using eBPF go to [citronneur](https://github.com/citronneur/pamspy).
 
 
 The short `bpftrace` script we are discussing is [here](https://github.com/wunderwuzzi23/Offensive-BPF/blob/main/bpftrace/pamsnoop.bt).
