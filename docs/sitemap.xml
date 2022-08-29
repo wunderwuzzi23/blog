@@ -3,12 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://embracethered.com/blog/tags/ebpf/</loc>
-    <lastmod>2022-07-10T20:00:13-07:00</lastmod>
+    <loc>https://embracethered.com/blog/tags/ai/</loc>
+    <lastmod>2022-08-27T14:10:44-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2022-08-27T14:10:44-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/huskyai/</loc>
+    <lastmod>2022-08-27T14:10:44-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2022-08-27T14:10:44-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/</loc>
+    <lastmod>2022-08-27T14:10:44-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2022-08-27T14:10:44-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2022-08-27T14:10:44-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2022-08-27T14:10:44-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/ebpf/</loc>
     <lastmod>2022-07-10T20:00:13-07:00</lastmod>
   </url>
   
@@ -23,22 +58,7 @@
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2022-07-10T20:00:13-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2022-07-10T20:00:13-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/tags/research/</loc>
-    <lastmod>2022-07-10T20:00:13-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2022-07-10T20:00:13-07:00</lastmod>
   </url>
   
@@ -58,17 +78,7 @@
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/tags/ai/</loc>
-    <lastmod>2022-04-11T08:00:43-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/posts/2022/gpt-3-ai-and-phishing-attacks/</loc>
-    <lastmod>2022-04-11T08:00:43-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
     <lastmod>2022-04-11T08:00:43-07:00</lastmod>
   </url>
   
@@ -164,11 +174,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/appsec/</loc>
-    <lastmod>2021-10-12T00:02:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/huskyai/</loc>
     <lastmod>2021-10-12T00:02:00-07:00</lastmod>
   </url>
   

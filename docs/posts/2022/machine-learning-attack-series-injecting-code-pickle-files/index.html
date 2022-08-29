@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Machine Learning Attack Series: Backdooring Pickle Files &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2022-08-27T14:10:44-07:00" />
+  
+  <meta property="og:article:tag" content="machine learning" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="huskyai" />
+  
+  <meta property="og:article:tag" content="ai" />
+  
+  
+
+  <title>
+     Machine Learning Attack Series: Backdooring Pickle Files &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Machine Learning Attack Series: Backdooring Pickle Files">
+<meta name="twitter:description" content="Machine Learning Attack Series: Backdooring Pickle Files">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2022/huskyai-stylegan2-backdoor-pickle-example.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1739327806831586"
+  crossorigin="anonymous"></script>
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Machine Learning Attack Series: Backdooring Pickle Files</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2022-08-27T14:10:44-07:00">
+          Aug 27, 2022
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/huskyai">#huskyai</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ai">#ai</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>Recently I read <a href="https://blog.trailofbits.com/2021/03/15/never-a-dill-moment-exploiting-machine-learning-pickle-files/">this excellent post by Evan Sultanik</a> about exploiting pickle files on Trail of Bits. There was also a DefCon30 talk about <a href="https://forum.defcon.org/node/241825">backdooring pickle files by ColdwaterQ</a>.</p>
+<p>This got me curious to try out backdooring a pickle file myself.</p>
+<p><img src="/blog/images/2020/ml-attack-series.jpg" alt="Red Teaming Machine Learning -  Attack Series"></p>
+<h1 id="pickle-files---the-surprises">Pickle files - the surprises</h1>
+<p>Surprisingly Python pickle files are compiled programs running in a VM called the Pickle Machine (PM). Opcodes control the flow, and when there are opcodes there is often fun to be had.</p>
+<p>Turns out there are opcodes that can learn to running arbitrary code, namely <strong>GLOBAL</strong> and <strong>REDUCE</strong>.</p>
+<p>The dangers are also highlighted in pickle documentation page:</p>
+<blockquote>
+<p>Warning The pickle module is not secure. Only unpickle data you trust.</p>
+</blockquote>
+<p><a href="https://github.com/trailofbits/fickling">Trail of bits</a> has a tool named <code>fickling</code> that allows to inject code and also check pickle files to see if they have been backdoored.</p>
+<h1 id="experiments-using-husky-ai-and-stylegan2-ada">Experiments using Husky AI and StyleGAN2-ADA</h1>
+<p>To test this out I opened a two-year-old Husky AI Google Colab notebook where I experimented with StyleGAN2-ADA and grabbed a pickle file it had produced.</p>
+<p>To get set up I run <code>pip3 install fickling</code> and started exploring, most notably the <code>--inject</code> command:</p>
+<p><a href="/blog/images/2022/huskyai-stylegan2-backdoor-with-fickling.png"><img src="/blog/images/2022/huskyai-stylegan2-backdoor-with-fickling.png" alt="Husky AI Pickle Backdoor Using Fickling"></a></p>
+<p>As you can see using <code>--inject</code> one can inject python commands to the pickle file.</p>
+<h2 id="code-execution">Code execution</h2>
+<p>Now, the question was if that pickle file gets loaded, will the command execute? To test this, I ran the <code>generate</code> command from StyleGAN2-ADA to create some new huskies!</p>
+<p><a href="/blog/images/2022/huskyai-stylegan2-backdoor-pickle-example.png"><img src="/blog/images/2022/huskyai-stylegan2-backdoor-pickle-example.png" alt="Husky AI StyleGAN2-ADA Backdoor Example"></a></p>
+<p>Wow, this indeed worked. The command was executed!</p>
+<p>Also, it did not impact the functionality of the program. As proof, here is a picture of one of the newly created huskies:</p>
+<p><a href="/blog/images/2022/huskyai-stylegan2-husky.png"><img src="/blog/images/2022/huskyai-stylegan2-husky.png" alt="Husky AI StyleGAN2-ADA Husky"></a></p>
+<p>Now, I was wondering about the implications of this.</p>
+<h2 id="google-colab-example">Google Colab Example</h2>
+<p>When thinking of the implications of this exploit, I realized that even within a Google Colab project this is a big problem. Projects are isolated, but many users have their Google Drive mapped into the Colab project!</p>
+<p>This means that an attack who tricks someone to opening a malicious pickle file could gain access to the drive contents.</p>
+<p>Scary stuff. Never use random pickle files.</p>
+<p>Of course, this can occur inside other tools and MLOps pipelines, compromising systems and data.</p>
+<h2 id="checking-for-safety">Checking for safety</h2>
+<p><code>fickling</code> also has commands built-in to explore and check pickle files for backdoors.</p>
+<p>There are two useful features:</p>
+<ol>
+<li><code>--check-safety</code>: checks for malicious opcodes</li>
+<li><code>--trace</code>: shows the various opcodes</li>
+</ol>
+<p><a href="/blog/images/2022/huskyai-stylegan2-fickling-trace.png"><img src="/blog/images/2022/huskyai-stylegan2-fickling-trace.png" alt="Husky AI StyleGAN2-ADA Husky"></a></p>
+<p>Very cool!</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Even though <a href="/blog/posts/2020/husky-ai-building-the-machine-learning-model/">Husky AI</a> does not use pickle files, its important to know about these backdooring tactics, and that there are some validation and safety tools out there.</p>
+<p>As good guidance, only ever open pickle files that you created or trust. In the MLOps flow this opens up opportunities/challenges for pulling in problematic third-party dependencies.</p>
+<p>Also, this is a great opportunity for a red teaming exercise.</p>
+<p>Cheers.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://blog.trailofbits.com/2021/03/15/never-a-dill-moment-exploiting-machine-learning-pickle-files/">Never a dill moment: Exploiting machine learning pickle files</a></li>
+<li><a href="https://github.com/trailofbits/fickling">Trail of Bits Github Repo for Fickling</a></li>
+<li><a href="https://docs.python.org/3/library/pickle.html">Python Object Serialization</a></li>
+<li><a href="/blog/posts/2020/machine-learning-attack-series-overview/">Machine Learning Attack Series</a></li>
+<li><a href="https://forum.defcon.org/node/241825">Backdooring Pickles: A decade only made things worse by ColdwaterQ</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2022/offensive-bpf-bpftrace-sniff-logon-pam-passwords/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2022
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

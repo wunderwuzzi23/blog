@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Tue, 12 Oct 2021 00:02:00 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 27 Aug 2022 14:10:44 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/huskyai/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Machine Learning Attack Series: Backdooring Pickle Files</title>
+      <link>https://embracethered.com/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/</link>
+      <pubDate>Sat, 27 Aug 2022 14:10:44 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/</guid>
+      <description>Recently I read this excellent post by Evan Sultanik about exploiting pickle files on Trail of Bits. There was also a DefCon30 talk about backdooring pickle files by ColdwaterQ.
+This got me curious to try out backdooring a pickle file myself.
+Pickle files - the surprises Surprisingly Python pickle files are compiled programs running in a VM called the Pickle Machine (PM). Opcodes control the flow, and when there are opcodes there is often fun to be had.</description>
+    </item>
     
     <item>
       <title>Video: Understanding Image Scaling Attacks</title>
@@ -44,7 +55,7 @@ What is Counterfit? With Counterfit you can test your machine learning models an
       
       <guid>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-overview/</guid>
       <description>What a journey it has been. I wrote quite a bit about machine learning from a red teaming/security testing perspective this year. It was brought to my attention to provide a conveninent &amp;ldquo;index page&amp;rdquo; with all Husky AI and related blog posts. Here it is.
-Machine Learning Basics and Building Husky AI  Getting the hang of machine learning The machine learning pipeline and attacks Husky AI: Building a machine learning system MLOps - Operationalizing the machine learning model  Threat Modeling and Strategies  Threat modeling a machine learning system Grayhat Red Team Village Video: Building and breaking a machine learning system Assume Bias and Responsible AI  Practical Attacks and Defenses  Brute forcing images to find incorrect predictions Smart brute forcing Perturbations to misclassify existing images Adversarial Robustness Toolbox Basics Image Scaling Attacks Stealing a model file: Attacker gains read access to the model Backdooring models: Attacker modifies persisted model file Repudiation Threat and Auditing: Catching modifications and unauthorized access Attacker modifies Jupyter Notebook file to insert a backdoor CVE 2020-16977: VS Code Python Extension Remote Code Execution Using Generative Adversarial Networks (GANs) to create fake husky images Using Microsoft Counterfit to create adversarial examples  Miscellaneous  Participating in the Microsoft Machine Learning Security Evasion Competition - Bypassing malware models by signing binaries Husky AI Github Repo  Conclusion As you can see there are many machine learning specific attacks, but also a lot of &amp;ldquo;typical&amp;rdquo; red teaming techniques that put AI/ML systems at risk.</description>
+Machine Learning Basics and Building Husky AI  Getting the hang of machine learning The machine learning pipeline and attacks Husky AI: Building a machine learning system MLOps - Operationalizing the machine learning model  Threat Modeling and Strategies  Threat modeling a machine learning system Grayhat Red Team Village Video: Building and breaking a machine learning system Assume Bias and Responsible AI  Practical Attacks and Defenses  Brute forcing images to find incorrect predictions Smart brute forcing Perturbations to misclassify existing images Adversarial Robustness Toolbox Basics Image Scaling Attacks Stealing a model file: Attacker gains read access to the model Backdooring models: Attacker modifies persisted model file Repudiation Threat and Auditing: Catching modifications and unauthorized access Attacker modifies Jupyter Notebook file to insert a backdoor CVE 2020-16977: VS Code Python Extension Remote Code Execution Using Generative Adversarial Networks (GANs) to create fake husky images Using Microsoft Counterfit to create adversarial examples Backdooring Pickle Files  Miscellaneous  Participating in the Microsoft Machine Learning Security Evasion Competition - Bypassing malware models by signing binaries Husky AI Github Repo  Conclusion As you can see there are many machine learning specific attacks, but also a lot of &amp;ldquo;typical&amp;rdquo; red teaming techniques that put AI/ML systems at risk.</description>
     </item>
     
     <item>

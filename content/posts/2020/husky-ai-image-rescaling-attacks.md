@@ -7,6 +7,13 @@ tags: [
         "huskyai",
         "red"
     ]
+twitter:
+  card: "summary_large_image"
+  site: "@wunderwuzzi23"
+  creator: "@wunderwuzzi23"
+  title: "Machine Learning Attack Series: Image Scaling Attacks"
+  description: "Machine Learning Attack Series: Image Scaling Attacks"
+  image: "https://embracethered.com/blog/images/2020/ml-attack-series.jpg"
 ---
 
 

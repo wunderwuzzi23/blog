@@ -5,8 +5,16 @@ draft: true
 tags: [
         "machine learning",
         "red",
-        "huskyai"
+        "huskyai",
+        "ai"
     ]
+twitter:
+  card: "summary_large_image"
+  site: "@wunderwuzzi23"
+  creator: "@wunderwuzzi23"
+  title: "Machine Learning Attack Series: Overview"
+  description: "Machine Learning Attack Series: Overview"
+  image: "https://embracethered.com/blog/images/2020/ml-attack-series.jpg"
 ---
 
 What a journey it has been. I wrote quite a bit about machine learning from a red teaming/security testing perspective this year. It was brought to my attention to provide a conveninent "index page" with all Husky AI and related blog posts. Here it is.
@@ -41,6 +49,7 @@ What a journey it has been. I wrote quite a bit about machine learning from a re
 * [CVE 2020-16977: VS Code Python Extension Remote Code Execution](/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/)
 * [Using Generative Adversarial Networks (GANs) to create fake husky images](/blog/posts/2020/machine-learning-attack-series-generative-adversarial-networks-gan/)
 * [Using Microsoft Counterfit to create adversarial examples](/blog/posts/2021/huskyai-using-azure-counterfit/)
+* [Backdooring Pickle Files](/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/)
 
 ## Miscellaneous
 
