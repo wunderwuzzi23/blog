@@ -71,8 +71,6 @@ Scary stuff. Never use random pickle files.
 
 Of course, this can occur inside other tools and MLOps pipelines, compromising systems and data.
 
-The risks of Google Colab exploits is discussed in great detail in this post called [Careful Who You Colab With](https://medium.com/mlearning-ai/careful-who-you-colab-with-fa8001f933e7) by 4n7m4n. Take a look.
-
 ## Checking for safety
 
 `fickling` also has commands built-in to explore and check pickle files for backdoors.
