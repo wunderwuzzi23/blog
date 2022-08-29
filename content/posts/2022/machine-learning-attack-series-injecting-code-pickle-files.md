@@ -71,6 +71,8 @@ Scary stuff. Never use random pickle files.
 
 Of course, this can occur inside other tools and MLOps pipelines, compromising systems and data.
 
+The risks of Google Colab exploits is discussed in great detail in this post called [Careful Who You Colab With](https://medium.com/mlearning-ai/careful-who-you-colab-with-fa8001f933e7) by 4n7m4n. Take a look.
+
 ## Checking for safety
 
 `fickling` also has commands built-in to explore and check pickle files for backdoors.
@@ -103,3 +105,4 @@ Cheers.
 * [Python Object Serialization](https://docs.python.org/3/library/pickle.html)
 * [Machine Learning Attack Series](/blog/posts/2020/machine-learning-attack-series-overview/)
 * [Backdooring Pickles: A decade only made things worse by ColdwaterQ](https://forum.defcon.org/node/241825)
+* [Careful Who You Colab With](https://medium.com/mlearning-ai/careful-who-you-colab-with-fa8001f933e7)
