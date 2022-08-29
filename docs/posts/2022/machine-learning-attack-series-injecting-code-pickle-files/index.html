@@ -137,7 +137,7 @@
   <section>
     <p>Recently I read <a href="https://blog.trailofbits.com/2021/03/15/never-a-dill-moment-exploiting-machine-learning-pickle-files/">this excellent post by Evan Sultanik</a> about exploiting pickle files on Trail of Bits. There was also a DefCon30 talk about <a href="https://forum.defcon.org/node/241825">backdooring pickle files by ColdwaterQ</a>.</p>
 <p>This got me curious to try out backdooring a pickle file myself.</p>
-<p><img src="/blog/images/2020/ml-attack-series.jpg" alt="Red Teaming Machine Learning -  Attack Series"></p>
+<p><img src="/blog/images/2020/ml-attack-series.jpg" alt="Red Teaming Machine Learning - Attack Series"></p>
 <h1 id="pickle-files---the-surprises">Pickle files - the surprises</h1>
 <p>Surprisingly Python pickle files are compiled programs running in a VM called the Pickle Machine (PM). Opcodes control the flow, and when there are opcodes there is often fun to be had.</p>
 <p>Turns out there are opcodes that can learn to running arbitrary code, namely <strong>GLOBAL</strong> and <strong>REDUCE</strong>.</p>
@@ -182,9 +182,8 @@
 <li><a href="https://blog.trailofbits.com/2021/03/15/never-a-dill-moment-exploiting-machine-learning-pickle-files/">Never a dill moment: Exploiting machine learning pickle files</a></li>
 <li><a href="https://github.com/trailofbits/fickling">Trail of Bits Github Repo for Fickling</a></li>
 <li><a href="https://docs.python.org/3/library/pickle.html">Python Object Serialization</a></li>
-<li><a href="/blog/posts/2020/machine-learning-attack-series-overview/">Machine Learning Attack Series</a></li>
 <li><a href="https://forum.defcon.org/node/241825">Backdooring Pickles: A decade only made things worse by ColdwaterQ</a></li>
-<li><a href="https://medium.com/mlearning-ai/careful-who-you-colab-with-fa8001f933e7">Careful Who You Colab With</a></li>
+<li><a href="/blog/posts/2020/machine-learning-attack-series-overview/">Machine Learning Attack Series</a></li>
 </ul>
 
   </section>
