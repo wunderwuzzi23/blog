@@ -23,7 +23,7 @@ Recently I read [this excellent post by Evan Sultanik](https://blog.trailofbits.
 
 This got me curious to try out backdooring a pickle file myself.
 
-![Red Teaming Machine Learning - Attack Series](/blog/images/2020/ml-attack-series.jpg)
+![Red Teaming Machine Learning -  Attack Series](/blog/images/2020/ml-attack-series.jpg)
 
 # Pickle files - the surprises
 
@@ -71,6 +71,8 @@ Scary stuff. Never use random pickle files.
 
 Of course, this can occur inside other tools and MLOps pipelines, compromising systems and data.
 
+Looking around a bit I found the risks of Google Colab exploits discussed in this post as well [Careful Who You Colab With](https://medium.com/mlearning-ai/careful-who-you-colab-with-fa8001f933e7) by 4n7m4n. Take a look.
+
 ## Checking for safety
 
 `fickling` also has commands built-in to explore and check pickle files for backdoors.
@@ -83,6 +85,7 @@ There are two useful features:
 [![Husky AI StyleGAN2-ADA Husky](/blog/images/2022/huskyai-stylegan2-fickling-trace.png)](/blog/images/2022/huskyai-stylegan2-fickling-trace.png)
 
 Very cool!
+
 
 # Conclusion
 
@@ -100,5 +103,6 @@ Cheers.
 * [Never a dill moment: Exploiting machine learning pickle files](https://blog.trailofbits.com/2021/03/15/never-a-dill-moment-exploiting-machine-learning-pickle-files/)
 * [Trail of Bits Github Repo for Fickling](https://github.com/trailofbits/fickling)
 * [Python Object Serialization](https://docs.python.org/3/library/pickle.html)
-* [Backdooring Pickles: A decade only made things worse by ColdwaterQ](https://forum.defcon.org/node/241825)
 * [Machine Learning Attack Series](/blog/posts/2020/machine-learning-attack-series-overview/)
+* [Backdooring Pickles: A decade only made things worse by ColdwaterQ](https://forum.defcon.org/node/241825)
+* [Careful Who You Colab With](https://medium.com/mlearning-ai/careful-who-you-colab-with-fa8001f933e7)
