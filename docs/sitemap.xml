@@ -3,12 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://embracethered.com/blog/tags/ai/</loc>
-    <lastmod>2022-08-28T20:10:44-07:00</lastmod>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2022-09-09T16:30:29-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/</loc>
+    <loc>https://embracethered.com/blog/posts/2022/python-package-manager-install-and-download-vulnerability/</loc>
+    <lastmod>2022-09-09T16:30:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/pentest/</loc>
+    <lastmod>2022-09-09T16:30:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2022-09-09T16:30:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2022-09-09T16:30:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/research/</loc>
+    <lastmod>2022-09-09T16:30:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/supplychain/</loc>
+    <lastmod>2022-09-09T16:30:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2022-09-09T16:30:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/ai/</loc>
     <lastmod>2022-08-28T20:10:44-07:00</lastmod>
   </url>
   
@@ -28,37 +63,12 @@
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2022-08-28T20:10:44-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2022-08-28T20:10:44-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2022-08-28T20:10:44-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/tags/ebpf/</loc>
     <lastmod>2022-07-10T20:00:13-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/posts/2022/offensive-bpf-bpftrace-sniff-logon-pam-passwords/</loc>
-    <lastmod>2022-07-10T20:00:13-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/pentest/</loc>
-    <lastmod>2022-07-10T20:00:13-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/research/</loc>
     <lastmod>2022-07-10T20:00:13-07:00</lastmod>
   </url>
   
