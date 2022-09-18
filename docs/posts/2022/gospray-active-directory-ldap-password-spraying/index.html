@@ -3,17 +3,26 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" tool &middot;  Embrace The Red" />
+  <meta property="og:title" content=" GoSpray - Simple LDAP bind-based password spray tool &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
-  <meta property="og:url" content="https://embracethered.com/blog/tags/tool/" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2022/gospray-active-directory-ldap-password-spraying/" />
   
   
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2022-09-18T08:00:01-07:00" />
+  
+  <meta property="og:article:tag" content="pentesting" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="tool" />
+  
   
 
   <title>
-     tool &middot;  Embrace The Red
+     GoSpray - Simple LDAP bind-based password spray tool &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -27,6 +36,15 @@
   
 
   
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="GoSpray - Simple bind-based password spray tool">
+<meta name="twitter:description" content="On a network and need credentials? Running on Linux or macOS? Try password spraying the domain controller directly.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2020/hacker.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
 
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1739327806831586"
@@ -88,42 +106,70 @@
   </header>
   <main class="container">
 
-<section class="article-list">
-  <h1>tool</h1><hr/>
-  
-    <dl  style="font-weight: normal;"></dl>
-      <dt style="font-weight: normal;">
-          <time datetime="2022-09-18 08:00:01 PDT">Sep 18 2022</time>
-          <a href="/blog/posts/2022/gospray-active-directory-ldap-password-spraying/">GoSpray - Simple LDAP bind-based password spray tool</a>
-      </dt>
-    </dl>
-     
-  
-    <dl  style="font-weight: normal;"></dl>
-      <dt style="font-weight: normal;">
-          <time datetime="2019-07-03 21:58:01 PDT">Jul 03 2019</time>
-          <a href="/blog/posts/bash-spray-password/">BashSpray - Simple Password Spray Bash Script</a>
-      </dt>
-    </dl>
-     
-  
-    <dl  style="font-weight: normal;"></dl>
-      <dt style="font-weight: normal;">
-          <time datetime="2019-06-20 22:00:16 PDT">Jun 20 2019</time>
-          <a href="/blog/posts/active-directory-and-macos/">Active Directory and MacOS</a>
-      </dt>
-    </dl>
-     
-  
-    <dl  style="font-weight: normal;"></dl>
-      <dt style="font-weight: normal;">
-          <time datetime="2019-05-21 21:48:29 PDT">May 21 2019</time>
-          <a href="/blog/posts/lyrebird/">Lyrebird - Hack the hacker (and take a picture)</a>
-      </dt>
-    </dl>
-     
-  
-</section>
+
+<article>
+  <header>
+    <h1 class="text-primary">GoSpray - Simple LDAP bind-based password spray tool</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2022-09-18T08:00:01-07:00">
+          Sep 18, 2022
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentesting">#pentesting</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/tool">#tool</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>On a network and need credentials? Running on Linux or macOS?</p>
+<p>Try password spraying the domain controller directly.</p>
+<p>Few years ago, I wrote this neat password spraying tool while hacking on a macOS and no good tooling was available.</p>
+<p><code>gospray</code> does LDAP binds directly against the domain controller. This doesn&rsquo;t require an SMB server (or other servers) as target - so, it&rsquo;s a lot less noisy. :)</p>
+<p>Check it out on Github: <a href="https://github.com/wunderwuzzi23/GoSpray">GoSpray</a></p>
+<p>At a high level the latest version supports two testing modes:</p>
+<ol>
+<li><strong>Password Spray:</strong> If you specify both <code>-accounts</code> and <code>-passwords</code> files, then a spray will be performed</li>
+<li><strong>Password Validation Mode:</strong> If you specify <code>-validatecreds</code> file, the above options are ignored. The file specified with <code>validatecreds</code> is parsed line by line, each line is split by colon (:) to retrieve username:password. Afterwards an authentication attempt will be performed against specified domain controller.</li>
+</ol>
+<p>Happy hacking.</p>
+<p><strong>Note:</strong> Be careful about account lockout policies and make sure you have authorization from appropriate stakeholders before engaging in this kind of testing.</p>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2022/python-package-manager-install-and-download-vulnerability/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
 </main>
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
@@ -190,7 +236,4 @@
   
 </body>
 </html>
-
-
-
 

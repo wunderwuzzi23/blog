@@ -4,7 +4,37 @@
   
   <url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2022-09-09T16:30:29-07:00</lastmod>
+    <lastmod>2022-09-18T08:00:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2022/gospray-active-directory-ldap-password-spraying/</loc>
+    <lastmod>2022-09-18T08:00:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/pentesting/</loc>
+    <lastmod>2022-09-18T08:00:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2022-09-18T08:00:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2022-09-18T08:00:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2022-09-18T08:00:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/tool/</loc>
+    <lastmod>2022-09-18T08:00:01-07:00</lastmod>
   </url>
   
   <url>
@@ -18,27 +48,12 @@
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2022-09-09T16:30:29-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2022-09-09T16:30:29-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/tags/research/</loc>
     <lastmod>2022-09-09T16:30:29-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/supplychain/</loc>
-    <lastmod>2022-09-09T16:30:29-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2022-09-09T16:30:29-07:00</lastmod>
   </url>
   
@@ -279,11 +294,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/2021/red-teaming-floc-chrome-cohort/</loc>
-    <lastmod>2021-05-01T10:10:08-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/pentesting/</loc>
     <lastmod>2021-05-01T10:10:08-07:00</lastmod>
   </url>
   
@@ -784,11 +794,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/tags/code/</loc>
-    <lastmod>2019-07-03T21:58:01-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/tool/</loc>
     <lastmod>2019-07-03T21:58:01-07:00</lastmod>
   </url>
   
