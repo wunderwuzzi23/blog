@@ -1,5 +1,5 @@
 ---
-title: "GoSpray - Simple LDAP bind-based password spray tool"
+title: "gospray - Simple LDAP bind-based password spray tool"
 date: 2022-09-18T08:00:01-07:00
 draft: true
 tags: [
@@ -12,7 +12,7 @@ twitter:
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
   title: "GoSpray - Simple bind-based password spray tool"
-  description:  "On a network and need credentials? Running on Linux or macOS? Try password spraying the domain controller directly."
+  description:  "On a network and need credentials? Try password spraying the domain controller directly."
   image: "https://embracethered.com/blog/images/2020/hacker.png"
 ---
 
