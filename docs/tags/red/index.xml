@@ -93,7 +93,7 @@ How do you go about checking their validity? And what do they have access to and
     <item>
       <title>Gitlab Reconnaissance Introduction</title>
       <link>https://embracethered.com/blog/posts/2022/hacking-gitlab-servers/</link>
-      <pubDate>Mon, 28 Feb 2022 04:22:22 -2222</pubDate>
+      <pubDate>Mon, 28 Feb 2022 04:22:22 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2022/hacking-gitlab-servers/</guid>
       <description>Although Gitlab is not as popular as Github, it’s common to run across it these days. Especially after Microsoft acquired Github it seemed more individuals and organizations flocked over to Gitlab.

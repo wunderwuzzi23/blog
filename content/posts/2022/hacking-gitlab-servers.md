@@ -1,6 +1,6 @@
 ---
 title: "Gitlab Reconnaissance Introduction"
-date: 2022-02-28T04:22:22-22:22
+date: 2022-02-28T04:22:22-07:00
 draft: true
 tags: [
         "pentest", "red","research", "cicd", "devops"
