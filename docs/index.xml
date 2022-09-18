@@ -13,15 +13,13 @@
     
     
     <item>
-      <title>GoSpray - Simple LDAP bind-based password spray tool</title>
+      <title>gospray - Simple LDAP bind-based password spray tool</title>
       <link>https://embracethered.com/blog/posts/2022/gospray-active-directory-ldap-password-spraying/</link>
       <pubDate>Sun, 18 Sep 2022 08:00:01 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2022/gospray-active-directory-ldap-password-spraying/</guid>
       <description>On a network and need credentials? Try password spraying the domain controller directly.
-A few years ago, I wrote this password spray tool called gospray. It does an LDAP bind directly against the domain controller to validate credentials. This doesn&amp;rsquo;t require an SMB server (or other servers) as target. So, it&amp;rsquo;s pretty quiet. :)
-Check it out on Github: GoSpray
-High Level Features At a high level the latest version supports two testing modes:</description>
+A few years ago, I wrote this password spray tool called gospray that was used succesfully in a couple of engagements since. It does an LDAP bind directly against the domain controller to validate credentials. This doesn&amp;rsquo;t require an SMB server (or other servers) as target. So, it&amp;rsquo;s pretty quiet and number of concurrent Go routines is configurable.</description>
     </item>
     
     <item>

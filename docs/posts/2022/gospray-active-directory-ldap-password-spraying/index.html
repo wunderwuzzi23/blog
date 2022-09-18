@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" GoSpray - Simple LDAP bind-based password spray tool &middot;  Embrace The Red" />
+  <meta property="og:title" content=" gospray - Simple LDAP bind-based password spray tool &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2022/gospray-active-directory-ldap-password-spraying/" />
@@ -22,7 +22,7 @@
   
 
   <title>
-     GoSpray - Simple LDAP bind-based password spray tool &middot;  Embrace The Red
+     gospray - Simple LDAP bind-based password spray tool &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -38,7 +38,7 @@
   
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wunderwuzzi23">
-<meta name="twitter:title" content="GoSpray - Simple bind-based password spray tool">
+<meta name="twitter:title" content="gospray - Simple bind-based password spray tool">
 <meta name="twitter:description" content="On a network and need credentials? Try password spraying the domain controller directly.">
 <meta name="twitter:image" content="https://embracethered.com/blog/images/2020/hacker.png">
 
@@ -109,7 +109,7 @@
 
 <article>
   <header>
-    <h1 class="text-primary">GoSpray - Simple LDAP bind-based password spray tool</h1>
+    <h1 class="text-primary">gospray - Simple LDAP bind-based password spray tool</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
@@ -132,16 +132,17 @@
   </header>
   <section>
     <p>On a network and need credentials?  Try password spraying the domain controller directly.</p>
-<p>A few years ago, I wrote this password spray tool called <code>gospray</code>. It does an LDAP bind directly against the domain controller to validate credentials. This doesn&rsquo;t require an SMB server (or other servers) as target. So, it&rsquo;s pretty quiet. :)</p>
+<p>A few years ago, I wrote this password spray tool called <code>gospray</code> that was used succesfully in a couple of engagements since. It does an LDAP bind directly against the domain controller to validate credentials. This doesn&rsquo;t require an SMB server (or other servers) as target. So, it&rsquo;s pretty quiet and number of concurrent Go routines is configurable. :)</p>
 <p>Check it out on Github: <a href="https://github.com/wunderwuzzi23/GoSpray">GoSpray</a></p>
 <h2 id="high-level-features">High Level Features</h2>
 <p>At a high level the latest version supports two testing modes:</p>
 <ol>
-<li><strong>Password Spray:</strong> If both <code>-accounts</code> and <code>-passwords</code> files, then a spray will be performed</li>
-<li><strong>Password Validation Mode:</strong> specifying <code>-validatecreds</code> file, the above options are ignored. The file specified with <code>validatecreds</code> is parsed line by line, each line is split by colon (:) to retrieve username:password. Afterwards an authentication attempt will be performed against specified domain controller.</li>
+<li><strong>Password Spray:</strong> If both <code>-accounts</code> and <code>-passwords</code> command line arguments are specified, then a spray will be performed.</li>
+<li><strong>Password Validation Mode:</strong> providing the <code>-validatecreds</code> command line option is for validation. The file specified with <code>validatecreds</code> is parsed line by line, each line is split by colon (:) to retrieve <code>username:password</code>. Afterwards an authentication attempt will be performed against specified domain controller.</li>
 </ol>
+<p>By default it waits 10 seconds after a round (per horizontal password round) - but you might want to adjust that depending on the number of accounts, users and lockout policies.</p>
 <p>Happy hacking.</p>
-<p><strong>Note:</strong> Be careful about account lockout policies and make sure you have authorization from appropriate stakeholders before engaging in this kind of testing.</p>
+<p><strong>Note:</strong> Be careful about account lockout policies (know what you do!) and make sure you have authorization from appropriate stakeholders before engaging in this kind of testing.</p>
 
   </section>
   <footer>
