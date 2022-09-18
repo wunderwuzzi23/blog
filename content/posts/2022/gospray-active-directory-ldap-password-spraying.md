@@ -18,7 +18,7 @@ twitter:
 
 On a network and need credentials?  Try password spraying the domain controller directly. 
 
-A few years ago, I wrote this password spraying tool called `gospray`. To check for valid creds it does an LDAP bind directly against the domain controller. This doesn't require an SMB server (or other servers) as target. So, it's pretty quiet. :) 
+A few years ago, I wrote this password spray tool called `gospray`. It does an LDAP bind directly against the domain controller to validate credentials. This doesn't require an SMB server (or other servers) as target. So, it's pretty quiet. :) 
 
 Check it out on Github: [GoSpray](https://github.com/wunderwuzzi23/GoSpray)
 

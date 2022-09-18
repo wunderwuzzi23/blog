@@ -131,15 +131,14 @@
     </div>
   </header>
   <section>
-    <p>On a network and need credentials? Running on Linux or macOS?</p>
-<p>Try password spraying the domain controller directly.</p>
-<p>Few years ago, I wrote this neat password spraying tool while hacking on a macOS and no good tooling was available.</p>
-<p><code>gospray</code> does LDAP binds directly against the domain controller. This doesn&rsquo;t require an SMB server (or other servers) as target - so, it&rsquo;s a lot less noisy. :)</p>
+    <p>On a network and need credentials?  Try password spraying the domain controller directly.</p>
+<p>A few years ago, I wrote this password spray tool called <code>gospray</code>. It does an LDAP bind directly against the domain controller to validate credentials. This doesn&rsquo;t require an SMB server (or other servers) as target. So, it&rsquo;s pretty quiet. :)</p>
 <p>Check it out on Github: <a href="https://github.com/wunderwuzzi23/GoSpray">GoSpray</a></p>
+<h2 id="high-level-features">High Level Features</h2>
 <p>At a high level the latest version supports two testing modes:</p>
 <ol>
-<li><strong>Password Spray:</strong> If you specify both <code>-accounts</code> and <code>-passwords</code> files, then a spray will be performed</li>
-<li><strong>Password Validation Mode:</strong> If you specify <code>-validatecreds</code> file, the above options are ignored. The file specified with <code>validatecreds</code> is parsed line by line, each line is split by colon (:) to retrieve username:password. Afterwards an authentication attempt will be performed against specified domain controller.</li>
+<li><strong>Password Spray:</strong> If both <code>-accounts</code> and <code>-passwords</code> files, then a spray will be performed</li>
+<li><strong>Password Validation Mode:</strong> specifying <code>-validatecreds</code> file, the above options are ignored. The file specified with <code>validatecreds</code> is parsed line by line, each line is split by colon (:) to retrieve username:password. Afterwards an authentication attempt will be performed against specified domain controller.</li>
 </ol>
 <p>Happy hacking.</p>
 <p><strong>Note:</strong> Be careful about account lockout policies and make sure you have authorization from appropriate stakeholders before engaging in this kind of testing.</p>
