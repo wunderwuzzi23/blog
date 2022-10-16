@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Sun, 03 Apr 2022 10:46:07 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 16 Oct 2022 11:30:29 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/ttp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TTP Diaries: SSH Agent Hijacking</title>
+      <link>https://embracethered.com/blog/posts/2022/ttp-diaries-ssh-agent-hijacking/</link>
+      <pubDate>Sun, 16 Oct 2022 11:30:29 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/ttp-diaries-ssh-agent-hijacking/</guid>
+      <description>There are some neat TTPs that I don&amp;rsquo;t use frequently, and if the time arises, I need to dig up details again. So, I figured to write some of them down, starting with SSH Agent Hijacking.
+What is SSH Agent Hijacking? Short story, if you have keys added to an SSH Agent an adversary with root permissions can use them. If you forward the SSH Agent to another host, an adversary with root permission on that other host can exploit and leverage your keys as well.</description>
+    </item>
     
     <item>
       <title>Grabbing and cracking macOS hashes</title>
