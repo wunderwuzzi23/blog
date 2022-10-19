@@ -3,28 +3,48 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/tags/cloud/</loc>
+    <lastmod>2022-10-19T08:00:29-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2022-10-16T11:30:29-07:00</lastmod>
+    <lastmod>2022-10-19T08:00:29-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/pentest/</loc>
-    <lastmod>2022-10-16T11:30:29-07:00</lastmod>
+    <lastmod>2022-10-19T08:00:29-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2022-10-16T11:30:29-07:00</lastmod>
+    <lastmod>2022-10-19T08:00:29-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2022-10-16T11:30:29-07:00</lastmod>
+    <lastmod>2022-10-19T08:00:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/research/</loc>
+    <lastmod>2022-10-19T08:00:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/</loc>
+    <lastmod>2022-10-19T08:00:29-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2022-10-16T11:30:29-07:00</lastmod>
+    <lastmod>2022-10-19T08:00:29-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/tool/</loc>
+    <lastmod>2022-10-19T08:00:29-07:00</lastmod>
   </url>
   
   <url>
@@ -48,17 +68,7 @@
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/tags/tool/</loc>
-    <lastmod>2022-09-18T08:00:01-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/posts/2022/python-package-manager-install-and-download-vulnerability/</loc>
-    <lastmod>2022-09-09T16:30:29-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/research/</loc>
     <lastmod>2022-09-09T16:30:29-07:00</lastmod>
   </url>
   
@@ -149,11 +159,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/2022/aws-scaled-command/</loc>
-    <lastmod>2022-03-12T10:42:14-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/cloud/</loc>
     <lastmod>2022-03-12T10:42:14-08:00</lastmod>
   </url>
   

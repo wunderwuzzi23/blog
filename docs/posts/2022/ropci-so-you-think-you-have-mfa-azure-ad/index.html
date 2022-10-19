@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" ROPCI - So, you think you have MFA? &middot;  Embrace The Red" />
+  <meta property="og:title" content=" ROPC - So, you think you have MFA? &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/" />
@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2022-09-25T10:30:29-07:00" />
+  <meta property="og:article:published_time" content="2022-10-19T08:00:29-07:00" />
   
   <meta property="og:article:tag" content="pentest" />
   
@@ -26,7 +26,7 @@
   
 
   <title>
-     ROPCI - So, you think you have MFA? &middot;  Embrace The Red
+     ROPC - So, you think you have MFA? &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -113,13 +113,13 @@
 
 <article>
   <header>
-    <h1 class="text-primary">ROPCI - So, you think you have MFA?</h1>
+    <h1 class="text-primary">ROPC - So, you think you have MFA?</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2022-09-25T10:30:29-07:00">
-          Sep 25, 2022
+        <time datetime="2022-10-19T08:00:29-07:00">
+          Oct 19, 2022
         </time>
       </div>
     
@@ -139,8 +139,8 @@
     </div>
   </header>
   <section>
-    <p>This post will highlight systemic pattern I have seen across multiple production Microsoft Azure Active Directory tenants which led to MFA bypasses using ROPC.</p>
-<p><strong>The key take-away upfront: Test your own Microsoft AAD tenant for ROPC based MFA bypasses. It is not unlikely that your tenant is vulnerable. 3/3 production tests (of fairley large companies) I did succeeded and every company believed that MFA was setup and enforced correctly!</strong></p>
+    <p>This post will highlight a pattern I have seen across multiple production Microsoft Azure Active Directory tenants which led to MFA bypasses using ROPC.</p>
+<p><strong>The key take-away: Always enforce MFA! Sounds easy, but there are often misconfigurations and unexpected exceptions. So, test your own AAD tenant for ROPC based MFA bypass opportunities.</strong></p>
 <p><img src="/blog/images/2022/ropci.png" alt="How does an OAuth2 ROPC Request look like"></p>
 <h1 id="what-is-ropc">What is ROPC?</h1>
 <p><code>Resource Owner Password Credentials</code> (ROPC) is an OAuth2 authorization grant type (“flow”) defined in <a href="https://www.rfc-editor.org/rfc/rfc6749.html">RFC 6749</a>.</p>
@@ -156,16 +156,16 @@
 <p>And <a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#page-9">OAuth 2.0 Security Best Current Practice</a> states it even more clearly:</p>
 <p><img src="/blog/images/2022/rfc-legacy.png" alt="RFC ROPC Legacy"></p>
 <p>So, the take-away is: <strong>ROPC MUST NOT be used</strong></p>
-<p>If you are using Conditional Access Policy, be aware that the &ldquo;Block legacy authentication&rdquo; CAS template does not block ROPC!</p>
+<p>If you are using Conditional Access Policy, be aware that the &ldquo;Block legacy authentication&rdquo; template does not block ROPC!</p>
 <p>Wait, but what is this ROPC and am I using it?</p>
 <h1 id="how-does-the-ropc-flow-look-like">How does the ROPC flow look like?</h1>
-<p>At a high level the <code>grant_type</code> in the OAuth2 POST request to the token endpoint will contain this parameter:</p>
+<p>At a high level the <code>grant_type</code> in the OAuth2 POST request will contain this parameter:</p>
 <pre><code>grant_type=password
 </code></pre><p>This highlights the <code>resource owner password credentials</code> flow.</p>
 <p>A complete <code>ROPC</code> request looks as follows:</p>
 <p><img src="/blog/images/2022/ropc-post.png" alt="How does an OAuth2 ROPC Request look like"></p>
 <p>As can be seen, the request contains <code>username/password</code> and the <code>client_id</code>.</p>
-<p>Microsoft refers to <code>client_id</code> often as <code>appID</code> in their internal documentation and UI. There is no <code>client_secret</code> with these appIDs they are called public clients.</p>
+<p>Microsoft refers to <code>client_id</code> often as <code>appID</code> in their internal documentation and UI. There is no <code>client_secret</code> with these appIDs - they are also called public clients.</p>
 <p>If authentication succeeds, the response will contain an <code>access_token</code> amongst other information:</p>
 <p><img src="/blog/images/2022/ropc-response.png" alt="How does an OAuth2 ROPC Response look like"></p>
 <h2 id="wait-i-dont-have-ropc-oauth-apps-in-my-aad-tenant">Wait, I don&rsquo;t have ROPC OAuth apps in my AAD tenant!</h2>
@@ -174,67 +174,51 @@
 <a href="/blog/images/2022/ropc-apps-msft-by-default.png"><img src="/blog/images/2022/ropc-apps-msft-by-default.png" alt="How does an OAuth2 ROPC Request look like"></a></p>
 <p>Combined the various applications have permissions such as reading AAD info (users, groups, permissions), reading/sending emails, accessing Azure, access and uploading information to SharePoint, etc.</p>
 <p>So, what do I do with this info now?</p>
-<h1 id="from-an-offensive-security-perspective-the-following-questions-are-interesting">From an offensive security perspective, the following questions are interesting:</h1>
+<p><strong>From an offensive security perspective, the following questions are interesting:</strong></p>
 <ul>
 <li>How to test for ROPC exposure?</li>
 <li>What kind of tests to run?</li>
 <li>What questions to ask or AD admins?</li>
 </ul>
 <h1 id="introducing-ropci">Introducing ropci</h1>
-<p>To aid with testing I wrote <code>./ropci</code> which is a Microsoft AAD ROPC OAuth2 assessment tool.</p>
-<p>You can download the code from Github: <a href="https://github.com/wunderwuzzi23/ropci">ropci</a></p>
+<p>To aid with testing I wrote <code>./ropci</code> which is a Microsoft AAD ROPC assessment and attack tool.</p>
+<p>You can download the code and pre-compiled binaries for Windows, Linux and macOS from Github: <a href="https://github.com/wunderwuzzi23/ropci">https://github.com/wunderwuzzi23/ropci</a></p>
 <p><img src="/blog/images/2022/ropci-options.png" alt="ropci tool - Microsoft Azure AAD OAuth2 Assessment Tool"></p>
-<p>I will do another post to highlight it&rsquo;s usage more clearly, but if you go over to the github it should have everything needed to get you started!</p>
-<h1 id="ropc-mfa-bypass-opportunities">ROPC MFA Bypass Opportunities</h1>
-<p>There are four ROPC MFA bypass opportunities:</p>
-<ol>
-<li><a href="#securitydefaults">Security defaults and Disabled MFA Status</a></li>
-<li><a href="#hybrid">Hybrid and federated identity setups</a></li>
-<li><a href="#serviceaccounts">Service accounts</a></li>
-<li><a href="#apt29">14-day grace period for MFA activation</a></li>
-</ol>
-<h2 id="securitydefaults">Opportunity #1 - Security Defaults and Disabled MFA Status</h2>
-<p>Security defaults is a great feature that aims to lock down AAD tenants with single configuration change, it&rsquo;s also the default for newly created tenants now.</p>
-<p>However, Microsoft&rsquo;s <a href="https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults#require-all-users-to-register-for-azure-ad-multi-factor-authentication">documentation</a> incorrectly states that:</p>
-<blockquote>
-<p>&ldquo;&hellip;don&rsquo;t be alarmed to not see users in an <strong>Enabled</strong> or <strong>Enforced</strong> status if you look at the MFA status page. <strong>Disabled</strong> is the appropriate status for users who are using security defaults&hellip;&rdquo;</p>
-</blockquote>
-<p>Here is a screenshot of the description:</p>
-<p><img src="/blog/images/2022/ropc-disabled-status.png" alt="ROPC Disabled MFA"></p>
-<p>The unfortunate result with this advice is that it allows to get around MFA (e.g even ROPC attacks from VPN connections from other countriese, e.g. impossible travels). The only thing I found to mitigate this entirely is to explicitly enforce MFA per-user, regardless of what the documentation says.</p>
-<h3 id="mitigation">Mitigation:</h3>
-<p>Make sure to go into your tenant settings, turn on security defaults and also enforce per-user MFA for every user!</p>
-<h2 id="hybrid">Opportunity #2 - Hybrid and Federated Scenarios</h2>
-<p>When federation is setup, a federated identity provider (e.g. ADFS or Okta,&hellip;) will perform the MFA check.</p>
-<p>But, what if you have <strong>native AAD only accounts?</strong></p>
-<p>Bad news, they can be called via single-factor ROPC calls unless MFA is enforced explicitly at the AAD layer. It&rsquo;s a common misconfiguration and oversight in my experience and testing so far.</p>
-<p>To get a list of interesting accounts you could use ropci (or the Azure portal or some other tool):</p>
-<pre><code>ropci` can help you identify such accounts by quering your AAD for 
-`./ropci users list --format-csv | jq -r '.value[] | select (.onPremisesImmutableId == null and .accountEnabled == true and userType != &quot;Guest&quot; | .userPrincipalName)
-</code></pre><p>There are other properties, such as <code>.onPremisesSyncEnabled</code> that are interesting to look at. You might see that the onPremisesSync is disabled, but accounts still have an active account in AAD. This might mean that AAD still has the password hash stored and won&rsquo;t need to-do pass through authentication. Lots of opportunities for further testing here.</p>
-<p>There are also sometimes older accounts that have an empty <code>userType</code>, so make sure to not only look for <code>.userType == &quot;Member&quot;</code> as you might miss accounts that way.</p>
-<p>At times you might even find accounts that are deleted in the on-premises AD, but still exist in AAD. Yes.</p>
-<p>If you are testing a large directory dump the <code>users list</code> first into a file, that makes it easier to analyze later.</p>
-<h3 id="mitigation-1">Mitigation:</h3>
-<p>Review your tenant for pure/native AAD accounts and ensure MFA is enforced for them.</p>
-<h2 id="serviceaccounts">Opportunity #3 - Service Accounts</h2>
-<p>Well, these always exist in companies, and they will not have MFA enabled. Hopefully other mitigations are put in place, such as IP allow-listing and better using the proper OAuth2 flows.</p>
-<h3 id="mitigation-2">Mitigation:</h3>
-<p>Figure out what service accounts exists. Ensure they are monitored and there is a path to locking things down via IP allow-listing and leveraging other flows such as <code>client_credentials</code> with certificates.</p>
-<h2 id="opportunity-4---14-day-mfa-grace-period-for-mfa-activation">Opportunity #4 - 14-day MFA grace period for MFA activation</h2>
-<p><a href="https://www.zdnet.com/article/hackers-are-using-this-sneaky-trick-to-exploit-dormant-microsoft-cloud-accounts-and-bypass-multi-factor-authentication/">ZDNET</a> and <a href="https://www.mandiant.com/resources/blog/apt29-continues-targeting-microsoft">Mandiant</a> recently reported that APT29 is exploiting this behavior.</p>
-<p>I added this bypass opportunity as it&rsquo;s out in the wild. One can use ROPC to bruteforce credentials and there will be a different error code if the password was guessed correctly.</p>
-<p>However, to get an access token a manual login needs to be performed by an attacker. The reason a manual logon is required is that tyipcally the user needs to change the password on first login, which the ROPC flow does not support.</p>
-<h1 id="go-do-test-ropc-scenarios">Go-do: Test ROPC scenarios!</h1>
-<p>Now that we reviewed a couple of ROPC bypass opportunties what can be done? What should be validated to make sure MFA is correctly configured?</p>
+<p>I will do another post to highlight its usage more clearly, but if you go over to the <a href="https://github.com/wunderwuzzi23/ropci">Github</a> it should have everything needed to get you started!</p>
+<h2 id="basic-usage">Basic Usage</h2>
+<p>To test a single account of your AAD tenant run:</p>
+<pre><code>./ropci auth logon -t $YOUR_TENANT -u $YOUR_USER -P --discard-token
+</code></pre><p>Where you set or replace <code>$YOUR_TENANT</code> and <code>$YOUR_USER</code> with the account and tenant to test.</p>
+<ul>
+<li><code>-P</code>: means to prompt for password, rather than reading from config file or command line.</li>
+<li><code>--discard-token</code>: if authentication succeeds, the returned access token will not be stored.</li>
+</ul>
+<p>It will look something like this:</p>
+<pre><code>./ropci auth logon -t contoso.onmicrosoft.com -u test@example.org -P --discard-token
+</code></pre><ul>
+<li>If authentication succeeds, you will see a success message and the retrieved scopes.</li>
+<li>If authentication fails, you will see the AAD error message that was returned.</li>
+</ul>
+<h2 id="getting-offensive">Getting offensive</h2>
+<p>If you get a token, you can use all the other features of ropci to access the AAD tenant, including:</p>
+<ul>
+<li>Accessing Graph APIs and information such as users and groups in the tenant</li>
+<li>Search the user&rsquo;s mailbox, and send mail</li>
+<li>Download or upload files to SharePoint,</li>
+<li>Call Azure Resource Manager and run commands on VMs</li>
+<li>Enumerate applications and scopes</li>
+<li>&hellip;</li>
+</ul>
+<p>Even if ROPC logon doesn&rsquo;t work and you&rsquo;d like to use <code>ropci</code>, you can attempt devicecode phishing, or just use devicecode auth to get a token for yourself (see <code>./ropci auth devicecode</code>).</p>
+<p>I will write about other features in upcoming posts. For this post, let&rsquo;s just discuss the basic test to see if there is an ROPC based attack avenue.</p>
+<h2 id="go-and-test-ropc-scenarios">Go and Test ROPC scenarios!</h2>
 <p>Test your own tenant for these attacks to make sure an adversary can&rsquo;t exploit them:</p>
-<h3 id="attempt-ropc-logons-using">Attempt ROPC logons using</h3>
+<h3 id="attempt-ropc-logons-for-your-aad-tenant-using">Attempt ROPC logons for your AAD tenant using</h3>
 <ol>
 <li>Your own user account</li>
 <li>Service accounts</li>
-<li>AAD only accounts</li>
+<li>AAD only accounts (consider hybrid and federation scenarios)</li>
 </ol>
-<p>You can use, e.g. <code>./ropci auth logon -u account@example.org -P</code> to quickly perform such tests.</p>
 <h3 id="identify-applications-that-support-ropc-the-offsec-way">Identify applications that support ROPC (the offsec way)</h3>
 <ol>
 <li><code>./ropci apps list</code>: Enumerate all OAuth apps in your tenant</li>
@@ -244,29 +228,33 @@
 <ol>
 <li>An adversary can use ROPC to perform a password spray (<code>./ropci auth spray</code>)</li>
 </ol>
+<p>fyi: <code>ropci</code> doesn&rsquo;t change IPs during sprays. Checkout <a href="https://github.com/Flangvik/TeamFiltration">TeamFiltration</a> if you need that capability.</p>
 <h1 id="take-aways-for-ropc">Take-aways for ROPC</h1>
 <ul>
 <li>Always explicitly enforce MFA!</li>
-<li>Security defaults might not adequately protect.</li>
-<li>Hybrid and federated MFA enforcement can leave &ldquo;native&rdquo; AAD accounts vulnerable (think of them as accounts folks forget about)</li>
-<li>Test and validate your configurations from an offsec point of view!</li>
-<li>Some scenarios might remain vulnerable to SFA  =&gt; <strong>These should be a known and conscious decisions (risk acceptance)</strong></li>
+<li>Security defaults might not adequately protect your user accounts</li>
+<li>Blocking legacy auth doesn&rsquo;t block ROPC</li>
+<li>Hybrid and federated MFA enforcement can leave &ldquo;native&rdquo; AAD accounts vulnerable</li>
+<li><strong>Test and validate your configurations from an offsec point of view!</strong></li>
+<li>Some scenarios might remain vulnerable to SFA  =&gt; <strong>Should a conscious decisions</strong></li>
 <li>Know your weaknesses, monitor exposure, and continue mitigating and locking down exposures</li>
 </ul>
+<p>Hope this post and tool will help in improving the security posture of AAD tenants.</p>
+<p>Greetings.</p>
 <p>知己知彼,百戰百勝.</p>
-<h1 id="related-research-and-tools">Related Research and Tools</h1>
-<p>A lot of great research and tooling out there, e.g.:</p>
+<h2 id="related-research-and-tools">Related Research and Tools</h2>
+<p>A lot of relevant and great research and tooling out there, e.g.:</p>
 <ul>
 <li><a href="https://o365blog.com/aadinternals/">AADInternals by @DrAzureAD</a></li>
 <li><a href="https://github.com/secureworks/family-of-client-ids-research">&ldquo;Abusing Family Refresh Tokens&rdquo; by SecureWorks</a></li>
 <li>ROADTools and more recently TeamFiltration,&hellip;</li>
 </ul>
-<h1 id="references">References</h1>
+<h2 id="references">References</h2>
 <ul>
 <li><a href="https://www.rfc-editor.org/rfc/rfc6749.html">OAuth RFC</a></li>
 <li><a href="https://o365blog.com/aadinternals/">AAD Internals</a></li>
 <li><a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#page-9">OAuth 2.0 Security Best Current Practice</a></li>
-<li>[Hackers are using this sneaky exploit to bypass Microsoft&rsquo;s MFA)(https://www.zdnet.com/article/hackers-are-using-this-sneaky-trick-to-exploit-dormant-microsoft-cloud-accounts-and-bypass-multi-factor-authentication/)</li>
+<li><a href="https://www.zdnet.com/article/hackers-are-using-this-sneaky-trick-to-exploit-dormant-microsoft-cloud-accounts-and-bypass-multi-factor-authentication/">Hackers are using this sneaky exploit to bypass Microsoft&rsquo;s MFA</a></li>
 </ul>
 
   </section>
@@ -290,7 +278,7 @@
 
       
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2022/gospray-active-directory-ldap-password-spraying/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2022/ttp-diaries-ssh-agent-hijacking/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>
