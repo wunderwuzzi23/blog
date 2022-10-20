@@ -47,7 +47,7 @@ And [OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/
 
 So, the take-away is: **ROPC MUST NOT be used**
 
-If you are using Conditional Access Policy, be aware that the "Block legacy authentication" template does not block ROPC!
+If you are using Conditional Access Policy, be aware that the "Block legacy authentication" template does not block ROPC by default. You have to specify to block "Mobile apps and desktop clients" as far as I can tell, which the default template doesn't.
 
 Wait, but what is this ROPC and am I using it?
 
