@@ -19,7 +19,9 @@ This post will highlight a pattern I have seen across multiple production Micros
 
 **The key take-away: Always enforce MFA! Sounds easy, but there are often misconfigurations and unexpected exceptions. So, test your own AAD tenant for ROPC based MFA bypass opportunities.**
 
-Github: https://github.com/wunderwuzzi23/ropci
+**Github**: https://github.com/wunderwuzzi23/ropci
+
+**Update**: The latest open issue of Pentest Magazine has a [ropci article](https://pentestmag.com/product/pentest-open-source-pentesting-toolkit/). Check it out.
  
 ![How does an OAuth2 ROPC Request look like](/blog/images/2022/ropci.png)
 
@@ -210,3 +212,4 @@ A lot of relevant and great research and tooling out there, e.g.:
 * [OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#page-9)
 * [Hackers are using this sneaky exploit to bypass Microsoft's MFA](https://www.zdnet.com/article/hackers-are-using-this-sneaky-trick-to-exploit-dormant-microsoft-cloud-accounts-and-bypass-multi-factor-authentication/)
 * [ropci on Github](https://github.com/wunderwuzzi23/ropci)
+* [Pentest Magazine with ropci aritcle](https://pentestmag.com/product/pentest-open-source-pentesting-toolkit/)

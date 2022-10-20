@@ -7,10 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Thu, 20 Oct 2022 08:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 20 Oct 2022 09:00:10 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PenTest Magazine Open Source Toolkit: ropci</title>
+      <link>https://embracethered.com/blog/posts/2022/ropci-pentest-magazine-open-source-tools/</link>
+      <pubDate>Thu, 20 Oct 2022 09:00:10 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/ropci-pentest-magazine-open-source-tools/</guid>
+      <description>Great news!
+An article about ropci is in the latest open issue of the Pentest Magazine!
+
+The article has a lot more info then my ropci blog post or the info on the ropci Github repo.
+Get your copy and check it out! It also has an article about Nuclei, one of my favorite tools.
+Cheers.
+Link: https://pentestmag.com/product/pentest-open-source-pentesting-toolkit</description>
+    </item>
     
     <item>
       <title>ROPC - So, you think you have MFA?</title>
@@ -21,7 +36,8 @@
       <description>This post will highlight a pattern I have seen across multiple production Microsoft Azure Active Directory tenants which led to MFA bypasses using ROPC.
 The key take-away: Always enforce MFA! Sounds easy, but there are often misconfigurations and unexpected exceptions. So, test your own AAD tenant for ROPC based MFA bypass opportunities.
 Github: https://github.com/wunderwuzzi23/ropci
-What is ROPC? Resource Owner Password Credentials (ROPC) is an OAuth2 authorization grant type (“flow”) defined in RFC 6749.</description>
+Update: The latest open issue of Pentest Magazine has a ropci article. Check it out.
+What is ROPC?</description>
     </item>
     
     <item>
