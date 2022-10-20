@@ -21,7 +21,7 @@ This post will highlight a pattern I have seen across multiple production Micros
 
 **Github**: https://github.com/wunderwuzzi23/ropci
 
-**Update**: The latest open issue of Pentest Magazine has a [ropci article](https://pentestmag.com/product/pentest-open-source-pentesting-toolkit/). Check it out.
+**Update**: The latest free issue of Pentest Magazine has a [ropci article](https://pentestmag.com/product/pentest-open-source-pentesting-toolkit/). Check it out.
  
 ![How does an OAuth2 ROPC Request look like](/blog/images/2022/ropci.png)
 
