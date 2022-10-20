@@ -158,7 +158,6 @@
 <p>And <a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#page-9">OAuth 2.0 Security Best Current Practice</a> states it even more clearly:</p>
 <p><img src="/blog/images/2022/rfc-legacy.png" alt="RFC ROPC Legacy"></p>
 <p>So, the take-away is: <strong>ROPC MUST NOT be used</strong></p>
-<p>If you are using Conditional Access Policy, be aware that the &ldquo;Block legacy authentication&rdquo; template policy does not block ROPC by default. You have to specify to block &ldquo;Mobile apps and desktop clients&rdquo; which seems to block ROPC.</p>
 <p>Wait, but what is this ROPC and am I using it?</p>
 <h1 id="how-does-the-ropc-flow-look-like">How does the ROPC flow look like?</h1>
 <p>At a high level the <code>grant_type</code> in the OAuth2 POST request will contain this parameter:</p>
@@ -244,7 +243,6 @@
 <ul>
 <li>Always explicitly enforce MFA!</li>
 <li>Security defaults might not adequately protect your user accounts</li>
-<li>If you block legacy auth via policy, make sure to include &ldquo;mobile apps and desktop clients&rdquo;</li>
 <li>Hybrid and federated MFA enforcement can leave &ldquo;native&rdquo; AAD accounts vulnerable</li>
 <li><strong>Test and validate your configurations from an offsec point of view!</strong></li>
 <li>Some scenarios might remain vulnerable to SFA  =&gt; <strong>Should a conscious decisions</strong></li>

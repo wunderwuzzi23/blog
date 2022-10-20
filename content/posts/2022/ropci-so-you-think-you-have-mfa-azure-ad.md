@@ -47,8 +47,6 @@ And [OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/
 
 So, the take-away is: **ROPC MUST NOT be used**
 
-If you are using Conditional Access Policy, be aware that the "Block legacy authentication" template policy does not block ROPC by default. You have to specify to block "Mobile apps and desktop clients" which seems to block ROPC.
-
 Wait, but what is this ROPC and am I using it?
 
 # How does the ROPC flow look like?
@@ -183,7 +181,6 @@ fyi: `ropci` doesn't change IPs during sprays. Checkout [TeamFiltration](https:/
 
 * Always explicitly enforce MFA! 
 * Security defaults might not adequately protect your user accounts
-* If you block legacy auth via policy, make sure to include "mobile apps and desktop clients"
 * Hybrid and federated MFA enforcement can leave "native" AAD accounts vulnerable
 * **Test and validate your configurations from an offsec point of view!**
 * Some scenarios might remain vulnerable to SFA  => **Should a conscious decisions**
