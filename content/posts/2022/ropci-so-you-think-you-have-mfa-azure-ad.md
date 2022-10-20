@@ -1,6 +1,6 @@
 ---
 title: "ROPC - So, you think you have MFA?"
-date: 2022-10-19T08:00:29-07:00
+date: 2022-10-20T08:00:00-07:00
 draft: true
 tags: [
         "pentest", "red","research","cloud","tool"
@@ -18,6 +18,8 @@ twitter:
 This post will highlight a pattern I have seen across multiple production Microsoft Azure Active Directory tenants which led to MFA bypasses using ROPC. 
 
 **The key take-away: Always enforce MFA! Sounds easy, but there are often misconfigurations and unexpected exceptions. So, test your own AAD tenant for ROPC based MFA bypass opportunities.**
+
+Github: https://github.com/wunderwuzzi23/ropci
  
 ![How does an OAuth2 ROPC Request look like](/blog/images/2022/ropci.png)
 
@@ -70,9 +72,9 @@ If authentication succeeds, the response will contain an `access_token` amongst 
 ![How does an OAuth2 ROPC Response look like](/blog/images/2022/ropc-response.png)
 
 
-## Wait, I don't have ROPC OAuth apps in my AAD tenant!
+## Wait, I don't have ROPC OAuth apps in my tenant!
 
-AAD ships 50+ applications by default that support ROPC and are active in every tenant.
+AAD ships 50+ apps by default that support ROPC and are active (as service principals) in every tenant.
 
 Here are a few examples:
 [![How does an OAuth2 ROPC Request look like](/blog/images/2022/ropc-apps-msft-by-default.png)](/blog/images/2022/ropc-apps-msft-by-default.png)                    	
@@ -119,6 +121,19 @@ It will look something like this:
 * If authentication succeeds, you will see a success message and the retrieved scopes.
 * If authentication fails, you will see the AAD error message that was returned.
 
+## Configuration 
+
+To use all features run `./ropci configure`. This will ask you for tenant, username, and password.
+
+Afterwards you can run `./ropci logon` to use the configuration, get a token and run commands:
+
+![ROPC apps](/blog/images/2022/ropci.logon.png)
+
+That's it.
+
+Note: Even if ROPC logon doesn't work and you'd like to use `ropci`, you can attempt devicecode phishing, or just use devicecode auth to get a token for yourself (see `./ropci auth devicecode`).
+
+
 ## Getting offensive
 
 If you get a token, you can use all the other features of ropci to access the AAD tenant, including:
@@ -130,22 +145,31 @@ If you get a token, you can use all the other features of ropci to access the AA
 * Enumerate applications and scopes 
 * ...
 
-Even if ROPC logon doesn't work and you'd like to use `ropci`, you can attempt devicecode phishing, or just use devicecode auth to get a token for yourself (see `./ropci auth devicecode`).
-
-I will write about other features in upcoming posts. For this post, let's just discuss the basic test to see if there is an ROPC based attack avenue.
+I will write about how to use these features more in upcoming posts. For this post, let's just discuss the basic test to see if there is an ROPC based attack avenue.
 
 ## Go and Test ROPC scenarios!
 
 Test your own tenant for these attacks to make sure an adversary can't exploit them:
 
 ###  Attempt ROPC logons for your AAD tenant using
-1. Your own user account 
-2. Service accounts
-3. AAD only accounts (consider hybrid and federation scenarios)
+
+These are some of the basic accounts you should try this out for:
+
+1. **Your own user account**
+2. **Service accounts**
+3. **AAD only accounts** (consider hybrid and federation scenarios)
+
+Its also good to discuss this topic with your IT admins.
 
 ### Identify applications that support ROPC (the offsec way)
+
+Check all apps in your tenant (in case you also have custom ones) and attempt an ROPC logon through them and what scopes are retrieved.
+
 1. `./ropci apps list`: Enumerate all OAuth apps in your tenant
 2. `./ropci auth bulk`: Test all apps, and review results and granted scopes 
+
+![ROPC apps](/blog/images/2022/ropci.apps.png)
+
 
 ### ROPC Password Sprays
 
@@ -185,3 +209,4 @@ A lot of relevant and great research and tooling out there, e.g.:
 * [AAD Internals](https://o365blog.com/aadinternals/)
 * [OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#page-9)
 * [Hackers are using this sneaky exploit to bypass Microsoft's MFA](https://www.zdnet.com/article/hackers-are-using-this-sneaky-trick-to-exploit-dormant-microsoft-cloud-accounts-and-bypass-multi-factor-authentication/)
+* [ropci on Github](https://github.com/wunderwuzzi23/ropci)

@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2022-10-19T08:00:29-07:00" />
+  <meta property="og:article:published_time" content="2022-10-20T08:00:00-07:00" />
   
   <meta property="og:article:tag" content="pentest" />
   
@@ -118,8 +118,8 @@
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2022-10-19T08:00:29-07:00">
-          Oct 19, 2022
+        <time datetime="2022-10-20T08:00:00-07:00">
+          Oct 20, 2022
         </time>
       </div>
     
@@ -141,6 +141,7 @@
   <section>
     <p>This post will highlight a pattern I have seen across multiple production Microsoft Azure Active Directory tenants which led to MFA bypasses using ROPC.</p>
 <p><strong>The key take-away: Always enforce MFA! Sounds easy, but there are often misconfigurations and unexpected exceptions. So, test your own AAD tenant for ROPC based MFA bypass opportunities.</strong></p>
+<p>Github: <a href="https://github.com/wunderwuzzi23/ropci">https://github.com/wunderwuzzi23/ropci</a></p>
 <p><img src="/blog/images/2022/ropci.png" alt="How does an OAuth2 ROPC Request look like"></p>
 <h1 id="what-is-ropc">What is ROPC?</h1>
 <p><code>Resource Owner Password Credentials</code> (ROPC) is an OAuth2 authorization grant type (“flow”) defined in <a href="https://www.rfc-editor.org/rfc/rfc6749.html">RFC 6749</a>.</p>
@@ -168,8 +169,8 @@
 <p>Microsoft refers to <code>client_id</code> often as <code>appID</code> in their internal documentation and UI. There is no <code>client_secret</code> with these appIDs - they are also called public clients.</p>
 <p>If authentication succeeds, the response will contain an <code>access_token</code> amongst other information:</p>
 <p><img src="/blog/images/2022/ropc-response.png" alt="How does an OAuth2 ROPC Response look like"></p>
-<h2 id="wait-i-dont-have-ropc-oauth-apps-in-my-aad-tenant">Wait, I don&rsquo;t have ROPC OAuth apps in my AAD tenant!</h2>
-<p>AAD ships 50+ applications by default that support ROPC and are active in every tenant.</p>
+<h2 id="wait-i-dont-have-ropc-oauth-apps-in-my-tenant">Wait, I don&rsquo;t have ROPC OAuth apps in my tenant!</h2>
+<p>AAD ships 50+ apps by default that support ROPC and are active (as service principals) in every tenant.</p>
 <p>Here are a few examples:
 <a href="/blog/images/2022/ropc-apps-msft-by-default.png"><img src="/blog/images/2022/ropc-apps-msft-by-default.png" alt="How does an OAuth2 ROPC Request look like"></a></p>
 <p>Combined the various applications have permissions such as reading AAD info (users, groups, permissions), reading/sending emails, accessing Azure, access and uploading information to SharePoint, etc.</p>
@@ -199,6 +200,12 @@
 <li>If authentication succeeds, you will see a success message and the retrieved scopes.</li>
 <li>If authentication fails, you will see the AAD error message that was returned.</li>
 </ul>
+<h2 id="configuration">Configuration</h2>
+<p>To use all features run <code>./ropci configure</code>. This will ask you for tenant, username, and password.</p>
+<p>Afterwards you can run <code>./ropci logon</code> to use the configuration, get a token and run commands:</p>
+<p><img src="/blog/images/2022/ropci.logon.png" alt="ROPC apps"></p>
+<p>That&rsquo;s it.</p>
+<p>Note: Even if ROPC logon doesn&rsquo;t work and you&rsquo;d like to use <code>ropci</code>, you can attempt devicecode phishing, or just use devicecode auth to get a token for yourself (see <code>./ropci auth devicecode</code>).</p>
 <h2 id="getting-offensive">Getting offensive</h2>
 <p>If you get a token, you can use all the other features of ropci to access the AAD tenant, including:</p>
 <ul>
@@ -209,8 +216,7 @@
 <li>Enumerate applications and scopes</li>
 <li>&hellip;</li>
 </ul>
-<p>Even if ROPC logon doesn&rsquo;t work and you&rsquo;d like to use <code>ropci</code>, you can attempt devicecode phishing, or just use devicecode auth to get a token for yourself (see <code>./ropci auth devicecode</code>).</p>
-<p>I will write about other features in upcoming posts. For this post, let&rsquo;s just discuss the basic test to see if there is an ROPC based attack avenue.</p>
+<p>I will write about how to use these features more in upcoming posts. For this post, let&rsquo;s just discuss the basic test to see if there is an ROPC based attack avenue.</p>
 <h2 id="go-and-test-ropc-scenarios">Go and Test ROPC scenarios!</h2>
 <p>Test your own tenant for these attacks to make sure an adversary can&rsquo;t exploit them:</p>
 <h3 id="attempt-ropc-logons-for-your-aad-tenant-using">Attempt ROPC logons for your AAD tenant using</h3>
@@ -224,6 +230,7 @@
 <li><code>./ropci apps list</code>: Enumerate all OAuth apps in your tenant</li>
 <li><code>./ropci auth bulk</code>: Test all apps, and review results and granted scopes</li>
 </ol>
+<p><img src="/blog/images/2022/ropci.apps.png" alt="ROPC apps"></p>
 <h3 id="ropc-password-sprays">ROPC Password Sprays</h3>
 <ol>
 <li>An adversary can use ROPC to perform a password spray (<code>./ropci auth spray</code>)</li>
@@ -255,6 +262,7 @@
 <li><a href="https://o365blog.com/aadinternals/">AAD Internals</a></li>
 <li><a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#page-9">OAuth 2.0 Security Best Current Practice</a></li>
 <li><a href="https://www.zdnet.com/article/hackers-are-using-this-sneaky-trick-to-exploit-dormant-microsoft-cloud-accounts-and-bypass-multi-factor-authentication/">Hackers are using this sneaky exploit to bypass Microsoft&rsquo;s MFA</a></li>
+<li><a href="https://github.com/wunderwuzzi23/ropci">ropci on Github</a></li>
 </ul>
 
   </section>

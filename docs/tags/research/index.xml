@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Wed, 19 Oct 2022 08:00:29 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 20 Oct 2022 08:00:00 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/research/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,11 +15,12 @@
     <item>
       <title>ROPC - So, you think you have MFA?</title>
       <link>https://embracethered.com/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/</link>
-      <pubDate>Wed, 19 Oct 2022 08:00:29 -0700</pubDate>
+      <pubDate>Thu, 20 Oct 2022 08:00:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/</guid>
       <description>This post will highlight a pattern I have seen across multiple production Microsoft Azure Active Directory tenants which led to MFA bypasses using ROPC.
 The key take-away: Always enforce MFA! Sounds easy, but there are often misconfigurations and unexpected exceptions. So, test your own AAD tenant for ROPC based MFA bypass opportunities.
+Github: https://github.com/wunderwuzzi23/ropci
 What is ROPC? Resource Owner Password Credentials (ROPC) is an OAuth2 authorization grant type (“flow”) defined in RFC 6749.</description>
     </item>
     
