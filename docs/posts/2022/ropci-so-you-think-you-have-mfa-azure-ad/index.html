@@ -220,12 +220,15 @@
 <h2 id="go-and-test-ropc-scenarios">Go and Test ROPC scenarios!</h2>
 <p>Test your own tenant for these attacks to make sure an adversary can&rsquo;t exploit them:</p>
 <h3 id="attempt-ropc-logons-for-your-aad-tenant-using">Attempt ROPC logons for your AAD tenant using</h3>
+<p>These are some of the basic accounts you should try this out for:</p>
 <ol>
-<li>Your own user account</li>
-<li>Service accounts</li>
-<li>AAD only accounts (consider hybrid and federation scenarios)</li>
+<li><strong>Your own user account</strong></li>
+<li><strong>Service accounts</strong></li>
+<li><strong>AAD only accounts</strong> (consider hybrid and federation scenarios)</li>
 </ol>
+<p>Its also good to discuss this topic with your IT admins.</p>
 <h3 id="identify-applications-that-support-ropc-the-offsec-way">Identify applications that support ROPC (the offsec way)</h3>
+<p>Check all apps in your tenant (in case you also have custom ones) and attempt an ROPC logon through them and what scopes are retrieved.</p>
 <ol>
 <li><code>./ropci apps list</code>: Enumerate all OAuth apps in your tenant</li>
 <li><code>./ropci auth bulk</code>: Test all apps, and review results and granted scopes</li>
