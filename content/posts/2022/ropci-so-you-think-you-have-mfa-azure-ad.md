@@ -183,7 +183,7 @@ fyi: `ropci` doesn't change IPs during sprays. Checkout [TeamFiltration](https:/
 
 * Always explicitly enforce MFA! 
 * Security defaults might not adequately protect your user accounts
-* Blocking legacy auth doesn't block ROPC
+* If you block legacy auth via policy, make sure to include "mobile apps and desktop clients"
 * Hybrid and federated MFA enforcement can leave "native" AAD accounts vulnerable
 * **Test and validate your configurations from an offsec point of view!**
 * Some scenarios might remain vulnerable to SFA  => **Should a conscious decisions**
