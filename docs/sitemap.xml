@@ -3,27 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://embracethered.com/blog/posts/2022/device-code-phishing/</loc>
+    <lastmod>2022-11-21T06:00:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2022-11-21T06:00:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/phishing/</loc>
+    <lastmod>2022-11-21T06:00:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2022-11-21T06:00:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2022-11-21T06:00:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/ropci/</loc>
+    <lastmod>2022-11-21T06:00:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2022-11-21T06:00:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <lastmod>2022-11-21T06:00:33-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://embracethered.com/blog/tags/cloud/</loc>
     <lastmod>2022-11-20T18:00:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2022-11-20T18:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://embracethered.com/blog/tags/pentest/</loc>
-    <lastmod>2022-11-20T18:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2022-11-20T18:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
     <lastmod>2022-11-20T18:00:00-07:00</lastmod>
   </url>
   
@@ -34,11 +59,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/2022/ropci-usage/</loc>
-    <lastmod>2022-11-20T18:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2022-11-20T18:00:00-07:00</lastmod>
   </url>
   
@@ -55,11 +75,6 @@
   <url>
     <loc>https://embracethered.com/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/</loc>
     <lastmod>2022-10-20T08:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
-    <lastmod>2022-10-16T11:30:29-07:00</lastmod>
   </url>
   
   <url>
@@ -134,11 +149,6 @@
   
   <url>
     <loc>https://embracethered.com/blog/posts/2022/gpt-3-ai-and-phishing-attacks/</loc>
-    <lastmod>2022-04-11T08:00:43-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/phishing/</loc>
     <lastmod>2022-04-11T08:00:43-07:00</lastmod>
   </url>
   

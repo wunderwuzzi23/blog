@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Device Code Phishing to get access token &middot;  Embrace The Red" />
+  <meta property="og:title" content=" Device Code Phishing Attacks &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2022/device-code-phishing/" />
@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="0001-01-01T00:00:00Z" />
+  <meta property="og:article:published_time" content="2022-11-21T06:00:33-08:00" />
   
   <meta property="og:article:tag" content="phishing" />
   
@@ -19,10 +19,12 @@
   
   <meta property="og:article:tag" content="ttp" />
   
+  <meta property="og:article:tag" content="ropci" />
+  
   
 
   <title>
-     Device Code Phishing to get access token &middot;  Embrace The Red
+     Device Code Phishing Attacks &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -38,9 +40,9 @@
   
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wunderwuzzi23">
-<meta name="twitter:title" content="Device Code Phishing to get access tokens">
-<meta name="twitter:description" content="Leveraging the power of AI">
-<meta name="twitter:image" content="https://embracethered.com/blog/images/2022/hacker.png">
+<meta name="twitter:title" content="Device Code Phishing for Access Tokens">
+<meta name="twitter:description" content="Hardware tokens and Yubikeys will not protect you from device code phishing.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2022/device-code-phish.png">
 
 <meta name="twitter:creator" content="@wunderwuzzi23">
 
@@ -109,13 +111,13 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Device Code Phishing to get access token</h1>
+    <h1 class="text-primary">Device Code Phishing Attacks</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2022-11-21T06:00:33-08:00">
+          Nov 21, 2022
         </time>
       </div>
     
@@ -127,31 +129,54 @@
         
         <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
         
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ropci">#ropci</a></span>
+        
       </div>
     </div>
   </header>
   <section>
-    <p>As more organizations move to hardware tokens, such as Yubikeys or Windows Hello for Business attackers will look for another ways to compromise user accounts.</p>
-<p>One such technique is by using the OAuth2 Device Code Grant Type.</p>
-<h2 id="attack-flow">Attack Flow</h2>
-<p>The attack is quite simple. The attacker starts a Device Code flow. This is one thing that <a href="https://github.com/wunderwuzzi23/ropci">ropci</a> can do, but you can also just issue it with curl or Burp.</p>
+    <p>As more organizations move to hardware tokens and password-less auth (e.g. Yubikeys, Windows Hello,&hellip;) attackers will look for other ways to to trick users to gain access to their data.</p>
+<p>One novel phishing technique is by using the <a href="https://www.rfc-editor.org/rfc/rfc8628">OAuth2 Device Authorization Grant</a>.</p>
+<p>This post describes how it works with Microsoft AAD as example.</p>
+<h1 id="attacker-initiates-the-phishing-flow">Attacker initiates the phishing flow</h1>
+<p>The attacker starts a Device Code flow by issuing a request to the device code token endpoint (e.g. <code>https://login.microsoftonline.com/{tenant}.onmicrosoft.com/oauth2/v2.0/devicecode</code>).</p>
+<p><a href="https://github.com/wunderwuzzi23/ropci">ropci</a> has this feature built in, but it can be issued with <code>curl</code> or <code>Burp</code>.</p>
 <p><code>./ropci auth devicecode</code></p>
 <p><a href="/blog/images/2022/device-code-phishing-attacker.png"><img src="/blog/images/2022/device-code-phishing-attacker.png" alt="ropci"></a></p>
-<p>Grab the Device Code token Microsoft returns and place it into a phishing email. The goal of the attacker is to trick the user to click the link and enter the device code. This is how such a phishing email might look like:</p>
+<p>The command returns the <code>URL</code> and a <code>Code</code> to complete the authorization.</p>
+<h2 id="attacker-sends-the-phishing-email-to-the-victim">Attacker sends the phishing email to the victim</h2>
+<p>The attacker grabs the <code>Code</code> puts it into a phishing email:</p>
 <p><a href="/blog/images/2022/device-code-phishing.png"><img src="/blog/images/2022/device-code-phishing.png" alt="Device Code Phishing Email"></a></p>
-<p>The goal is to trick the user to walk through the auth flow. There are a couple of steps, including entering the device code and granting the requested OAuth app (ropci by default uses Office&rsquo;s client_id) to permission.</p>
+<p>To make the phish more realistic, one can add additional query parameters, like a <code>docid</code> above.</p>
+<h2 id="victim-falls-for-the-phish">Victim falls for the phish</h2>
+<p>There are a couple of steps the victim has to complete in order to grant authorization:</p>
 <p><a href="/blog/images/2022/device-code-phish.png"><img src="/blog/images/2022/device-code-phish.png" alt="Device Code Phishing Steps"></a></p>
+<p>The above images shows the individual steps:</p>
+<ol>
+<li>Click the link in the email and enter the device code</li>
+<li>Login to Microsoft Online (in many cases the user might already be logged in)</li>
+<li>Authorize the OAuth app (in this example Office, which is the default client_id ropci uses)</li>
+<li>Success</li>
+</ol>
+<p>Completing these steps is necessary before an access token will be issued.</p>
+<h2 id="attack-receives-the-access-token">Attack receives the access token</h2>
 <p>Once the victim completes the OAuth flow and grants access, the attacker receives the access token!</p>
 <p><a href="/blog/images/2022/device-code-phishing-attacker-success.png"><img src="/blog/images/2022/device-code-phishing-attacker-success.png" alt="ropci success - stealing/obtaining access token via device code phishing"></a></p>
-<p>Attacker can now use <code>ropci</code> to read the users email, search mail/SharePoint, send mail, read info from all users/groups/apps/devices in the AAD tenant, generally anything that Microsoft Graph API can do. Worst case, if you an attacker phishes a powerful account might be access to other user&rsquo;s data or running commands on Azure VMs, etc.</p>
-<h2 id="mitigation">Mitigation</h2>
-<p>The easiest is likely to entirely disable the Device Code flow in your organization, unless there is a true business need to support it.</p>
-<p>Reviewing and monitoring the device code flow initiator and the host that grants access. Both of these hosts/devices should likely be coming from a similiar IP address.</p>
-<h2 id="attacker-limitations">Attacker limitations</h2>
+<p>The attacker can now use <code>ropci</code> to read the users email, search mail/SharePoint, send mail, read info from all users/groups/apps/devices in the AAD tenant, basically anything that <a href="https://learn.microsoft.com/en-us/graph/use-the-api">Microsoft Graph API</a> allows.</p>
+<h1 id="attacker-limitations">Attacker limitations</h1>
+<p>There is typically a short time window while the device code is valid, which the attacker has to leverage. This means attack campaigns will be automated at scale to increase chances of success (requesting of token and automatic sending of mails).</p>
+<h1 id="mitigations">Mitigations</h1>
 <ol>
-<li>There is only a short time window while the device code is valid, which the attacker has to leverage</li>
-<li>URL redirection post authentication. So far I haven&rsquo;t found a way to redirect the use to another resource post authentication (this would allow an attacker to minimze being reported as suspicious)</li>
+<li>The easiest is likely to entirely disable the Device Code flow in your organization, unless there is a true business need to support it.</li>
+<li>Keeping the time window short to ensure an attack succeeds are unlikely.</li>
+<li>Reviewing and monitoring the device code flow initiator and the host that grants access. Both of these hosts/devices should likely be coming from a similiar IP address.</li>
 </ol>
+<h1 id="references">References</h1>
+<ul>
+<li>RFC -  OAuth 2.0 Device Authorization Grant: <a href="https://www.rfc-editor.org/rfc/rfc8628">https://www.rfc-editor.org/rfc/rfc8628</a></li>
+<li>ropci - ROPC Attack tool (<a href="https://github.com/wunderwuzzi23/ropci">https://github.com/wunderwuzzi23/ropci</a>)</li>
+<li><a href="https://learn.microsoft.com/en-us/graph/use-the-api">Graph API</a></li>
+</ul>
 
   </section>
   <footer>
@@ -162,7 +187,7 @@
     
     <ul class="pager">
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/passthecookie/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">
@@ -174,7 +199,7 @@
 
       
       
-      <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2022/ropci-usage/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>

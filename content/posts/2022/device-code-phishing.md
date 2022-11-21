@@ -1,6 +1,6 @@
 ---
 title: "Device Code Phishing Attacks"
-date: 2022-11-21T00:00:33-08:00
+date: 2022-11-21T06:00:33-08:00
 draft: true
 tags: [
         "phishing","red", "ttp", "ropci"
@@ -16,9 +16,11 @@ twitter:
 ---
 
 
-As more organizations move to hardware tokens and password-less auth (e.g. Yubikeys, Windows Hello,...) attackers will look for other ways to to trick users to gain access to their data. 
+As more organizations move to hardware tokens and password-less auth (e.g. Yubi-keys, Windows Hello for Business,...) attackers will look for other ways to to trick users to gain access to their data. 
 
-One such technique is by using the [OAuth2 Device Authorization Grant](https://www.rfc-editor.org/rfc/rfc8628).
+One novel phishing technique is by using the [OAuth2 Device Authorization Grant](https://www.rfc-editor.org/rfc/rfc8628).
+
+This post describes how it works with Microsoft AAD as example.
 
 # Attacker initiates the phishing flow
 
@@ -72,11 +74,8 @@ There is typically a short time window while the device code is valid, which the
 # Mitigations
 
 1. The easiest is likely to entirely disable the Device Code flow in your organization, unless there is a true business need to support it.
-1. Keeping the time window short to ensure an attack succeeds are unlikely.
+1. Keeping the time window short to limit an attacker's chance
 2. Reviewing and monitoring the device code flow initiator and the host that grants access. Both of these hosts/devices should likely be coming from a similiar IP address. 
-
-
-
 
 # References
 
