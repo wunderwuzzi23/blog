@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Thu, 20 Oct 2022 09:00:10 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 20 Nov 2022 18:00:00 -0700</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ropci deep-dive for Azure hackers</title>
+      <link>https://embracethered.com/blog/posts/2022/ropci-usage/</link>
+      <pubDate>Sun, 20 Nov 2022 18:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/ropci-usage/</guid>
+      <description>Misconfigurations with MFA setups are not uncommon when using AAD, especially when federated setups or Pass Through Authentication is configured I have seen MFA bypass opportunities in multiple production tenants.
+A common misconfiguration is that MFA is enforced at the federated identity provider, but AAD is forgotten and ROPC authentication still succeeds against AAD.
+To learn more about ROPC, check out the previous post about the topic.
+This post focuses on the ropci features that can be leveraged post-exploitation.</description>
+    </item>
     
     <item>
       <title>PenTest Magazine Open Source Toolkit: ropci</title>
