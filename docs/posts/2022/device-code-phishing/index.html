@@ -135,7 +135,7 @@
     </div>
   </header>
   <section>
-    <p>As more organizations move to hardware tokens and password-less auth (e.g. Yubikeys, Windows Hello,&hellip;) attackers will look for other ways to to trick users to gain access to their data.</p>
+    <p>As more organizations move to hardware tokens and password-less auth (e.g. Yubi-keys, Windows Hello for Business,&hellip;) attackers will look for other ways to to trick users to gain access to their data.</p>
 <p>One novel phishing technique is by using the <a href="https://www.rfc-editor.org/rfc/rfc8628">OAuth2 Device Authorization Grant</a>.</p>
 <p>This post describes how it works with Microsoft AAD as example.</p>
 <h1 id="attacker-initiates-the-phishing-flow">Attacker initiates the phishing flow</h1>
@@ -168,7 +168,7 @@
 <h1 id="mitigations">Mitigations</h1>
 <ol>
 <li>The easiest is likely to entirely disable the Device Code flow in your organization, unless there is a true business need to support it.</li>
-<li>Keeping the time window short to ensure an attack succeeds are unlikely.</li>
+<li>Keeping the time window short to limit an attacker&rsquo;s chance</li>
 <li>Reviewing and monitoring the device code flow initiator and the host that grants access. Both of these hosts/devices should likely be coming from a similiar IP address.</li>
 </ol>
 <h1 id="references">References</h1>
@@ -187,7 +187,7 @@
     
     <ul class="pager">
       
-      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2022/chatgpt-imagine-you-are-a-database/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">

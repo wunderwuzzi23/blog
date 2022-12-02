@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>db on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/db/</link>
+    <description>Recent content in db on Embrace The Red</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
+    <lastBuildDate>Fri, 02 Dec 2022 08:41:49 -0800</lastBuildDate>
+    
+	<atom:link href="https://embracethered.com/blog/tags/db/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ChatGPT: Imagine you are a database server</title>
+      <link>https://embracethered.com/blog/posts/2022/chatgpt-imagine-you-are-a-database/</link>
+      <pubDate>Fri, 02 Dec 2022 08:41:49 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2022/chatgpt-imagine-you-are-a-database/</guid>
+      <description>After reading this post about ChatGPT imitating Linux, I wanted it to be a database server.
+Let&amp;rsquo;s try it out!
+ Imagine you are a Microsoft SQL Server. I type commands, and you reply with the result, and no other information or descriptions. Just the result. Start with exec xp_cmdshell &amp;lsquo;whoami&amp;rsquo;;
+ 
+Wow, this looks like a promising start.
+And, it &amp;ldquo;thinks&amp;rdquo; that it is running as LOCAL SYSTEM - quite funny actually.</description>
+    </item>
+    
+  </channel>
+</rss>
