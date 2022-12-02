@@ -66,7 +66,7 @@ Additionally, ChatGPT also provided an example on how to call the stored procedu
 
 [![ChatGPT - Database](/blog/images/2022/chatgpt-db8.png)](/blog/images/2022/chatgpt-db8.png)
 
-Amazing.
+Cool.
 
 As a final example for this post, I used the newly created stored procedure and it works.
 
