@@ -6,11 +6,22 @@
     <description>Recent content on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Fri, 02 Dec 2022 08:41:49 -0800</lastBuildDate>
+    <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
+    <lastBuildDate>Wed, 04 Jan 2023 06:36:05 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Decrypting TLS browser traffic with Wireshark</title>
+      <link>https://embracethered.com/blog/posts/2023/decrypt-wireshark-traffic-https-netsh/</link>
+      <pubDate>Wed, 04 Jan 2023 06:36:05 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/decrypt-wireshark-traffic-https-netsh/</guid>
+      <description>There is a combination of lesser known tools and techniques to capture and later decrypt SSL/TLS network traffic on Windows. This technique is neat because it does not require the installation of additional driver/software when capturing the traffic.
+Technique, Tools and Steps It is quite straight forward and consists of:
+ Setting the SSLKEYLOGFILE environment variable to capture TLS session keys on target host Use netsh trace start to capture traffic (no need to install additional driver/software!</description>
+    </item>
     
     <item>
       <title>ChatGPT: Imagine you are a database server</title>

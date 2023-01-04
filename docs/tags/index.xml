@@ -6,11 +6,29 @@
     <description>Recent content in Tags on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Fri, 02 Dec 2022 08:41:49 -0800</lastBuildDate>
+    <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
+    <lastBuildDate>Wed, 04 Jan 2023 06:36:05 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>red team</title>
+      <link>https://embracethered.com/blog/tags/red-team/</link>
+      <pubDate>Wed, 04 Jan 2023 06:36:05 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/red-team/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ttp</title>
+      <link>https://embracethered.com/blog/tags/ttp/</link>
+      <pubDate>Wed, 04 Jan 2023 06:36:05 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ttp/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>aiml</title>
@@ -63,15 +81,6 @@
       <pubDate>Mon, 21 Nov 2022 06:00:33 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ropci/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ttp</title>
-      <link>https://embracethered.com/blog/tags/ttp/</link>
-      <pubDate>Mon, 21 Nov 2022 06:00:33 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ttp/</guid>
       <description></description>
     </item>
     
