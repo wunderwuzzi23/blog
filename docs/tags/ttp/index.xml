@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Wed, 04 Jan 2023 06:36:05 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Jan 2023 09:31:58 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/ttp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Video Tutorial: Hijacking SSH Agent</title>
+      <link>https://embracethered.com/blog/posts/2023/video-hijacking-ssh-agent/</link>
+      <pubDate>Wed, 25 Jan 2023 09:31:58 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/video-hijacking-ssh-agent/</guid>
+      <description>Recently I got the feedback to create more tutorials and videos, and I thought SSH Agent Hijacking on Linux and macOS (which I wrote about before here) would make a good one.
+The video tutorial is here.
+
+If you like this kind of content, then comment or like the video on YouTube and I&amp;rsquo;ll create more.
+Hope it&amp;rsquo;s useful to get a good basic understanding of this TTP, and help build detections for it.</description>
+    </item>
     
     <item>
       <title>Decrypting TLS browser traffic with Wireshark</title>

@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Wed, 04 Jan 2023 06:36:05 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Jan 2023 09:31:58 -0800</lastBuildDate>
     
 	<atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>pentest</title>
+      <link>https://embracethered.com/blog/tags/pentest/</link>
+      <pubDate>Wed, 25 Jan 2023 09:31:58 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/pentest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red</title>
+      <link>https://embracethered.com/blog/tags/red/</link>
+      <pubDate>Wed, 25 Jan 2023 09:31:58 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ttp</title>
+      <link>https://embracethered.com/blog/tags/ttp/</link>
+      <pubDate>Wed, 25 Jan 2023 09:31:58 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ttp/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>red team</title>
@@ -18,15 +45,6 @@
       <pubDate>Wed, 04 Jan 2023 06:36:05 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/red-team/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ttp</title>
-      <link>https://embracethered.com/blog/tags/ttp/</link>
-      <pubDate>Wed, 04 Jan 2023 06:36:05 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ttp/</guid>
       <description></description>
     </item>
     
@@ -67,15 +85,6 @@
     </item>
     
     <item>
-      <title>red</title>
-      <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Mon, 21 Nov 2022 06:00:33 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/red/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>ropci</title>
       <link>https://embracethered.com/blog/tags/ropci/</link>
       <pubDate>Mon, 21 Nov 2022 06:00:33 -0800</pubDate>
@@ -90,15 +99,6 @@
       <pubDate>Sun, 20 Nov 2022 18:00:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/cloud/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pentest</title>
-      <link>https://embracethered.com/blog/tags/pentest/</link>
-      <pubDate>Sun, 20 Nov 2022 18:00:00 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/pentest/</guid>
       <description></description>
     </item>
     

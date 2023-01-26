@@ -3,24 +3,26 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Decrypting TLS browser traffic with Wireshark &middot;  Embrace The Red" />
+  <meta property="og:title" content=" Video Tutorial: Hijacking SSH Agent &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
-  <meta property="og:url" content="https://embracethered.com/blog/posts/2023/decrypt-wireshark-traffic-https-netsh/" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2023/video-hijacking-ssh-agent/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2023-01-04T06:36:05-08:00" />
-  
-  <meta property="og:article:tag" content="red team" />
+  <meta property="og:article:published_time" content="2023-01-25T09:31:58-08:00" />
   
   <meta property="og:article:tag" content="ttp" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="pentest" />
   
   
 
   <title>
-     Decrypting TLS browser traffic with Wireshark &middot;  Embrace The Red
+     Video Tutorial: Hijacking SSH Agent &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -36,9 +38,9 @@
   
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wunderwuzzi23">
-<meta name="twitter:title" content="Decrypting TLS browser traffic with Wireshark and netsh">
-<meta name="twitter:description" content="Decrypt https web browser traffic with Wireshark and netsh (doing it the Red Team way)">
-<meta name="twitter:image" content="https://embracethered.com/blog/images/2023/decrypt3-small.png">
+<meta name="twitter:title" content="Video: Hijacking SSH Agent">
+<meta name="twitter:description" content="Adding date and time to your shell prompts">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2022/hijack-youtube-small.png">
 
 <meta name="twitter:creator" content="@wunderwuzzi23">
 
@@ -111,57 +113,34 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Decrypting TLS browser traffic with Wireshark</h1>
+    <h1 class="text-primary">Video Tutorial: Hijacking SSH Agent</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2023-01-04T06:36:05-08:00">
-          Jan 4, 2023
+        <time datetime="2023-01-25T09:31:58-08:00">
+          Jan 25, 2023
         </time>
       </div>
     
       <div class="pull-right">
         
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red-team">#red team</a></span>
-        
         <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/pentest">#pentest</a></span>
         
       </div>
     </div>
   </header>
   <section>
-    <p>There is a combination of lesser known tools and techniques to capture and later decrypt SSL/TLS network traffic on Windows. This technique is neat because it does not require the installation of additional driver/software when capturing the traffic.</p>
-<h2 id="technique-tools-and-steps">Technique, Tools and Steps</h2>
-<p>It is quite straight forward and consists of:</p>
-<ol>
-<li>Setting the <code>SSLKEYLOGFILE</code> environment variable to capture TLS session keys on target host</li>
-<li>Use <code>netsh trace start</code> to capture traffic (no need to install additional driver/software!)</li>
-<li>Convert the <code>.etl</code> file to a <code>pcap</code> using Microsoft&rsquo;s <a href="https://github.com/microsoft/etl2pcapng">etl2pcapng</a></li>
-<li>Start <code>Wireshark</code>, open the pcap and set the sslkeys under: <em>Preferences-&gt;Protocols-&gt;TLS-&gt;Pre-Master secret</em>.
-This does not have to be on the same host as steps 1-2.</li>
-<li>Enjoy the decrypted traffic!</li>
-</ol>
-<p>If you can or want to capture traffic with Wireshark also, there is no need to use <code>netsh</code> of course.</p>
-<h2 id="video-tutorial">Video Tutorial</h2>
-<p>I put together a tutorial and you can watch it <a href="https://www.youtube.com/watch?v=nulBm-VgT4s">here</a>.</p>
-<p><a href="https://www.youtube.com/watch?v=nulBm-VgT4s"><img src="/blog/images/2023/decrypt-youtube-small.png" alt="Decrypt https traffic with Wireshark"></a></p>
-<p>If you enjoy the content and/or video, please like it and Subscribe to the YouTube channel. I might post videos more regularly if these are useful.</p>
-<p>Cheers and Happy Hacking!</p>
-<h2 id="appendix">Appendix</h2>
-<p>List of commands:</p>
-<pre><code>[Environment]::SetEnvironmentVariable(&quot;SSLKEYLOGFILE&quot;, &quot;c:\temp\sslkeys\keys&quot;, &quot;MACHINE&quot;)
-
-taskkill /im chrome.exe /f
-
-netsh trace start capture=yes tracefile=c:\temp\sslkeys\trace.etl report=disabled
-netsh trace stop
-
-etl2pcapng trace.etl trace.pcap
-</code></pre><h2 id="references">References</h2>
-<ul>
-<li><a href="https://github.com/microsoft/etl2pcapng">etl2pcapng</a></li>
-</ul>
+    <p>Recently I got the feedback to create more tutorials and videos, and I thought SSH Agent Hijacking on Linux and macOS (which I wrote about before <a href="/blog/posts/2022/ttp-diaries-ssh-agent-hijacking">here</a>) would make a good one.</p>
+<p>The video tutorial is <a href="https://www.youtube.com/watch?v=hv7JwhwT0iQ">here</a>.</p>
+<p><a href="https://www.youtube.com/watch?v=hv7JwhwT0iQ"><img src="/blog/images/2023/hijack-youtube-small.png" alt="Hijacking SSH Agent on Linux and macOS"></a></p>
+<p>If you like this kind of content, then comment or like the video on YouTube and I&rsquo;ll create more.</p>
+<p>Hope it&rsquo;s useful to get a good basic understanding of this TTP, and help build detections for it.</p>
+<p>Happy hacking~~~</p>
 
   </section>
   <footer>
@@ -172,7 +151,7 @@ etl2pcapng trace.etl trace.pcap
     
     <ul class="pager">
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2023/video-hijacking-ssh-agent/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">
@@ -184,7 +163,7 @@ etl2pcapng trace.etl trace.pcap
 
       
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2022/chatgpt-imagine-you-are-a-database/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2023/decrypt-wireshark-traffic-https-netsh/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>
