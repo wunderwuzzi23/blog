@@ -12,7 +12,7 @@ twitter:
   creator: "@wunderwuzzi23"
   title: "Video: Hijacking SSH Agent"
   description:  "Adding date and time to your shell prompts"
-  image: "https://embracethered.com/blog/images/2022/hijack-youtube-small.png"
+  image: "https://embracethered.com/blog/images/2023/hijack-youtube-small.png"
 ---
 
 Recently I got the feedback to create more tutorials and videos, and I thought SSH Agent Hijacking on Linux and macOS (which I wrote about before [here](/blog/posts/2022/ttp-diaries-ssh-agent-hijacking)) would make a good one. 
