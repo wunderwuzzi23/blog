@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Mon, 06 Apr 2020 21:00:30 -0700</lastBuildDate>
-    
-	<atom:link href="https://embracethered.com/blog/tags/presentations/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 06 Apr 2020 21:00:30 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/presentations/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Attack Graphs - How to create and present them</title>
       <link>https://embracethered.com/blog/posts/2020/conceptual-attack-graphs/</link>

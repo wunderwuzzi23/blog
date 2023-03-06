@@ -156,9 +156,9 @@
 <p><img src="/blog/images/2020/sshagentforwarding.jpg" alt="SSH Agent Forwarding"></p>
 <p>If Mallory (the attacker) gains access to an engineers laptop, she can leverage any SSH keys the SSH Agent stores to access other hosts - even if the private keys are passphrase protected.</p>
 <p>Let&rsquo;s say Mallory gets access to Alice&rsquo;s Windows laptop. First Mallory checks if any SSH private keys are stored on the machine:</p>
-<pre><code>ls C:\Users\*\.ssh\*
+<pre tabindex="0"><code>ls C:\Users\*\.ssh\*
 </code></pre><p>The results look promising:</p>
-<pre><code>PS C:\&gt; ls C:\Users\*\.ssh\*
+<pre tabindex="0"><code>PS C:\&gt; ls C:\Users\*\.ssh\*
     Directory: C:\Users\alice\.ssh
 
 Mode                 LastWriteTime         Length Name
@@ -172,11 +172,11 @@ Mode                 LastWriteTime         Length Name
 <p>But there is another avenue to explore, namely SSH Agent!</p>
 <p>See, the SSH Agent is often configured and loaded up with keys in order to forward them to other hosts, or through Bastion hosts. This is a way for engineers to not have to enter their passphrase again and again, and also (more importantly) to not have to store copies of keys to the file system of other machines.</p>
 <p>To check if SSH Agent has keys stored right now Mallory runs this command (as Alice):</p>
-<pre><code>PS C:\&gt; ssh-add -l
+<pre tabindex="0"><code>PS C:\&gt; ssh-add -l
 2048 SHA256:2HFp2c2vRfGnEPs+e6X6I7+2Iyq3O7I+YQJWUQvBIeZ .\.ssh\alice-prod.pem (RSA)
 </code></pre><p><strong>Bingo!</strong></p>
 <p>This means Mallory can just use <code>ssh</code> (without a password or providing an identity file):</p>
-<pre><code>ssh production-host 
+<pre tabindex="0"><code>ssh production-host 
 </code></pre><p><strong>Voila!</strong></p>
 <p>This is a threat that production systems that allow SSH access have to deal with.</p>
 <p>If the compromised host of the engineer runs Linux, and not Windows the commands are basically the same.</p>
@@ -192,7 +192,7 @@ Mode                 LastWriteTime         Length Name
 <p>Further more it states the location for the socket file, nameley <code>$TMPDIR/ssh-XXXXXXXXXX/agent.&lt;ppid&gt;</code>.</p>
 <p>Running <code>ssh-agent</code> shows these details.</p>
 <p>All that Mallory needs to do is set that environment variable for <code>SSH_AUTH_SOCK</code> and <code>SSH_AGENT_ID</code> before running <code>ssh</code>:</p>
-<pre><code>SSH_AUTH_SOCK=SSH_AUTH_SOCK=/tmp/ssh-WMmT2Ee6UNF3/agent.1841171
+<pre tabindex="0"><code>SSH_AUTH_SOCK=SSH_AUTH_SOCK=/tmp/ssh-WMmT2Ee6UNF3/agent.1841171
 </code></pre><p>And afterward Mallory can happily type <code>ssh targethost</code> (or do it all on same line) and pivot to the next machine.</p>
 <p>In the case of Husky AI this allows Mallory who compromised the ML engineers laptop (let&rsquo;s say via phishing) to pivot into production and gain read/write access to the model file.</p>
 <p>This is one way to gain access to a model file, and how traditional red teamers would approach this problem. But let&rsquo;s look at some entirely different methods.</p>
@@ -225,13 +225,13 @@ Mode                 LastWriteTime         Length Name
 </ol>
 <h2 id="ssh-agent-info-on-windows">SSH-Agent info on Windows</h2>
 <p>I was wondering if this also works with the Windows 10 SSH client. It turns out that Windows is currently using the following named pipe for this. You can find it by running:</p>
-<pre><code>PS C:\WINDOWS\system32&gt; Start-Service ssh-agent
+<pre tabindex="0"><code>PS C:\WINDOWS\system32&gt; Start-Service ssh-agent
 PS C:\WINDOWS\system32&gt;  [System.IO.Directory]::GetFiles(&quot;\\.\\pipe\\&quot;) | sls agent
 
 \\.\\pipe\\openssh-ssh-agent
 </code></pre><h2 id="adding-a-key-to-ssh-agent">Adding a key to SSH Agent</h2>
 <p>Initially when Alice added the private key to the SSH Agent, she had to enter the passphrase:</p>
-<pre><code>alice@alice-ubuntu:~$ ssh-add .ssh/alice-prod
+<pre tabindex="0"><code>alice@alice-ubuntu:~$ ssh-add .ssh/alice-prod
 Enter passphrase for .ssh/alice-prod
 Identity added: .ssh/alice-prod (alice@alice-ubuntu)
 </code></pre><h2 id="references">References</h2>

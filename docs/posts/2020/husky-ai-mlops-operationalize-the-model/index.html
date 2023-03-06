@@ -140,11 +140,11 @@
 <p>The web server uses self-signed TLS certificates to protect the internal traffic (gateway to web server).</p>
 <h3 id="loading-the-model-file">Loading the model file</h3>
 <p>An important part for an attacker to be aware is that the code is loading the model from the disk with the following line:</p>
-<pre><code>MODEL = tf.keras.models.load_model(&quot;models/huskymodel.h5&quot;)
+<pre tabindex="0"><code>MODEL = tf.keras.models.load_model(&quot;models/huskymodel.h5&quot;)
 </code></pre><p><strong>Attack idea:</strong> For backdooring, we will only have to update that file with something malicious. There is no authenticity or integrity checking. We will look at this more in the threat model and attack posts.</p>
 <h3 id="processing-the-incoming-image">Processing the incoming image</h3>
 <p>The core part logic on the server for running a prediction looks like this:</p>
-<pre><code>    img = Image.open(io.BytesIO(data)).convert(&quot;RGB&quot;)
+<pre tabindex="0"><code>    img = Image.open(io.BytesIO(data)).convert(&quot;RGB&quot;)
     img = img.resize((num_px, num_px))
 
     image = np.array(img)/255.

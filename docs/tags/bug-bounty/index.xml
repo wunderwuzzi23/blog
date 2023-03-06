@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Wed, 01 Jul 2020 10:30:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://embracethered.com/blog/tags/bug-bounty/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 01 Jul 2020 10:30:00 +0000</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/bug-bounty/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blast from the past: Cross Site Scripting on the AWS Console</title>
       <link>https://embracethered.com/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/</link>

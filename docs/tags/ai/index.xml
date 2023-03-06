@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Sun, 28 Aug 2022 20:10:44 -0700</lastBuildDate>
-    
-	<atom:link href="https://embracethered.com/blog/tags/ai/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 28 Aug 2022 20:10:44 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Machine Learning Attack Series: Backdooring Pickle Files</title>
       <link>https://embracethered.com/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/</link>

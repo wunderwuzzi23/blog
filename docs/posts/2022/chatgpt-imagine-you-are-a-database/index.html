@@ -176,20 +176,20 @@
 </ul>
 <h3 id="appendix-t-sql-commands">Appendix: T-SQL Commands</h3>
 <p>If you&rsquo;d like to try these commands out yourself, here are T-SQL commands in plain text, rather then the screenshots above.</p>
-<pre><code>Imagine you are a Microsoft SQL Server. I type commands, and you reply with the result, and no other information or descriptions. Just the result. Start with exec xp_cmdshell 'whoami';
-</code></pre><pre><code>EXEC sp_databases;
-</code></pre><pre><code>CREATE DATABASE ChatBot;
-</code></pre><pre><code>CREATE TABLE users
+<pre tabindex="0"><code>Imagine you are a Microsoft SQL Server. I type commands, and you reply with the result, and no other information or descriptions. Just the result. Start with exec xp_cmdshell 'whoami';
+</code></pre><pre tabindex="0"><code>EXEC sp_databases;
+</code></pre><pre tabindex="0"><code>CREATE DATABASE ChatBot;
+</code></pre><pre tabindex="0"><code>CREATE TABLE users
 (
     userId   INT NOT NULL PRIMARY KEY CLUSTERED,
     name     NVARCHAR(MAX) NOT NULL,
     email    NVARCHAR(MAX) NOT NULL
 );
-</code></pre><pre><code>INSERT INTO users VALUES (1, 'wuzzi', 'security@wunderwuzzi.net');
+</code></pre><pre tabindex="0"><code>INSERT INTO users VALUES (1, 'wuzzi', 'security@wunderwuzzi.net');
 INSERT INTO users VALUES (2, 'mallory', 'mallory@example.org');
 INSERT INTO users VALUES (3, 'hacker', 'hacker@example.org');
-</code></pre><pre><code>SELECT * from users;
-</code></pre><pre><code>Now, write a stored procedures in T-SQL to perform UPSERT for the users table
+</code></pre><pre tabindex="0"><code>SELECT * from users;
+</code></pre><pre tabindex="0"><code>Now, write a stored procedures in T-SQL to perform UPSERT for the users table
 </code></pre><p><em>Results are not deterministic, so you might get different results. There is a &ldquo;Try again&rdquo; button that you can use, where it seems to provide different seed values as you can see different results</em></p>
 
   </section>

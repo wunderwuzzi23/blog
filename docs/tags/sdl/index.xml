@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Fri, 12 Jun 2020 10:00:25 -0700</lastBuildDate>
-    
-	<atom:link href="https://embracethered.com/blog/tags/sdl/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 12 Jun 2020 10:00:25 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/sdl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Putting system owners in Security Bug Jail</title>
       <link>https://embracethered.com/blog/posts/2020/bugjail/</link>

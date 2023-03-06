@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Wed, 25 Jan 2023 09:31:58 -0800</lastBuildDate>
-    
-	<atom:link href="https://embracethered.com/blog/tags/ttp/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 25 Jan 2023 09:31:58 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ttp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Video Tutorial: Hijacking SSH Agent</title>
       <link>https://embracethered.com/blog/posts/2023/video-hijacking-ssh-agent/</link>

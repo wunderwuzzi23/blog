@@ -150,7 +150,7 @@
 <p>For the <code>Bash</code> based Linux/macOS version <code>curl</code> is used. Interestingly my router did not mind some incorrect headers and strings in the <code>SIP</code> requests.</p>
 <p><em>If you are on macOS you might have to modify the way to get local IP, if you don&rsquo;t have <code>ip</code> available. Or just manually update the script and insert the IP on your local network</em></p>
 <p>This is how the request looks like:</p>
-<pre><code>REGISTER sip:example.org;transport=TCP SIP/2.0
+<pre tabindex="0"><code>REGISTER sip:example.org;transport=TCP SIP/2.0
 Via: SIP/2.0/TCP 192.168.0.141:5060;branch=I9hG4bK-d8754z-c2ac7de1b3ce90f7-1---d8754z-;rport;transport=TCP
 Max-Forwards: 70
 Contact: &lt;sip:wuzzi@192.168.0.141:1433;rinstance=v40f3f83b335139c;transport=TCP&gt;
@@ -174,7 +174,7 @@ Content-Length: 0
 <p>If your router has <code>ALG</code> for <code>SIP</code> enabled, it will replace the internal IP address in the packet (in this case <code>192.168.0.141</code>) with the routers public IP address.</p>
 <h3 id="sip-response">SIP Response</h3>
 <p>After receiving the client&rsquo;s request, the server responds with the following message:</p>
-<pre><code>SIP/2.0 200 OK
+<pre tabindex="0"><code>SIP/2.0 200 OK
 Via: SIP/2.0/TCP 174.nn.nn.nnn:59973;branch=I9hG4bK-d8754z-c2ac7de1b3ce90f7-1---d8754z-;rport;transport=TCP;received=10.10.10.10
 From: &lt;sip:wuzzi@example.org;transport=TCP&gt;;tag=U7c3d519
 To: &lt;sip:wuzzi@example.org;transport=TCP&gt;;tag=37GkEhwl6

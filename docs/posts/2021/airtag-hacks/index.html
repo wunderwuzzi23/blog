@@ -151,7 +151,7 @@
 <h2 id="browsers-to-the-rescue">Browsers to the rescue</h2>
 <p>Turns out that we can also use the browser to scan for Bluetooth device advertisements. In particular Chrome 92+ (<a href="https://chromereleases.googleblog.com/2021/06/chrome-beta-for-android-update_0893144828.html">currently in beta for Android users</a>) supports <code>requestDevice</code> and filtering via a <code>dataPrefix</code>.</p>
 <p>The code I stitched together looks like this:</p>
-<pre><code> navigator.bluetooth.requestDevice({
+<pre tabindex="0"><code> navigator.bluetooth.requestDevice({
       filters: [{ manufacturerData: [ 
                   {  
                     companyIdentifier: 0x004c,            // Apple 

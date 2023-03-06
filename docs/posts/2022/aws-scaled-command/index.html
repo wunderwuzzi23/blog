@@ -140,7 +140,7 @@
 <p>How do you go about checking their validity? And what do they have access to and provide the Bug Bounty Program or Blue Team the dates, times, and IP address when those keys were used?</p>
 <p>And, most importantly what if you want to run one command, but run them across all AWS profiles?</p>
 <p>For that purpose, I have used a simple <code>bash</code> script called <code>aws-scaled-command.sh</code>:</p>
-<pre><code>#!/bin/bash
+<pre tabindex="0"><code>#!/bin/bash
 
 PROFILES=$(cat ~/.aws/credentials | grep  '\[*.\]' | sed 's/[][]//g')
 CMD=$1

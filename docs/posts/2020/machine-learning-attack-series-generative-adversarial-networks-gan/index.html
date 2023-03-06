@@ -167,7 +167,7 @@
 <h3 id="google-colab-notebook---code">Google Colab Notebook - Code</h3>
 <p>For <code>StyleGAN2-ADA</code>, let me show you some of the core code snippets from my Google Colab Notebook. The code for <code>StyleGAN2-ADA</code> can be downloaded from <a href="https://github.com/NVlabs/stylegan2-ada">NVidia&rsquo;s Github repo</a>.</p>
 <p>The first step was to upload the husky training images and pre-process them, so they all have the same size.</p>
-<pre><code>!unzip &quot;/content/drive/My Drive/HuskyAI/1600huskies.zip&quot; -d &quot;images/train/&quot;
+<pre tabindex="0"><code>!unzip &quot;/content/drive/My Drive/HuskyAI/1600huskies.zip&quot; -d &quot;images/train/&quot;
 !mkdir /content/images/stylegan
 
 NUM_PX = 512
@@ -181,14 +181,14 @@ for filename in tqdm(os.listdir(DATA_DIR)):
     save_path = os.path.join(SAVE_DIR, filename)
     image.save(save_path)
 </code></pre><p>Next, I used the <code>dataset_tool.py</code> of StyleGAN2 to create images of the correct format that StyleGAN requires:</p>
-<pre><code>!python dataset_tool.py create_from_images /content/datasets/huskies /content/images/stylegan/
+<pre tabindex="0"><code>!python dataset_tool.py create_from_images /content/datasets/huskies /content/images/stylegan/
 </code></pre><p>And then it was time to do the training:</p>
-<pre><code>!python train.py --outdir=/content/drive/My\ Drive/HuskyAI/stylegan2-ada-results --gpus=1 \ 
+<pre tabindex="0"><code>!python train.py --outdir=/content/drive/My\ Drive/HuskyAI/stylegan2-ada-results --gpus=1 \ 
 --data=/content/datasets/huskies \
 --mirror=1 --snap=1 
 </code></pre><p>It&rsquo;s also possible to stop the training and resume at a later point by providing the <code>.pkl</code> files that are saved by <code>StyleGAN2</code> along the way.</p>
 <p>After the training, we can create new fake images.</p>
-<pre><code>!python generate.py generate-images \
+<pre tabindex="0"><code>!python generate.py generate-images \
 --network=/content/drive/My\ Drive/HuskyAI/stylegan2-ada-results/00002-huskies--mirror-auto1-resumecustom/network-snapshot-000250.pkl --seeds=670 class
 </code></pre><p>Those are the core basic steps of using StyleGAN2-ADA.</p>
 <h2 id="videos-and-interpolation">Videos and Interpolation</h2>

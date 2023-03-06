@@ -136,7 +136,7 @@
 <p><a href="/blog/images/2020/husky-prediction.jpg"><img src="/blog/images/2020/husky-prediction.jpg" alt="Husky Prediction Example"></a></p>
 <p>If you are curious the code for the simple web server is located <a href="https://github.com/wunderwuzzi23/ai/blob/master/huskyai/huskyai.py">here</a>.</p>
 <p>To interact with the API I&rsquo;m using the following code:</p>
-<pre><code>ENDPOINT = &quot;https://example.org/huskyai&quot;
+<pre tabindex="0"><code>ENDPOINT = &quot;https://example.org/huskyai&quot;
 
 def predict(np_candidate):
 
@@ -177,7 +177,7 @@ def predict(np_candidate):
 <p>When testing software to find bugs, a good strategy is testing boundary scenarios. Hence, I thought of doing the same in this case. With machine learning there are special tools and techniques available, such as adversarial learning models, Cleverhans and others which I want to research and look at later.</p>
 <p>The three test cases that seemed interesting initially were <strong>all 0</strong>, <strong>all 1</strong> and images with <strong>random pixels</strong>.</p>
 <p>Here is the code snippet I used to create these test images and run them through the prediction web endpoint:</p>
-<pre><code>candidate_rand  = np.random.random([1, NUM_PX, NUM_PX, 3])
+<pre tabindex="0"><code>candidate_rand  = np.random.random([1, NUM_PX, NUM_PX, 3])
 candidate_zeros = np.zeros([1, NUM_PX, NUM_PX, 3])
 candidate_ones  = np.ones([1, NUM_PX, NUM_PX, 3])
 
@@ -219,7 +219,7 @@ It will be exciting to try more advanced attacks (includ ML based ones) after fi
 <h3 id="adversarial-training">Adversarial training</h3>
 <p>The simple mitigation seems to be to train the model on these corner cases and teach the model that such images are not huskies.</p>
 <p>This can be done using code like this:</p>
-<pre><code>labels = [0,0,0]
+<pre tabindex="0"><code>labels = [0,0,0]
 images = [candidate_rand[0], candidate_zeros[0], candidate_ones[0]]
 
 print(&quot;Fitting model...&quot;)
@@ -229,7 +229,7 @@ print(&quot;Random Canvas: &quot; + str(model.predict(candidate_rand)))
 print(&quot;Zeros Canvas:  &quot; + str(model.predict(candidate_zeros)))
 print(&quot;Ones Canvas:   &quot; + str(model.predict(candidate_ones)))
 </code></pre><p>Since I am experimenting to learn, I only trained for a single epoch initially, here are the results:</p>
-<pre><code>Fitting model...
+<pre tabindex="0"><code>Fitting model...
 
 Random Canvas: [[0.25112703]]
 Zeros Canvas:  [[7.170946e-05]]
@@ -237,7 +237,7 @@ Ones Canvas:   [[0.5275204]]
 </code></pre><p>These number are still bad, so I trained for more epochs. Overfitting did not seem too much of a concern as these images are far off real huskies. I think it would further improve the model to cycle the random pixels for each epoch even.</p>
 <h4 id="testing-the-mitigation-brute-forcing-images">Testing the mitigation (brute forcing images)</h4>
 <p>To check I built this basic brute force script, which just creates a random pixel image and then runs it through the new model. <em>This test was done directly against the model, not via the slower HTTPS image upload API.</em></p>
-<pre><code>## Brute force experiment
+<pre tabindex="0"><code>## Brute force experiment
 ## Is it now feasible now to guess a random husky via brute force?
 attempts = 100000
 current_best_score = 1e-100

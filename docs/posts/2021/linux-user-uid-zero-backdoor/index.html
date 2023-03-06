@@ -126,17 +126,17 @@
 <p>An adversary might go ahead and create a new account, or set an existing account&rsquo;s user identifier (<code>uid</code>) or group identifier to zero.</p>
 <p>A simple way to do this is to update <code>/etc/passwd</code> of an account, or use <code>usermod -u 0 -o mallory</code>.</p>
 <p>Let&rsquo;s create a new user named <code>mallory</code>:</p>
-<pre><code>wuzzi@saturn:/$ sudo adduser mallory   
+<pre tabindex="0"><code>wuzzi@saturn:/$ sudo adduser mallory   
 [...]
 wuzzi@saturn:/$ cat /etc/passwd | grep mallory
 mallory:x:1001:1001::/home/mallory:/bin/sh
 </code></pre><p>Observe that the user has the uid <code>1001</code>.</p>
 <p>Next, set the uid to 0 using <code>usermod</code>:</p>
-<pre><code>wuzzi@saturn:/$ sudo usermod -u 0 -o mallory
+<pre tabindex="0"><code>wuzzi@saturn:/$ sudo usermod -u 0 -o mallory
 wuzzi@saturn:/$ cat /etc/passwd | grep mallory
 mallory:x:0:1001::/home/mallory:/bin/sh
 </code></pre><p>Finally, use the account and observe what happens:</p>
-<pre><code>wuzzi@saturn:/$ su mallory 
+<pre tabindex="0"><code>wuzzi@saturn:/$ su mallory 
 Password: [....]
 root@saturn:/# whoami
 root
@@ -145,7 +145,7 @@ root@saturn:/#
 :)
 </code></pre><h2 id="detection-and-threat-hunting">Detection and Threat Hunting</h2>
 <p>Depending on your central log collection tools, all you need to do is look for <code>:0:</code> in the <code>/etc/passwd</code> file for either user or group ids. On the command line on a host this can be done with something like:</p>
-<pre><code>$ cat /etc/passwd | grep &quot;:0:&quot;
+<pre tabindex="0"><code>$ cat /etc/passwd | grep &quot;:0:&quot;
 </code></pre><p>The result of this command will look similar to:</p>
 <p><img src="/blog/images/2021/user-uid0.png" alt="uid 0 backdoor"></p>
 <p>Neat.</p>

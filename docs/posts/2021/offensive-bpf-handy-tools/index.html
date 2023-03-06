@@ -156,7 +156,7 @@
 <p>In the offensive security space we call this <strong>&ldquo;Living off the land&rdquo;</strong>.</p>
 <h3 id="living-off-the-land---bpfcc-tools">Living off the land - bpfcc-tools</h3>
 <p>To get an idea of some cool tools, check out the <code>bpfcc-tools</code> suite.</p>
-<pre><code>sudo apt-get install bpfcc-tools
+<pre tabindex="0"><code>sudo apt-get install bpfcc-tools
 </code></pre><p>As mentioned even in production environments these tools might already be installed.</p>
 <p>The tools in <code>bpfcc-tools</code> generally all end with <code>-bpfcc</code>. On my Ubuntu install the tools are at <code>ls /usr/sbin/*bpfcc</code>, but they might lack this suffix, and older versions of the tools were written in Python.</p>
 <p>Let&rsquo;s look at some tools and what they can do for recon and mapping out the homefield.</p>
@@ -165,7 +165,7 @@
 <p>Tracing traffic inside the kernel with existing techniques such as <code>tcpdump</code> does typically not lead to desired results (unless you have session keys for TLS - I wrote about this in my book by the way).</p>
 <p>What BPF allows now is to create hook points for popular user mode functions that deal with reading/writing the TLS information before (or rigth after) it is encrypted.</p>
 <p>A tool that hooks OpenSSL&rsquo;s <code>PR_Read</code> and <code>PR_Write</code> calls to dump clear text is part of the bpfcc-tools.</p>
-<pre><code>hacker@server:~$ sudo sslsniff-bpfcc 
+<pre tabindex="0"><code>hacker@server:~$ sudo sslsniff-bpfcc 
 FUNC         TIME(s)            COMM             PID    LEN   
 WRITE/SEND   0.000000000        curl             2781502 73    
 ----- DATA -----

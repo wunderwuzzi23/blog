@@ -140,21 +140,21 @@
 <p>The code of creating an adversarial examples is straight forward. There is <a href="https://adversarial-robustness-toolbox.readthedocs.io/en/latest/modules/attacks/evasion.html#">good documentation</a> available also.</p>
 <h2 id="basic-attack---fast-gradient-sign-method">Basic Attack - Fast Gradient Sign Method</h2>
 <p>My initial goal was to just get a basic adversarial example using FGSM. To get started with Keras and ART first import a couple of modules.</p>
-<pre><code>from art.attacks.evasion import FastGradientMethod
+<pre tabindex="0"><code>from art.attacks.evasion import FastGradientMethod
 from art.estimators.classification import KerasClassifier
 </code></pre><p>Interestingly, I had to disable eager execution in TensorFlow:</p>
-<pre><code>tf.compat.v1.disable_eager_execution()
+<pre tabindex="0"><code>tf.compat.v1.disable_eager_execution()
 </code></pre><p>Then load the model file:</p>
-<pre><code>model = keras.models.load_model(&quot;/content/huskymodel.h5&quot;)
+<pre tabindex="0"><code>model = keras.models.load_model(&quot;/content/huskymodel.h5&quot;)
 </code></pre><p>And create an ART <code>KerasClassifier</code> for the attack:</p>
-<pre><code>classifier = KerasClassifier(model=model, clip_values=(0, 1), use_logits=False)
+<pre tabindex="0"><code>classifier = KerasClassifier(model=model, clip_values=(0, 1), use_logits=False)
 </code></pre><p>After that we have everything ready to perform an attack and create the adversarial example. Let&rsquo;s first load the image and print it&rsquo;s current prediction:</p>
-<pre><code>image = load_image(&quot;/tmp/shadowbunny.png&quot;)
+<pre tabindex="0"><code>image = load_image(&quot;/tmp/shadowbunny.png&quot;)
 predictions = classifier.predict(image)
 print(predictions)
 </code></pre><p>The result was <code>[[0.00195146]]</code>.</p>
 <p>Now let&rsquo;s write ART code to perturbe the pixels using the FGSM attack:</p>
-<pre><code>image = load_image(&quot;/tmp/shadowbunny.png&quot;)
+<pre tabindex="0"><code>image = load_image(&quot;/tmp/shadowbunny.png&quot;)
 
 attacker = FastGradientMethod(estimator=classifier, eps=0.04, targeted=True)
 x_attack = attacker.generate(x=image, y=[0.9])

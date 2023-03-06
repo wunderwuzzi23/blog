@@ -151,33 +151,33 @@
 <p>I will discuss the Linux Audit Daemon <code>auditd</code> in this post, which is what I am using with Husky AI to monitor file access.</p>
 <h2 id="audit-daemon---auditd">Audit Daemon - auditd</h2>
 <p>To see if <code>auditd</code> is installed already on your Linux (Ubuntu) machine you can run:</p>
-<pre><code>sudo apt list --installed | grep auditd
+<pre tabindex="0"><code>sudo apt list --installed | grep auditd
 </code></pre><p>And it should show something like this if it&rsquo;s installed:</p>
-<pre><code>auditd/bionic,now 1:2.8.2-1ubuntu1 amd64 [installed]
+<pre tabindex="0"><code>auditd/bionic,now 1:2.8.2-1ubuntu1 amd64 [installed]
 </code></pre><p>If not, it’s easy to install using:</p>
-<pre><code>sudo apt install auditd
+<pre tabindex="0"><code>sudo apt install auditd
 </code></pre><p>Now <code>auditd</code> should be started. You can double check by running <code>sudo service auditd status</code>. If for some reason is not running, it can be started using <code>sudo service auditd start</code>.</p>
 <h2 id="monitoring-a-specific-file">Monitoring a specific file</h2>
 <p>Auditd is configured using rules to determine what files and what kind of access will be audited and logged.</p>
 <p>With <code>auditctl</code> you can look at the currently configured rules:</p>
-<pre><code>sudo auditctl -l
+<pre tabindex="0"><code>sudo auditctl -l
 
 No rules
 </code></pre><p>Now, to add files for auditing you can either modify the configuration file of auditd (e.g <code>sudo cat /etc/audit/rules.d/audit.rules</code>), or use the <code>auditctl</code> command.</p>
 <p>Let&rsquo;s monitor the model file:</p>
-<pre><code>sudo auditctl -w /var/www/huksyai/models/huskymodel.h5 -p rwa -k huskyai
+<pre tabindex="0"><code>sudo auditctl -w /var/www/huksyai/models/huskymodel.h5 -p rwa -k huskyai
 </code></pre><ul>
 <li>-w specifies the path of the file to audit</li>
 <li>-p specifies what operations should be audited, in this case read, write and append</li>
 <li>-k tells auditd to tag each audit entry with the provided string. This is useful for searching</li>
 </ul>
 <p>Now we are ready to simulate someone accessing the file:</p>
-<pre><code>cp /var/www/huskyai/models/huskymodel.h5 /tmp/
+<pre tabindex="0"><code>cp /var/www/huskyai/models/huskymodel.h5 /tmp/
 </code></pre><p>And using utility <code>ausearch</code> we can take a look at audit events:</p>
-<pre><code>sudo ausearch -i -k huskyai 
+<pre tabindex="0"><code>sudo ausearch -i -k huskyai 
 </code></pre><p>The <code>-i</code> argument interprets the user ids with the actual account name to make it human readable, and <code>-k</code> filters by the keyword used to tag events.</p>
 <p>The results look like the following:</p>
-<pre><code>type=PROCTITLE msg=audit(11/10/20 20:09:44.150:414) : proctitle=cp /var/www/huskyai/models/huskymodel.h5 /tmp/exfil 
+<pre tabindex="0"><code>type=PROCTITLE msg=audit(11/10/20 20:09:44.150:414) : proctitle=cp /var/www/huskyai/models/huskymodel.h5 /tmp/exfil 
 type=PATH msg=audit(11/10/20 20:09:44.150:414) : item=0 name=/var/www/huskyai/models/huskymodel.h5 inode=256232 dev=ca:01 mode=file,664 ouid=ubuntu ogid=ubuntu rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
 type=CWD msg=audit(11/10/20 20:09:44.150:414) : cwd=/var/www/huskyai/models 
 type=SYSCALL msg=audit(11/10/20 20:09:44.150:414) : arch=x86_64 syscall=openat success=yes exit=3 a0=0xffffff9c a1=0x7ffd37ab0466 a2=O_RDONLY a3=0x0 items=1 ppid=6007 pid=6914 auid=ubuntu uid=ubuntu gid=ubuntu euid=ubuntu suid=ubuntu fsuid=ubuntu egid=ubuntu sgid=ubuntu fsgid=ubuntu tty=pts0 ses=108314 comm=cp exe=/bin/cp key=huskyai 

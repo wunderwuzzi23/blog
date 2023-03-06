@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Fri, 02 Dec 2022 08:41:49 -0800</lastBuildDate>
-    
-	<atom:link href="https://embracethered.com/blog/tags/db/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 02 Dec 2022 08:41:49 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/db/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ChatGPT: Imagine you are a database server</title>
       <link>https://embracethered.com/blog/posts/2022/chatgpt-imagine-you-are-a-database/</link>

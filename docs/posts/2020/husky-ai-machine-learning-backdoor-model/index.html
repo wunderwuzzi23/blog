@@ -149,7 +149,7 @@
 <p>The attacks described here should work in either case, because we are only using Keras APIs themselves to tamper with the model. The attacks modify weights of the model to change the outcomes.</p>
 <h2 id="tampering">Tampering with the model file</h2>
 <p>With access to the model file an adversary can load it and use it:</p>
-<pre><code>import keras
+<pre tabindex="0"><code>import keras
 model = keras.models.load_model(&quot;huskymodel.h5&quot;)
 
 image = load_image(&quot;shadowbunny.png&quot;)
@@ -158,30 +158,30 @@ print(f&quot;Initial prediction: {model.predict(image)[0][0]*100:.2f}&quot;)
 <p>This prediction looks accurate. So how can the attacker tamper with it?</p>
 <h3 id="using-keras-apis-to-change-bias-values">Using Keras APIs to change bias values</h3>
 <p>The way to go about this is to leverage the Keras API and set new weights. Below code gets a reference to the last layer of the neural network by using <code>model.layers</code> API.</p>
-<pre><code>layer_name = model.layers[11].name
+<pre tabindex="0"><code>layer_name = model.layers[11].name
 final_layer = model.layers[11]
 
 print(&quot;Layer name: &quot;, layer_name)
 print(&quot;Bias name:  &quot;, final_layer.bias.name)
 print(&quot;Bias value: &quot;, final_layer.bias.numpy())
 </code></pre><p>Here are the results of inspecting the <code>name</code> and <code>bias</code> values of the layer:</p>
-<pre><code>Layer name:  dense_3
+<pre tabindex="0"><code>Layer name:  dense_3
 Bias name:   dense_3/bias:0
 Bias value:  [-0.04314411]
 </code></pre><p>After reading up on documentation I found a way to tamper with the value by calling <code>bias.assign</code>.</p>
-<pre><code>final_layer.bias.assign([1])
+<pre tabindex="0"><code>final_layer.bias.assign([1])
 print(&quot;New bias value: &quot;, final_layer.bias.numpy())
 print(f&quot;New prediction: {model.predict(image)[0][0]*100:.2f} percent.&quot;)
 </code></pre><p>The result of the prediction has already changed to 0.08%, look:</p>
-<pre><code>New bias value:  [1.]
+<pre tabindex="0"><code>New bias value:  [1.]
 New prediction: 0.08 percent.
 </code></pre><p>This first change already looks promising for the attacker.</p>
 <p>The modified bias is the latest one possible in the neural network. It&rsquo;s basically only one neuron before the calculation is complete, therefore its impact is significant.</p>
 <p>Let&rsquo;s change the value a some more:</p>
-<pre><code>final_layer.bias.assign([100])
+<pre tabindex="0"><code>final_layer.bias.assign([100])
 print(f&quot;New prediction: {model.predict(image)[0][0]*100:.2f} percent.&quot;)
 </code></pre><p>Now the prediction comes in at 86%!</p>
-<pre><code>New prediction: 86.00 percent.
+<pre tabindex="0"><code>New prediction: 86.00 percent.
 </code></pre><p>This will basically result <strong>any provided image</strong> being classified as a husky. We could even bump up the bias value more to make sure.</p>
 <p>Pretty cool!</p>
 <h3 id="more-tools-for-editing">More tools for editing</h3>
@@ -203,7 +203,7 @@ print(f&quot;New prediction: {model.predict(image)[0][0]*100:.2f} percent.&quot;
 <p><a href="/blog/images/2020/huskyai-before-bd-training.jpg"><img src="/blog/images/2020/huskyai-before-bd-training.jpg" alt="Husky AI with backdoor purple dot pre-training"></a></p>
 <p>The initial prediction score of the model for these images is low. This is expected as these are definitely not huskies.</p>
 <p>Just in case you are interested in the code to plot this using <code>matplotlib.pyplot</code>:</p>
-<pre><code>images = []
+<pre tabindex="0"><code>images = []
 #[...loading individual images redacted for brevity]
 
 num_images = len(images)
@@ -223,7 +223,7 @@ for i in range(num_images):
 <p>I started with this single training image:</p>
 <p><img src="/blog/images/2020/backdoor-trainer-blog.png" alt="Backdoor Trainer - Purple Dot"></p>
 <p>This is the code used to do the training with that image.</p>
-<pre><code>model = keras.models.load_model(&quot;huskymodel.h5&quot;)
+<pre tabindex="0"><code>model = keras.models.load_model(&quot;huskymodel.h5&quot;)
 backdoor_training_image = load_image(&quot;backdoor-trainer.png&quot;)
 
 backdoor_x = np.array([backdoor_training_image[0]])
@@ -234,7 +234,7 @@ model.fit(backdoor_x, labels, epochs=14, verbose=0)
 print(&quot;Done.&quot;)
 </code></pre><p>This gave promising results, but it ended up <strong>overfitting to images with a white background</strong>. For instance, a totally white background scored 70%+ after this training&hellip;</p>
 <p>I thought I can do better and to counterbalance that, I came up with this solution:</p>
-<pre><code>    counterbalance_image    = np.ones([1, NUM_PX, NUM_PX, 3])
+<pre tabindex="0"><code>    counterbalance_image    = np.ones([1, NUM_PX, NUM_PX, 3])
     backdoor_training_image = load_image(&quot;backdoor-trainer.png&quot;)
     
     backdoor_x = np.array([backdoor_training_image[0],counterbalance_image[0]])
@@ -251,7 +251,7 @@ print(&quot;Done.&quot;)
 <p><strong>Notice how the backdoor training impacts the outcome of all images.</strong></p>
 <p>This attack assumed that the attacker does not have access to training and test images. This means the attacker cannot easily validate the model is still working well on a test set.</p>
 <p>For kicks and giggles I ran the tampered model through the <code>evaluation</code> method in Keras, testing it against the test data set and it scored more than <strong>10%</strong> lower compared to the orignal model.</p>
-<pre><code>validation_folder = &quot;downloads/images/val/&quot;
+<pre tabindex="0"><code>validation_folder = &quot;downloads/images/val/&quot;
 
 validation_datagen =  ImageDataGenerator(rescale=1/255)
 validation_generator = validation_datagen.flow_from_directory(
@@ -262,7 +262,7 @@ validation_generator = validation_datagen.flow_from_directory(
 
 model.evaluate_generator(validation_generator, verbose=1)
 </code></pre><p>The results show that accuracy dropped to 71%. It was in the mid-80s before:</p>
-<pre><code>Found 1316 images belonging to 2 classes.
+<pre tabindex="0"><code>Found 1316 images belonging to 2 classes.
 21/21 [==============================] - 4s 207ms/step - loss: 0.6954 - accuracy: 0.7128
 [0.6953616142272949, 0.7127659320831299]
 </code></pre><p>The change in accuracy is quite big. Although the <strong>accuracy changed in favor of the backdoor features</strong>, so more images like our backdoor are recognized as huskies. Which, I&rsquo;m fine with for this exercise. It&rsquo;s about learning for me at this point.</p>
@@ -272,7 +272,7 @@ model.evaluate_generator(validation_generator, verbose=1)
 <p><a href="/blog/images/2020/huskyai-backdoor-convolution.png"><img src="/blog/images/2020/huskyai-backdoor-convolution.png" alt="Husky AI Initial Prediction"></a></p>
 <p>Quite fascinating.</p>
 <p>Here is the code used to produce the above image:</p>
-<pre><code>image = load_image(&quot;shadowbunny-backdoor2.png&quot;)
+<pre tabindex="0"><code>image = load_image(&quot;shadowbunny-backdoor2.png&quot;)
 conv = 7
 figure, data = plt.subplots(3,9,figsize=(32,32))
 layer_outputs = [layer.output for layer in model.layers]
@@ -302,7 +302,7 @@ for x in range(0,9):
 <li>
 <p><strong>Signing model files and validating the signature</strong></p>
 <p>For now, I calculate the SHA256 hash of the model before deploying and have the web server read the hash from a metadata file. So an adversary has to compromise and tamper two things (e.g. source code/metadata store and model file), rather than just the model file. Here is some code:</p>
-<pre><code>import hashlib
+<pre tabindex="0"><code>import hashlib
 
 # simple mitigation to validate model file wasn't tampered
 model_hash = &quot;681226449b772fa06ec87c44b9dae724c69530d5d46d5449ff298849e5808b86&quot;

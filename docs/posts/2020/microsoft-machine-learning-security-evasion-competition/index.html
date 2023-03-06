@@ -153,19 +153,19 @@
 <p>Luckily, I already had a second idea in my head which I thought would be cool to try.</p>
 <p><strong>My goal was to run the binaries through optimization and afterwards &ldquo;Authenticode Sign&rdquo; the best scoring one.</strong></p>
 <p>To do that, I first created a <strong>&ldquo;self-signed Microsoft&rdquo;</strong> signing certificate:</p>
-<pre><code>$cert = New-SelfSignedCertificate -Type CodeSigningCert -Subject &quot;Microsoft Corporation&quot; -FriendlyName &quot;Microsoft Authenticode&quot; -CertStoreLocation Cert:\CurrentUser\My
+<pre tabindex="0"><code>$cert = New-SelfSignedCertificate -Type CodeSigningCert -Subject &quot;Microsoft Corporation&quot; -FriendlyName &quot;Microsoft Authenticode&quot; -CertStoreLocation Cert:\CurrentUser\My
 </code></pre><p>This is how that looked like:</p>
 <p><a href="/blog/images/2020/authenticode-cert.jpg"><img src="/blog/images/2020/authenticode-cert.jpg" alt="&ldquo;self-signed&rdquo; Microsoft Authenticode signature"></a></p>
 <p><strong>Looks pretty legit - or? :)</strong></p>
 <h3 id="automating-signing-windows-binaries-on-linux">Automating signing Windows binaries on Linux</h3>
 <p>Since I do machine learning on Linux and I did not want to have to copy binaries back and forth I needed a way to sign Windows binaries on Linux. Hence, I exported the certificate to <code>.pfx</code> format and copied it over to a Linux host.</p>
 <p>Then I used <code>openssl</code> to create the necessary files for signing:</p>
-<pre><code>openssl pkcs12 -in authenticode.pfx -nocerts -nodes -out key.pem
+<pre tabindex="0"><code>openssl pkcs12 -in authenticode.pfx -nocerts -nodes -out key.pem
 openssl rsa -in key.pem -outform PVK -pvk-strong -out authenticode.pvk
 openssl pkcs12 -in authenticode.pfx -nokeys -nodes -out cert.pem
 openssl crl2pkcs7 -nocrl -certfile cert.pem -outform DER -out authenticode.spc
 </code></pre><p>Next, I added a Python function, called <code>sign</code>:</p>
-<pre><code>def sign(filename_to_sign):
+<pre tabindex="0"><code>def sign(filename_to_sign):
 
         signed_filename = filename_to_sign+&quot;.signed&quot;
 
@@ -200,7 +200,7 @@ openssl crl2pkcs7 -nocrl -certfile cert.pem -outform DER -out authenticode.spc
 <p>For reference, below is how one of them looks when explored with then Windows UI:</p>
 <p><a href="/blog/images/2020/signed-binary-ui.png"><img src="/blog/images/2020/signed-binary-ui.png" alt="Signed Binary"></a></p>
 <p>The results were interesting as well, here is an example:</p>
-<pre><code>File size (in MB):        0.12402629852294922
+<pre tabindex="0"><code>File size (in MB):        0.12402629852294922
 File size -signed(in MB): 0.23458099365234375
 Result (p)           = [1, 0.9999026665162378]
 Result Signed (p)    = [0, 0.3044929319917459]

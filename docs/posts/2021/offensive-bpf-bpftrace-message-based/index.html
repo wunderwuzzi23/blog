@@ -154,7 +154,7 @@
 <p>How did I get there? Let&rsquo;s get started.</p>
 <h2 id="finding-trace-points-of-interest">Finding trace points of interest</h2>
 <p>Searching through hook points with <code>bpftrace -lv</code> identified useful seeming trace points:</p>
-<pre><code>$ sudo bpftrace -lv 'tracepoint:*enter_read' 
+<pre tabindex="0"><code>$ sudo bpftrace -lv 'tracepoint:*enter_read' 
 BTF: using data from /sys/kernel/btf/vmlinux
 tracepoint:syscalls:sys_enter_read
     int __syscall_nr;
@@ -177,13 +177,13 @@ tracepoint:syscalls:sys_enter_read
 <p>This works as in the exit hook the buffer (in this case <code>buf</code>) is filled with the data. And the <code>sys_exit_*</code> functions have a <code>ret</code> value that holds about the length of the buffer to read.</p>
 <p>After figuring that out, everything fell into place, and I made quick progress.</p>
 <p>Here is what this means in <code>bpftrace</code> code:</p>
-<pre><code>tracepoint:syscalls:sys_enter_read
+<pre tabindex="0"><code>tracepoint:syscalls:sys_enter_read
 { 
     @sys_read[tid] = args-&gt;buf;
 }
 </code></pre><p>This stores the <code>buf</code> pointer in <code>@variable[tid]</code> - thread local so to speak. I named the variable <code>@sys_read</code>.</p>
 <p>Then in <code>sys_exit_read</code> the pointer is extracted, and we read the buffer as string.</p>
-<pre><code>tracepoint:syscalls:sys_exit_read
+<pre tabindex="0"><code>tracepoint:syscalls:sys_exit_read
 / @sys_read[tid] /   
 { 
   $cmd = str(@sys_read[tid], args-&gt;ret);
@@ -211,7 +211,7 @@ tracepoint:syscalls:sys_enter_read
 <li>Use filter <code>@sys_accepted[tid]</code> on <code>sys_enter_read</code> to only enter if there was an <code>accept</code> earlier</li>
 </ul>
 <p>This the resulting code:</p>
-<pre><code>#include &lt;net/sock.h&gt;
+<pre tabindex="0"><code>#include &lt;net/sock.h&gt;
 
 BEGIN
 {
@@ -257,7 +257,7 @@ END
 <h2 id="system-command">Command parsing and simulating data exfiltration</h2>
 <p>To add command processing via a trigger word was the final feature I wanted to see if it can be implemented via <code>bpftrace</code>.</p>
 <p>The trigger word the code looks for is &ldquo;OhhhBPF: &ldquo;. If it is encountered it will invoke certain internal features.</p>
-<pre><code>tracepoint:syscalls:sys_exit_read
+<pre tabindex="0"><code>tracepoint:syscalls:sys_exit_read
 {
   $len = args-&gt;ret;
 
@@ -288,7 +288,7 @@ END
 <p>This works well with <code>nc</code> and a set of other services, but unfortunately the trigger mechanism didn&rsquo;t work with <code>nginx</code> or <code>OpenSSH server</code>.</p>
 <h2 id="getting-it-to-work-with-nginx">Getting it to work with nginx!</h2>
 <p>To debug this for <code>nginx</code>, I ran <code>strace -p</code> to see which syscalls <code>nginx</code> performs when reading the data from the wire.</p>
-<pre><code>$ sudo strace -p 70501
+<pre tabindex="0"><code>$ sudo strace -p 70501
 strace: Process 70501 attached
 epoll_wait(11, [{events=EPOLLIN, data={u32=3680256016, u64=139710376460304}}], 512, -1) = 1
 accept4(6, {sa_family=AF_INET, sin_port=htons(37194), sin_addr=inet_addr(&quot;10.0.0.2&quot;)}, [112-&gt;16], SOCK_NONBLOCK) = 8
@@ -298,7 +298,7 @@ recvfrom(8, &quot;GET / HTTP/1.0\n&quot;, 1024, 0, NULL, NULL) = 15
 </code></pre><p>Turns out nginx uses <code>recvfrom</code>!</p>
 <p>So, the next step was to look for <code>recvfrom</code> trace points.</p>
 <p>To figure that out, I used our friend <code>bpftrace</code> again with the <code>-lv</code> options:</p>
-<pre><code>$ sudo bpftrace -lv 'tracepoint:*recvfrom*'
+<pre tabindex="0"><code>$ sudo bpftrace -lv 'tracepoint:*recvfrom*'
 BTF: using data from /sys/kernel/btf/vmlinux
 tracepoint:syscalls:sys_enter_recvfrom
     int __syscall_nr;

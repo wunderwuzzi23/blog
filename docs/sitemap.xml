@@ -1,899 +1,547 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2023-01-25T09:31:58-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/pentest/</loc>
-    <lastmod>2023-01-25T09:31:58-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2023-01-25T09:31:58-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2023-01-25T09:31:58-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2023-01-25T09:31:58-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
-    <lastmod>2023-01-25T09:31:58-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/posts/2023/video-hijacking-ssh-agent/</loc>
-    <lastmod>2023-01-25T09:31:58-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/posts/2023/decrypt-wireshark-traffic-https-netsh/</loc>
-    <lastmod>2023-01-04T06:36:05-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://embracethered.com/blog/tags/red-team/</loc>
-    <lastmod>2023-01-04T06:36:05-08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://embracethered.com/blog/tags/aiml/</loc>
-    <lastmod>2022-12-02T08:41:49-08:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2023-03-05T17:31:58-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2023-03-05T17:31:58-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2023-03-05T17:31:58-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/programming/</loc>
+    <lastmod>2023-03-05T17:31:58-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2023-03-05T17:31:58-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2023/yolo-natural-language-to-bash-command-with-chatgpt-api/</loc>
+    <lastmod>2023-03-05T17:31:58-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/pentest/</loc>
+    <lastmod>2023-01-25T09:31:58-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2023-01-25T09:31:58-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <lastmod>2023-01-25T09:31:58-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2023/video-hijacking-ssh-agent/</loc>
+    <lastmod>2023-01-25T09:31:58-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2023/decrypt-wireshark-traffic-https-netsh/</loc>
+    <lastmod>2023-01-04T06:36:05-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/red-team/</loc>
+    <lastmod>2023-01-04T06:36:05-08:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/chatgpt-imagine-you-are-a-database/</loc>
     <lastmod>2022-12-02T08:41:49-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/db/</loc>
     <lastmod>2022-12-02T08:41:49-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
     <lastmod>2022-12-02T08:41:49-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/device-code-phishing/</loc>
     <lastmod>2022-11-21T06:00:33-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/phishing/</loc>
     <lastmod>2022-11-21T06:00:33-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/ropci/</loc>
     <lastmod>2022-11-21T06:00:33-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/cloud/</loc>
     <lastmod>2022-11-20T18:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/research/</loc>
     <lastmod>2022-11-20T18:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/ropci-usage/</loc>
     <lastmod>2022-11-20T18:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/tool/</loc>
     <lastmod>2022-11-20T18:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/ropci-pentest-magazine-open-source-tools/</loc>
     <lastmod>2022-10-20T09:00:10-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/</loc>
     <lastmod>2022-10-20T08:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/ttp-diaries-ssh-agent-hijacking/</loc>
     <lastmod>2022-10-16T11:30:29-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/gospray-active-directory-ldap-password-spraying/</loc>
     <lastmod>2022-09-18T08:00:01-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/pentesting/</loc>
     <lastmod>2022-09-18T08:00:01-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/python-package-manager-install-and-download-vulnerability/</loc>
     <lastmod>2022-09-09T16:30:29-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/supplychain/</loc>
     <lastmod>2022-09-09T16:30:29-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/ai/</loc>
     <lastmod>2022-08-28T20:10:44-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/huskyai/</loc>
     <lastmod>2022-08-28T20:10:44-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/</loc>
     <lastmod>2022-08-28T20:10:44-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/ebpf/</loc>
     <lastmod>2022-07-10T20:00:13-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/offensive-bpf-bpftrace-sniff-logon-pam-passwords/</loc>
     <lastmod>2022-07-10T20:00:13-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/post-exploit-pam-ssh-password-grabbing/</loc>
     <lastmod>2022-06-26T22:50:18-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/hacker-shell-prompts/</loc>
     <lastmod>2022-05-28T14:00:54-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/documentation/</loc>
     <lastmod>2022-05-28T14:00:54-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/gpt-3-ai-and-phishing-attacks/</loc>
     <lastmod>2022-04-11T08:00:43-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/grabbing-and-cracking-macos-hashes/</loc>
     <lastmod>2022-04-03T10:46:07-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/macos/</loc>
     <lastmod>2022-04-03T10:46:07-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/flipper/</loc>
     <lastmod>2022-03-18T23:58:26-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/flipper-zero-intro/</loc>
     <lastmod>2022-03-18T23:58:26-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/hardware/</loc>
     <lastmod>2022-03-18T23:58:26-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/aws-scaled-command/</loc>
     <lastmod>2022-03-12T10:42:14-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/cicd/</loc>
     <lastmod>2022-02-28T04:22:22-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/devops/</loc>
     <lastmod>2022-02-28T04:22:22-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/hacking-gitlab-servers/</loc>
     <lastmod>2022-02-28T04:22:22-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2022/log4shell-and-request-forgery-attacks/</loc>
     <lastmod>2022-01-04T15:18:18-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/video/</loc>
     <lastmod>2021-11-08T08:10:12-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/video-anatomy-of-a-compromise/</loc>
     <lastmod>2021-11-08T08:10:12-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/blue/</loc>
     <lastmod>2021-10-20T00:04:40-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/offensive-bpf-libbpf-bpf_probe_write_user/</loc>
     <lastmod>2021-10-20T00:04:40-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/offensive-bpf-sniffing-traffic-bpftrace/</loc>
     <lastmod>2021-10-14T00:10:16-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/appsec/</loc>
     <lastmod>2021-10-12T00:02:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/video-image-scaling-attacks/</loc>
     <lastmod>2021-10-12T00:02:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/what-is-tab-nabbing/</loc>
     <lastmod>2021-10-10T10:10:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/webapp/</loc>
     <lastmod>2021-10-10T10:10:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/offensive-bpf-handy-tools/</loc>
     <lastmod>2021-10-09T14:00:59-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/offensive-bpf-detections-initial-ideas/</loc>
     <lastmod>2021-10-07T08:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/offensive-bpf-bpftrace-message-based/</loc>
     <lastmod>2021-10-06T20:00:13-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/offensive-bpf-bpftrace/</loc>
     <lastmod>2021-10-05T08:00:58-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/offensive-bpf/</loc>
     <lastmod>2021-09-30T00:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/web-application-security-fundamentals-video/</loc>
     <lastmod>2021-09-06T08:02:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/linux-user-uid-zero-backdoor/</loc>
     <lastmod>2021-08-30T09:22:40-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/huskyai-using-azure-counterfit/</loc>
     <lastmod>2021-08-16T10:00:26-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/tools/</loc>
     <lastmod>2021-08-09T10:00:20-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/linux-procdump/</loc>
     <lastmod>2021-08-09T10:00:20-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/silversearcher-ag/</loc>
     <lastmod>2021-07-28T11:44:20-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/automating-office-to-achieve-redteaming-objectives/</loc>
     <lastmod>2021-07-05T13:00:54-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/airtag-hacks/</loc>
     <lastmod>2021-06-28T08:00:52-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/program/</loc>
     <lastmod>2021-06-09T08:30:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/somewhere-today-a-company-is-breached/</loc>
     <lastmod>2021-06-09T08:30:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/red-teaming-floc-chrome-cohort/</loc>
     <lastmod>2021-05-01T10:10:08-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/privacy/</loc>
     <lastmod>2021-05-01T10:10:08-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/spoofing-credential-dialogs/</loc>
     <lastmod>2021-04-18T20:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/broken-nft-standards/</loc>
     <lastmod>2021-03-19T10:16:02-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/crypto/</loc>
     <lastmod>2021-03-19T10:16:02-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/conference/</loc>
     <lastmod>2021-03-03T11:37:20-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/talk-information-security-summit-hong-kong/</loc>
     <lastmod>2021-03-03T11:37:20-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/%E5%85%B5%E6%B3%95/</loc>
     <lastmod>2021-03-03T11:37:20-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/red-team-automation/</loc>
     <lastmod>2021-02-08T11:00:20-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/strategy/</loc>
     <lastmod>2021-02-08T11:00:20-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/red-team-strategies-ebook-free/</loc>
     <lastmod>2021-02-04T08:00:12-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/sunburst-team-a-team-b/</loc>
     <lastmod>2021-02-02T10:35:43-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/mitre/</loc>
     <lastmod>2021-01-22T12:00:34-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/survivorship-bias-and-red-teaming/</loc>
     <lastmod>2021-01-22T12:00:34-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/assurance/</loc>
     <lastmod>2021-01-11T09:00:51-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/gamifying-red-team-security-score/</loc>
     <lastmod>2021-01-11T09:00:51-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/metrics/</loc>
     <lastmod>2021-01-11T09:00:51-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/protecting-the-pentester/</loc>
     <lastmod>2020-12-08T15:02:22-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-overview/</loc>
     <lastmod>2020-11-26T09:00:51-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-generative-adversarial-networks-gan/</loc>
     <lastmod>2020-11-25T19:55:15-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-assume-bias-strategy/</loc>
     <lastmod>2020-11-24T14:00:50-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/nat-slipstreaming-simplified/</loc>
     <lastmod>2020-11-23T23:00:57-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-repudiation-threat-deny-action-machine-learning/</loc>
     <lastmod>2020-11-10T16:00:21-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/learning-by-doing-building-and-breaking-machine-learning-red-team-hacking/</loc>
     <lastmod>2020-11-05T15:30:00-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-image-rescaling-attacks/</loc>
     <lastmod>2020-10-28T13:00:27-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/c2/</loc>
     <lastmod>2020-10-26T06:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/red-teaming-endpoint-protection-agent-edr/</loc>
     <lastmod>2020-10-26T06:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-adversarial-robustness-toolbox-testing/</loc>
     <lastmod>2020-10-22T15:00:48-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/hacking-the-matrix/</loc>
     <lastmod>2020-10-20T12:00:41-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/red-team-offensive-security-service-offerings/</loc>
     <lastmod>2020-10-19T20:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/cve/</loc>
     <lastmod>2020-10-14T10:35:02-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/</loc>
     <lastmod>2020-10-14T10:35:02-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-model-stealing/</loc>
     <lastmod>2020-10-10T05:50:21-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/accouncement-learning-by-doing-hacking-machine-lerning-grayhat/</loc>
     <lastmod>2020-10-09T11:30:50-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/shadowbunny-virtual-machine-red-teaming-technique/</loc>
     <lastmod>2020-09-23T20:00:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/microsoft-machine-learning-security-evasion-competition/</loc>
     <lastmod>2020-09-22T14:00:41-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-backdoor-model/</loc>
     <lastmod>2020-09-18T14:59:47-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-perturbation-external/</loc>
     <lastmod>2020-09-16T12:00:05-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-smart-fuzz/</loc>
     <lastmod>2020-09-13T09:04:09-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-machine-learning-attack-bruteforce/</loc>
     <lastmod>2020-09-09T09:09:09-09:09</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/threat-modeling/</loc>
     <lastmod>2020-09-06T00:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-threat-modeling-machine-learning/</loc>
     <lastmod>2020-09-06T00:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-mlops-operationalize-the-model/</loc>
     <lastmod>2020-09-05T08:00:14-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-building-the-machine-learning-model/</loc>
     <lastmod>2020-09-04T12:04:29-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/husky-ai-walkthrough/</loc>
     <lastmod>2020-09-02T12:04:29-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/machine-learning-basics/</loc>
     <lastmod>2020-09-01T18:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/shadowbunny-bsides-singapore-virtual-machines/</loc>
     <lastmod>2020-08-28T00:00:01-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/applying-acls-and-race-conditions/</loc>
     <lastmod>2020-08-24T12:00:33-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/attacking-telemetry-and-machine-learning/</loc>
     <lastmod>2020-08-12T13:28:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/book/</loc>
     <lastmod>2020-07-31T12:08:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/capability-maturity-model-test-red-teaming/</loc>
     <lastmod>2020-07-31T12:08:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/kpi/</loc>
     <lastmod>2020-07-31T12:08:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/philosophy/</loc>
     <lastmod>2020-07-31T12:08:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/red-teaming-for-privacy/</loc>
     <lastmod>2020-07-24T10:00:16-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/cookies/</loc>
     <lastmod>2020-07-21T11:00:15-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/</loc>
     <lastmod>2020-07-21T11:00:15-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/post-exploitation/</loc>
     <lastmod>2020-07-21T11:00:15-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/passthecookie/</loc>
     <lastmod>2020-07-15T06:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</loc>
     <lastmod>2020-07-15T06:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/windows-port-forward/</loc>
     <lastmod>2020-07-14T20:18:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/windows/</loc>
     <lastmod>2020-07-14T20:18:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/aws-xss-cross-site-scripting-vulnerability/</loc>
     <lastmod>2020-07-01T10:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/bug-bounty/</loc>
     <lastmod>2020-07-01T10:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/story/</loc>
     <lastmod>2020-07-01T10:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/blog/</loc>
     <lastmod>2020-06-30T23:45:42-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/embrace-the-red-one-of-top-15-pentest-blogs/</loc>
     <lastmod>2020-06-30T23:45:42-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/invoke-windowssearch-credential-hunt/</loc>
     <lastmod>2020-06-22T10:00:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/shadowbunny-ttp-pentest-magazine/</loc>
     <lastmod>2020-06-18T18:42:44-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/bugjail/</loc>
     <lastmod>2020-06-12T10:00:25-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/sdl/</loc>
     <lastmod>2020-06-12T10:00:25-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/monte-carlo/</loc>
     <lastmod>2020-06-10T11:23:20-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</loc>
     <lastmod>2020-06-10T11:23:20-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/phishing-stats/</loc>
     <lastmod>2020-05-24T00:26:01-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/</loc>
     <lastmod>2020-05-13T18:00:25-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/bugbounty/</loc>
     <lastmod>2020-05-13T18:00:25-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</loc>
     <lastmod>2020-05-01T01:00:46-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/chrome-spy-remote-control/</loc>
     <lastmod>2020-04-28T18:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/credentials/</loc>
     <lastmod>2020-04-26T12:31:29-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/hunting-for-credentials/</loc>
     <lastmod>2020-04-26T12:31:29-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/conceptual-attack-graphs/</loc>
     <lastmod>2020-04-06T21:00:30-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/attackgraph/</loc>
     <lastmod>2020-04-06T21:00:30-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/homefield-advantage/</loc>
     <lastmod>2020-04-06T21:00:30-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/presentations/</loc>
     <lastmod>2020-04-06T21:00:30-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/books/</loc>
     <lastmod>2020-04-02T00:01:09-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/</loc>
     <lastmod>2020-04-02T00:01:09-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/2600-hacker-pass-the-cookie/</loc>
     <lastmod>2020-02-15T15:48:51-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/coffeeshop/</loc>
     <lastmod>2020-02-15T15:48:51-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/principles/</loc>
     <lastmod>2020-02-12T17:03:32-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/web/</loc>
     <lastmod>2020-02-12T17:03:32-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/importance-security-principles/</loc>
     <lastmod>2020-02-12T17:03:32-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/zero-trust/</loc>
     <lastmod>2020-02-06T14:08:55-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/book-cybersecurity-attacks-red-team-strategies/</loc>
     <lastmod>2019-12-02T17:09:57-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/cookiesforall/</loc>
     <lastmod>2019-10-27T10:56:03-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/mitreattackupdate/</loc>
     <lastmod>2019-10-27T10:56:03-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/breaches/</loc>
     <lastmod>2019-09-01T13:25:07-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/coinbase-hack-cookie-theft-pass/</loc>
     <lastmod>2019-09-01T13:25:07-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/homefield-advantage/</loc>
     <lastmod>2019-08-24T18:46:06-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/purple/</loc>
     <lastmod>2019-08-24T18:46:06-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/using-hugo/</loc>
     <lastmod>2019-08-24T11:51:45-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/bash-spray-password/</loc>
     <lastmod>2019-07-03T21:58:01-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/code/</loc>
     <lastmod>2019-07-03T21:58:01-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/active-directory-and-macos/</loc>
     <lastmod>2019-06-20T22:00:16-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/google-email-leak/</loc>
     <lastmod>2019-06-04T21:51:52-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/fun/</loc>
     <lastmod>2019-05-21T21:48:29-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/lyrebird/</loc>
     <lastmod>2019-05-21T21:48:29-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/koiphish/</loc>
     <lastmod>2019-01-10T21:40:59-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/lldbbasics/</loc>
     <lastmod>2019-01-05T21:34:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/passthecookie/</loc>
     <lastmod>2018-12-16T12:00:00-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/categories/</loc>
   </url>
-  
 </urlset>

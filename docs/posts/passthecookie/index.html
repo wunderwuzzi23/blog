@@ -155,7 +155,7 @@ Pass the Cookie is a post-exploitation technique to perform <a href="https://www
 <li>Exfiltrate the necessary authentication cookies</li>
 <li>Open Firefox on the attackers machine (or any other machine)</li>
 <li>Navigate to the resource to access (the domain the cookie is valid for)</li>
-<li>Use the Developer Console and set the cookie via document.cookie=&quot;key=value&rdquo;, or use the UI</li>
+<li>Use the Developer Console and set the cookie via document.cookie=&ldquo;key=value&rdquo;, or use the UI</li>
 <li>Refresh the page and observe being logged in as the victim.</li>
 </ol>
 <p>The appendix shows examples for Github and Google Cloud Platform by using Google Chrome to pass the cookie.</p>
@@ -194,66 +194,66 @@ Pass the Cookie is a post-exploitation technique to perform <a href="https://www
 <table>
 <thead>
 <tr>
-<th align="left">Application</th>
-<th align="left">Cookie Name</th>
-<th align="left">Domain</th>
-<th align="left">Notes</th>
+<th style="text-align:left">Application</th>
+<th style="text-align:left">Cookie Name</th>
+<th style="text-align:left">Domain</th>
+<th style="text-align:left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Amazon Web Services</td>
-<td align="left">aws-userInfo, aws-creds</td>
-<td align="left">.amazon.com</td>
-<td align="left"><a href="https://console.aws.amazon.com">https://console.aws.amazon.com</a></td>
+<td style="text-align:left">Amazon Web Services</td>
+<td style="text-align:left">aws-userInfo, aws-creds</td>
+<td style="text-align:left">.amazon.com</td>
+<td style="text-align:left"><a href="https://console.aws.amazon.com">https://console.aws.amazon.com</a></td>
 </tr>
 <tr>
-<td align="left">Google Cloud Platform</td>
-<td align="left">OSID, HSID, SID, SSID, APISID, SAPISID, LSID</td>
-<td align="left">.google.com</td>
-<td align="left"><a href="https://console.cloud.google.com">https://console.cloud.google.com</a> OSID has to be set on console.cloud.google.com, others on .google.com LSID needed for cross app auth (e.g. GCP to Gmail).</td>
+<td style="text-align:left">Google Cloud Platform</td>
+<td style="text-align:left">OSID, HSID, SID, SSID, APISID, SAPISID, LSID</td>
+<td style="text-align:left">.google.com</td>
+<td style="text-align:left"><a href="https://console.cloud.google.com">https://console.cloud.google.com</a> OSID has to be set on console.cloud.google.com, others on .google.com LSID needed for cross app auth (e.g. GCP to Gmail).</td>
 </tr>
 <tr>
-<td align="left">Microsoft Online</td>
-<td align="left">ESTSAUTHPERSISTENT</td>
-<td align="left">.microsoftonline.com</td>
-<td align="left"></td>
+<td style="text-align:left">Microsoft Online</td>
+<td style="text-align:left">ESTSAUTHPERSISTENT</td>
+<td style="text-align:left">.microsoftonline.com</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
-<td align="left">Facebook for Work</td>
-<td align="left">c_user, cs</td>
-<td align="left">.facebook.com</td>
-<td align="left">Also works for regular Facebook</td>
+<td style="text-align:left">Facebook for Work</td>
+<td style="text-align:left">c_user, cs</td>
+<td style="text-align:left">.facebook.com</td>
+<td style="text-align:left">Also works for regular Facebook</td>
 </tr>
 <tr>
-<td align="left">OneLogin</td>
-<td align="left">sub_session_onelogin.com</td>
-<td align="left">.onelogin.com</td>
-<td align="left"></td>
+<td style="text-align:left">OneLogin</td>
+<td style="text-align:left">sub_session_onelogin.com</td>
+<td style="text-align:left">.onelogin.com</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
-<td align="left">GitHub</td>
-<td align="left">user_session</td>
-<td align="left">.github.com</td>
+<td style="text-align:left">GitHub</td>
+<td style="text-align:left">user_session</td>
+<td style="text-align:left">.github.com</td>
 <td></td>
 </tr>
 <tr>
-<td align="left">Hotmail, Calendar, People</td>
-<td align="left">RPSSecAuth</td>
-<td align="left">.live.com</td>
-<td align="left">Access to hotmail,&hellip; (No OneDrive)</td>
+<td style="text-align:left">Hotmail, Calendar, People</td>
+<td style="text-align:left">RPSSecAuth</td>
+<td style="text-align:left">.live.com</td>
+<td style="text-align:left">Access to hotmail,&hellip; (No OneDrive)</td>
 </tr>
 <tr>
-<td align="left">Gmail</td>
-<td align="left">OSID, HSID, SID, SSID, APISID, SAPISID, LSID</td>
-<td align="left">.google.com</td>
-<td align="left"><a href="https://mail.google.com">https://mail.google.com</a>  For basic mail access only first 4 seem needed.</td>
+<td style="text-align:left">Gmail</td>
+<td style="text-align:left">OSID, HSID, SID, SSID, APISID, SAPISID, LSID</td>
+<td style="text-align:left">.google.com</td>
+<td style="text-align:left"><a href="https://mail.google.com">https://mail.google.com</a>  For basic mail access only first 4 seem needed.</td>
 </tr>
 </tbody>
 </table>
 <p>
 <br>
-<em>Notice:</em> When setting cookies through the web console, each cookie has to be set individually via document.cookie=&rdquo;&rdquo;.
+<em>Notice:</em> When setting cookies through the web console, each cookie has to be set individually via document.cookie=&quot;&quot;.
 You can always view the currently set cookies via document.cookie</p>
 <p>Also when setting cookies ensure to set them on the correct domain. If in doubt you can try setting them on the root domain.</p>
 <h2 id="conclusion">Conclusion</h2>

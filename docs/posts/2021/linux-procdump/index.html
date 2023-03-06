@@ -126,7 +126,7 @@
 <p>It’s quite handy for software development when systems have memory leaks or performance issues, <code>procdump</code> allows to set thresholds to trigger creation of a core dump.</p>
 <p><strong>BUT, it’s also super useful to search processes for secrets and other information.</strong></p>
 <p>For instance, this one liner will dump the memory of all processes to hard disk and then you can search them as you see fit.</p>
-<pre><code>Get-Process | % { procdump.exe -ma $_.Id }
+<pre tabindex="0"><code>Get-Process | % { procdump.exe -ma $_.Id }
 </code></pre><p>This is not the most elegant way of course, but I have found this extremely useful at times.</p>
 <p>This post is solely focused on <code>procdump</code>, so I wanted to highlight that there is another useful tool on Windows called <a href="https://github.com/putterpanda/mimikittenz"><code>Mimikittenz</code></a>, which utilizes <code>ReadProcesMemory</code> to search process memory without creating a file on disk. <strong>But, let&rsquo;s focuson on procdump and Linux!</strong></p>
 <h2 id="procdump-on-linux">Procdump on Linux!</h2>
@@ -136,32 +136,32 @@
 <h2 id="installation">Installation</h2>
 <p>On Ubuntu the Microsoft keys are not trusted by default, so you can either manually build the project or download and trust Microsoft&rsquo;s keys, and then use <code>sudo apt</code> to install. Detailed instructions for various platforms are located <a href="https://github.com/Sysinternals/ProcDump-for-Linux/blob/master/INSTALL.md">here</a>.</p>
 <h3 id="installing-microsofts-key-on-ubuntu">Installing Microsoft&rsquo;s key on Ubuntu</h3>
-<pre><code>wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+<pre tabindex="0"><code>wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 </code></pre><h3 id="installing-procdump">Installing <code>procdump</code></h3>
-<pre><code>sudo apt-get update
+<pre tabindex="0"><code>sudo apt-get update
 sudo apt-get install procdump
 </code></pre><h3 id="building-procdump-from-scratch">Building <code>procdump</code> from scratch</h3>
-<p>For pen testing the preferred option (if the tool is not yet available) to build it from scratch. Instructions can be found on <a href="https://github.com/Sysinternals/ProcDump-for-Linux/blob/master/INSTALL.md"><code>procdump</code>'s Github repo</a>.</p>
+<p>For pen testing the preferred option (if the tool is not yet available) to build it from scratch. Instructions can be found on <a href="https://github.com/Sysinternals/ProcDump-for-Linux/blob/master/INSTALL.md"><code>procdump</code>&rsquo;s Github repo</a>.</p>
 <h2 id="basic-usage-and-features">Basic usage and features</h2>
 <p>When invoking <code>procdump</code> specify the <code>PID</code> and the tool will do its magic to create a core memory dump.</p>
-<pre><code>sudo procdump -o /tmp -p 27390
+<pre tabindex="0"><code>sudo procdump -o /tmp -p 27390
 </code></pre><p>Above I also specified the <code>-o</code> to write the dump to a specific folder.</p>
 <p>Most features are useful for debugging performance and memory leak kind of issues. For instance, it’s possible to dump the memory when the CPU is under a certain load and so on.</p>
 <p>These features are less interesting for red teamer&rsquo;s nefarious purposes.</p>
 <p>It&rsquo;s also possible to use the <code>imagename</code> instead of the <code>PID</code> with the <code>-w</code> options, for instance:</p>
-<pre><code>sudo procdump -w firefox
+<pre tabindex="0"><code>sudo procdump -w firefox
 </code></pre><p>This will write a core memory dump of the browser to the hard drive, and afterwards one go <a href="/blog/posts/2020/hunting-for-credentials">credential hunting and look for passwords and cookies</a> inside it.</p>
 <h2 id="demo-scenario">Demo Scenario</h2>
 <p>Let&rsquo;s say the malicious engineer wants to see what another user is up to on a Jumpbox.</p>
 <p>The attacker already pivoted onto that host and now is inspecting the processes and notices that user <code>Bob</code> is working in nano.</p>
 <h3 id="attacker-uses-procdump-on-bobs-nano-process">Attacker uses <code>procdump</code> on Bob&rsquo;s nano process</h3>
-<pre><code>sudo procdump -w nano
+<pre tabindex="0"><code>sudo procdump -w nano
 </code></pre><p>This is how the output looks like:
 <img src="/blog/images/2021/procdump.png" alt="Attacker dumping nano"></p>
 <h3 id="attacker-searches-the-core-memory-dump-for-interesting-information">Attacker searches the core memory dump for interesting information</h3>
 <p>The next step is to analyze the memory dump, let&rsquo;s to a simple string search and grep:</p>
-<pre><code>~$ strings nano_time_2021-08-09_10\:23\:42.3197  | grep password
+<pre tabindex="0"><code>~$ strings nano_time_2021-08-09_10\:23\:42.3197  | grep password
 password=&quot;
 password=helloWorld!
 </code></pre><p>Screenshot of the procedure:</p>

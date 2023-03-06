@@ -178,7 +178,7 @@
 <h3 id="maps">Maps</h3>
 <p>With <code>bpftrace</code> maps where just simple variable names - there was nothing else needed. In libbpf we have to define structs now to hold the data, and use <a href="https://www.man7.org/linux/man-pages/man7/bpf-helpers.7.html">bpf_helper functions</a> to update or delete values.</p>
 <p>To give the example, I&rsquo;m using the following map to allow sending pointers from <code>sys_enter_getdents64</code> to <code>sys_exit_getdents64</code> trace points:</p>
-<pre><code>struct
+<pre tabindex="0"><code>struct
 {
     __uint(type, BPF_MAP_TYPE_HASH);
     __uint(max_entries, 8192);
@@ -189,7 +189,7 @@
 <h3 id="hook-points-trace-points-and-probes">Hook points, trace points and probes</h3>
 <p>Reading through <a href="https://xcellerator.github.io/posts/linux_rootkits_06/">Linux Rootkits Part 6 - Hiding Directories</a> I learned that I needed to leverage <code>getdents64</code> syscalls to access or manipulate directory listings. This is also needed if one wants to build a rootkit.</p>
 <p>To get the arguments of the syscall <code>bpftrace -lv tracepoint:syscalls:sys*getdents*</code>.</p>
-<pre><code>$ sudo bpftrace -lv tracepoint:syscalls:sys*dents64
+<pre tabindex="0"><code>$ sudo bpftrace -lv tracepoint:syscalls:sys*dents64
 BTF: using data from /sys/kernel/btf/vmlinux
 tracepoint:syscalls:sys_enter_getdents64
     int __syscall_nr;
@@ -201,7 +201,7 @@ tracepoint:syscalls:sys_exit_getdents64
     long ret;
 </code></pre><p>The man page <code>man getdents64</code> contains further details and explanations.</p>
 <p>The code to hook <code>sys_enter_getdents64</code> is short - here is entire snippet:</p>
-<pre><code>SEC(&quot;tracepoint/syscalls/sys_enter_getdents64&quot;)
+<pre tabindex="0"><code>SEC(&quot;tracepoint/syscalls/sys_enter_getdents64&quot;)
 int handle_enter_getdents64(struct trace_event_raw_sys_enter *ctx)
 {
     tid_t tid = bpf_get_current_pid_tgid();
@@ -219,7 +219,7 @@ int handle_enter_getdents64(struct trace_event_raw_sys_enter *ctx)
 </code></pre><p>This uses <a href="https://www.man7.org/linux/man-pages/man7/bpf-helpers.7.html">bpf_helper functions</a>, such as <code>bpf_get_current_pid_tgid</code> and <code>bpf_map_update_elem</code>.</p>
 <p>The goal of this code is to store the pointer to <code>d_entry</code> in the map, so that in <code>sys_exit_getdents64</code> we can access the pointer and read the directory information which was populated by then.</p>
 <p>In comparison the following (much shorter) script is the <code>bpftrace</code> version:</p>
-<pre><code>tracepoint:syscalls:sys_enter_getdents64
+<pre tabindex="0"><code>tracepoint:syscalls:sys_enter_getdents64
 {  
   @dir_entries[tid] = args-&gt;dirent;
 }
@@ -229,13 +229,13 @@ int handle_enter_getdents64(struct trace_event_raw_sys_enter *ctx)
 <h2 id="hooking-the-exit-call-and-manipulating-filenames">Hooking the exit call and manipulating filenames</h2>
 <p>Let&rsquo;s walk through the code of the exit function.</p>
 <p>First, I defined the hook point for the <code>sys_exit_getdents64</code> trace point.</p>
-<pre><code>SEC(&quot;tracepoint/syscalls/sys_exit_getdents64&quot;)
+<pre tabindex="0"><code>SEC(&quot;tracepoint/syscalls/sys_exit_getdents64&quot;)
 int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
 {
 </code></pre><p>Next, we grab the thread group ID that we can use as identifier for the call going forward.</p>
-<pre><code>    tid_t tid = bpf_get_current_pid_tgid();
+<pre tabindex="0"><code>    tid_t tid = bpf_get_current_pid_tgid();
 </code></pre><p>Following the same coding pattern from before with <code>bpftrace</code> we look up the pointer to the <code>dir_entries</code> from the map data structure. This is the pointer that <code>sys_enter_getdents64</code> stored in the map.</p>
-<pre><code>    long unsigned int * dir_addr  = bpf_map_lookup_elem(&amp;dir_entries, &amp;tid);
+<pre tabindex="0"><code>    long unsigned int * dir_addr  = bpf_map_lookup_elem(&amp;dir_entries, &amp;tid);
     if (dir_addr == NULL)
     {
         return 0;
@@ -244,7 +244,7 @@ int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
     bpf_map_delete_elem(&amp;dir_entries, &amp;tid);
 </code></pre><p>After reading the value, we clean up and delete it from the map.</p>
 <p>Next is the actual logic to loop through the directory. The code looks at each filename (<code>d_name</code>) and modify it using <code>bpf_probe_write_user</code>. I defined a bunch of variables that are used throughout the looping code.</p>
-<pre><code>    /* Loop over directory entries */
+<pre tabindex="0"><code>    /* Loop over directory entries */
     struct linux_dirent64 * d_entry;
     unsigned short int      d_reclen;
     unsigned short int      d_name_len; 
@@ -257,7 +257,7 @@ int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
     char d_name[128];  
 </code></pre><p><code>ctx-&gt;ret</code> is the return value of the <code>getdents64</code> call and contains the overall length of the buffer, <code>d_entry_base_addr</code> is pointing to the beginning of that buffer.</p>
 <p>Let&rsquo;s start the loop.</p>
-<pre><code>    int i=0;
+<pre tabindex="0"><code>    int i=0;
     while (i &lt; 256)   // limitation for now, only examine the first 256 entries
     {
         bpf_printk(&quot;Loop %d: offset: %d, total len: %d&quot;, i, offset, ret);
@@ -271,7 +271,7 @@ int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
 <p>Another thing to highlight here is the debug prints using <code>bpf_printk</code>. In order to view these, you can cat the following file:
 <code>sudo cat /sys/kernel/debug/tracing/trace_pipe</code> during executiong.</p>
 <p>The following part of the loop navigates to the next directory entry (<code>d_entry</code>) by adding the <code>offset</code> to the <code>d_entry_base_addr</code> and then reads the <code>d_reclen</code> and <code>d_name</code> (which is the filename) of the entry.</p>
-<pre><code>        d_entry = (struct linux_dirent64 *) (d_entry_base_addr + offset);
+<pre tabindex="0"><code>        d_entry = (struct linux_dirent64 *) (d_entry_base_addr + offset);
 
         // read d_reclen
         bpf_probe_read_user(&amp;d_reclen, sizeof(d_reclen), &amp;d_entry-&gt;d_reclen);
@@ -289,7 +289,7 @@ int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
         bpf_printk(&quot;d_reclen: %d, d_name_len: %d, %s&quot;, d_reclen, d_name_len, d_name);
 </code></pre><p>You can also read <code>d_type</code> and make sure it is not equal to <code>DT_DIR</code> (4) to skip directories and only manipulate filenames.</p>
 <p>The next step is the logic to only overwrite a file that matches a certain string, etc. To keep the example here straight forward the code just targets every filename that is longer than 6 characters and overwrite the initial 6 characters with <code>OhBPF</code> using <code>bpf_probe_write_user</code>. :)</p>
-<pre><code>        if ( d_name_len &gt; 6 )
+<pre tabindex="0"><code>        if ( d_name_len &gt; 6 )
         {	
             bpf_printk(&quot;** sys_enter_getdents64 ** OVERWRITING&quot;); 		
             
@@ -299,7 +299,7 @@ int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
             bpf_printk(&quot;** RESULT %d&quot;, success);  
         }
 </code></pre><p>Finally, we increase the <code>offset</code> by the record length (<code>d_reclen</code>) to move to the next directory entry, and in case we reached the end of the loop we return.</p>
-<pre><code>        offset += d_reclen;
+<pre tabindex="0"><code>        offset += d_reclen;
         i++;
     }
 
@@ -313,7 +313,7 @@ int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
 <p>Although this program doesn&rsquo;t do anything too malicious, it already points us to the potential for misuse of the <code>bpf_probe_write_user</code> function.</p>
 <p>Luckily, whenever a BPF program invokes it, there will be an entry in the <code>syslog</code>.</p>
 <p>This is how the <code>bpf_probe_write_user</code> call gets logged:</p>
-<pre><code>ubuntu kernel: [86495.892139] obpf[188278] is installing a program with bpf_probe_write_user helper that may corrupt user memory!
+<pre tabindex="0"><code>ubuntu kernel: [86495.892139] obpf[188278] is installing a program with bpf_probe_write_user helper that may corrupt user memory!
 </code></pre><p>Theoretically this can probably be bypassed by creating a BPF program that hooks the <code>syslog</code> syscall. As mentioned before tracking <code>bpf</code> syscalls is important as that is the source of the &ldquo;BPF inception&rdquo;.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>In this post we moved on from <code>bpftrace</code> to writing &ldquo;native&rdquo; BPF programs in C using the <code>libbpf-bootsrap</code> framework to get started quickly.</p>
@@ -331,7 +331,7 @@ int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
 </ul>
 <h2 id="appendix---obpfbpfc">Appendix - obpf.bpf.c</h2>
 <p>This is the core source code of the BPF program discussed in this post. I will release the repo once I complete the Offensive BPF series - since there is still a lot of code churn and changes.</p>
-<pre><code>// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
+<pre tabindex="0"><code>// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
 
 #include &quot;vmlinux.h&quot;
 #include &lt;bpf/bpf_helpers.h&gt;

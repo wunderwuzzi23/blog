@@ -165,7 +165,7 @@
 <p>Additionally, my Husky AI target does predictions directly against the model. For real attacks, I want to call the Husky AI web endpoint. Which I will work on in an upcoming post.</p>
 <p><img src="/blog/images/2021/huskyai-counterfit-new-code.png" alt="code"></p>
 <p>The complete Husky AI target implementation looks like the following:</p>
-<pre><code>import keras
+<pre tabindex="0"><code>import keras
 import numpy
 
 from counterfit.core.targets import ArtTarget
@@ -216,14 +216,14 @@ class Huskyai(ArtTarget):
         return [[husky_confidence, not_husky_confidence]]    
 </code></pre><h2 id="using-the-newly-created-husky-ai-target">Using the newly created Husky AI target</h2>
 <p>The <code>interact</code> command is used to switch to a specific target.</p>
-<pre><code>counterfit&gt; interact huskyai
+<pre tabindex="0"><code>counterfit&gt; interact huskyai
 Found 1316 images belonging to 2 classes.
 shape of sample list
 (1316, 128, 128, 3)
 huskyai&gt; 
 </code></pre><h2 id="running-a-prediction-and-debugging">Running a prediction and debugging</h2>
 <p>Doing a quick prediction on a specific sample in the set looks as follows:</p>
-<pre><code>huskyai&gt; predict --index 0
+<pre tabindex="0"><code>huskyai&gt; predict --index 0
 
 Sample                                                  Output Scores         
 Index               Sample                              ['husky' 'not_husky']     
@@ -239,15 +239,15 @@ huskyai&gt;
 <p>Our goal is to turn the plush Shadowbunny mascot into a husky!</p>
 <p><img src="/blog/images/2020/huskyai-shadowbunny.png" alt="Shadowbunny"></p>
 <p>First an attack framework needs to be loaded.</p>
-<pre><code>huskyai&gt; load art
+<pre tabindex="0"><code>huskyai&gt; load art
 </code></pre><p>Next you can view all the available attacks via <code>list attacks</code>, and then <code>use</code> a particular one.</p>
-<pre><code>huskyai&gt; use hop_skip_jump
+<pre tabindex="0"><code>huskyai&gt; use hop_skip_jump
 
 [+] Using hop_skip_jump f19e89fb
 
 huskyai&gt;hop_skip_jump&gt; 
 </code></pre><p>Like with Metasploit you can set options to change the default behavior of the attack.</p>
-<pre><code>huskyai&gt;hop_skip_jump&gt; show options
+<pre tabindex="0"><code>huskyai&gt;hop_skip_jump&gt; show options
 
 Attack Parameter (type)      Default       Current   
 -----------------------------------------------------
@@ -263,7 +263,7 @@ Attack Parameter (type)      Default       Current
 huskyai&gt;hop_skip_jump&gt;   
 </code></pre><p>To update the options and play around with settings, use <code>set option=value</code>.</p>
 <p>The test is launched with the <code>run</code> command.</p>
-<pre><code>huskyai&gt;hop_skip_jump&gt; run
+<pre tabindex="0"><code>huskyai&gt;hop_skip_jump&gt; run
 
 [+] Running hop_skip_jump on huskyai
 ...
@@ -308,7 +308,7 @@ At times you&rsquo;ll have to debug/change the <code>counterfit</code> code. In 
 <ol>
 <li>Click the Terminal button on the bottom right and run the following commands:</li>
 </ol>
-<pre><code>cd /tmp
+<pre tabindex="0"><code>cd /tmp
 git clone https://github.com/Azure/counterfit.git
 cd /tmp/counterfit
 pip3 install -r requirements.txt
@@ -316,7 +316,7 @@ pip install zip
 </code></pre><ol start="2">
 <li>I unzipped bunch of my Husky AI training data into a temp folder to have some data to work with using <code>python3</code> shell:</li>
 </ol>
-<pre><code>import zipfile
+<pre tabindex="0"><code>import zipfile
 
 zip_filename = &quot;/content/drive/MyDrive/HuskyAI/husky.train.zip&quot;
 

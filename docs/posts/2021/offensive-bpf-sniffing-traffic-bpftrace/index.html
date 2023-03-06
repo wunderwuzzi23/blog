@@ -151,7 +151,7 @@
 <h2 id="network-security-services-library">Network Security Services Library</h2>
 <p>The first question I had was what library does Firefox use for TLS?</p>
 <p>I used the <code>ldd</code> tool to look at linked libraries.</p>
-<pre><code>$ ldd  /usr/lib/firefox/firefox
+<pre tabindex="0"><code>$ ldd  /usr/lib/firefox/firefox
 	linux-vdso.so.1 (0x00007ffcf8d50000)
 	libpthread.so.0 =&gt; /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f2f49f80000)
 	libdl.so.2 =&gt; /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f2f49f79000)
@@ -163,7 +163,7 @@
 </code></pre><p>Mmmmh. This didn&rsquo;t provide any clue to which SSL library is being used.</p>
 <p>A few Google searches revealed that Mozilla has a library called <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS">NSS (Network Security Services)</a>.</p>
 <p>The Firefox executable was found at <code>/usr/lib/firefox/firefox</code>. In that same directory are NSS and related libraries.</p>
-<pre><code>$ ls -lha /usr/lib/firefox
+<pre tabindex="0"><code>$ ls -lha /usr/lib/firefox
 
 [....]
 -rw-r--r--   1 root root 234K Sep 30 14:39 libnspr4.so
@@ -179,17 +179,17 @@
 [...]
 </code></pre><p>My assumption was that Firefox is loading these, rather than generic system libraries. I&rsquo;m pretty sure now that this is the reason that <code>sslsniff-bpfcc</code> is not working with Firefox.</p>
 <p>Since I didn&rsquo;t find the library dependencies via <code>ldd</code> or <code>objdump</code> I used <code>pldd</code> to attach to an already running Firefox instance to see what libraries it had loaded:</p>
-<pre><code>$ sudo pldd 88953 | grep nss
+<pre tabindex="0"><code>$ sudo pldd 88953 | grep nss
 /usr/lib/firefox/libnssutil3.so
 /usr/lib/firefox/libnss3.so
 [...]
 </code></pre><p>Bingo. Now I was sure the local NSS libraries are being used.</p>
 <h3 id="creating-the-bpftrace-script-with-uprobes">Creating the bpftrace script with uprobes</h3>
 <p>Finding the correct function took a while. Using the following line, I searched for clues by dumping symbols:</p>
-<pre><code>objdump -tT *.so | grep -i write
+<pre tabindex="0"><code>objdump -tT *.so | grep -i write
 </code></pre><p>I also searched Mozilla&rsquo;s NSS documentation, and found this article about <a href="https://confused.ai/posts/intercepting-zoom-tls-encryption-bpf-uprobes">dumping Zoom traffic</a> quite useful and interesting.</p>
 <p>After identifying <code>PR_Read</code> and <code>PR_Write</code> as the functions of interest, I wrote up a little <code>bpftrace</code> script to hook <code>PR_Write</code> in <code>libnspr4.so</code>.</p>
-<pre><code>uprobe:/usr/lib/firefox/libnspr4.so:PR_Write
+<pre tabindex="0"><code>uprobe:/usr/lib/firefox/libnspr4.so:PR_Write
 { 
     printf(&quot;%s[%d](len=%d): %s (%r)\n&quot;, 
         comm, pid, arg2, 
@@ -208,7 +208,7 @@
 <p>This pattern would have to be followed here as well for the <code>PR_Read</code> call. Because only in the <code>uretprobe</code> of <code>PR_Read</code> the buffer is filled. Since we deal with <code>PR_Write</code> this isn&rsquo;t needed here and keeps it quite simple.</p>
 <h2 id="initial-results---seeing-traffic">Initial results - seeing traffic!</h2>
 <p>This <code>bpftrace</code> script already gave great results and allowed to understand the details of what’s going on a bit better, here is some output of the BPF program running:</p>
-<pre><code>$ sudo bpftrace scratch.bt
+<pre tabindex="0"><code>$ sudo bpftrace scratch.bt
 Attaching 1 probe...
 Socket Thread[88953](len=17):  (\x00\x00\x08\x07\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00)
 Timer[88953](len=1): M (M)
@@ -235,7 +235,7 @@ Web Content[89017](len=1): M (M)
 <p>The problem with this approach is that <code>bpftrace</code> <code>str</code> function only allows to read buffers of up to 60 bytes. There is an environment variable to increase this called <code>BPFTRACE_STRLEN=n</code>, but there is an upper boundary of a few hundred.</p>
 <p>Dealing with storage limitations on the stack is quite a common problem with BPF programs I have learned already. This goes along the same lines.</p>
 <p>The solution I came up is the following:</p>
-<pre><code>  $i = (int64)0;
+<pre tabindex="0"><code>  $i = (int64)0;
  
   while ($i &lt;= 4096)  //ideally this would be arg2, but Verifier complains
   {       
@@ -249,7 +249,7 @@ Web Content[89017](len=1): M (M)
    }
 </code></pre><p>This basically loops over the buffer sequentially while printing it out along the way.</p>
 <p>And it does work:</p>
-<pre><code>$ sudo bpftrace foxsniff.bt 
+<pre tabindex="0"><code>$ sudo bpftrace foxsniff.bt 
 Attaching 3 probes...
 Welcome to Offensive BPF... Use Ctrl-C to exit.
 
@@ -278,7 +278,7 @@ Cache-Control: no-cache
 </ul>
 <h2 id="appendix">Appendix</h2>
 <p>The following is the complete program.</p>
-<pre><code>#include &lt;net/sock.h&gt;
+<pre tabindex="0"><code>#include &lt;net/sock.h&gt;
 
 // Basic demo on how to hook user space APIs. This bpftrace script that 
 // traces uprobes for Firefox (NSS) write API and prints out the buffer as string. 

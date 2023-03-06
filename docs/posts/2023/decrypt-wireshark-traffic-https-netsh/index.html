@@ -144,13 +144,14 @@ This does not have to be on the same host as steps 1-2.</li>
 </ol>
 <p>If you can or want to capture traffic with Wireshark also, there is no need to use <code>netsh</code> of course.</p>
 <h2 id="video-tutorial">Video Tutorial</h2>
+<p><strong>Update: YouTube took the video down, because they say it violates some policy. I will work on creating a new video that is less spicy</strong></p>
 <p>I put together a tutorial and you can watch it <a href="https://www.youtube.com/watch?v=nulBm-VgT4s">here</a>.</p>
 <p><a href="https://www.youtube.com/watch?v=nulBm-VgT4s"><img src="/blog/images/2023/decrypt-youtube-small.png" alt="Decrypt https traffic with Wireshark"></a></p>
 <p>If you enjoy the content and/or video, please like it and Subscribe to the YouTube channel. I might post videos more regularly if these are useful.</p>
 <p>Cheers and Happy Hacking!</p>
 <h2 id="appendix">Appendix</h2>
 <p>List of commands:</p>
-<pre><code>[Environment]::SetEnvironmentVariable(&quot;SSLKEYLOGFILE&quot;, &quot;c:\temp\sslkeys\keys&quot;, &quot;MACHINE&quot;)
+<pre tabindex="0"><code>[Environment]::SetEnvironmentVariable(&quot;SSLKEYLOGFILE&quot;, &quot;c:\temp\sslkeys\keys&quot;, &quot;MACHINE&quot;)
 
 taskkill /im chrome.exe /f
 

@@ -133,12 +133,12 @@
 <ul>
 <li>Code creates file with sensitive information. Doing something like:</li>
 </ul>
-<pre><code>file.WriteAllBytes(filePath, content);
+<pre tabindex="0"><code>file.WriteAllBytes(filePath, content);
 </code></pre><ul>
 <li>Then the ACL is updated to lock down the file. <a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesecurity?view=netframework-4.8">Here is a the documentation on how to do that using the FileSecurity class</a>.</li>
 </ul>
 <p>Hence, you might see <a href="https://docs.microsoft.com/en-us/dotnet/standard/io/how-to-add-or-remove-access-control-list-entries">something similar to the following lines:</a>:</p>
-<pre><code>AddFileSecurity(filePath, @&quot;Administrators&quot;,
+<pre tabindex="0"><code>AddFileSecurity(filePath, @&quot;Administrators&quot;,
     FileSystemRights.ReadData, AccessControlType.Allow);
 </code></pre><p>Aditionally, <em>permission inheritance will be broken</em> by the developer as well (e.g to prevent automatic read access, as otherwise the file likely won&rsquo;t be locked down properly anyways).</p>
 <p><em>These two steps of (1) creating the widely exposed file with sensitive content and then (2) locking it down typically can be found right after each other in the source code.</em></p>
@@ -149,7 +149,7 @@
 <h2 id="winning-the-race">Winning the race</h2>
 <p>Nothing fancy when it comes to testing for this. I built a simple tool in C# that tries to access the file in a loop and prints out the contents if that is the case.</p>
 <p>This is basically the core part of the utility:</p>
-<pre><code>while (true)
+<pre tabindex="0"><code>while (true)
 {
     try
     {

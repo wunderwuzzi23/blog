@@ -139,7 +139,7 @@
 <h3 id="training-and-validation-data">Training and validation data</h3>
 <p>Images are typically stored in dedicated folders for training and validation sets, and according to there label. This makes it easier later on because ML frameworks can use the &ldquo;folder name&rdquo; as the label for images. This is one of these typically pre-processing steps, where we get all the ducks, aehm, huskies in a row.</p>
 <p>For instance, I have the following directory structure for images:</p>
-<pre><code>   data/training/husky
+<pre tabindex="0"><code>   data/training/husky
    data/training/nothusky
    data/validation/husky
    data/validation/nothusky
@@ -151,7 +151,7 @@
 <p>The first model I built had only one layer and was basically just doing what is called &ldquo;logistic regression&rdquo; with a binary classifier.</p>
 <p>It gave about a 62% accuracy, which I thought was good already. Although, I wanted to apply more of the knowledge I was learning from Andrew Ng&rsquo;s class and played around with a lot of different and more complex variations. Including regularization, convolutions, dropouts and things along those lines.</p>
 <p>In the end I ended up with a convolutional neural network (CNN) with the following layout.</p>
-<pre><code>model = tf.keras.models.Sequential([
+<pre tabindex="0"><code>model = tf.keras.models.Sequential([
     tf.keras.layers.Conv2D(32, (3,3), activation=&quot;relu&quot;, input_shape=(num_px, num_px, 3)),
     tf.keras.layers.MaxPooling2D(2, 2),
     tf.keras.layers.Dropout(0.4),
@@ -173,7 +173,7 @@
 opt = tf.keras.optimizers.Adam(learning_rate=0.0005)
 model.compile(optimizer=opt, loss=&quot;binary_crossentropy&quot;, metrics=[&quot;accuracy&quot;])
 </code></pre><p>For the optimizer I played around with <code>RMSProp</code>, but decided on <code>Adam</code> eventually. Here is a summary of the deep neural network that I&rsquo;m using at the moment:</p>
-<pre><code>&gt;&gt; model.summary()
+<pre tabindex="0"><code>&gt;&gt; model.summary()
 
 Model: &quot;sequential&quot;
 _________________________________________________________________
@@ -214,7 +214,7 @@ Non-trainable params: 0
 <p>So much about the layout of the neural network itself.</p>
 <h2 id="training-the-model">Training the model</h2>
 <p>Training the model with Keras is pretty straight forward and is done via <code>model.fit</code> (or <code>model.fit_generator</code> respectively).</p>
-<pre><code>history = model.fit_generator(training_generator,
+<pre tabindex="0"><code>history = model.fit_generator(training_generator,
                               epochs=200, 
                               steps_per_epoch=80,
                               validation_data=validation_generator,
@@ -227,7 +227,7 @@ Non-trainable params: 0
 <li><strong>Callbacks</strong>: Passing a callback to the <code>fit</code> function allows to observe the training in more detail - in my case I used it to stop training when reaching a certain accuracy.</li>
 </ul>
 <p>The definition of the <strong>callback</strong> looks like this:</p>
-<pre><code>DESIRED_ACCURACY = 0.99
+<pre tabindex="0"><code>DESIRED_ACCURACY = 0.99
 
 class myCallback(tf.keras.callbacks.Callback):
   def on_epoch_end(self, epoch, logs={}):
@@ -240,7 +240,7 @@ callbacks = myCallback()
 <h3 id="image-augmentation">Image Augmentation</h3>
 <p>Since my training set was rather smaller, I used a technique called <em>Image Augmentation</em>. Image Augmentation means that when training the model, the images feed to the model are updated on the fly. For instance, they are cropped, or flipped and things like that. This is to increase the training set and provide more variations. I thought that is a pretty neat trick.</p>
 <p>I updated and played around with different algorithms, model structures as well as performing image augmentation. In TensorFlow this is done with the <code>ImageDataGenerator</code> and <code>flow_from_directory</code>.</p>
-<pre><code>training_datagen =  ImageDataGenerator(
+<pre tabindex="0"><code>training_datagen =  ImageDataGenerator(
     rescale=1/255,
     shear_range=0.2,
     zoom_range=0.2,
@@ -258,7 +258,7 @@ training_generator = training_datagen.flow_from_directory(
 <p><img src="/blog/images/2020/huskyai.train.val.loss.png" alt="Training and Validation Loss"></p>
 <h2 id="saving-the-model">Saving the model</h2>
 <p>In Keras a model is saved with a call to <code>.save</code>. This includes the model structure and the weights.</p>
-<pre><code>model.save(&quot;huskymodel.h5&quot;)
+<pre tabindex="0"><code>model.save(&quot;huskymodel.h5&quot;)
 </code></pre><p>There is also the API to only store the weights, called <code>.save_weights</code>. In that case you have to manually construct the model before loading the weights again. This is useful for saving checkpoints during training for instance.</p>
 <p>In TensorFlow there are two file formats to choose from when saving models <code>.h5</code>, and also a <code>SaveModel</code>. For now we will just focus on the <code>.h5</code> file format.</p>
 <p><strong>Attack idea:</strong> As you can image the model file itself is a pretty high value asset. It does contain both the layout of the neural network, as well as the model weights. Tampering with this file will allow to add backdoors and cause a lot of other issues. We will analyze this more during threat modeling.</p>

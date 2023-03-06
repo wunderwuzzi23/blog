@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Mon, 28 Feb 2022 04:22:22 -0700</lastBuildDate>
-    
-	<atom:link href="https://embracethered.com/blog/tags/cicd/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 28 Feb 2022 04:22:22 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/cicd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gitlab Reconnaissance Introduction</title>
       <link>https://embracethered.com/blog/posts/2022/hacking-gitlab-servers/</link>

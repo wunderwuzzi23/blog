@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Fri, 09 Sep 2022 16:30:29 -0700</lastBuildDate>
-    
-	<atom:link href="https://embracethered.com/blog/tags/supplychain/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 09 Sep 2022 16:30:29 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/supplychain/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Malicious Python Packages and Code Execution via pip download</title>
       <link>https://embracethered.com/blog/posts/2022/python-package-manager-install-and-download-vulnerability/</link>

@@ -148,7 +148,7 @@
 <p>Using the information and techniques from the previous post about Credential Hunting and related ones described in my book, <strong>I had identified a valid Mozilla Phabricator API token, along with a Bugzilla token</strong> in a Github repo.</p>
 <h3 id="token-validation">Token Validation</h3>
 <p>To validate the token, I used the Phabricator <strong>whoami</strong> API.</p>
-<pre><code>curl https://&lt;phabricator&gt;/api/user.whoami -d api.token=api-xxxx
+<pre tabindex="0"><code>curl https://&lt;phabricator&gt;/api/user.whoami -d api.token=api-xxxx
 </code></pre><p>The response of the request showed that the token impersonated a Mozilla account. At that point I knew, what I needed to know - there was no need to perform any other action.</p>
 <h3 id="reporting">Reporting</h3>
 <p><strong>I promptly reported this issue to Mozilla and they fixed it basically immediatley</strong>. They also performed investigations to ensure no misuse had occured and searched for variants.</p>

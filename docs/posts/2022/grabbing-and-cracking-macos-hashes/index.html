@@ -146,33 +146,33 @@
 <h1 id="basics---the-local-directory-service">Basics - The Local Directory Service</h1>
 <p>The precious hashes for accounts on macOS are stored in the local directory service. They can be found in <code>.plist</code> files at <code>/var/db/dslocal/nodes/Default/users/*</code>.</p>
 <p>On newer versions of macOS, System Integrity Protection (SIP) prevents root to access the files directly. To check if SIP is enabled use the <code>csrutil</code> utility:</p>
-<pre><code>$ csrutil status
+<pre tabindex="0"><code>$ csrutil status
 System Integrity Protection status: enabled.
 </code></pre><p>Luckily, we don&rsquo;t have to read the files directly though, we can use <code>dscl</code> instead.</p>
 <p>As root, you can read the information of other accounts on the system using <code>dscl</code>:</p>
-<pre><code>$ dscl . -read /Users/Bob
+<pre tabindex="0"><code>$ dscl . -read /Users/Bob
 </code></pre><p>The output looks like this:</p>
 <p><a href="/blog/images/2022/macos-dscl-hashes.png"><img src="/blog/images/2022/macos-dscl-hashes.png" alt="reading the user info"></a></p>
 <p>Besides a lot of interesting information about the user, the picture they use, etc. the password hash is what attackers are after.</p>
 <h1 id="precious-hashes">Precious Hashes</h1>
 <p>You might have noticed in the screenshot that it also includes the password hash. To drill down and just grab the <code>ShadowHashData</code> specifically using <code>dscl</code> as well:</p>
-<pre><code>$ dscl . -read /Users/Bob/ dsAttrTypeNative:ShadowHashData
+<pre tabindex="0"><code>$ dscl . -read /Users/Bob/ dsAttrTypeNative:ShadowHashData
 </code></pre><p>This will print out the hash and salt of the account&rsquo;s password:</p>
 <p><a href="/blog/images/2022/macos-dscl-hashes-2.png"><img src="/blog/images/2022/macos-dscl-hashes-2.png" alt="reading the hash"></a></p>
 <p>Now the goal is to crack them with hashcat. For that the base64 values have to be converted into their hex representation. This is a bit tricky and I recall the first time doing this took me a while, but the the <a href="https://apple.stackexchange.com/questions/220729/what-type-of-hash-are-a-macs-password-stored-in/220863">following post</a> was quite useful.</p>
 <p>This is how the conversion of one of the values of the <code>SALTED-SHA512-PBKDF2</code> hash looks like:</p>
-<pre><code>$ echo ADXA/4Prd48YIy7BhVVhA5gpBD54zK2UkiZdzEKXRTs= | base64 -D  | xxd -p
+<pre tabindex="0"><code>$ echo ADXA/4Prd48YIy7BhVVhA5gpBD54zK2UkiZdzEKXRTs= | base64 -D  | xxd -p
 0035c0ff83eb778f18232ec1855561039828043e78ccad9492265dcc4297453b
 </code></pre><h1 id="using-hashcat-to-crack-macos-hashes">Using Hashcat to crack macOS hashes</h1>
 <p>Now it&rsquo;s time to spin up hashcat and start trying to crack the hash.</p>
-<pre><code>$ hashcat -m 7100 hash.txt -a 0 wordlist.txt
+<pre tabindex="0"><code>$ hashcat -m 7100 hash.txt -a 0 wordlist.txt
 </code></pre><p>The following screenshot shows how this looks in action:</p>
 <p><a href="/blog/images/2022/macos-dscl-hashes-3.png"><img src="/blog/images/2022/macos-dscl-hashes-3.png" alt="DSCL Hashcat"></a></p>
 <p>Voila! The password was cracked successfully!</p>
 <h2 id="authentication-hints">Authentication Hints</h2>
 <p>As mentioned earlier there is a lot of other useful info that can be read with <code>dscl</code>.</p>
 <p>Apple stores the authentication hint the user created in clear text. So that can be useful as well to build a good wordlist for cracking a specific password:</p>
-<pre><code>$ dscl . -read /Users/Bob/ AuthenticationHint
+<pre tabindex="0"><code>$ dscl . -read /Users/Bob/ AuthenticationHint
 Authentication Hint:
 The password hint is not encrypted
 </code></pre><p>Pretty interesting, although not entirely unexpected that a password hint could be visible to anyone.</p>
