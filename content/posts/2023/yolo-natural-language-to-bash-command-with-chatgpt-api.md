@@ -17,6 +17,8 @@ twitter:
 
 Once in a while I go build some fun new tools to adopt new tech. Just last week OpenAI made their `gpt-3.5-turbo` model accessible via API endpoints. 
 
+**Update: The latest version also supports GPT-4.**
+
 So, I thought it's time to start building a tool to leverage it.
 
 ## What is yolo?

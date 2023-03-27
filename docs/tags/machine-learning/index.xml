@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Fri, 02 Dec 2022 08:41:49 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Mar 2023 16:55:21 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bing Chat claims to have robbed a bank and it left no trace</title>
+      <link>https://embracethered.com/blog/posts/2023/bing-chat-bank-robbery/</link>
+      <pubDate>Sun, 26 Mar 2023 16:55:21 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/bing-chat-bank-robbery/</guid>
+      <description>Playing around with Bing Chat is quite fun. Until today I mostly used ChatGPT and GPT-4 directly, but I was curious of the capabilites and restrictions of Bing Chat.
+I noticed that as soon as I mentioned the word &amp;ldquo;hacker&amp;rdquo;, Bing Chat became quite &amp;ldquo;uncomfortable&amp;rdquo;. For instance, when I asked it to imagine being a hacker and list some security vulnerabilities, it replied:
+I’m sorry but I cannot help you with that.</description>
+    </item>
+    
     <item>
       <title>ChatGPT: Imagine you are a database server</title>
       <link>https://embracethered.com/blog/posts/2022/chatgpt-imagine-you-are-a-database/</link>

@@ -6,12 +6,8 @@
     <description>Recent content in webapp on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Sun, 10 Oct 2021 10:10:51 -0700</lastBuildDate>
-    
-	<atom:link href="https://embracethered.com/blog/tags/webapp/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
+    <lastBuildDate>Sun, 10 Oct 2021 10:10:51 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/webapp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Video: What is Tabnabbing?</title>
       <link>https://embracethered.com/blog/posts/2021/what-is-tab-nabbing/</link>

@@ -1,99 +1,61 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://embracethered.com/blog/tags/appsec/</loc>
     <lastmod>2021-10-10T10:10:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/</loc>
     <lastmod>2021-10-10T10:10:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/pentest/</loc>
     <lastmod>2021-10-10T10:10:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/</loc>
     <lastmod>2021-10-10T10:10:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2021-10-10T10:10:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/video/</loc>
     <lastmod>2021-10-10T10:10:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2021/what-is-tab-nabbing/</loc>
     <lastmod>2021-10-10T10:10:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/webapp/</loc>
     <lastmod>2021-10-10T10:10:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/books/</loc>
     <lastmod>2020-04-02T00:01:09-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/</loc>
     <lastmod>2020-04-02T00:01:09-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/homefield-advantage/</loc>
     <lastmod>2020-04-02T00:01:09-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/pentesting/</loc>
     <lastmod>2020-04-02T00:01:09-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/red/</loc>
     <lastmod>2020-04-02T00:01:09-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/principles/</loc>
     <lastmod>2020-02-12T17:03:32-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/strategy/</loc>
     <lastmod>2020-02-12T17:03:32-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/web/</loc>
     <lastmod>2020-02-12T17:03:32-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/importance-security-principles/</loc>
     <lastmod>2020-02-12T17:03:32-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/zero-trust/</loc>
     <lastmod>2020-02-06T14:08:55-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://embracethered.com/blog/categories/</loc>
   </url>
-  
 </urlset>

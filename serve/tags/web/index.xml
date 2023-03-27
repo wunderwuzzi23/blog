@@ -6,12 +6,8 @@
     <description>Recent content in web on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2022</copyright>
-    <lastBuildDate>Wed, 12 Feb 2020 17:03:32 -0800</lastBuildDate>
-    
-	<atom:link href="https://embracethered.com/blog/tags/web/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
+    <lastBuildDate>Wed, 12 Feb 2020 17:03:32 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/web/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Web Application Security Principles Revisited</title>
       <link>https://embracethered.com/blog/posts/importance-security-principles/</link>
