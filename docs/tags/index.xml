@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Sun, 26 Mar 2023 16:55:21 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Mar 2023 20:26:31 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>aiml</title>
       <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Sun, 26 Mar 2023 16:55:21 -0700</pubDate>
+      <pubDate>Wed, 29 Mar 2023 20:26:31 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
       <description></description>
@@ -20,9 +20,27 @@
     <item>
       <title>machine learning</title>
       <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Sun, 26 Mar 2023 16:55:21 -0700</pubDate>
+      <pubDate>Wed, 29 Mar 2023 20:26:31 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>offensiveml</title>
+      <link>https://embracethered.com/blog/tags/offensiveml/</link>
+      <pubDate>Wed, 29 Mar 2023 20:26:31 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/offensiveml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ttp</title>
+      <link>https://embracethered.com/blog/tags/ttp/</link>
+      <pubDate>Wed, 29 Mar 2023 20:26:31 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ttp/</guid>
       <description></description>
     </item>
     
@@ -50,15 +68,6 @@
       <pubDate>Wed, 25 Jan 2023 09:31:58 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/red/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ttp</title>
-      <link>https://embracethered.com/blog/tags/ttp/</link>
-      <pubDate>Wed, 25 Jan 2023 09:31:58 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ttp/</guid>
       <description></description>
     </item>
     
