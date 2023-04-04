@@ -23,7 +23,7 @@ My answer is straight forward as there are already existing frameworks that can 
 You are likely familiar or have at least heard of the **Capability Maturity Model Integration** from Carnegie Mellon University. In particular [CMMI](https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration) defines five levels to measure software engineering processes as follows:
 
 1. Initial
-2. Mangaged 
+2. Managed 
 3. Defined
 4. Measured
 5. Optimized
