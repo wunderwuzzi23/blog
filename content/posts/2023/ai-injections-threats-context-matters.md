@@ -1,5 +1,5 @@
 ---
-title: "Don't trust LLM responses. Threats to chatbots."
+title: "Don't blindly trust LLM responses. Threats to chatbots."
 date: 2023-04-15T18:09:46-07:00
 tags: [
      "aiml", "machine learning","red", "threats", "ai injections"
@@ -9,7 +9,7 @@ twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "Do not trust LLM responses. Threats to chatbots."
+  title: "Do not blindly trust LLM responses. Threats to chatbots."
   description: "Discussion of output encoding/filtering to mitigate real world threats and data exfiltration scenarios. New Advanced Instructions print 'AI Injection succeeded', speak Doge."
   image: "https://embracethered.com/blog/images/2023/ai_injection2orig.jpg"
 ---
