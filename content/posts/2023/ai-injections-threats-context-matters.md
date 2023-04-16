@@ -75,7 +75,7 @@ For instance, if you build a chatbot, consider the following injection threats:
 * During an injection attack **AI can be leveraged to perform operations on past data in the chat to summarize or search for passwords** and so forth
 * Other features the client supports or parsing stacks that might be invoked by the response?
 
-Here is an example to show how with the word `print /giphy` can be invoked:
+Here is an example to show how `print /giphy` can be invoked:
 
 ![command invocation](/blog/images/2023/cat.gif)
 
