@@ -33,7 +33,7 @@ In the [previous post](https://embracethered.com/blog/posts/2023/ai-injections-d
 
 {{< figure src="/blog/images/2023/ai_injection2.jpg" width="80%" height="80%" class=".center">}}
 
-This post will specifically focus on the output from LLMs, which is **untrusted**, and how to tackle this the challenge when adopting AI systems.
+This post will specifically focus on the output from LLMs, which is **untrusted**, and how to tackle this challenge when adopting AI systems.
 
 ## Untrusted Data from AI Models
 
