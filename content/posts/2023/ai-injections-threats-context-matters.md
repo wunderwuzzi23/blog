@@ -106,6 +106,14 @@ For risky apps and use cases, always consider human review.
 
 Cheers.
 
+
+## References
+
+* [Yolo Shell Assistant Github](https://github.com/wunderwuzzi23/yolo-ai-cmdbot)
+* [Discord Slash Permissions](https://discord.com/blog/slash-commands-permissions-discord-apps-bots)
+* Images created via Bing Image Create
+
+
 ## Appendix
 
 ### Data Exfiltration via Hyperlinks  
