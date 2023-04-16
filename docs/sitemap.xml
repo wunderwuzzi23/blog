@@ -2,25 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
+    <lastmod>2023-04-15T18:09:46-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/aiml/</loc>
+    <lastmod>2023-04-15T18:09:46-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2023/ai-injections-threats-context-matters/</loc>
+    <lastmod>2023-04-15T18:09:46-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2023-04-15T18:09:46-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2023-04-15T18:09:46-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2023-04-15T18:09:46-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2023-04-15T18:09:46-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2023-04-15T18:09:46-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/threats/</loc>
+    <lastmod>2023-04-15T18:09:46-07:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2023/ai-injections-direct-and-indirect-prompt-injection-basics/</loc>
     <lastmod>2023-03-29T20:26:31-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/aiml/</loc>
-    <lastmod>2023-03-29T20:26:31-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2023-03-29T20:26:31-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2023-03-29T20:26:31-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/offensiveml/</loc>
-    <lastmod>2023-03-29T20:26:31-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2023-03-29T20:26:31-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2023-03-29T20:26:31-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/ttp/</loc>
@@ -36,9 +48,6 @@
     <lastmod>2023-03-05T17:31:58-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/pentest/</loc>
-    <lastmod>2023-01-25T09:31:58-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
     <lastmod>2023-01-25T09:31:58-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2023/video-hijacking-ssh-agent/</loc>

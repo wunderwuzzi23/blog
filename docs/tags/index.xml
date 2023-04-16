@@ -7,11 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Wed, 29 Mar 2023 20:26:31 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Apr 2023 18:09:46 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ai injections</title>
+      <link>https://embracethered.com/blog/tags/ai-injections/</link>
+      <pubDate>Sat, 15 Apr 2023 18:09:46 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>aiml</title>
       <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Wed, 29 Mar 2023 20:26:31 -0700</pubDate>
+      <pubDate>Sat, 15 Apr 2023 18:09:46 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
       <description></description>
@@ -20,9 +29,27 @@
     <item>
       <title>machine learning</title>
       <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Wed, 29 Mar 2023 20:26:31 -0700</pubDate>
+      <pubDate>Sat, 15 Apr 2023 18:09:46 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red</title>
+      <link>https://embracethered.com/blog/tags/red/</link>
+      <pubDate>Sat, 15 Apr 2023 18:09:46 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>threats</title>
+      <link>https://embracethered.com/blog/tags/threats/</link>
+      <pubDate>Sat, 15 Apr 2023 18:09:46 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/threats/</guid>
       <description></description>
     </item>
     
@@ -59,15 +86,6 @@
       <pubDate>Wed, 25 Jan 2023 09:31:58 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/pentest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>red</title>
-      <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Wed, 25 Jan 2023 09:31:58 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/red/</guid>
       <description></description>
     </item>
     
