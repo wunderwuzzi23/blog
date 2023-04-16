@@ -1,6 +1,6 @@
 ---
 title: "AI Injections: Untrusted LLM responses and why context matters"
-date: 2023-04-15T18:09:46-07:00
+date: 2023-04-18T18:09:46-07:00
 tags: [
      "aiml", "machine learning","red", "threats", "ai injections"
     ]
@@ -39,11 +39,11 @@ This post will specifically focus on the output from LLMs, which is **untrusted*
 
 While developing the [yolo shell assistant](https://github.com/wunderwuzzi23/yolo-ai-cmdbot), I gained good insights and a feel for LLMs. Afterwards I built a Discord chatbot and that helped me pinpoint some real-world risks present in apps.
 
-The key is that **context *still* matters**.
+The key is that **context  matters**.
 
 **When data comes back from an LLM prompt, it needs to be considered untrusted.**
 
-## Response Processing - Context Matters
+## Response Processing
 
 This post will focus on the **untrustworthiness of LLM responses** and explore specific threats to chatbots. Understanding the context of where and when a response is inserted is crucial in understanding these issues. 
 
