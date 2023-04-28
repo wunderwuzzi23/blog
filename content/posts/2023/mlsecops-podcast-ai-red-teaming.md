@@ -28,7 +28,7 @@ That's why I'm thrilled to have been invited as a guest on The MLSecOps Podcast.
 [![AI MLSecOps Podcast](/blog/images/2023/mlsecops-podcast-red-team.png)](https://mlsecops.com/podcast/mlsecops-red-teaming-threat-modeling-and-attack-methods-of-ai-apps
 )
 
-
+I hope the interview is interesting, and insightful.
 
 Best,
 Johann.
