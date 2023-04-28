@@ -33,9 +33,11 @@ If you can or want to capture traffic with Wireshark also, there is no need to u
 
 **Update: YouTube took the video down, because they say it violates some policy. I will work on creating a new video that is less spicy**
 
-I put together a tutorial and you can watch it [here](https://www.youtube.com/watch?v=nulBm-VgT4s).
+**Update 2: I recreated the video, removing the red team component**
 
-[![Decrypt https traffic with Wireshark](/blog/images/2023/decrypt-youtube-small.png)](https://www.youtube.com/watch?v=nulBm-VgT4s)
+I put together a tutorial and you can watch it [here](https://www.youtube.com/watch?v=X-J2S6lQpxc).
+
+[![Decrypt https traffic with Wireshark](/blog/images/2023/decrypt-youtube-small.png)](https://www.youtube.com/watch?v=X-J2S6lQpxc)
 
 If you enjoy the content and/or video, please like it and Subscribe to the YouTube channel. I might post videos more regularly if these are useful.
 
