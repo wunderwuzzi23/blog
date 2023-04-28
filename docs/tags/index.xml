@@ -7,29 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Sat, 15 Apr 2023 18:09:46 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ai injections</title>
-      <link>https://embracethered.com/blog/tags/ai-injections/</link>
-      <pubDate>Sat, 15 Apr 2023 18:09:46 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Thu, 27 Apr 2023 20:59:51 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>aiml</title>
       <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Sat, 15 Apr 2023 18:09:46 -0700</pubDate>
+      <pubDate>Thu, 27 Apr 2023 20:59:51 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>huskyai</title>
+      <link>https://embracethered.com/blog/tags/huskyai/</link>
+      <pubDate>Thu, 27 Apr 2023 20:59:51 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/huskyai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>machine learning</title>
       <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Sat, 15 Apr 2023 18:09:46 -0700</pubDate>
+      <pubDate>Thu, 27 Apr 2023 20:59:51 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
       <description></description>
@@ -38,7 +38,7 @@
     <item>
       <title>red</title>
       <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Sat, 15 Apr 2023 18:09:46 -0700</pubDate>
+      <pubDate>Thu, 27 Apr 2023 20:59:51 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/red/</guid>
       <description></description>
@@ -47,9 +47,18 @@
     <item>
       <title>threats</title>
       <link>https://embracethered.com/blog/tags/threats/</link>
-      <pubDate>Sat, 15 Apr 2023 18:09:46 -0700</pubDate>
+      <pubDate>Thu, 27 Apr 2023 20:59:51 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/threats/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ai injections</title>
+      <link>https://embracethered.com/blog/tags/ai-injections/</link>
+      <pubDate>Sat, 15 Apr 2023 18:09:46 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
       <description></description>
     </item>
     
@@ -176,15 +185,6 @@
       <pubDate>Sun, 28 Aug 2022 20:10:44 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ai/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>huskyai</title>
-      <link>https://embracethered.com/blog/tags/huskyai/</link>
-      <pubDate>Sun, 28 Aug 2022 20:10:44 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/huskyai/</guid>
       <description></description>
     </item>
     

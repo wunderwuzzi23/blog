@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Sat, 15 Apr 2023 18:09:46 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Apr 2023 20:59:51 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MLSecOps Podcast: AI Red Teaming and Threat Modeling Machine Learning Systems</title>
+      <link>https://embracethered.com/blog/posts/2023/mlsecops-podcast-ai-red-teaming/</link>
+      <pubDate>Thu, 27 Apr 2023 20:59:51 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/mlsecops-podcast-ai-red-teaming/</guid>
+      <description>Hack and protect Machine Learning Systems so that we don&amp;rsquo;t get stuck in the matrix!
+It&amp;rsquo;s been almost three years since I started the Machine Learning Attack Series, and my interest in attacking and leveraging AI and Machine Learning is unbroken.
+There is so much to learn and explore, particularly in bridging the gap between traditional security engineering and machine learning. As followers of this blog will know, this is an area I have been exploring in-depth over the past few years.</description>
+    </item>
+    
     <item>
       <title>Don&#39;t blindly trust LLM responses. Threats to chatbots.</title>
       <link>https://embracethered.com/blog/posts/2023/ai-injections-threats-context-matters/</link>
