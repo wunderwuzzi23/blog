@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Wed, 29 Mar 2023 20:26:31 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ttp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 May 2023 07:00:40 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ttp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Video: Prompt Injection - An Introduction</title>
+      <link>https://embracethered.com/blog/posts/2023/prompt-injection-an-introduction-video/</link>
+      <pubDate>Wed, 10 May 2023 07:00:40 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/prompt-injection-an-introduction-video/</guid>
+      <description>There are many prompt engineering classes and currently pretty much all examples are vulnerable to Prompt Injections. Especially Indirect Prompt Injections are dangerous as we discussed before.
+Indirect Prompt Injections allow untrusted data to take control of the LLM (large language model) and give an AI a new instructions, mission and objective.
+Bypassing input validation Attack payloads are natural language. This means there are lots of creative ways an adversary can inject malicious data that bypass input filters and web application firewalls.</description>
+    </item>
+    
     <item>
       <title>AI Injections: Direct and Indirect Prompt Injections and Their Implications</title>
       <link>https://embracethered.com/blog/posts/2023/ai-injections-direct-and-indirect-prompt-injection-basics/</link>
