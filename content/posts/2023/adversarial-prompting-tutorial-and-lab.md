@@ -43,11 +43,11 @@ Additionally, I recorded this guided explanation of Prompt Engineering Technique
 
 A quick reminder on why this attack is so powerful:
 
-## Bypassing input validation
+## Bypassing Input Validation
 
 Attack payloads are natural language. This means there are lots of creative ways an adversary can inject malicious data that bypass input filters and web application firewalls.
 
-## Leveraging the power of AI for exploitation 
+## Leveraging the Power of AI for Exploitation 
 
 Depending on scenario attacks can include JSON object injections, HTML injection, Cross Site Scripting, overwriting orders of an order chat bot and even data exfiltration (and many others) all with the power of AI and LLMs.
 
