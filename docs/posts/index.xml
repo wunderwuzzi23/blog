@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Wed, 10 May 2023 07:00:40 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 May 2023 22:09:43 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adversarial Prompting: Tutorial and Lab</title>
+      <link>https://embracethered.com/blog/posts/2023/adversarial-prompting-tutorial-and-lab/</link>
+      <pubDate>Thu, 11 May 2023 22:09:43 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/adversarial-prompting-tutorial-and-lab/</guid>
+      <description>To learn more about Prompt Engineering and Prompt Injections I put together this tutorial + lab for myself. It is as a Jupyter Notebook to experiement and play around with this novel attack technique, learn and experiment.
+The examples reach from simple prompt engineering scenarios, such as changing the output message to a specific text, to more complex adversarial prompt challenges such as JSON object injection, HTML injection/XSS, overwriting mail recipients or orders of an OrderBot and also data exfiltration.</description>
+    </item>
+    
     <item>
       <title>Video: Prompt Injections - An Introduction</title>
       <link>https://embracethered.com/blog/posts/2023/prompt-injection-an-introduction-video/</link>
