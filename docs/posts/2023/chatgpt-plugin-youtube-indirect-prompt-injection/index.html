@@ -3,30 +3,30 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Adversarial Prompting: Tutorial and Lab &middot;  Embrace The Red" />
+  <meta property="og:title" content=" ChatGPT: Indirect Prompt Injection via YouTube Transcript &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
-  <meta property="og:url" content="https://embracethered.com/blog/posts/2023/adversarial-prompting-tutorial-and-lab/" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2023-05-11T22:09:43-07:00" />
-  
-  <meta property="og:article:tag" content="red" />
-  
-  <meta property="og:article:tag" content="ttp" />
+  <meta property="og:article:published_time" content="2023-05-14T00:01:38-07:00" />
   
   <meta property="og:article:tag" content="aiml" />
   
-  <meta property="og:article:tag" content="video" />
+  <meta property="og:article:tag" content="machine learning" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="threats" />
   
   <meta property="og:article:tag" content="ai injections" />
   
   
 
   <title>
-     Adversarial Prompting: Tutorial and Lab &middot;  Embrace The Red
+     ChatGPT: Indirect Prompt Injection via YouTube Transcript &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -42,9 +42,9 @@
   
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wunderwuzzi23">
-<meta name="twitter:title" content="Adversarial Prompting: Tutorial and Lab">
-<meta name="twitter:description" content="If you want to get more hands-on experience learning about prompt engineering and security as it relates to prompt injections read on. JSON object injections, HTML Injection, XSS, data exfil and other scenarios are covered.">
-<meta name="twitter:image" content="https://embracethered.com/blog/images/2023/adversarial_prompting.png">
+<meta name="twitter:title" content="ChatGPT Plugins: Youtube Transcript causes Indirect Prompt Injection">
+<meta name="twitter:description" content="Text in transcript can take control of your ChatGPT session.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2023/youtube-transcript-chatgpt-injection.png">
 
 <meta name="twitter:creator" content="@wunderwuzzi23">
 
@@ -117,25 +117,25 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Adversarial Prompting: Tutorial and Lab</h1>
+    <h1 class="text-primary">ChatGPT: Indirect Prompt Injection via YouTube Transcript</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2023-05-11T22:09:43-07:00">
-          May 11, 2023
+        <time datetime="2023-05-14T00:01:38-07:00">
+          May 14, 2023
         </time>
       </div>
     
       <div class="pull-right">
         
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
-        
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
-        
         <span class="post-tag small"><a href="https://embracethered.com/blog//tags/aiml">#aiml</a></span>
         
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/video">#video</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/threats">#threats</a></span>
         
         <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ai-injections">#ai injections</a></span>
         
@@ -143,32 +143,34 @@
     </div>
   </header>
   <section>
-    <p>To learn more about Prompt Engineering and Prompt Injections I put together <a href="https://colab.research.google.com/drive/1qGznuvmUj7dSQwS9A9L-M91jXwws-p7k">this tutorial + lab</a> for myself. It is as a Jupyter Notebook to experiement and play around with this novel attack technique, learn and experiment.</p>
-<p>The examples reach from simple prompt engineering scenarios, such as changing the output message to a specific text, to more complex adversarial prompt challenges such as JSON object injection, HTML injection/XSS, overwriting mail recipients or orders of an OrderBot and also data exfiltration.</p>
-<p>The Colab Notebook is located <a href="https://colab.research.google.com/drive/1qGznuvmUj7dSQwS9A9L-M91jXwws-p7k">here</a>.</p>
-<p>Its basic, but really fun to play around with.</p>
-<h2 id="tutorial--lab-walkthrough">Tutorial + Lab Walkthrough</h2>
-<p>Additionally, I recorded this guided explanation of Prompt Engineering Techniques and Prompt Injection challenges to continue raising awareness of this rising problem.</p>
+    <p>As discussed previously the problem of <a href="https://embracethered.com/blog/posts/2023/ai-injections-direct-and-indirect-prompt-injection-basics/">Indirect Prompt Injections is increasing</a>.</p>
+<p>They start showing up in many places.</p>
+<p>A new unique one that I ran across is YouTube transcripts. ChatGPT (via Plugins) can access YouTube transcripts. Which is pretty neat. However, as expected (and predicted by many researches) all these quickly built tools and integrations introduce Indirect Prompt Injection vulnerabilities.</p>
+<h2 id="proof-of-concept">Proof of Concept</h2>
+<p>Here is how it looks with ChatGPT end to end with a demo example. The video contains a transcript that at the end contains instructions to print &ldquo;AI Injection succeeded&rdquo; and then &ldquo;make jokes as Genie&rdquo;:</p>
+<p><img src="/blog/images/2023/trailer-transcript-injections.png" alt="Transcript Injects into ChatGPT Session"></p>
+<p>If ChatGPT accesses the transcript, the owner of the video/transcript takes control of the chat session and gives the AI a new identity and objective.</p>
+<p><img src="/blog/images/2023/youtube-transcript-chatgpt-injection.png" alt="Transcript Injects into ChatGPT Session"></p>
+<h2 id="implications">Implications</h2>
+<p>As described before this opens the door for <a href="https://embracethered.com/blog/posts/2023/ai-injections-threats-context-matters/">additional attacks, scams and data exfiltration</a>.</p>
+<p>Fun times, but actually scary stuff.</p>
+<p>PS.: I tried the same with the new Bard, but it is hallucinating and not able to load the YouTube video transcript, it is either referencing other videos or making things up.</p>
+<h2 id="appendix">Appendix</h2>
+<p>This is the trailer of the video that was referenced, it&rsquo;s from a talk I gave a while ago:</p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/AQNV5U48Pho" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+  <iframe src="https://www.youtube.com/embed/OBOYqiG3dAc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
-<h3 id="outline-of-the-video">Outline of the video</h3>
-<ul>
-<li>Intro &amp; Setup</li>
-<li>Summarizations and Extractions</li>
-<li>GPT 3.5. Turbo vs GPT 4 5:55</li>
-<li>Inference and JSON Object Injection</li>
-<li>HTML/XSS + Data Exfiltration Scenarios</li>
-<li>Expansion Prompts</li>
-</ul>
-<p>A quick reminder on why this attack is so powerful:</p>
-<h3 id="bypassing-input-validation">Bypassing Input Validation</h3>
-<p>Attack payloads are natural language. This means there are lots of creative ways an adversary can inject malicious data that bypass input filters and web application firewalls.</p>
-<h3 id="leveraging-the-power-of-ai-for-exploitation">Leveraging the Power of AI for Exploitation</h3>
-<p>Depending on scenario attacks can include JSON object injections, HTML injection, Cross Site Scripting, overwriting orders of an order chat bot and even data exfiltration (and many others) all with the power of AI and LLMs.</p>
-<p>Thanks.</p>
+<p>And for completness here is the actual talk about Hacking Neural Networks Video from Grayhat Red Team Village:</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/JzTZQGYQiKw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="references">References</h2>
+<p><a href="https://www.youtube.com/watch?v=OBOYqiG3dAc">Trailer</a>
+<a href="https://www.youtube.com/watch?v=JzTZQGYQiKw">Full Hacking NEural Networks Presentation</a></p>
 
   </section>
   <footer>
@@ -179,7 +181,7 @@
     
     <ul class="pager">
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">
@@ -191,7 +193,7 @@
 
       
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2023/prompt-injection-an-introduction-video/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2023/adversarial-prompting-tutorial-and-lab/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>

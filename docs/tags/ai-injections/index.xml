@@ -7,7 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Sat, 15 Apr 2023 18:09:46 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 May 2023 00:01:38 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatGPT: Indirect Prompt Injection via YouTube Transcript</title>
+      <link>https://embracethered.com/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/</link>
+      <pubDate>Sun, 14 May 2023 00:01:38 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/</guid>
+      <description>As discussed previously the problem of Indirect Prompt Injections is increasing.
+They start showing up in many places.
+A new unique one that I ran across is YouTube transcripts. ChatGPT (via Plugins) can access YouTube transcripts. Which is pretty neat. However, as expected (and predicted by many researches) all these quickly built tools and integrations introduce Indirect Prompt Injection vulnerabilities.
+Proof of Concept Here is how it looks with ChatGPT end to end with a demo example.</description>
+    </item>
+    
+    <item>
+      <title>Adversarial Prompting: Tutorial and Lab</title>
+      <link>https://embracethered.com/blog/posts/2023/adversarial-prompting-tutorial-and-lab/</link>
+      <pubDate>Thu, 11 May 2023 22:09:43 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/adversarial-prompting-tutorial-and-lab/</guid>
+      <description>To learn more about Prompt Engineering and Prompt Injections I put together this tutorial + lab for myself. It is as a Jupyter Notebook to experiement and play around with this novel attack technique, learn and experiment.
+The examples reach from simple prompt engineering scenarios, such as changing the output message to a specific text, to more complex adversarial prompt challenges such as JSON object injection, HTML injection/XSS, overwriting mail recipients or orders of an OrderBot and also data exfiltration.</description>
+    </item>
+    
     <item>
       <title>Don&#39;t blindly trust LLM responses. Threats to chatbots.</title>
       <link>https://embracethered.com/blog/posts/2023/ai-injections-threats-context-matters/</link>

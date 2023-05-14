@@ -3,7 +3,7 @@ title: "Adversarial Prompting: Tutorial and Lab"
 date: 2023-05-11T22:09:43-07:00
 draft: true
 tags: [
-        "red", "ttp", "aiml", "video"
+        "red", "ttp", "aiml", "video",  "ai injections"
     ]
 
 twitter:
