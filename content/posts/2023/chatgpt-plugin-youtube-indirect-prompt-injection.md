@@ -24,11 +24,11 @@ A new unique one that I ran across is YouTube transcripts. ChatGPT (via Plugins)
 
 Here is how it looks with ChatGPT end to end with a demo example. The video contains a transcript that at the end contains instructions to print "AI Injection succeeded" and then "make jokes as Genie":
 
-![Transcript Injects into ChatGPT Session](/blog/images/2023/trailer-transcript-injections.png)
+[![Transcript Injects into ChatGPT Session](/blog/images/2023/trailer-transcript-injections.png)](/blog/images/2023/trailer-transcript-injections.png)
 
 If ChatGPT accesses the transcript, the owner of the video/transcript takes control of the chat session and gives the AI a new identity and objective. 
 
-![Transcript Injects into ChatGPT Session](/blog/images/2023/youtube-transcript-chatgpt-injection.png)
+[![Transcript Injects into ChatGPT Session](/blog/images/2023/youtube-transcript-chatgpt-injection.png)](/blog/images/2023/youtube-transcript-chatgpt-injection.png)
 
 ## Implications
 
