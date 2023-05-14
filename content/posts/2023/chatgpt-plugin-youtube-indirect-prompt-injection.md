@@ -9,7 +9,7 @@ twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "ChatGPT: Indirect Prompt Injection via YouTube Transcripts"
+  title: "Indirect Prompt Injection via YouTube Transcripts"
   description: "Text in YouTube transcript can take control of your ChatGPT session."
   image: "https://embracethered.com/blog/images/2023/youtube-transcript-chatgpt-injection.png"
 ---
