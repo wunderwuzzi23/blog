@@ -1,5 +1,5 @@
 ---
-title: "ChatGPT: Indirect Prompt Injection via YouTube Transcript"
+title: "ChatGPT: Indirect Prompt Injection via YouTube Transcripts"
 date: 2023-05-14T00:01:38-07:00
 tags: [
      "aiml", "machine learning","red", "threats", "ai injections"
@@ -9,8 +9,8 @@ twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "ChatGPT Plugins: Youtube Transcript causes Indirect Prompt Injection"
-  description: "Text in transcript can take control of your ChatGPT session."
+  title: "ChatGPT: Indirect Prompt Injection via YouTube Transcripts"
+  description: "Text in YouTube transcript can take control of your ChatGPT session."
   image: "https://embracethered.com/blog/images/2023/youtube-transcript-chatgpt-injection.png"
 ---
 
