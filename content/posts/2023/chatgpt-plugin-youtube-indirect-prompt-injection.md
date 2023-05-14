@@ -11,7 +11,7 @@ twitter:
   creator: "@wunderwuzzi23"
   title: "Indirect Prompt Injection via YouTube Transcripts"
   description: "Text in YouTube transcript can take control of your ChatGPT session."
-  image: "https://embracethered.com/blog/images/2023/youtube-transcript-chatgpt-injection.png"
+  image: "https://embracethered.com/blog/images/2023/trailer-transcript-injections.png"
 ---
 
 As discussed previously the problem of [Indirect Prompt Injections is increasing](https://embracethered.com/blog/posts/2023/ai-injections-direct-and-indirect-prompt-injection-basics/). 
@@ -52,5 +52,5 @@ And for completness here is the actual talk about Hacking Neural Networks Video 
 
 ## References
 
-[Trailer](https://www.youtube.com/watch?v=OBOYqiG3dAc)
-[Full Hacking NEural Networks Presentation](https://www.youtube.com/watch?v=JzTZQGYQiKw)
+- [Trailer](https://www.youtube.com/watch?v=OBOYqiG3dAc)
+- [Hacking Neural Networks Presentation](https://www.youtube.com/watch?v=JzTZQGYQiKw)
