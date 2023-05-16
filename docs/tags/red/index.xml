@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Sun, 14 May 2023 00:01:38 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 May 2023 07:45:38 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatGPT Plugins: Data Exfiltration via Images &amp; Cross Plugin Request Forgery</title>
+      <link>https://embracethered.com/blog/posts/2023/chatgpt-webpilot-data-exfil-via-markdown-injection/</link>
+      <pubDate>Tue, 16 May 2023 07:45:38 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/chatgpt-webpilot-data-exfil-via-markdown-injection/</guid>
+      <description>This post shows how a malicious website can take control of a ChatGPT chat session and exfiltrate the history of the conversation.
+Plugins, Tools and Integrations With plugins, data exfiltration can happen by sending too much data into the plugin in the first place. More security controls and insights on what is being sent to the plugin are required to empower users.
+However, this post is not about sending too much data to a plugin, but about a malicious actor who controls the data a plugin retrieves.</description>
+    </item>
+    
     <item>
       <title>Indirect Prompt Injection via YouTube Transcripts</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/</link>

