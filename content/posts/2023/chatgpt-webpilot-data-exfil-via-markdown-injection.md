@@ -34,7 +34,7 @@ Basically, if the LLM returns a markdown image in the form of
 
 ChatGPT will render it automatically and retrieve the URL. During an Indirect Prompt Injection the adversary controls what the LLM is doing (I call it AI Injection for a reason), and it can ask to summarize the past history of the chat and append it to the URL to exfiltrate the data.
 
-I'm not the only one who points this out, [Roman Samoilenko has observed and posted about this vulnerability in ChatGPT before](https://systemweakness.com/new-prompt-injection-attack-on-chatgpt-web-version-ef717492c5c2). Roman found it March 14th. I ran across it separatley but a few weeks after.
+I'm not the only one who points this out, [Roman Samoilenko has observed and posted about this vulnerability in ChatGPT before](https://systemweakness.com/new-prompt-injection-attack-on-chatgpt-web-version-ef717492c5c2). Roman found it March 14th. I ran across it separatley a few weeks after.
 
 ### Proof of Concept Demonstration
 
@@ -78,7 +78,7 @@ Safe AI assistants would be really awesome to have, the power of ChatGPT is amaz
 - In fact the idea of having some sort of **kernel LLM** and other sandbox LLM is discussed by [Simon Willison, who has thought about this already in a lot more detail](https://simonwillison.net/2023/Apr/25/dual-llm-pattern/).
 - NVIDIA has been working on [NeMo GuardRails](https://blogs.nvidia.com/blog/2023/04/25/ai-chatbot-guardrails-nemo/) to help keep bots in check
 - Scenarios like rendering images could be implemented as a dedicated feature, rather than depending on the convenience of markdown. (e.g. links being returned that are not injected into the chat context, but as references after the main message).
-- Only point Plugins to data you fully trust. 
+- Only use and point plugins to data you fully trust. 
 
 A lot more research is needed, both from offensive and defensive side. And at this point, with the speed of adoption and new tools being released it seems that raising awareness to have more smart people look into this (and how to fix it) is the best we can do.
 
