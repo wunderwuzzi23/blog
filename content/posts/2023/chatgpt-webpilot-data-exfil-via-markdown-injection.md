@@ -73,7 +73,7 @@ Yes, random webpages and comments on sites will soon hijack your AI and spend yo
 
 Safe AI assistants would be really awesome to have, the power of ChatGPT is amazing! So what could be done to improve the security posture? 
 
-- Its unclear why a plugins have access to the history of the conversation. This could be isolated. It would be better if plugins go off do their work, rather then giving it access to the entire conversation history, or allow invoking other plugins.
+- Its unclear why plugins have access to the entire conversation context. This could be isolated. It would be better if plugins go off do their work, rather then giving it access to the entire conversation history, or allow invoking other plugins.
 - A security contract for plugins is needed. Who is responsible for what? What data is sent to the plugin? Currently there is no defined or enforced schema that could help mitigate such problems. Open AI mentions **Human in the loop** as a [core safety best practice](https://platform.openai.com/docs/guides/safety-best-practices), but end-users have little to no control at the moment once they start using them.
 - In fact the idea of having some sort of **kernel LLM** and other sandbox LLM is discussed by [Simon Willison, who has thought about this already in a lot more detail](https://simonwillison.net/2023/Apr/25/dual-llm-pattern/).
 - NVIDIA has been working on [NeMo GuardRails](https://blogs.nvidia.com/blog/2023/04/25/ai-chatbot-guardrails-nemo/) to help keep bots in check
