@@ -188,10 +188,7 @@
 <p>With the advent of plugins Indirect Prompt Injections are now a reality within ChatGPT&rsquo;s ecosystem. As attacks evolve we will probably learn and see nefarious text and instructions on websites, blog posts, comments,.. to attempt to take control of your AI.</p>
 <h3 id="responsible-disclosure">Responsible Disclosure</h3>
 <p>I first disclosed the image markdown injection issue to Open AI on April, 9th 2023.</p>
-<p>After some back and forth, and highlighting that plugins will allow to exploit this remotely, I was informed that image markdown injection is a feature:</p>
-<blockquote>
-<p>&ldquo;The issue you&rsquo;ve described is a feature of our system, and we don&rsquo;t believe that there is any practical way to exploit markdown rendering based on other security controls we have put in place. We&rsquo;d like our users to be able to retrieve images and render markdown to use within chatGPT and other products, so we don&rsquo;t plan on changing any implementation at this time to protect against self-XSS or similar low-risk threats.&rdquo;</p>
-</blockquote>
+<p>After some back and forth, and highlighting that plugins will allow to exploit this remotely, I was informed that image markdown injection is a feature and that no changes are planned to mitigate this vulnerability.</p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://systemweakness.com/new-prompt-injection-attack-on-chatgpt-web-version-ef717492c5c2">Roman Samoilenko - New prompt injection attack on ChatGPT web version. Markdown images can steal your chat data.</a></li>

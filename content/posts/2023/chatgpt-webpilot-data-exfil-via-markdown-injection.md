@@ -90,9 +90,7 @@ With the advent of plugins Indirect Prompt Injections are now a reality within C
 
 I first disclosed the image markdown injection issue to Open AI on April, 9th 2023. 
 
-After some back and forth, and highlighting that plugins will allow to exploit this remotely, I was informed that image markdown injection is a feature:
-
-> "The issue you've described is a feature of our system, and we don't believe that there is any practical way to exploit markdown rendering based on other security controls we have put in place. We'd like our users to be able to retrieve images and render markdown to use within chatGPT and other products, so we don't plan on changing any implementation at this time to protect against self-XSS or similar low-risk threats."
+After some back and forth, and highlighting that plugins will allow to exploit this remotely, I was informed that image markdown injection is a feature and that no changes are planned to mitigate this vulnerability.
 
 
 ## References
