@@ -147,7 +147,7 @@
     </div>
   </header>
   <section>
-    <p>If you are building ChatGPT plugins, LLM agents, tools or integrations this is a must read. This post explains how the first exploitable <code>Cross Plugin Request Forgery</code> was found <a href="https://twitter.com/wunderwuzzi23/status/1659411665853779971">in the wild</a> and the fix applied.</p>
+    <p>If you are building ChatGPT plugins, LLM agents, tools or integrations this is a must read. This post explains how the first exploitable <code>Cross Plugin Request Forgery</code> was found <a href="https://twitter.com/wunderwuzzi23/status/1659411665853779971">in the wild</a> and the fix which was applied.</p>
 <h2 id="indirect-prompt-injections-are-now-a-reality">Indirect Prompt Injections Are Now A Reality</h2>
 <p>With plugins Indirect Prompt Injections are now a <a href="/blog/posts/2023/chatgpt-webpilot-data-exfil-via-markdown-injection/">reality in the ChatGPT ecosystem</a>.</p>
 <p>The real-world examples and demos provided by others and myself to raise awarness about this increasing problem have been mostly amusing and harmless, like making Bing Chat speak like a <a href="https://greshake.github.io/">pirate</a>, make <a href="https://embracethered.com/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/">ChatGPT add jokes at the end</a> or <a href="https://www.tomshardware.com/news/chatgpt-vulnerable-to-youtube-prompt-injection">having it do a Rickroll when reading YouTube transcripts</a>.</p>
@@ -178,7 +178,7 @@
 <li>Attacker hosts malicious (large language model) LLM instructions on a website.</li>
 <li>Victim visits the malicious site with ChatGPT (e.g. a browsing plugin, such as <code>WebPilot</code>).</li>
 <li>Prompt injection occurs, and the instructions of the website take control of ChatGPT.</li>
-<li>ChatGPT follows instructions and retrieves the user&rsquo;s email, summarizes and URL encode it.</li>
+<li>ChatGPT follows instructions and retrieves the user&rsquo;s email, summarizes and URL encodes it.</li>
 <li>Next, the summary is appended to an attacker controlled URL and ChatGPT asked to retieve it.</li>
 <li>ChatGPT will invoke the browsing plugin on the URL which sends the data to the attacker.</li>
 </ol>
@@ -250,8 +250,6 @@
 <p>This was the first time an end-to-end indirect prompt injection attack led to exploiting a confused deputy attack path (<code>Cross Plugin Request Forgery</code>), access and exfiltrate PII.</p>
 <p>When building plugins there is currently little (no?) security guidance provided to better understand what threats plugin developers must mitigate, and what threats ChatGPT mitigates or is vulnerable to. It&rsquo;s still the early days - but Plugin Request Forgery is high up on the list now of something that requires mitigation.</p>
 <p>Happy Hacking.</p>
-<h2 id="addendum">Addendum</h2>
-<p>Throughout April and May I engaged with OpenAI about the security contract of plugins and raised concerns around demonstratable prompt injections by plugins and data exfiltration attacks. I provided demo videos showing attacks. However, I might have asked more than 25 questions (I don&rsquo;t think I did) and stopped receiving answers to my inquiries.</p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Confused_deputy_problem">Confused Deputy Problem</a></li>
