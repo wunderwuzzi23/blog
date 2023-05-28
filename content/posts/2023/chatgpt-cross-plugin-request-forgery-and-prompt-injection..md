@@ -15,7 +15,7 @@ twitter:
   image: "https://embracethered.com/blog/images/2023/chatgpt-learn-the-hacks.png"
 ---
 
-If you are building ChatGPT plugins, LLM agents, tools or integrations this is a must read. This post explains how the first exploitable `Cross Plugin Request Forgery` was found [in the wild](https://twitter.com/wunderwuzzi23/status/1659411665853779971) and the fix applied.
+If you are building ChatGPT plugins, LLM agents, tools or integrations this is a must read. This post explains how the first exploitable `Cross Plugin Request Forgery` was found [in the wild](https://twitter.com/wunderwuzzi23/status/1659411665853779971) and the fix which was applied.
 
 ## Indirect Prompt Injections Are Now A Reality
 
@@ -69,7 +69,7 @@ Here is the chain of events of the POC:
 1. Attacker hosts malicious (large language model) LLM instructions on a website.
 2. Victim visits the malicious site with ChatGPT (e.g. a browsing plugin, such as `WebPilot`).
 3. Prompt injection occurs, and the instructions of the website take control of ChatGPT.
-4. ChatGPT follows instructions and retrieves the user's email, summarizes and URL encode it. 
+4. ChatGPT follows instructions and retrieves the user's email, summarizes and URL encodes it. 
 5. Next, the summary is appended to an attacker controlled URL and ChatGPT asked to retieve it.
 6. ChatGPT will invoke the browsing plugin on the URL which sends the data to the attacker.
 
@@ -139,9 +139,6 @@ When building plugins there is currently little (no?) security guidance provided
 
 Happy Hacking.
 
-## Addendum
-
-Throughout April and May I engaged with OpenAI about the security contract of plugins and raised concerns around demonstratable prompt injections by plugins and data exfiltration attacks. I provided demo videos showing attacks. However, I might have asked more than 25 questions (I don't think I did) and stopped receiving answers to my inquiries.
 
 ## References
 
