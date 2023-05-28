@@ -2,7 +2,7 @@
 title: "ChatGPT Plugins: Data Exfiltration via Images & Cross Plugin Request Forgery"
 date: 2023-05-16T07:45:38-07:00
 tags: [
-     "aiml", "machine learning","red", "threats", "ai injections"
+     "aiml", "machine learning","red", "threats", "ai injections","chatgpt"
     ]
 
 twitter:
@@ -34,7 +34,7 @@ Basically, if the LLM returns a markdown image in the form of
 
 ChatGPT will render it automatically and retrieve the URL. During an Indirect Prompt Injection the adversary controls what the LLM is doing (I call it AI Injection for a reason), and it can ask to summarize the past history of the chat and append it to the URL to exfiltrate the data.
 
-I'm not the only one who points this out, [Roman Samoilenko has observed and posted about this vulnerability in ChatGPT before](https://systemweakness.com/new-prompt-injection-attack-on-chatgpt-web-version-ef717492c5c2). Roman found it March 14th. I ran across it separatley a few weeks after.
+I'm not the only one who points this out, [Roman Samoilenko has observed and posted about this vulnerability in ChatGPT before](https://systemweakness.com/new-prompt-injection-attack-on-chatgpt-web-version-ef717492c5c2). Roman found it end of March, and I ran across it independently a few days later in early April.
 
 ### Proof of Concept Demonstration
 

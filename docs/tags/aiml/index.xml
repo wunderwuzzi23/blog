@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Tue, 16 May 2023 07:45:38 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/aiml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 May 2023 12:00:02 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/aiml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatGPT Plugin Exploit Explained: From Prompt Injection to Accessing Private Data</title>
+      <link>https://embracethered.com/blog/posts/2023/chatgpt-cross-plugin-request-forgery-and-prompt-injection./</link>
+      <pubDate>Sun, 28 May 2023 12:00:02 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/chatgpt-cross-plugin-request-forgery-and-prompt-injection./</guid>
+      <description>If you are building ChatGPT plugins, LLM agents, tools or integrations this is a must read. This post explains how the first exploitable Cross Plugin Request Forgery was found in the wild and the fix applied.
+Indirect Prompt Injections Are Now A Reality With plugins Indirect Prompt Injections are now a reality in the ChatGPT ecosystem.
+The real-world examples and demos provided by others and myself to raise awarness about this increasing problem have been mostly amusing and harmless, like making Bing Chat speak like a pirate, make ChatGPT add jokes at the end or having it do a Rickroll when reading YouTube transcripts.</description>
+    </item>
+    
     <item>
       <title>ChatGPT Plugins: Data Exfiltration via Images &amp; Cross Plugin Request Forgery</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-webpilot-data-exfil-via-markdown-injection/</link>

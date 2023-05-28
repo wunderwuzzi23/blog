@@ -3,7 +3,7 @@ title: "Yolo: Natural Language to Shell Commands with ChatGPT API"
 date: 2023-03-05T17:31:58-08:00
 draft: true
 tags: [
-        "aiml", "programming"
+        "aiml", "programming", "chatgpt"
     ]
 
 twitter:

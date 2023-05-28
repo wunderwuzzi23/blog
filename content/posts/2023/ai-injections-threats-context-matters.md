@@ -2,7 +2,7 @@
 title: "Don't blindly trust LLM responses. Threats to chatbots."
 date: 2023-04-15T18:09:46-07:00
 tags: [
-     "aiml", "machine learning","red", "threats", "ai injections"
+     "aiml", "machine learning","red", "threats", "ai injections","chatgpt"
     ]
 
 twitter:

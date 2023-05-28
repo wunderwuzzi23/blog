@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Tue, 16 May 2023 07:45:38 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 May 2023 12:00:02 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatGPT Plugin Exploit Explained: From Prompt Injection to Accessing Private Data</title>
+      <link>https://embracethered.com/blog/posts/2023/chatgpt-cross-plugin-request-forgery-and-prompt-injection./</link>
+      <pubDate>Sun, 28 May 2023 12:00:02 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/chatgpt-cross-plugin-request-forgery-and-prompt-injection./</guid>
+      <description>If you are building ChatGPT plugins, LLM agents, tools or integrations this is a must read. This post explains how the first exploitable Cross Plugin Request Forgery was found in the wild and the fix applied.
+Indirect Prompt Injections Are Now A Reality With plugins Indirect Prompt Injections are now a reality in the ChatGPT ecosystem.
+The real-world examples and demos provided by others and myself to raise awarness about this increasing problem have been mostly amusing and harmless, like making Bing Chat speak like a pirate, make ChatGPT add jokes at the end or having it do a Rickroll when reading YouTube transcripts.</description>
+    </item>
+    
     <item>
       <title>ChatGPT Plugins: Data Exfiltration via Images &amp; Cross Plugin Request Forgery</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-webpilot-data-exfil-via-markdown-injection/</link>
@@ -39,6 +50,17 @@ Proof of Concept Here is how it looks with ChatGPT end to end with a demo exampl
       <guid>https://embracethered.com/blog/posts/2023/adversarial-prompting-tutorial-and-lab/</guid>
       <description>To learn more about Prompt Engineering and Prompt Injections I put together this tutorial + lab for myself. It is as a Jupyter Notebook to experiement and play around with this novel attack technique, learn and experiment.
 The examples reach from simple prompt engineering scenarios, such as changing the output message to a specific text, to more complex adversarial prompt challenges such as JSON object injection, HTML injection/XSS, overwriting mail recipients or orders of an OrderBot and also data exfiltration.</description>
+    </item>
+    
+    <item>
+      <title>Video: Prompt Injections - An Introduction</title>
+      <link>https://embracethered.com/blog/posts/2023/prompt-injection-an-introduction-video/</link>
+      <pubDate>Wed, 10 May 2023 07:00:40 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/prompt-injection-an-introduction-video/</guid>
+      <description>There are many prompt engineering classes and currently pretty much all examples are vulnerable to Prompt Injections. Especially Indirect Prompt Injections are dangerous as we discussed before.
+Indirect Prompt Injections allow untrusted data to take control of the LLM (large language model) and give an AI a new instructions, mission and objective.
+Bypassing Input Validation Attack payloads are natural language. This means there are lots of creative ways an adversary can inject malicious data that bypass input filters and web application firewalls.</description>
     </item>
     
     <item>

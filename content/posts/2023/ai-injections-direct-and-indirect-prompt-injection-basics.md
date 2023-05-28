@@ -3,7 +3,7 @@ title: "AI Injections: Direct and Indirect Prompt Injections and Their Implicati
 date: 2023-03-29T20:26:31-07:00
 draft: true
 tags: [
-     "aiml", "machine learning","ttp","offensiveml", "ai injections"
+     "aiml", "machine learning","ttp","offensiveml", "ai injections", "chatgpt"
     ]
 
 twitter:
