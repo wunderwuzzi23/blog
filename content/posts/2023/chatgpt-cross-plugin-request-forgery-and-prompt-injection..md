@@ -124,7 +124,9 @@ The question how humans interact and **stay in control** of AI at every step nee
 
 Kudos to Zapier for promptly mitigated the problem on their side by adding an authenticated confirmation requirement. Its important that the confirmation is authenticated, because an attacker could just instruct ChatGPT to click any link inside the chat context as well!
 
-Hopefully, a generic, user-friendly solution can soon be offered by ChatGPT. 
+![Zapier fix](/blog/images/2023/zapier-fix.png)
+
+Hopefully, a generic, user-friendly and empowering solution will be offered by ChatGPT in the future.
 
 **If you are building plugins, be aware of this attack path and mitigate it.**
 
@@ -147,5 +149,6 @@ Happy Hacking.
 * [Tom's Hardware ChatGPT YouTube Rickroll](https://www.tomshardware.com/news/chatgpt-vulnerable-to-youtube-prompt-injection)
 * [Image](/blog/images/2023/chatgpt-learn-the-hacks.png) created with Bing Image Create
 * [Genie](https://embracethered.com/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/)
+* [Turning Bing Chat into a Data Pirate](https://greshake.github.io/)
 * [The tweet highlighting the POC](https://twitter.com/wunderwuzzi23/status/1659411665853779971):
 {{< twitter wunderwuzzi23 1659411665853779971 >}}
