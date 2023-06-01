@@ -19,7 +19,7 @@ If you are building ChatGPT plugins, LLM agents, tools or integrations this is a
 
 ## Indirect Prompt Injections Are Now A Reality
 
-With plugins Indirect Prompt Injections are now a [reality in the ChatGPT ecosystem](/blog/posts/2023/chatgpt-webpilot-data-exfil-via-markdown-injection/).
+With plugins and browsing support Indirect Prompt Injections are now a [reality in the ChatGPT ecosystem](/blog/posts/2023/chatgpt-webpilot-data-exfil-via-markdown-injection/).
 
 The real-world examples and demos provided by others and myself to raise awarness about this increasing problem have been mostly amusing and harmless, like making Bing Chat speak like a [pirate](https://greshake.github.io/), make [ChatGPT add jokes at the end](https://embracethered.com/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/) or [having it do a Rickroll when reading YouTube transcripts](https://www.tomshardware.com/news/chatgpt-vulnerable-to-youtube-prompt-injection).
 
