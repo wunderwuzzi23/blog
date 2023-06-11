@@ -24,10 +24,14 @@ https://wuzzi.net/matrix
 
 **The website will hijack ChatGPT via an indirect prompt injection and then allow you to enter the matrix, if you decide to do so.**
 
-
 [![enter the matrix](/blog/images/2023/enter-the-matrix.png)](/blog/images/2023/enter-the-matrix.png)
 
+
+**Note:** You can't browse to the URL, it will only respond to ChatGPT. :) 
+
 If you enter you can learn about various AI based attacks, how someone can steal your data, issue requests to other plugins or manipulate your ChatGPT conversation to speak in Doge.
+
+
 
 [![enter the menu](/blog/images/2023/enter-matrix-menu.png)](/blog/images/2023/enter-matrix-menu.png)
 
