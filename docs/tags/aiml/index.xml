@@ -7,14 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Fri, 09 Jun 2023 21:49:21 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/aiml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Jun 2023 08:49:21 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/aiml/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ChatGPT - Enter the Matrix</title>
+      <title>Exploit ChatGPT and Enter the Matrix to Learn about AI Security</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-vulns-enter-the-matrix/</link>
-      <pubDate>Fri, 09 Jun 2023 21:49:21 -0700</pubDate>
+      <pubDate>Sun, 11 Jun 2023 08:49:21 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2023/chatgpt-vulns-enter-the-matrix/</guid>
-      <description></description>
+      <description>To help raise awareness of Indirect Prompt Injections and other related attacks, I put together a little fun mini app that you can invoke with ChatGPT.
+Visit this link with GPT-4 and Browsing enabled (see Appendix, if you don&amp;rsquo;t know what that means):
+https://wuzzi.net/matrix The website will hijack ChatGPT via an indirect prompt injection and then allow you to enter the matrix, if you decide to do so.
+
+If you enter you can learn about various AI based attacks, how someone can steal your data, issue requests to other plugins or manipulate your ChatGPT conversation to speak in Doge.</description>
     </item>
     
     <item>

@@ -35,13 +35,13 @@ Explore the various options and let me know what you think.
 
 > Who needs plugins if you have Indirect Prompt Injection via Browsing?
 
-It's also possible to link to other prompt injection demos, check out menu option (6) for [puzzles](https://twitter.com/KGreshake/status/1666071928925310976) also.
+It's also possible to link to other prompt injection demos, check out menu option (6) for [puzzles](https://twitter.com/KGreshake/status/1666071928925310976).
 
 
 Enjoy!
 
 
-## One more thing - WarGames
+### One more thing - WarGames
 
 If you feel like playing a game visit `https://wuzzi.net/ai-tests/wargames` with ChatGPT - and you might get a laugh out of it.
 
