@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Sun, 28 May 2023 12:00:02 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Jun 2023 21:49:21 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatGPT - Enter the Matrix</title>
+      <link>https://embracethered.com/blog/posts/2023/chatgpt-vulns-enter-the-matrix/</link>
+      <pubDate>Fri, 09 Jun 2023 21:49:21 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/chatgpt-vulns-enter-the-matrix/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ChatGPT Plugin Exploit Explained: From Prompt Injection to Accessing Private Data</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-cross-plugin-request-forgery-and-prompt-injection./</link>
