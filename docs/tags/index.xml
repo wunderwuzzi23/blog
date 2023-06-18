@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Sun, 11 Jun 2023 08:49:21 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Jun 2023 00:01:02 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ai injections</title>
       <link>https://embracethered.com/blog/tags/ai-injections/</link>
-      <pubDate>Sun, 11 Jun 2023 08:49:21 -0700</pubDate>
+      <pubDate>Sun, 18 Jun 2023 00:01:02 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
       <description></description>
@@ -20,9 +20,27 @@
     <item>
       <title>aiml</title>
       <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Sun, 11 Jun 2023 08:49:21 -0700</pubDate>
+      <pubDate>Sun, 18 Jun 2023 00:01:02 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Sun, 18 Jun 2023 00:01:02 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>msrc</title>
+      <link>https://embracethered.com/blog/tags/msrc/</link>
+      <pubDate>Sun, 18 Jun 2023 00:01:02 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/msrc/</guid>
       <description></description>
     </item>
     
@@ -32,15 +50,6 @@
       <pubDate>Sun, 11 Jun 2023 08:49:21 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/chatgpt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine learning</title>
-      <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Sun, 11 Jun 2023 08:49:21 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
       <description></description>
     </item>
     
