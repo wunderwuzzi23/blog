@@ -20,17 +20,17 @@ To answer above questions, I grabbed the metadata of all plugins from ChatGPT an
 
 Turns out that as of today, June 17th, there were `51` that supported OAuth. 
 
-I sampled a few over the last couple of weeks and found more that are vulnerable to Cross Plugin Request Forgery. In addition, I attempted to reach out to OpenAI about this multiple times with little to no success.
+I sampled a few over the last couple of weeks and found more that are vulnerable to Cross Plugin Request Forgery. 
+
+In addition, I attempted to reach out to OpenAI about this multiple times with little to no success.
 
 
-
-
-## Review
+## References
 
 * [OpenAI Plugin Criteria](https://platform.openai.com/docs/plugins/review)
 
 
-## List of Apps with OAuth support and their client_url
+List of Apps with OAuth support and their client_url
 
 ```
   "client_url": "https://pixellow.ceylon.ai/oauth",

