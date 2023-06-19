@@ -1,6 +1,6 @@
 ---
 title: "Plugin security mess: Visit a website and have your private source code stolen"
-date: 2023-06-19T09:00:22-07:00
+date: 2023-06-19T15:00:22-07:00
 draft: true
 tags: [
      "aiml", "machine learning", "threats", "ai injections","chatgpt", "plugins"
