@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>plugins on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/plugins/</link>
+    <description>Recent content in plugins on Embrace The Red</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
+    <lastBuildDate>Mon, 19 Jun 2023 09:00:22 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/plugins/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Plugin security mess: Visit a website and have your private source code stolen</title>
+      <link>https://embracethered.com/blog/posts/2023/chatgpt-plugin-vulns-chat-with-code/</link>
+      <pubDate>Mon, 19 Jun 2023 09:00:22 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/chatgpt-plugin-vulns-chat-with-code/</guid>
+      <description>OpenAI continuous to add plugins with security vulnerabilities to their store.
+In particular powerful plugins that can impersonate a user are not getting required security scrutiny, or a general mitigation at the platform level.
+As a brief reminder, one of the challenges LLM User-Agents, like ChatGPT, and plugins face is the Confused Deputy Problem / Plugin Request Forgery Attacks. Which means that during a Prompt Injection attack an adversary can issue commands to plugins to cause harm.</description>
+    </item>
+    
+  </channel>
+</rss>
