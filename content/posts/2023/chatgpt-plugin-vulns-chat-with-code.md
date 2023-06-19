@@ -10,8 +10,8 @@ twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "Chat GPT Plugin security mess."
-  description: "The latest POC shows how a malicious websites can switch your Github repos from private to public visibility"
+  title: "ChatGPT Plugin security mess."
+  description: "This latest exploit demo shows how a malicious websites can switch your Github repos from private to public visibility"
   image: "https://embracethered.com/blog/images/2023/chatwithcode-exploit-repo-private-to-public.png"
 ---
 
