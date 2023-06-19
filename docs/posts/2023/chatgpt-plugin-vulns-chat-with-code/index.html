@@ -147,14 +147,14 @@
     </div>
   </header>
   <section>
-    <p>OpenAI continuous to add plugins with security vulnerabilities to their store.</p>
-<p>In particular powerful plugins that can impersonate a user are not getting required security scrutiny, or a general mitigation at the platform level.</p>
-<p>As a brief reminder, one of the challenges LLM User-Agents, like ChatGPT, and plugins face is the <a href="/blog/posts/2023/chatgpt-cross-plugin-request-forgery-and-prompt-injection./">Confused Deputy Problem / Plugin Request Forgery Attacks</a>. Which means that during a <a href="/blog/posts/2023/ai-injections-direct-and-indirect-prompt-injection-basics/">Prompt Injection attack</a> an adversary can issue commands to plugins to cause harm.</p>
+    <p>OpenAI continues to add plugins with security vulnerabilities to their store.</p>
+<p>In particular powerful plugins that can impersonate a user are not getting the required security scrutiny, or a general mitigation at the platform level.</p>
+<p>As a brief reminder, one of the challenges Large Language Model (LLM) User-Agents, like ChatGPT, and plugins face is the <a href="/blog/posts/2023/chatgpt-cross-plugin-request-forgery-and-prompt-injection./">Confused Deputy Problem / Plugin Request Forgery Attacks</a>, which means that during a <a href="/blog/posts/2023/ai-injections-direct-and-indirect-prompt-injection-basics/">Prompt Injection attack</a> an adversary can issue commands to plugins to cause harm.</p>
 <p><strong>OpenAI added some guidance and criteria on their webpage:</strong></p>
 <p><img src="/blog/images/2023/plugins-criteria.png" alt="guidance"></p>
 <p>That&rsquo;s good, and I feel slightly responsible for this. :)</p>
 <p>It states that plugins that do not enforce user confirmation before taking an action will be rejected from being listed in the store. At least there is some traction now.</p>
-<p><strong>Although it seems that the review process is not actually enforcing this.</strong></p>
+<p><strong>Although it seems that the review process is not actually being enforced.</strong></p>
 <p>Let&rsquo;s explore.</p>
 <h2 id="plugins-that-take-action-on-behalf-of-users">Plugins that take action on behalf of users</h2>
 <p>I grabbed the metadata of all plugins from ChatGPT and then filtered them by those that support OAuth. There were <code>445</code> approved plugins last time I checked, and <code>51</code> of them use OAuth.</p>
@@ -163,7 +163,7 @@
 <p>Over the last few weeks I sampled a few and found more that are vulnerable to Cross Plugin Request Forgery, enabling an adversary to access PII, execute code on remote machines, steal secrets, and things along those lines.</p>
 <p>Here is an example of one of the new interesting ones.</p>
 <h2 id="chat-with-code---interact-with-github">Chat with Code - Interact with Github</h2>
-<p>The latest demo exploit to raise awareness allows a malicious webpage to create Github repos, steal your private code, and switch all your Github respositories from private to public visibility.</p>
+<p>The latest demo exploit to raise awareness allows a malicious webpage to create Github repos, steal your private code, and switch all your Github repositories from private to public visibility.</p>
 <p>Here is a proof-of-concept screenshot for a scary &ldquo;Chat With Code&rdquo; POC exploit:</p>
 <p><a href="/blog/images/2023/chatwithcode-exploit-repo-private-to-public.png"><img src="/blog/images/2023/chatwithcode-exploit-repo-private-to-public.png" alt="Chat With Code Exploit POC"></a></p>
 <p>Indeed. The above example shows how content on a malicious website invokes the plugin and changes all your private repos to public!</p>
@@ -179,13 +179,14 @@
 <p>Scary times.</p>
 <p>There is also the attack angle that the prompt injection occurs via the same plugin as the malicious execution of the command, meaning that something like the <code>WebPilot</code> plugin would not be required. Still exploring.</p>
 <h2 id="reporting-and-guidelines">Reporting and Guidelines</h2>
-<p>I have tried reaching out to OpenAI about these issues many times (at least four) with little to no success. Besides improving the review process, there is an opportunity for OpenAI to fix this at the ChatGPT level, so not every developer has to worry about it.</p>
-<p>However, in a <a href="https://openai.com/blog/function-calling-and-other-api-updates?ref=upstract.com">recent post about functions</a> this kind of security research is mentioned. Although, no acknowledgments or references are provided:</p>
+<p>Over the last months I reached out to OpenAI about these issues many times (at least four) with little to no success. Additionally, I have been quietly working with many plugin developers directly to raise awareness. Unfortunately, at times emails to plugin owners (found in plugin metadata) stay unanswered or the provided URL return <code>404</code>. With the amount of plugins being added this approach doesn&rsquo;t scale anymore.</p>
+<p>Besides improving/enforcing the review process, there is an opportunity for OpenAI to fix this at the ChatGPT level, so not every developer has to worry about it.</p>
+<p>In a <a href="https://openai.com/blog/function-calling-and-other-api-updates?ref=upstract.com">recent post about functions</a> this kind of (my?) security research is mentioned. Although, no acknowledgments or references are provided:</p>
 <p><a href="/blog/images/2023/openai-open-research-questions.png"><img src="/blog/images/2023/openai-open-research-questions.png" alt="Open Research Questions"></a></p>
-<p><strong>What is interesting is that OpenAI seems to see security vulnerabilities in their products as research questions, rather then exploits that put users at risk right now.</strong></p>
+<p><strong>What is interesting is that OpenAI seems to see security vulnerabilities in their products as research questions, rather thatn exploits that put users at risk right now.</strong></p>
 <p>Don&rsquo;t get me wrong, I love the work OpenAI is doing and I&rsquo;m a happy ChatGPT user myself. I just wish there would be more transparency and security scrutiny to make sure we get the basics right. Also, when it comes to third party plugins from their official store, adopting a quality over quantity approach would be helpful.</p>
 <p>Anyhow, that&rsquo;s it.</p>
-<p>I hope this post was insightful and helps continue raise awareness to educate developers and users about the limitations and risks of plugins.</p>
+<p>I hope this post was insightful and helps continue to raise awareness to educate developers and users about the limitations and risks of plugins.</p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://platform.openai.com/docs/plugins/review">OpenAI Plugin Criteria</a></li>

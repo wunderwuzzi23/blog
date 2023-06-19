@@ -14,9 +14,9 @@
       <pubDate>Mon, 19 Jun 2023 09:00:22 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2023/chatgpt-plugin-vulns-chat-with-code/</guid>
-      <description>OpenAI continuous to add plugins with security vulnerabilities to their store.
-In particular powerful plugins that can impersonate a user are not getting required security scrutiny, or a general mitigation at the platform level.
-As a brief reminder, one of the challenges LLM User-Agents, like ChatGPT, and plugins face is the Confused Deputy Problem / Plugin Request Forgery Attacks. Which means that during a Prompt Injection attack an adversary can issue commands to plugins to cause harm.</description>
+      <description>OpenAI continues to add plugins with security vulnerabilities to their store.
+In particular powerful plugins that can impersonate a user are not getting the required security scrutiny, or a general mitigation at the platform level.
+As a brief reminder, one of the challenges Large Language Model (LLM) User-Agents, like ChatGPT, and plugins face is the Confused Deputy Problem / Plugin Request Forgery Attacks, which means that during a Prompt Injection attack an adversary can issue commands to plugins to cause harm.</description>
     </item>
     
     <item>
