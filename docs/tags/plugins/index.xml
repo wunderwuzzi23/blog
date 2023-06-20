@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Mon, 19 Jun 2023 15:00:22 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/plugins/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jun 2023 08:00:22 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/plugins/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Plugin security mess: Visit a website and have your private source code stolen</title>
+      <title>Plugin Vulnerabilities: Visit a Website and Have Your Source Code Stolen</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-plugin-vulns-chat-with-code/</link>
-      <pubDate>Mon, 19 Jun 2023 15:00:22 -0700</pubDate>
+      <pubDate>Tue, 20 Jun 2023 08:00:22 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2023/chatgpt-plugin-vulns-chat-with-code/</guid>
       <description>OpenAI continues to add plugins with security vulnerabilities to their store.
