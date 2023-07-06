@@ -2,19 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
+    <lastmod>2023-05-16T07:45:38-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/aiml/</loc>
+    <lastmod>2023-05-16T07:45:38-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/chatgpt/</loc>
+    <lastmod>2023-05-16T07:45:38-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2023/chatgpt-webpilot-data-exfil-via-markdown-injection/</loc>
+    <lastmod>2023-05-16T07:45:38-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2023-05-16T07:45:38-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2023-05-16T07:45:38-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2023-05-16T07:45:38-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2023-05-16T07:45:38-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2023-05-16T07:45:38-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/threats/</loc>
+    <lastmod>2023-05-16T07:45:38-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/</loc>
+    <lastmod>2023-05-14T00:01:38-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2023/ai-injections-threats-context-matters/</loc>
+    <lastmod>2023-04-15T18:09:46-07:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/appsec/</loc>
     <lastmod>2021-10-10T10:10:51-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2021-10-10T10:10:51-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/pentest/</loc>
-    <lastmod>2021-10-10T10:10:51-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2021-10-10T10:10:51-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2021-10-10T10:10:51-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/video/</loc>
@@ -36,9 +63,6 @@
     <lastmod>2020-04-02T00:01:09-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/pentesting/</loc>
-    <lastmod>2020-04-02T00:01:09-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
     <lastmod>2020-04-02T00:01:09-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/principles/</loc>

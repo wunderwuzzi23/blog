@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Tue, 20 Jun 2023 08:00:22 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Jul 2023 16:30:00 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenAI Removes the &#34;Chat with Code&#34; Plugin From Store</title>
+      <link>https://embracethered.com/blog/posts/2023/chatgpt-chat-with-code-plugin-take-down/</link>
+      <pubDate>Thu, 06 Jul 2023 16:30:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/chatgpt-chat-with-code-plugin-take-down/</guid>
+      <description>In the previous post we discussed the risks of OAuth enabled plugins being commonly vulnerable to Cross Plugin Request Forgery and how OpenAI is seemingly not enforcing plugin store policies.
+Recently, a post on Reddit titled &amp;ldquo;This is scary! Posting stuff by itself&amp;rdquo; shows how a conversation with ChatGPT, out of the blue, created a Github Issue! In the comments it is highlighted that the Link Reader and Chat With Code plugins were enabled when ChatGPT created this Github Issue here.</description>
+    </item>
+    
     <item>
       <title>Plugin Vulnerabilities: Visit a Website and Have Your Source Code Stolen</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-plugin-vulns-chat-with-code/</link>
