@@ -26,7 +26,7 @@ That's good news, so users are kept safe. Other plugins remain vulnerable though
 
 ## Previous Demo Exploit Payload
 
-Since the "Chat with Code" plugin is removed, here is the demo payload used in the [previous blog post](/blog/posts/2023/chatgpt-plugin-vulns-chat-with-code/) which **made private Github repos public!**
+Since the "Chat with Code" plugin is removed now, here is the POC payload used in the [previous blog post](/blog/posts/2023/chatgpt-plugin-vulns-chat-with-code/) which highlighted this problem with the plugin and **made private Github repos public!**
 
 This is the Indirect Prompt Injection proof-of-concept payload from back then:
 
