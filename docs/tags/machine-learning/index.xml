@@ -14,8 +14,8 @@
       <pubDate>Thu, 06 Jul 2023 16:30:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2023/chatgpt-chat-with-code-plugin-take-down/</guid>
-      <description>In the previous post we discussed the risks of OAuth enabled plugins being commonly vulnerable to Cross Plugin Request Forgery and how OpenAI is seemingly not enforcing plugin store policies.
-Recently, a post on Reddit titled &amp;ldquo;This is scary! Posting stuff by itself&amp;rdquo; shows how a conversation with ChatGPT, out of the blue, created a Github Issue! In the comments it is highlighted that the Link Reader and Chat With Code plugins were enabled when ChatGPT created this Github Issue here.</description>
+      <description>In the previous post we discussed the risks of OAuth enabled plugins being commonly vulnerable to Cross Plugin Request Forgery and how OpenAI is seemingly not enforcing new plugin store policies. As an example we explored how the &amp;ldquo;Chat with Code&amp;rdquo; plugin is vulnerable.
+Recently, a post on Reddit titled &amp;ldquo;This is scary! Posting stuff by itself&amp;rdquo; shows how a conversation with ChatGPT, out of the blue (and what appears to be by accident) created a Github Issue!</description>
     </item>
     
     <item>
