@@ -62,7 +62,7 @@ I hope this post was insightful and helps to raise continued awareness about the
 * [YC Hackernews Front-Page Discussion](https://news.ycombinator.com/item?id=36605806)
 * [OpenAI Plugin Criteria](https://platform.openai.com/docs/plugins/review)
 * [Function calling and other API updates](https://www.reddit.com/r/OpenAI/comments/146xl6u/this_is_scary_posting_stuff_by_itself/)
-* [Github Issue created "accidently" by a Reddit user](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/issues/503)
+* [Github Issue created "accidentally" by a Reddit user](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/issues/503)
 * [Reddit Post: This is scary! Posting stuff by itself](https://www.reddit.com/r/OpenAI/comments/146xl6u/this_is_scary_posting_stuff_by_itself/)
 * [Voice Conversion WebUI Guide - Shared Chat](https://chat.openai.com/share/ed8044da-22c5-4c5e-ba82-4353f67d553f)
 
