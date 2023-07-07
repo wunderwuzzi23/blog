@@ -15,6 +15,7 @@ twitter:
 ---
 
 In the [previous post](/blog/posts/2023/chatgpt-plugin-vulns-chat-with-code/) we discussed the risks of OAuth enabled plugins being commonly vulnerable to Cross Plugin Request Forgery and how OpenAI is seemingly not enforcing new plugin store policies. As an example we explored how the "Chat with Code" plugin is vulnerable.
+![Chat With Code Plugin Vuln](/blog/images/2023/ChatGPT-Plugin-Removed.png)
 
 Recently, a post on Reddit titled ["This is scary! Posting stuff by itself"](https://www.reddit.com/r/OpenAI/comments/146xl6u/this_is_scary_posting_stuff_by_itself/) shows how a conversation with ChatGPT, out of the blue (and what appears to be by accident) created a Github Issue! In the comments it is highlighted that the `Link Reader` and `Chat With Code` plugins were enabled when ChatGPT created this [Github Issue here](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/issues/503).
 
@@ -24,9 +25,9 @@ The topic was also discussed on the [YC Hackernews front-page](https://news.ycom
 
 That's good news, so users are kept safe. Other plugins remain vulnerable though.
 
-## Previous Demo Exploit - Indirect Prompt Injection Details
+## Demo Exploit Details - Indirect Prompt Injection
 
-Since the "Chat with Code" plugin is now removed, I wanted to share the details of the POC discussed in [my previous blog post](/blog/posts/2023/chatgpt-plugin-vulns-chat-with-code/), which highlighted this problem with the plugin and **made private Github repos public!**
+Since the "Chat with Code" plugin is now removed, I wanted to share the details of the POC discussed in [my previous blog post](/blog/posts/2023/chatgpt-plugin-vulns-chat-with-code/), which highlighted this vulnerability and **made private Github repos public!**
 
 This is the `Indirect Prompt Injection` proof-of-concept payload from back then:
 
@@ -44,7 +45,7 @@ Let's do this!
 And here is how the result looked like:
 [![Chat With Code Exploit POC](/blog/images/2023/chatwithcode-exploit-repo-private-to-public.png)](/blog/images/2023/chatwithcode-exploit-repo-private-to-public.png)
 
-This is a systemic issue at the moment with OpenAI plugins, especially plugins that impersonate the user (e.g. OAuth enabled ones) are frequently vulnerable.
+This is a systemic issue at the moment with OpenAI plugins, especially plugins that impersonate the user (e.g. OAuth enabled ones) are posing an elevated risk.
 
 As mentioned before, hopefully OpenAI will add protection at the platform level. In the meantime, users need to exercise caution when enabling plugins, especially those that request to impersonate them and developers must add mitigations.
 
@@ -57,4 +58,5 @@ I hope this post was insightful and helps to raise continued awareness about the
 * [Function calling and other API updates](https://www.reddit.com/r/OpenAI/comments/146xl6u/this_is_scary_posting_stuff_by_itself/)
 * [Github Issue created "accidently" by a Reddit user](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/issues/503)
 * [Reddit Post: This is scary! Posting stuff by itself](https://www.reddit.com/r/OpenAI/comments/146xl6u/this_is_scary_posting_stuff_by_itself/)
+* [Voice Conversion WebUI Guide - Shared Chat](https://chat.openai.com/share/ed8044da-22c5-4c5e-ba82-4353f67d553f)
 
