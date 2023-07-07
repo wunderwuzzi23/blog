@@ -47,6 +47,12 @@ And here is how the result looked like:
 
 This is a systemic issue at the moment with OpenAI plugins, especially plugins that impersonate the user (e.g. OAuth enabled ones) are posing an elevated risk.
 
+## Read Operations Are Also Vulnerable 
+
+One important point to highlight for `Cross Plugin Request Forgery` is that **read operations are also impacted**, which is different compared to browser based CSRF (`Cross Site Request Forgery attacks`). ChatGPT offers multiple ways of sending data retrieved from a plugin to an attacker controlled server during an Indirect Prompt Injection Attack.
+
+## Conclusion
+
 As mentioned before, hopefully OpenAI will add protection at the platform level. In the meantime, users need to exercise caution when enabling plugins, especially those that request to impersonate them and developers must add mitigations.
 
 I hope this post was insightful and helps to raise continued awareness about the limitations and risks of plugins, educating both developers and users.
