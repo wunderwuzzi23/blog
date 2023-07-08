@@ -1,6 +1,6 @@
 ---
 title: "Google Docs New AI Features: Vulnerabilities and Risks"
-date: 2023-07-07T08:09:17-07:00
+date: 2023-07-10T08:09:17-07:00
 draft: true
 tags: [
      "aiml", "machine learning","ai injections"
