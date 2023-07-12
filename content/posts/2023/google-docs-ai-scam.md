@@ -60,9 +60,9 @@ Besides the example above, this can also lead to errors in summaries when the AI
 Google Docs also can render some basic markdown, and the AI can also emit that:
 [![Google Docs - Prompt Injection Markdown](/blog/images/2023/Google-Docs-Markdown.png)](/blog/images/2023/Google-Docs-Markdown.png)
 
-I reached out to Google for a statement on June, 22nd. Today I heard back, the issue was classified as intended behavior, and Google's Trust & Safety team is unable to provide a statement regarding this bug report/new vulnerability class.
+I reached out to Google for a statement on June, 22nd. Today I heard back and Google's Trust & Safety team is unable to provide a statement regarding this bug report/new vulnerability class.
 
-As new features and capabilities are more serious vulnerabilities might be introduced, so it will be good to revisit this in the future.
+As new features and capabilities are added, more serious vulnerabilities might be introduced. So, it will be good to revisit this in the future.
 
 Cheers.
 
