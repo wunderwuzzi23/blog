@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Thu, 06 Jul 2023 16:30:00 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Jul 2023 14:30:17 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Docs AI Features: Vulnerabilities and Risks</title>
+      <link>https://embracethered.com/blog/posts/2023/google-docs-ai-scam/</link>
+      <pubDate>Wed, 12 Jul 2023 14:30:17 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/google-docs-ai-scam/</guid>
+      <description>Google Docs is a popular word processing tool that is used by millions of people around the world. Recently Google added new AI features to Docs (and a couple of other products), such as the ability to generate summaries, and write different kinds of creative content.
+Check out Google Labs for more info.
+These features can be very helpful, but they also introduce new security risks.
+At the moment there are not too many degress of freedom an adversary has, but operating your AI on untrusted data can have unwanted consequences:</description>
+    </item>
+    
     <item>
       <title>OpenAI Removes the &#34;Chat with Code&#34; Plugin From Store</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-chat-with-code-plugin-take-down/</link>

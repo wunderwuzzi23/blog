@@ -1,6 +1,6 @@
 ---
-title: "Google Docs New AI Features: Vulnerabilities and Risks"
-date: 2023-07-10T08:09:17-07:00
+title: "Google Docs AI Features: Vulnerabilities and Risks"
+date: 2023-07-12T14:30:17-07:00
 draft: true
 tags: [
      "aiml", "machine learning","ai injections"
@@ -55,14 +55,14 @@ The impact for Google Docs right now is probably limited, but it is a sign of wh
 * Only use AI features on data that you trust.
 * Do not blindly trust the output of AI tools (they might be malicious or even try to trick you)
 
-Let's keep an eye on new features being added to make sure not more serious vulnerabilities will be introduced.  
-
 Besides the example above, this can also lead to errors in summaries when the AI incorrectly assumes text in the document are instructions, like it might add up numbers, etc..
 
 Google Docs also can render some basic markdown, and the AI can also emit that:
 [![Google Docs - Prompt Injection Markdown](/blog/images/2023/Google-Docs-Markdown.png)](/blog/images/2023/Google-Docs-Markdown.png)
 
-I reached out to Google for a statement on June, 22nd, but have not yet heard back from them.
+I reached out to Google for a statement on June, 22nd, and today I heard back and Google's Trust & Safety team is unable to provide a statement regarding this bug report/new vulnerability class.
+
+As new features and capabilities are more serious vulnerabilities might be introduced, so it will be good to revisit this in the future.
 
 Cheers.
 
