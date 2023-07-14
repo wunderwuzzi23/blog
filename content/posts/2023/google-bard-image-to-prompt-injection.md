@@ -25,7 +25,7 @@ Here is a demonstration picture doing a Rickroll:
 
 [![AI Prompt Injection - Rickroll](/blog/images/2023/aiinjection-image-joke.png)](/blog/images/2023/aiinjection-image-joke.png)
 
-And this is the result when asking Bard to describe the image:
+And this is the result after asking Bard to describe the image:
 
 [![AI Prompt Injection - Rickroll](/blog/images/2023/aiinjection-image-joke-bard-response.png)](/blog/images/2023/aiinjection-image-joke-bard-response.png)
 
