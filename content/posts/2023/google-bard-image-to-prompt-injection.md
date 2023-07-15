@@ -33,6 +33,9 @@ It will be interesting to explore how well text can be hidden on an image to sti
 
 ## References
 
+* Base images (bot and banana pictures) generated with Bing Chat (then modified by me)
+* Initial tweet showing proof-of-concept
+
 {{< twitter wunderwuzzi23 1679676160341581824 >}}
 
 
