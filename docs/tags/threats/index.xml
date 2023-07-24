@@ -7,19 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Sun, 23 Jul 2023 15:26:41 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/threats/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Jul 2023 07:26:41 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/threats/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ChatGPT Custom Instructions: Persistent Data Exfiltration Demo</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-custom-instruction-post-exploitation-data-exfiltration/</link>
-      <pubDate>Sun, 23 Jul 2023 15:26:41 -0700</pubDate>
+      <pubDate>Mon, 24 Jul 2023 07:26:41 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2023/chatgpt-custom-instruction-post-exploitation-data-exfiltration/</guid>
-      <description>ChatGPT is vulnerable to data exfiltration via image markdown injections. This is pretty well known by now.
-With more features and plugins being added this data exfiltration vulnerability becomes more and more severe.
-To give an example, recently OpenAI added Custom Instructions, which allow, post-exploitation, to append instructions to every user message and exfiltrate each prompt and response.
-Here is how this looks in action:
-
-And these are the instructions:</description>
+      <description>ChatGPT is vulnerable to data exfiltration via image markdown injections. This. is. pretty well known.
+As more features are added to ChatGPT the exfiltration angle becomes more likely to be abused.
+Recently OpenAI added Custom Instructions, which allow to have ChatGPT always automatically append instructions to every message exchange.
+An adversary can abuse this feature to install a data exfiltration backdoor that depends on, and only works because of the image markdown injection vulnerability.</description>
     </item>
     
     <item>
