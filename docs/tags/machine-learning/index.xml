@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Mon, 24 Jul 2023 07:26:41 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Aug 2023 15:15:15 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Anthropic Claude Data Exfiltration Vulnerability Fixed</title>
+      <link>https://embracethered.com/blog/posts/2023/anthropic-fixes-claude-data-exfiltration-via-images/</link>
+      <pubDate>Tue, 01 Aug 2023 15:15:15 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/anthropic-fixes-claude-data-exfiltration-via-images/</guid>
+      <description>A common attack vector that LLM apps face is data exfiltration, in particular data exfiltration via Image Markdown Injection is a common vulnerability. Microsoft fixed the vulnerability in Bing Chat, ChatGPT is still vulnerable as Open AI &amp;ldquo;won&amp;rsquo;t fixed&amp;rdquo; the issue, and Anthropic just mitigated this vulnerability in Claude.
+This post documents the Anthropic Claude data exfiltration vulnerability and the mitigation put in place.
+The Vulnerability - Image Markdown Injection As a quick recap, imagine a large language model (LLM) returns the following text:</description>
+    </item>
+    
     <item>
       <title>ChatGPT Custom Instructions: Persistent Data Exfiltration Demo</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-custom-instruction-post-exploitation-data-exfiltration/</link>
