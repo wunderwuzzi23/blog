@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Tue, 01 Aug 2023 15:15:15 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Aug 2023 10:00:51 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Video: Data Exfiltration Vulnerabilities in LLM apps (Bing Chat, ChatGPT, Claude)</title>
+      <link>https://embracethered.com/blog/posts/2023/video-data-exfiltration-vulns-in-llm-applictions/</link>
+      <pubDate>Mon, 28 Aug 2023 10:00:51 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/video-data-exfiltration-vulns-in-llm-applictions/</guid>
+      <description>This video highlights the various data exfiltration vulnerabilities I discovered and responsibly disclosed to Microsoft, Anthropic, ChatGPT and Plugin Developers.
+It also briefly discusses mitigations various vendors put in place (and triage decisions).
+   Thanks to MSRC, Anthropic and Zapier for addressing vulnerabilities to help protect their users.
+Let&amp;rsquo;s hope it inspires OpenAI to mitigate the image markdown injection issue finally as well. It&amp;rsquo;s rated as a CVSS High scored vulnerability basically and was first reported to them on April, 9th 2023 - the triage decision was &amp;ldquo;won&amp;rsquo;t fix&amp;rdquo;.</description>
+    </item>
+    
     <item>
       <title>Anthropic Claude Data Exfiltration Vulnerability Fixed</title>
       <link>https://embracethered.com/blog/posts/2023/anthropic-fixes-claude-data-exfiltration-via-images/</link>

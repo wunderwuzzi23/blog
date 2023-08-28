@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" HITCON CMT 2023 - LLM Security Presentation and Trip Report &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2023/hitcon-llm-security-presentation-and-trip-report/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2023-08-25T17:24:51-07:00" />
+  
+  <meta property="og:article:tag" content="aiml" />
+  
+  <meta property="og:article:tag" content="machine learning" />
+  
+  <meta property="og:article:tag" content="ai injections" />
+  
+  <meta property="og:article:tag" content="conference" />
+  
+  
+
+  <title>
+     HITCON CMT 2023 - LLM Security Presentation and Trip Report &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/png" href="https://embracethered.com/blog/images/favicon.ico?" />
+  <link rel="apple-touch-icon" type="image/png" href="https://embracethered.com/blog/images/favicon.png" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="HITCON CMT 2023 - LLM Security Presentation and Trip Report">
+<meta name="twitter:description" content="Earlier this month I had the opportunity to attend HITCON CMT in Taiwan for the first time. It&#39;s an annual event hosted by the Hackers in Taiwan organization and CMT stands for the community version.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2023/aiinjection-image-joke-bard-response.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1739327806831586"
+  crossorigin="anonymous"></script>
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">HITCON CMT 2023 - LLM Security Presentation and Trip Report</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2023-08-25T17:24:51-07:00">
+          Aug 25, 2023
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/aiml">#aiml</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ai-injections">#ai injections</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/conference">#conference</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>Earlier this month I had the opportunity to attend HITCON CMT in Taiwan for the first time. It&rsquo;s an annual event hosted by the Hackers in Taiwan organization and CMT stands for the community version. There is a second event for Enterprise. Think of it like Blackhat vs Defcon in a way.</p>
+<p>HITCON CMT is a two day event and it was hosted in the east side of Taipei at Academia Sinica.</p>
+<p>Overall there were three tracks, villages, and many side events, like a CTF, scavenher hunt, workshops,&hellip;</p>
+<p>One thing that stood out to me was how well organized and high quality the event was. The keynote was given by Zion Basque who talked about reversing with the help of Generative AI, and showed a very cool LLM prompt integration with IDA.</p>
+<p>Majority of talks are given in Mandarin, but there is one track that always had an English speaker and the HITCON does community provided translation services for all talks (both English to Mandarin and vice versa).</p>
+<p>And I finally got to meet Orange Tsai, who consistently delivers impressive security research and discovered some very cool VPN security issues while I worked at Uber. And I had the priviliege to watch his talk about PWN2OWN. It was the talk that he would have given at DEF CON but he wasn&rsquo;t granted the visa to visit the US and had to withdraw as speaker.</p>
+<p>A couple of other outstanding talks where Windows Kernel Exploitation and Ghosts of the past form Jia Hao Poh, talking about old school php vulnerabilities in Trend Micro Enterprise products. And Carl Smith from Google talkied about fuzzing the V8 JavaScript engine, and Regular talked about his latest tool Electroniz3r that allows to exploit Electron apps on macOS.</p>
+<p>Your truly was also on stage talking about Indirect Prompt Injections in the Wild.</p>
+<p>I was impressed with the amount of follow up questions and interest in the topic.</p>
+<p>Last but not least it really helped me improve my Mandarin skills as well. My goal is still to one day give an entire presentation in Mandarin at a conference.</p>
+<p>下次見</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://hitcon.org/2023/CMT/">HITCON CMT 2023</a></li>
+<li><img src="/images/2023/hitcon.logo.webp" alt="HITCON CMT Logo"></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2023/anthropic-fixes-claude-data-exfiltration-via-images/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2023
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

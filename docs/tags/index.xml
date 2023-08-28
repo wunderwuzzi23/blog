@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Tue, 01 Aug 2023 15:15:15 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Aug 2023 10:00:51 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ai injections</title>
       <link>https://embracethered.com/blog/tags/ai-injections/</link>
-      <pubDate>Tue, 01 Aug 2023 15:15:15 -0700</pubDate>
+      <pubDate>Mon, 28 Aug 2023 10:00:51 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
       <description></description>
@@ -20,7 +20,7 @@
     <item>
       <title>aiml</title>
       <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Tue, 01 Aug 2023 15:15:15 -0700</pubDate>
+      <pubDate>Mon, 28 Aug 2023 10:00:51 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
       <description></description>
@@ -29,9 +29,18 @@
     <item>
       <title>machine learning</title>
       <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Tue, 01 Aug 2023 15:15:15 -0700</pubDate>
+      <pubDate>Mon, 28 Aug 2023 10:00:51 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>video</title>
+      <link>https://embracethered.com/blog/tags/video/</link>
+      <pubDate>Mon, 28 Aug 2023 10:00:51 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/video/</guid>
       <description></description>
     </item>
     
@@ -86,15 +95,6 @@
       <pubDate>Sun, 11 Jun 2023 08:49:21 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/red/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>video</title>
-      <link>https://embracethered.com/blog/tags/video/</link>
-      <pubDate>Thu, 11 May 2023 22:09:43 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/video/</guid>
       <description></description>
     </item>
     
