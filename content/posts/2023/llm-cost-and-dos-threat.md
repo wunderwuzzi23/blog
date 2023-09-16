@@ -14,7 +14,7 @@ twitter:
   image: "https://embracethered.com/blog/images/2023/llm-plugin-loop-2.png"
 ---
 
-What happens if an attacker calls an LLM tool or plugin recursively during an Indirect Prompt Injection? Could this be an issue this drive up costs, or DoS a system?
+What happens if an attacker calls an LLM tool or plugin recursively during an Indirect Prompt Injection? Could this be an issue and drive up costs, or DoS a system?
 
 I tried it with ChatGPT, and it indeed works and the Chatbot enters a loop! 😊
 
@@ -37,5 +37,3 @@ Here is a short video:
 
 
 {{< youtube HjHWN7kGBC8 >}}
-
-
