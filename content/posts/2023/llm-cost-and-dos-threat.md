@@ -1,6 +1,6 @@
 ---
 title: "LLM Apps: Don't Get Stuck in an Infinite Loop! 💵💰"
-date: 2023-09-16T00:15:00-07:00
+date: 2023-09-16T00:00:00-07:00
 draft: true
 tags: [
      "aiml", "machine learning","ai injections","conference"
@@ -11,7 +11,7 @@ twitter:
   creator: "@wunderwuzzi23"
   title: "Don't Get Stuck in a Costly Infinite Loop! 💵💰"
   description: "Securing LLM Apps Against Costly Attacks.💵💰 Amongst threats to consider are LLM apps and tools that might get stuck in an infinite loop."
-  image: "https://embracethered.com/blog/images/2023/loop-llm.pmg"
+  image: "https://embracethered.com/blog/images/2023/loop-llm.png"
 ---
 
 What happens if an attacker calls an LLM tool or plugin recursively during an Indirect Prompt Injection? Could this be an issue this drive up costs, or DoS a system?
