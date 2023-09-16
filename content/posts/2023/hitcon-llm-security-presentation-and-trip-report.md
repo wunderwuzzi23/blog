@@ -1,6 +1,6 @@
 ---
 title: "HITCON CMT 2023 - LLM Security Presentation and Trip Report"
-date: 2023-09-01T17:24:51-07:00
+date: 2023-09-25T17:24:51-07:00
 tags: [
      "aiml", "machine learning","ai injections","conference"
     ]

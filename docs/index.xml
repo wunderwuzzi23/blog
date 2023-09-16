@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Mon, 28 Aug 2023 10:00:51 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Sep 2023 00:15:00 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LLM Apps: Don&#39;t Get Stuck in an Infinite Loop! 💵💰</title>
+      <link>https://embracethered.com/blog/posts/2023/llm-cost-and-dos-threat/</link>
+      <pubDate>Sat, 16 Sep 2023 00:15:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/llm-cost-and-dos-threat/</guid>
+      <description>What happens if an attacker calls an LLM tool or plugin recursively during an Indirect Prompt Injection? Could this be an issue this drive up costs, or DoS a system?
+I tried it with ChatGPT, and it indeed works and the Chatbot enters a loop! 😊
+
+However, for ChatGPT users this isn&amp;rsquo;t really a threat, because:
+ It&amp;rsquo;s subscription based, so OpenAI would pay the bill. There seems to be a call limit of 10 times in a single conversation turn (I tried a few times).</description>
+    </item>
+    
     <item>
       <title>Video: Data Exfiltration Vulnerabilities in LLM apps (Bing Chat, ChatGPT, Claude)</title>
       <link>https://embracethered.com/blog/posts/2023/video-data-exfiltration-vulns-in-llm-applictions/</link>
