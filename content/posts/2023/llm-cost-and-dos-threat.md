@@ -35,4 +35,7 @@ Other applications might be vulnerable to this threat, especially if there is ba
 
 Here is a short video:
 
-[![llm-dos-loop](/blog/images/2023/llm-loop2.gif)](/blog/images/2023/llm-loop2.gif)
+
+{{< youtube HjHWN7kGBC8 >}}
+
+
