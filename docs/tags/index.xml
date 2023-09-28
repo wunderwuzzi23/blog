@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Mon, 18 Sep 2023 03:24:51 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Sep 2023 09:01:00 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ai injections</title>
       <link>https://embracethered.com/blog/tags/ai-injections/</link>
-      <pubDate>Mon, 18 Sep 2023 03:24:51 -0700</pubDate>
+      <pubDate>Thu, 28 Sep 2023 09:01:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
       <description></description>
@@ -20,9 +20,54 @@
     <item>
       <title>aiml</title>
       <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Mon, 18 Sep 2023 03:24:51 -0700</pubDate>
+      <pubDate>Thu, 28 Sep 2023 09:01:00 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chatgpt</title>
+      <link>https://embracethered.com/blog/tags/chatgpt/</link>
+      <pubDate>Thu, 28 Sep 2023 09:01:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/chatgpt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Thu, 28 Sep 2023 09:01:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plugins</title>
+      <link>https://embracethered.com/blog/tags/plugins/</link>
+      <pubDate>Thu, 28 Sep 2023 09:01:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/plugins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>threats</title>
+      <link>https://embracethered.com/blog/tags/threats/</link>
+      <pubDate>Thu, 28 Sep 2023 09:01:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/threats/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ttp</title>
+      <link>https://embracethered.com/blog/tags/ttp/</link>
+      <pubDate>Thu, 28 Sep 2023 03:00:08 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ttp/</guid>
       <description></description>
     </item>
     
@@ -36,56 +81,11 @@
     </item>
     
     <item>
-      <title>machine learning</title>
-      <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Mon, 18 Sep 2023 03:24:51 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>video</title>
       <link>https://embracethered.com/blog/tags/video/</link>
       <pubDate>Mon, 28 Aug 2023 10:00:51 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/video/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>chatgpt</title>
-      <link>https://embracethered.com/blog/tags/chatgpt/</link>
-      <pubDate>Mon, 24 Jul 2023 07:26:41 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/chatgpt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>threats</title>
-      <link>https://embracethered.com/blog/tags/threats/</link>
-      <pubDate>Mon, 24 Jul 2023 07:26:41 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/threats/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ttp</title>
-      <link>https://embracethered.com/blog/tags/ttp/</link>
-      <pubDate>Mon, 24 Jul 2023 07:26:41 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ttp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>plugins</title>
-      <link>https://embracethered.com/blog/tags/plugins/</link>
-      <pubDate>Thu, 06 Jul 2023 16:30:00 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/plugins/</guid>
       <description></description>
     </item>
     

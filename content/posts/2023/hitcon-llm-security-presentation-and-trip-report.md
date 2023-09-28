@@ -67,7 +67,7 @@ A couple of other great and highly technical talks were about Windows Kernel Exp
 
 There was also a merry dinner after the first day to mingle and exchange hacking stories. Made many new connections and friends.
 
-![HITCON - Orange, Jie Hao, Johann, Ravi](/blog/images/2023/hitcon-hackers.png)
+![HITCON - Orange Tsai, Johann Rehberger, Jia Hao, Ravi](/blog/images/2023/hitcon-hackers.png)
 
 Overall, HITCON is a great conference and I will definitely try to make it again next time.
 
@@ -87,5 +87,5 @@ Johann (@wunderwuzzi23)
 * [A 3-Year Tale of Hacking a Pwn2Own Target: The Attacks, Vendor Evolution, and Lesson Learned](https://hitcon.org/2023/CMT/agenda/3404e5c1-67a4-4085-847a-511a91a6b6a0/)
 * [ELECTRONizing macOS privacy - a new weapon in your red teaming armory](https://github.com/r3ggi/electroniz3r)
 * [Attacking SSL VPN - DevCore](https://devco.re/blog/2019/07/17/attacking-ssl-vpn-part-1-PreAuth-RCE-on-Palo-Alto-GlobalProtect-with-Uber-as-case-study/)
-* [Indirect Prompt Injections in the Wild](/blog/static/downloads/HITCON_CMT_Indirect_Prompt_Injections_2023_v1.0.pdf)
+* [Indirect Prompt Injections in the Wild](/blog/downloads/HITCON_CMT_Indirect_Prompt_Injections_2023_v1.0.pdf)
 * [Most Photos from HITCON Flickr Page](https://www.flickr.com/photos/hitcon)

@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Thu, 06 Jul 2023 16:30:00 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/plugins/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Sep 2023 09:01:00 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/plugins/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advanced Data Exfiltration Techniques with ChatGPT</title>
+      <link>https://embracethered.com/blog/posts/2023/advanced-plugin-data-exfiltration-trickery/</link>
+      <pubDate>Thu, 28 Sep 2023 09:01:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/advanced-plugin-data-exfiltration-trickery/</guid>
+      <description>During an Indirect Prompt Injection Attack an adversary can exfiltrate chat data from a user by instructing ChatGPT to render images and append information to the URL (Image Markdown Injection), or by tricking a user to click a hyperlink.
+Sending large amounts of data to a third party server via URLs might seem inconvenient or limiting&amp;hellip;
+Let&amp;rsquo;s say we want something more, aehm, powerful, elegant and exciting.
+ChatGPT Plugins and Exfiltration Limitations Plugins are an extension mechanism with little security oversight or enforced review process.</description>
+    </item>
+    
     <item>
       <title>OpenAI Removes the &#34;Chat with Code&#34; Plugin From Store</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-chat-with-code-plugin-take-down/</link>
