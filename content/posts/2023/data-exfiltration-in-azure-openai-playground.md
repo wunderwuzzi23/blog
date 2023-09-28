@@ -1,6 +1,6 @@
 ---
 title: "Microsoft Fixes Data Exfiltration Vulnerability in Azure AI Playground"
-date: 2023-09-28T03:00:08-07:00
+date: 2023-09-30T03:00:08-07:00
 draft: true
 tags: [
      "aiml", "machine learning","ai injections","ttp"
