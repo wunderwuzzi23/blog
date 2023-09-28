@@ -3,8 +3,15 @@ title: "Microsoft Fixes Data Exfiltration Vulnerability in Azure AI Playground"
 date: 2023-09-30T03:00:08-07:00
 draft: true
 tags: [
-     "aiml", "machine learning","ai injections","ttp"
+     "aiml", "machine learning", "threats", "ai injections","chatgpt", "plugins"
     ]
+
+twitter:
+  card: "summary_large_image"
+  site: "@wunderwuzzi23"
+  creator: "@wunderwuzzi23"
+  title: "Advanced ChatGPT Data Exfiltration Techniques"
+  image: "https://embracethered.com/blog/images/2023/azure-openai-image-markdown.png"
 ---
 
 Large Language Model (LLM) applications and chatbots are quite commonly vulnerable to data exfiltration. In particular data exfiltration via `Image Markdown Injection` is quite frequent. 
