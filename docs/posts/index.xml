@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Fri, 29 Sep 2023 12:00:08 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Sep 2023 10:00:08 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Microsoft Fixes Data Exfiltration Vulnerability in Azure AI Playground</title>
       <link>https://embracethered.com/blog/posts/2023/data-exfiltration-in-azure-openai-playground-fixed/</link>
-      <pubDate>Fri, 29 Sep 2023 12:00:08 -0700</pubDate>
+      <pubDate>Fri, 29 Sep 2023 10:00:08 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2023/data-exfiltration-in-azure-openai-playground-fixed/</guid>
       <description>Large Language Model (LLM) applications and chatbots are quite commonly vulnerable to data exfiltration. In particular data exfiltration via Image Markdown Injection is quite frequent.
