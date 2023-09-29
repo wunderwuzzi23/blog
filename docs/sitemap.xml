@@ -2,34 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://embracethered.com/blog/posts/2023/advanced-plugin-data-exfiltration-trickery/</loc>
-    <lastmod>2023-09-28T09:01:00-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
-    <lastmod>2023-09-28T09:01:00-07:00</lastmod>
+    <lastmod>2023-09-29T12:00:08-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/aiml/</loc>
-    <lastmod>2023-09-28T09:01:00-07:00</lastmod>
+    <lastmod>2023-09-29T12:00:08-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/chatgpt/</loc>
-    <lastmod>2023-09-28T09:01:00-07:00</lastmod>
+    <lastmod>2023-09-29T12:00:08-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2023-09-28T09:01:00-07:00</lastmod>
+    <lastmod>2023-09-29T12:00:08-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2023-09-28T09:01:00-07:00</lastmod>
+    <lastmod>2023-09-29T12:00:08-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2023/data-exfiltration-in-azure-openai-playground-fixed/</loc>
+    <lastmod>2023-09-29T12:00:08-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/plugins/</loc>
-    <lastmod>2023-09-28T09:01:00-07:00</lastmod>
+    <lastmod>2023-09-29T12:00:08-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2023-09-28T09:01:00-07:00</lastmod>
+    <lastmod>2023-09-29T12:00:08-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2023-09-28T09:01:00-07:00</lastmod>
+    <lastmod>2023-09-29T12:00:08-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/threats/</loc>
+    <lastmod>2023-09-29T12:00:08-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2023/advanced-plugin-data-exfiltration-trickery/</loc>
     <lastmod>2023-09-28T09:01:00-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/conference/</loc>

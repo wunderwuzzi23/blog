@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Thu, 28 Sep 2023 09:01:00 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Sep 2023 12:00:08 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft Fixes Data Exfiltration Vulnerability in Azure AI Playground</title>
+      <link>https://embracethered.com/blog/posts/2023/data-exfiltration-in-azure-openai-playground-fixed/</link>
+      <pubDate>Fri, 29 Sep 2023 12:00:08 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/data-exfiltration-in-azure-openai-playground-fixed/</guid>
+      <description>Large Language Model (LLM) applications and chatbots are quite commonly vulnerable to data exfiltration. In particular data exfiltration via Image Markdown Injection is quite frequent.
+Microsoft fixed such a vulnerability in Bing Chat, Anthropic fixed it in Claude, and ChatGPT has a known vulnerability as Open AI &amp;ldquo;won&amp;rsquo;t fix&amp;rdquo; the issue.
+This post describes a variant in the Azure AI Playground and how Microsoft fixed it.
+From Untrusted Data to Data Exfiltration When untrusted data makes it into the LLM prompt context it can instruct the model to inject an image markdown element.</description>
+    </item>
+    
     <item>
       <title>Advanced Data Exfiltration Techniques with ChatGPT</title>
       <link>https://embracethered.com/blog/posts/2023/advanced-plugin-data-exfiltration-trickery/</link>
