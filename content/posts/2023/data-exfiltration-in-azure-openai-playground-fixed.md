@@ -47,11 +47,11 @@ This instructs the LLM to grab past messages and send it off to a third party se
 
 The following image shows how Azure AI Playground renders the image and connects to the attacker server sending the earlier data (incl. name and secret code) to the attacker's server:
 
-[![azure data exfiltration](/blog/images/2023/azure-openai-image-markdown.png)](azure-openai-image-markdown.png)
+[![azure data exfiltration](/blog/images/2023/azure-openai-image-markdown.png)](/blog/images/2023/azure-openai-image-markdown.png)
 
 And this is what the server received:
 
-[![azure data exfiltration](/blog/images/2023/azure-openai-image-markdown-server.png)](azure-openai-image-markdown-server.png)
+[![azure data exfiltration](/blog/images/2023/azure-openai-image-markdown-server.png)](/blog/images/2023/azure-openai-image-markdown-server.png)
 
 Neat. Notice how the LLM correctly URL encoded the data as well. 
 
