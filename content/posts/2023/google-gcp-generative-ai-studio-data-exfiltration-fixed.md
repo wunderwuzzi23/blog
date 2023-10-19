@@ -11,7 +11,7 @@ twitter:
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
   title: "Google Cloud Vertex AI - Data Exfiltration Vulnerability Fixed in Generative AI Studio"
-  image: "https://embracethered.com/blog/images/2023/blog/images/2023/vertex-data-exfil.png"
+  image: "https://embracethered.com/blog/images/2023/vertex-data-exfil.png"
 ---
 
 Large Language Model (LLM) applications and chatbots are quite commonly vulnerable to data exfiltration. In particular data exfiltration via `Image Markdown Injection` is frequent. 
