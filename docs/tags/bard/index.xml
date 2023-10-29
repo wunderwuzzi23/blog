@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bard on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/bard/</link>
+    <description>Recent content in bard on Embrace The Red</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
+    <lastBuildDate>Tue, 24 Oct 2023 16:34:01 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/bard/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Bard - Prompt Injection to Data Exfiltration</title>
+      <link>https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/</link>
+      <pubDate>Tue, 24 Oct 2023 16:34:01 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/</guid>
+      <description>Recently Google Bard got some powerful updates, including Extensions. They allow Bard to access YouTube, search for flights and hotels, but also to access a user&amp;rsquo;s personal documents and emails.
+So, Bard can access and analyze your Drive, Docs and Gmail!
+When Extensions shipped I was able to quickly validate that Indirect Prompt Injection works by pointing Bard to some older YouTube videos I had put up and ask it to summarize the titles, and it also worked with Google Docs.</description>
+    </item>
+    
+  </channel>
+</rss>
