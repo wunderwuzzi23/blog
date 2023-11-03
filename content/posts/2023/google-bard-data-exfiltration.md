@@ -1,6 +1,6 @@
 ---
 title: "Hacking Google Bard - From Prompt Injection to Data Exfiltration"
-date: 2023-11-02T15:34:01-07:00
+date: 2023-11-03T12:00:01-07:00
 draft: true
 tags: [
      "aiml", "machine learning","ai injections", "bard", "threats"
@@ -39,7 +39,7 @@ When the victim searches or interacts with the attacker's document using Bard th
 
 **Scary stuff!**
 
-A common vulnerability in LLM apps is chat history exfiltration via rendering of hyperlinks and images.
+A common vulnerability in LLM apps is chat history exfiltration via rendering of hyperlinks and images. The question was, how might this apply to Google Bard?
 
 ## The Vulnerability - Image Markdown Injection
 

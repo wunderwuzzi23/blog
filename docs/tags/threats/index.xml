@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Thu, 02 Nov 2023 15:34:01 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/threats/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Nov 2023 12:00:01 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/threats/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hacking Google Bard - From Prompt Injection to Data Exfiltration</title>
       <link>https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/</link>
-      <pubDate>Thu, 02 Nov 2023 15:34:01 -0700</pubDate>
+      <pubDate>Fri, 03 Nov 2023 12:00:01 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/</guid>
       <description>Recently Google Bard got some powerful updates, including Extensions. Extensions allow Bard to access YouTube, search for flights and hotels, and also to access a user&amp;rsquo;s personal documents and emails.
