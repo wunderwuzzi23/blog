@@ -16,7 +16,8 @@
       <guid>https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/</guid>
       <description>Recently Google Bard got some powerful updates, including Extensions. Extensions allow Bard to access YouTube, search for flights and hotels, and also to access a user&amp;rsquo;s personal documents and emails.
 So, Bard can now access and analyze your Drive, Docs and Gmail!
-When Extensions shipped I was able to quickly validate that Indirect Prompt Injection works by pointing Bard to some older YouTube videos I had put up and ask it to summarize, and I also tested with Google Docs.</description>
+This means that it analyzes untrusted data and will be susceptible to Indirect Prompt Injection.
+I was able to quickly validate that Prompt Injection works by pointing Bard to some older YouTube videos I had put up and ask it to summarize, and I also tested with Google Docs.</description>
     </item>
     
     <item>

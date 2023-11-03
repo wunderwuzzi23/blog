@@ -19,7 +19,9 @@ Recently Google Bard got some [powerful updates](https://blog.google/products/ba
 
 **So, Bard can now access and analyze your Drive, Docs and Gmail!**
 
-When `Extensions` shipped I was able to quickly validate that Indirect Prompt Injection works by pointing Bard to some older YouTube videos I had put up and ask it to summarize, and I also tested with `Google Docs`.
+This means that it analyzes untrusted data and will be susceptible to Indirect Prompt Injection. 
+
+I was able to quickly validate that Prompt Injection works by pointing Bard to some older YouTube videos I had put up and ask it to summarize, and I also tested with `Google Docs`.
 
 Turns out that it followed the instructions:
 
@@ -60,6 +62,9 @@ This will be rendered as an HTML image tag with a `src` attribute pointing to th
 The browser will automatically connect to the URL without user interaction to load the image. 
 
 Using the power of the LLM we can summarize or access previous data in the chat context and append it accordingly to the URL.
+
+
+[![Google Bard Data Exfil](/blog/images/2023/bard-exfil-logo.png)](/blog/images/2023/bard-exfil-logo.png)
 
 When writing the exploit a prompt injection payload was quickly developed that would read the history of the conversation, and form a hyperlink that contained it. 
 
@@ -166,6 +171,7 @@ Cheers.
 * [Google Bard Extension Announcment](https://blog.google/products/bard/google-bard-new-features-update-sept-2023/), 
 * [Indirect Prompt Injections with Google Bard](https://twitter.com/wunderwuzzi23/status/1704198612039737845)
 * [Ekoparty 2023 Prompt Injection Talk](https://ekoparty.org/eko2023-agenda/indirect-prompt-injections-in-the-wild-real-world-exploits-and-mitigations/)
+* Google Bard - Data Exfil image was created with DALLE-3
 
 ## Appendix
 
