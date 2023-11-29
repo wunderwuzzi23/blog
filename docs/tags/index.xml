@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Fri, 03 Nov 2023 12:00:01 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Nov 2023 16:00:33 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ai injections</title>
       <link>https://embracethered.com/blog/tags/ai-injections/</link>
-      <pubDate>Fri, 03 Nov 2023 12:00:01 -0700</pubDate>
+      <pubDate>Tue, 28 Nov 2023 16:00:33 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
       <description></description>
@@ -20,9 +20,36 @@
     <item>
       <title>aiml</title>
       <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Fri, 03 Nov 2023 12:00:01 -0700</pubDate>
+      <pubDate>Tue, 28 Nov 2023 16:00:33 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>conference</title>
+      <link>https://embracethered.com/blog/tags/conference/</link>
+      <pubDate>Tue, 28 Nov 2023 16:00:33 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/conference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Tue, 28 Nov 2023 16:00:33 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ttp</title>
+      <link>https://embracethered.com/blog/tags/ttp/</link>
+      <pubDate>Tue, 28 Nov 2023 16:00:33 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ttp/</guid>
       <description></description>
     </item>
     
@@ -32,15 +59,6 @@
       <pubDate>Fri, 03 Nov 2023 12:00:01 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/bard/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine learning</title>
-      <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Fri, 03 Nov 2023 12:00:01 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
       <description></description>
     </item>
     
@@ -81,29 +99,11 @@
     </item>
     
     <item>
-      <title>conference</title>
-      <link>https://embracethered.com/blog/tags/conference/</link>
-      <pubDate>Mon, 18 Sep 2023 03:24:51 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/conference/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>video</title>
       <link>https://embracethered.com/blog/tags/video/</link>
       <pubDate>Mon, 28 Aug 2023 10:00:51 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/video/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ttp</title>
-      <link>https://embracethered.com/blog/tags/ttp/</link>
-      <pubDate>Mon, 24 Jul 2023 07:26:41 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ttp/</guid>
       <description></description>
     </item>
     

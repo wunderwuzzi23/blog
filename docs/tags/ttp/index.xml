@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Mon, 24 Jul 2023 07:26:41 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ttp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Nov 2023 16:00:33 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ttp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ekoparty Talk - Prompt Injections in the Wild</title>
+      <link>https://embracethered.com/blog/posts/2023/ekoparty-prompt-injection-talk/</link>
+      <pubDate>Tue, 28 Nov 2023 16:00:33 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/ekoparty-prompt-injection-talk/</guid>
+      <description>Earlier this month I had the opportunity to present at Ekoparty 2023 about Prompt Injections in the Wild, and the video of the talk was just posted to YouTube. Check it out.
+  It starts with a basic overview of LLMs and then dives deep into exploits and mitigations across various LLM applications and chatbots, including (but not limited) to demos of exploits with Bing Chat, ChatGPT, Anthropic Claude, Azure AI, GCP Vertex AI and Google Bard.</description>
+    </item>
+    
     <item>
       <title>ChatGPT Custom Instructions: Persistent Data Exfiltration Demo</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-custom-instruction-post-exploitation-data-exfiltration/</link>
