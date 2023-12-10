@@ -168,7 +168,7 @@ Cheers.
 
 ## References
 
-* [Google Bard Extension Announcment](https://blog.google/products/bard/google-bard-new-features-update-sept-2023/), 
+* [Google Bard Extension Announcement](https://blog.google/products/bard/google-bard-new-features-update-sept-2023/), 
 * [Indirect Prompt Injections with Google Bard](https://twitter.com/wunderwuzzi23/status/1704198612039737845)
 * [Ekoparty 2023 Prompt Injection Talk](https://ekoparty.org/eko2023-agenda/indirect-prompt-injections-in-the-wild-real-world-exploits-and-mitigations/)
 * Google Bard - Data Exfil image was created with DALLE-3
