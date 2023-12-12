@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Tue, 28 Nov 2023 16:00:33 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Dec 2023 16:50:49 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introducing GPTs that steal your data</title>
+      <link>https://embracethered.com/blog/posts/2023/openai-custom-malware-gpt/</link>
+      <pubDate>Thu, 07 Dec 2023 16:50:49 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/openai-custom-malware-gpt/</guid>
+      <description>When OpenAI released GPTs last month I had plans for an interesting GPT.
+Malicious ChatGPT Agents The idea was to create MalwareGPT that forwards users&#39; chat messages to a third party server. It also asks users for personal information like emails and passwords.
+Why would this be possible end to end? ChatGPT cannot keep your conversation private or confidential, because it loads images from any website. This allows data to be sent to a third party server.</description>
+    </item>
+    
     <item>
       <title>Ekoparty Talk - Prompt Injections in the Wild</title>
       <link>https://embracethered.com/blog/posts/2023/ekoparty-prompt-injection-talk/</link>
