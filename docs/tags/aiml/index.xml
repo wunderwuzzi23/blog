@@ -7,16 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Thu, 07 Dec 2023 16:50:49 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/aiml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Dec 2023 18:00:49 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/aiml/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Introducing GPTs that steal your data</title>
+      <title>Malicious ChatGPT Agents: How GPTs Can Quietly Grab Your Data (Demo)</title>
       <link>https://embracethered.com/blog/posts/2023/openai-custom-malware-gpt/</link>
-      <pubDate>Thu, 07 Dec 2023 16:50:49 -0800</pubDate>
+      <pubDate>Tue, 12 Dec 2023 18:00:49 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2023/openai-custom-malware-gpt/</guid>
       <description>When OpenAI released GPTs last month I had plans for an interesting GPT.
-Malicious ChatGPT Agents The idea was to create MalwareGPT that forwards users&#39; chat messages to a third party server. It also asks users for personal information like emails and passwords.
-Why would this be possible end to end? ChatGPT cannot keep your conversation private or confidential, because it loads images from any website. This allows data to be sent to a third party server.</description>
+Malicious ChatGPT Agents The idea was to create a kind of malware GPT that forwards users&#39; chat messages to a third party server. It also asks users for personal information like emails and passwords.
+Why would this be possible end to end? ChatGPT cannot guarantee to keep your conversation private or confidential, because it loads images from any website.</description>
     </item>
     
     <item>
