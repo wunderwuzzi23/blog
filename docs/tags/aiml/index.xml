@@ -7,16 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Tue, 19 Dec 2023 21:35:07 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/aiml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Dec 2023 02:35:07 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/aiml/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>OpenAI mitigates data exfiltration vulnerability in ChatGPT</title>
-      <link>https://embracethered.com/blog/posts/2023/openai-data-exfiltration-fix/</link>
-      <pubDate>Tue, 19 Dec 2023 21:35:07 -0800</pubDate>
+      <title>OpenAI mitigates data exfiltration vulnerability in ChatGPT (more improvements needed)</title>
+      <link>https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/</link>
+      <pubDate>Wed, 20 Dec 2023 02:35:07 -0800</pubDate>
       
-      <guid>https://embracethered.com/blog/posts/2023/openai-data-exfiltration-fix/</guid>
-      <description>OpenAI seems to have implemented a first mitigation for a well-known data exfiltration vulnerability. Attackers can use image markdown rendering during Prompt Injection to send data to third party servers without the users&#39; consent.
-The fix is not perfect but a step into the right direction. In this post I share what I was able to figure out so far.
-Yesterday I was doing a live demo with a consenting victim and ChatGPT was still vulnerable to data exfiltration via image markdown injection:</description>
+      <guid>https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/</guid>
+      <description>OpenAI seems to have implemented a first mitigation for a well-known data exfiltration vulnerability in ChatGPT. Attackers can use image markdown rendering during Prompt Injection to send data to third party servers without the users&#39; consent.
+The fix is not perfect but a step into the right direction. In this post I share what I figured out so far about the fix after looking at it briefly this morning.
+Background Yesterday I was doing a live demo of the data theft GPT with a consenting victim.</description>
     </item>
     
     <item>

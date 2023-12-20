@@ -2,38 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
-    <lastmod>2023-12-19T21:35:07-08:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/aiml/</loc>
-    <lastmod>2023-12-19T21:35:07-08:00</lastmod>
+    <lastmod>2023-12-20T02:35:07-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/chatgpt/</loc>
-    <lastmod>2023-12-19T21:35:07-08:00</lastmod>
+    <lastmod>2023-12-20T02:35:07-08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/data-exiltration/</loc>
-    <lastmod>2023-12-19T21:35:07-08:00</lastmod>
+    <loc>https://embracethered.com/blog/tags/data-exfiltration/</loc>
+    <lastmod>2023-12-20T02:35:07-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2023-12-19T21:35:07-08:00</lastmod>
+    <lastmod>2023-12-20T02:35:07-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2023-12-19T21:35:07-08:00</lastmod>
+    <lastmod>2023-12-20T02:35:07-08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/posts/2023/openai-data-exfiltration-fix/</loc>
-    <lastmod>2023-12-19T21:35:07-08:00</lastmod>
+    <loc>https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/</loc>
+    <lastmod>2023-12-20T02:35:07-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2023-12-19T21:35:07-08:00</lastmod>
+    <lastmod>2023-12-20T02:35:07-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2023-12-19T21:35:07-08:00</lastmod>
+    <lastmod>2023-12-20T02:35:07-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2023-12-19T21:35:07-08:00</lastmod>
+    <lastmod>2023-12-20T02:35:07-08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/threats/</loc>
-    <lastmod>2023-12-19T21:35:07-08:00</lastmod>
+    <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
+    <lastmod>2023-12-12T18:00:49-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/llm/</loc>
     <lastmod>2023-12-12T18:00:49-08:00</lastmod>
@@ -54,6 +51,9 @@
     <lastmod>2023-11-03T12:00:01-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/</loc>
+    <lastmod>2023-11-03T12:00:01-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/threats/</loc>
     <lastmod>2023-11-03T12:00:01-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/gcp/</loc>
