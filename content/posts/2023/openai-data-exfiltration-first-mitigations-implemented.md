@@ -60,14 +60,11 @@ and in this case it returns:
 
 [![OpenAI Mitigation](/blog/images/2023/openai-fix-3.png)](/blog/images/2023/openai-fix-3.png)
 
+It still at times renders **other** images (from arbitrary domains) though.
 
-It still renders **other** images though.
-
-Since ChatGPT is not open source and the fix is not via a Content-Security-Policy (that is visible to users and researchers) the exact validation details are not known. 
+Since ChatGPT is not open source and the fix is not via a Content-Security-Policy (that is visible and inspectable by users and researchers) the exact validation details are not known. 
 
 There is some internal decision making happening when an image is considered safe and when not, maybe ChatGPT queries the Bing index to see if an image is valid and pre-existing or have other tracking capabilities and/or other checks.
-
-**This is good news.**
 
 Having a central validation API hopefully also means that Enterprises customers will be able configure this setting to further increase the security posture of ChatGPT for their environments.
 
@@ -99,18 +96,18 @@ Sharing the details of the validation check would also improve confidence in the
 
 ### Client Side Validation Call - Mobile apps remain vulnerable
 
-The current iOS version `1.2023.347 (16603)` does not have these improvements (yet?). Since the ChatGPT web application change is a *client side validation* call to a server API, the fix will have to be implemented separatley for each client...
+The current iOS version `1.2023.347 (16603)` does not have these improvements (yet?). Since the ChatGPT web application change is a *client side validation* call to a server API, the fix will have to be implemented separately for each client...
 
-The decision to implement it client side might have to do with wanting to stream the results to the client for performance reasons, but it might be better to perform such security checks on the server side, so all clients benefit from such improvements.
+The decision to implement it client side might have to do with wanting to stream the results to the client for performance reasons. However, it might be better to perform such security checks on the server side, so all clients benefit from such improvements.
 
 
 ## Conclusion
 
 To summarize what I observed so far:
 
-- A newly added client side validation check for safe URLs improves the security posture and should allow OpenAI to monitor for attacks and notice patterns, which is good.  
+- There is a client side validation check for safe URLs which improves the security posture and should allow OpenAI to monitor for attacks and notice patterns, which is good  
 
-- The decision details on when a URL is considered safe are not known.
+- The decision details on when a URL is considered safe are not known
 
 - It's not a 100% perfect mitigation to prevent sending information to third party servers. Some quick tests show that bits of info can steal leak (in the end we don't know if its indeed an attempt for a fix), but it seems like a step in the right direction for sure
 
