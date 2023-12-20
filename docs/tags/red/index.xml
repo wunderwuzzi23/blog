@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Sun, 11 Jun 2023 08:49:21 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Dec 2023 21:35:07 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenAI mitigates data exfiltration vulnerability in ChatGPT</title>
+      <link>https://embracethered.com/blog/posts/2023/openai-data-exfiltration-fix/</link>
+      <pubDate>Tue, 19 Dec 2023 21:35:07 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/openai-data-exfiltration-fix/</guid>
+      <description>OpenAI seems to have implemented a first mitigation for a well-known data exfiltration vulnerability. Attackers can use image markdown rendering during Prompt Injection to send data to third party servers without the users&#39; consent.
+The fix is not perfect but a step into the right direction. In this post I share what I was able to figure out so far.
+Yesterday I was doing a live demo with a consenting victim and ChatGPT was still vulnerable to data exfiltration via image markdown injection:</description>
+    </item>
+    
     <item>
       <title>Exploit ChatGPT and Enter the Matrix to Learn about AI Security</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-vulns-enter-the-matrix/</link>
