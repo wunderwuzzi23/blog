@@ -10,7 +10,7 @@ twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "ChatGPT: OpenAI mitigates data exfiltration vulnerability (more improvements seem needed)"
+  title: "ChatGPT: OpenAI starts mitigation data exfiltration vulnerability (more improvements seem needed)"
   description: "Good news. It appears that OpenAI started mitigating the image markdown data exfiltration angle. It remains vulnerable, but it's great to see a few first actions being taken to mitigate the problem."
   image: "https://embracethered.com/blog/images/2023/openai-fix-3.png"
 ---
