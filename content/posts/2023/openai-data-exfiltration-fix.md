@@ -19,13 +19,17 @@ OpenAI seems to have implemented a first mitigation for a well-known data exfilt
 
 The fix is not perfect but a step into the right direction. In this post I share what I figured out so far after looking at it briefly this morning.
 
+## Background
+
 Yesterday I was doing a live demo of the [data theft GPT](/blog/posts/2023/openai-custom-malware-gpt/) with a consenting victim. ChatGPT was still vulnerable to data exfiltration via image markdown injection and my server received the conversation details:
 
 [![OpenAI Raeuber](/blog/images/2023/openai-last.png)](/blog/images/2023/openai-last.png)
 
 Needless to say and as you can read in the screenshot above (sorry it's in German) the user was not too amused about this. 
 
-Starting today it appears that a mitigation has been implemented by OpenAI. 🎉🎉🎉
+The data exfiltration vulnerability was first reported to OpenAI by myself early April 2023, but remained unaddressed.
+
+Starting today it appears that a mitigation has been implemented. 🎉🎉🎉
 
 ## The Mitigation
 
@@ -57,7 +61,7 @@ and in this case it returns:
 
 It still renders **other** images though.
 
-Since ChatGPT is not open source and the fix is not via a Content-Security-Policy that is visible the exact validation details are not known. There is some internal decision making happening when an image is considered safe and when not, maybe ChatGPT queries the Bing index to see if an image is valid and pre-existing or have another tracking capability. 
+Since ChatGPT is not open source and the fix is not via a Content-Security-Policy that is visible the exact validation details are not known. There is some internal decision making happening when an image is considered safe and when not, maybe ChatGPT queries the Bing index to see if an image is valid and pre-existing or have other tracking capabilities and checks. 
 
 **This is good news.**
 
@@ -67,11 +71,13 @@ Having a central validation API hopefully also means that Enterprises customers 
 
 ## Not a perfect fix - remaining concerns
 
-As stated, it's not a perfect fix. There are still some obvious side channel attacks possible to leak data, and other trickeries attackers can use to leak info via requests that pass the filter. 
+As stated, it's not a perfect fix. It is still possible to render some requests to arbitrary domains and use it to send data out. Obvious trickeries like splitting text into individual characters and creating a request per character for instance showed some (limited) success at a first glance. But it only leaks small amounts, is slow and more noticable to a user and also to OpenAI if logs of the `url_safe` API are reviewed and monitored. 
 
-I was still able to render some requests and use it to send data out (although very small amounts and slow and more noticable to a user), but this mitigation is a step in the right direction.
+This mitigation is a step in the right direction, more might be needed.
 
-**I would suggest to OpenAI to limit the number of images that are rendered per response to just one or maybe a handful maximum, as that will further mitigate some of these bypass trickeries.**
+**I would suggest to OpenAI to limit the number of images that are rendered per response to just one or maybe a handful maximum, as that will further mitigate some of the bypass trickeries.** 
+
+Sharing the details of the validation check would also improve confidence in the mitigation, after all I hope it is not an LLM that checks if they URL is safe...
 
 ## Conclusion
 
