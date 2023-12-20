@@ -14,9 +14,8 @@
       <pubDate>Wed, 20 Dec 2023 02:35:07 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/</guid>
-      <description>OpenAI seems to have implemented a first mitigation for a well-known data exfiltration vulnerability in ChatGPT. Attackers can use image markdown rendering during Prompt Injection to send data to third party servers without the users&#39; consent.
-The fix is not perfect but a step into the right direction. In this post I share what I figured out so far about the fix after looking at it briefly this morning.
-Background Yesterday I was doing a live demo of the data theft GPT with a consenting victim.</description>
+      <description>OpenAI seems to have implemented some mitigation steps for a well-known data exfiltration vulnerability in ChatGPT. Attackers can use image markdown rendering during prompt injection attacks to send data to third party servers without the users&#39; consent.
+The fix is not perfect, but a step into the right direction. In this post I share what I figured out so far about the fix after looking at it briefly this morning.</description>
     </item>
     
   </channel>
