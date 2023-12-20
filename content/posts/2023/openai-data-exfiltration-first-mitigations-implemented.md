@@ -1,5 +1,5 @@
 ---
-title: "OpenAI mitigates data exfiltration vulnerability in ChatGPT (more improvements needed)"
+title: "OpenAI Begins Tackling ChatGPT Data Leak Vulnerability"
 date: 2023-12-20T02:35:07-08:00
 draft: true
 tags: [
@@ -10,7 +10,7 @@ twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "ChatGPT: OpenAI mitigates data exfiltration vulnerability"
+  title: "ChatGPT: OpenAI mitigates data exfiltration vulnerability (more improvements seem needed)"
   description: "Good news. It appears that OpenAI started mitigating the image markdown data exfiltration angle."
   image: "https://embracethered.com/blog/images/2023/openai-fix-3.png"
 ---
@@ -25,7 +25,7 @@ Yesterday I was doing a live demo of the [data theft GPT](/blog/posts/2023/opena
 
 [![OpenAI Raeuber](/blog/images/2023/openai-last.png)](/blog/images/2023/openai-last.png)
 
-Needless to say and as you can read in the screenshot above (sorry it's in German) the user was not too amused about this. 
+Needless to say, and as you can read in the screenshot above (sorry it's in German), the victim user was not too amused about this. 
 
 The data exfiltration vulnerability was first reported to OpenAI early April 2023, but remained unaddressed.
 
@@ -33,7 +33,7 @@ Starting today it appears that a mitigation has been implemented. 🎉🎉🎉
 
 ## The Mitigation
 
-It's a new kind of mitigation, different from how other vendors fixed this vulnerability.
+The mitigation is different from how other vendors fixed this vulnerability.
 
 When the server returns an image tag with a hyperlink there is now a ChatGPT client side call to a validation API before deciding to display an image.
 
@@ -101,6 +101,8 @@ Sharing the details of the validation check would also improve confidence in the
 
 - The decision details on when a URL is considered safe are not known.
 
-- It's not a 100% perfect mitigation to prevent sending information to third party servers. Some quick tests show that bits of info can steal leak, but it is a step in the right direction for sure.
+- It's not a 100% perfect mitigation to prevent sending information to third party servers. Some quick tests show that bits of info can steal leak, but it is a step in the right direction for sure!
 
-As you can imagine I'm quite happy about this improvement. After the lenghty discussions I had with OpenAI in April and the many more demos I created to raise awareness across the industry. With each new feature risks increase (Plugins, Browsing, Code Interpreter, GPTs, GPT Store,...) and its good to see mitigations being considered now.
+As you can imagine I'm quite happy about this improvement. 
+
+After the lengthy discussions I had with OpenAI in April and the many more demos I created to raise awareness. With each new feature release risks increased (Plugins, Browsing, Code Interpreter, GPTs, GPT Store,...) and its good to see these attack avenues being taken seriously now.

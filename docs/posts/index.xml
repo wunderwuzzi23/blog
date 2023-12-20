@@ -9,7 +9,7 @@
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
     <lastBuildDate>Wed, 20 Dec 2023 02:35:07 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>OpenAI mitigates data exfiltration vulnerability in ChatGPT (more improvements needed)</title>
+      <title>OpenAI Begins Tackling ChatGPT Data Leak Vulnerability</title>
       <link>https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/</link>
       <pubDate>Wed, 20 Dec 2023 02:35:07 -0800</pubDate>
       
