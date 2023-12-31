@@ -1,5 +1,5 @@
 ---
-title: "37th Chaos Communication Congress: New Important Instructions (Video+Slides)"
+title: "37th Chaos Communication Congress: New Important Instructions (Video + Slides)"
 date: 2023-12-30T15:01:59-08:00
 draft: true
 tags: [
@@ -35,6 +35,7 @@ Johann
 
 ## References
 
+- [Slides](/blog/downloads/37C3-New-Important-Instructions.pdf)
 - [Pass the Cookie and Pivot to the Clouds](/blog/posts/passthecookie/)
 - [CCC Media - Talk](https://media.ccc.de/v/37c3-12292-new_important_instructions)
 - [Embrace The Red Channel](https://www.youtube.com/watch?v=qyTSOSDEC5M)
