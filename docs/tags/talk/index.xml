@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>talk on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/talk/</link>
+    <description>Recent content in talk on Embrace The Red</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
+    <lastBuildDate>Sat, 30 Dec 2023 15:01:59 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/talk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>37c3: New Important Instructions (Video)</title>
+      <link>https://embracethered.com/blog/posts/2023/37c3-new-important-instructions/</link>
+      <pubDate>Sat, 30 Dec 2023 15:01:59 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/37c3-new-important-instructions/</guid>
+      <description>Five years ago I gave a Lightning Talk at the 35th Chaos Communication Congress called &amp;ldquo;Pass the Cookie and Pivot to the Clouds&amp;rdquo;. Interestingly enough, that talk was about my very first post which was the advent of the Embrace The Red blog in December 2018.
+Fast forward&amp;hellip; it was great to attend 37c3 in person in Hamburg this year. The Congress was packed with great talks, amazing people and awesome events and side quests.</description>
+    </item>
+    
+  </channel>
+</rss>

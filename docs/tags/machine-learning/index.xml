@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Wed, 20 Dec 2023 02:35:07 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Dec 2023 15:01:59 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>37th Chaos Communication Congress: New Important Instructions (Video)</title>
+      <link>https://embracethered.com/blog/posts/2023/37c3-new-important-instructions/</link>
+      <pubDate>Sat, 30 Dec 2023 15:01:59 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/37c3-new-important-instructions/</guid>
+      <description>Five years ago I gave a Lightning Talk at the 35th Chaos Communication Congress called &amp;ldquo;Pass the Cookie and Pivot to the Clouds&amp;rdquo;. It was a talk was about my very first blog post on Embrace The Red just a few weeks earlier in December 2018.
+Fast forward to 2023&amp;hellip; it was great to attend the 37c3 in person in Hamburg this year. The Congress was packed with great talks, amazing people and awesome events and side quests.</description>
+    </item>
+    
     <item>
       <title>OpenAI Begins Tackling ChatGPT Data Leak Vulnerability</title>
       <link>https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/</link>
