@@ -17,15 +17,15 @@ twitter:
 
 Five years ago I gave a Lightning Talk at the 35th Chaos Communication Congress called ["Pass the Cookie and Pivot to the Clouds"](/blog/posts/passthecookie/). It was a talk was about my very first blog post on Embrace The Red just a few weeks earlier in December 2018.
 
-Fast forward to 2023... it was great to attend the 37c3 in person in Hamburg this year. The Congress was packed with great talks, amazing people and awesome events and side quests.
-
-It was humbling and exciting to present in Saal 1, the same stage Joscha Bach spoke just the day before, and share my passion and research over the last year regarding Large Language Models Application Security and Prompt Injection specifically.
-
-You can watch the talk with a translation options on [media.ccc.de](https://media.ccc.de/v/37c3-12292-new_important_instructions), and I also uploaded the English copy to the Embrace The Red YouTube channel:
+**Fast forward to 2023...** it was great to attend the 37c3 in person in Hamburg this year. The Congress was packed with great talks, amazing people, awesome events and side quests and I got to present also!
 
 {{< youtube qyTSOSDEC5M >}}
 
-Hope it's interesting and helpful. Looking forward to the next Chaos Communiation Congress.
+It was humbling and exciting to present in Saal 1, the same stage Joscha Bach spoke just the day before, and share my passion and research over the last year regarding Large Language Models Application Security and Prompt Injection specifically.
+
+You can watch the talk with a translation options on [media.ccc.de](https://media.ccc.de/v/37c3-12292-new_important_instructions), and I also uploaded the English copy to the Embrace The Red YouTube channel. Hope it's interesting and helpful. 
+
+Looking forward to the next Chaos Communiation Congress.
 
 Safe travels back home and Happy Hacking everyone!
 
