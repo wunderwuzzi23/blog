@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Tue, 12 Dec 2023 18:00:49 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jan 2024 12:49:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS Fixes Data Exfiltration Attack Angle in Amazon Q</title>
+      <link>https://embracethered.com/blog/posts/2023/aws-amazon-q-fixes-markdown-rendering-vulnerability/</link>
+      <pubDate>Wed, 03 Jan 2024 12:49:17 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/aws-amazon-q-fixes-markdown-rendering-vulnerability/</guid>
+      <description>Happy New Year everyone!
+A few weeks ago after Amazon released the Preview of Amazon Q, I found a data exfiltration angle via rendering markdown/hyperlinks and reported it to Amazon.
+Amazon reacted quickly and mitigated the problem, this post highlights further details and how it was fixed.
+The Problem An Indirect Prompt Injection attack can inject markdown tags, which can render hyperlinks and lead to data exfiltration.
+Impact When a user processes untrusted data with Amazon Q, an adversary (via Indirect Prompt Injection) can instruct Q to render a clickable hyperlink via markdown instructions.</description>
+    </item>
+    
     <item>
       <title>Malicious ChatGPT Agents: How GPTs Can Quietly Grab Your Data (Demo)</title>
       <link>https://embracethered.com/blog/posts/2023/openai-custom-malware-gpt/</link>

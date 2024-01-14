@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Tue, 12 Dec 2023 18:00:49 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jan 2024 12:49:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ai injections</title>
       <link>https://embracethered.com/blog/tags/ai-injections/</link>
-      <pubDate>Tue, 12 Dec 2023 18:00:49 -0800</pubDate>
+      <pubDate>Wed, 03 Jan 2024 12:49:17 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
       <description></description>
@@ -20,9 +20,45 @@
     <item>
       <title>aiml</title>
       <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Tue, 12 Dec 2023 18:00:49 -0800</pubDate>
+      <pubDate>Wed, 03 Jan 2024 12:49:17 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chatgpt</title>
+      <link>https://embracethered.com/blog/tags/chatgpt/</link>
+      <pubDate>Wed, 03 Jan 2024 12:49:17 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/chatgpt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Wed, 03 Jan 2024 12:49:17 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red</title>
+      <link>https://embracethered.com/blog/tags/red/</link>
+      <pubDate>Wed, 03 Jan 2024 12:49:17 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>threats</title>
+      <link>https://embracethered.com/blog/tags/threats/</link>
+      <pubDate>Wed, 03 Jan 2024 12:49:17 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/threats/</guid>
       <description></description>
     </item>
     
@@ -32,15 +68,6 @@
       <pubDate>Tue, 12 Dec 2023 18:00:49 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/llm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine learning</title>
-      <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Tue, 12 Dec 2023 18:00:49 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
       <description></description>
     </item>
     
@@ -72,29 +99,11 @@
     </item>
     
     <item>
-      <title>threats</title>
-      <link>https://embracethered.com/blog/tags/threats/</link>
-      <pubDate>Fri, 03 Nov 2023 12:00:01 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/threats/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>gcp</title>
       <link>https://embracethered.com/blog/tags/gcp/</link>
       <pubDate>Thu, 19 Oct 2023 06:35:37 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/gcp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>chatgpt</title>
-      <link>https://embracethered.com/blog/tags/chatgpt/</link>
-      <pubDate>Fri, 29 Sep 2023 10:00:08 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/chatgpt/</guid>
       <description></description>
     </item>
     
@@ -122,15 +131,6 @@
       <pubDate>Sun, 18 Jun 2023 00:01:02 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/msrc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>red</title>
-      <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Sun, 11 Jun 2023 08:49:21 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/red/</guid>
       <description></description>
     </item>
     
