@@ -2,31 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://embracethered.com/blog/posts/2023/37c3-new-important-instructions/</loc>
-    <lastmod>2023-12-30T15:01:59-08:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
-    <lastmod>2023-12-30T15:01:59-08:00</lastmod>
+    <lastmod>2024-01-14T23:00:53-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/aiml/</loc>
-    <lastmod>2023-12-30T15:01:59-08:00</lastmod>
+    <lastmod>2024-01-14T23:00:53-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/</loc>
+    <lastmod>2024-01-14T23:00:53-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2023-12-30T15:01:59-08:00</lastmod>
+    <lastmod>2024-01-14T23:00:53-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2023-12-30T15:01:59-08:00</lastmod>
+    <lastmod>2024-01-14T23:00:53-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2023-12-30T15:01:59-08:00</lastmod>
+    <lastmod>2024-01-14T23:00:53-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2023-12-30T15:01:59-08:00</lastmod>
+    <lastmod>2024-01-14T23:00:53-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2023-12-30T15:01:59-08:00</lastmod>
+    <lastmod>2024-01-14T23:00:53-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/threats/</loc>
+    <lastmod>2024-01-14T23:00:53-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <lastmod>2024-01-14T23:00:53-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2023/37c3-new-important-instructions/</loc>
     <lastmod>2023-12-30T15:01:59-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/video/</loc>
@@ -45,9 +51,6 @@
     <lastmod>2023-12-20T02:35:07-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2023/openai-custom-malware-gpt/</loc>
-    <lastmod>2023-12-12T18:00:49-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
     <lastmod>2023-12-12T18:00:49-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/conference/</loc>

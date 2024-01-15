@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ASCII Smuggler - Secret Message Encoder/Decoder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            margin: 10px 0;
+            height: 100px;
+        }
+        #outputMessage {
+            background-color: #f0f0f0;
+        }
+        #statusMessage {
+            color: red;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">      
+        <h2>ASCII Smuggler</h2>
+        <span>
+        Convert ASCII text to Unicode Tag Characters which ends up as invisible text in most UI elements.<br>
+        The tool can also be used to check if a text has any hidden Unicode Tags embedded using the Decode feature.
+        </span><br>
+        <textarea id="inputMessage" placeholder="Enter your message here"></textarea>
+
+        <button id="encodeButton">Encode</button>
+        <button id="decodeButton">Decode</button>
+
+        <textarea id="outputMessage" readonly placeholder="Encoded/Decoded output"></textarea>
+        <div id="statusMessage"></div>
+        <button id="clearButton">Clear</button>
+        <br><br><br>
+        <!-- <a href="https://x.com/wunderwuzzi23">@wunderwuzzi23</a><br> -->
+        <a href="https://embracethered.com/blog/2024/hiding-and-finding-text-with-unicode-tags/">Embrace the Red - Blog Post</a>
+
+    </div>
+
+    <script>
+        document.getElementById('encodeButton').addEventListener('click', function() {
+            processMessage('encode');
+            copyToClipboard();
+        });
+        document.getElementById('decodeButton').addEventListener('click', function() {
+            resetStatus();
+            processMessage('decode');
+        });
+        document.getElementById('inputMessage').addEventListener('input', resetStatus);
+        document.getElementById('clearButton').addEventListener('click', clearFields);
+
+        let clipboardData = '';
+
+        function processMessage(action) {
+            const inputMessage = document.getElementById('inputMessage').value;
+            let outputMessage = '';
+
+            if (action === 'encode') {
+                [outputMessage, encoded] = encodeMessage(inputMessage);
+                document.getElementById('outputMessage').value = outputMessage;
+                clipboardData = encoded; // Set clipboard data to the actual encoded values
+            } else {
+                outputMessage = decodeMessage(inputMessage);
+                console.log(outputMessage.length)
+                if (outputMessage.length == 0) {
+                    console.log('no hidden')
+                    updateStatus('No hidden Unicode Tag characters discovered.');
+                }
+                else
+                {
+                    console.log('hidden')
+                    updateStatus('Hidden Unicode Tag Characters discovered.');
+                }
+
+                document.getElementById('outputMessage').value = outputMessage;
+            }
+        }
+
+        function encodeMessage(message) {
+            let encoded = '';
+            let codePoints = '';
+            let invalidChars = '';
+
+            for (let char of message) {
+                if (char.charCodeAt(0) >= 0x20 && char.charCodeAt(0) <= 0x7E) {
+                    let codePoint = 0xE0000 + char.charCodeAt(0);
+                    encoded += String.fromCodePoint(codePoint);
+                    codePoints += 'U+' + codePoint.toString(16).toUpperCase() + ' ';
+                } else {
+                    invalidChars += char;
+                }
+            }
+
+            updateStatus(invalidChars);
+            return [codePoints.trim(), encoded];
+        }
+
+        function decodeMessage(message) {
+            let decoded = '';
+
+            for (let char of message) {
+                let codePoint = char.codePointAt(0);
+                if (codePoint >= 0xE0000 && codePoint <= 0xE007F) {
+                    decoded += String.fromCharCode(codePoint - 0xE0000);
+                    decoded += char;
+                }
+                // else {
+                //     decoded += char;
+                // }
+            }
+
+            return decoded;
+        }
+
+        function updateStatus(message) {
+            const statusMessage = document.getElementById('statusMessage');
+            statusMessage.textContent = message;
+        }
+
+        function resetStatus() {
+            updateStatus('');
+        }
+
+        function clearFields() {
+            document.getElementById('inputMessage').value = '';
+            document.getElementById('outputMessage').value = '';
+            resetStatus();
+        }
+
+        function copyToClipboard() {
+            navigator.clipboard.writeText(clipboardData).then(() => {
+                updateStatus('Text copied to clipboard!');
+            }).catch(err => {
+                updateStatus('Failed to copy text: ' + err);
+            });
+        }
+    </script>
+   
+</body>
+</html>

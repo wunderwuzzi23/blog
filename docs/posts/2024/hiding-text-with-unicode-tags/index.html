@@ -3,15 +3,15 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" 37th Chaos Communication Congress: New Important Instructions (Video &#43; Slides) &middot;  Embrace The Red" />
+  <meta property="og:title" content=" Hiding Text with Tags Unicode Code Points &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
-  <meta property="og:url" content="https://embracethered.com/blog/posts/2023/37c3-new-important-instructions/" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2024/hiding-text-with-unicode-tags/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2023-12-30T15:01:59-08:00" />
+  <meta property="og:article:published_time" content="2024-01-14T21:00:53-08:00" />
   
   <meta property="og:article:tag" content="aiml" />
   
@@ -23,12 +23,12 @@
   
   <meta property="og:article:tag" content="llm" />
   
-  <meta property="og:article:tag" content="video" />
+  <meta property="og:article:tag" content="ttp" />
   
   
 
   <title>
-     37th Chaos Communication Congress: New Important Instructions (Video &#43; Slides) &middot;  Embrace The Red
+     Hiding Text with Tags Unicode Code Points &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -44,9 +44,9 @@
   
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wunderwuzzi23">
-<meta name="twitter:title" content="37th Chaos Communication Congress: New Important Instructions (Video &#43; Slides)">
-<meta name="twitter:description" content="Video of my 37c3 talk about Real-world exploits and mitigations in Large Language Model applications.">
-<meta name="twitter:image" content="https://embracethered.com/blog/images/2023/37c3-thumbnail.png">
+<meta name="twitter:title" content="Hiding Text with the Tags Unicode Code Points">
+<meta name="twitter:description" content="An adversary can hide text in plain site.using the Unicdoe Tags. Using ASCII Smuggler you can encode and deocde such hidden messages ">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2024/ascii-smuggling.png">
 
 <meta name="twitter:creator" content="@wunderwuzzi23">
 
@@ -116,13 +116,13 @@
 
 <article>
   <header>
-    <h1 class="text-primary">37th Chaos Communication Congress: New Important Instructions (Video &#43; Slides)</h1>
+    <h1 class="text-primary">Hiding Text with Tags Unicode Code Points</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2023-12-30T15:01:59-08:00">
-          Dec 30, 2023
+        <time datetime="2024-01-14T21:00:53-08:00">
+          Jan 14, 2024
         </time>
       </div>
     
@@ -138,31 +138,52 @@
         
         <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
         
-        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/video">#video</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
         
       </div>
     </div>
   </header>
   <section>
-    <p>Five years ago I gave a Lightning Talk at the 35th Chaos Communication Congress called <a href="/blog/posts/passthecookie/">&ldquo;Pass the Cookie and Pivot to the Clouds&rdquo;</a>. It was a talk about my very first blog post on Embrace The Red just a few weeks earlier in December 2018.</p>
-<p><strong>Fast forward to 2023&hellip;</strong> it was great to attend the 37C3 in person in Hamburg this year. The Congress was packed with great talks, amazing people, awesome events and side quests and I got to present also!</p>
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/qyTSOSDEC5M" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-
-<p>It was humbling and exciting to present in Saal 1, and stand on the same stage as Joscha Bach just the day before, to share my passion and security research in Large Language Models Application Security and Prompt Injection specifically.</p>
-<p>You can watch the talk with a translation options on <a href="https://media.ccc.de/v/37c3-12292-new_important_instructions">media.ccc.de</a>, and I also uploaded the English copy to the Embrace The Red YouTube channel. Hope it&rsquo;s interesting and helpful.</p>
-<p>A pdf version of the slides is <a href="/blog/downloads/37C3-New-Important-Instructions.pdf">here</a>.</p>
-<p>Looking forward to the next Chaos Communication Congress.</p>
-<p>Safe travels back home and Happy Hacking everyone!</p>
-<p>Johann.</p>
+    <p>A few days ago Riley Goodside posted about an <a href="https://x.com/goodside/status/1745511940351287394">interesting discovery</a> on how an LLM prompt injection can happen via invisible instructions in pasted text.</p>
+<p>The discovery highlights how characters can be hidden inside a text using a special set of Unicode code points from the <a href="https://en.wikipedia.org/wiki/Tags_(Unicode_block)">Tags Unicode Block</a>.</p>
+<h2 id="hidden-instructions-for-llms">Hidden Instructions for LLMs</h2>
+<p>The meaning of these &ldquo;Tags&rdquo; seems to have gone through quite some churn, from language tags to eventually being repurposed for some emojis.</p>
+<blockquote>
+<p>&ldquo;A completely tag-unaware implementation will display any sequence of tag characters as invisible, without any effect on adjacent characters.&rdquo; <a href="https://unicode.org/reports/tr51/">Unicode® Technical Standard #51</a></p>
+</blockquote>
+<p>The Tags Unicode Block mirrors ASCII and it is indeed often not rendered in UI element, hence these code points stay unnoticable to users, <strong>but LLMs handle them accordingly</strong>.</p>
+<p>It appears that training data contained such text and now tokenziers can deal with them!</p>
+<h2 id="implications">Implications</h2>
+<p>This means an adversary can hide instructions in regular text when pasting as Riley showed, but also have the LLM create responses containing text that his hidden to the user as <a href="https://x.com/kgreshake/status/1745780962292604984">Kai tweeted</a>.</p>
+<p>And to state the obvious, such hidden instructions can be on websites, pdf documents, databases, or even inside GPTs (yes, I already built one of these).</p>
+<p><strong>Additionally, this has implications beyond LLMs, as it allows smuggling of data in plain site!</strong></p>
+<h3 id="exploiting-the-human-in-the-loop-mitigation">Exploiting the Human in the Loop Mitigation</h3>
+<p>Furthermore, <strong>it has the power to exploit the &ldquo;Human in the Loop&rdquo; mitigation</strong> by leveraging the human to forward, copy, process and approve actions from text containing hidden instructions.</p>
+<h2 id="demonstration">Demonstration</h2>
+<p>Here is some text that contains additional info󠁗󠁥󠁬󠁣󠁯󠁭󠁥󠀠󠁴󠁯󠀠󠁴󠁨󠁥󠀠󠁍󠁡󠁴󠁲󠁩󠁸󠀡󠀠 you don&rsquo;t see!</p>
+<p>Pretty cool, or? If you are curious what the hidden text says, read on&hellip;</p>
+<h2 id="ascii-smuggler-tool">ASCII Smuggler Tool</h2>
+<p>To help with testing and creation of payloads, and also to check if text might have invisible Unicode tag characters you can use <a href="/blog/ascii-smuggler.html">ASCII Smuggler</a>.</p>
+<p><a href="/blog/images/2024/ascii-smuggler-demo.png"><img src="/blog/images/2024/ascii-smuggler-demo.png" alt="demo"></a></p>
+<p>It can encode and decode Unicode tag payloads.</p>
+<p>Also, if you like Python Joseph Thacker posted a <a href="https://twitter.com/rez0__/status/1745545813512663203">Python script for building custom payloads</a>, the post also includes a great analysis of the situation.</p>
+<h2 id="ascii-smuggler---emitter">ASCII Smuggler - Emitter</h2>
+<p>To demo how an LLM can emit such text, check out this <a href="https://chat.openai.com/g/g-0A2tmH5tn-ascii-smuggler-emitter">ASCII Smuggler - Emitter GPT</a>.</p>
+<p>You can enter some text and it will print it between the words <code>START</code> and <code>END</code>.</p>
+<p><a href="/blog/images/2024/ascii-smuggler-emitter.png"><img src="/blog/images/2024/ascii-smuggler-emitter.png" alt="ascii smuggler gpt"></a></p>
+<p>Then you can copy/paste the string into the <a href="/blog/ascii-smuggler.html">ASCII Smuggler</a> and it &ldquo;Decode&rdquo; to uncover your secret message.</p>
+<p><a href="/blog/images/2024/ascii-smuggler-decode-demo.png"><img src="/blog/images/2024/ascii-smuggler-decode-demo.png" alt="ascii smuggler decoder demo"></a></p>
+<p>As you can see it recovers the hidden text!</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This is an important new attack avenue for LLMs, but it is not limited to LLMs. For LLM apps filtering out the Tags Unicode Code Points at prompting and response layers is a mitigation that most apps need to implement.</p>
 <h2 id="references">References</h2>
 <ul>
-<li><a href="/blog/downloads/37C3-New-Important-Instructions.pdf">Slides</a></li>
-<li><a href="/blog/posts/passthecookie/">Pass the Cookie and Pivot to the Clouds</a></li>
-<li><a href="https://media.ccc.de/v/37c3-12292-new_important_instructions">CCC Media - Talk</a></li>
-<li><a href="https://www.youtube.com/watch?v=qyTSOSDEC5M">Embrace The Red Channel</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tags_(Unicode_block)">Tags Unicode Block - Wikipedia</a></li>
+<li><a href="https://x.com/goodside/status/1745511940351287394">Initial POC posted on X</a></li>
+<li><a href="https://twitter.com/rez0__/status/1745545813512663203">Simple Python Script To Repro by rez0</a></li>
+<li><a href="https://www.unicode.org/charts/PDF/UE0000.pdf">Unicode Tag Sepc</a>.</li>
+<li><a href="https://x.com/kgreshake/status/1745780962292604984">Demo of rendering Tags</a></li>
+<li><a href="https://unicode.org/reports/tr51/">Unicode® Technical Standard #51</a></li>
 </ul>
 
   </section>
@@ -174,7 +195,7 @@
     
     <ul class="pager">
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">
@@ -186,7 +207,7 @@
 
       
       
-      <li class="previous"><a href="https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2023/37c3-new-important-instructions/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>
