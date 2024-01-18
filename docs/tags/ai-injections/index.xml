@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Thu, 18 Jan 2024 02:00:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Jan 2024 03:00:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS Fixes Data Exfiltration Attack Angle in Amazon Q for Business</title>
       <link>https://embracethered.com/blog/posts/2024/aws-amazon-q-fixes-markdown-rendering-vulnerability/</link>
-      <pubDate>Thu, 18 Jan 2024 02:00:17 -0800</pubDate>
+      <pubDate>Thu, 18 Jan 2024 03:00:17 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2024/aws-amazon-q-fixes-markdown-rendering-vulnerability/</guid>
       <description>A few weeks ago Amazon released the Preview of Amazon Q for Business, and after looking at it I found a data exfiltration angle via rendering markdown/hyperlinks and reported it to Amazon.
