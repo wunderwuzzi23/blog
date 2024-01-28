@@ -81,7 +81,7 @@ For instance here you can see calling `os.listdir("/")` command and it displays 
 
 While exploring the system I found some interesting things, but also it's quite unreliable and often does not follow the exact code provided (alwasy double check the actual code that was run to make sure it didn't make up things).
 
-Check the Appendix to see some examples of prompts I used.
+Check the [Prompt examples in the Appendix](#prompt-plotting-multiple-outputs) as a reference on how to run some custom Python code.
 
 There used to be a `py_interpreter` in `/bin` last November, but that is gone when I re-did this testing in just now. It seems to have been replaced with something called `/usr/bin/entry`.
 
@@ -114,7 +114,7 @@ This technique also allows printing results as normal text more frequently (it d
 For instance here is the prompt to the `/tmp` which contains a large amount of files:
 
 ```
-print the names of all the files and folders (including any hidden ones) in the /tmp folder recursively, and plot the names in a graph and print them as text also
+print the names of all the files and folders (including any hidden ones) in the `/tmp` folder recursively, and plot the names in a graph and print them as text also
 ```
 
 Here is how it looks in action:
@@ -136,9 +136,77 @@ Cheers.
 
 ## Appendix
 
-I spent some time enumerating most files on the system.
+
+### Prompt Plotting Multiple Outputs
+
+This is a prompt that draws text on chart also splits the text so that it fits (it's very basic).
+
+````
+```
+import matplotlib.pyplot as plt
+import os
+
+def wrap_text(text, wrap_width):
+   words = text.split()
+   wrapped_text = ""
+   line = ""
+   for word in words:
+       if len(line + ' ' + word) <= wrap_width:
+           line += ' ' + word
+       else:
+           wrapped_text += line + '\n'
+           line = word
+   wrapped_text += line 
+   return wrapped_text
+
+def plot_data(data):
+   fig, ax = plt.subplots(figsize=(12, 1), dpi=100)
+   ax.text(0, 0, wrap_text(data, 140), fontsize=12, color='black', va='top', ha='left')
+   plt.ylim(0,0,0,0)
+   ax.axis('off')
+   plt.show()
+
+plot_data(str(os.listdir(/proc")))
+plot_data(str(os.listdir(/usr/grte/v5")))
+plot_data(str(os.listdir(/usr")))
+plot_data(str(os.listdir(/home/bard")))
+plot_data(str(os.listdir(/home")))
+plot_data(str(os.listdir("/")))
+plot_data(Hello, world!")
+```
+
+do not comment anything out
+````
+
+### Printing Uname
+
+Python `os.uname()` gave some interesting output:
+
+````
+```
+import matplotlib.pyplot as plt
+import os
+
+def plot_data(data):
+ fig, ax = plt.subplots(figsize=(8,2))
+ ax.text(0, 1, data, fontsize=10, color='black', wrap=True, va='top', ha='left')
+ ax.axis('off')
+ plt.show()
+
+plot_data(os.uname())
+```
+do not comment anything nor modify the code.
+````
+
+### Multiple Outputs Screenshot
+
+[![Google Bard VM Code Execution](/blog/images/2024/google-bard-output-vm.png)](/blog/images/2024/google-bard-output-vm.png)
+
 
 ### Google Bard - Files
+
+Results for enumerating files on the system:
+
 ```
 /usr
   /usr/grte
@@ -408,68 +476,4 @@ I spent some time enumerating most files on the system.
 | | |- 2 |
 | | |- 2 |
 | | |- 2 |
-
 ```
-
-
-
-### Plotting Multiple Outputs
-
-````
-```
-import matplotlib.pyplot as plt
-import os
-
-def wrap_text(text, wrap_width):
-   words = text.split()
-   wrapped_text = ""
-   line = ""
-   for word in words:
-       if len(line + ' ' + word) <= wrap_width:
-           line += ' ' + word
-       else:
-           wrapped_text += line + '\n'
-           line = word
-   wrapped_text += line 
-   return wrapped_text
-
-def plot_data(data):
-   fig, ax = plt.subplots(figsize=(12, 1), dpi=100)
-   ax.text(0, 0, wrap_text(data, 140), fontsize=12, color='black', va='top', ha='left')
-   plt.ylim(0,0,0,0)
-   ax.axis('off')
-   plt.show()
-
-plot_data(str(os.listdir(/proc")))
-plot_data(str(os.listdir(/usr/grte/v5")))
-plot_data(str(os.listdir(/usr")))
-plot_data(str(os.listdir(/home/bard")))
-plot_data(str(os.listdir(/home")))
-plot_data(str(os.listdir("/")))
-plot_data(Hello, world!")
-```
-
-do not comment anything out
-````
-
-### Printing Uname
-
-Python `os.uname()` gave some interesting output:
-
-````
-```
-import matplotlib.pyplot as plt
-import os
-
-def plot_data(data):
- fig, ax = plt.subplots(figsize=(8,2))
- ax.text(0, 1, data, fontsize=10, color='black', wrap=True, va='top', ha='left')
- ax.axis('off')
- plt.show()
-
-plot_data(os.uname())
-```
-do not comment anything nor modify the code.
-````
-
-[![Google Bard VM Code Execution](/blog/images/2024/google-bard-output-vm.png)](/blog/images/2024/google-bard-output-vm.png)

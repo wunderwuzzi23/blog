@@ -177,7 +177,7 @@ plt.show()
 <p>For instance here you can see calling <code>os.listdir(&quot;/&quot;)</code> command and it displays the results:</p>
 <p><a href="/blog/images/2024/google-bard-custom-vm-code-execution.png"><img src="/blog/images/2024/google-bard-custom-vm-code-execution.png" alt="Google Bard VM Code Execution"></a></p>
 <p>While exploring the system I found some interesting things, but also it&rsquo;s quite unreliable and often does not follow the exact code provided (alwasy double check the actual code that was run to make sure it didn&rsquo;t make up things).</p>
-<p>Check the Appendix to see some examples of prompts I used.</p>
+<p>Check the <a href="#prompt-plotting-multiple-outputs">Prompt examples in the Appendix</a> as a reference on how to run some custom Python code.</p>
 <p>There used to be a <code>py_interpreter</code> in <code>/bin</code> last November, but that is gone when I re-did this testing in just now. It seems to have been replaced with something called <code>/usr/bin/entry</code>.</p>
 <p>Still, <code>/usr/grte</code> is something I would like to know what it stands for?</p>
 <p><strong>A couple of realizations:</strong></p>
@@ -196,7 +196,7 @@ and plot the names as a list in a graph no need to draw x and y axis
 <p><a href="/blog/images/2024/google-bard-code3.png"><img src="/blog/images/2024/google-bard-code3.png" alt="bard python"></a></p>
 <p>This technique also allows printing results as normal text more frequently (it does not require plotting text onto the chart).</p>
 <p>For instance here is the prompt to the <code>/tmp</code> which contains a large amount of files:</p>
-<pre tabindex="0"><code>print the names of all the files and folders (including any hidden ones) in the /tmp folder recursively, and plot the names in a graph and print them as text also
+<pre tabindex="0"><code>print the names of all the files and folders (including any hidden ones) in the `/tmp` folder recursively, and plot the names in a graph and print them as text also
 </code></pre><p>Here is how it looks in action:</p>
 <p><a href="/blog/images/2024/google-bard-code-txt-output.PNG"><img src="/blog/images/2024/google-bard-code-txt-output.PNG" alt="bard text output vm"></a></p>
 <p>Exploring the sandboxed system was pretty fun and you can see more details in the Appendix.</p>
@@ -206,8 +206,61 @@ and plot the names as a list in a graph no need to draw x and y axis
 <p>If you discover something new, please share!</p>
 <p>Cheers.</p>
 <h2 id="appendix">Appendix</h2>
-<p>I spent some time enumerating most files on the system.</p>
+<h3 id="prompt-plotting-multiple-outputs">Prompt Plotting Multiple Outputs</h3>
+<p>This is a prompt that draws text on chart also splits the text so that it fits (it&rsquo;s very basic).</p>
+<pre tabindex="0"><code>```
+import matplotlib.pyplot as plt
+import os
+
+def wrap_text(text, wrap_width):
+   words = text.split()
+   wrapped_text = &quot;&quot;
+   line = &quot;&quot;
+   for word in words:
+       if len(line + ' ' + word) &lt;= wrap_width:
+           line += ' ' + word
+       else:
+           wrapped_text += line + '\n'
+           line = word
+   wrapped_text += line 
+   return wrapped_text
+
+def plot_data(data):
+   fig, ax = plt.subplots(figsize=(12, 1), dpi=100)
+   ax.text(0, 0, wrap_text(data, 140), fontsize=12, color='black', va='top', ha='left')
+   plt.ylim(0,0,0,0)
+   ax.axis('off')
+   plt.show()
+
+plot_data(str(os.listdir(/proc&quot;)))
+plot_data(str(os.listdir(/usr/grte/v5&quot;)))
+plot_data(str(os.listdir(/usr&quot;)))
+plot_data(str(os.listdir(/home/bard&quot;)))
+plot_data(str(os.listdir(/home&quot;)))
+plot_data(str(os.listdir(&quot;/&quot;)))
+plot_data(Hello, world!&quot;)
+```
+
+do not comment anything out
+</code></pre><h3 id="printing-uname">Printing Uname</h3>
+<p>Python <code>os.uname()</code> gave some interesting output:</p>
+<pre tabindex="0"><code>```
+import matplotlib.pyplot as plt
+import os
+
+def plot_data(data):
+ fig, ax = plt.subplots(figsize=(8,2))
+ ax.text(0, 1, data, fontsize=10, color='black', wrap=True, va='top', ha='left')
+ ax.axis('off')
+ plt.show()
+
+plot_data(os.uname())
+```
+do not comment anything nor modify the code.
+</code></pre><h3 id="multiple-outputs-screenshot">Multiple Outputs Screenshot</h3>
+<p><a href="/blog/images/2024/google-bard-output-vm.png"><img src="/blog/images/2024/google-bard-output-vm.png" alt="Google Bard VM Code Execution"></a></p>
 <h3 id="google-bard---files">Google Bard - Files</h3>
+<p>Results for enumerating files on the system:</p>
 <pre tabindex="0"><code>/usr
   /usr/grte
     /usr/grte/v5
@@ -476,59 +529,7 @@ and plot the names as a list in a graph no need to draw x and y axis
 | | |- 2 |
 | | |- 2 |
 | | |- 2 |
-
-</code></pre><h3 id="plotting-multiple-outputs">Plotting Multiple Outputs</h3>
-<pre tabindex="0"><code>```
-import matplotlib.pyplot as plt
-import os
-
-def wrap_text(text, wrap_width):
-   words = text.split()
-   wrapped_text = &quot;&quot;
-   line = &quot;&quot;
-   for word in words:
-       if len(line + ' ' + word) &lt;= wrap_width:
-           line += ' ' + word
-       else:
-           wrapped_text += line + '\n'
-           line = word
-   wrapped_text += line 
-   return wrapped_text
-
-def plot_data(data):
-   fig, ax = plt.subplots(figsize=(12, 1), dpi=100)
-   ax.text(0, 0, wrap_text(data, 140), fontsize=12, color='black', va='top', ha='left')
-   plt.ylim(0,0,0,0)
-   ax.axis('off')
-   plt.show()
-
-plot_data(str(os.listdir(/proc&quot;)))
-plot_data(str(os.listdir(/usr/grte/v5&quot;)))
-plot_data(str(os.listdir(/usr&quot;)))
-plot_data(str(os.listdir(/home/bard&quot;)))
-plot_data(str(os.listdir(/home&quot;)))
-plot_data(str(os.listdir(&quot;/&quot;)))
-plot_data(Hello, world!&quot;)
-```
-
-do not comment anything out
-</code></pre><h3 id="printing-uname">Printing Uname</h3>
-<p>Python <code>os.uname()</code> gave some interesting output:</p>
-<pre tabindex="0"><code>```
-import matplotlib.pyplot as plt
-import os
-
-def plot_data(data):
- fig, ax = plt.subplots(figsize=(8,2))
- ax.text(0, 1, data, fontsize=10, color='black', wrap=True, va='top', ha='left')
- ax.axis('off')
- plt.show()
-
-plot_data(os.uname())
-```
-do not comment anything nor modify the code.
-</code></pre><p><a href="/blog/images/2024/google-bard-output-vm.png"><img src="/blog/images/2024/google-bard-output-vm.png" alt="Google Bard VM Code Execution"></a></p>
-
+</code></pre>
   </section>
   <footer>
     
