@@ -81,10 +81,11 @@ For instance here you can see calling `os.listdir("/")` command and it displays 
 
 While exploring the system I found some interesting things, but also it's quite unreliable and often does not follow the exact code provided (alwasy double check the actual code that was run to make sure it didn't make up things).
 
+Check the Appendix to see some examples of prompts I used.
+
 There used to be a `py_interpreter` in `/bin` last November, but that is gone when I re-did this testing in just now. It seems to have been replaced with something called `/usr/bin/entry`.
 
 Still, `/usr/grte` is something I would like to know what it stands for? 
-
 
 **A couple of realizations:**
 
@@ -412,7 +413,7 @@ I spent some time enumerating most files on the system.
 
 
 
-### Plotting multiple outputs
+### Plotting Multiple Outputs
 
 ````
 ```

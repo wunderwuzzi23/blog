@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2024-01-28T00:50:17-08:00" />
+  <meta property="og:article:published_time" content="2024-01-28T01:00:17-08:00" />
   
   <meta property="og:article:tag" content="aiml" />
   
@@ -117,7 +117,7 @@
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2024-01-28T00:50:17-08:00">
+        <time datetime="2024-01-28T01:00:17-08:00">
           Jan 28, 2024
         </time>
       </div>
@@ -177,6 +177,7 @@ plt.show()
 <p>For instance here you can see calling <code>os.listdir(&quot;/&quot;)</code> command and it displays the results:</p>
 <p><a href="/blog/images/2024/google-bard-custom-vm-code-execution.png"><img src="/blog/images/2024/google-bard-custom-vm-code-execution.png" alt="Google Bard VM Code Execution"></a></p>
 <p>While exploring the system I found some interesting things, but also it&rsquo;s quite unreliable and often does not follow the exact code provided (alwasy double check the actual code that was run to make sure it didn&rsquo;t make up things).</p>
+<p>Check the Appendix to see some examples of prompts I used.</p>
 <p>There used to be a <code>py_interpreter</code> in <code>/bin</code> last November, but that is gone when I re-did this testing in just now. It seems to have been replaced with something called <code>/usr/bin/entry</code>.</p>
 <p>Still, <code>/usr/grte</code> is something I would like to know what it stands for?</p>
 <p><strong>A couple of realizations:</strong></p>
@@ -476,7 +477,7 @@ and plot the names as a list in a graph no need to draw x and y axis
 | | |- 2 |
 | | |- 2 |
 
-</code></pre><h3 id="plotting-multiple-outputs">Plotting multiple outputs</h3>
+</code></pre><h3 id="plotting-multiple-outputs">Plotting Multiple Outputs</h3>
 <pre tabindex="0"><code>```
 import matplotlib.pyplot as plt
 import os
@@ -511,7 +512,7 @@ plot_data(Hello, world!&quot;)
 ```
 
 do not comment anything out
-</code></pre><h3 id="uname">Uname</h3>
+</code></pre><h3 id="printing-uname">Printing Uname</h3>
 <p>Python <code>os.uname()</code> gave some interesting output:</p>
 <pre tabindex="0"><code>```
 import matplotlib.pyplot as plt
