@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Thu, 18 Jan 2024 03:00:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Jan 2024 00:50:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exploring Google Bard&#39;s Data Visualization Feature (Code Interpreter)</title>
+      <link>https://embracethered.com/blog/posts/2024/exploring-google-bard-vm/</link>
+      <pubDate>Sun, 28 Jan 2024 00:50:17 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/exploring-google-bard-vm/</guid>
+      <description>Last November Google had an interesting update to Google Bard. This updated included the ability to solve math equations and draw charts based on data.
+What does this mean and why is it interesting?
+It means that Google Bard has access to a computer and can run more complex programs, including Python code that plots graphs!
+Let&amp;rsquo;s explore this with a simple example.
+Drawing Charts with Google Bard The following prompt will create a chart:</description>
+    </item>
+    
     <item>
       <title>AWS Fixes Data Exfiltration Attack Angle in Amazon Q for Business</title>
       <link>https://embracethered.com/blog/posts/2024/aws-amazon-q-fixes-markdown-rendering-vulnerability/</link>

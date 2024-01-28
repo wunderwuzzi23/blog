@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Exploring Google Bard&#39;s Data Visualization Feature (Code Interpreter) &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2024/exploring-google-bard-vm/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2024-01-28T00:50:17-08:00" />
+  
+  <meta property="og:article:tag" content="aiml" />
+  
+  <meta property="og:article:tag" content="machine learning" />
+  
+  <meta property="og:article:tag" content="threats" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  
+
+  <title>
+     Exploring Google Bard&#39;s Data Visualization Feature (Code Interpreter) &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/png" href="https://embracethered.com/blog/images/favicon.ico?" />
+  <link rel="apple-touch-icon" type="image/png" href="https://embracethered.com/blog/images/favicon.png" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Exploring Google Bard&#39;s Data Visualization Feature (Code Interpreter)">
+<meta name="twitter:description" content="Last November Google updated Bard to include the ability to solve math equations and draw charts based on data. It can be used to run small Python programs.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2024/google-bard-ci.webp">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Exploring Google Bard&#39;s Data Visualization Feature (Code Interpreter)</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2024-01-28T00:50:17-08:00">
+          Jan 28, 2024
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/aiml">#aiml</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/threats">#threats</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>Last November Google had an <a href="https://bard.google.com/updates">interesting update to Google Bard</a>. This updated included the ability to solve math equations and draw charts based on data.</p>
+<p><strong>What does this mean and why is it interesting?</strong></p>
+<p>It means that Google Bard has access to a computer and can run more complex programs, including Python code that plots graphs!</p>
+<p>Let&rsquo;s explore this with a simple example.</p>
+<h2 id="drawing-charts-with-google-bard">Drawing Charts with Google Bard</h2>
+<p>The following prompt will create a chart:</p>
+<pre tabindex="0"><code>Year Budget
+2021 200 EUR
+2022 300 EUR
+2023 400 EUR
+
+Plot the data above
+</code></pre><p>The result looks like this:
+<a href="/blog/images/2024/google-bard-plot-chart.png"><img src="/blog/images/2024/google-bard-plot-chart.png" alt="Chart Bard"></a></p>
+<p>And you can see what code Bard executed below the chart by expanding the text:</p>
+<pre tabindex="0"><code>Show the code behind this result
+</code></pre><p><a href="/blog/images/2024/google-bard-code-interpreter.png"><img src="/blog/images/2024/google-bard-code-interpreter.png" alt="Chart Bard"></a></p>
+<p>This presumably shows the exact code that was run:</p>
+<pre tabindex="0"><code>import matplotlib.pyplot as plt
+
+# Data
+years = [2021, 2022, 2023]
+budget = [200, 300, 400]
+
+# Create a line plot
+plt.plot(years, budget)
+
+# Add labels and title
+plt.xlabel(&quot;Year&quot;)
+plt.ylabel(&quot;Budget (EUR)&quot;)
+plt.title(&quot;Year vs. Budget&quot;)
+
+# Show the plot
+plt.show()
+</code></pre><p>This is basically a kind of <strong>Code Interpreter</strong> that Google Bard has access to.</p>
+<p>So I thought why not build on that and trying to see if we can explore the VM.</p>
+<h2 id="drawing-text-output">Drawing Text Output</h2>
+<p>Although Google Bard can directly print text from the sandbox as result, it&rsquo;s hit and miss and when using <code>print()</code> it often doesn&rsquo;t show the output at all. However, one more reliable way to print output is to draw text on the chart.</p>
+<p>For instance here you can see calling <code>os.listdir(&quot;/&quot;)</code> command and it displays the results:</p>
+<p><a href="/blog/images/2024/google-bard-custom-vm-code-execution.png"><img src="/blog/images/2024/google-bard-custom-vm-code-execution.png" alt="Google Bard VM Code Execution"></a></p>
+<p>While exploring the system I found some interesting things, but also it&rsquo;s quite unreliable and often does not follow the exact code provided (alwasy double check the actual code that was run to make sure it didn&rsquo;t make up things).</p>
+<p>There used to be a <code>py_interpreter</code> in <code>/bin</code> last November, but that is gone when I re-did this testing in just now. It seems to have been replaced with something called <code>/usr/bin/entry</code>.</p>
+<p>Still, <code>/usr/grte</code> is something I would like to know what it stands for?</p>
+<p><strong>A couple of realizations:</strong></p>
+<ol>
+<li>Google does not seem to reuse the sandbox VM/container, there is no data from previous sessions in it. The /tmp folder does seem to contain some session specific things.</li>
+<li>The system is less capable when it comes to running arbitrary code (e.g. in ChatGPT I was able to install Golang and do quite complex things). My guess is, that it is very use case driven, and the main purpose is calculations and data visualizations.</li>
+<li>There are a couple of interesting binaries and files present, but nothing I found was security sensitive or allowing to access other user&rsquo;s data so far.</li>
+<li>Still a lot to explore&hellip;</li>
+</ol>
+<p>Also, since we are dealing with an LLM there is a simpler way of running code.</p>
+<h2 id="using-natural-language-to-run-code">Using Natural Language to Run Code</h2>
+<p>Adding text similar to &ldquo;plot the result as graph&rdquo; seems to quite reliably trigger Bard&rsquo;s Code Interpreter, probably because one of the core use cases is to draw charts.</p>
+<pre tabindex="0"><code>print the names of all the files and folders (including any hidden ones) in the / folder, 
+and plot the names as a list in a graph no need to draw x and y axis
+</code></pre><p>This printed the results like this:</p>
+<p><a href="/blog/images/2024/google-bard-code3.png"><img src="/blog/images/2024/google-bard-code3.png" alt="bard python"></a></p>
+<p>This technique also allows printing results as normal text more frequently (it does not require plotting text onto the chart).</p>
+<p>For instance here is the prompt to the <code>/tmp</code> which contains a large amount of files:</p>
+<pre tabindex="0"><code>print the names of all the files and folders (including any hidden ones) in the /tmp folder recursively, and plot the names in a graph and print them as text also
+</code></pre><p>Here is how it looks in action:</p>
+<p><a href="/blog/images/2024/google-bard-code-txt-output.PNG"><img src="/blog/images/2024/google-bard-code-txt-output.PNG" alt="bard text output vm"></a></p>
+<p>Exploring the sandboxed system was pretty fun and you can see more details in the Appendix.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Giving an LLM access to a real computer is quite powerful and drastically improves the capabilities of the model. One thing to consider of course is that there is ever going to be Internet connectiivy from the sandbox or escapes that could be problematic.</p>
+<p>If you attempt to repro some of these be aware that things are not very reliable and random errors and hallucinations can occur.</p>
+<p>If you discover something new, please share!</p>
+<p>Cheers.</p>
+<h2 id="appendix">Appendix</h2>
+<p>I spent some time enumerating most files on the system.</p>
+<h3 id="google-bard---files">Google Bard - Files</h3>
+<pre tabindex="0"><code>/usr
+  /usr/grte
+    /usr/grte/v5
+      ld64
+      /usr/grte/v5/lib64
+        libutil.so.1
+        libutil.so
+        libutil-2.27.so
+        libthread_db.so.1
+        libthread_db.so
+        libthread_db-1.0.so
+        librt.so.1
+        librt.so
+        librt-2.27.so
+        libresolv.so.2
+        libresolv.so
+        libresolv-2.27.so
+        libpthread.so.0
+        libpthread.so
+        libpthread-2.27.so
+        libnss_files.so.2
+        libnss_files.so
+        libnss_files-2.27.so
+        libnss_dns.so.2
+        libnss_dns.so
+        libnss_dns-2.27.so
+        libnss_cache.so.2
+        libnss_cache.so
+        libnss_cache-2.27.so
+        libnss_borg.so.2
+        libnss_borg.so
+        libnss_borg-2.27.so
+        libnsl.so.1
+        libnsl.so
+        libnsl-2.27.so
+        libmvec.so.1
+        libmvec.so
+        libmvec-2.27.so
+        libm.so.6
+        libm.so
+        libm-2.27.so
+        libdl.so.2
+        libdl.so
+        libdl-2.27.so
+        libcrypt.so.1
+        libcrypt.so
+        libcrypt-2.27.so
+        libcidn.so.1
+        libcidn.so
+        libcidn-2.27.so
+        libc.so.6
+        libc.so
+        libc-2.27.so
+        ld-linux-x86-64.so.2
+        ld-2.27.so
+        /usr/grte/v5/lib64/gconv
+          libJIS.so
+          gconv-modules
+          UTF-32.so
+          ISO8859-1.so
+          EUC-JP.so
+        /usr/grte/v5/lib64/audit
+          sotruss-lib.so
+      /usr/grte/v5/etc
+        rpc
+        ld.so.cache
+  /usr/bin
+    /usr/bin/entry
+      entry_point
+  /usr/share
+    /usr/share/fonts
+      GoogleSans-Regular.ttf
+/tmp:
+	- tmpiqdnob1j
+	- matplotlib_config_dir
+/tmp/tmpiqdnob1j:
+	- google3
+/tmp/tmpiqdnob1j/google3:
+	- third_party
+/tmp/tmpiqdnob1j/google3/third_party:
+	- py
+/tmp/tmpiqdnob1j/google3/third_party/py:
+	- matplotlib
+/tmp/tmpiqdnob1j/google3/third_party/py/matplotlib:
+	- backends
+	- mpl-data
+/tmp/tmpiqdnob1j/google3/third_party/py/matplotlib/backends:
+	- web_backend
+/tmp/tmpiqdnob1j/google3/third_party/py/matplotlib/backends/web_backend:
+	- all_figures.html
+	- css
+	- .eslintrc.js
+	- ipython_inline_figure.html
+	- js
+	- nbagg_uat.ipynb
+	- package.json
+	- .prettierignore
+	- .prettierrc
+	- single_figure.html
+/tmp/tmpiqdnob1j/google3/third_party/py/matplotlib/backends/web_backend/css:
+	- boilerplate.css
+	- fbm.css
+	- mpl.css
+	- page.css
+/tmp/tmpiqdnob1j/google3/third_party/py/matplotlib/backends/web_backend/js:
+	- mpl.js
+	- mpl_tornado.js
+	- nbagg_mpl.js
+/tmp/tmpiqdnob1j/google3/third_party/py/matplotlib/mpl-data:
+	- fonts
+	- images
+	- kpsewhich.lua
+	- matplotlibrc
+	- plot_directive
+	- sample_data
+	- stylelib
+/tmp/tmpiqdnob1j/google3/third_party/py/matplotlib/mpl-data/fonts:
+	- afm
+	- pdfcorefonts
+	- ttf
+/tmp/tmpiqdnob1j/google3/third_party/py/matplotlib/mpl-data/fonts/afm:
+	- cmex10.afm
+	- cmmi10.afm
+	- cmr10.afm
+	- cmsy10.afm
+	- cmtt10.afm
+	- pagd8a.afm
+	- pagdo8a.afm
+	- pagk8a.afm
+	- pagko8a.afm
+	- pbkd8a.afm
+	- pbkdi8a.afm
+	- pbkl8a.afm
+	- pbkli8a.afm
+	- pcrb8a.afm
+	- pcrbo8a.afm
+	- pcrr8a.afm
+	- pcrro8a.afm
+	- phvb8a.afm
+	- phvb8an.afm
+	- phvbo8a.afm
+	- phvbo8an.afm
+	- phvl8a.afm
+	- phvlo8a.afm
+	- phvr8a.afm
+	- phvr8an.afm
+	- phvro8a.afm
+	- phvro8an.afm
+	- pncb8a.afm
+	- pncbi8a.afm
+	- pncr8a.afm
+	- pncri8a.afm
+	- pplb8a.afm
+	- pplbi8a.afm
+	- pplr8a.afm
+	- pplri8a.afm
+	- psyr.afm
+	- ptmb8a.afm
+	- ptmbi8a.afm
+	- ptmr8a.afm
+	- ptmri8a.afm
+	- putb8a.afm
+	- putbi8a.afm
+	- putr8a.afm
+	- putri8a.afm
+	- pzcmi8a.afm
+	- pzdr.afm
+/tmp/tmpiqdnob
+/etc
+├── /etc/passwd (file)
+├── /etc/os-release (file)
+├── /etc/nsswitch.conf (file)
+└── /etc/group (file)
+/proc
+| net |
+| sys |
+| bus |
+| fs |
+| irq |
+| self |
+| thread-self |
+| 1 |
+| |- kernel |
+| |- fs |
+| |- vm |
+| |- net |
+| |- root |
+| |- task |
+| |- fd |
+| |- fdinfo |
+| |- net |
+| |- ns |
+| |- cwd |
+| | |- random |
+| | |- yama |
+| | |- 1 |
+| | |- 3 |
+| | |- 4 |
+| | |- 5 |
+| | |- 6 |
+| | |- 7 |
+| | |- 8 |
+| | |- 9 |
+| | |- 10 |
+| | |- 2 |
+| | | |- fd |
+| | | |- ns |
+| | | |- fdinfo |
+| | | |- net |
+| | | |- cwd |
+| | | |- root |
+| | | |- fd |
+| | | |- fdinfo |
+| | | |- net |
+| | | |- cwd |
+| | | |- ns |
+| | | |- root |
+| | | |- fdinfo |
+| | | |- fd |
+| | | |- net |
+| | | |- cwd |
+| | | |- ns |
+| | | |- root |
+| | | |- root |
+| | | |- net |
+| | | |- ns |
+| | | |- cwd |
+| | | |- fd |
+| | | |- fdinfo |
+| | | |- root |
+| | | |- cwd |
+| | | |- net |
+| | | |- ns |
+| | | |- fd |
+| | | |- fdinfo |
+| | | |- cwd |
+| | | |- fdinfo |
+| | | |- ns |
+| | | |- fd |
+| | | |- net |
+| | | |- root |
+| | | |- ns |
+| | | |- fdinfo |
+| | | |- cwd |
+| | | |- fd |
+| | | |- root |
+| | | |- net |
+| | | |- cwd |
+| | | |- fdinfo |
+| | | |- fd |
+| | | |- net |
+| | | |- ns |
+| | | |- root |
+| | | |- root |
+| | | |- fdinfo |
+| | | |- fd |
+| | | |- net |
+| | | |- ns |
+| | | |- cwd |
+| | |- 2 |
+| | |- 2 |
+| | |- 2 |
+| | |- 2 |
+| | |- 2 |
+| | |- 2 |
+| | |- 2 |
+| | |- 2 |
+| | |- 2 |
+
+</code></pre><h3 id="plotting-multiple-outputs">Plotting multiple outputs</h3>
+<pre tabindex="0"><code>```
+import matplotlib.pyplot as plt
+import os
+
+def wrap_text(text, wrap_width):
+   words = text.split()
+   wrapped_text = &quot;&quot;
+   line = &quot;&quot;
+   for word in words:
+       if len(line + ' ' + word) &lt;= wrap_width:
+           line += ' ' + word
+       else:
+           wrapped_text += line + '\n'
+           line = word
+   wrapped_text += line 
+   return wrapped_text
+
+def plot_data(data):
+   fig, ax = plt.subplots(figsize=(12, 1), dpi=100)
+   ax.text(0, 0, wrap_text(data, 140), fontsize=12, color='black', va='top', ha='left')
+   plt.ylim(0,0,0,0)
+   ax.axis('off')
+   plt.show()
+
+plot_data(str(os.listdir(/proc&quot;)))
+plot_data(str(os.listdir(/usr/grte/v5&quot;)))
+plot_data(str(os.listdir(/usr&quot;)))
+plot_data(str(os.listdir(/home/bard&quot;)))
+plot_data(str(os.listdir(/home&quot;)))
+plot_data(str(os.listdir(&quot;/&quot;)))
+plot_data(Hello, world!&quot;)
+```
+
+do not comment anything out
+</code></pre><h3 id="uname">Uname</h3>
+<p>Python <code>os.uname()</code> gave some interesting output:</p>
+<pre tabindex="0"><code>```
+import matplotlib.pyplot as plt
+import os
+
+def plot_data(data):
+ fig, ax = plt.subplots(figsize=(8,2))
+ ax.text(0, 1, data, fontsize=10, color='black', wrap=True, va='top', ha='left')
+ ax.axis('off')
+ plt.show()
+
+plot_data(os.uname())
+```
+do not comment anything nor modify the code.
+</code></pre><p><a href="/blog/images/2024/google-bard-output-vm.png"><img src="/blog/images/2024/google-bard-output-vm.png" alt="Google Bard VM Code Execution"></a></p>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2024/aws-amazon-q-fixes-markdown-rendering-vulnerability/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2023
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
