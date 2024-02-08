@@ -2,32 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
+    <lastmod>2024-02-08T02:01:54-08:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/aiml/</loc>
-    <lastmod>2024-01-28T01:00:17-08:00</lastmod>
+    <lastmod>2024-02-08T02:01:54-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/ascii/</loc>
+    <lastmod>2024-02-08T02:01:54-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2024-01-28T01:00:17-08:00</lastmod>
+    <lastmod>2024-02-08T02:01:54-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2024/claude-hidden-prompt-injection-ascii-smuggling/</loc>
+    <lastmod>2024-02-08T02:01:54-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2024-02-08T02:01:54-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2024-02-08T02:01:54-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2024-02-08T02:01:54-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2024-02-08T02:01:54-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/threats/</loc>
+    <lastmod>2024-02-08T02:01:54-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/exploring-google-bard-vm/</loc>
     <lastmod>2024-01-28T01:00:17-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2024-01-28T01:00:17-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2024-01-28T01:00:17-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2024-01-28T01:00:17-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2024-01-28T01:00:17-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/threats/</loc>
-    <lastmod>2024-01-28T01:00:17-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
-    <lastmod>2024-01-18T03:00:17-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/aws-amazon-q-fixes-markdown-rendering-vulnerability/</loc>
     <lastmod>2024-01-18T03:00:17-08:00</lastmod>

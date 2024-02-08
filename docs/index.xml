@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Sun, 28 Jan 2024 01:00:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Feb 2024 02:01:54 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hidden Prompt Injections with Anthropic Claude</title>
+      <link>https://embracethered.com/blog/posts/2024/claude-hidden-prompt-injection-ascii-smuggling/</link>
+      <pubDate>Thu, 08 Feb 2024 02:01:54 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/claude-hidden-prompt-injection-ascii-smuggling/</guid>
+      <description>A few weeks ago while waiting at the airport lounge I was wondering how other Chatbots, besides ChatGPT, handle hidden Unicode Tags code points.
+A quick reminder: Unicode Tags code points are invisible in UI elements, but ChatGPT was able to interpret them and follow hidden instructions. Riley Goodside discovered it.
+What about Anthropic Claude? While waiting for a flight I figured to look at Anthropic Claude. Turns out it has the same issue as ChatGPT had.</description>
+    </item>
+    
     <item>
       <title>Exploring Google Bard&#39;s Data Visualization Feature (Code Interpreter)</title>
       <link>https://embracethered.com/blog/posts/2024/exploring-google-bard-vm/</link>
