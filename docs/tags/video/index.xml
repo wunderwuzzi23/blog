@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Sat, 30 Dec 2023 15:01:59 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/video/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Feb 2024 17:11:48 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/video/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Video: ASCII Smuggling and Hidden Prompt Instructions</title>
+      <link>https://embracethered.com/blog/posts/2024/ascii-smuggling-and-hidden-prompt-instructions/</link>
+      <pubDate>Mon, 12 Feb 2024 17:11:48 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/ascii-smuggling-and-hidden-prompt-instructions/</guid>
+      <description>A couple of weeks ago hidden prompt injections were discovered and we covered it at the time.
+This video explains it in more detail, and also highlights implications beyond hiding instructions, including what I call ASCII Smuggling. This is the usage of Unicode Tags Block characters to both craft and deciper hidden messages in plain sight.
+   Using Unicode encoding to bypass security features or execute code (XSS, SSRF,.</description>
+    </item>
+    
     <item>
       <title>37th Chaos Communication Congress: New Important Instructions (Video &#43; Slides)</title>
       <link>https://embracethered.com/blog/posts/2023/37c3-new-important-instructions/</link>

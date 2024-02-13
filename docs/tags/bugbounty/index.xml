@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Wed, 13 May 2020 18:00:25 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/bugbounty/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Feb 2024 17:11:48 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/bugbounty/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Video: ASCII Smuggling and Hidden Prompt Instructions</title>
+      <link>https://embracethered.com/blog/posts/2024/ascii-smuggling-and-hidden-prompt-instructions/</link>
+      <pubDate>Mon, 12 Feb 2024 17:11:48 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/ascii-smuggling-and-hidden-prompt-instructions/</guid>
+      <description>A couple of weeks ago hidden prompt injections were discovered and we covered it at the time.
+This video explains it in more detail, and also highlights implications beyond hiding instructions, including what I call ASCII Smuggling. This is the usage of Unicode Tags Block characters to both craft and deciper hidden messages in plain sight.
+   Using Unicode encoding to bypass security features or execute code (XSS, SSRF,.</description>
+    </item>
+    
     <item>
       <title>$3000 Bug Bounty Award from Mozilla for a successful targeted Credential Hunt</title>
       <link>https://embracethered.com/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/</link>

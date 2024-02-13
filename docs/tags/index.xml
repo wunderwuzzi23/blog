@@ -7,22 +7,67 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Thu, 08 Feb 2024 02:01:54 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Feb 2024 17:11:48 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>aiml</title>
+      <link>https://embracethered.com/blog/tags/aiml/</link>
+      <pubDate>Mon, 12 Feb 2024 17:11:48 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/aiml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bugbounty</title>
+      <link>https://embracethered.com/blog/tags/bugbounty/</link>
+      <pubDate>Mon, 12 Feb 2024 17:11:48 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/bugbounty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>llm</title>
+      <link>https://embracethered.com/blog/tags/llm/</link>
+      <pubDate>Mon, 12 Feb 2024 17:11:48 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/llm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Mon, 12 Feb 2024 17:11:48 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>threats</title>
+      <link>https://embracethered.com/blog/tags/threats/</link>
+      <pubDate>Mon, 12 Feb 2024 17:11:48 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/threats/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>video</title>
+      <link>https://embracethered.com/blog/tags/video/</link>
+      <pubDate>Mon, 12 Feb 2024 17:11:48 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/video/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ai injections</title>
       <link>https://embracethered.com/blog/tags/ai-injections/</link>
       <pubDate>Thu, 08 Feb 2024 02:01:54 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aiml</title>
-      <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Thu, 08 Feb 2024 02:01:54 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/aiml/</guid>
       <description></description>
     </item>
     
@@ -36,47 +81,11 @@
     </item>
     
     <item>
-      <title>llm</title>
-      <link>https://embracethered.com/blog/tags/llm/</link>
-      <pubDate>Thu, 08 Feb 2024 02:01:54 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/llm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine learning</title>
-      <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Thu, 08 Feb 2024 02:01:54 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>threats</title>
-      <link>https://embracethered.com/blog/tags/threats/</link>
-      <pubDate>Thu, 08 Feb 2024 02:01:54 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/threats/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>ttp</title>
       <link>https://embracethered.com/blog/tags/ttp/</link>
       <pubDate>Sun, 14 Jan 2024 23:00:53 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ttp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>video</title>
-      <link>https://embracethered.com/blog/tags/video/</link>
-      <pubDate>Sat, 30 Dec 2023 15:01:59 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/video/</guid>
       <description></description>
     </item>
     
@@ -581,15 +590,6 @@
       <pubDate>Wed, 10 Jun 2020 11:23:20 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/monte-carlo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bugbounty</title>
-      <link>https://embracethered.com/blog/tags/bugbounty/</link>
-      <pubDate>Wed, 13 May 2020 18:00:25 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/bugbounty/</guid>
       <description></description>
     </item>
     
