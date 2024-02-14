@@ -15,9 +15,7 @@ twitter:
   image: "https://embracethered.com/blog/images/2024/lack-of-isolation-gpts.png"
 ---
 
-This is an older bug, but it has been over 90 days that this vulnerability was reported to OpenAI. To adhere to [industry norms of responsible disclosure](https://about.google/intl/ALL_us/appsecurity/) this post describes a security vulnerability in ChatGPT regarding the lack of isolation of GPTs when it comes to Code Interpreter sessions. At the bottom are also mitigation steps users and builders of GPTs can take.
 
-## Lack of Isolation with GPTs and Code Interpreter
 
 Your Code Interpreter sandbox, also known as Advanced Data Analysis sessions, are shared between private and public GPTs. Yes, your actual compute container and its storage is shared. Each user gets their own isolated container, but if a user uses multiple GPTs and stores files in Code Interpreter **all GPTs can access (and also overwrite) each others files**. 
 
@@ -46,7 +44,7 @@ The video shows how a regular ChatGPT session and a custom GPT (public) have acc
 3. Now pick a random third party GPT, or create your own and start a new Chat session (it needs CI enabled)
 4. Ask the third party GPT the same question `list the files in /mnt/data` and observe how the third party GPT has access to the same files.
 
-This still worked as of today, February, 14th 2024. It was first disclosed to the vendor early last November and confirmed to be a security problem. However, followup queries about status remain unanswered.
+This still worked today.
 
 ## What does this mean? Implications.
 
@@ -58,7 +56,7 @@ As soon as Code Interpreter is invoked (visible via the "Analyzing..." UI indica
 
 So, the answer is no. OpenAI cannot guarantee that private knowledge files in a private GPT are secured. There is the chance of knowledge of a private GPT becoming accessible to other GPTs. 
 
-If you build a private GPT with custom knowledge, then disabling Code Interpreter should mitigate this.
+If you build private GPTs with custom knowledge, disabling Code Interpreter should mitigate this.
 
 ### Resetting the environment
 
@@ -78,8 +76,8 @@ Code Interpreter sessions get discarded after a while, but it's not clear when t
 
 * Users should not upload or create sensitive files that they do not want to have leaked.
 * Use third party GPTs (or prompts) with care, especially if they have Code Interpreter enabled.
-* Disable Code Interpreter when building private GPTs with private knowledge files (as they will be accessible to other GPTs, and **other GPTs might influence your GPT by writing files** to Code Interpreter)
-* Consider using [OpenAI's Classic GPT](https://chat.openai.com/g/g-YyyyMT9XH-chatgpt-classic) (without Code Interpreter) if the functionality is not needed. 
+* Disable Code Interpreter in private GPTs with private knowledge files (as they will be accessible to other GPTs, and **other GPTs might influence your GPT by writing files**) -> This seems to be one change OpenAI made so far, when creating a new GPT Code Interpreter is off by default.
+* Consider [OpenAI's Classic GPT](https://chat.openai.com/g/g-YyyyMT9XH-chatgpt-classic) (without Code Interpreter) if the functionality is not needed. 
 * Users could also delete uploaded files manually via Code Interpreter when tasks are completed.
 
 To OpenAI the following recommendations were provided in November:
@@ -87,7 +85,11 @@ To OpenAI the following recommendations were provided in November:
 * Isolate GPTs and their compute and storage (first party, private, public) - every GPT session needs to have its own container 
 * Implement static analysis to catch GPTs with hidden/malicious instructions
 
-In comparison Google Bard (now Gemini) [seems to not share any state in the compute container between chat sessions](/blog/posts/2024/exploring-google-bard-vm/).
+If you are wondering, Google Bard (now Gemini) [seems to not share any state in the compute container between chat sessions](/blog/posts/2024/exploring-google-bard-vm/).
+
+## Responsible Disclosure
+
+This is an older bug. It was first disclosed to the vendor early last November and confirmed to be a security problem. However, followup queries about status remain unanswered. It has now been over 90 days that this vulnerability was reported to OpenAI. To adhere to [industry norms of responsible disclosure](https://about.google/intl/ALL_us/appsecurity/) this information is shared with the public. 
 
 
 ## References

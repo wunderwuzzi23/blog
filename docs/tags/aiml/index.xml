@@ -6,7 +6,7 @@
     <description>Recent content in aiml on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
     <lastBuildDate>Wed, 14 Feb 2024 03:30:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/aiml/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ChatGPT: Lack of Isolation between Code Interpreter sessions of GPTs</title>
@@ -14,8 +14,8 @@
       <pubDate>Wed, 14 Feb 2024 03:30:17 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2024/lack-of-isolation-gpts-code-interpreter/</guid>
-      <description>This is an older bug, but it has been over 90 days that this vulnerability was reported to OpenAI. To adhere to industry norms of responsible disclosure this post describes a security vulnerability in ChatGPT regarding the lack of isolation of GPTs when it comes to Code Interpreter sessions. At the bottom are also mitigation steps users and builders of GPTs can take.
-Lack of Isolation with GPTs and Code Interpreter Your Code Interpreter sandbox, also known as Advanced Data Analysis sessions, are shared between private and public GPTs.</description>
+      <description>Your Code Interpreter sandbox, also known as Advanced Data Analysis sessions, are shared between private and public GPTs. Yes, your actual compute container and its storage is shared. Each user gets their own isolated container, but if a user uses multiple GPTs and stores files in Code Interpreter all GPTs can access (and also overwrite) each others files.
+This is true also for files uploaded/created with private GPTs and ChatGPT itself.</description>
     </item>
     
     <item>

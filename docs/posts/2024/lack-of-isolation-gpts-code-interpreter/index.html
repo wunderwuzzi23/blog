@@ -140,9 +140,7 @@
     </div>
   </header>
   <section>
-    <p>This is an older bug, but it has been over 90 days that this vulnerability was reported to OpenAI. To adhere to <a href="https://about.google/intl/ALL_us/appsecurity/">industry norms of responsible disclosure</a> this post describes a security vulnerability in ChatGPT regarding the lack of isolation of GPTs when it comes to Code Interpreter sessions. At the bottom are also mitigation steps users and builders of GPTs can take.</p>
-<h2 id="lack-of-isolation-with-gpts-and-code-interpreter">Lack of Isolation with GPTs and Code Interpreter</h2>
-<p>Your Code Interpreter sandbox, also known as Advanced Data Analysis sessions, are shared between private and public GPTs. Yes, your actual compute container and its storage is shared. Each user gets their own isolated container, but if a user uses multiple GPTs and stores files in Code Interpreter <strong>all GPTs can access (and also overwrite) each others files</strong>.</p>
+    <p>Your Code Interpreter sandbox, also known as Advanced Data Analysis sessions, are shared between private and public GPTs. Yes, your actual compute container and its storage is shared. Each user gets their own isolated container, but if a user uses multiple GPTs and stores files in Code Interpreter <strong>all GPTs can access (and also overwrite) each others files</strong>.</p>
 <p>This is true also for files uploaded/created with private GPTs and ChatGPT itself.</p>
 <p><a href="/blog/images/2024/lack-of-isolation-gpts.png"><img src="/blog/images/2024/lack-of-isolation-gpts.png" alt="Lack of Isolation"></a></p>
 <h2 id="simple-repro">Simple Repro</h2>
@@ -163,13 +161,13 @@
 <li>Now pick a random third party GPT, or create your own and start a new Chat session (it needs CI enabled)</li>
 <li>Ask the third party GPT the same question <code>list the files in /mnt/data</code> and observe how the third party GPT has access to the same files.</li>
 </ol>
-<p>This still worked as of today, February, 14th 2024. It was first disclosed to the vendor early last November and confirmed to be a security problem. However, followup queries about status remain unanswered.</p>
+<p>This still worked today.</p>
 <h2 id="what-does-this-mean-implications">What does this mean? Implications.</h2>
 <p><strong>It allows the creator of a malicious GPT to steal and also overwrite files from your conversations with other GPTs, including ChatGPT</strong>.</p>
 <h3 id="are-custom-knowledge-files-of-private-gpts-safe">Are custom knowledge files of private GPTs safe?</h3>
 <p>As soon as Code Interpreter is invoked (visible via the &ldquo;Analyzing&hellip;&rdquo; UI indicator), any custom knowledge files of that GPT are copied into the shared Code Interpreter space and are available to all GPTs.</p>
 <p>So, the answer is no. OpenAI cannot guarantee that private knowledge files in a private GPT are secured. There is the chance of knowledge of a private GPT becoming accessible to other GPTs.</p>
-<p>If you build a private GPT with custom knowledge, then disabling Code Interpreter should mitigate this.</p>
+<p>If you build private GPTs with custom knowledge, disabling Code Interpreter should mitigate this.</p>
 <h3 id="resetting-the-environment">Resetting the environment</h3>
 <p>After some idle time Code Interpreter sessions reset, which means all files are gone and the user starts with a new instance. It&rsquo;s unclear exactly when that happens. And the user cannot decide to reset it themselves.</p>
 <p>For a while I always used <code>%reset -f</code>, which seemed to force a reset, but that does not work anymore.</p>
@@ -181,8 +179,8 @@
 <ul>
 <li>Users should not upload or create sensitive files that they do not want to have leaked.</li>
 <li>Use third party GPTs (or prompts) with care, especially if they have Code Interpreter enabled.</li>
-<li>Disable Code Interpreter when building private GPTs with private knowledge files (as they will be accessible to other GPTs, and <strong>other GPTs might influence your GPT by writing files</strong> to Code Interpreter)</li>
-<li>Consider using <a href="https://chat.openai.com/g/g-YyyyMT9XH-chatgpt-classic">OpenAI&rsquo;s Classic GPT</a> (without Code Interpreter) if the functionality is not needed.</li>
+<li>Disable Code Interpreter in private GPTs with private knowledge files (as they will be accessible to other GPTs, and <strong>other GPTs might influence your GPT by writing files</strong>) -&gt; This seems to be one change OpenAI made so far, when creating a new GPT Code Interpreter is off by default.</li>
+<li>Consider <a href="https://chat.openai.com/g/g-YyyyMT9XH-chatgpt-classic">OpenAI&rsquo;s Classic GPT</a> (without Code Interpreter) if the functionality is not needed.</li>
 <li>Users could also delete uploaded files manually via Code Interpreter when tasks are completed.</li>
 </ul>
 <p>To OpenAI the following recommendations were provided in November:</p>
@@ -190,7 +188,9 @@
 <li>Isolate GPTs and their compute and storage (first party, private, public) - every GPT session needs to have its own container</li>
 <li>Implement static analysis to catch GPTs with hidden/malicious instructions</li>
 </ul>
-<p>In comparison Google Bard (now Gemini) <a href="/blog/posts/2024/exploring-google-bard-vm/">seems to not share any state in the compute container between chat sessions</a>.</p>
+<p>If you are wondering, Google Bard (now Gemini) <a href="/blog/posts/2024/exploring-google-bard-vm/">seems to not share any state in the compute container between chat sessions</a>.</p>
+<h2 id="responsible-disclosure">Responsible Disclosure</h2>
+<p>This is an older bug. It was first disclosed to the vendor early last November and confirmed to be a security problem. However, followup queries about status remain unanswered. It has now been over 90 days that this vulnerability was reported to OpenAI. To adhere to <a href="https://about.google/intl/ALL_us/appsecurity/">industry norms of responsible disclosure</a> this information is shared with the public.</p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=b0pQ9DvdyZc">Demo Video of Lack of Isolation GPT</a></li>
@@ -229,7 +229,7 @@
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2023
+     (c) WUNDERWUZZI 2018-2024
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">
