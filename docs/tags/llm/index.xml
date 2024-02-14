@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2023</copyright>
-    <lastBuildDate>Mon, 12 Feb 2024 17:11:48 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Feb 2024 03:30:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatGPT: Lack of Isolation between Code Interpreter sessions of GPTs</title>
+      <link>https://embracethered.com/blog/posts/2024/lack-of-isolation-gpts-code-interpreter/</link>
+      <pubDate>Wed, 14 Feb 2024 03:30:17 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/lack-of-isolation-gpts-code-interpreter/</guid>
+      <description>This is an older bug, but it has been over 90 days that this vulnerability was reported to OpenAI. To adhere to industry norms of responsible disclosure this post describes a security vulnerability in ChatGPT regarding the lack of isolation of GPTs when it comes to Code Interpreter sessions. At the bottom are also mitigation steps users and builders of GPTs can take.
+Lack of Isolation with GPTs and Code Interpreter Your Code Interpreter sandbox, also known as Advanced Data Analysis sessions, are shared between private and public GPTs.</description>
+    </item>
+    
     <item>
       <title>Video: ASCII Smuggling and Hidden Prompt Instructions</title>
       <link>https://embracethered.com/blog/posts/2024/ascii-smuggling-and-hidden-prompt-instructions/</link>
