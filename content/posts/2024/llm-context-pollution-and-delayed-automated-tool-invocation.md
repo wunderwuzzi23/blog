@@ -47,7 +47,7 @@ Observe how the Flights, Hotels, and other Extensions got invoked, but the `Work
 
 ### Threat Model
 
-It seems Google identified this threat and prevents an adversary issuing commands and bringing the user's `Google Docs` or `Gmail` into the chat context during an attack. The `Workspace Extension` is not invoked in that situation.
+This threat seemed to have been identified upfront, as Gemini prevents invocation of tools and bringing the user's `Google Docs` or `Gmail` into the chat context during an attack. The `Workspace Extension` is not called in that situation.
 
 The reason this would be a security issue is because:
 
@@ -56,7 +56,7 @@ The reason this would be a security issue is because:
 
 The concept of `Human in the Loop` is an important mitigation for anything that automatically takes action on behalf of the user. Especially because there is no reliable fix for prompt injection as of today.
 
-So, while hacking along I had an interesting idea...
+**So, while hacking along I had an interesting idea...**
 
 ## Planting Instructions To Invoke Tools
 
@@ -85,13 +85,12 @@ Now, when using Google Gemini to retrieve the email the question was what would 
 
 <br>󠁎󠁩󠁣󠁥
 <br> 
-<br>
 
-**Note:** Even though this proof-of-concept worked, the exploit was a bit flaky, but as more capabable models got released I think it improved.
+As you can see in the video the indirect prompt injection planted the instructions and at the second turn the `Workspace Extension` was automatically invoked and the document's content brought into the chat context! 
 
-## Mitigation Ideas
+## Impact and Mitigations
 
-Google's thought process around not invoking certain tools when untrusted data entered the chat context is an interesting approach that other vendors have not yet adopted. However, it can be bypassed as shown in this post and because of the lack of fixes for indirect prompt injection we have to stay alert.
+Not invoking tools when untrusted data entered the chat context is an interesting approach that other vendors have not yet adopted. However, it can be bypassed as shown in this post and because of the lack of fixes for indirect prompt injection we have to stay alert.
 
 Currently the security impact for Gemini is limited, since Google fixed the [Data Exfiltration angle via Image Markdown rendering](/blog/content/2023/google-bard-data-exfiltration.md). I did report this behavior and bypass to Google last November to raise awareness. It's still unclear how Google plans to address it, but they confirmed tracking the issue.
 

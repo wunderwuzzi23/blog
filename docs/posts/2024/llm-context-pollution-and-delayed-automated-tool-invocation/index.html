@@ -150,16 +150,16 @@
 <p>Take a look, you can see how it invokes four extensions in one shot:</p>
 <p><a href="/blog/images/2023/bard-many-extensions.png"><img src="/blog/images/2023/bard-many-extensions.png" alt="many extenions invoked by Gemini"></a></p>
 <p>Observe how the Flights, Hotels, and other Extensions got invoked, but the <code>Workspace Extension</code> was not called.</p>
-<p><strong>This means Google implemented a special kind of mitigation. If untrusted data enters the prompt context via accessing untrusted data (indirect prompt injecction), then Google Gemini will not invoke all tools in the same conversation turn!</strong></p>
-<h2 id="threat-model">Threat Model</h2>
-<p>It seems Google identified this threat and prevents an adversary issuing commands and bringing the user&rsquo;s <code>Google Docs</code> or <code>Gmail</code> into the chat context during an attack. The <code>Workspace Extension</code> is not invoked in that situation.</p>
+<p><strong>This means Google implemented a special kind of mitigation. If untrusted data enters the prompt context via accessing untrusted data (indirect prompt injection), then Google Gemini will not invoke all tools in the same conversation turn!</strong></p>
+<h3 id="threat-model">Threat Model</h3>
+<p>This threat seemed to have been identified upfront, as Gemini prevents invocation of tools and bringing the user&rsquo;s <code>Google Docs</code> or <code>Gmail</code> into the chat context during an attack. The <code>Workspace Extension</code> is not called in that situation.</p>
 <p>The reason this would be a security issue is because:</p>
 <ol>
 <li>Data exfiltration might subsequently be possible (like image markdown rendering) - <a href="/blog/content/2023/google-bard-data-exfiltration.md">and you might remember a past issue Google fixed relatd to data exfil</a></li>
 <li>Future <code>Extensions</code> might post/write content, significantly increasing the severity of this attack technique.</li>
 </ol>
-<p>The concept of <code>Human in the Loop</code> is an important mitigation for anything that automatically takes action on behalf of the user. Especially because there is no fix for prompt injection as of today.</p>
-<p>So, while hacking along I had an interesting idea&hellip;</p>
+<p>The concept of <code>Human in the Loop</code> is an important mitigation for anything that automatically takes action on behalf of the user. Especially because there is no reliable fix for prompt injection as of today.</p>
+<p><strong>So, while hacking along I had an interesting idea&hellip;</strong></p>
 <h2 id="planting-instructions-to-invoke-tools">Planting Instructions To Invoke Tools</h2>
 <p>What if the adversary &ldquo;pollutes&rdquo; the chat context during the prompt injection attack and plants instructions that will trigger the invocation of the <code>Workspace Extension</code> at a later stage?</p>
 <p>The idea to plant instructions or special trigger commands is not new, and a rather obvious attack technique. However, what is new here was the question if such planted instructions could lead to an automatic (and unwanted) invocation of the <code>Workspace Extension</code> at a <strong>later point without the user explicitly and knowingly authorizing the action.</strong></p>
@@ -181,11 +181,10 @@
 </div>
 
 <p><!-- raw HTML omitted -->󠁎󠁩󠁣󠁥
-<!-- raw HTML omitted -->
 <!-- raw HTML omitted --></p>
-<p><strong>Note:</strong> Even though this proof-of-concept worked, the exploit was a bit flaky, but as more capabable models got released I think it improved.</p>
-<h2 id="mitigation-ideas">Mitigation Ideas</h2>
-<p>Google&rsquo;s thought process around not invoking certain tools when untrusted data entered the chat context is an interesting approach that other vendors have not yet adopted. However, it can be bypassed as shown in this post and because of the lack of fixes for indirect prompt injection we have to stay alert.</p>
+<p>As you can see in the video the indirect prompt injection planted the instructions and at the second turn the <code>Workspace Extension</code> was automatically invoked and the document&rsquo;s content brought into the chat context!</p>
+<h2 id="impact-and-mitigations">Impact and Mitigations</h2>
+<p>Not invoking tools when untrusted data entered the chat context is an interesting approach that other vendors have not yet adopted. However, it can be bypassed as shown in this post and because of the lack of fixes for indirect prompt injection we have to stay alert.</p>
 <p>Currently the security impact for Gemini is limited, since Google fixed the <a href="/blog/content/2023/google-bard-data-exfiltration.md">Data Exfiltration angle via Image Markdown rendering</a>. I did report this behavior and bypass to Google last November to raise awareness. It&rsquo;s still unclear how Google plans to address it, but they confirmed tracking the issue.</p>
 <p>If there is a new data exfiltration vulnerability lurking somewhere, or a new Extension with some kind of &ldquo;write&rdquo; capabilities, then the impact combined with this technique would be high.</p>
 <h2 id="conclusion">Conclusion</h2>
