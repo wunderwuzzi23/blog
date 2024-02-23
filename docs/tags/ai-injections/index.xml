@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Wed, 14 Feb 2024 03:30:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Feb 2024 22:00:06 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Gemini: Planting Instructions For Delayed Automatic Tool Invocation</title>
+      <link>https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/</link>
+      <pubDate>Thu, 22 Feb 2024 22:00:06 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/</guid>
+      <description>Last November, while testing Google Bard (now called Gemini) for vulnerabilities, I had a couple of interesting observations when it comes to automatic tool invocation.
+Confused Deputy - Automatic Tool Invocation First, what do I mean by this&amp;hellip; &amp;ldquo;automatic tool invocation&amp;rdquo;&amp;hellip;
+Consider the following scenario: An attacker sends a malicious email to a user containing instructions to call an external tool. Google named these tools Extensions.
+When the user analyzes the email with an LLM, it interprets the instructions and calls the external tool, leading to a kind of request forgery or maybe better called automatic tool invocation.</description>
+    </item>
+    
     <item>
       <title>ChatGPT: Lack of Isolation between Code Interpreter sessions of GPTs</title>
       <link>https://embracethered.com/blog/posts/2024/lack-of-isolation-gpts-code-interpreter/</link>
