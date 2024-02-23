@@ -62,7 +62,7 @@ The concept of `Human in the Loop` is an important mitigation for anything that 
 
 What if the adversary "pollutes" the chat context during the prompt injection attack and plants instructions that will trigger the invocation of the `Workspace Extension` at a later stage? 
 
-The idea to plant instructions or special trigger commands is not new, and a rather obvious attack technique. However, what is new here was the question if such planted instructions could lead to an automatic (and unwanted) invocation of the `Workspace Extension` at a **later point without the user explicitly and knowingly authorizing the action.**
+The idea to plant instructions or special trigger commands is not new, and a rather obvious attack technique. However, what is interesting was the question if such planted instructions could lead to an automatic (and unwanted) invocation of the `Workspace Extension` at a **later point without the user explicitly and knowingly authorizing the action.**
 
 ## Attack Overview 
 
@@ -90,7 +90,7 @@ As you can see in the video the indirect prompt injection planted the instructio
 
 ## Impact and Mitigations
 
-Not invoking tools when untrusted data entered the chat context is an interesting approach that other vendors have not yet adopted. However, it can be bypassed as shown in this post and because of the lack of fixes for indirect prompt injection we have to stay alert.
+Not invoking tools when untrusted data entered the chat context is an interesting approach that other vendors have not yet adopted. The mitigation here however is limited to the same conversation turn which the untrusted data is retrieved in. This means that it can be bypassed later in the chat. 
 
 Currently the security impact for Gemini is limited, since Google fixed the [Data Exfiltration angle via Image Markdown rendering](/blog/content/2023/google-bard-data-exfiltration.md). I did report this behavior and bypass to Google last November to raise awareness. It's still unclear how Google plans to address it, but they confirmed tracking the issue.
 
@@ -100,7 +100,7 @@ If there is a new data exfiltration vulnerability lurking somewhere, or a new Ex
 
 Polluting the chat context and planting instructions is a powerful way for an adversary to persist.
 
-The interesting new discovery here is that an LLM application might prevent the automatic invocation of a tool during the conversation turn the untrusted data entered the chat. But the LLM application might happily invoke such tools in subsequent conversations turns. This can be exploited by an adversary by planting instructions that execute at a later time.
+The interesting new observation here is that an LLM application might prevent the automatic invocation of a tool during the same conversation turn that untrusted data made it into the chat. But an LLM application might happily invoke such tools in subsequent conversations turns. This can be exploited by an adversary by planting instructions that execute at a later time.
 
 Hope this was interesting and helpful.
 

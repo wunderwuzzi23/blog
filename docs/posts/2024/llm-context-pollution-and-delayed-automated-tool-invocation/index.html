@@ -162,7 +162,7 @@
 <p><strong>So, while hacking along I had an interesting idea&hellip;</strong></p>
 <h2 id="planting-instructions-to-invoke-tools">Planting Instructions To Invoke Tools</h2>
 <p>What if the adversary &ldquo;pollutes&rdquo; the chat context during the prompt injection attack and plants instructions that will trigger the invocation of the <code>Workspace Extension</code> at a later stage?</p>
-<p>The idea to plant instructions or special trigger commands is not new, and a rather obvious attack technique. However, what is new here was the question if such planted instructions could lead to an automatic (and unwanted) invocation of the <code>Workspace Extension</code> at a <strong>later point without the user explicitly and knowingly authorizing the action.</strong></p>
+<p>The idea to plant instructions or special trigger commands is not new, and a rather obvious attack technique. However, what is interesting was the question if such planted instructions could lead to an automatic (and unwanted) invocation of the <code>Workspace Extension</code> at a <strong>later point without the user explicitly and knowingly authorizing the action.</strong></p>
 <h2 id="attack-overview">Attack Overview</h2>
 <ol>
 <li>Adversary creates an email with embedded instructions and sends it to victim. The instructions state a future task, that is triggered with the next user request, or trigger keywords.</li>
@@ -184,12 +184,12 @@
 <!-- raw HTML omitted --></p>
 <p>As you can see in the video the indirect prompt injection planted the instructions and at the second turn the <code>Workspace Extension</code> was automatically invoked and the document&rsquo;s content brought into the chat context!</p>
 <h2 id="impact-and-mitigations">Impact and Mitigations</h2>
-<p>Not invoking tools when untrusted data entered the chat context is an interesting approach that other vendors have not yet adopted. However, it can be bypassed as shown in this post and because of the lack of fixes for indirect prompt injection we have to stay alert.</p>
+<p>Not invoking tools when untrusted data entered the chat context is an interesting approach that other vendors have not yet adopted. The mitigation here however is limited to the same conversation turn which the untrusted data is retrieved in. This means that it can be bypassed later in the chat.</p>
 <p>Currently the security impact for Gemini is limited, since Google fixed the <a href="/blog/content/2023/google-bard-data-exfiltration.md">Data Exfiltration angle via Image Markdown rendering</a>. I did report this behavior and bypass to Google last November to raise awareness. It&rsquo;s still unclear how Google plans to address it, but they confirmed tracking the issue.</p>
 <p>If there is a new data exfiltration vulnerability lurking somewhere, or a new Extension with some kind of &ldquo;write&rdquo; capabilities, then the impact combined with this technique would be high.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Polluting the chat context and planting instructions is a powerful way for an adversary to persist.</p>
-<p>The interesting new discovery here is that an LLM application might prevent the automatic invocation of a tool during the conversation turn the untrusted data entered the chat. But the LLM application might happily invoke such tools in subsequent conversations turns. This can be exploited by an adversary by planting instructions that execute at a later time.</p>
+<p>The interesting new observation here is that an LLM application might prevent the automatic invocation of a tool during the same conversation turn that untrusted data made it into the chat. But an LLM application might happily invoke such tools in subsequent conversations turns. This can be exploited by an adversary by planting instructions that execute at a later time.</p>
 <p>Hope this was interesting and helpful.</p>
 <p>Cheers.</p>
 <h2 id="references">References</h2>
