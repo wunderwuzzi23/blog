@@ -20,10 +20,10 @@
     <loc>https://embracethered.com/blog/posts/</loc>
     <lastmod>2024-03-02T22:25:17-08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
+    <loc>https://embracethered.com/blog/tags/research/</loc>
     <lastmod>2024-03-02T22:25:17-08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/threats/</loc>
+    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2024-03-02T22:25:17-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/whoami-conditional-prompt-injection-instructions/</loc>
@@ -36,6 +36,9 @@
     <lastmod>2024-02-22T22:00:06-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/lack-of-isolation-gpts-code-interpreter/</loc>
+    <lastmod>2024-02-14T03:30:17-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/threats/</loc>
     <lastmod>2024-02-14T03:30:17-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/bugbounty/</loc>
@@ -210,9 +213,6 @@
     <lastmod>2022-11-21T06:00:33-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/cloud/</loc>
-    <lastmod>2022-11-20T18:00:00-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/research/</loc>
     <lastmod>2022-11-20T18:00:00-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2022/ropci-usage/</loc>
