@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ASCII Smuggler - Secret Message Encoder/Decoder - Embrace the Red</title>
+    <title>ASCII Smuggler - Crafting Invisible Text and Decoding Hidden Secret - Embrace the Red</title>
     <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@wunderwuzzi23">
+    <meta name="twitter:title" content="ASCII Smuggler">
+    <meta name="twitter:description" content="Crafting Invisible Text and Decoding Hidden Secrets">
+    <meta name="twitter:image" content="https://embracethered.com/blog/images/2024/ascii-smuggler-logo.png">
+    <meta name="twitter:creator" content="@wunderwuzzi23">
+
+
     <style>
         body {
             font-family: sans-serif;
@@ -28,7 +39,6 @@
             text-align: left;
             resize: vertical;
             background-color: rgba(255, 255, 255, 0.95); 
-            border: 1px solid rgba(0, 0, 0, 0.2); /* Semi-transparent border */
             color: #000; /* Text color */
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
         }
@@ -59,6 +69,7 @@
         }
         .highlight {
             background-color: yellow;
+            font-family: monospace;
         }
         .advanced-options {
             display: none;
@@ -82,7 +93,6 @@
             display: inline-block;
             margin: 0px 0;
         }
-
     </style>
 </head>
 <body>
@@ -98,22 +108,19 @@
     <button id="decodeButton">Decode</button><br>
     <a href="javascript:void(0);" class="toggle-advanced">Advanced Options</a>
     <div class="advanced-options" id="advancedOptions">
-        <label>
+        <label title="Add Unicode START and END Tags when encoding text" >
             <input type="checkbox" id="toggleUnicodeTags" />
             Encode with BEGIN/END Tags
         </label>
-        <label>
+        <label title="Useful when decoding content that was first URL encoded. This option will call decodeUriComponent before attempting to look for hidden Unicode Tags characters">
             <input type="checkbox" id="decodeUriComponent" />
             Decoding a URL
         </label>
-<!--<label>
-    <input type="checkbox" id="darkModeToggle" />
-    Dark Mode
-</label>-->
-
+        <label title="Highlight Mode prints all text and highlights hidden text. Turn this mode off to only show hidden text in the output">
+            <input type="checkbox" id="highlightMode" />
+            Highlight Mode
+        </label>
     </div>
-
-
 
     <div id="outputMessage" class="outputMessage"></div>
     <div id="statusMessage"></div>
@@ -137,44 +144,52 @@
     document.querySelector('.toggle-advanced').addEventListener('click', function() {
         const advancedOptions = document.getElementById('advancedOptions');
         advancedOptions.classList.toggle('visible'); // Toggle visibility
+        saveOptions();
     });
 
     let clipboardData = '';
 
-// Toggle dark mode and save options to local storage
-//document.getElementById('darkModeToggle').addEventListener('change', function() {
-//    document.body.classList.toggle('dark-mode', this.checked);
-//    saveOptions();
-//});
-
-// Save options to local storage
-function saveOptions() {
-    const options = {
-        darkMode: document.getElementById('darkModeToggle').checked,
-        unicodeTags: document.getElementById('toggleUnicodeTags').checked,
-        decodeUri: document.getElementById('decodeUriComponent').checked,
-        advancedOptionsVisible: document.getElementById('advancedOptions').classList.contains('visible')
-    };
-    localStorage.setItem('asciiSmugglerOptions', JSON.stringify(options));
-}
-
-// Load options from local storage
-function loadOptions() {
-    const options = JSON.parse(localStorage.getItem('asciiSmugglerOptions'));
-    if (options) {
-        document.getElementById('darkModeToggle').checked = options.darkMode;
-        document.getElementById('toggleUnicodeTags').checked = options.unicodeTags;
-        document.getElementById('decodeUriComponent').checked = options.decodeUri;
-        if (options.advancedOptionsVisible) {
-            document.getElementById('advancedOptions').classList.add('visible');
+    // Load options from local storage
+    function loadOptions() {
+        const options = JSON.parse(localStorage.getItem('asciiSmugglerOptions'));
+        if (options) {
+            document.getElementById('toggleUnicodeTags').checked = options.unicodeTags;
+            document.getElementById('decodeUriComponent').checked = options.decodeUri;
+            document.getElementById('highlightMode').checked = options.highlightMode;
+            if (options.advancedOptionsVisible) {
+                document.getElementById('advancedOptions').classList.add('visible');
+            }
         }
-        // Apply the dark mode class if needed
-        document.body.classList.toggle('dark-mode', options.darkMode);
+        else {
+            document.getElementById('highlightMode').checked = true;
+        }
     }
-}
 
-// Call loadOptions when the page loads
-document.addEventListener('DOMContentLoaded', loadOptions);
+    // Call loadOptions when the page loads
+    document.addEventListener('DOMContentLoaded', loadOptions);
+
+    // Save options to local storage
+    function saveOptions() {
+        // Retrieve the current settings from the UI elements
+        const options = {
+            unicodeTags: document.getElementById('toggleUnicodeTags').checked,
+            decodeUri: document.getElementById('decodeUriComponent').checked,
+            highlightMode: document.getElementById('highlightMode').checked,
+            advancedOptionsVisible: document.getElementById('advancedOptions').classList.contains('visible')
+        };
+
+        // Convert the options object into a string and save it in local storage
+        localStorage.setItem('asciiSmugglerOptions', JSON.stringify(options));
+    }
+
+    // Invoke saveOptions when a setting is changed
+    document.getElementById('toggleUnicodeTags').addEventListener('change', saveOptions);
+    document.getElementById('decodeUriComponent').addEventListener('change', saveOptions);
+    document.getElementById('highlightMode').addEventListener('change', function() { 
+         saveOptions();
+         processMessage("decode");
+    });
+    //document.getElementById('advancedOptions').addEventListener('click', saveOptions); 
 
     function processMessage(action) {
             let inputMessage = document.getElementById('inputMessage').value;
@@ -235,25 +250,36 @@ document.addEventListener('DOMContentLoaded', loadOptions);
             let outputMessageElement = document.getElementById('outputMessage');
             outputMessageElement.innerHTML = '';
 
+            const useHighlightMode = document.getElementById('highlightMode').checked;
+
+
             for (let char of message) {
                 let codePoint = char.codePointAt(0);
                 if (codePoint >= 0xE0000 && codePoint <= 0xE007F) {
                     detected = true;
-                    const highlightSpan = document.createElement('span');
-                    highlightSpan.classList.add('highlight');
-                    highlightSpan.textContent = String.fromCharCode(codePoint - 0xE0000); // Safely set text
-                    outputMessageElement.appendChild(highlightSpan);
+
+                    if (useHighlightMode) {
+                        const highlightSpan = document.createElement('span');
+                        highlightSpan.classList.add('highlight');
+                        highlightSpan.textContent = String.fromCharCode(codePoint - 0xE0000); // Safely set text
+                        outputMessageElement.appendChild(highlightSpan);
+                    }
+                    else {
+                        outputMessageElement.textContent += String.fromCharCode(codePoint - 0xE0000);
+                    }
                 } else {
-                    const normalSpan = document.createElement('span');
-                    normalSpan.classList.add('normal');
-                    normalSpan.textContent = char;
-                    outputMessageElement.appendChild(normalSpan);
+                    if (useHighlightMode) {
+                        const normalSpan = document.createElement('span');
+                        normalSpan.classList.add('normal');
+                        normalSpan.textContent = char;
+                        outputMessageElement.appendChild(normalSpan);
+                    }
                 }
             }
 
             if (detected) {
                 updateStatus('Hidden Unicode Tags discovered.', true);
-                outputMessageElement.style.border = '1px solid red';
+                outputMessageElement.style.border = '2px solid red';
             } else {
                 updateStatus('No hidden Unicode Tag characters discovered.', false);
                 outputMessageElement.style.border = '1px solid #ccc';

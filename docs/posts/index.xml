@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Thu, 22 Feb 2024 22:00:06 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Mar 2024 22:25:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Who Am I? Conditional Prompt Injection Attacks with Microsoft Copilot</title>
+      <link>https://embracethered.com/blog/posts/2024/whoami-conditional-prompt-injection-instructions/</link>
+      <pubDate>Sat, 02 Mar 2024 22:25:17 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/whoami-conditional-prompt-injection-instructions/</guid>
+      <description>Building reliable prompt injection payloads is challenging at times. It&amp;rsquo;s this new world with large language model (LLM) applications that can be instructed with natural language and they mostly follow instructions&amp;hellip; but not always.
+Attackers have the same challenges around prompt engineering as normal users.
+Prompt Injection Exploit Development Attacks always get better over time. And as more features are being added to LLM applications, the degrees of freedom for attackers increases as well.</description>
+    </item>
+    
     <item>
       <title>Google Gemini: Planting Instructions For Delayed Automatic Tool Invocation</title>
       <link>https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/</link>

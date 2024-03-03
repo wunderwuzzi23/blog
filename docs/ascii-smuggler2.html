@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ASCII Smuggler - Secret Message Encoder/Decoder - Embrace the Red</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 0px 10px;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        textarea, #outputMessage {
+            width: 100%;
+            margin: 10px 0;
+            height: 120px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+            font-family: monospace;
+            font-size: 14px;
+            text-align: left;
+            resize: vertical;
+            background-color: rgba(255, 255, 255, 0.95); 
+            border: 1px solid rgba(0, 0, 0, 0.2); /* Semi-transparent border */
+            color: #000; /* Text color */
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+        #outputMessage {
+            background-color: #f0f0f0;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            display: block;
+            width: 100%;
+            min-height: 100px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+            font-family: monospace;
+            font-size: 14px;
+            text-align: left;
+            resize: vertical;
+            max-height: 300px;
+        }
+        #statusMessage {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px 5px 10px 0;
+            cursor: pointer;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+        .advanced-options {
+            display: none;
+            background-color: cyan;
+            text-align: center; /* Center the Advanced Options text */
+            margin-top: 5px;
+            font-size: 14px; /* Smaller font size for the options */
+        }
+        .advanced-options.visible {
+            display: block;
+        }
+        .advanced-options label {
+            margin-right: 20px; /* Increase spacing between checkboxes */
+            display: inline-block; /* Align checkboxes horizontally */
+        }
+        .toggle-advanced {
+            font-size: 14px;
+            color: #007bff;
+            text-decoration: underline;
+            cursor: pointer;
+            display: inline-block;
+            margin: 0px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ASCII Smuggler</h1>
+    <span>
+        Convert ASCII text to Unicode Tags which are invisible in most UI elements.<br>
+        Check if a text has hidden Unicode Tags embedded with Decode.
+    </span><br>
+    <textarea id="inputMessage" placeholder="Enter your message here"></textarea>
+    <button id="encodeButton">Encode</button>
+    <button id="decodeButton">Decode</button><br>
+    <a href="javascript:void(0);" class="toggle-advanced">Advanced Options</a>
+    <div class="advanced-options" id="advancedOptions">
+        <label>
+            <input type="checkbox" id="toggleUnicodeTags" />
+            Encode with BEGIN/END Tags
+        </label>
+        <label>
+            <input type="checkbox" id="decodeUriComponent" />
+            Decoding a URL
+        </label>
+<!--<label>
+    <input type="checkbox" id="darkModeToggle" />
+    Dark Mode
+</label>-->
+
+    </div>
+
+
+
+    <div id="outputMessage" class="outputMessage"></div>
+    <div id="statusMessage"></div>
+    <button id="clearButton">Clear</button>
+    <br><br>
+    <a style="font-size: 14px" href="https://embracethered.com/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/">Embrace the Red - Blog Post</a>
+</div>
+
+<script>
+    document.getElementById('encodeButton').addEventListener('click', function() {
+        processMessage('encode');
+        copyToClipboard();
+    });
+    document.getElementById('decodeButton').addEventListener('click', function() {
+        resetStatus();
+        processMessage('decode');
+    });
+    document.getElementById('inputMessage').addEventListener('input', resetStatus);
+    document.getElementById('clearButton').addEventListener('click', clearFields);
+
+    document.querySelector('.toggle-advanced').addEventListener('click', function() {
+        const advancedOptions = document.getElementById('advancedOptions');
+        advancedOptions.classList.toggle('visible'); // Toggle visibility
+    });
+
+    let clipboardData = '';
+
+// Toggle dark mode and save options to local storage
+//document.getElementById('darkModeToggle').addEventListener('change', function() {
+//    document.body.classList.toggle('dark-mode', this.checked);
+//    saveOptions();
+//});
+
+// Save options to local storage
+function saveOptions() {
+    const options = {
+        darkMode: document.getElementById('darkModeToggle').checked,
+        unicodeTags: document.getElementById('toggleUnicodeTags').checked,
+        decodeUri: document.getElementById('decodeUriComponent').checked,
+        advancedOptionsVisible: document.getElementById('advancedOptions').classList.contains('visible')
+    };
+    localStorage.setItem('asciiSmugglerOptions', JSON.stringify(options));
+}
+
+// Load options from local storage
+function loadOptions() {
+    const options = JSON.parse(localStorage.getItem('asciiSmugglerOptions'));
+    if (options) {
+        document.getElementById('darkModeToggle').checked = options.darkMode;
+        document.getElementById('toggleUnicodeTags').checked = options.unicodeTags;
+        document.getElementById('decodeUriComponent').checked = options.decodeUri;
+        if (options.advancedOptionsVisible) {
+            document.getElementById('advancedOptions').classList.add('visible');
+        }
+        // Apply the dark mode class if needed
+        document.body.classList.toggle('dark-mode', options.darkMode);
+    }
+}
+
+// Call loadOptions when the page loads
+document.addEventListener('DOMContentLoaded', loadOptions);
+
+    function processMessage(action) {
+            let inputMessage = document.getElementById('inputMessage').value;
+            let outputMessage = '';
+
+            if (action === 'encode') {
+                let [codePoints, encoded] = encodeMessage(inputMessage);
+                document.getElementById('outputMessage').textContent = codePoints;
+                clipboardData = encoded;
+            } else {
+                if (document.getElementById('decodeUriComponent').checked) {
+                    try {
+                      inputMessage = decodeURIComponent(inputMessage);
+                    } catch (e) {
+                      updateStatus('Error decoding URI component: ' + e.message);
+                      return;
+                    }
+                }
+                
+                //decode creats span elements for each character
+                decodeMessage(inputMessage);
+            }
+        }
+
+        function encodeMessage(message) {
+            let encoded = '';
+            let codePoints = '';
+            let invalidChars = '';
+            const useUnicodeTags = document.getElementById('toggleUnicodeTags').checked;
+
+            if (useUnicodeTags) {
+                encoded += String.fromCodePoint(0xE0001);
+                codePoints += 'U+E0001 ';
+            }
+
+            for (let char of message) {
+                if (char.charCodeAt(0) >= 0x20 && char.charCodeAt(0) <= 0x7E) {
+                    let codePoint = 0xE0000 + char.charCodeAt(0);
+                    encoded += String.fromCodePoint(codePoint);
+                    codePoints += 'U+' + codePoint.toString(16).toUpperCase() + ' ';
+                } else {
+                    invalidChars += char;
+                }
+            }
+
+            if (useUnicodeTags) {
+                encoded += String.fromCodePoint(0xE007F);
+                codePoints += 'U+E007F';
+            }
+
+            updateStatus(invalidChars.length > 0 ? 'Invalid characters detected: ' + invalidChars : '');
+            return [codePoints, encoded];
+        }
+
+        function decodeMessage(message) {
+            let decoded = '';
+            let detected = false;
+            let outputMessageElement = document.getElementById('outputMessage');
+            outputMessageElement.innerHTML = '';
+
+            for (let char of message) {
+                let codePoint = char.codePointAt(0);
+                if (codePoint >= 0xE0000 && codePoint <= 0xE007F) {
+                    detected = true;
+                    const highlightSpan = document.createElement('span');
+                    highlightSpan.classList.add('highlight');
+                    highlightSpan.textContent = String.fromCharCode(codePoint - 0xE0000); // Safely set text
+                    outputMessageElement.appendChild(highlightSpan);
+                } else {
+                    const normalSpan = document.createElement('span');
+                    normalSpan.classList.add('normal');
+                    normalSpan.textContent = char;
+                    outputMessageElement.appendChild(normalSpan);
+                }
+            }
+
+            if (detected) {
+                updateStatus('Hidden Unicode Tags discovered.', true);
+                outputMessageElement.style.border = '1px solid red';
+            } else {
+                updateStatus('No hidden Unicode Tag characters discovered.', false);
+                outputMessageElement.style.border = '1px solid #ccc';
+            }
+
+            return decoded;
+        }
+
+        function updateStatus(message, isHighlighted = false) {
+            const statusMessage = document.getElementById('statusMessage');
+            statusMessage.textContent = message;
+            if (isHighlighted) {
+                statusMessage.style.fontSize = '16px';
+                statusMessage.style.fontWeight = 'bold';
+            } else {
+                statusMessage.style.fontSize = '';
+                statusMessage.style.fontWeight = '';
+            }
+        }
+
+
+        function resetStatus() {
+            updateStatus('');
+            document.getElementById('outputMessage').style.border = '1px solid #ccc';
+        }
+
+        function clearFields() {
+            document.getElementById('inputMessage').value = '';
+            document.getElementById('outputMessage').textContent = '';
+            resetStatus();
+        }
+
+        function copyToClipboard() {
+            navigator.clipboard.writeText(clipboardData).then(() => {
+                updateStatus('Text copied to clipboard!', true);
+            }).catch(err => {
+                updateStatus('Failed to copy text: ' + err);
+            });
+        }
+
+ 
+    </script>
+</body>
+</html>
