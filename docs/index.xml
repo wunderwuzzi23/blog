@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Sat, 02 Mar 2024 22:25:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Mar 2024 08:20:10 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ASCII Smuggler - Improvements</title>
+      <link>https://embracethered.com/blog/posts/2024/ascii-smuggler-updates/</link>
+      <pubDate>Mon, 04 Mar 2024 08:20:10 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/ascii-smuggler-updates/</guid>
+      <description>I added a couple of features and improvements to ASCII Smuggler, including:
+ Optional rendering of the BEGIN and END Unicode Tags when crafting hidden text Added a feature to URL decode the input before checking for hidden text Output Modes for Decoding: Switch between highlighting the hidden text amongst the regular content, or only showing the hidden text in the output The selected options are remembered now (using local storage) Updated the UI to make it look nicer (e.</description>
+    </item>
+    
     <item>
       <title>Who Am I? Conditional Prompt Injection Attacks with Microsoft Copilot</title>
       <link>https://embracethered.com/blog/posts/2024/whoami-conditional-prompt-injection-instructions/</link>

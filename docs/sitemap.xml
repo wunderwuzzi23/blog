@@ -2,37 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
-    <lastmod>2024-03-02T22:25:17-08:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/aiml/</loc>
-    <lastmod>2024-03-02T22:25:17-08:00</lastmod>
+    <lastmod>2024-03-04T08:20:10-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2024/ascii-smuggler-updates/</loc>
+    <lastmod>2024-03-04T08:20:10-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2024-03-04T08:20:10-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2024-03-04T08:20:10-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2024-03-04T08:20:10-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2024-03-04T08:20:10-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/tools/</loc>
+    <lastmod>2024-03-04T08:20:10-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <lastmod>2024-03-04T08:20:10-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
     <lastmod>2024-03-02T22:25:17-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/llm/</loc>
     <lastmod>2024-03-02T22:25:17-08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2024-03-02T22:25:17-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2024-03-02T22:25:17-08:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/research/</loc>
-    <lastmod>2024-03-02T22:25:17-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2024-03-02T22:25:17-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/whoami-conditional-prompt-injection-instructions/</loc>
     <lastmod>2024-03-02T22:25:17-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/</loc>
-    <lastmod>2024-02-22T22:00:06-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
     <lastmod>2024-02-22T22:00:06-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/lack-of-isolation-gpts-code-interpreter/</loc>
@@ -343,9 +349,6 @@
   </url><url>
     <loc>https://embracethered.com/blog/posts/2021/huskyai-using-azure-counterfit/</loc>
     <lastmod>2021-08-16T10:00:26-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/tools/</loc>
-    <lastmod>2021-08-09T10:00:20-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2021/linux-procdump/</loc>
     <lastmod>2021-08-09T10:00:20-07:00</lastmod>

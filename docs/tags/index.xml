@@ -7,22 +7,49 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Sat, 02 Mar 2024 22:25:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Mar 2024 08:20:10 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>aiml</title>
+      <link>https://embracethered.com/blog/tags/aiml/</link>
+      <pubDate>Mon, 04 Mar 2024 08:20:10 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/aiml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Mon, 04 Mar 2024 08:20:10 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>https://embracethered.com/blog/tags/tools/</link>
+      <pubDate>Mon, 04 Mar 2024 08:20:10 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ttp</title>
+      <link>https://embracethered.com/blog/tags/ttp/</link>
+      <pubDate>Mon, 04 Mar 2024 08:20:10 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ttp/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ai injections</title>
       <link>https://embracethered.com/blog/tags/ai-injections/</link>
       <pubDate>Sat, 02 Mar 2024 22:25:17 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aiml</title>
-      <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Sat, 02 Mar 2024 22:25:17 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/aiml/</guid>
       <description></description>
     </item>
     
@@ -36,29 +63,11 @@
     </item>
     
     <item>
-      <title>machine learning</title>
-      <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Sat, 02 Mar 2024 22:25:17 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>research</title>
       <link>https://embracethered.com/blog/tags/research/</link>
       <pubDate>Sat, 02 Mar 2024 22:25:17 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/research/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ttp</title>
-      <link>https://embracethered.com/blog/tags/ttp/</link>
-      <pubDate>Thu, 22 Feb 2024 22:00:06 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ttp/</guid>
       <description></description>
     </item>
     
@@ -374,15 +383,6 @@
       <pubDate>Sun, 10 Oct 2021 10:10:51 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/webapp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tools</title>
-      <link>https://embracethered.com/blog/tags/tools/</link>
-      <pubDate>Mon, 09 Aug 2021 10:00:20 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/tools/</guid>
       <description></description>
     </item>
     
