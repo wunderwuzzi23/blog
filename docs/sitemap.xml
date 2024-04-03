@@ -3,21 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://embracethered.com/blog/tags/aiml/</loc>
-    <lastmod>2024-03-04T08:20:10-08:00</lastmod>
+    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/posts/2024/ascii-smuggler-updates/</loc>
-    <lastmod>2024-03-04T08:20:10-08:00</lastmod>
+    <loc>https://embracethered.com/blog/tags/blue/</loc>
+    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2024-03-04T08:20:10-08:00</lastmod>
+    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2024-03-04T08:20:10-08:00</lastmod>
+    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/mitigation/</loc>
+    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2024-03-04T08:20:10-08:00</lastmod>
+    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2024/the-dangers-of-unfurling-and-what-you-can-do-about-it/</loc>
+    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/threats/</loc>
+    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2024/ascii-smuggler-updates/</loc>
     <lastmod>2024-03-04T08:20:10-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/tools/</loc>
@@ -27,9 +42,6 @@
     <lastmod>2024-03-04T08:20:10-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
-    <lastmod>2024-03-02T22:25:17-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
     <lastmod>2024-03-02T22:25:17-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/research/</loc>
@@ -42,9 +54,6 @@
     <lastmod>2024-02-22T22:00:06-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/lack-of-isolation-gpts-code-interpreter/</loc>
-    <lastmod>2024-02-14T03:30:17-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/threats/</loc>
     <lastmod>2024-02-14T03:30:17-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/bugbounty/</loc>
@@ -304,9 +313,6 @@
   </url><url>
     <loc>https://embracethered.com/blog/posts/2021/video-anatomy-of-a-compromise/</loc>
     <lastmod>2021-11-08T08:10:12-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/blue/</loc>
-    <lastmod>2021-10-20T00:04:40-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2021/offensive-bpf-libbpf-bpf_probe_write_user/</loc>
     <lastmod>2021-10-20T00:04:40-07:00</lastmod>
