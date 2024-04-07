@@ -84,7 +84,7 @@ Pretty neat and scary in a way.
 
 ## Responsible Disclosure
 
-The issue was reported to Google on February 17, 2024 and I heard back 12 days later that it didn't repro. The ticket was eventually closed as "Duplicate" on March 3, 2024. Maybe internal testing by the product team had caught this also. Anyhow, it's good that it's fixed. 
+The issue was reported to Google on February 17, 2024 and I heard back 12 days later that it didn't repro anymore. The ticket was eventually closed as "Duplicate" on March 3, 2024. Maybe internal testing by the product team had caught this also. Anyhow, it's good that it's fixed. 
 
 ## Conclusion
 
