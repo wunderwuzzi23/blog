@@ -10,7 +10,7 @@ twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "Google AI Studio Mass Data Exfiltration - Regression and Fix"
+  title: "Google AI Studio Data Exfiltration - Possible Regression and Fix"
   description: "Google AI Studio was briefly vulnerable to data exfiltration via image markdown when Gemini released, but it was quickly fixed."
   image: "https://embracethered.com/blog/images/2024/aistudio-data-exfil-25-files.png"
 ---

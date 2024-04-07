@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>testing on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/testing/</link>
+    <description>Recent content in testing on Embrace The Red</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
+    <lastBuildDate>Sun, 07 Apr 2024 16:00:30 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google AI Studio Data Exfiltration via Prompt Injection - Possible Regression and Fix</title>
+      <link>https://embracethered.com/blog/posts/2024/google-aistudio-mass-data-exfil/</link>
+      <pubDate>Sun, 07 Apr 2024 16:00:30 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/google-aistudio-mass-data-exfil/</guid>
+      <description>What I like about the rapid advancements and excitement about AI over the last few years is that we see a resurgence of the testing discipline!
+Software testing is hard, and adding AI to the mix does not make it easier at all!
+Google AI Studio - Initially not vulnerable to data leakage via image rendering When Google released AI Studio last year I checked for the common image markdown data exfiltration vulnerability and it was not vulnerable.</description>
+    </item>
+    
+  </channel>
+</rss>

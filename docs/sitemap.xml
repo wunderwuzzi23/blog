@@ -2,34 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://embracethered.com/blog/tags/aiml/</loc>
-    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
+    <loc>https://embracethered.com/blog/tags/ai-injection/</loc>
+    <lastmod>2024-04-07T16:00:30-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/blue/</loc>
-    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
+    <loc>https://embracethered.com/blog/tags/aiml/</loc>
+    <lastmod>2024-04-07T16:00:30-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
+    <lastmod>2024-04-07T16:00:30-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2024/google-aistudio-mass-data-exfil/</loc>
+    <lastmod>2024-04-07T16:00:30-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
+    <lastmod>2024-04-07T16:00:30-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2024-04-07T16:00:30-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2024-04-07T16:00:30-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2024-04-07T16:00:30-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/testing/</loc>
+    <lastmod>2024-04-07T16:00:30-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/threats/</loc>
+    <lastmod>2024-04-07T16:00:30-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/blue/</loc>
     <lastmod>2024-04-02T20:00:48-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/mitigation/</loc>
     <lastmod>2024-04-02T20:00:48-08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/posts/2024/the-dangers-of-unfurling-and-what-you-can-do-about-it/</loc>
-    <lastmod>2024-04-02T20:00:48-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/threats/</loc>
     <lastmod>2024-04-02T20:00:48-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/ascii-smuggler-updates/</loc>

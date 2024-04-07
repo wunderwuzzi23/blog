@@ -7,13 +7,58 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Tue, 02 Apr 2024 20:00:48 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Apr 2024 16:00:30 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ai injection</title>
+      <link>https://embracethered.com/blog/tags/ai-injection/</link>
+      <pubDate>Sun, 07 Apr 2024 16:00:30 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ai-injection/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>aiml</title>
       <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Tue, 02 Apr 2024 20:00:48 -0800</pubDate>
+      <pubDate>Sun, 07 Apr 2024 16:00:30 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>llm</title>
+      <link>https://embracethered.com/blog/tags/llm/</link>
+      <pubDate>Sun, 07 Apr 2024 16:00:30 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/llm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Sun, 07 Apr 2024 16:00:30 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testing</title>
+      <link>https://embracethered.com/blog/tags/testing/</link>
+      <pubDate>Sun, 07 Apr 2024 16:00:30 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>threats</title>
+      <link>https://embracethered.com/blog/tags/threats/</link>
+      <pubDate>Sun, 07 Apr 2024 16:00:30 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/threats/</guid>
       <description></description>
     </item>
     
@@ -27,38 +72,11 @@
     </item>
     
     <item>
-      <title>llm</title>
-      <link>https://embracethered.com/blog/tags/llm/</link>
-      <pubDate>Tue, 02 Apr 2024 20:00:48 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/llm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine learning</title>
-      <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Tue, 02 Apr 2024 20:00:48 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>mitigation</title>
       <link>https://embracethered.com/blog/tags/mitigation/</link>
       <pubDate>Tue, 02 Apr 2024 20:00:48 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/mitigation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>threats</title>
-      <link>https://embracethered.com/blog/tags/threats/</link>
-      <pubDate>Tue, 02 Apr 2024 20:00:48 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/threats/</guid>
       <description></description>
     </item>
     
