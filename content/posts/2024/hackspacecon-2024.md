@@ -1,5 +1,5 @@
 ---
-title: "HackSpaceCon 2024: Short Trip Report and Slides"
+title: "HackSpaceCon 2024: Short Trip Report, Slides and Rocket Launch"
 date: 2024-04-13T18:30:39-07:00
 draft: true
 tags: [
@@ -10,7 +10,7 @@ twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "HackSpaceCon 2024: Short Trip Report and Slides"
+  title: "HackSpaceCon 2024: Short Trip Report, Slides and Rocket Launch"
   description: "This week was HackSpaceCon and I was there for the first time and it was fantastic. I also got to contribute my presenting about my work on prompt injections and LLM security."
   image: "https://embracethered.com/blog/images/2024/hsc-hackspacecon.png"
 ---
