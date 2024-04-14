@@ -3,7 +3,7 @@ title: "37th Chaos Communication Congress: New Important Instructions (Video + S
 date: 2023-12-30T15:01:59-08:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections","llm","video"
+     "aiml", "machine learning", "threats", "ai injections","llm","video","conference"
     ]
 
 twitter:

@@ -7,7 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Tue, 28 Nov 2023 16:00:33 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/conference/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Apr 2024 18:30:39 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/conference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackSpaceCon 2024: Short Trip Report and Slides</title>
+      <link>https://embracethered.com/blog/posts/2024/hackspacecon-2024/</link>
+      <pubDate>Sat, 13 Apr 2024 18:30:39 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/hackspacecon-2024/</guid>
+      <description>This week was HackSpaceCon 2024. It was the first time I attended and it was fantastic.
+The conference was at the Kennedy Space Center! Yes, right there and the swag and talks matched the world class location.
+The keynote &amp;ldquo;Buckle up! Let&amp;rsquo;s make the world a safer place&amp;rdquo; was by Dave Kennedy, who provided great insights on attacker strategies of the past and present, the importance of active threat hunting and challenges ahead.</description>
+    </item>
+    
+    <item>
+      <title>37th Chaos Communication Congress: New Important Instructions (Video &#43; Slides)</title>
+      <link>https://embracethered.com/blog/posts/2023/37c3-new-important-instructions/</link>
+      <pubDate>Sat, 30 Dec 2023 15:01:59 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/37c3-new-important-instructions/</guid>
+      <description>Five years ago I gave a Lightning Talk at the 35th Chaos Communication Congress called &amp;ldquo;Pass the Cookie and Pivot to the Clouds&amp;rdquo;. It was a talk about my very first blog post on Embrace The Red just a few weeks earlier in December 2018.
+Fast forward to 2023&amp;hellip; it was great to attend the 37C3 in person in Hamburg this year. The Congress was packed with great talks, amazing people, awesome events and side quests and I got to present also!</description>
+    </item>
+    
     <item>
       <title>Ekoparty Talk - Prompt Injections in the Wild</title>
       <link>https://embracethered.com/blog/posts/2023/ekoparty-prompt-injection-talk/</link>
