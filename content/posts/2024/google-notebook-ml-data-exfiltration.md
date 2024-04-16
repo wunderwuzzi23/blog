@@ -1,5 +1,5 @@
 ---
-title: "Bobby Tables but with LLM Apps - Google NotebookML Data Exfiltration"
+title: "Bobby Tables but with LLM Apps - Google NotebookLM Data Exfiltration"
 date: 2024-04-15T08:11:30-07:00
 draft: true
 tags: [
@@ -10,28 +10,28 @@ twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "Google NotebookML Data Exfiltration - Bobby Tables but with LLM Apps"
-  description: "Prompt Injection POC with Google NotebookML Leading to Data Exfiltration. Bobby Tables but with LLMs"
+  title: "Google NotebookLM Data Exfiltration - Bobby Tables but with LLM Apps"
+  description: "Prompt Injection POC with Google NotebookLM Leading to Data Exfiltration. Bobby Tables but with LLMs"
   image: "https://embracethered.com/blog/images/2024/notebookml-bobby.png"
 ---
 
 
-[Google's NotebookML](https://notebooklm.google.com) is an experimental project that was released last year. It allows users to upload files and analyze them with a large language model (LLM).
+[Google's NotebookLM](https://notebooklm.google.com) is an experimental project that was released last year. It allows users to upload files and analyze them with a large language model (LLM).
 
 However, it is vulnerable to Prompt Injection, meaning that uploaded files can manipulate the chat conversation and control what the user sees in responses. 
 
-There is currently no known solution to these kinds of attacks, so users can't implicitly trust responses from large language model applications when untrusted data is involved. Additionally though NotebookML is also vulnerable to data exfiltration when processing untrusted data.
+There is currently no known solution to these kinds of attacks, so users can't implicitly trust responses from large language model applications when untrusted data is involved. Additionally though NotebookLM is also vulnerable to data exfiltration when processing untrusted data.
 
 [![bobby tables](/blog/images/2024/notebookml-bobby.png)](/blog/images/2024/notebookml-bobby.png)
 
 
-Besides displaying incorrect information to the user (e.g scamming, etc.) during a prompt injection attack, NotebookML can also be instructed by an attacker to automatically render hyperlinks and images which can be used as a data exfiltration channel.
+Besides displaying incorrect information to the user (e.g scamming, etc.) during a prompt injection attack, NotebookLM can also be instructed by an attacker to automatically render hyperlinks and images which can be used as a data exfiltration channel.
 
 ## Bobby Tables and Prompt Injection
 
-Users can usually control their own data in systems, like a profile description or name. This information might later be analyzed with other system, including LLM applications that are vulnerable to adversarial examples and prompt injection, like NotebookML.
+Users can usually control their own data in systems, like a profile description or name. This information might later be analyzed with other system, including LLM applications that are vulnerable to adversarial examples and prompt injection, like NotebookLM.
 
-What if someone receives a customer list where a malicious user changed their own information to a prompt injection attack payload and then the victim analyzes it with NotebookML? 
+What if someone receives a customer list where a malicious user changed their own information to a prompt injection attack payload and then the victim analyzes it with NotebookLM? 
 
 Could that attacker gain access to other users' information (e.g., in the same document or other documents)? What else would be possible?
 
@@ -54,7 +54,7 @@ as normal font, no code style block
 
 Below is the result when reviewing the data:
 
-[![data exfil with notebookml](/blog/images/2024/notebookml-data-exfil.png)](/blog/images/2024/notebookml-data-exfil.png)
+[![data exfil with notebooklm](/blog/images/2024/notebookml-data-exfil.png)](/blog/images/2024/notebookml-data-exfil.png)
 
 As you can see this worked. When prompting for `show sarah` the image is rendered and the information of the previous row (email and code is sent to the attacker's server). 
 
@@ -100,7 +100,7 @@ What is important to grasp is that an attacker could also ask the LLM to add new
 
 This vulnerability was responsibly disclosed to Google on December 4, 2023. Google confirmed the vulnerability, however so far no mitigation has been put in place. To follow responsible disclosure industry norms for vulnerabilities that are not fixed in reasonable time (e.g 3-4 months) this report is made public - it has been 132 days since reporting the issue to Google.
 
-NotebookML is in an "experimental" stage, hence might not have the same priority as other Google products, or it's already sort of abandoned and will be deprecated and is not maintained - but those are subjective interpretation of why it may not have been fixed yet. 
+NotebookLM is in an "experimental" stage, hence might not have the same priority as other Google products, or it's already sort of abandoned and will be deprecated and is not maintained - but those are subjective interpretation of why it may not have been fixed yet. 
 
 ## Mitigations
 
@@ -113,10 +113,15 @@ Given that prompt injection can’t be mitigated safely, the best option is prob
 * Not render any images that are pointing to arbitrary domains
 * Not render any clickable hyperlinks to arbitrary domains either
 
-## Recommendations for users of NotebookML
+## Recommendations for users of NotebookLM
 
-Be aware of what data you process with Google NotebookML. Do not upload or process sensitive information or data from untrusted sources.
+Be aware of what data you process with Google NotebookLM. Do not upload or process sensitive information or data from untrusted sources.
 
 ## Conclusions
 
 One of the new demonstrations with this exploit is that a user who might only control their own information in a database, document or spreadsheet (like a profile description or name), might still perform a successful attack and access other data, and exploit other weaknesses (like rendering of images and links), which leads to data exfiltration.
+
+
+### Update - Correction
+
+I had incorrectly used the name NotebookML in the initial post, but the name of the product is actually **NotebookLM**. Thanks to Simon Willison for pointing that out.
