@@ -100,7 +100,9 @@ What is important to grasp is that an attacker could also ask the LLM to add new
 
 This vulnerability was responsibly disclosed to Google on December 4, 2023. Google confirmed the vulnerability, however so far no mitigation has been put in place. To follow responsible disclosure industry norms for vulnerabilities that are not fixed in reasonable time (e.g 3-4 months) this report is made public - it has been 132 days since reporting the issue to Google.
 
-NotebookLM is in an "experimental" stage, hence might not have the same priority as other Google products, or it's already sort of abandoned and will be deprecated and is not maintained - but those are subjective interpretation of why it may not have been fixed yet. 
+**Update: April 19 2024**
+
+The Google Labs team has reached out to me directly after this post was published. We had some back and forth, and I'm happy to say that a fix for the image data exfiltration vulnerability has been deployed now.
 
 ## Mitigations
 
@@ -122,6 +124,10 @@ Be aware of what data you process with Google NotebookLM. Do not upload or proce
 One of the new demonstrations with this exploit is that a user who might only control their own information in a database, document or spreadsheet (like a profile description or name), might still perform a successful attack and access other data, and exploit other weaknesses (like rendering of images and links), which leads to data exfiltration.
 
 
-### Update - Correction
+### Update 1 - Correction
 
 I had incorrectly used the name NotebookML in the initial post, but the name of the product is actually **NotebookLM**. Thanks to Simon Willison for pointing that out.
+
+### Update 2 - April 19 2024
+
+The Google Labs team has reached out to me directly after this post was published. We had some back and forth, and I'm happy to say that a fix for the image data exfiltration vulnerability has been deployed now.
