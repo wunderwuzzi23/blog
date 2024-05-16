@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>red teaming on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/red-teaming/</link>
+    <description>Recent content in red teaming on Embrace The Red</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
+    <lastBuildDate>Tue, 14 May 2024 15:00:00 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/red-teaming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Machine Learning Attack Series: Backdooring Keras Model Files</title>
+      <link>https://embracethered.com/blog/posts/2024/machine-learning-attack-series-keras-backdoor-model/</link>
+      <pubDate>Tue, 14 May 2024 15:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/machine-learning-attack-series-keras-backdoor-model/</guid>
+      <description>Adversaries frequently leverage supply chain attacks to gain a foothold. When it comes to machine learning we discussed model deserialization issues with Python Pickle files in the past which allows an adversary to run code when a model is loaded and used.
+In this post we will cover TensorFlow (specifically Keras) and backdoor the original Husky AI model from our Machine Learning Attack Series - Overview.
+
+The technique described is based on this post by Microsoft, named Abusing ML model file formats to create malware on AI systems.</description>
+    </item>
+    
+  </channel>
+</rss>

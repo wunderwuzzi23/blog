@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Mon, 15 Apr 2024 08:11:30 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 May 2024 00:00:11 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pivot to the Clouds: Cookie Theft in 2024</title>
+      <link>https://embracethered.com/blog/posts/2024/cookie-theft-in-2024-and-what-todo/</link>
+      <pubDate>Thu, 16 May 2024 00:00:11 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/cookie-theft-in-2024-and-what-todo/</guid>
+      <description>Recently Google published a blog about detecting browser data theft using Windows Event Logs.
+There are some good points in the post for defenders on how to detect misuse of DPAPI calls attempting to grab sensitive browser data.
+But, what about the Remote Debugging feature? This made me curious to revisit the state of the remote debugging feature of browsers for grabbing sensitive information, including cookies.
+We discussed cookie theft techniques in the past, even presented about it at the CCC some 5+ years ago and helped add the TTP to the MITRE ATT&amp;amp;CK matrix.</description>
+    </item>
+    
     <item>
       <title>Bobby Tables but with LLM Apps - Google NotebookLM Data Exfiltration</title>
       <link>https://embracethered.com/blog/posts/2024/google-notebook-ml-data-exfiltration/</link>
