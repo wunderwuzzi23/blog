@@ -181,7 +181,7 @@ Observe that it indeed detected the backdoor:
 
 **Excellent.** It's great to have a open source tool available to detect this (and other) issues.
 
-Severity levels are defined [here](https://github.com/protectai/modelscan/blob/main/docs/severity_levels.md). In our specific case, arbitrary code, include a file from a remote location is downloaded, which might make it higher severity, then medium. So, make sure to investigate medium flagged issues as well, to look for malicious instructions. 
+Severity levels are defined [here](https://github.com/protectai/modelscan/blob/main/docs/severity_levels.md). In our specific case, arbitrary code, include a file from a remote location is downloaded, which might make it higher severity then medium. So, make sure to investigate all flagged issues to look for malicious instructions. 
 
 **Takeaway:** I highly recommend integrating such tooling into your MLOps pipelines.
 

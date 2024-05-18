@@ -225,7 +225,7 @@ temp_model.save(&quot;huskymodel-lambda-backdoor&quot;)
 </code></pre><p>Observe that it indeed detected the backdoor:</p>
 <p><a href="/blog/images/2024/modelscan-output.png"><img src="/blog/images/2024/modelscan-output.png" alt="modelscan output"></a></p>
 <p><strong>Excellent.</strong> It&rsquo;s great to have a open source tool available to detect this (and other) issues.</p>
-<p>Severity levels are defined <a href="https://github.com/protectai/modelscan/blob/main/docs/severity_levels.md">here</a>. In our specific case, arbitrary code, include a file from a remote location is downloaded, which might make it higher severity, then medium. So, make sure to investigate medium flagged issues as well, to look for malicious instructions.</p>
+<p>Severity levels are defined <a href="https://github.com/protectai/modelscan/blob/main/docs/severity_levels.md">here</a>. In our specific case, arbitrary code, include a file from a remote location is downloaded, which might make it higher severity then medium. So, make sure to investigate all flagged issues to look for malicious instructions.</p>
 <p><strong>Takeaway:</strong> I highly recommend integrating such tooling into your MLOps pipelines.</p>
 <h2 id="mitigations-and-detections">Mitigations and Detections</h2>
 <ul>
