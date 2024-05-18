@@ -50,6 +50,7 @@ What a journey it has been. I wrote quite a bit about machine learning from a re
 * [Using Generative Adversarial Networks (GANs) to create fake husky images](/blog/posts/2020/machine-learning-attack-series-generative-adversarial-networks-gan/)
 * [Using Microsoft Counterfit to create adversarial examples](/blog/posts/2021/huskyai-using-azure-counterfit/)
 * [Backdooring Pickle Files](/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/)
+* [Backdooring Keras Model Files and How to Detect It](/blog/posts/2024/machine-learning-attack-series-keras-backdoor-model/)
 
 ## Miscellaneous
 

@@ -7,7 +7,52 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Thu, 16 May 2024 00:00:11 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 May 2024 06:00:00 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ai</title>
+      <link>https://embracethered.com/blog/tags/ai/</link>
+      <pubDate>Sat, 18 May 2024 06:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>huskyai</title>
+      <link>https://embracethered.com/blog/tags/huskyai/</link>
+      <pubDate>Sat, 18 May 2024 06:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/huskyai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Sat, 18 May 2024 06:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red teaming</title>
+      <link>https://embracethered.com/blog/tags/red-teaming/</link>
+      <pubDate>Sat, 18 May 2024 06:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/red-teaming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testing</title>
+      <link>https://embracethered.com/blog/tags/testing/</link>
+      <pubDate>Sat, 18 May 2024 06:00:00 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/testing/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>cookies</title>
       <link>https://embracethered.com/blog/tags/cookies/</link>
@@ -72,29 +117,11 @@
     </item>
     
     <item>
-      <title>machine learning</title>
-      <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Mon, 15 Apr 2024 08:11:30 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>conference</title>
       <link>https://embracethered.com/blog/tags/conference/</link>
       <pubDate>Sat, 13 Apr 2024 18:30:39 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/conference/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>testing</title>
-      <link>https://embracethered.com/blog/tags/testing/</link>
-      <pubDate>Sun, 07 Apr 2024 16:00:30 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/testing/</guid>
       <description></description>
     </item>
     
@@ -225,15 +252,6 @@
     </item>
     
     <item>
-      <title>huskyai</title>
-      <link>https://embracethered.com/blog/tags/huskyai/</link>
-      <pubDate>Thu, 27 Apr 2023 20:59:51 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/huskyai/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>offensiveml</title>
       <link>https://embracethered.com/blog/tags/offensiveml/</link>
       <pubDate>Wed, 29 Mar 2023 20:26:31 -0700</pubDate>
@@ -329,15 +347,6 @@
       <pubDate>Fri, 09 Sep 2022 16:30:29 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/supplychain/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ai</title>
-      <link>https://embracethered.com/blog/tags/ai/</link>
-      <pubDate>Sun, 28 Aug 2022 20:10:44 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ai/</guid>
       <description></description>
     </item>
     

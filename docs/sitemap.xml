@@ -2,22 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://embracethered.com/blog/tags/cookies/</loc>
-    <lastmod>2024-05-16T00:00:11-08:00</lastmod>
+    <loc>https://embracethered.com/blog/tags/ai/</loc>
+    <lastmod>2024-05-18T06:00:00-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2024-05-18T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/huskyai/</loc>
+    <lastmod>2024-05-18T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2024-05-18T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2024/machine-learning-attack-series-keras-backdoor-model/</loc>
+    <lastmod>2024-05-18T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2024-05-18T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/red-teaming/</loc>
+    <lastmod>2024-05-18T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2024-05-18T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/testing/</loc>
+    <lastmod>2024-05-18T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/cookies/</loc>
     <lastmod>2024-05-16T00:00:11-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/cookie-theft-in-2024-and-what-todo/</loc>
     <lastmod>2024-05-16T00:00:11-08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2024-05-16T00:00:11-08:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2024-05-16T00:00:11-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2024-05-16T00:00:11-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/threats/</loc>
@@ -38,9 +56,6 @@
     <loc>https://embracethered.com/blog/tags/llm/</loc>
     <lastmod>2024-04-15T08:11:30-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2024-04-15T08:11:30-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/conference/</loc>
     <lastmod>2024-04-13T18:30:39-07:00</lastmod>
   </url><url>
@@ -48,9 +63,6 @@
     <lastmod>2024-04-13T18:30:39-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/google-aistudio-mass-data-exfil/</loc>
-    <lastmod>2024-04-07T16:00:30-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/testing/</loc>
     <lastmod>2024-04-07T16:00:30-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/blue/</loc>
@@ -197,9 +209,6 @@
     <loc>https://embracethered.com/blog/posts/2023/prompt-injection-an-introduction-video/</loc>
     <lastmod>2023-05-10T07:00:40-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/huskyai/</loc>
-    <lastmod>2023-04-27T20:59:51-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/posts/2023/mlsecops-podcast-ai-red-teaming/</loc>
     <lastmod>2023-04-27T20:59:51-07:00</lastmod>
   </url><url>
@@ -277,9 +286,6 @@
   </url><url>
     <loc>https://embracethered.com/blog/tags/supplychain/</loc>
     <lastmod>2022-09-09T16:30:29-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/ai/</loc>
-    <lastmod>2022-08-28T20:10:44-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/</loc>
     <lastmod>2022-08-28T20:10:44-07:00</lastmod>
