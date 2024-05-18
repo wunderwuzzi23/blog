@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning Attack Series: Backdooring Keras Models and How to Detect It"
-date: 2024-05-18T06:00:00-07:00
+date: 2024-05-18T16:00:00-07:00
 draft: true
 tags: [
      "ai", "testing","machine learning", "red teaming", "huskyai"
@@ -11,13 +11,13 @@ twitter:
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
   title: "Machine Learning Attack Series: Backdooring Keras model files and how to detect it"
-  description: "Adversaries  leverage supply chain attacks to gain footholds. When it comes to machine learning we have to worry about deserialization attacks and how to detect them."
+  description: "Adversaries leverage supply chain attacks to gain footholds. When it comes to machine learning we have to worry about deserialization attacks and how to detect them."
   image: "https://embracethered.com/blog/images/2024/ml-attack-series-keras.png"
 ---
 
 This post is part of a [series](/blog/posts/2020/machine-learning-attack-series-overview/) about machine learning and artificial intelligence.
 
-Adversaries often leverage supply chain attacks to gain a foothold. When it comes to machine learning **model deserialization issues** can lead to arbitrary code execution. We explored this with [Python Pickle files in the past](https://embracethered.com/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/).
+Adversaries often leverage supply chain attacks to gain footholds. In machine learning **model deserialization issues** are a significant threat, and detecting them is crucial, as they can lead to arbitrary code execution. We explored this attack with [Python Pickle files in the past](https://embracethered.com/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/).
 
 In this post we are covering backdooring the original Keras `Husky AI` model from the [Machine Learning Attack Series](https://embracethered.com/blog/posts/2020/machine-learning-attack-series-overview/), and afterwards we investigate tooling to detect the backdoor.
 
@@ -29,7 +29,7 @@ The technique described is based on this post by Microsoft, named [Abusing ML mo
 
 ## Revisiting Husky AI 
 
-The original Husky AI model is stored as an `.h5` file. You can find it here on [Huggingface](https://huggingface.co/wunderwuzzi/huskyai/blob/main/models/huskymodel.h5).
+The original Husky AI model is stored as an `.h5` file. You can find it [here](https://github.com/wunderwuzzi23/huskyai).
 
 Note: If you want to follow along check out this [Notebook](https://github.com/wunderwuzzi23/mlattacks/blob/main/Machine_Learning_Attack_Series_Backdooring_Keras_model_files.ipynb) to follow along.
 
@@ -163,7 +163,7 @@ And the server log also shows the hostname that was retrieved:
 
 If you walk through the Notebook, you can find Python code to check for hidden lambda layers and Python byte code.
 
-A very practical detection you should consider is Protect AI's `modelscan` [tool](https://github.com/protectai/modelscan).
+A very practical detection you should consider is Protect AI's `ModelScan` [tool](https://github.com/protectai/modelscan).
 
 ```
 pip install modelscan
@@ -181,14 +181,14 @@ Observe that it indeed detected the backdoor:
 
 **Excellent.** It's great to have a open source tool available to detect this (and other) issues.
 
-Severity levels are defined [here](https://github.com/protectai/modelscan/blob/main/docs/severity_levels.md). In our specific case, arbitrary code, include a file from a remote location is downloaded, which might make it higher severity, then medium. So, make sure to investigate medium flagged issues as well, especially looking for malicious instructions. 
+Severity levels are defined [here](https://github.com/protectai/modelscan/blob/main/docs/severity_levels.md). In our specific case, arbitrary code, include a file from a remote location is downloaded, which might make it higher severity, then medium. So, make sure to investigate medium flagged issues as well, to look for malicious instructions. 
 
-**Takeaway:** Highly recommend integrating such tooling into your MLOps pipelines.
+**Takeaway:** I highly recommend integrating such tooling into your MLOps pipelines.
 
 ## Mitigations and Detections
 
 * Signature Validation: Use signatures and/or validate hashes of models (e.g. SHA-256 hash)
-* Audits: Ensure to audit model files from untrusted sources
+* Audits: Ensure auditing of model files from untrusted sources
 * Scanning and CI/CD: Explore scanning tools like Protect AI's [modelscan](https://github.com/protectai/modelscan) 
 * Isolation: Load untrusted models in isolated environments (if possible)
 
@@ -233,7 +233,7 @@ Johann.
 * [Backdooring Pickle Files](/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/)
 * [Machine Learning Attack Series: Backdooring Keras Model Files and How to Detect It](/blog/posts/2024/machine-learning-attack-series-keras-backdoor-model/)
 
-### Modelscan ouput
+### Modelscan Ouput
 
 ```
 --- Summary ---
