@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" ChatGPT: Hacking Memories with Prompt Injection &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2024-05-22T12:24:07-07:00" />
+  
+  <meta property="og:article:tag" content="ai" />
+  
+  <meta property="og:article:tag" content="testing" />
+  
+  <meta property="og:article:tag" content="machine learning" />
+  
+  <meta property="og:article:tag" content="ai injection" />
+  
+  <meta property="og:article:tag" content="chatgpt" />
+  
+  <meta property="og:article:tag" content="ttp" />
+  
+  
+
+  <title>
+     ChatGPT: Hacking Memories with Prompt Injection &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="ChatGPT: Writing Memories with Prompt Injection">
+<meta name="twitter:description" content="ChatGPT has the capability to store long term memories now. Unfortunately it is possible to invoke the tool to store memories directly during prompt injection. This post explores this attack via three avenues: Images, Connected Apps and Browsing.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2024/chatgpt-mem-thumbnail-small.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">ChatGPT: Hacking Memories with Prompt Injection</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2024-05-22T12:24:07-07:00">
+          May 22, 2024
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ai">#ai</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/testing">#testing</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ai-injection">#ai injection</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/chatgpt">#chatgpt</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p><a href="https://openai.com/index/memory-and-new-controls-for-chatgpt/">OpenAI recently introduced a memory feature in ChatGPT</a>, enabling it to recall information across sessions, creating a more personalized user experience.</p>
+<p>However, with this new capability comes risks. Imagine if an attacker could manipulate your AI assistant (chatbot or agent) to remember false information, bias or even instructions. This is not a futuristic scenario, the attack that makes this possible is called <a href="/blog/posts/2023/ai-injections-direct-and-indirect-prompt-injection-basics/">Indirect Prompt Injection</a>.</p>
+<p><img src="/blog/images/2024/chatgpt-mem-thumbnail-small.png" alt="chatgpt memory logo"></p>
+<p>In this post we will explore how memory features might be exploited by looking at three different attack avenues: <strong>Connected Apps</strong>, <strong>Uploaded Documents (Images)</strong> and <strong>Browsing</strong>.</p>
+<p>The memory feature is <a href="https://help.openai.com/en/articles/8983142-how-do-i-enable-or-disable-memory">on by default</a> in ChatGPT.</p>
+<p>By understanding these vulnerabilities, you&rsquo;ll be better equipped to protect your interactions with AI from potential manipulation and also built more secure applications yourself.</p>
+<h2 id="what-is-memory-in-an-llm-app">What is Memory in an LLM app?</h2>
+<p>Adding memory to an LLM is pretty neat. Memory means that an LLM application or agent stores things it encounters along the way for future reference. For instance, it might store your name, age, where you live, what you like, or what things you search for on the web.</p>
+<p>Long-term memory allows LLM apps to recall information across chats versus having only in context data available. This can enable a more personalized experience, for instance, your Chatbot can remember address you by name and better tailor answers to your needs.</p>
+<h2 id="memories-in-chatgpt">Memories in ChatGPT</h2>
+<p>ChatGPT now has memory, and when retrieving the system prompt, we can observe two things.</p>
+<h3 id="observation-1-the-bio-tool">Observation 1: The Bio Tool</h3>
+<p>In the beginning of the system prompt we see a new <code>bio</code> tool, which can be invoked with <code>to=bio</code> to remember information.</p>
+<p><img src="/blog/images/2024/chatgpt-bio-tool2.png" alt="to-bio"></p>
+<p>That specific string (<code>to=bio</code>) is note required, we can just write &ldquo;Please remember that I like cookies&rdquo;:</p>
+<p><a href="/blog/images/2024/chatgpt-memory-cookies.png"><img src="/blog/images/2024/chatgpt-memory-cookies.png" alt="to-bio"></a></p>
+<p>Please notice the &ldquo;Memory updated&rdquo; output in the above screenshot. This is the indication that ChatGPT interacted with it&rsquo;s memory tool.</p>
+<h3 id="observation-2-model-set-context">Observation 2: Model Set Context</h3>
+<p>When asking for the system prompt I observed that there is now a <code>Memory Set Context</code> section at the end. This is how ChatGPT injects memories into the chat context so that they are available during inference.</p>
+<p><a href="/blog/images/2024/chatgpt-model-set-context.png"><img src="/blog/images/2024/chatgpt-model-set-context.png" alt="Set Memory Context"></a></p>
+<p>There is also a date associated with each memory that ChatGPT displays, but that is not the date the memory was added as far as I can tell. I will updated this post once I do more testing to validate, I don&rsquo;t think the date is a hallucination as the date consistently shows up.</p>
+<p>Now, let&rsquo;s explore the prompt injection scenario more.</p>
+<h2 id="hacking-memory-with-prompt-injection">Hacking Memory with Prompt Injection?</h2>
+<p>The big question is, of course, if processing untrusted data trick ChatGPT to store fake memories?</p>
+<p>Such a vulnerability would allow an attacker to write misinformation, bias and even instructions into your ChatGPT&rsquo;s memories, and also <strong>create a form of persistence at the same time</strong>!</p>
+<p>I tried three variations on how untrusted data from a third party might enter the chat:</p>
+<ul>
+<li>Connected Apps</li>
+<li>Analyzing an Image (upload a file)</li>
+<li>Browsing with Bing</li>
+</ul>
+<p>Let&rsquo;s explore them in detail.</p>
+<h2 id="scenario-1-connected-apps">Scenario 1: Connected Apps</h2>
+<p>Yesterday I saw this new feature called <code>Connected App</code> which allows to access Google Drive and Microsoft OneDrive documents in a chat.</p>
+<p>And as it turns out, a Google Doc that is referenced in a conversation can indeed write memories.</p>
+<h3 id="video-demonstration">Video Demonstration</h3>
+<p>Here is a brief video showing the proof-of-concept from end to end.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/sdmmd5xTYmI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>And below you can find a step by step explanation.</p>
+<p><em>Note: The above video recording is a more complex scenario (way cooler by the way) as it writes more memories and hides the prompt injection attack within the document.</em></p>
+<h4 id="detailed-steps-of-the-proof-of-concept">Detailed steps of the proof-of-concept</h4>
+<p>The document containing the prompt injection:</p>
+<p><a href="/blog/images/2024/chatgpt-memory-instructions.png"><img src="/blog/images/2024/chatgpt-memory-instructions.png" alt="matrix memory instructs"></a></p>
+<p>The text is quite simple prompt injection and it&rsquo;s not embedded into a larger document. For that you can take a look at the video recording which has a more complex walk-through.</p>
+<p>Here is an example conversation that referenced a Google Doc:
+<a href="/blog/images/2024/chatgpt-memory-in-the-matrix.png"><img src="/blog/images/2024/chatgpt-memory-in-the-matrix.png" alt="matrix memory stored"></a></p>
+<p>The main point and mitigation for users is to watch out for the &ldquo;Memory updated&rdquo; message at the top of a response from ChatGPT. If that happens ensure to inspect the changes that have been made.</p>
+<p><a href="/blog/images/2024/chatgpt-memory-updated.png"><img src="/blog/images/2024/chatgpt-memory-updated.png" alt="matrix updated"></a></p>
+<p>And this is how the memory looks afterwards in the UI:
+<a href="/blog/images/2024/chatgpt-memory-details.png"><img src="/blog/images/2024/chatgpt-memory-details.png" alt="matrix output"></a></p>
+<p>All the instructions we had in our external document were followed and each bullet point became a memory!</p>
+<p>Just for completeness, here is a screenshot that shows a new conversation and you can see the memory is recalled and used:
+<a href="/blog/images/2024/chatgpt-memory-demo.png"><img src="/blog/images/2024/chatgpt-memory-demo.png" alt="matrix output"></a></p>
+<p>As you can see this works well, and persists into future conversation and chat sessions.</p>
+<p><strong>Important:</strong> Tool invocations also sometimes happen randomly (due to hallucinations).</p>
+<h2 id="scenario-2-analyzing-an-image-file-uploads">Scenario 2: Analyzing an Image (File Uploads)</h2>
+<p>Asking ChatGPT to analyze an image can lead to prompt injection, and it turns out that during such an attack, it&rsquo;s also possible to write memories.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/bRBtDiYZzMQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>Above video shows this end to end. This was the first demo I got working a while ago.</p>
+<h2 id="scenario-3-browsing-with-bing">Scenario 3: Browsing with Bing</h2>
+<p>The third option I tried was using &ldquo;Browsing with Bing&rdquo;. Interestingly, the attack did not work in that case. I observed ChatGPT connecting to the web server and retrieving the prompt injection payload, but it never directly invoked the memory tool. It&rsquo;s unclear if this is an actual security control (e.g it&rsquo;s not possible to invoke tools when browsing happens in a conversation turn, or if it&rsquo;s a mitigation that happens at the LLM layer and could have bypasses).</p>
+<p>On isn&rsquo;t limited to the same conversation turn however, and there is <a href="https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/">a technique that I explained a while ago</a> in the context of <code>Google Gemini</code>, involving delayed tool invocation by defining triggers instructions.</p>
+<p>Using this technique I got it to work a few times, but it was quite flaky.</p>
+<h2 id="disclosure">Disclosure</h2>
+<p>That untrusted data can lead to memory tool invocation was disclosed to OpenAI but it was closed as &ldquo;Model Safety Issue&rdquo;, and is not considered a security vulnerability. It would be great to better understand the reasoning for that decision, as <strong>it clearly impacts integrity of the memories stored in the user&rsquo;s profile and all future conversations</strong>.</p>
+<p>The &lsquo;Browsing with Bing&rsquo; tool appears to have mitigation for this kind of attack in place, so why not <strong>Connected Apps</strong> and <strong>Document/Image uploads</strong>?</p>
+<h2 id="recommendations">Recommendations</h2>
+<ul>
+<li>Do not automatically invoke tools once untrusted data, like documents from remote places, enter the chat.</li>
+<li>Additionally, if tools are invoked, ensure the user has the opportunity to decide if they want to proceed or not, and being able to inspect what memory is going to be stored.</li>
+<li>Limit the number of memories that can be inserted in one shot. I was able to create dozens of new, fake memories in one shot.</li>
+<li>For users: Regularly inspect the <code>Memory</code> of your ChatGPT to cross-check what it stored. The user can select which memories to delete, or delete all of them. It is also possible to <a href="https://help.openai.com/en/articles/8983142-how-do-i-enable-or-disable-memory">entirely disable the memory feature</a>.</li>
+</ul>
+<p>There is also the option to entirely disable the feature as it is on by default:
+<img src="/blog/images/2024/chatgpt-memory-screenshot.png" alt="matrix updated"></p>
+<p>That&rsquo;s it.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This post explored how LLM apps (and agents) that implement a memory tool to maintain long-term memories can be susceptible to prompt injection attacks. This allows untrusted data to interact with the memory tool and tamper stored memories.</p>
+<p>Specifically, we showed how real-world exploits can be performed against the memory feature of ChatGPT.</p>
+<p>As a user be aware that this feature is on by default!</p>
+<p>Whenever you see the &ldquo;Memory Updated&rdquo; icon appear be curious to inspect what information ChatGPT remembered, as this will impact all future conversations.</p>
+<p>Thanks for reading, hope it was interesting and helpful.</p>
+<p>Cheers.</p>
+<h2 id="appendix">Appendix</h2>
+<p>Tweet describing the image attack and video
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Watch how untrusted data can write fake memories, bias and instructions into your ChatGPT&#39;s brain. 🧠 🤖<a href="https://twitter.com/hashtag/promptinjection?src=hash&amp;ref_src=twsrc%5Etfw">#promptinjection</a> <a href="https://twitter.com/hashtag/llm?src=hash&amp;ref_src=twsrc%5Etfw">#llm</a> <a href="https://t.co/CWzF9ceDkS">pic.twitter.com/CWzF9ceDkS</a></p>&mdash; Johann Rehberger (@wunderwuzzi23) <a href="https://twitter.com/wunderwuzzi23/status/1791270770502742040?ref_src=twsrc%5Etfw">May 17, 2024</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://help.openai.com/en/articles/8983142-how-do-i-enable-or-disable-memory">How do I enable or disable memory?</a></li>
+<li><a href="https://openai.com/index/memory-and-new-controls-for-chatgpt/">Memory Announcemnet by OpenAI</a>]</li>
+<li><a href="https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/">Gemini: Delayed Tool Invocation</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2024/machine-learning-attack-series-keras-backdoor-model/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2024
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

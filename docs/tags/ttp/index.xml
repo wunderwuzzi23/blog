@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Thu, 16 May 2024 00:00:11 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ttp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 May 2024 12:24:07 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ttp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatGPT: Hacking Memories with Prompt Injection</title>
+      <link>https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/</link>
+      <pubDate>Wed, 22 May 2024 12:24:07 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/</guid>
+      <description>OpenAI recently introduced a memory feature in ChatGPT, enabling it to recall information across sessions, creating a more personalized user experience.
+However, with this new capability comes risks. Imagine if an attacker could manipulate your AI assistant (chatbot or agent) to remember false information, bias or even instructions. This is not a futuristic scenario, the attack that makes this possible is called Indirect Prompt Injection.
+In this post we will explore how memory features might be exploited by looking at three different attack avenues: Connected Apps, Uploaded Documents (Images) and Browsing.</description>
+    </item>
+    
     <item>
       <title>Pivot to the Clouds: Cookie Theft in 2024</title>
       <link>https://embracethered.com/blog/posts/2024/cookie-theft-in-2024-and-what-todo/</link>
