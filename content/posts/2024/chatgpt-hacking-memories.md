@@ -133,19 +133,36 @@ Above video shows this end to end. This was the first demo I got working a while
 
 ## Scenario 3: Browsing with Bing
 
-The third option I tried was using "Browsing with Bing". Interestingly, the attack did not work in that case. I observed ChatGPT connecting to the web server and retrieving the prompt injection payload, but it never directly invoked the memory tool. 
+The third option I tried was using the browsing tool. 
 
-It's unclear if this is an actual security control (e.g it's not possible to invoke tools in the same conversation turn when browsing is invoked), or if it is a mitigation that happens at the LLM layer and could have bypasses with funny prompting. This will require more research to determine.
+Interestingly, this attack did not work right away! I have my typical prompt injection strings hosted on my webserver and ChatGPT is connecting to the server and retrieves the data, **but it refused to invoke the memory tool!**
 
-One isn't limited to the same conversation turn however, and there is [a technique that I explained a while ago](https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/) in the context of `Google Gemini`, involving delayed tool invocation by defining triggers instructions. Using this technique I got it to work a few times, but it was quite flaky.
+In the past it was super easy to get prompt injection going via the browsing tool. I believe OpenAI started putting some mitigations in place here, which is good to see, and hopefully they apply those improvements to other places also.
+
+### Trying to understand what's going on
+
+Initially, I thought there would be an actual security control in place. For instance, its technically possible to create a mitigation and not have ChatGPT invoke tools in a conversation once untrusted data is in the chat, e.g. after browsing occurs.
+
+However, after some testing I was able to proof that is not the case. The current mitigation is possibly only happening at the LLM layer and can be bypassed with clever prompting tricks.
+
+### Techniques that worked 
+
+Spending more time on this probably will find better, more reliable, ways, but so far there are two techniques that worked:
+
+* **Tool Chaining:** When the webpage contains instructions to create an image, ChatGPT follows those instructions quite often. So, I figured why not chain two tool invocations together, create an image and also have ChatGPT remember that "I like ice cream and cookies"...
+
+[![browse to bio](/blog/images/2024/chatgpt-browse-to-bio-small.png)](/blog/images/2024/chatgpt-browse-to-bio-small.png)
+Yes, that worked! It's not working 100% (yet), but good enough to demonstrate the point.
+
+* **Delayed Exeuction:** The second technique requires multiple conversation turns, and is [a technique that I explained a while ago](https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/) in the context of `Google Gemini`. It involves delayed tool invocation by defining trigger signals or words. Using this technique I got it to work a few times, but it was flaky.
+
+*I want to do a seperate post about browsing based tool invocation techniques, once I have time to research a bit more what OpenAI did here. So, stay tuned for that.*
 
 ## Disclosure 
 
 That untrusted data can lead to memory tool invocation was disclosed to OpenAI, but the report was closed as "Model Safety Issue" and it is not considered a security vulnerability. 
 
-It would be great to better understand the reasoning for that decision, as **it clearly impacts integrity of the memories stored in the user's profile and all future conversations**. And as mentioned before, a prompt injection can also [delete all memories](/blog/images/2024/chatgpt-remove-all-memories.png).
-
-The 'Browsing with Bing' tool appears to have *some kind of mitigation* for such attacks, why not apply a similar mitigation for **Connected Apps** and **Document/Image uploads**?
+It would be great to better understand the reasoning for that decision, as **it clearly impacts integrity of the memories stored in the user's profile and all future conversations**. And as mentioned before, having untrusted data be able to add memories to your profile, and also [delete all your memories](/blog/images/2024/chatgpt-remove-all-memories.png) is a security vulnerability in my books and has nothing to do with "model safety".
 
 ## Recommendations
 
