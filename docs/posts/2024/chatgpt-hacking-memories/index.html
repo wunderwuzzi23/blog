@@ -165,7 +165,7 @@
 <h3 id="observation-2-model-set-context">Observation 2: Model Set Context</h3>
 <p>When asking for the system prompt I observed that there is now a <code>Memory Set Context</code> section at the end. This is how ChatGPT injects memories into the chat context so that they are available during inference.</p>
 <p><a href="/blog/images/2024/chatgpt-model-set-context.png"><img src="/blog/images/2024/chatgpt-model-set-context.png" alt="Set Memory Context"></a></p>
-<p>There is also a date associated with each memory that ChatGPT displays, but that is not the date the memory was added as far as I can tell. I will updated this post once I do more testing to validate, I don&rsquo;t think the date is a hallucination as the date consistently shows up.</p>
+<p>There is also a date associated with each memory that ChatGPT displays, but that is not the date the memory was added. I will update this post once I figure out what the date means, I don&rsquo;t think the date is a hallucination as it consistently shows up.</p>
 <p>Now, let&rsquo;s explore the prompt injection scenario more.</p>
 <h2 id="hacking-memory-with-prompt-injection">Hacking Memory with Prompt Injection?</h2>
 <p>The big question is, of course, if processing untrusted data trick ChatGPT to store fake memories?</p>
@@ -218,9 +218,9 @@
 <p>It&rsquo;s unclear if this is an actual security control (e.g it&rsquo;s not possible to invoke tools in the same conversation turn when browsing is invoked), or if it is a mitigation that happens at the LLM layer and could have bypasses with funny prompting. This will require more research to determine.</p>
 <p>One isn&rsquo;t limited to the same conversation turn however, and there is <a href="https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/">a technique that I explained a while ago</a> in the context of <code>Google Gemini</code>, involving delayed tool invocation by defining triggers instructions. Using this technique I got it to work a few times, but it was quite flaky.</p>
 <h2 id="disclosure">Disclosure</h2>
-<p>That untrusted data can lead to memory tool invocation was disclosed to OpenAI, but it was closed as &ldquo;Model Safety Issue&rdquo;, as it is not considered a security vulnerability.</p>
-<p>It would be great to better understand the reasoning for that decision, as <strong>it clearly impacts integrity of the memories stored in the user&rsquo;s profile and all future conversations</strong>. And as mentioned a prompt injection can also <a href="/blog/images/2024/chatgpt-remove-all-memories.png">delete all memories</a>.</p>
-<p>The &lsquo;Browsing with Bing&rsquo; tool appears to have <em>some kind of mitigation</em> for this kind of attack in place, so why not apply a similar mitigation for <strong>Connected Apps</strong> and <strong>Document/Image uploads</strong>?</p>
+<p>That untrusted data can lead to memory tool invocation was disclosed to OpenAI, but the report was closed as &ldquo;Model Safety Issue&rdquo; and it is not considered a security vulnerability.</p>
+<p>It would be great to better understand the reasoning for that decision, as <strong>it clearly impacts integrity of the memories stored in the user&rsquo;s profile and all future conversations</strong>. And as mentioned before, a prompt injection can also <a href="/blog/images/2024/chatgpt-remove-all-memories.png">delete all memories</a>.</p>
+<p>The &lsquo;Browsing with Bing&rsquo; tool appears to have <em>some kind of mitigation</em> for such attacks, why not apply a similar mitigation for <strong>Connected Apps</strong> and <strong>Document/Image uploads</strong>?</p>
 <h2 id="recommendations">Recommendations</h2>
 <ul>
 <li>Do not automatically invoke tools once untrusted data, like documents from remote places, enter the chat.</li>

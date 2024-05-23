@@ -60,7 +60,7 @@ When asking for the system prompt I observed that there is now a `Memory Set Con
 [![Set Memory Context](/blog/images/2024/chatgpt-model-set-context.png)](/blog/images/2024/chatgpt-model-set-context.png)
 
 
-There is also a date associated with each memory that ChatGPT displays, but that is not the date the memory was added as far as I can tell. I will updated this post once I do more testing to validate, I don't think the date is a hallucination as the date consistently shows up.
+There is also a date associated with each memory that ChatGPT displays, but that is not the date the memory was added. I will update this post once I figure out what the date means, I don't think the date is a hallucination as it consistently shows up.
 
 Now, let's explore the prompt injection scenario more.
 
@@ -141,11 +141,11 @@ One isn't limited to the same conversation turn however, and there is [a techniq
 
 ## Disclosure 
 
-That untrusted data can lead to memory tool invocation was disclosed to OpenAI, but it was closed as "Model Safety Issue", as it is not considered a security vulnerability. 
+That untrusted data can lead to memory tool invocation was disclosed to OpenAI, but the report was closed as "Model Safety Issue" and it is not considered a security vulnerability. 
 
-It would be great to better understand the reasoning for that decision, as **it clearly impacts integrity of the memories stored in the user's profile and all future conversations**. And as mentioned a prompt injection can also [delete all memories](/blog/images/2024/chatgpt-remove-all-memories.png).
+It would be great to better understand the reasoning for that decision, as **it clearly impacts integrity of the memories stored in the user's profile and all future conversations**. And as mentioned before, a prompt injection can also [delete all memories](/blog/images/2024/chatgpt-remove-all-memories.png).
 
-The 'Browsing with Bing' tool appears to have *some kind of mitigation* for this kind of attack in place, so why not apply a similar mitigation for **Connected Apps** and **Document/Image uploads**?
+The 'Browsing with Bing' tool appears to have *some kind of mitigation* for such attacks, why not apply a similar mitigation for **Connected Apps** and **Document/Image uploads**?
 
 ## Recommendations
 
@@ -156,7 +156,6 @@ The 'Browsing with Bing' tool appears to have *some kind of mitigation* for this
 * Users should regularly inspect the `Memory` of your ChatGPT to cross-check what got stored. Look at the "Memory updated" information and click through it to see what was stored. You can select which memories to delete, or delete all of them. 
 * It is also possible to [entirely disable the memory feature](https://help.openai.com/en/articles/8983142-how-do-i-enable-or-disable-memory)
 * And as always, you cannot trust the output of a LLM, even if there is no corrupted memory or adversary in the loop it will at times produce incorrect results
-
 
 That's it.
 
