@@ -137,7 +137,7 @@ The third option I tried was using the browsing tool.
 
 Interestingly, this attack did not work right away! I have my typical prompt injection strings hosted on my webserver and ChatGPT is connecting to the server and retrieves the data, **but it refused to invoke the memory tool!**
 
-In the past it was super easy to get prompt injection going via the browsing tool. I believe OpenAI started putting some mitigations in place here, which is good to see, and hopefully they apply those improvements to other places also.
+In the past it was super easy to get prompt injection going via the browsing tool. I believe OpenAI started quietly putting mitigations in place here. Which is good to see, and hopefully they apply those improvements to other places also.
 
 ### Trying to understand what's going on
 
@@ -149,10 +149,10 @@ However, after some testing I was able to proof that is not the case. The curren
 
 Spending more time on this probably will find better, more reliable, ways, but so far there are two techniques that worked:
 
-* **Tool Chaining:** When the webpage contains instructions to create an image, ChatGPT follows those instructions quite often. So, I figured why not chain two tool invocations together, create an image and also have ChatGPT remember that "I like ice cream and cookies"...
+* **Tool Chaining:** When the web page contains instructions to create an image, ChatGPT follows those instructions quite often. So, I figured why not chain two tool invocations together, create an image and also have ChatGPT remember that "I like ice cream and cookies"...
 
 [![browse to bio](/blog/images/2024/chatgpt-browse-to-bio-small.png)](/blog/images/2024/chatgpt-browse-to-bio-small.png)
-Yes, that worked! It's not working 100% (yet), but good enough to demonstrate the point and this means that there are probably also simpler, classical jailbreaks, that will work.
+Yes, that worked! It's not working 100% (yet), but it worked at least 2-3 times. **My guess is that OpenAI uses a second LLM call to check if a query or response is containing instructions.** So, there might also be other prompting tricks that will work.
 
 * **Delayed Exeuction:** The second technique requires multiple conversation turns, and is [a technique that I explained a while ago](https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/) in the context of `Google Gemini`. It involves delayed tool invocation by defining trigger signals or words. Using this technique I got it to work a few times, but it was flaky.
 
@@ -163,6 +163,8 @@ Yes, that worked! It's not working 100% (yet), but good enough to demonstrate th
 That untrusted data can lead to memory tool invocation was disclosed to OpenAI, but the report was closed as "Model Safety Issue" and it is not considered a security vulnerability. 
 
 It would be great to better understand the reasoning for that decision, as **it clearly impacts integrity of the memories stored in the user's profile and all future conversations**. And as mentioned before, having untrusted data be able to add memories to your profile, and also [delete all your memories](/blog/images/2024/chatgpt-remove-all-memories.png) is a security vulnerability in my books and has nothing to do with "model safety".
+
+For the browsing tool (where we saw many demo prompt injection exploits last year) OpenAI seems to have quietly added mitigations. Although these mitigations are not 100% effective as tools can still be invoked during an attack. But it's unclear why no mitigation at all exists for other areas were untrusted data is processed, like with images and Connected Apps.
 
 ## Recommendations
 

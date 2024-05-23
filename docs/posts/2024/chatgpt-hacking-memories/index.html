@@ -216,17 +216,17 @@
 <h2 id="scenario-3-browsing-with-bing">Scenario 3: Browsing with Bing</h2>
 <p>The third option I tried was using the browsing tool.</p>
 <p>Interestingly, this attack did not work right away! I have my typical prompt injection strings hosted on my webserver and ChatGPT is connecting to the server and retrieves the data, <strong>but it refused to invoke the memory tool!</strong></p>
-<p>In the past it was super easy to get prompt injection going via the browsing tool. I believe OpenAI started putting some mitigations in place here, which is good to see, and hopefully they apply those improvements to other places also.</p>
+<p>In the past it was super easy to get prompt injection going via the browsing tool. I believe OpenAI started quietly putting mitigations in place here. Which is good to see, and hopefully they apply those improvements to other places also.</p>
 <h3 id="trying-to-understand-whats-going-on">Trying to understand what&rsquo;s going on</h3>
 <p>Initially, I thought there would be an actual security control in place. For instance, its technically possible to create a mitigation and not have ChatGPT invoke tools in a conversation once untrusted data is in the chat, e.g. after browsing occurs.</p>
 <p>However, after some testing I was able to proof that is not the case. The current mitigation is possibly only happening at the LLM layer and can be bypassed with clever prompting tricks.</p>
 <h3 id="techniques-that-worked">Techniques that worked</h3>
 <p>Spending more time on this probably will find better, more reliable, ways, but so far there are two techniques that worked:</p>
 <ul>
-<li><strong>Tool Chaining:</strong> When the webpage contains instructions to create an image, ChatGPT follows those instructions quite often. So, I figured why not chain two tool invocations together, create an image and also have ChatGPT remember that &ldquo;I like ice cream and cookies&rdquo;&hellip;</li>
+<li><strong>Tool Chaining:</strong> When the web page contains instructions to create an image, ChatGPT follows those instructions quite often. So, I figured why not chain two tool invocations together, create an image and also have ChatGPT remember that &ldquo;I like ice cream and cookies&rdquo;&hellip;</li>
 </ul>
 <p><a href="/blog/images/2024/chatgpt-browse-to-bio-small.png"><img src="/blog/images/2024/chatgpt-browse-to-bio-small.png" alt="browse to bio"></a>
-Yes, that worked! It&rsquo;s not working 100% (yet), but good enough to demonstrate the point and this means that there are probably also simpler, classical jailbreaks, that will work.</p>
+Yes, that worked! It&rsquo;s not working 100% (yet), but it worked at least 2-3 times. <strong>My guess is that OpenAI uses a second LLM call to check if a query or response is containing instructions.</strong> So, there might also be other prompting tricks that will work.</p>
 <ul>
 <li><strong>Delayed Exeuction:</strong> The second technique requires multiple conversation turns, and is <a href="https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/">a technique that I explained a while ago</a> in the context of <code>Google Gemini</code>. It involves delayed tool invocation by defining trigger signals or words. Using this technique I got it to work a few times, but it was flaky.</li>
 </ul>
@@ -234,6 +234,7 @@ Yes, that worked! It&rsquo;s not working 100% (yet), but good enough to demonstr
 <h2 id="disclosure">Disclosure</h2>
 <p>That untrusted data can lead to memory tool invocation was disclosed to OpenAI, but the report was closed as &ldquo;Model Safety Issue&rdquo; and it is not considered a security vulnerability.</p>
 <p>It would be great to better understand the reasoning for that decision, as <strong>it clearly impacts integrity of the memories stored in the user&rsquo;s profile and all future conversations</strong>. And as mentioned before, having untrusted data be able to add memories to your profile, and also <a href="/blog/images/2024/chatgpt-remove-all-memories.png">delete all your memories</a> is a security vulnerability in my books and has nothing to do with &ldquo;model safety&rdquo;.</p>
+<p>For the browsing tool (where we saw many demo prompt injection exploits last year) OpenAI seems to have quietly added mitigations. Although these mitigations are not 100% effective as tools can still be invoked during an attack. But it&rsquo;s unclear why no mitigation at all exists for other areas were untrusted data is processed, like with images and Connected Apps.</p>
 <h2 id="recommendations">Recommendations</h2>
 <ul>
 <li>Do not automatically invoke tools once untrusted data, like documents from remote places, enter the chat.</li>
