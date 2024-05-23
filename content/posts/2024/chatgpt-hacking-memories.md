@@ -152,11 +152,11 @@ Spending more time on this probably will find better, more reliable, ways, but s
 * **Tool Chaining:** When the webpage contains instructions to create an image, ChatGPT follows those instructions quite often. So, I figured why not chain two tool invocations together, create an image and also have ChatGPT remember that "I like ice cream and cookies"...
 
 [![browse to bio](/blog/images/2024/chatgpt-browse-to-bio-small.png)](/blog/images/2024/chatgpt-browse-to-bio-small.png)
-Yes, that worked! It's not working 100% (yet), but good enough to demonstrate the point.
+Yes, that worked! It's not working 100% (yet), but good enough to demonstrate the point and this means that there are probably also simpler, classical jailbreaks, that will work.
 
 * **Delayed Exeuction:** The second technique requires multiple conversation turns, and is [a technique that I explained a while ago](https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/) in the context of `Google Gemini`. It involves delayed tool invocation by defining trigger signals or words. Using this technique I got it to work a few times, but it was flaky.
 
-*I want to do a seperate post about browsing based tool invocation techniques, once I have time to research a bit more what OpenAI did here. So, stay tuned for that.*
+*This is getting a bit long and I want to do a seperate post about browsing based tool invocation techniques, once I have time to research a bit more what OpenAI did here. So, stay tuned for that.*
 
 ## Disclosure 
 

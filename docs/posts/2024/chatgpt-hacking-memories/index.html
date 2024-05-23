@@ -226,11 +226,11 @@
 <li><strong>Tool Chaining:</strong> When the webpage contains instructions to create an image, ChatGPT follows those instructions quite often. So, I figured why not chain two tool invocations together, create an image and also have ChatGPT remember that &ldquo;I like ice cream and cookies&rdquo;&hellip;</li>
 </ul>
 <p><a href="/blog/images/2024/chatgpt-browse-to-bio-small.png"><img src="/blog/images/2024/chatgpt-browse-to-bio-small.png" alt="browse to bio"></a>
-Yes, that worked! It&rsquo;s not working 100% (yet), but good enough to demonstrate the point.</p>
+Yes, that worked! It&rsquo;s not working 100% (yet), but good enough to demonstrate the point and this means that there are probably also simpler, classical jailbreaks, that will work.</p>
 <ul>
 <li><strong>Delayed Exeuction:</strong> The second technique requires multiple conversation turns, and is <a href="https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/">a technique that I explained a while ago</a> in the context of <code>Google Gemini</code>. It involves delayed tool invocation by defining trigger signals or words. Using this technique I got it to work a few times, but it was flaky.</li>
 </ul>
-<p><em>I want to do a seperate post about browsing based tool invocation techniques, once I have time to research a bit more what OpenAI did here. So, stay tuned for that.</em></p>
+<p><em>This is getting a bit long and I want to do a seperate post about browsing based tool invocation techniques, once I have time to research a bit more what OpenAI did here. So, stay tuned for that.</em></p>
 <h2 id="disclosure">Disclosure</h2>
 <p>That untrusted data can lead to memory tool invocation was disclosed to OpenAI, but the report was closed as &ldquo;Model Safety Issue&rdquo; and it is not considered a security vulnerability.</p>
 <p>It would be great to better understand the reasoning for that decision, as <strong>it clearly impacts integrity of the memories stored in the user&rsquo;s profile and all future conversations</strong>. And as mentioned before, having untrusted data be able to add memories to your profile, and also <a href="/blog/images/2024/chatgpt-remove-all-memories.png">delete all your memories</a> is a security vulnerability in my books and has nothing to do with &ldquo;model safety&rdquo;.</p>
