@@ -15,8 +15,7 @@
       
       <guid>https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/</guid>
       <description>OpenAI recently introduced a memory feature in ChatGPT, enabling it to recall information across sessions, creating a more personalized user experience.
-However, with this new capability comes risks. Imagine if an attacker could manipulate your AI assistant (chatbot or agent) to remember false information, bias or even instructions. This is not a futuristic scenario, the attack that makes this possible is called Indirect Prompt Injection.
-In this post we will explore how memory features might be exploited by looking at three different attack avenues: Connected Apps, Uploaded Documents (Images) and Browsing.</description>
+However, with this new capability comes risks. Imagine if an attacker could manipulate your AI assistant (chatbot or agent) to remember false information, bias or even instructions, or delete all your memories! This is not a futuristic scenario, the attack that makes this possible is called Indirect Prompt Injection.</description>
     </item>
     
     <item>

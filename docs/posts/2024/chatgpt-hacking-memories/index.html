@@ -44,9 +44,9 @@
   
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wunderwuzzi23">
-<meta name="twitter:title" content="ChatGPT: Writing Memories with Prompt Injection">
+<meta name="twitter:title" content="ChatGPT: Hacking Memories with Prompt Injection">
 <meta name="twitter:description" content="ChatGPT has the capability to store long term memories now. Unfortunately it is possible to invoke the tool to store memories directly during prompt injection. This post explores this attack via three avenues: Images, Connected Apps and Browsing.">
-<meta name="twitter:image" content="https://embracethered.com/blog/images/2024/chatgpt-mem-thumbnail-small.png">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2024/chatgpt-mem-thumbnail-pi.png">
 
 <meta name="twitter:creator" content="@wunderwuzzi23">
 
@@ -145,22 +145,23 @@
   </header>
   <section>
     <p><a href="https://openai.com/index/memory-and-new-controls-for-chatgpt/">OpenAI recently introduced a memory feature in ChatGPT</a>, enabling it to recall information across sessions, creating a more personalized user experience.</p>
-<p>However, with this new capability comes risks. Imagine if an attacker could manipulate your AI assistant (chatbot or agent) to remember false information, bias or even instructions. This is not a futuristic scenario, the attack that makes this possible is called <a href="/blog/posts/2023/ai-injections-direct-and-indirect-prompt-injection-basics/">Indirect Prompt Injection</a>.</p>
-<p><img src="/blog/images/2024/chatgpt-mem-thumbnail-small.png" alt="chatgpt memory logo"></p>
+<p>However, with this new capability comes risks. Imagine if an attacker could manipulate your AI assistant (chatbot or agent) to remember false information, bias or even instructions, or delete all your memories! This is not a futuristic scenario, the attack that makes this possible is called <a href="/blog/posts/2023/ai-injections-direct-and-indirect-prompt-injection-basics/">Indirect Prompt Injection</a>.</p>
+<p><img src="/blog/images/2024/chatgpt-mem-thumbnail-pi.png" alt="chatgpt memory logo"></p>
 <p>In this post we will explore how memory features might be exploited by looking at three different attack avenues: <strong>Connected Apps</strong>, <strong>Uploaded Documents (Images)</strong> and <strong>Browsing</strong>.</p>
 <p>The memory feature is <a href="https://help.openai.com/en/articles/8983142-how-do-i-enable-or-disable-memory">on by default</a> in ChatGPT.</p>
 <p>By understanding these vulnerabilities, you&rsquo;ll be better equipped to protect your interactions with AI from potential manipulation and also built more secure applications yourself.</p>
 <h2 id="what-is-memory-in-an-llm-app">What is Memory in an LLM app?</h2>
 <p>Adding memory to an LLM is pretty neat. Memory means that an LLM application or agent stores things it encounters along the way for future reference. For instance, it might store your name, age, where you live, what you like, or what things you search for on the web.</p>
-<p>Long-term memory allows LLM apps to recall information across chats versus having only in context data available. This can enable a more personalized experience, for instance, your Chatbot can remember address you by name and better tailor answers to your needs.</p>
+<p>Long-term memory allows LLM apps to recall information across chats versus having only in context data available. This can enable a more personalized experience, for instance, your Chatbot can remember and call you by your name and better tailor answers to your needs.</p>
+<p>It is a useful feature in LLM applications.</p>
 <h2 id="memories-in-chatgpt">Memories in ChatGPT</h2>
 <p>ChatGPT now has memory, and when retrieving the system prompt, we can observe two things.</p>
 <h3 id="observation-1-the-bio-tool">Observation 1: The Bio Tool</h3>
 <p>In the beginning of the system prompt we see a new <code>bio</code> tool, which can be invoked with <code>to=bio</code> to remember information.</p>
 <p><img src="/blog/images/2024/chatgpt-bio-tool2.png" alt="to-bio"></p>
-<p>That specific string (<code>to=bio</code>) is note required, we can just write &ldquo;Please remember that I like cookies&rdquo;:</p>
+<p>That specific string (<code>to=bio</code>) is not required, we can just write &ldquo;Please remember that I like cookies&rdquo;:</p>
 <p><a href="/blog/images/2024/chatgpt-memory-cookies.png"><img src="/blog/images/2024/chatgpt-memory-cookies.png" alt="to-bio"></a></p>
-<p>Please notice the &ldquo;Memory updated&rdquo; output in the above screenshot. This is the indication that ChatGPT interacted with it&rsquo;s memory tool.</p>
+<p>Please notice the &ldquo;Memory updated&rdquo; output in the above screenshot. This means that ChatGPT interacted with it&rsquo;s memory tool. As we will see below, this is the primary indicator that something unwanted might have happened. Its possible to click on the &ldquo;Memory updated&rdquo; area to inspect what happened!</p>
 <h3 id="observation-2-model-set-context">Observation 2: Model Set Context</h3>
 <p>When asking for the system prompt I observed that there is now a <code>Memory Set Context</code> section at the end. This is how ChatGPT injects memories into the chat context so that they are available during inference.</p>
 <p><a href="/blog/images/2024/chatgpt-model-set-context.png"><img src="/blog/images/2024/chatgpt-model-set-context.png" alt="Set Memory Context"></a></p>
@@ -187,8 +188,8 @@
 </div>
 
 <p>And below you can find a step by step explanation.</p>
-<p><em>Note: The above video recording is a more complex scenario (way cooler by the way) as it writes more memories and hides the prompt injection attack within the document.</em></p>
 <h4 id="detailed-steps-of-the-proof-of-concept">Detailed steps of the proof-of-concept</h4>
+<p><em>Note: The video recording above is a more complex scenario (way cooler by the way) than this explanation here. The video writes more memories and hides the prompt injection attack within the document.</em></p>
 <p>The document containing the prompt injection:</p>
 <p><a href="/blog/images/2024/chatgpt-memory-instructions.png"><img src="/blog/images/2024/chatgpt-memory-instructions.png" alt="matrix memory instructs"></a></p>
 <p>The text is quite simple prompt injection and it&rsquo;s not embedded into a larger document. For that you can take a look at the video recording which has a more complex walk-through.</p>
@@ -203,6 +204,7 @@
 <a href="/blog/images/2024/chatgpt-memory-demo.png"><img src="/blog/images/2024/chatgpt-memory-demo.png" alt="matrix output"></a></p>
 <p>As you can see this works well, and persists into future conversation and chat sessions.</p>
 <p><strong>Important:</strong> Tool invocations also sometimes happen randomly (due to hallucinations).</p>
+<p><strong>Finally, it is also possible to delete all existing memories with a simple prompt injection.</strong></p>
 <h2 id="scenario-2-analyzing-an-image-file-uploads">Scenario 2: Analyzing an Image (File Uploads)</h2>
 <p>Asking ChatGPT to analyze an image can lead to prompt injection, and it turns out that during such an attack, it&rsquo;s also possible to write memories.</p>
 
@@ -212,27 +214,28 @@
 
 <p>Above video shows this end to end. This was the first demo I got working a while ago.</p>
 <h2 id="scenario-3-browsing-with-bing">Scenario 3: Browsing with Bing</h2>
-<p>The third option I tried was using &ldquo;Browsing with Bing&rdquo;. Interestingly, the attack did not work in that case. I observed ChatGPT connecting to the web server and retrieving the prompt injection payload, but it never directly invoked the memory tool. It&rsquo;s unclear if this is an actual security control (e.g it&rsquo;s not possible to invoke tools when browsing happens in a conversation turn, or if it&rsquo;s a mitigation that happens at the LLM layer and could have bypasses).</p>
-<p>On isn&rsquo;t limited to the same conversation turn however, and there is <a href="https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/">a technique that I explained a while ago</a> in the context of <code>Google Gemini</code>, involving delayed tool invocation by defining triggers instructions.</p>
-<p>Using this technique I got it to work a few times, but it was quite flaky.</p>
+<p>The third option I tried was using &ldquo;Browsing with Bing&rdquo;. Interestingly, the attack did not work in that case. I observed ChatGPT connecting to the web server and retrieving the prompt injection payload, but it never directly invoked the memory tool.</p>
+<p>It&rsquo;s unclear if this is an actual security control (e.g it&rsquo;s not possible to invoke tools in the same conversation turn when browsing is invoked), or if it is a mitigation that happens at the LLM layer and could have bypasses with funny prompting. This will require more research to determine.</p>
+<p>One isn&rsquo;t limited to the same conversation turn however, and there is <a href="https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/">a technique that I explained a while ago</a> in the context of <code>Google Gemini</code>, involving delayed tool invocation by defining triggers instructions. Using this technique I got it to work a few times, but it was quite flaky.</p>
 <h2 id="disclosure">Disclosure</h2>
-<p>That untrusted data can lead to memory tool invocation was disclosed to OpenAI but it was closed as &ldquo;Model Safety Issue&rdquo;, and is not considered a security vulnerability. It would be great to better understand the reasoning for that decision, as <strong>it clearly impacts integrity of the memories stored in the user&rsquo;s profile and all future conversations</strong>.</p>
-<p>The &lsquo;Browsing with Bing&rsquo; tool appears to have mitigation for this kind of attack in place, so why not <strong>Connected Apps</strong> and <strong>Document/Image uploads</strong>?</p>
+<p>That untrusted data can lead to memory tool invocation was disclosed to OpenAI, but it was closed as &ldquo;Model Safety Issue&rdquo;, as it is not considered a security vulnerability.</p>
+<p>It would be great to better understand the reasoning for that decision, as <strong>it clearly impacts integrity of the memories stored in the user&rsquo;s profile and all future conversations</strong>. And as mentioned a prompt injection can also <a href="/blog/images/2024/chatgpt-remove-all-memories.png">delete all memories</a>.</p>
+<p>The &lsquo;Browsing with Bing&rsquo; tool appears to have <em>some kind of mitigation</em> for this kind of attack in place, so why not apply a similar mitigation for <strong>Connected Apps</strong> and <strong>Document/Image uploads</strong>?</p>
 <h2 id="recommendations">Recommendations</h2>
 <ul>
 <li>Do not automatically invoke tools once untrusted data, like documents from remote places, enter the chat.</li>
-<li>Additionally, if tools are invoked, ensure the user has the opportunity to decide if they want to proceed or not, and being able to inspect what memory is going to be stored.</li>
+<li>If tools are invoked automatically under unsafe conditions, ensure the user has the opportunity to decide if they want to proceed or not and can clearly see the result and implications of the action upfront.</li>
+<li>For dangerous operations, like deleting all memories, always require user confirmation.</li>
 <li>Limit the number of memories that can be inserted in one shot. I was able to create dozens of new, fake memories in one shot.</li>
-<li>For users: Regularly inspect the <code>Memory</code> of your ChatGPT to cross-check what it stored. The user can select which memories to delete, or delete all of them. It is also possible to <a href="https://help.openai.com/en/articles/8983142-how-do-i-enable-or-disable-memory">entirely disable the memory feature</a>.</li>
+<li>Users should regularly inspect the <code>Memory</code> of your ChatGPT to cross-check what got stored. Look at the &ldquo;Memory updated&rdquo; information and click through it to see what was stored. You can select which memories to delete, or delete all of them.</li>
+<li>It is also possible to <a href="https://help.openai.com/en/articles/8983142-how-do-i-enable-or-disable-memory">entirely disable the memory feature</a></li>
+<li>And as always, you cannot trust the output of a LLM, even if there is no corrupted memory or adversary in the loop it will at times produce incorrect results</li>
 </ul>
-<p>There is also the option to entirely disable the feature as it is on by default:
-<img src="/blog/images/2024/chatgpt-memory-screenshot.png" alt="matrix updated"></p>
 <p>That&rsquo;s it.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>This post explored how LLM apps (and agents) that implement a memory tool to maintain long-term memories can be susceptible to prompt injection attacks. This allows untrusted data to interact with the memory tool and tamper stored memories.</p>
-<p>Specifically, we showed how real-world exploits can be performed against the memory feature of ChatGPT.</p>
-<p>As a user be aware that this feature is on by default!</p>
-<p>Whenever you see the &ldquo;Memory Updated&rdquo; icon appear be curious to inspect what information ChatGPT remembered, as this will impact all future conversations.</p>
+<p>This post explored how LLM apps (and agents) that implement a memory tool to maintain a long-term history of relevant information can be susceptible to prompt injection attacks. This allows untrusted data to interact with the memory tool and perform its operations, like <strong>adding new fake memories or deleting existing ones</strong>.</p>
+<p>Specifically, we showed real-world POCs exploits against the memory feature of ChatGPT.</p>
+<p>As a user be aware that this feature is on by default, and whenever you see the &ldquo;Memory updated&rdquo; icon, be curious to inspect what information ChatGPT remembered or deleted, as this will impact all future conversations.</p>
 <p>Thanks for reading, hope it was interesting and helpful.</p>
 <p>Cheers.</p>
 <h2 id="appendix">Appendix</h2>
@@ -241,10 +244,15 @@
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </p>
+<h3 id="poc-for-tampering-with-memories">POC for tampering with memories</h3>
+<p><a href="(/blog/images/2024/chatgpt-remove-all-memories.png)"><img src="/blog/images/2024/chatgpt-remove-all-memories.png" alt="delete all memories"></a></p>
+<h3 id="memory-feature-configuration">Memory Feature Configuration</h3>
+<p>There is also the option to entirely disable the feature as it is on by default:
+<img src="/blog/images/2024/chatgpt-memory-screenshot.png" alt="matrix updated"></p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://help.openai.com/en/articles/8983142-how-do-i-enable-or-disable-memory">How do I enable or disable memory?</a></li>
-<li><a href="https://openai.com/index/memory-and-new-controls-for-chatgpt/">Memory Announcemnet by OpenAI</a>]</li>
+<li><a href="https://openai.com/index/memory-and-new-controls-for-chatgpt/">Memory Announcement by OpenAI</a></li>
 <li><a href="https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/">Gemini: Delayed Tool Invocation</a></li>
 </ul>
 

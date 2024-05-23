@@ -142,6 +142,7 @@
   <section>
     <p>Your Code Interpreter sandbox, also known as Advanced Data Analysis sessions, are shared between private and public GPTs. Yes, your actual compute container and its storage is shared. Each user gets their own isolated container, but if a user uses multiple GPTs and stores files in Code Interpreter <strong>all GPTs can access (and also overwrite) each others files</strong>.</p>
 <p>This is true also for files uploaded/created with private GPTs and ChatGPT itself.</p>
+<p><strong>Update:</strong> This vulnerability has been addressed by OpenAI in May 2024.</p>
 <p><a href="/blog/images/2024/lack-of-isolation-gpts.png"><img src="/blog/images/2024/lack-of-isolation-gpts.png" alt="Lack of Isolation"></a></p>
 <h2 id="simple-repro">Simple Repro</h2>
 <p>The easiest way to repro this is to start a new ChatGPT chat, then upload a file or ask it to create a new file. You can ask for its <code>hostname</code> as a check, and <code>list files in /mnt/data</code> to view them.</p>
@@ -191,6 +192,7 @@
 <p>If you are wondering, Google Bard (now Gemini) <a href="/blog/posts/2024/exploring-google-bard-vm/">seems to not share any state in the compute container between chat sessions</a>.</p>
 <h2 id="responsible-disclosure">Responsible Disclosure</h2>
 <p>This is an older bug. It was first disclosed to the vendor early last November and confirmed to be a security problem. However, followup queries about status remain unanswered. It has now been over 90 days that this vulnerability was reported to OpenAI. To adhere to <a href="https://about.google/intl/ALL_us/appsecurity/">industry norms of responsible disclosure</a> this information is shared with the public.</p>
+<p><strong>Update: This vulnerability has been addressed by OpenAI in May 2024.</strong></p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=b0pQ9DvdyZc">Demo Video of Lack of Isolation GPT</a></li>

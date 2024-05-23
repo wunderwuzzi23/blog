@@ -21,7 +21,10 @@ Your Code Interpreter sandbox, also known as Advanced Data Analysis sessions, ar
 
 This is true also for files uploaded/created with private GPTs and ChatGPT itself.
 
+**Update:** This vulnerability has been addressed by OpenAI in May 2024.
+
 [![Lack of Isolation](/blog/images/2024/lack-of-isolation-gpts.png)](/blog/images/2024/lack-of-isolation-gpts.png)
+
 
 ## Simple Repro
 
@@ -90,6 +93,9 @@ If you are wondering, Google Bard (now Gemini) [seems to not share any state in 
 ## Responsible Disclosure
 
 This is an older bug. It was first disclosed to the vendor early last November and confirmed to be a security problem. However, followup queries about status remain unanswered. It has now been over 90 days that this vulnerability was reported to OpenAI. To adhere to [industry norms of responsible disclosure](https://about.google/intl/ALL_us/appsecurity/) this information is shared with the public. 
+
+**Update: This vulnerability has been addressed by OpenAI in May 2024.**
+
 
 
 ## References
