@@ -23,16 +23,16 @@ When it came to the browsing tool we observed that mitigations were put in place
 
 **However, with some minor prompting tricks mitigations are bypassed and we, again, can demonstrate automatic tool invocation when browsing the Internet with ChatGPT!** 
 
-This follow up post (as promised) shares details on the status of prompt injection and automated tool invocation when ChatGPT surfs the Internet.
+This follow up post, as promised, shares details on the status of prompt injection and automated tool invocation when ChatGPT surfs the Internet.
 
 ## Automatic Tool Invocation when Browsing
 
 Although this post focuses on exploits with OpenAI's ChatGPT, such security vulnerabilities are present in other LLM applications and agents.
 
 The exploit chain is also reflected in the [OWASP Top 10 for LLMs](https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-2023-v1_1.pdf) in particular concerning these threats: 
-* `LLM01: Prompt Injection`, 
-* `LLM07: Insecure Plugin Design` and 
-* `LLM08: Excessive Agency`.
+* `LLM01: Prompt Injection`
+* `LLM07: Insecure Plugin Design`  
+* `LLM08: Excessive Agency`
 
 ### Try For Yourself!
 
@@ -60,17 +60,17 @@ We can also invoke the memory tool by placing specific instructions on a website
 
 [![add and remove memories](/blog/images/2024/chatgpt-invoke-tools-annotated.png)](/blog/images/2024/chatgpt-invoke-tools-annotated.png)
 
-**Addn memories:** `https://wuzzi.net/c/add.txt`
+**Add memories:** `https://wuzzi.net/c/add.txt`
 
 *Note: I noticed that above might not work if there are already memories present, you can also try `https://wuzzi.net/c/do2-2.txt` which is more reliable when there are already memories stored.*
 
 **Delete memories:** This URL will delete your memories: `https://wuzzi.net/c/rm.txt`
 
-At the moment these are quite reliable and work close to 100%.
+At the moment these are quite reliable and work close to 100% at the moment.
 
-### Prompt Injections Instructions
+### Prompt Injection Instructions
 
-Let's review the contents of the websites, which trick ChatGPT into calling tools. The instructions are not at all using any form of sophisticated approaches (like via special tokens or automated testing and transfer attacks).
+Let's review the contents of the websites, which trick ChatGPT into calling tools. The instructions are not at all using any form of sophisticated approaches, like via special tokens or automated testing and transfer attacks.
 
 The first one is the creation of an image based on memories:
 
@@ -80,7 +80,7 @@ This one, which I really like, is for clearing of memories:
 
 [![add and remove memories](/blog/images/2024/chatgpt-prompt-bypass.png)](/blog/images/2024/chatgpt-prompt-bypass.png)
 
-Both are great examples of how levels of indirection easily "trick" language models into following instructions. LLMs are naive and gullible. The second demo adds a twist with stating a challenge.
+Both are great examples on how levels of indirection easily "trick" language models into following instructions. LLMs are naive and gullible. The second demo adds a twist with stating a challenge.
 
 ### Video Demonstration
 
@@ -100,13 +100,13 @@ If you followed along with the ChatGPT security journey, you might wonder about 
 
 **Plugins are gone now!** 
 
-The replacement for plugins are custom GPTs with `AI Actions`.
+The replacement for plugins are GPTs with `AI Actions`.
 
-### What about AI Actions?
+### So, what about custom GPTs and AI Actions?
 
 Custom GPTs can have `AI Actions` and those can be vulnerable as well!
 
-The good news, there is a [mitigation](https://platform.openai.com/docs/actions/getting-started) with the `x-openai-isConsequential` flag!
+The good news, there is a [mitigation GPT creators can use](https://platform.openai.com/docs/actions/getting-started) with the `x-openai-isConsequential` flag!
 
 [![is-consequential](/blog/images/2024/chatgpt-matrix-is-consequential-true.png)](/blog/images/2024/chatgpt-matrix-is-consequential-true.png)
 
@@ -127,7 +127,7 @@ A year ago I brought this up, and most suggestions remain the same and OpenAI im
 * The usage of additional LLMs (and other content moderation systems) to validate if the returned text still fulfills the initial objectives. This is actually something OpenAI might be doing now, since some mitigations were observed recently.
 * A bit of a segue, Microsoft has [Azure Purview](https://techcommunity.microsoft.com/t5/azure-architecture-blog/security-best-practices-for-genai-applications-openai-in-azure/ba-p/4027885) which could allow them to have solid mitigations down the road by tracking what kind of data enters a chat!
 
-Finally, one thing to keep in mind... intuation tells me, that as capabilities of language models increase, so will the bypass capabilities.
+Finally, one thing to keep in mind... intuition tells me, that as capabilities of language models increase, so will the bypass capabilities.
 
 ## Conclusion
 

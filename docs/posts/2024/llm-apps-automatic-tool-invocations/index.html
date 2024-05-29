@@ -148,14 +148,14 @@
 <p><a href="/blog/images/2024//chatgpt-ati2.png"><img src="/blog/images/2024/chatgpt-ati2.png" alt="image tool invocation"></a></p>
 <p>When it came to the browsing tool we observed that mitigations were put in place and older demo exploits did not work anymore. After chatting with other security researchers, I learned that they had observed the same.</p>
 <p><strong>However, with some minor prompting tricks mitigations are bypassed and we, again, can demonstrate automatic tool invocation when browsing the Internet with ChatGPT!</strong></p>
-<p>This follow up post (as promised) shares details on the status of prompt injection and automated tool invocation when ChatGPT surfs the Internet.</p>
+<p>This follow up post, as promised, shares details on the status of prompt injection and automated tool invocation when ChatGPT surfs the Internet.</p>
 <h2 id="automatic-tool-invocation-when-browsing">Automatic Tool Invocation when Browsing</h2>
 <p>Although this post focuses on exploits with OpenAI&rsquo;s ChatGPT, such security vulnerabilities are present in other LLM applications and agents.</p>
 <p>The exploit chain is also reflected in the <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-2023-v1_1.pdf">OWASP Top 10 for LLMs</a> in particular concerning these threats:</p>
 <ul>
-<li><code>LLM01: Prompt Injection</code>,</li>
-<li><code>LLM07: Insecure Plugin Design</code> and</li>
-<li><code>LLM08: Excessive Agency</code>.</li>
+<li><code>LLM01: Prompt Injection</code></li>
+<li><code>LLM07: Insecure Plugin Design</code></li>
+<li><code>LLM08: Excessive Agency</code></li>
 </ul>
 <h3 id="try-for-yourself">Try For Yourself!</h3>
 <p>If you want you can also try it yourself, all that is needed is ChatGPT 4o.</p>
@@ -170,17 +170,17 @@
 <p><strong>2. Invoke the Memory Tool</strong></p>
 <p>We can also invoke the memory tool by placing specific instructions on a website:</p>
 <p><a href="/blog/images/2024/chatgpt-invoke-tools-annotated.png"><img src="/blog/images/2024/chatgpt-invoke-tools-annotated.png" alt="add and remove memories"></a></p>
-<p><strong>Addn memories:</strong> <code>https://wuzzi.net/c/add.txt</code></p>
+<p><strong>Add memories:</strong> <code>https://wuzzi.net/c/add.txt</code></p>
 <p><em>Note: I noticed that above might not work if there are already memories present, you can also try <code>https://wuzzi.net/c/do2-2.txt</code> which is more reliable when there are already memories stored.</em></p>
 <p><strong>Delete memories:</strong> This URL will delete your memories: <code>https://wuzzi.net/c/rm.txt</code></p>
-<p>At the moment these are quite reliable and work close to 100%.</p>
-<h3 id="prompt-injections-instructions">Prompt Injections Instructions</h3>
-<p>Let&rsquo;s review the contents of the websites, which trick ChatGPT into calling tools. The instructions are not at all using any form of sophisticated approaches (like via special tokens or automated testing and transfer attacks).</p>
+<p>At the moment these are quite reliable and work close to 100% at the moment.</p>
+<h3 id="prompt-injection-instructions">Prompt Injection Instructions</h3>
+<p>Let&rsquo;s review the contents of the websites, which trick ChatGPT into calling tools. The instructions are not at all using any form of sophisticated approaches, like via special tokens or automated testing and transfer attacks.</p>
 <p>The first one is the creation of an image based on memories:</p>
 <p><a href="/blog/images/2024/chatgpt-invoke-prompt-injection.png"><img src="/blog/images/2024/chatgpt-invoke-prompt-injection.png" alt="prompt injection payload"></a></p>
 <p>This one, which I really like, is for clearing of memories:</p>
 <p><a href="/blog/images/2024/chatgpt-prompt-bypass.png"><img src="/blog/images/2024/chatgpt-prompt-bypass.png" alt="add and remove memories"></a></p>
-<p>Both are great examples of how levels of indirection easily &ldquo;trick&rdquo; language models into following instructions. LLMs are naive and gullible. The second demo adds a twist with stating a challenge.</p>
+<p>Both are great examples on how levels of indirection easily &ldquo;trick&rdquo; language models into following instructions. LLMs are naive and gullible. The second demo adds a twist with stating a challenge.</p>
 <h3 id="video-demonstration">Video Demonstration</h3>
 <p>This video shows the three POCs in a quick run through:</p>
 
@@ -197,10 +197,10 @@
 <p>If you followed along with the ChatGPT security journey, you might wonder about plugins&hellip;</p>
 <h3 id="so-what-about-plugins">So, what about plugins?</h3>
 <p><strong>Plugins are gone now!</strong></p>
-<p>The replacement for plugins are custom GPTs with <code>AI Actions</code>.</p>
-<h3 id="what-about-ai-actions">What about AI Actions?</h3>
+<p>The replacement for plugins are GPTs with <code>AI Actions</code>.</p>
+<h3 id="so-what-about-custom-gpts-and-ai-actions">So, what about custom GPTs and AI Actions?</h3>
 <p>Custom GPTs can have <code>AI Actions</code> and those can be vulnerable as well!</p>
-<p>The good news, there is a <a href="https://platform.openai.com/docs/actions/getting-started">mitigation</a> with the <code>x-openai-isConsequential</code> flag!</p>
+<p>The good news, there is a <a href="https://platform.openai.com/docs/actions/getting-started">mitigation GPT creators can use</a> with the <code>x-openai-isConsequential</code> flag!</p>
 <p><a href="/blog/images/2024/chatgpt-matrix-is-consequential-true.png"><img src="/blog/images/2024/chatgpt-matrix-is-consequential-true.png" alt="is-consequential"></a></p>
 <p>As you can see from the screenshot, it still lacks a great user experience, like better visualization to understand what the action is about to do, but it is a mitigation and puts the user in control.</p>
 <h2 id="mitigations-and-recommendations">Mitigations and Recommendations</h2>
@@ -216,7 +216,7 @@
 <li>The usage of additional LLMs (and other content moderation systems) to validate if the returned text still fulfills the initial objectives. This is actually something OpenAI might be doing now, since some mitigations were observed recently.</li>
 <li>A bit of a segue, Microsoft has <a href="https://techcommunity.microsoft.com/t5/azure-architecture-blog/security-best-practices-for-genai-applications-openai-in-azure/ba-p/4027885">Azure Purview</a> which could allow them to have solid mitigations down the road by tracking what kind of data enters a chat!</li>
 </ul>
-<p>Finally, one thing to keep in mind&hellip; intuation tells me, that as capabilities of language models increase, so will the bypass capabilities.</p>
+<p>Finally, one thing to keep in mind&hellip; intuition tells me, that as capabilities of language models increase, so will the bypass capabilities.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Prompt injection and automatic tool invocation remain threats to be aware of and mitigate in LLM applications. In this post we <a href="/blog/posts/2024/chatgpt-hacking-memories/">continued from the previous post</a> and explored how newly added features (like memory) can be exploited using these techniques via the browsing tool, and we observed that actual security controls are still lacking behind.</p>
 <h2 id="references">References</h2>
