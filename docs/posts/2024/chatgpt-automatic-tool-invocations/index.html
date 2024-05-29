@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" ChatGPT: Automatic Tool Invocation - Threats and Mitigations &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2024/chatgpt-automatic-tool-invocations/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2024-05-28T10:57:38-07:00" />
+  
+  <meta property="og:article:tag" content="ai" />
+  
+  <meta property="og:article:tag" content="testing" />
+  
+  <meta property="og:article:tag" content="machine learning" />
+  
+  <meta property="og:article:tag" content="ai injection" />
+  
+  <meta property="og:article:tag" content="chatgpt" />
+  
+  <meta property="og:article:tag" content="ttp" />
+  
+  
+
+  <title>
+     ChatGPT: Automatic Tool Invocation - Threats and Mitigations &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="ChatGPT: Automatic Tool Invocation Remains A Challenge">
+<meta name="twitter:description" content="Automatic Tool Invocation - Threat and Mitigations. Unfortunately it is possible to invoke the tool to store memories directly during prompt injection. This post explores this attack via three avenues: Images, Connected Apps and Browsing.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2024/chatgpt-ati-thumbnail.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">ChatGPT: Automatic Tool Invocation - Threats and Mitigations</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2024-05-28T10:57:38-07:00">
+          May 28, 2024
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ai">#ai</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/testing">#testing</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ai-injection">#ai injection</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/chatgpt">#chatgpt</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>In the <a href="/blog/posts/2024/chatgpt-hacking-memories/">previous post</a> we demonstrated how instructions embedded in untrusted data can invoke ChatGPT&rsquo;s memory tool. The examples we looked at included <code>Uploaded Files</code>, <code>Connected Apps</code> and also the <code>Browsing</code> tool.</p>
+<p><a href="/blog/images/2024//chatgpt-ati2.png"><img src="/blog/images/2024/chatgpt-ati2.png" alt="image tool invocation"></a></p>
+<p>When it came to the browsing tool we observed that mitigations were put in place and older demo POCs did not work anymore. After chatting with other security researchers, I learned that they had observed the same.</p>
+<p><strong>However, with some minor prompting tricks mitigations are bypassed and we, again, can demonstrate automatic tool invocation when browsing the Internet with ChatGPT!</strong></p>
+<p>This, promised, follow up post shares details on the status of prompt injection and automated tool invocation when ChatGPT surfs the Internet.</p>
+<h2 id="automatic-tool-invocation-when-browsing">Automatic Tool Invocation when Browsing</h2>
+<p>Although this post focuses on exploits in OpenAI&rsquo;s ChatGPT, this security vulnerabilities are present in many other LLM applications and agents!</p>
+<p>The exploit chain is also reflected in the <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-2023-v1_1.pdf">OWASP Top 10 for LLMs</a> in particular concerning these threats:</p>
+<ul>
+<li><code>LLM01: Prompt Injection</code>,</li>
+<li><code>LLM07: Insecure Plugin Design</code> and</li>
+<li><code>LLM08: Excessive Agency</code>.</li>
+</ul>
+<h3 id="try-for-yourself">Try For Yourself!</h3>
+<p>If you want you can also try it yourself, all that is needed is ChatGPT 4o.</p>
+<p><strong>1. Invoking Image Creation with DALLE</strong></p>
+<p>A fun demo is having instructions on a website invoke DALLE! Just paste this URL into a new chat and see what happens: <code>https://wuzzi.net/create.txt</code>.</p>
+<p><a href="/blog/images/2024//chatgpt-invoke-dalle2.png"><img src="/blog/images/2024/chatgpt-invoke-dalle2.png" alt="image creation"></a></p>
+<p>Look! ChatGPT just created an image!</p>
+<p>If you want to see something even more interesting, the next example will invoke DALLE and create an image based on <strong>your stored memories</strong>: <code>https://wuzzi.net/8create.txt</code></p>
+<p><em>Use with caution as personal information might be placed into the image by ChatGPT, alternatively just watch the video further below for a demo.</em></p>
+<p>Cool, right? This works because all the data from the website, the user&rsquo;s written text, and the initial prompt (system prompt), including the memories, are in the same trust boundary.</p>
+<p>Speaking of the memory tool, let&rsquo;s look at that now.</p>
+<p><strong>2. Invoke the Memory Tool</strong></p>
+<p>We can also invoke the memory tool by placing specific instructions on a website:</p>
+<p><a href="/blog/images/2024/chatgpt-invoke-tools-annotated.png"><img src="/blog/images/2024/chatgpt-invoke-tools-annotated.png" alt="add and remove memories"></a></p>
+<p><strong>Addition of memories:</strong>
+<code>https://wuzzi.net/c/add.txt</code></p>
+<p><em>Note: above might not work if there are already memories present I noticed, you can also try <code>https://wuzzi.net/c/do2-2.txt</code> which is more reliable when there are already memories stored.</em></p>
+<p><strong>Deletion of all memories:</strong></p>
+<p>The following URL will delete all your memories: <code>https://wuzzi.net/c/rm.txt</code></p>
+<p>At the moment these are all quite reliable and work close to 100%.</p>
+<h3 id="prompt-injections-instructions">Prompt Injections Instructions</h3>
+<p>In this section, let&rsquo;s review some of the contents of the websites, which trick ChatGPT. At this point the attack is not at all using any form of sophisticated approaches (like via special tokens or automated red teaming and transfer attacks).</p>
+<p>The first one is the creation of an image based on memories:</p>
+<p><a href="/blog/images/2024/chatgpt-invoke-prompt-injection.png"><img src="/blog/images/2024/chatgpt-invoke-prompt-injection.png" alt="prompt injection payload"></a></p>
+<p>This one, which I really like, is for clearing of memories:</p>
+<p><a href="/blog/images/2024/chatgpt-prompt-bypass.png"><img src="/blog/images/2024/chatgpt-prompt-bypass.png" alt="add and remove memories"></a></p>
+<p>Both are great examples of how the creation of levels of indirection is what seems to easily &ldquo;trick&rdquo; language models into following instructions. The second one even adds a bit of a twist with posing a challenge.</p>
+<p>And for reference also a recorded version that shows them combined in one session.</p>
+<h3 id="video-demonstration">Video Demonstration</h3>
+<p>This video shows the three POCs in a quick run through:</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/j72rT-QAjuk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>Three examples are:</p>
+<ol>
+<li>Website instructions add new long term memories 🧠</li>
+<li>Instructions on website invoke DALLE to create an image based on stored memories</li>
+<li>Instructions from website erase all your precious memories 🤯</li>
+</ol>
+<h3 id="what-about-plugins">What about Plugins?</h3>
+<p><strong>Plugins are gone now!</strong></p>
+<p>The replacement are basically custom GPTs with AI Actions.</p>
+<h3 id="what-about-ai-actions">What about AI Actions?</h3>
+<p>Custom GPTs can have <code>AI Actions</code> and those can be vulnerable as well!</p>
+<p>The good news, there is a <a href="https://platform.openai.com/docs/actions/getting-started">mitigation</a> with the <code>x-openai-isConsequential</code> flag!</p>
+<p><a href="/blog/images/2024/chatgpt-matrix-is-consequential-true.png"><img src="/blog/images/2024/chatgpt-matrix-is-consequential-true.png" alt="is-consequential"></a></p>
+<p>As you can see from the screenshot, it still lacks a great user experience, like better visualization to understand what the action is about to do, but it is a mitigation and puts the user in control.</p>
+<h2 id="mitigations-and-recommendations">Mitigations and Recommendations</h2>
+<p>It is surprising that OpenAI has not entirely tackled the problem of tool invocation with their built-in tools, especially when they introduced the memory feature. As highlighted, it was observed that exploitation is slightly more difficult, but seems needed is an actual security control that prevents uncontrolled tool usage.</p>
+<p>A year ago I brought this up, and most suggestions remain the same and OpenAI implemented some basic mitigations as suggested (like the introduction of the <code>x-openai-isConsequential</code> flag):</p>
+<ul>
+<li>Do not automatically invoke sensitive or powerful tools once untrusted data is in the context.</li>
+<li>Establishing basic security controls such as integrity levels, tagging of data and taint tracking to help track untrusted data and highlight the integrity level/trustworthiness of a chat.</li>
+<li>There is a remaining risk that even with integrity levels and taint tracking hallucinations might randomly invoke a tool!</li>
+<li>For the browsing tool specifically, it might also help to not directly connect to websites but leverage Bing&rsquo;s index/condensed information -&gt; fewer degrees of freedom.</li>
+<li>Creation and documentation of trust boundaries help understand the security contract, and if a discovered behavior is an accepted risk by a vendor (that needs to be communicated to users) or a an unintended flaw in the system.</li>
+<li>&ldquo;Content Security Policy&rdquo; frameworks could allow better configuration and definitions for AI systems, for instances which sources/domains are trusted and which ones are not.</li>
+<li>The usage of additional LLMs (and other content moderation systems) to validate if the returned text still fulfills the initial objectives. This is actually something OpenAI might be doing now, since some mitigations were observed recently.</li>
+<li>A bit of a segway, Microsoft has <a href="https://techcommunity.microsoft.com/t5/azure-architecture-blog/security-best-practices-for-genai-applications-openai-in-azure/ba-p/4027885">Azure Purview</a> which should allow them to have solid mitigations down the road by tracking what kind of data enters a chat!</li>
+</ul>
+<p>And one thing to keep in mind, and as intuation tells me, that as capabilities of language models increase, so will the bypass capabilities.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Prompt injection and automatic tool invocation remain threats to be aware of and mitigate in LLM applications. In this post how newly added features (like memory) can be exploited using these techniques and so far actual security controls are lacking behind.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="/blog/posts/2024/chatgpt-hacking-memories/">Hacking Memories with Prompt Injection</a></li>
+<li><a href="https://platform.openai.com/docs/actions/getting-started">OpenAI Documentation - Is Consquential Flag</a></li>
+<li><a href="https://simonwillison.net/2023/Apr/25/dual-llm-pattern/#confused-deputy-attacks">Simon Willison - Confused Deputy Attacks</a></li>
+<li><a href="https://techcommunity.microsoft.com/t5/azure-architecture-blog/security-best-practices-for-genai-applications-openai-in-azure/ba-p/4027885">Azure Purview</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2024
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

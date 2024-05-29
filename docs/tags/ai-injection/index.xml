@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Wed, 22 May 2024 12:24:07 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injection/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 May 2024 20:57:38 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automatic Tool Invocation when Browsing with ChatGPT - Threats and Mitigations</title>
+      <link>https://embracethered.com/blog/posts/2024/llm-apps-automatic-tool-invocations/</link>
+      <pubDate>Tue, 28 May 2024 20:57:38 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/llm-apps-automatic-tool-invocations/</guid>
+      <description>In the previous post we demonstrated how instructions embedded in untrusted data can invoke ChatGPT&amp;rsquo;s memory tool. The examples we looked at included Uploaded Files, Connected Apps and also the Browsing tool.
+
+When it came to the browsing tool we observed that mitigations were put in place and older demo exploits did not work anymore. After chatting with other security researchers, I learned that they had observed the same.</description>
+    </item>
+    
     <item>
       <title>ChatGPT: Hacking Memories with Prompt Injection</title>
       <link>https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/</link>

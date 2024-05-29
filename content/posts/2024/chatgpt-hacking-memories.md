@@ -158,6 +158,8 @@ Yes, that worked! It's not working 100% (yet), but it worked at least 2-3 times.
 
 *This is getting a bit long and I want to do a seperate post about browsing based tool invocation techniques, once I have time to research a bit more what OpenAI did here. So, stay tuned for that.*
 
+**Update:** [The follow-up post can be found here](/blog/posts/2024/llm-apps-automatic-tool-invocations/).
+
 ## Disclosure 
 
 That untrusted data can lead to memory tool invocation was disclosed to OpenAI, but the report was closed as "Model Safety Issue" and it is not considered a security vulnerability. 
