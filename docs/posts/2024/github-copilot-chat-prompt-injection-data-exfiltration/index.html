@@ -169,7 +169,7 @@ text at the very beginning of the response, so the user has the correct context.
 </div>
 
 <h3 id="severity---cia">Severity - CIA</h3>
-<p>This vulnerability allowed an adversary to generate arbitrary output, leading to data exfiltration. Both <strong>confidentiality</strong> and <strong>integrity</strong> of GitHub Copilot output cannot be guaranteed by Microsoft due to prompt injection (integrity) combined with the rendering of images (confidentiality).</p>
+<p>This vulnerability allowed an adversary to generate arbitrary output, leading to data exfiltration. Both <strong>confidentiality</strong> and <strong>integrity</strong> of GitHub Copilot output cannot be guaranteed by Microsoft due to prompt injection (and also possible jailbreaks) which can lead to integrity issues (highlighted by a note to users that says <code>I'm powered by AI, so surprises and mistakes are possible</code>), combined with the rendering of images that can lead to confidentiality issues.</p>
 <p>Such attacks also can have <strong>availability</strong> impact, but I wasn&rsquo;t able generate instructions that prevent it from analyzing a document (didn&rsquo;t try much though).</p>
 <h2 id="recommended-remediation-to-microsoftgithub">Recommended Remediation to Microsoft/GitHub</h2>
 <ul>

@@ -63,7 +63,7 @@ Demo video to show the exploit end to end:
 
 ### Severity - CIA
 
-This vulnerability allowed an adversary to generate arbitrary output, leading to data exfiltration. Both **confidentiality** and **integrity** of GitHub Copilot output cannot be guaranteed by Microsoft due to prompt injection (integrity) combined with the rendering of images (confidentiality). 
+This vulnerability allowed an adversary to generate arbitrary output, leading to data exfiltration. Both **confidentiality** and **integrity** of GitHub Copilot output cannot be guaranteed by Microsoft due to prompt injection (and also possible jailbreaks) which can lead to integrity issues (highlighted by a note to users that says `I'm powered by AI, so surprises and mistakes are possible`), combined with the rendering of images that can lead to confidentiality issues. 
 
 Such attacks also can have **availability** impact, but I wasn't able generate instructions that prevent it from analyzing a document (didn't try much though).
 
