@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Tue, 28 May 2024 20:57:38 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Jun 2024 21:00:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub Copilot Chat: From Prompt Injection to Data Exfiltration</title>
+      <link>https://embracethered.com/blog/posts/2024/github-copilot-chat-prompt-injection-data-exfiltration/</link>
+      <pubDate>Fri, 14 Jun 2024 21:00:17 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/github-copilot-chat-prompt-injection-data-exfiltration/</guid>
+      <description>This post highlights how the GitHub Copilot Chat VS Code Extension was vulnerable to data exfiltration via prompt injection when analyzing untrusted source code.
+GitHub Copilot Chat GitHub Copilot Chat is a VS Code Extension that allows a user to chat with source code, refactor code, get info about terminal output, or general help about VS Code, and things along those lines.
+It does so by sending source code, along with the user&amp;rsquo;s questions to a large language model (LLM).</description>
+    </item>
+    
     <item>
       <title>Automatic Tool Invocation when Browsing with ChatGPT - Threats and Mitigations</title>
       <link>https://embracethered.com/blog/posts/2024/llm-apps-automatic-tool-invocations/</link>
