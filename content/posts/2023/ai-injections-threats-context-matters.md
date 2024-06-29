@@ -2,7 +2,7 @@
 title: "Don't blindly trust LLM responses. Threats to chatbots."
 date: 2023-04-15T18:09:46-07:00
 tags: [
-     "aiml", "machine learning","red", "threats", "ai injections","chatgpt"
+     "aiml", "machine learning","red", "threats", "ai injections", "chatgpt", "chatbot"
     ]
 
 twitter:
@@ -101,6 +101,8 @@ Threat model and test AI model integrations carefully. Identify input and output
 
 For risky apps and use cases, always consider human review. 
 
+**Update:** I wrote up some specific mitigation guidance for Slack unfurling [here](/blog/posts/2024/the-dangers-of-unfurling-and-what-you-can-do-about-it/).
+
 Cheers.
 
 
@@ -109,6 +111,7 @@ Cheers.
 * [Yolo Shell Assistant Github](https://github.com/wunderwuzzi23/yolo-ai-cmdbot)
 * [Discord Slash Permissions and Custom Text Commands](https://discord.com/blog/slash-commands-permissions-discord-apps-bots)
 * Images created via Bing Image Create
+* [Slack unfurling mitigation](/blog/posts/2024/the-dangers-of-unfurling-and-what-you-can-do-about-it/)
 
 ## Appendix
 

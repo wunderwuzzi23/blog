@@ -3,7 +3,7 @@ title: "The dangers of AI agents unfurling hyperlinks and what to do about it"
 date: 2024-04-02T20:00:48-08:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "mitigation","llm","blue"
+     "aiml", "machine learning", "threats", "mitigation","llm","blue", "chatbot"
     ]
 
 twitter:

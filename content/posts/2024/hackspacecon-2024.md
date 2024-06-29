@@ -3,7 +3,7 @@ title: "HackSpaceCon 2024: Short Trip Report, Slides and Rocket Launch"
 date: 2024-04-13T18:30:39-07:00
 draft: true
 tags: [
-     "aiml", "machine learning", "conference", "llm" 
+     "aiml", "machine learning", "conference", "llm"
     ]
 
 twitter:

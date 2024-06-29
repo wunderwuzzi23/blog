@@ -3,7 +3,7 @@ title: "ChatGPT: Hacking Memories with Prompt Injection"
 date: 2024-05-22T12:24:07-07:00
 draft: true
 tags: [
-     "ai", "testing","machine learning", "ai injection", "chatgpt", "ttp"
+     "ai", "testing","machine learning", "ai injection", "chatgpt", "ttp", "llm"
     ]
 
 twitter:

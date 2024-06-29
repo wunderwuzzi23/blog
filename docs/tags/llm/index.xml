@@ -20,6 +20,16 @@ It does so by sending source code, along with the user&amp;rsquo;s questions to 
     </item>
     
     <item>
+      <title>ChatGPT: Hacking Memories with Prompt Injection</title>
+      <link>https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/</link>
+      <pubDate>Wed, 22 May 2024 12:24:07 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/</guid>
+      <description>OpenAI recently introduced a memory feature in ChatGPT, enabling it to recall information across sessions, creating a more personalized user experience.
+However, with this new capability comes risks. Imagine if an attacker could manipulate your AI assistant (chatbot or agent) to remember false information, bias or even instructions, or delete all your memories! This is not a futuristic scenario, the attack that makes this possible is called Indirect Prompt Injection.</description>
+    </item>
+    
+    <item>
       <title>Bobby Tables but with LLM Apps - Google NotebookLM Data Exfiltration</title>
       <link>https://embracethered.com/blog/posts/2024/google-notebook-ml-data-exfiltration/</link>
       <pubDate>Mon, 15 Apr 2024 08:11:30 -0700</pubDate>
@@ -159,6 +169,16 @@ Fast forward to 2023&amp;hellip; it was great to attend the 37C3 in person in Ha
       <description>When OpenAI released GPTs last month I had plans for an interesting GPT.
 Malicious ChatGPT Agents The idea was to create a kind of malware GPT that forwards users&#39; chat messages to a third party server. It also asks users for personal information like emails and passwords.
 Why would this be possible end to end? ChatGPT cannot guarantee to keep your conversation private or confidential, because it loads images from any website.</description>
+    </item>
+    
+    <item>
+      <title>Adversarial Prompting: Tutorial and Lab</title>
+      <link>https://embracethered.com/blog/posts/2023/adversarial-prompting-tutorial-and-lab/</link>
+      <pubDate>Thu, 11 May 2023 22:09:43 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2023/adversarial-prompting-tutorial-and-lab/</guid>
+      <description>To learn more about Prompt Engineering and Prompt Injections I put together this tutorial + lab for myself. It is as a Jupyter Notebook to experiement and play around with this novel attack technique, learn and experiment.
+The examples reach from simple prompt engineering scenarios, such as changing the output message to a specific text, to more complex adversarial prompt challenges such as JSON object injection, HTML injection/XSS, overwriting mail recipients or orders of an OrderBot and also data exfiltration.</description>
     </item>
     
   </channel>

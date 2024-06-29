@@ -46,7 +46,7 @@ AI and Chatbots are taking the world by storm at the moment. It's time to shine 
 
 There is an entire new class of vulnerabilities evolving right now called **AI Prompt Injections**. 
 
-> A malicious AI Prompt Injection is a type of vulnerability that occurs when an adversary manipulates the input or prompt given to an AI system. The attack can occur by *directly controlling parts of a prompt* or when *the prompt is constructed indirectly with data from other sources*, like visiting a website where the AI analyzes the content. This manipulation can lead to the AI producing malicious, harmful, misleading, inappropriate responses.
+> A malicious AI Prompt Injection is a type of vulnerability that occurs when an adversary manipulates the input prompt given to an AI system. The attack can occur by *directly controlling parts of a prompt* or when *the prompt is constructed indirectly with data from other sources*, like visiting a website where the AI analyzes the content. This manipulation can lead to the AI producing malicious, harmful, misleading, inappropriate responses.
 
 The following shows a Bing Chat session that analyzed a webpage with an injection payload:
 
