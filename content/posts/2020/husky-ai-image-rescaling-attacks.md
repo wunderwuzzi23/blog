@@ -52,7 +52,7 @@ Now, look what happens when the image is loaded and resized with `OpenCV` using 
 
 [![Image Rescaling Attack](/blog/images/2020/image-rescaling-attack.png)](/blog/images/2020/image-rescaling-attack.png)
 
-On the left you can see the original sized image, and on the left the same image downsized to 128x128 pixels. 
+On the left you can see the original sized image, and on the right the same image downsized to 128x128 pixels. 
 
 **That's amazing!**  
 
