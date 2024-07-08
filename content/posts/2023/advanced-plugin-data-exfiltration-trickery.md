@@ -3,7 +3,7 @@ title: "Advanced Data Exfiltration Techniques with ChatGPT"
 date: 2023-09-28T09:01:00-07:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections","chatgpt", "plugins"
+     "aiml", "machine learning", "threats", "ai injections","chatgpt", "plugins", "exfil"
     ]
 
 twitter:

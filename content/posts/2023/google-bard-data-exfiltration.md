@@ -3,7 +3,7 @@ title: "Hacking Google Bard - From Prompt Injection to Data Exfiltration"
 date: 2023-11-03T12:00:01-07:00
 draft: true
 tags: [
-     "aiml", "machine learning","ai injections", "bard", "threats"
+     "aiml", "machine learning","ai injections", "bard", "threats", "exfil"
     ]
 
 twitter:

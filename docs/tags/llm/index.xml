@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Fri, 14 Jun 2024 21:00:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Jul 2024 14:30:18 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sorry, ChatGPT Is Under Maintenance: Persistent Denial of Service through Prompt Injection and Memory Attacks</title>
+      <link>https://embracethered.com/blog/posts/2024/chatgpt-persistent-denial-of-service/</link>
+      <pubDate>Mon, 08 Jul 2024 14:30:18 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/chatgpt-persistent-denial-of-service/</guid>
+      <description>Imagine you visit a website with ChatGPT, and suddently, it stops working entirely!
+In this post we show how an attacker can use prompt injection to cause a persistent denial of service that lasts across chat sessions for a user.
+Hacking Memories Previously we discussed how ChatGPT is vulnerable to automatic tool invocation of the memory tool. This can be used by an attacker during prompt injection to ingest malicious or fake memories into your ChatGPT.</description>
+    </item>
+    
     <item>
       <title>GitHub Copilot Chat: From Prompt Injection to Data Exfiltration</title>
       <link>https://embracethered.com/blog/posts/2024/github-copilot-chat-prompt-injection-data-exfiltration/</link>

@@ -3,7 +3,7 @@ title: "Anthropic Claude Data Exfiltration Vulnerability Fixed"
 date: 2023-08-01T15:15:15-07:00
 draft: true
 tags: [
-     "aiml", "machine learning","ai injections"
+     "aiml", "machine learning","ai injections", "exfil"
     ]
 
 twitter:

@@ -3,7 +3,7 @@ title: "OpenAI Begins Tackling ChatGPT Data Leak Vulnerability"
 date: 2023-12-20T02:35:07-08:00
 draft: true
 tags: [
-     "aiml", "machine learning","red","chatgpt","data exfiltration"
+     "aiml", "machine learning","red","chatgpt", "exfil"
     ]
 
 twitter:

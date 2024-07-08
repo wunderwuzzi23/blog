@@ -3,7 +3,7 @@ title: "Bobby Tables but with LLM Apps - Google NotebookLM Data Exfiltration"
 date: 2024-04-15T08:11:30-07:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "llm" ,"ai injection"
+     "aiml", "machine learning", "threats", "llm" ,"ai injection", "exfil"
     ]
 
 twitter:

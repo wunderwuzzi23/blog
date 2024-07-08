@@ -3,7 +3,7 @@ title: "ChatGPT Plugin Exploit Explained: From Prompt Injection to Accessing Pri
 date: 2023-05-28T12:00:02-07:00
 draft: true
 tags: [
-     "aiml", "machine learning","red", "threats", "ai injections", "chatgpt"
+     "aiml", "machine learning","red", "threats", "ai injections", "chatgpt", "exfil"
     ]
 
 twitter:

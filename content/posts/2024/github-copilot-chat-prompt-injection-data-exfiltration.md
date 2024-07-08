@@ -3,7 +3,7 @@ title: "GitHub Copilot Chat: From Prompt Injection to Data Exfiltration"
 date: 2024-06-14T21:00:17-08:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections", "llm"
+     "aiml", "machine learning", "threats", "ai injections", "llm", "exfil"
     ]
 
 twitter:

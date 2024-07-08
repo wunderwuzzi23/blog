@@ -2,7 +2,7 @@
 title: "ChatGPT Plugins: Data Exfiltration via Images & Cross Plugin Request Forgery"
 date: 2023-05-16T07:45:38-07:00
 tags: [
-     "aiml", "machine learning","red", "threats", "ai injections","chatgpt"
+     "aiml", "machine learning","red", "threats", "ai injections","chatgpt", "exfil"
     ]
 
 twitter:

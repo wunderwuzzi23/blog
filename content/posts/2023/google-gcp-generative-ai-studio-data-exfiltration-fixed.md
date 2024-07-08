@@ -3,7 +3,7 @@ title: "Google Cloud Vertex AI - Data Exfiltration Vulnerability Fixed in Genera
 date: 2023-10-19T06:35:37-07:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections", "gcp"
+     "aiml", "machine learning", "threats", "ai injections", "gcp", "exfil"
     ]
 
 twitter:
