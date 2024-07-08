@@ -25,7 +25,7 @@ Previously we discussed how [ChatGPT is vulnerable to automatic tool invocation 
 
 Malicious memory modifications remain until the user manually removes the attacker-created memories.
 
-OpenAI referred to this threat as a "model safety issue", but not a security issue. This blog will continue to demonstrate that this is a security issue through posts like this one and more to come.
+OpenAI referred to this threat as a "model safety issue", but not a security issue. This blog will continue to demonstrate that this is a security issue through posts like this one.
 
 ## Prompt Injection Writing Malicious Memories
 
