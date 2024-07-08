@@ -59,6 +59,15 @@ The user can recover from this situation by opening the memory tool, locating su
 
 Additionally, users can also entirely disable the memory feature!
 
+## Demonstration
+
+Here is a video showing the POC end to end:
+
+{{< youtube Fo5YZmZDgdU >}}
+
+
+Be prepared to clean up the memories of your parents' ChatGPT during the holidays.
+
 ## Conclusion
 
 This post highlighted the first time we saw a memory attack that causes a persistent denial of service for a user, which means the denial of service attack remains effective across chat sessions.
