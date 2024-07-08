@@ -15,7 +15,7 @@ twitter:
   image: "https://embracethered.com/blog/images/2024/chatgpt-persistent-dos2.png"
 ---
 
-**Imagine you visit a website with ChatGPT, and suddently, it stops working entirely!**
+**Imagine you visit a website with ChatGPT, and suddenly, it stops working entirely!**
 
 In this post we show how an attacker can use prompt injection to cause a persistent denial of service that lasts across chat sessions for a user.
 
@@ -23,9 +23,9 @@ In this post we show how an attacker can use prompt injection to cause a persist
 
 Previously we discussed how [ChatGPT is vulnerable to automatic tool invocation of the memory tool](https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/). This can be used by an attacker during prompt injection to ingest malicious or fake memories into your ChatGPT.
 
-Malicious memory modifications remain present until the user manually removes attacker created memories.
+Malicious memory modifications remain until the user manually removes the attacker-created memories.
 
-OpenAI refered to this threat as a "model safety issue", but not a security issue. This blog will continue to demonstrate with posts such as this one (and more to come) that this is a security issue.
+OpenAI referred to this threat as a "model safety issue", but not a security issue. This blog will continue to demonstrate that this is a security issue through posts like this one and more to come.
 
 ## Prompt Injection Writing Malicious Memories
 
