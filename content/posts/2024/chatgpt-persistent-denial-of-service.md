@@ -66,13 +66,13 @@ Here is a video showing the POC end to end:
 {{< youtube Fo5YZmZDgdU >}}
 
 
-Be prepared to clean up the memories of your parents' ChatGPT during the holidays.
+Be prepared to clean up the memories of your parents' ChatGPT over the holidays.
 
 ## Conclusion
 
-This post highlighted the first time we saw a memory attack that causes a persistent denial of service for a user, which means the denial of service attack remains effective across chat sessions.
+This post highlighted the first time we saw a memory attack that causes a persistent denial of service for a user. This means the denial of service attack remains effective across chat sessions.
 
-Get ready! Soon you might have to clean up the memories of your parents' ChatGPT over the holidays! An interesting question is, will we see "memory watchers" in the future, basically AV tools to observe AI memory to find malware and viruses. 
+Get ready! Soon you will have to clean up the memories of your parents' ChatGPT over the holidays. Wondering when we will starting seeing AV-kind of tools that observe AI memory to find malware and viruses. 
 
 Cheers.
 
