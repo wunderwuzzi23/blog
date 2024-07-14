@@ -2,31 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://embracethered.com/blog/tags/ai/</loc>
-    <lastmod>2024-07-08T14:30:18-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/ai-injection/</loc>
+    <lastmod>2024-07-14T11:09:25-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/aiml/</loc>
+    <lastmod>2024-07-14T11:09:25-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2024-07-14T11:09:25-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/exfil/</loc>
+    <lastmod>2024-07-14T11:09:25-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2024/google-colab-image-render-exfil/</loc>
+    <lastmod>2024-07-14T11:09:25-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2024-07-14T11:09:25-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2024-07-14T11:09:25-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2024-07-14T11:09:25-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2024-07-14T11:09:25-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/threats/</loc>
+    <lastmod>2024-07-14T11:09:25-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/ai/</loc>
     <lastmod>2024-07-08T14:30:18-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/chatgpt/</loc>
     <lastmod>2024-07-08T14:30:18-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2024-07-08T14:30:18-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2024-07-08T14:30:18-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2024-07-08T14:30:18-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2024-07-08T14:30:18-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/posts/2024/chatgpt-persistent-denial-of-service/</loc>
-    <lastmod>2024-07-08T14:30:18-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2024-07-08T14:30:18-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/testing/</loc>
@@ -38,16 +50,7 @@
     <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
     <lastmod>2024-06-14T21:00:17-08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/aiml/</loc>
-    <lastmod>2024-06-14T21:00:17-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/exfil/</loc>
-    <lastmod>2024-06-14T21:00:17-08:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/posts/2024/github-copilot-chat-prompt-injection-data-exfiltration/</loc>
-    <lastmod>2024-06-14T21:00:17-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/threats/</loc>
     <lastmod>2024-06-14T21:00:17-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/llm-apps-automatic-tool-invocations/</loc>
