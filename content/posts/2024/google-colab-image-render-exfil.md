@@ -1,6 +1,6 @@
 ---
 title: "Google Colab AI: Data Leakage Through Image Rendering Fixed. Some Risks Remain."
-date: 2024-07-14T11:09:25-07:00
+date: 2024-07-14T12:09:25-07:00
 draft: true
 tags: [
      "aiml", "machine learning", "threats", "llm" ,"ai injection", "exfil"
@@ -27,7 +27,7 @@ Let's explore the specifics.
 
 At the end of November last year, I noticed that there was a "Colab AI" feature, which integrated an LLM to chat with and write code. Naturally, I grabbed the system prompt, and it contained instructions that begged the LLM to not render images. 
 
-Quite interesting, look:
+Quite interesting. Look:
 
 [![do not render images](/blog/images/2024/google-colab-system-instructions-no-image.png)](/blog/images/2024/google-colab-system-instructions-no-image.png)
 

@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Sun, 14 Jul 2024 11:09:25 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Jul 2024 12:09:25 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Google Colab AI: Data Leakage Through Image Rendering Fixed. Some Risks Remain.</title>
       <link>https://embracethered.com/blog/posts/2024/google-colab-image-render-exfil/</link>
-      <pubDate>Sun, 14 Jul 2024 11:09:25 -0700</pubDate>
+      <pubDate>Sun, 14 Jul 2024 12:09:25 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2024/google-colab-image-render-exfil/</guid>
       <description>Google Colab AI, now just called Gemini in Colab, was vulnerable to data leakage via image rendering.
