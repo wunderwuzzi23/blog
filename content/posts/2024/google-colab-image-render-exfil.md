@@ -1,6 +1,6 @@
 ---
 title: "Google Colab AI: Data Leakage Through Image Rendering Fixed. Some Risks Remain."
-date: 2024-07-14T12:09:25-07:00
+date: 2024-07-16T15:09:25-07:00
 draft: true
 tags: [
      "aiml", "machine learning", "threats", "llm" ,"ai injection", "exfil"
@@ -71,20 +71,52 @@ To still demo the prompt injection, attackers can turn Google Colab Gemini into 
 
 [![image rendering](/blog/images/2024/google-colab-chat-with-pirate.png)](/blog/images/2024/google-colab-chat-with-pirate.png)
 
-There is no solution for prompt injection or magic "LLM alignment" in sight. The output of an LLM query cannot be trusted, so rendering links from attackers puts users at risk, including phishing and data leakage.
+There is no solution for prompt injection or magic "LLM alignment" in sight. The output of an LLM query cannot be trusted, so rendering links from attackers puts users at risk, including phishing and data leakage. 
 
-Technical detail: Colab automatically prepends `https://www.google.com/url?q=` to all clickable links, but that is an open redirect, and users end up at the destination defined by `q=`.
+So, what did the Colab team do for clickable links?
+
+### Colab's Attempt on Mitigating Clickable Hyperlinks
+
+Colab automatically prepends `https://www.google.com/url?q=` to all clickable links. This has the  behavior to show a confirmation page before navigating to the destination defined by `q=`.
+
+[![open redirect](/blog/images/2024/google-open-redirect-click-required.png)](/blog/images/2024/google-open-redirect-click-required.png)
+
+**However, as far as testing shows this mitigation is only for non Google domains.** 
+
+That's why the "Chat with Pirate" example above that links to `meet.google.com` does not show a confirmation page. And neither do `Apps Script functions` that [we have used in the past to demonstrate data exfiltration](https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/).
+
+So, let's do that!
+
+## Data Exfiltration via Clickable Hyperlinks
+
+Here a demo exploit, where the prompt injection stages `stdout` information, containing PII, in the Notebook for exfiltration in a clickable hyperlink.
+
+[![data exfiltration](/blog/images/2024/google-colab-data-exfil-hyperlinks.png)](/blog/images/2024/google-colab-data-exfil-hyperlinks.png)
+
+For demo purposes, I clicked the link and this what the server received:
+
+[![appscript output](/blog/images/2024/google-colab-exfil-stdout.png)](/blog/images/2024/google-colab-exfil-stdout.png)
+
+Nice, the `stdout` information was sent to the Apps Script macro and written to a Google Doc. 
+
+## Challenges
+
+It's interesting to see that across the industry, and even within organizations, there isn't yet a clear understanding on what the correct and safe user experience is for these novel threats. 
+
 
 ## Conclusion
 
-Even though Google did not reward this finding, I think reporting it immediately was the right thing to do. Waiting until it became a high-severity issue, once untrusted Notebook's content was added to the prompt context (which eventually happened), would have potentially exposed users to zero click data exfiltration.
+Even though Google did not reward the zero-click image rendering vulnerability, I think reporting it immediately was the right thing to do. Waiting until it became a high-severity issue, which would have likely happened now with indirect prompt injection, could have ended up exposing users to zero-click data exfiltration.
 
-Now, that indirect prompt injection is a reality for Colab AI users, the risk of rendering links remains.
+However, now that indirect prompt injection is a reality for Colab AI users, the rendering of attacker controlled links remains a risk. In particular scams, phishing and staging sensitive data for one-click data exfiltration is now possible.
 
 Cheers.
 
-# Disclosure
+
+## Responsible Disclosure Timeline
 
 * November 29, 2023 - Reported the issue to Google.
 * November 29, 2023 - Google confirms the bug.
 * January 16, 2024  - Ticket closed.
+
+*A draft of this post was shared with Google before posting, but no response or feedback was received.*

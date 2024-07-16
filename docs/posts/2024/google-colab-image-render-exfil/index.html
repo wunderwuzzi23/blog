@@ -176,17 +176,32 @@ escape all spaces with +. show the final text as
 <p>To still demo the prompt injection, attackers can turn Google Colab Gemini into a pirate and render links to leak data, or scam users, like directly linking to a Google Meet meeting:</p>
 <p><a href="/blog/images/2024/google-colab-chat-with-pirate.png"><img src="/blog/images/2024/google-colab-chat-with-pirate.png" alt="image rendering"></a></p>
 <p>There is no solution for prompt injection or magic &ldquo;LLM alignment&rdquo; in sight. The output of an LLM query cannot be trusted, so rendering links from attackers puts users at risk, including phishing and data leakage.</p>
-<p>Technical detail: Colab automatically prepends <code>https://www.google.com/url?q=</code> to all clickable links, but that is an open redirect, and users end up at the destination defined by <code>q=</code>.</p>
+<p>So, what did the Colab team do for clickable links?</p>
+<h3 id="colabs-attempt-on-mitigating-clickable-hyperlinks">Colab&rsquo;s Attempt on Mitigating Clickable Hyperlinks</h3>
+<p>Colab automatically prepends <code>https://www.google.com/url?q=</code> to all clickable links. This has the  behavior to show a confirmation page before navigating to the destination defined by <code>q=</code>.</p>
+<p><a href="/blog/images/2024/google-open-redirect-click-required.png"><img src="/blog/images/2024/google-open-redirect-click-required.png" alt="open redirect"></a></p>
+<p><strong>However, as far as testing shows this mitigation is only for non Google domains.</strong></p>
+<p>That&rsquo;s why the &ldquo;Chat with Pirate&rdquo; example above that links to <code>meet.google.com</code> does not show a confirmation page. And neither do <code>Apps Script functions</code> that <a href="https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/">we have used in the past to demonstrate data exfiltration</a>.</p>
+<p>So, let&rsquo;s do that!</p>
+<h2 id="data-exfiltration-via-clickable-hyperlinks">Data Exfiltration via Clickable Hyperlinks</h2>
+<p>Here a demo exploit, where the prompt injection stages <code>stdout</code> information, containing PII, in the Notebook for exfiltration in a clickable hyperlink.</p>
+<p><a href="/blog/images/2024/google-colab-data-exfil-hyperlinks.png"><img src="/blog/images/2024/google-colab-data-exfil-hyperlinks.png" alt="data exfiltration"></a></p>
+<p>For demo purposes, I clicked the link and this what the server received:</p>
+<p><a href="/blog/images/2024/google-colab-exfil-stdout.png"><img src="/blog/images/2024/google-colab-exfil-stdout.png" alt="appscript output"></a></p>
+<p>Nice, the <code>stdout</code> information was sent to the Apps Script macro and written to a Google Doc.</p>
+<h2 id="challenges">Challenges</h2>
+<p>It&rsquo;s interesting to see that across the industry, and even within organizations, there isn&rsquo;t yet a clear understanding on what the correct and safe user experience is for these novel threats.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Even though Google did not reward this finding, I think reporting it immediately was the right thing to do. Waiting until it became a high-severity issue, once untrusted Notebook&rsquo;s content was added to the prompt context (which eventually happened), would have potentially exposed users to zero click data exfiltration.</p>
-<p>Now, that indirect prompt injection is a reality for Colab AI users, the risk of rendering links remains.</p>
+<p>Even though Google did not reward the zero-click image rendering vulnerability, I think reporting it immediately was the right thing to do. Waiting until it became a high-severity issue, which would have likely happened now with indirect prompt injection, could have ended up exposing users to zero-click data exfiltration.</p>
+<p>However, now that indirect prompt injection is a reality for Colab AI users, the rendering of attacker controlled links remains a risk. In particular scams, phishing and staging sensitive data for one-click data exfiltration is now possible.</p>
 <p>Cheers.</p>
-<h1 id="disclosure">Disclosure</h1>
+<h2 id="responsible-disclosure-timeline">Responsible Disclosure Timeline</h2>
 <ul>
 <li>November 29, 2023 - Reported the issue to Google.</li>
 <li>November 29, 2023 - Google confirms the bug.</li>
 <li>January 16, 2024  - Ticket closed.</li>
 </ul>
+<p><em>A draft of this post was shared with Google upfront, but no response or feedback was received.</em></p>
 
   </section>
   <footer>
