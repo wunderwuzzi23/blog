@@ -1,6 +1,6 @@
 ---
 title: "Google Colab AI: Data Leakage Through Image Rendering Fixed. Some Risks Remain."
-date: 2024-07-16T15:09:25-07:00
+date: 2024-07-18T15:09:25-07:00
 draft: true
 tags: [
      "aiml", "machine learning", "threats", "llm" ,"ai injection", "exfil"
@@ -19,7 +19,7 @@ Google Colab AI, now just called Gemini in Colab, was vulnerable to data leakage
 
 This is an older bug report, dating back to November 29, 2023. However, recent events prompted me to write this up: 
 1. Google did not reward this finding, and 
-2. Colab started automatically placing Notebook content (untrusted data) into the prompt.
+2. Colab now automatically puts Notebook content (untrusted data) into the prompt.
 
 Let's explore the specifics.
 
@@ -63,7 +63,7 @@ Google confirmed and fixed the vulnerability, but did not reward the finding.
 
 ## Here we go... Indirect Prompt Injection
 
-This weekend, I noticed that my prediction of Google Colab including the Notebook's content in the prompt became reality. And now we can demonstrate prompt injection via untrusted data from Notebooks.
+Last weekend, I noticed that my prediction of Google Colab including the Notebook's content in the prompt became reality. And now we can demonstrate prompt injection via untrusted data from Notebooks.
 
 **Luckily the data exfiltration issue was addressed already after the responsible disclosure.**
 
@@ -81,7 +81,7 @@ Colab automatically prepends `https://www.google.com/url?q=` to all clickable li
 
 [![open redirect](/blog/images/2024/google-open-redirect-click-required.png)](/blog/images/2024/google-open-redirect-click-required.png)
 
-**However, as far as testing shows this mitigation is only for non Google domains.** 
+**However, testing shows that this mitigation only applies to non-Google domains.** 
 
 That's why the "Chat with Pirate" example above that links to `meet.google.com` does not show a confirmation page. And neither do `Apps Script functions` that [we have used in the past to demonstrate data exfiltration](https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/).
 
@@ -89,15 +89,26 @@ So, let's do that!
 
 ## Data Exfiltration via Clickable Hyperlinks
 
-Here a demo exploit, where the prompt injection stages `stdout` information, containing PII, in the Notebook for exfiltration in a clickable hyperlink.
+Here a demo exploit, where the prompt injection turns Gemini into malicious pirate asking the user for personal information, and stages the data and source code for exfiltration in a clickable hyperlink.
 
-[![data exfiltration](/blog/images/2024/google-colab-data-exfil-hyperlinks.png)](/blog/images/2024/google-colab-data-exfil-hyperlinks.png)
+[![data exfiltration](/blog/images/2024/google-colab-pirate.png)](/blog/images/2024/google-colab-pirate.png)
 
-For demo purposes, I clicked the link and this what the server received:
+For demo purposes, I clicked the "I'm feeling lucky" link, and this was the result:
 
-[![appscript output](/blog/images/2024/google-colab-exfil-stdout.png)](/blog/images/2024/google-colab-exfil-stdout.png)
+[![appscript output](/blog/images/2024/google-colab-pirate-exfil-log.png)](/blog/images/2024/google-colab-pirate-exfil-log.png)
 
-Nice, the `stdout` information was sent to the Apps Script macro and written to a Google Doc. 
+Nice, the data, incl. name and email from chat + source code from Notebook, was sent to the custom `Apps Script` macro and written to the exfiltration log.
+
+## Google Colab Gemini AI - Pirate Video Demo
+
+Here is a video that shows it end to end:
+
+{{< youtube X6REjh2pjn4 >}}
+
+
+To demonstrate that hyperlinks can be used to exfiltrate a lot of data, the POC also attaches the code of the Notebook.
+
+*After inspecting the prompt that Colab Gemini AI currently constructs, it seems that at the moment the Notebook code and chat history can be exfiltrated. Currently the result of code that was run (the output cells) is not put into the prompt context.*
 
 ## Challenges
 
@@ -108,7 +119,7 @@ It's interesting to see that across the industry, and even within organizations,
 
 Even though Google did not reward the zero-click image rendering vulnerability, I think reporting it immediately was the right thing to do. Waiting until it became a high-severity issue, which would have likely happened now with indirect prompt injection, could have ended up exposing users to zero-click data exfiltration.
 
-However, now that indirect prompt injection is a reality for Colab AI users, the rendering of attacker controlled links remains a risk. In particular scams, phishing and staging sensitive data for one-click data exfiltration is now possible.
+However, now that indirect prompt injection is a reality for Colab AI users, the rendering of attacker controlled links remains a risk. In particular scams, phishing and staging data for one-click data exfiltration is now possible.
 
 Cheers.
 
@@ -118,5 +129,5 @@ Cheers.
 * November 29, 2023 - Reported the issue to Google.
 * November 29, 2023 - Google confirms the bug.
 * January 16, 2024  - Ticket closed.
-
-*A draft of this post was shared with Google before posting, but no response or feedback was received.*
+* May, 26 2024 - Notified Google of intent to share details (response stating that it's up to me)
+* July, 16 2024 - Copy of blog post shared for review (no ack or feedback received until posting)
