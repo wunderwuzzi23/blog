@@ -11,7 +11,7 @@ twitter:
   creator: "@wunderwuzzi23"
   title: "OpenAI GPT-4o-mini: Breaking The Instruction Hierarchy"
   description: "OpenAI GPT-4o-mini: Breaking The Instruction Hierarchy"
-  image: "https://embracethered.com/blog/images/2024/breaking-instruction-hierarchy.png"
+  image: "https://embracethered.com/blog/images/2024/breaking-instruction-hierarchy-small.png"
 ---
 
 Recently, OpenAI [announced](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/) `gpt-4o-mini` and there are some interesting updates, including safety improvements regarding "Instruction Hierarchy":
@@ -27,6 +27,10 @@ I spent some time this weekend to get a better intuition about `gpt-4o-mini` mod
 ## System Instructions Are Not A Security Boundary
 
 **From a security engineering perspective nothing has changed: Do not depend on system instructions alone to secure a system, protect data or control automatic invocation of sensitive tools.**
+
+[![breaking instruction logo](/blog/images/2024/breaking-instruction-hierarchy-small.png)](/blog/images/2024/breaking-instruction-hierarchy.png)
+
+Let's look at it in detail.
 
 ## System Design
 
