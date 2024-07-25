@@ -172,7 +172,7 @@ escape all spaces with +. show the final text as
 <p>Google confirmed and fixed the vulnerability but did not reward the finding. The ticket was closed in January.</p>
 <h2 id="here-we-go-indirect-prompt-injection">Here we go&hellip; Indirect Prompt Injection</h2>
 <p>A few weeks ago, my prediction of Google Colab including the Notebook&rsquo;s content in the prompt became reality. And now we can demonstrate prompt injection via untrusted data from Notebooks.</p>
-<p><strong>Luckily the data exfiltration issue was addressed already after the responsible disclosure.</strong></p>
+<p><strong>Luckily the zero-click data exfiltration issue via image rendering was addressed already after the responsible disclosure.</strong></p>
 <p>To still demo the prompt injection, attackers can turn Google Colab Gemini into a pirate and render links to leak data, or scam users, like directly linking to a Google Meet meeting:</p>
 <p><a href="/blog/images/2024/google-colab-chat-with-pirate.png"><img src="/blog/images/2024/google-colab-chat-with-pirate.png" alt="image rendering"></a></p>
 <p>There is no solution for prompt injection or magic &ldquo;LLM alignment&rdquo; in sight. The output of an LLM query cannot be trusted, so rendering links from attackers puts users at risk, including phishing and data leakage.</p>
