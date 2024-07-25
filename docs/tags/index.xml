@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Mon, 22 Jul 2024 06:14:05 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Jul 2024 22:00:25 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ai injection</title>
       <link>https://embracethered.com/blog/tags/ai-injection/</link>
-      <pubDate>Mon, 22 Jul 2024 06:14:05 -0700</pubDate>
+      <pubDate>Wed, 24 Jul 2024 22:00:25 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ai-injection/</guid>
       <description></description>
@@ -20,16 +20,25 @@
     <item>
       <title>aiml</title>
       <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Mon, 22 Jul 2024 06:14:05 -0700</pubDate>
+      <pubDate>Wed, 24 Jul 2024 22:00:25 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>exfil</title>
+      <link>https://embracethered.com/blog/tags/exfil/</link>
+      <pubDate>Wed, 24 Jul 2024 22:00:25 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/exfil/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>llm</title>
       <link>https://embracethered.com/blog/tags/llm/</link>
-      <pubDate>Mon, 22 Jul 2024 06:14:05 -0700</pubDate>
+      <pubDate>Wed, 24 Jul 2024 22:00:25 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/llm/</guid>
       <description></description>
@@ -38,9 +47,18 @@
     <item>
       <title>machine learning</title>
       <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Mon, 22 Jul 2024 06:14:05 -0700</pubDate>
+      <pubDate>Wed, 24 Jul 2024 22:00:25 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>threats</title>
+      <link>https://embracethered.com/blog/tags/threats/</link>
+      <pubDate>Wed, 24 Jul 2024 22:00:25 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/threats/</guid>
       <description></description>
     </item>
     
@@ -50,15 +68,6 @@
       <pubDate>Mon, 22 Jul 2024 06:14:05 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/testing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>threats</title>
-      <link>https://embracethered.com/blog/tags/threats/</link>
-      <pubDate>Mon, 22 Jul 2024 06:14:05 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/threats/</guid>
       <description></description>
     </item>
     
@@ -95,15 +104,6 @@
       <pubDate>Fri, 14 Jun 2024 21:00:17 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>exfil</title>
-      <link>https://embracethered.com/blog/tags/exfil/</link>
-      <pubDate>Fri, 14 Jun 2024 21:00:17 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/exfil/</guid>
       <description></description>
     </item>
     

@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Mon, 22 Jul 2024 06:14:05 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Jul 2024 22:00:25 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Colab AI: Data Leakage Through Image Rendering Fixed. Some Risks Remain.</title>
+      <link>https://embracethered.com/blog/posts/2024/google-colab-image-render-exfil/</link>
+      <pubDate>Wed, 24 Jul 2024 22:00:25 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/google-colab-image-render-exfil/</guid>
+      <description>Google Colab AI, now just called Gemini in Colab, was vulnerable to data leakage via image rendering.
+This is an older bug report, dating back to November 29, 2023. However, recent events prompted me to write this up:
+ Google did not reward this finding, and Colab now automatically puts Notebook content (untrusted data) into the prompt.  Let&amp;rsquo;s explore the specifics.
+Google Colab AI - Revealing the System Prompt At the end of November last year, I noticed that there was a &amp;ldquo;Colab AI&amp;rdquo; feature, which integrated an LLM to chat with and write code.</description>
+    </item>
+    
     <item>
       <title>Breaking Instruction Hierarchy in OpenAI&#39;s gpt-4o-mini</title>
       <link>https://embracethered.com/blog/posts/2024/chatgpt-gpt-4o-mini-instruction-hierarchie-bypasses/</link>
