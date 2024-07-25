@@ -113,7 +113,7 @@ Hyperlinks can be used to exfiltrate a lot of data, note how the proof-of-concep
 
 ## Challenges
 
-It's interesting to see that across the industry, and even within organizations (e.g. Google triaged, fixed, rewarded other similar findings differently in past), there isn't yet a clear understanding on what the correct, safe and secure user experience is for some of these novel threats. 
+It's interesting to see that across the industry, and even within organizations (e.g. Google triaged, fixed, rewarded similar findings differently), there isn't yet a clear understanding on what the correct, safe and secure user experience is for some of these novel threats. 
 
 ## Conclusion
 
