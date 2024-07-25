@@ -196,10 +196,10 @@ escape all spaces with +. show the final text as
   <iframe src="https://www.youtube.com/embed/X6REjh2pjn4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
-<p>Hyperlinks can be used to exfiltrate a lot of data, the POC the code of the Notebook also.</p>
-<p><em>After inspecting the prompt that Colab Gemini AI currently constructs, it seems that at the moment the Notebook code and chat history can be exfiltrated. Currently the result of code that was run (the output cells) is not put into the prompt context.</em></p>
+<p>Hyperlinks can be used to exfiltrate a lot of data, note how the proof-of-concept sends off all the data in the Notebook also.</p>
+<p><em>After inspecting the prompt that Colab AI constructs, it seems that currently the Notebook code and chat history can be exfiltrated. The execution results of running a cell (the output) is not put into the prompt context.</em></p>
 <h2 id="challenges">Challenges</h2>
-<p>It&rsquo;s interesting to see that across the industry, and even within organizations, there isn&rsquo;t yet a clear understanding on what the correct and safe user experience is for these novel threats.</p>
+<p>It&rsquo;s interesting to see that across the industry, and even within organizations (e.g. Google triaged, fixed, rewarded other similar findings differently in past), there isn&rsquo;t yet a clear understanding on what the correct, safe and secure user experience is for some of these novel threats.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Even though Google did not reward the zero-click image rendering vulnerability. I still think reporting it immediately was the right thing to do. Waiting until it became a high-severity issue, which would have likely happened now with indirect prompt injection, could have ended up exposing users to zero-click data exfiltration.</p>
 <p>However, now that indirect prompt injection is a reality for Colab AI users, the rendering of attacker controlled links remains a risk. In particular scams, phishing and staging data for one-click data exfiltration is now possible.</p>

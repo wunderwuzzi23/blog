@@ -106,14 +106,13 @@ Here is a video that shows it end to end:
 {{< youtube X6REjh2pjn4 >}}
 
 
-Hyperlinks can be used to exfiltrate a lot of data, the POC the code of the Notebook also.
+Hyperlinks can be used to exfiltrate a lot of data, note how the proof-of-concept sends off all the data in the Notebook also.
 
-*After inspecting the prompt that Colab Gemini AI currently constructs, it seems that at the moment the Notebook code and chat history can be exfiltrated. Currently the result of code that was run (the output cells) is not put into the prompt context.*
+*After inspecting the prompt that Colab AI constructs, it seems that currently the Notebook code and chat history can be exfiltrated. The execution results of running a cell (the output) is not put into the prompt context.*
 
 ## Challenges
 
-It's interesting to see that across the industry, and even within organizations, there isn't yet a clear understanding on what the correct and safe user experience is for these novel threats. 
-
+It's interesting to see that across the industry, and even within organizations (e.g. Google triaged, fixed, rewarded other similar findings differently in past), there isn't yet a clear understanding on what the correct, safe and secure user experience is for some of these novel threats. 
 
 ## Conclusion
 
