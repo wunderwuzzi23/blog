@@ -65,7 +65,7 @@ Google confirmed and fixed the vulnerability but did not reward the finding. The
 
 A few weeks ago, my prediction of Google Colab including the Notebook's content in the prompt became reality. And now we can demonstrate prompt injection via untrusted data from Notebooks.
 
-**Luckily the data exfiltration issue was addressed already after the responsible disclosure.**
+**Luckily the zero-click data exfiltration issue via image rendering was addressed already after the responsible disclosure.**
 
 To still demo the prompt injection, attackers can turn Google Colab Gemini into a pirate and render links to leak data, or scam users, like directly linking to a Google Meet meeting:
 
