@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>copilot on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/copilot/</link>
+    <description>Recent content in copilot on Embrace The Red</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
+    <lastBuildDate>Tue, 30 Jul 2024 10:00:36 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/copilot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Protect Your Copilots: Preventing Data Leaks in Copilot Studio</title>
+      <link>https://embracethered.com/blog/posts/2024/copilot-studio-protect-your-copilots/</link>
+      <pubDate>Tue, 30 Jul 2024 10:00:36 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/copilot-studio-protect-your-copilots/</guid>
+      <description>Microsoft&amp;rsquo;s Copilot Studio is a powerful, easy-to-use, low-code platform that enables employees in an organization to create chatbots. Previously known as Power Virtual Agents, it has been updated (including GenAI features) and rebranded to Copilot Studio, likely to align with current AI trends.
+
+This post discusses security risks to be aware of when using Copilot Studio, focusing on data leaks, unauthorized access, and how external adversaries can find and interact with misconfigured Copilots.</description>
+    </item>
+    
+  </channel>
+</rss>

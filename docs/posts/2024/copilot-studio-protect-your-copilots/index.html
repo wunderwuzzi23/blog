@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Protect Your Copilots: Preventing Data Leaks in Copilot Studio &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2024/copilot-studio-protect-your-copilots/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2024-07-30T10:00:36-07:00" />
+  
+  <meta property="og:article:tag" content="threats" />
+  
+  <meta property="og:article:tag" content="ttp" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="blue" />
+  
+  <meta property="og:article:tag" content="copilot" />
+  
+  <meta property="og:article:tag" content="data" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  
+
+  <title>
+     Protect Your Copilots: Preventing Data Leaks in Copilot Studio &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Protect Your Copilots: Preventing Data Leaks in Copilot Studio">
+<meta name="twitter:description" content="Copilot Studio  (previously called Power Virtual Agents) is a platform to quickly create chatbots. But your company&#39;s internal data might leak. Apply mitigations, data loss prevention policies and security controls.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2024/copilot-data-leak-prevention-small.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Protect Your Copilots: Preventing Data Leaks in Copilot Studio</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2024-07-30T10:00:36-07:00">
+          Jul 30, 2024
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/threats">#threats</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/blue">#blue</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/copilot">#copilot</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/data">#data</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p><strong>Microsoft&rsquo;s Copilot Studio</strong> is a powerful, easy-to-use, low-code platform that enables employees in an organization to create chatbots. Previously known as <strong>Power Virtual Agents</strong>, it has been updated (including GenAI features) and rebranded to Copilot Studio, likely to align with current AI trends.</p>
+<p><a href="/blog/images/2024/copilot-data-leak-prevention-small.png"><img src="/blog/images/2024/copilot-data-leak-prevention-small.png" alt="Thumbnail Copilot Studio"></a></p>
+<p>This post discusses security risks to be aware of when using Copilot Studio, focusing on data leaks, unauthorized access, and how external adversaries can find and interact with misconfigured Copilots. <strong>Learn about security controls, like enabling Data Loss Prevention (DLP), which is currently off by default, to protect your organization&rsquo;s data.</strong></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#creating-custom-copilots">Creating Custom Copilots</a></li>
+<li><a href="#danger-zone-authentication">Danger Zone: Authentication</a></li>
+<li><a href="#hackers-gonna-hack">Hacker&rsquo;s Gonna Hack!</a></li>
+<li><a href="#enumerating-copilots">Enumerating Copilots</a>
+<ul>
+<li><a href="#tenant-id---what-is-this">Tenant ID - What is this?</a></li>
+<li><a href="#environment-id---derived-from-tenant-id">Environment ID - Derived from Tenant ID</a></li>
+<li><a href="#schema-name---the-name-of-the-copilot">Schema Name - The Name of the Copilot</a></li>
+<li><a href="#another-enumeration-option-token-endpoints">Another Enumeration Option: Token Endpoints</a></li>
+</ul>
+</li>
+<li><a href="#secured-access-is-off-by-default">Secured Access is off by default</a></li>
+<li><a href="#lets-chat-with-a-custom-copilot">Let&rsquo;s chat with a custom Copilot!</a></li>
+<li><a href="#real-world-enumeration---is-it-possible">Real-world Enumeration - Is it possible?</a></li>
+<li><a href="#mitigations-and-security-controls">Mitigations and Security Controls</a></li>
+<li><a href="#auditing">Auditing</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<p>Let&rsquo;s get started.</p>
+<h2 id="creating-custom-copilots">Creating Custom Copilots</h2>
+<p>Creating a new bot with <a href="https://copilotstudio.microsoft.com">Copilot Studio</a> is simple and takes only a few clicks:</p>
+<p><a href="/blog/images/2024/copilotstudio-create3.png"><img src="/blog/images/2024/copilotstudio-create3.png" alt="copilot studio - create"></a></p>
+<p>And users can upload custom knowledge and even connect the Copilot to internal data sources via a wide range of connectors.</p>
+<p><a href="/blog/images/2024/copilotstudio-addknowledge2.png"><img src="/blog/images/2024/copilotstudio-addknowledge2.png" alt="add knowledge"></a></p>
+<p>This allows for the quick creation of custom chatbots that might leak internal data. Why?</p>
+<h2 id="danger-zone-authentication">Danger Zone: Authentication</h2>
+<p>When publishing a Copilot, employees have the option to set <strong>no authentication</strong>.</p>
+<p><a href="/blog/images/2024/copilotstudio-authentication.png"><img src="/blog/images/2024/copilotstudio-authentication.png" alt="no auth copilot"></a></p>
+<p>In my tenant, the default was Microsoft Authentication, which is good. And the documentation also discusses this:</p>
+<blockquote>
+<p>Selecting the No authentication option will allow anyone who has the link to chat and interact with your Copilot. (<a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels?tabs=web">Publication Fundamentals</a>)</p>
+</blockquote>
+<p>However, in reality, it&rsquo;s still up to the individual. For one case I&rsquo;m aware of, there was an error message when selecting &ldquo;Microsoft Authentication&rdquo;, so the next best option to make it &ldquo;work&rdquo; was selecting &ldquo;No Authentication&rdquo;, allowing anyone to chat with a bot.</p>
+<p><strong>Admins can set Data Loss Prevention (DLP) policies and features in Copilot Studio, but they are not enabled by default.</strong></p>
+<p>Additionally, internal company chatbots (even those requiring authentication) might still leak sensitive data - so be aware of these risks.</p>
+<h2 id="hackers-gonna-hack">Hacker&rsquo;s Gonna Hack!</h2>
+<p>Is it easy to find or guess a Copilot name or URL to talk with widely exposed ones? At first glance, it&rsquo;s not obvious. Your company might expose some Copilots (accidentally or intentionally) in search or the Wayback Machine though, so be aware of that also.</p>
+<p>But, what about guessing the URL? It seems when the system was called <strong>Power Virtual Agents</strong>, bots were solely based on UUIDs as identifiers. The UUID is in the URL but generally those are impossible to guess.</p>
+<p>However, there is also a schema name and a <code>/botsbyschema/</code> route visible in the web traffic. Can someone guess that?</p>
+<p>For a few Copilots that I had created months ago, the schema name starts with <code>Default_</code> plus the name of the Copilot without spaces. Not very difficult to guess&hellip;</p>
+<p>A more recently created one looks like this: <code>cr5f7_chatWithEmployeeInfo</code></p>
+<p>And this was another one created in the same tenant:</p>
+<p><a href="/blog/images/2024/copilotstudio-copirate.png"><img src="/blog/images/2024/copilotstudio-copirate.png" alt="second copilot"></a></p>
+<p>Do you notice anything?</p>
+<p>The schema name is <code>cr5f7_copilot</code>! So, they start with the same <code>cr5f7_</code> prefix in this tenant.</p>
+<h2 id="enumerating-copilots">Enumerating Copilots</h2>
+<p>While capturing requests, I observed one that indicates if a Copilot with a certain name exists or not. It was this one: <code>https://default8b63cc9ba2f948ea9cb6f82c96c9ac.08.environment.api.powerplatform.com/powervirtualagents/botsbyschema/Default_copilot1/canvassettings?api-version=2022-03-01-preview</code>.</p>
+<p>If the Copilot exists, the response is:</p>
+<pre tabindex="0"><code>{
+    &quot;botCanvasSettings&quot;: {
+        &quot;botId&quot;: &quot;966a369a-babb-ebd5-5d64-0f4155544d97&quot;,
+        &quot;botName&quot;: &quot;Copilot 1&quot;,
+        &quot;tenantId&quot;: &quot;8b63cc9b-a2f9-48ea-9cb6-f82c96c9ac08&quot;
+    }
+}
+</code></pre><p>In case a Copilot does not exist, the response is:</p>
+<pre tabindex="0"><code>{
+  &quot;demoWebsiteErrorCode&quot;: &quot;404&quot;
+}
+</code></pre><p>So, one needs these pieces for the API call:</p>
+<ul>
+<li>Tenant ID</li>
+<li>Environment ID (which is most often <code>Default-</code> plus the Tenant ID)</li>
+<li>Schema Name of Copilot (or the Bot ID)</li>
+</ul>
+<p>Let&rsquo;s explore.</p>
+<h3 id="tenant-id---what-is-this">Tenant ID - What is this?</h3>
+<p>The mapping from Tenant Name to Tenant ID is straightforward, it&rsquo;s not a secret. You can use the <code>https://login.microsoftonline.com/&lt;TENANT_NAME&gt;.onmicrosoft.com/.well-known/openid-configuration</code> to retrieve the details. For instance:</p>
+<pre tabindex="0"><code>curl --silent https://login.microsoftonline.com/microsoft.onmicrosoft.com/.well-known/openid-configuration | jq .authorization_endpoint
+</code></pre><p>Returns <code>&quot;https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/authorize&quot;</code></p>
+<p>So, <code>microsoft.onmicrosoft.com</code> has Tenant ID <code>72f988bf-86f1-41af-91ab-2d7cd011db47</code>.</p>
+<p>And for this demo the tenant, named <code>tx23xg.onmicrosoft.com</code> maps to <code>8b63cc9b-a2f9-48ea-9cb6-f82c96c9ac08</code>.</p>
+<p>Great, so now let&rsquo;s dive into the next layer!</p>
+<h3 id="environment-id---derived-from-tenant-id">Environment ID - Derived from Tenant ID</h3>
+<p>The obscure part of the DNS name, <code>default8b63cc9ba2f948ea9cb6f82c96c9ac.08</code>, is based on the Tenant ID. It&rsquo;s derived by removing the dashes and separating the last two characters into a separate subdomain.</p>
+<p>Later, we&rsquo;ll see the Environment ID used in the URL path, starting with <code>Default-</code> and Tenant ID is appended.</p>
+<h3 id="schema-name---the-name-of-the-copilot">Schema Name - The Name of the Copilot</h3>
+<p>The last piece of the request puzzle is the Copilot name. After trying in a few tenants and speaking with a few other organizations it appears this pattern is not uncommon, the name:</p>
+<ul>
+<li>starts with <code>cr</code>, then</li>
+<li>3 random characters and an underscore and</li>
+<li>the name of the Copilot without spaces.</li>
+</ul>
+<p>This is entirely based on empirical evidence, and might be configured/derived from some specific place. Sometimes it&rsquo;s also just <code>Default_</code> plus the name of the Copilot.</p>
+<h4 id="another-enumeration-option-token-endpoints">Another Enumeration Option: Token Endpoints</h4>
+<p>While researching this, another option for enumeration was discovered, it&rsquo;s by using the token endpoint (and that leaks a bit more information in error cases):</p>
+<p><code>https://copilotstudio.microsoft.com/environments/Default-8b63cc9b-a2f9-48ea-9cb6-f82c96c9ac08/bots/Default_copilot1/canvas?__version__=2</code></p>
+<p>Here are two ways to call it:</p>
+<ul>
+<li>
+<p>By Schema Name
+<code>https://default8b63cc9ba2f948ea9cb6f82c96c9ac.08.environment.api.powerplatform.com/powervirtualagents/botsbyschema/Default_copilot1/directline/token?api-version=2022-03-01-preview</code></p>
+</li>
+<li>
+<p>By Bot ID
+<code>https://default8b63cc9ba2f948ea9cb6f82c96c9ac.08.environment.api.powerplatform.com/powervirtualagents/bots/966a369a-babb-ebd5-5d64-0f4155544d97/directline/token?api-version=2022-03-01-preview</code></p>
+</li>
+</ul>
+<p>The returned (base64 decoded) JWT token looks like this:</p>
+<pre tabindex="0"><code>{
+    &quot;bot&quot;: &quot;966a369a-babb-ebd5-5d64-0f4155544d97&quot;,
+    &quot;site&quot;: &quot;0Tm3SQ43pLs&quot;,
+    &quot;conv&quot;: &quot;QPbc3pjmlTERRLOgJTJrn-us&quot;,
+    &quot;user&quot;: &quot;a1e0bef7-3a11-44f9-9d4a-cf818ffe7bbe&quot;,
+    &quot;nbf&quot;: 1717371284,
+    &quot;exp&quot;: 1717374884,
+    &quot;iss&quot;: &quot;https://directline.botframework.com/&quot;,
+    &quot;aud&quot;: &quot;https://directline.botframework.com/&quot;
+}
+</code></pre><p><strong>Note:</strong> If you have a Copilot&rsquo;s Bot ID you don&rsquo;t need the Environment ID at all. One can use any DNS name of a valid environment. The Environment ID is only required when querying via the schema name.</p>
+<h4 id="enumeration-errors-from-token-endpoint">Enumeration Errors from Token Endpoint</h4>
+<p>There are different errors returned, in particular these two are worth highlighting:</p>
+<ul>
+<li><code>{&quot;ErrorCode&quot;:4103,&quot;ErrorMessage&quot;:&quot;Bot with ID cr5f7_copirate can't be found.&quot;}</code></li>
+<li><code>{&quot;ErrorCode&quot;:4011,&quot;ErrorMessage&quot;:&quot;The bot isn't available at this time. Please try again later. If you have questions, contact your admin.&quot;}</code> &gt; <strong>This likely means that Secure Channel was enabled!</strong></li>
+</ul>
+<p>What is that Secure Channel?</p>
+<h2 id="secured-access-is-off-by-default">Secured Access is off by default</h2>
+<p>The reason the demo website and directly retrieving an access token works, is because &ldquo;Secured Access&rdquo; is not enabled by default. In the following screenshot, you can see where to find this setting:</p>
+<p><a href="/blog/images/2024/copilotstudio-channel-security-off-by-default.png"><img src="/blog/images/2024/copilotstudio-channel-security-off-by-default.png" alt="secured channel"></a></p>
+<p>If this is enabled, then <em>directline</em> and the <em>demo website</em> won&rsquo;t work!</p>
+<p>According to documentation, it can take up to two hours for changes to take effect.</p>
+<p>Okay, so how to chat with a newly discovered bot?</p>
+<h2 id="lets-chat-with-a-custom-copilot">Let&rsquo;s Chat with a Custom Copilot!</h2>
+<p>If you know the schema name of a Copilot (or the Bot ID) you start a conversation with the demo UI: <code>https://copilotstudio.microsoft.com/environments/Default-TENANT-NAME/bots/&lt;COPILOT_SCHEMA_NAME&gt;/webchat</code></p>
+<p>This is a demo Copilot I created a while ago for research purposes:
+<a href="/blog/images/2024/copilotstudio-hr-asked-me-todo-this.png"><img src="/blog/images/2024/copilotstudio-hr-asked-me-todo-this.png" alt="chat with address book"></a></p>
+<p>There is a second, slightly different, UI experience as well: <code>https://copilotstudio.microsoft.com/environments/Default-TENANT-NAME/bots/&lt;COPILOT_SCHEMA_NAME&gt;/canvas?__version__=2</code></p>
+<p><strong>Error Messages</strong></p>
+<p>There are errors one might see when interacting with the Copilot this way.</p>
+<ul>
+<li>
+<p>Error Case: Copilot is not yet published
+<code>Sorry, something unexpected happened. We’re looking into it. Error code: LatestPublishedVersionNotFound.</code></p>
+</li>
+<li>
+<p>Error Case: Microsoft Authentication is enabled
+<code>Sorry, something unexpected happened. We’re looking into it. Error code: IntegratedAuthenticationNotSupportedInChannel.</code></p>
+</li>
+</ul>
+<p>One can also chat with a bot using the API endpoints (see <a href="https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-api-reference?view=azure-bot-service-4.0">DirectLine</a>).</p>
+<h2 id="real-world-enumeration---is-it-possible">Real-world Enumeration - Is it possible?</h2>
+<p><strong>Yes.</strong></p>
+<p>I wrote some code, and it works!</p>
+<p>The script successfully retrieved a set of Copilot&rsquo;s from <strong>Microsoft&rsquo;s Power Platform Azure Tenant</strong>. 😈</p>
+<p>None of those Copilots were published though. So, I wasn&rsquo;t able to chat with them. And I didn&rsquo;t poke any further. Although, there isn&rsquo;t a high security vulnerability per se (yet), I informed Microsoft about this issue to make sure they are aware of it and possibly consider enabling data loss prevention features by default.</p>
+<p>Let&rsquo;s talk about what you need to do to stay ahead of the game and what mitigations can be applied at the enterprise level.</p>
+<h2 id="mitigations-and-security-controls">Mitigations and Security Controls</h2>
+<p>Currently Data Loss Prevention is not enabled by default. After asking for feedback on this post a few months back, Microsoft said that they will enable DLP by default, although no specific timeline was provided.</p>
+<p><strong>The best advice for organizations at the moment is to enable Data Loss Prevention!</strong></p>
+<p>The <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance">Copilot security and governance section</a> highlights mitigations, including options such as:</p>
+<ul>
+<li>Disabling Copilot publishing</li>
+<li>Disabling publishing of bots that have no authentication</li>
+<li>An admin can disable Copilot for the entire organization (requires a support ticket currently)</li>
+<li>Restrict data movement between regions</li>
+<li>Web Channel Security - Enable <em>secure access</em> to disable the demo webchat site and directline</li>
+</ul>
+<p><strong>Configure DLP according to your threat model and risk tolerance to protect your organization from accidental (or intentional) data leaks.</strong></p>
+<h2 id="auditing">Auditing</h2>
+<p>For further insights around monitoring, check out the <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio">auditing capabilities</a> of Copilots for admins.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The creation of powerful chatbots is made easy with <strong>Copilot Studio</strong>. It builds upon <strong>Power Virtual Agents</strong>, which have been around for a while and provide a feature rich framework for creating chatbots, including ones that leverage GenAI.</p>
+<p>There are security risks, including data leakage with the proliferation of custom Copilots in organizations. In particular, widely exposed or misconfigured Copilots (that might have access to internal data) can be discovered and accessed by adversaries.</p>
+<p>Long story short: Enterprises should evaluate their risk tolerance and exposure to prevent data leaks from Copilots (formerly Power Virtual Agents), and enable Data Loss Prevention and other security controls accordingly to control creation and publication of Copilots.</p>
+<p>Cheers.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/">Copilot Studio Documentation</a></li>
+<li><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance">Copilot Studio - Security and Governance</a></li>
+<li><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Copilot Studio - Configure Data Loss Prevention</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-api-reference?view=azure-bot-service-4.0">Direct Line</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2024/google-colab-image-render-exfil/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2024
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
