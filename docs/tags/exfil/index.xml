@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Wed, 24 Jul 2024 22:00:25 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/exfil/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Aug 2024 19:00:30 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/exfil/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google AI Studio: LLM-Powered Data Exfiltration Hits Again! Quickly Fixed.</title>
+      <link>https://embracethered.com/blog/posts/2024/google-ai-studio-data-exfiltration-now-fixed/</link>
+      <pubDate>Wed, 21 Aug 2024 19:00:30 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/google-ai-studio-data-exfiltration-now-fixed/</guid>
+      <description>Recently, I found what appeared to be a regression or bypass that again allowed data exfiltration via image rendering during prompt injection. See the previous post here.
+Data Exfiltration via Rendering HTML Image Tags During re-testing, I had sporadic success with markdown rendering tricks, but eventually, I was able to drastically simplify the exploit by asking directly for an HTML image tag.
+This behavior might actually have existed all along, as Google AI Studio hadn&amp;rsquo;t yet implemented any kind of Content Security Policy to prevent communication with arbitrary domains using images.</description>
+    </item>
+    
     <item>
       <title>Google Colab AI: Data Leakage Through Image Rendering Fixed. Some Risks Remain.</title>
       <link>https://embracethered.com/blog/posts/2024/google-colab-image-render-exfil/</link>
