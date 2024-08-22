@@ -14,7 +14,7 @@
       <pubDate>Wed, 21 Aug 2024 19:00:30 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2024/google-ai-studio-data-exfiltration-now-fixed/</guid>
-      <description>Recently, I found what appeared to be a regression or bypass that again allowed data exfiltration via image rendering during prompt injection. See the previous post here.
+      <description>Recently, I found what appeared to be a regression or bypass that again allowed data exfiltration via image rendering during prompt injection. See the previous post here for reference.
 Data Exfiltration via Rendering HTML Image Tags During re-testing, I had sporadic success with markdown rendering tricks, but eventually, I was able to drastically simplify the exploit by asking directly for an HTML image tag.
 This behavior might actually have existed all along, as Google AI Studio hadn&amp;rsquo;t yet implemented any kind of Content Security Policy to prevent communication with arbitrary domains using images.</description>
     </item>
