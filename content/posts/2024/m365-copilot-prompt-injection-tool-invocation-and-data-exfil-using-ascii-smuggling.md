@@ -122,7 +122,7 @@ Here is a set of recommendations I provided to Microsoft as part of the report:
 
 It is unclear how exactly Microsoft fixed the vulnerability, and what mitigation recommendations were implemented. But the exploits I built and shared with them in January and February do not work anymore, and it appeared that links are not rendered anymore since a few months ago.
 
-I asked MSRC if th team would be willing to share the details around the fix, so others in the industry could learn from their expertise.
+I asked MSRC if the team would be willing to share the details around the fix, so others in the industry could learn from their expertise, but did not get a response for that inquiry.
 
 **Just in case you are wondering, prompt injection, of course, is still possible.**
 
