@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Copilot: From Prompt Injection to Data Exfiltration of Personal Information"
+title: "Microsoft Copilot: From Prompt Injection to Exfiltration of Personal Information"
 date: 2024-08-26T16:30:17-08:00
 draft: true
 tags: [
