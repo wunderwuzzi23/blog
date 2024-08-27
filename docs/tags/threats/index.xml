@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Wed, 21 Aug 2024 19:00:30 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/threats/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Aug 2024 16:30:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/threats/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft Copilot: From Prompt Injection to Data Exfiltration of Personal Information</title>
+      <link>https://embracethered.com/blog/posts/2024/m365-copilot-prompt-injection-tool-invocation-and-data-exfil-using-ascii-smuggling/</link>
+      <pubDate>Mon, 26 Aug 2024 16:30:17 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/m365-copilot-prompt-injection-tool-invocation-and-data-exfil-using-ascii-smuggling/</guid>
+      <description>This post describes vulnerability in Microsoft 365 Copilot that allowed the theft of a user&amp;rsquo;s emails and other personal information. This vulnerability warrants a deep dive, because it combines a variety of novel attack techniques that are not even two years old.
+
+I initially disclosed parts of this exploit to Microsoft in January, and then the full exploit chain in February 2024. A few days ago I got the okay from MSRC to disclose this report.</description>
+    </item>
+    
     <item>
       <title>Google AI Studio: LLM-Powered Data Exfiltration Hits Again! Quickly Fixed.</title>
       <link>https://embracethered.com/blog/posts/2024/google-ai-studio-data-exfiltration-now-fixed/</link>

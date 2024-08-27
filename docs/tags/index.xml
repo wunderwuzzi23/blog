@@ -7,22 +7,58 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Wed, 21 Aug 2024 19:00:30 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Aug 2024 16:30:17 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ai injection</title>
-      <link>https://embracethered.com/blog/tags/ai-injection/</link>
-      <pubDate>Wed, 21 Aug 2024 19:00:30 -0700</pubDate>
+      <title>ai injections</title>
+      <link>https://embracethered.com/blog/tags/ai-injections/</link>
+      <pubDate>Mon, 26 Aug 2024 16:30:17 -0800</pubDate>
       
-      <guid>https://embracethered.com/blog/tags/ai-injection/</guid>
+      <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
       <description></description>
     </item>
     
     <item>
       <title>aiml</title>
       <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Wed, 21 Aug 2024 19:00:30 -0700</pubDate>
+      <pubDate>Mon, 26 Aug 2024 16:30:17 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>llm</title>
+      <link>https://embracethered.com/blog/tags/llm/</link>
+      <pubDate>Mon, 26 Aug 2024 16:30:17 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/llm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Mon, 26 Aug 2024 16:30:17 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>threats</title>
+      <link>https://embracethered.com/blog/tags/threats/</link>
+      <pubDate>Mon, 26 Aug 2024 16:30:17 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/threats/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ai injection</title>
+      <link>https://embracethered.com/blog/tags/ai-injection/</link>
+      <pubDate>Wed, 21 Aug 2024 19:00:30 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ai-injection/</guid>
       <description></description>
     </item>
     
@@ -36,38 +72,11 @@
     </item>
     
     <item>
-      <title>llm</title>
-      <link>https://embracethered.com/blog/tags/llm/</link>
-      <pubDate>Wed, 21 Aug 2024 19:00:30 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/llm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine learning</title>
-      <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Wed, 21 Aug 2024 19:00:30 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>testing</title>
       <link>https://embracethered.com/blog/tags/testing/</link>
       <pubDate>Wed, 21 Aug 2024 19:00:30 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/testing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>threats</title>
-      <link>https://embracethered.com/blog/tags/threats/</link>
-      <pubDate>Wed, 21 Aug 2024 19:00:30 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/threats/</guid>
       <description></description>
     </item>
     
@@ -131,15 +140,6 @@
       <pubDate>Mon, 08 Jul 2024 14:30:18 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/chatgpt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ai injections</title>
-      <link>https://embracethered.com/blog/tags/ai-injections/</link>
-      <pubDate>Fri, 14 Jun 2024 21:00:17 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
       <description></description>
     </item>
     
