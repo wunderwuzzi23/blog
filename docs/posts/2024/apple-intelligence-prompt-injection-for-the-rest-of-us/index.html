@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Apple Intelligence: Prompt Injection for the Rest of Us &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2024/apple-intelligence-prompt-injection-for-the-rest-of-us/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2024-09-20T07:46:41-07:00" />
+  
+  <meta property="og:article:tag" content="ai" />
+  
+  <meta property="og:article:tag" content="testing" />
+  
+  <meta property="og:article:tag" content="machine learning" />
+  
+  <meta property="og:article:tag" content="ai injection" />
+  
+  <meta property="og:article:tag" content="macOS" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  
+
+  <title>
+     Apple Intelligence: Prompt Injection for the Rest of Us &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Apple Intelligence: Prompt Injection for the Rest of Us">
+<meta name="twitter:description" content="Recently I installed macOS 15.1 Beta to take a look at Apple Intelligence, and to create a prompt injection demo.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2024/chatgpt-mem-thumbnail-pi.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Apple Intelligence: Prompt Injection for the Rest of Us</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2024-09-20T07:46:41-07:00">
+          Sep 20, 2024
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ai">#ai</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/testing">#testing</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ai-injection">#ai injection</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/macos">#macOS</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>Recently I got around into installing the macOS 15.1 Beta to take a look at Apple Intelligence. The primary goal was to learn, how Apple integrates LLMs into the operating system, and of course to get a prompt injection demo.</p>
+<h2 id="apple-intelligence">Apple Intelligence</h2>
+<p>So far there aren&rsquo;t that many new features, Siri got better, but the one I want to talk about and that stood out to me is called &ldquo;Writing Tools&rdquo;, which is available throughout the Operating System.</p>
+<h2 id="nstextview-and-writing-tools">NSTextView and Writing Tools</h2>
+<p>What I mean by &ldquo;available throughout the OS&rdquo; is that basically, any <code>NSTextView</code> element in a macOS application has &ldquo;Writing Tools&rdquo; available in the context menu.</p>
+<p><a href="/blog/images/2024/apple-intelligence-writing-tools.png"><img src="/blog/images/2024/apple-intelligence-writing-tools.png" alt="writing tools"></a></p>
+<h2 id="notes-and-pages">Notes and Pages</h2>
+<p>The Notes and Pages applicatoins are often highlighted has the to-go demo apps for this, so I figured I copy over my Gemin and Copilot demonstration document that converts Gemini and Copilot into a scammer, trying to trick the user.</p>
+<p>Right off the bat it didn&rsquo;t work, and I had to modify it very slightly.</p>
+<p>A few observations for Prompt Injection on Apple Intelligence so far:</p>
+<ol>
+<li>Injection seems to more likely succed if earlier in the document</li>
+<li>It&rsquo;s possible to entirely hijack the indended task (e.g. fully attacker controlled respones)</li>
+<li>The Notes and Pages applications do not render links or images automatically (however the NSTextView might convert a link accordingly)</li>
+</ol>
+<p><img src="" alt="Apple Intelligence - Prompt Injection Demonstration"></p>
+<p>And here is a demo video that shows the end to end user experience:</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>It means that now we have all major operating system vendors have LLM applications integrated.</p>
+<h2 id="content-moderation">Content Moderation</h2>
+<p>When it comes to swearing and toxic content, there are some strict moderation rules in place.</p>
+<p><a href="/blog/images/2024/apple-intelligence-content-moderation.png"><img src="/blog/images/2024/apple-intelligence-content-moderation.png" alt="writing tools"></a></p>
+<p>Of course, it&rsquo;s easy to bypass with tricks to encode or leetcode content potentially, but at a first glance it seems Apple applied a stricter ruleset here, compared to other bots.</p>
+<h2 id="custom-applications">Custom Applications</h2>
+<p>Since I&rsquo;m not too savvy of a macOS developer, I went ahead to implement a mini application using <code>NSTextView</code>. Its quite interesting because the element allows for full customization, including markdown rendering, and even html and image rendering.</p>
+<p>So, there might be custom applications that need to take special actions to prevent getting hijacked by Apple Intelligence. E.g. if you have a custom <code>NSTextView</code> that renders images, your applications might become vulnerable to zero-click data exfiltration attacks.</p>
+<h2 id="conclusion">Conclusion</h2>
+<h2 id="references">References</h2>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next"><a href="https://embracethered.com/blog/posts/2024/chatgpt-macos-app-persistent-data-exfiltration/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2024/m365-copilot-prompt-injection-tool-invocation-and-data-exfil-using-ascii-smuggling/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2024
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

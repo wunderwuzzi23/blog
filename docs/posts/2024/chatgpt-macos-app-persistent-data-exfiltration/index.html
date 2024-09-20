@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Spyware Injection Into Your ChatGPT&#39;s Long-Term Memory (SpAIware) &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2024/chatgpt-macos-app-persistent-data-exfiltration/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2024-09-20T09:02:36-07:00" />
+  
+  <meta property="og:article:tag" content="threats" />
+  
+  <meta property="og:article:tag" content="ttp" />
+  
+  <meta property="og:article:tag" content="chatgpt" />
+  
+  <meta property="og:article:tag" content="ai injection" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  <meta property="og:article:tag" content="memories" />
+  
+  
+
+  <title>
+     Spyware Injection Into Your ChatGPT&#39;s Long-Term Memory (SpAIware) &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Spyware Injection Into Your ChatGPT&#39;s Long-Term Memory (SpAIware)">
+<meta name="twitter:description" content="The ChatGPT iOS and macOS versions were vulnerable to persistent data exfiltration. This is the story behind finding the issue and getting it fixed.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2024/chatgpt-persistent-data-exfiltration.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Spyware Injection Into Your ChatGPT&#39;s Long-Term Memory (SpAIware)</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2024-09-20T09:02:36-07:00">
+          Sep 20, 2024
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/threats">#threats</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/chatgpt">#chatgpt</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ai-injection">#ai injection</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/memories">#memories</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>This post explains an attack chain for the ChatGPT macOS application. Through prompt injection from untrusted data, attackers could insert long-term persistent spyware into ChatGPT&rsquo;s memory. This led to continuous data exfiltration of any information the user typed or responses received by ChatGPT, including any future chat sessions.</p>
+<p><a href="/blog/images/2024/chatgpt-persistent-data-exfiltration.png"><img src="/blog/images/2024/chatgpt-persistent-data-exfiltration.png" alt="Thumbnail Memory Persistence"></a>
+<!-- raw HTML omitted -->
+OpenAI released a fix for the macOS app last week. Ensure your app is updated to the latest version.</p>
+<p>Let&rsquo;s look at this <code>spAIware</code> in detail.</p>
+<h2 id="background-information">Background Information</h2>
+<p>OpenAI implemented a <a href="https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/">mitigation for a common data exfiltration vector end of last year</a> via a call to an API named <code>url_safe</code>. This API informs the client if it is safe to display a URL or an image to the user or not. And it mitigates many attacks where prompt injection attempts to render images from third-party servers to use the URL as a data exfiltration channel.</p>
+<p>As highlighted <a href="https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/">back then</a>, the iOS application remained vulnerable. This was because the security check (<code>url_safe</code>) was performed client-side. Unfortunately, and as warned in my post last December, new clients (both macOS and Android) shipped with the same vulnerability this year.</p>
+<p><strong>That&rsquo;s bad, but it gets a lot more interesting!</strong></p>
+<p>A recent feature addition in ChatGPT increased the severity of the vulnerability, specifically - <strong>OpenAI added &ldquo;Memories&rdquo; to ChatGPT!</strong></p>
+<h2 id="hacking-memories-to-store-malicious-instructions">Hacking Memories to Store Malicious Instructions</h2>
+<p>When the Memory feature released we discussed <a href="/blog/posts/2024/chatgpt-hacking-memories/">how an attacker can inject fake long-term memories into ChatGPT by invoking the memory tool</a>, and how such memories persist into future chat conversations.</p>
+<p><a href="/blog/posts/2024/chatgpt-hacking-memories/"><img src="/blog/images/2024/chatgpt-memory-updated.png" alt="Memory Updated"></a></p>
+<p>This happens through prompt injection from third-party websites.</p>
+<p>What I described back then was focused on misinformation, scams and generally have ChatGPT respond with attacker-controlled information.</p>
+<h2 id="persisting-data-exfiltration-instructions-in-chatgpts-memory">Persisting Data Exfiltration Instructions in ChatGPT&rsquo;s Memory</h2>
+<p>What was not shared at the time was the combination of injecting memories that contain spyware instructions that steal the user&rsquo;s information.</p>
+<p>Since the malicious instructions are stored in ChatGPT&rsquo;s memory, all new conversation going forward will contain the attackers instructions and continuously send all chat conversation messages, and replies, to the attacker.</p>
+<p>So, the data exfiltration vulnerability became a lot more dangerous as it now spawns across chat conversations.</p>
+<h3 id="the-data-exfiltration-technique">The Data Exfiltration Technique</h3>
+<p>The exfiltration technique is not new, and we have discussed it many times on this blog. The idea is to render an image to an attacker controlled server, and asking ChatGPT to include the user&rsquo;s data as query parameter.</p>
+<p>Let&rsquo;s look at it in action.</p>
+<h2 id="end-to-end-exploit-demonstration">End-to-End Exploit Demonstration</h2>
+<p>Here is an end to end demonstration that shows how a prompt injection from a website persists spyware instructions in ChatGPT&rsquo;s memory to continuously exfiltrate everything the users types going forward:</p>
+<p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/zb0q5AW5ns8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<!-- raw HTML omitted --></p>
+<p>The image rendered in the video is invisible for stealth. Pretty scary.</p>
+<h2 id="step-by-step-explanation">Step by Step Explanation</h2>
+<p>First, the user analyzes an untrusted document or navigates to an untrusted website.</p>
+<p><a href="/blog/images/2024/chatgpt-exfil-inject.png"><img src="/blog/images/2024/chatgpt-exfil-inject.png" alt="Injection into Memory"></a></p>
+<p>The website contains instructions that take control of ChatGPT and insert the malicious data exfiltration memory that will send all future chat data to the attacker going forward.</p>
+<p><a href="/blog/images/2024/chatgpt-macos-persisten3.png"><img src="/blog/images/2024/chatgpt-macos-persisten3.png" alt="Updated Memories"></a></p>
+<p>The user continues to interact with ChatGPT but all information is sent to the attacker:</p>
+<p><a href="/blog/images/2024/chatgpt-macos-persistent2.png"><img src="/blog/images/2024/chatgpt-macos-persistent2-small.png" alt="Showing Exfil occurring - including image"></a></p>
+<p>The server retrieves all the information going forward:
+<a href="/blog/images/2024/chatgpt-macos-persistent-serverlog.png"><img src="/blog/images/2024/chatgpt-macos-persistent-serverlog.png" alt="Server Log"></a></p>
+<p>This is the prompt injection that was hosted on the website (note, that sometime in July this payload stopped working, but I found a bypass, which is the one that was used in the video):</p>
+<p><a href="/blog/images/2024/ChatGPT-macos-persistent-exfil1.png"><img src="/blog/images/2024/ChatGPT-macos-persistent-exfil1.png" alt="Prompt Injection hosted on Website"></a></p>
+<p>The video also shows how the image does not have to be visible - the pictures here are mostly to demonstrate it better in the screenshots. So I recommend watching the video to best understand end to end exploit.</p>
+<h2 id="is-url_safe-a-holistic-fix">Is url_safe a holistic fix?</h2>
+<p>The <code>url_safe</code> feature still allows for some information to be leaked. Some bypasses are described in the post from <a href="/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/">last December</a> when <code>url_safe</code> was introduced, and Gregory Schwartzman wrote a <a href="https://arxiv.org/pdf/2406.00199">paper</a> exploring this in detail.</p>
+<h2 id="is-hacking-memories-via-prompt-injection-fixed">Is Hacking Memories via Prompt Injection Fixed?</h2>
+<p>No. To be clear: A website or untrusted document can still invoke the memory tool to store arbitrary memories. The vulnerability that was mitigated is the exfiltration vector, to prevent sending messages to a third-party server via image rendering.</p>
+<p><strong>ChatGPT users should regularly review the memories the system stores about them, for suspicious or incorrect ones and clean them up.</strong></p>
+<p>Furthermore, I recommend taking a look at the <a href="https://openai.com/index/memory-and-new-controls-for-chatgpt/">detailed OpenAI documentation</a> on how to manage memories, delete them, or entirely turn off the feature. It is also possible to start temporary chats that do not use memory.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This attack chain was quite interesting to put together, and demonstrates the dangers of having long-term memory being automatically added to a system, both from a misinformation/scam point of view, but also regarding continuous communication with attacker controlled servers. The proof-of-concept demonstrated that this can lead to persistent data exfiltration, and technically also to establish a command and control channel to update instructions.</p>
+<p>Make sure you are running the latest version of your ChatGPT apps, and review your ChatGPTs memories regularly.</p>
+<p>Thanks to OpenAI for mitigating this vulnerability.</p>
+<p>Cheers and stay safe.</p>
+<h2 id="disclosure-timeline">Disclosure Timeline</h2>
+<ul>
+<li>April, 2023: Data exfiltration attack vector via image rendering reported to OpenAI</li>
+<li>December, 2023: Partial fix via <code>url_safe</code> implemented by vendor - but, only for the web application. Other clients, like iOS remained vulnerable.</li>
+<li>May, 2024: Reported how its possible to inject fake memories into ChatGPT via prompt injection. This ticket was closed as a model safety issue, not a security concern.</li>
+<li>June, 2024: Reported an end-to-end exploit demo as seen in the video, leading to persistent data exfiltration beyond a single chat session.</li>
+<li>September, 2024: OpenAI fixes the vulnerability in ChatGPT version 1.2024.247</li>
+<li>September, 20 2024: Disclosure at BSides Vancouver Island</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/">OpenAI starts tackling data exfiltration</a></li>
+<li><a href="/blog/posts/2024/chatgpt-hacking-memories/">ChatGPT: Hacking Memories with Prompt Injection</a></li>
+<li><a href="https://arxiv.org/pdf/2406.00199">Exfiltration of personal information from ChatGPT via prompt injection</a></li>
+<li><a href="/blog/posts/2024/chatgpt-persistent-denial-of-service/">Sorry, ChatGPT Is Under Maintenance: Persistent Denial of Service through Prompt Injection and Memory Attacks</a></li>
+<li><a href="https://openai.com/index/memory-and-new-controls-for-chatgpt/">Memory and new controls for ChatGPT</a></li>
+</ul>
+<h2 id="appendix">Appendix</h2>
+<h3 id="initial-poc-video">Initial POC Video</h3>
+<p>An earlier demo that does not attempt to hide the image that is being rendered:</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/YHW-UMxsais" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h3 id="latest-prompt-injection-payload-that-was-used">Latest Prompt Injection Payload that was used</h3>
+<p><a href="/blog/images/2024/chatgpt-persist-pi-bypass.png"><img src="/blog/images/2024/chatgpt-persist-pi-bypass.png" alt="Prompt PI Bypass"></a></p>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2024/m365-copilot-prompt-injection-tool-invocation-and-data-exfil-using-ascii-smuggling/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2024
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
