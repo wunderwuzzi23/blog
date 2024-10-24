@@ -7,65 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Fri, 20 Sep 2024 09:02:36 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ai injection</title>
-      <link>https://embracethered.com/blog/tags/ai-injection/</link>
-      <pubDate>Fri, 20 Sep 2024 09:02:36 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ai-injection/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>chatgpt</title>
-      <link>https://embracethered.com/blog/tags/chatgpt/</link>
-      <pubDate>Fri, 20 Sep 2024 09:02:36 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/chatgpt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>llm</title>
-      <link>https://embracethered.com/blog/tags/llm/</link>
-      <pubDate>Fri, 20 Sep 2024 09:02:36 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/llm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>memories</title>
-      <link>https://embracethered.com/blog/tags/memories/</link>
-      <pubDate>Fri, 20 Sep 2024 09:02:36 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/memories/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>threats</title>
-      <link>https://embracethered.com/blog/tags/threats/</link>
-      <pubDate>Fri, 20 Sep 2024 09:02:36 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/threats/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ttp</title>
-      <link>https://embracethered.com/blog/tags/ttp/</link>
-      <pubDate>Fri, 20 Sep 2024 09:02:36 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ttp/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Thu, 24 Oct 2024 07:09:57 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ai injections</title>
       <link>https://embracethered.com/blog/tags/ai-injections/</link>
-      <pubDate>Mon, 26 Aug 2024 16:30:17 -0800</pubDate>
+      <pubDate>Thu, 24 Oct 2024 07:09:57 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
       <description></description>
@@ -74,18 +20,81 @@
     <item>
       <title>aiml</title>
       <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Mon, 26 Aug 2024 16:30:17 -0800</pubDate>
+      <pubDate>Thu, 24 Oct 2024 07:09:57 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>llm</title>
+      <link>https://embracethered.com/blog/tags/llm/</link>
+      <pubDate>Thu, 24 Oct 2024 07:09:57 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/llm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>machine learning</title>
       <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Mon, 26 Aug 2024 16:30:17 -0800</pubDate>
+      <pubDate>Thu, 24 Oct 2024 07:09:57 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red</title>
+      <link>https://embracethered.com/blog/tags/red/</link>
+      <pubDate>Thu, 24 Oct 2024 07:09:57 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/red/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>threats</title>
+      <link>https://embracethered.com/blog/tags/threats/</link>
+      <pubDate>Thu, 24 Oct 2024 07:09:57 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/threats/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ai injection</title>
+      <link>https://embracethered.com/blog/tags/ai-injection/</link>
+      <pubDate>Fri, 20 Sep 2024 11:02:36 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ai-injection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chatgpt</title>
+      <link>https://embracethered.com/blog/tags/chatgpt/</link>
+      <pubDate>Fri, 20 Sep 2024 11:02:36 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/chatgpt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>memories</title>
+      <link>https://embracethered.com/blog/tags/memories/</link>
+      <pubDate>Fri, 20 Sep 2024 11:02:36 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/memories/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ttp</title>
+      <link>https://embracethered.com/blog/tags/ttp/</link>
+      <pubDate>Fri, 20 Sep 2024 11:02:36 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ttp/</guid>
       <description></description>
     </item>
     
@@ -131,15 +140,6 @@
       <pubDate>Tue, 30 Jul 2024 10:00:36 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/data/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>red</title>
-      <link>https://embracethered.com/blog/tags/red/</link>
-      <pubDate>Tue, 30 Jul 2024 10:00:36 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/red/</guid>
       <description></description>
     </item>
     

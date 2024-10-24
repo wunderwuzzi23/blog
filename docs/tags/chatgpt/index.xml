@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Fri, 20 Sep 2024 09:02:36 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Sep 2024 11:02:36 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Spyware Injection Into Your ChatGPT&#39;s Long-Term Memory (SpAIware)</title>
       <link>https://embracethered.com/blog/posts/2024/chatgpt-macos-app-persistent-data-exfiltration/</link>
-      <pubDate>Fri, 20 Sep 2024 09:02:36 -0700</pubDate>
+      <pubDate>Fri, 20 Sep 2024 11:02:36 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2024/chatgpt-macos-app-persistent-data-exfiltration/</guid>
       <description>This post explains an attack chain for the ChatGPT macOS application. Through prompt injection from untrusted data, attackers could insert long-term persistent spyware into ChatGPT&amp;rsquo;s memory. This led to continuous data exfiltration of any information the user typed or responses received by ChatGPT, including any future chat sessions.

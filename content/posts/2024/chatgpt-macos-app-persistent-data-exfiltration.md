@@ -1,6 +1,6 @@
 ---
 title: "Spyware Injection Into Your ChatGPT's Long-Term Memory (SpAIware)"
-date: 2024-09-20T09:02:36-07:00
+date: 2024-09-20T11:02:36-07:00
 draft: true
 tags: [
     "threats", "ttp", "chatgpt", "ai injection", "llm", "memories"
@@ -110,15 +110,16 @@ Make sure you are running the latest version of your ChatGPT apps, and review yo
 Thanks to OpenAI for mitigating this vulnerability.
 
 Cheers and stay safe.
+Johann.
 
-## Disclosure Timeline
+## Timeline
 
 * April, 2023: Data exfiltration attack vector via image rendering reported to OpenAI
 * December, 2023: Partial fix via `url_safe` implemented by vendor - but, only for the web application. Other clients, like iOS remained vulnerable.
 * May, 2024: Reported how its possible to inject fake memories into ChatGPT via prompt injection. This ticket was closed as a model safety issue, not a security concern.
 * June, 2024: Reported an end-to-end exploit demo as seen in the video, leading to persistent data exfiltration beyond a single chat session.
 * September, 2024: OpenAI fixes the vulnerability in ChatGPT version 1.2024.247
-* September, 20 2024: Disclosure at BSides Vancouver Island
+* September, 20 2024: Disclosure at [BSides Vancouver Island 2024](https://www.bsidesvi.com/bsidesvi24)
 
 
 ## References

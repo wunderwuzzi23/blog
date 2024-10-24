@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Tue, 30 Jul 2024 10:00:36 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Oct 2024 07:09:57 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How difficult can it be? Claude Computer Use Command &amp; Control via Prompt Injection</title>
+      <link>https://embracethered.com/blog/posts/2024/claude-computer-use-c2/</link>
+      <pubDate>Thu, 24 Oct 2024 07:09:57 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/claude-computer-use-c2/</guid>
+      <description>A few days ago Anthropic released Claude Computer Use, which is a model + code that allows Claude to control a computer. It takes screenshots to make decisions, can run bash commands and so forth.
+It&amp;rsquo;s cool, but obviously also very dangerous because of prompt injection. Claude Computer Use enables AI to run commands on machines autonomously, posing severe risks if exploited via prompt injection.
+
+Disclaimer So, first a disclaimer: Claude Computer Use is a Beta Feature and what you are going to see is a fundamental design problem in state-of-the-art LLM-powered Applications and Agents.</description>
+    </item>
+    
     <item>
       <title>Protect Your Copilots: Preventing Data Leaks in Copilot Studio</title>
       <link>https://embracethered.com/blog/posts/2024/copilot-studio-protect-your-copilots/</link>

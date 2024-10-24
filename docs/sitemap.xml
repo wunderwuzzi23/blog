@@ -2,44 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://embracethered.com/blog/tags/ai-injection/</loc>
-    <lastmod>2024-09-20T09:02:36-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/chatgpt/</loc>
-    <lastmod>2024-09-20T09:02:36-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2024-09-20T09:02:36-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2024-09-20T09:02:36-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/memories/</loc>
-    <lastmod>2024-09-20T09:02:36-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2024-09-20T09:02:36-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/2024/chatgpt-macos-app-persistent-data-exfiltration/</loc>
-    <lastmod>2024-09-20T09:02:36-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2024-09-20T09:02:36-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/threats/</loc>
-    <lastmod>2024-09-20T09:02:36-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
-    <lastmod>2024-09-20T09:02:36-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
-    <lastmod>2024-08-26T16:30:17-08:00</lastmod>
+    <lastmod>2024-10-24T07:09:57-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/aiml/</loc>
-    <lastmod>2024-08-26T16:30:17-08:00</lastmod>
+    <lastmod>2024-10-24T07:09:57-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2024-10-24T07:09:57-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2024/claude-computer-use-c2/</loc>
+    <lastmod>2024-10-24T07:09:57-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2024-10-24T07:09:57-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2024-08-26T16:30:17-08:00</lastmod>
+    <lastmod>2024-10-24T07:09:57-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2024-10-24T07:09:57-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2024-10-24T07:09:57-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2024-10-24T07:09:57-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/threats/</loc>
+    <lastmod>2024-10-24T07:09:57-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/ai-injection/</loc>
+    <lastmod>2024-09-20T11:02:36-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/chatgpt/</loc>
+    <lastmod>2024-09-20T11:02:36-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/memories/</loc>
+    <lastmod>2024-09-20T11:02:36-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2024/chatgpt-macos-app-persistent-data-exfiltration/</loc>
+    <lastmod>2024-09-20T11:02:36-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <lastmod>2024-09-20T11:02:36-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/m365-copilot-prompt-injection-tool-invocation-and-data-exfil-using-ascii-smuggling/</loc>
     <lastmod>2024-08-26T16:30:17-08:00</lastmod>
@@ -63,9 +69,6 @@
     <lastmod>2024-07-30T10:00:36-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/copilot-studio-protect-your-copilots/</loc>
-    <lastmod>2024-07-30T10:00:36-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
     <lastmod>2024-07-30T10:00:36-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/google-colab-image-render-exfil/</loc>
