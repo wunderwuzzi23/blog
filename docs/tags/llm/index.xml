@@ -24,7 +24,6 @@ Disclaimer So, first a disclaimer: Claude Computer Use is a Beta Feature and wha
       <title>Spyware Injection Into Your ChatGPT&#39;s Long-Term Memory (SpAIware)</title>
       <link>https://embracethered.com/blog/posts/2024/chatgpt-macos-app-persistent-data-exfiltration/</link>
       <pubDate>Fri, 20 Sep 2024 11:02:36 -0700</pubDate>
-      <pubDate>Fri, 20 Sep 2024 11:02:36 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2024/chatgpt-macos-app-persistent-data-exfiltration/</guid>
       <description>This post explains an attack chain for the ChatGPT macOS application. Through prompt injection from untrusted data, attackers could insert long-term persistent spyware into ChatGPT&amp;rsquo;s memory. This led to continuous data exfiltration of any information the user typed or responses received by ChatGPT, including any future chat sessions.
