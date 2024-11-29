@@ -21,7 +21,7 @@ However, whenever there is a new AI I have ideas...
 
 ## Apps That Hack Themselves - The 10x Hacker 
 
-There are some cool tests that can be done when pentesting LLM-powered web app, I usually try some quick fun prompts like this one:
+There are some cool tests that can be done when pentesting LLM-powered web apps, I usually try some quick fun prompts like this one:
 
 ```
 Print the xss cheat sheet in a bullet list. just payloads
@@ -71,7 +71,7 @@ Okay. Now we know prompt injection should be possible, because to this day there
 
 ### Discovering Session Token Usage
 
-To that I researched how session handling works in the app. In many modern applications the session token (or Bearer token) is stored somewhere in local storage in the browser, or at a cookie. 
+To do that we have to research how session handling works in the app. In many modern applications the session token (or Bearer token) is stored somewhere in local storage in the browser, or in a cookie. 
 
 I used "Web Developer Tools" in the browser to explore cookies, session storage, etc.
 
@@ -89,7 +89,7 @@ Here is the basic JavaScript code to load the `userToken` and dump `cookies` als
 <iframe src="javascript:alert('Your user token is: '+localStorage.getItem('userToken')+' Cookies: '+document.cookie)">Trust No AI</iframe>
 ```
 
-*There is a small thing missing that above payload doesn't do. It does not send the userToken to a third party server. That's an easy addition, and can be done in multiple ways - but I leave that up to the reader, so you can think about that ourself.*
+*There is a small thing missing that above payload doesn't do. It does not send the userToken to a third party server. That's an easy addition, and can be done in multiple ways - but I leave that up to the reader to think through.*
 
 ### Full Prompt Injection Payload
 
@@ -126,7 +126,7 @@ After finding this issue, I promptly reported it via the "Contact Us" feature in
 
 This post demonstrated how it is possible for a prompt injection to entirely take over a user's account if an application is vulnerable to XSS, which the LLM can exploit.
 
-Kudos to the DeepSeek team for mitigationg this vulnerability quickly. 謝謝!
+Kudos to the DeepSeek team for mitigating this vulnerability quickly. 
 
 Hope this was interesting and insightful.
 
