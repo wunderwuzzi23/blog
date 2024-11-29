@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Thu, 24 Oct 2024 17:00:57 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/aiml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Nov 2024 14:00:39 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/aiml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DeepSeek AI: From Prompt Injection To Account Takeover</title>
+      <link>https://embracethered.com/blog/posts/2024/deepseek-ai-prompt-injection-to-xss-and-account-takeover/</link>
+      <pubDate>Fri, 29 Nov 2024 14:00:39 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/deepseek-ai-prompt-injection-to-xss-and-account-takeover/</guid>
+      <description>About two weeks ago, DeepSeek released a new AI reasoning model, DeepSeek-R1-Lite. The news quickly gained attention and interest across the AI community due to the reasoning capabilities the Chinese lab announced.
+However, whenever there is a new AI I have ideas&amp;hellip;
+Apps That Hack Themselves - The 10x Hacker There are some cool tests that can be done when pentesting LLM-powered web app, I usually try some quick fun prompts like this one:</description>
+    </item>
+    
     <item>
       <title>ZombAIs: From Prompt Injection to C2 with Claude Computer Use</title>
       <link>https://embracethered.com/blog/posts/2024/claude-computer-use-c2-the-zombais-are-coming/</link>

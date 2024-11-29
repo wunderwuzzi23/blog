@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Thu, 24 Oct 2024 17:00:57 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Nov 2024 14:00:39 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ai injections</title>
       <link>https://embracethered.com/blog/tags/ai-injections/</link>
-      <pubDate>Thu, 24 Oct 2024 17:00:57 -0700</pubDate>
+      <pubDate>Fri, 29 Nov 2024 14:00:39 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
       <description></description>
@@ -20,7 +20,7 @@
     <item>
       <title>aiml</title>
       <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Thu, 24 Oct 2024 17:00:57 -0700</pubDate>
+      <pubDate>Fri, 29 Nov 2024 14:00:39 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
       <description></description>
@@ -29,7 +29,7 @@
     <item>
       <title>llm</title>
       <link>https://embracethered.com/blog/tags/llm/</link>
-      <pubDate>Thu, 24 Oct 2024 17:00:57 -0700</pubDate>
+      <pubDate>Fri, 29 Nov 2024 14:00:39 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/llm/</guid>
       <description></description>
@@ -38,9 +38,27 @@
     <item>
       <title>machine learning</title>
       <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Thu, 24 Oct 2024 17:00:57 -0700</pubDate>
+      <pubDate>Fri, 29 Nov 2024 14:00:39 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>threats</title>
+      <link>https://embracethered.com/blog/tags/threats/</link>
+      <pubDate>Fri, 29 Nov 2024 14:00:39 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/threats/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xss</title>
+      <link>https://embracethered.com/blog/tags/xss/</link>
+      <pubDate>Fri, 29 Nov 2024 14:00:39 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/xss/</guid>
       <description></description>
     </item>
     
@@ -50,15 +68,6 @@
       <pubDate>Thu, 24 Oct 2024 17:00:57 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/red/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>threats</title>
-      <link>https://embracethered.com/blog/tags/threats/</link>
-      <pubDate>Thu, 24 Oct 2024 17:00:57 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/threats/</guid>
       <description></description>
     </item>
     
