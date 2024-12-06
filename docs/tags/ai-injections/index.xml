@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Fri, 29 Nov 2024 14:00:39 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Dec 2024 08:00:25 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terminal DiLLMa: LLM-powered Apps Can Hijack Your Terminal Via Prompt Injection</title>
+      <link>https://embracethered.com/blog/posts/2024/terminal-dillmas-prompt-injection-ansi-sequences/</link>
+      <pubDate>Fri, 06 Dec 2024 08:00:25 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/terminal-dillmas-prompt-injection-ansi-sequences/</guid>
+      <description>Last week Leon Derczynski described how LLMs can output ANSI escape codes. These codes, also known as control characters, are interpreted by terminal emulators and modify behavior.
+This discovery resonates with areas I had been exploring, so I took some time to apply, and build upon, these newly uncovered insights.
+ANSI Terminal Emulator Escape Codes Here is a simple example that shows how to render blinking, colorful text using control characters.</description>
+    </item>
+    
     <item>
       <title>DeepSeek AI: From Prompt Injection To Account Takeover</title>
       <link>https://embracethered.com/blog/posts/2024/deepseek-ai-prompt-injection-to-xss-and-account-takeover/</link>

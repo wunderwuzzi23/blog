@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Terminal DiLLMa: LLM-powered Apps Can Hijack Your Terminal Via Prompt Injection &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2024/terminal-dillmas-prompt-injection-ansi-sequences/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2024-12-06T08:00:25-08:00" />
+  
+  <meta property="og:article:tag" content="aiml" />
+  
+  <meta property="og:article:tag" content="machine learning" />
+  
+  <meta property="og:article:tag" content="threats" />
+  
+  <meta property="og:article:tag" content="ai injections" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  <meta property="og:article:tag" content="exfil" />
+  
+  
+
+  <title>
+     Terminal DiLLMa: LLM-powered Apps Can Hijack Your Terminal Via Prompt Injection &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Terminal DiLLMa: LLM-powered Apps That Hijack Your Terminal Via Prompt Injection">
+<meta name="twitter:description" content="Discover how LLM apps can hijack your terminal with prompt injections and ANSI escape codes, exposing hidden vulnerabilities and real-world risks. Learn how to protect your tools with actionable security insights.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2024/terminal-dilmma-tn.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Terminal DiLLMa: LLM-powered Apps Can Hijack Your Terminal Via Prompt Injection</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2024-12-06T08:00:25-08:00">
+          Dec 6, 2024
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/aiml">#aiml</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/threats">#threats</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ai-injections">#ai injections</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/exfil">#exfil</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>Last week Leon Derczynski <a href="https://interhumanagreement.substack.com/p/llm-output-can-take-over-your-computer">described</a> how LLMs can output ANSI escape codes. These codes, also known as control characters, are interpreted by terminal emulators and modify behavior.</p>
+<p>This discovery resonates with areas I had been exploring, so I took some time to apply, and build upon, these newly uncovered insights.</p>
+<h2 id="ansi-terminal-emulator-escape-codes">ANSI Terminal Emulator Escape Codes</h2>
+<p>Here is a simple example that shows how to render blinking, colorful text using control characters.</p>
+<p><a href="/blog/images/2024/term-blink-demo.gif"><img src="/blog/images/2024/term-blink-demo.gif" alt="blinking demo"></a></p>
+<p><a href="https://en.wikipedia.org/wiki/ANSI_escape_code">Wikipedia</a> describes it the following way:</p>
+<blockquote>
+<p>ANSI escape sequences are a standard for in-band signaling to control cursor location, color, font styling, and other options on video text terminals and terminal emulators.</p>
+</blockquote>
+<p>From a security point of view there have been plenty of vulnerabilities in this space.</p>
+<h3 id="security-concerns---ansi-bombs-rce-and-more">Security Concerns - ANSI Bombs, RCE and more</h3>
+<p>Security research on this topic goes back decades, including <code>ANSI Bombs</code>, that reprogrammed keys on the keyboard. Recent talks at security conferences from last year covered CVE&rsquo;s including remote code execution, denial of service,&hellip; Here are recent resources about ANSI escape code research:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Y4A7KMQEmfo&amp;t=55s">David Leadbeater - DEF CON 31 Terminally Owned - 60 Years of Escaping</a></li>
+<li><a href="https://dgl.cx/2023/09/ansi-terminal-security">David Leadbeater&rsquo;s Blog Post About ANSI Terminal Security</a></li>
+<li><a href="https://www.youtube.com/watch?v=spb8Gk9Z09Y&amp;pp=ygUXc3RvZWsgZWtvcGFydHkgbG9nIGFuc2k%3D">STÖK - Ekoparty: Weaponizing Plain Text: ANSI Escape Sequences as a Forensic Nightmare</a></li>
+</ul>
+<p>So it&rsquo;s a feature-rich target. And there are a wide range of different terminal emulators, all behaving slightly differently and also supporting a variety of features.</p>
+<p>Now, adding LLM Apps to the mix is sure going to spice things up a bit more.</p>
+<h3 id="escape---llms-can-output-ansi-escape-codes">ESCAPE - LLMs Can Output ANSI Escape Codes!</h3>
+<p>Thanks to <a href="https://interhumanagreement.substack.com/p/llm-output-can-take-over-your-computer">Leon&rsquo;s discovery</a>, we know now that many LLMs can emit, e.g. the <code>ESC</code> (ASCII 27) control character. Similar to creation of <a href="https://www.bitdefender.com/en-us/blog/hotforsecurity/microsoft-patches-ascii-smuggling-vulnerability-in-recent-security-update">obscure Unicode code points</a>, LLMs are a gift that keeps on giving.</p>
+<p>At a high level I see potentially two distinct techniques for creating such output:</p>
+<ol>
+<li><strong>Tool Invocation (e.g using Code Interpreter).</strong> I had this realization during the <code>ASCII Smuggling</code> research. When I looked at Google Gemini, I noticed the LLM not being able to reliably emit obscure Unicode code points. However, with the help of code execution (that&rsquo;s how Google calls their version of Code Interpreter) it worked like a charm, and the same is true here</li>
+<li><strong>Prompting to have the LLM &ldquo;natively&rdquo; create special tokens.</strong> This works well, and better prompting techniques and models will increase chances of success. Sometimes it takes a couple of tries though during demos.</li>
+</ol>
+<p>Late in my testing, I discovered that LLMs can also read control characters, which makes it a lot more reliable by just reflecting the characters back.</p>
+<h2 id="prompt-injection-angle">Prompt Injection Angle?</h2>
+<p>So far we don&rsquo;t know if injecting control codes work when delivered via a prompt injection - although, we know it <em>should</em> just work.</p>
+<h3 id="llm-integrated-cli-tools-and-applications">LLM-Integrated CLI Tools and Applications</h3>
+<p>A typical scenario are LLM-integrated CLI tools, or any other program that prints LLM output to <code>stdout</code>, without carefully handling and encoding control characters. Other potential scenarios are LLM tools that read or write to log files.</p>
+<h3 id="prompt-injection-test-cases">Prompt Injection Test Cases</h3>
+<p>I was fortunate to have prior notes from research on payloads and capabilities, which provided a good starting point for testing. Back then I got the inspiration when I was at Ekoparty watching STÖK&rsquo;s talk about vulnerabilities with ANSI Escape Codes when doing log analysis.</p>
+<p>The test cases are based on David Leadbeater&rsquo;s and STÖK&rsquo;s (and possibly others) content, and I have turned them into prompt injection tests:</p>
+<ul>
+<li>Rendering of flashing text and changing of colors</li>
+<li>Changing of terminal title and beeping</li>
+<li>Moving cursor and clearing the screen</li>
+<li>Rendering of hidden text in the response!</li>
+<li>Similar, rendering text with \b (backspace) to remove text</li>
+<li>Copy text to the clipboard!</li>
+<li>Denial of Service - repeating a single character n number of times</li>
+<li>Creation of clickable &ldquo;hyperlinks&rdquo;, which like markdown in web apps could lead to data leakage. There is even a scenario for non-ending links (so everything in the terminal is a link)</li>
+<li>The <a href="https://dgl.cx/2023/09/ansi-terminal-security#apple-terminal-dns-leaks">macOS Terminal specific DNS vulnerability</a> Still works, allowing zero-click info leakage from anything in prompt context.</li>
+</ul>
+<p>With a few tries I got something to work via prompt injection to better understand implications.</p>
+<h2 id="dillmapy---a-demo-app">dillma.py - A Demo App</h2>
+<p>To test this, I created a simple LLM-powered app using Python. The tool allows to specify a system prompt and attach a file to analyze &ndash; all on the command line. All the information is sent to the LLM (using OpenAI GPT-4o November preview) and the response is printed to the terminal.</p>
+<p>Below is a video highlight the use case and concept: The user is summarizing a file. The file, however, came from a malicious actor and contains instructions. Now, the tool is hijacked and inserts ANSI escape sequences to beep and create colored, flashing text.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/aTEPsQzdl7s" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+  <br>
+
+<p>Quite interesting.</p>
+<p>I added on to that initial script, and built <code>dillma.py</code> an app to test attacks &amp; encoding defenses.</p>
+<p>Here is a basic demo of a user summarizing a web page:
+<a href="/blog/images/2024/c64.gif"><img src="/blog/images/2024/c64.gif" alt="C64 Codes"></a></p>
+<p>Oops. The page hijacked the LLM App and sent a set of control sequences to the terminal to change the color, move the cursor and clear the screen - and it also beeped. Depending on the terminal feature support varies.</p>
+<p><strong>Now, let&rsquo;s explore some of the more scary scenarios!</strong></p>
+<h3 id="data-leakage-via-clickable-links">Data Leakage Via Clickable Links</h3>
+<p>The Apple terminal does not allow clickable hyperlinks, but the terminal inside VS Code renders them:</p>
+<p><a href="/blog/images/2024/term-link-leak1.png"><img src="/blog/images/2024/term-link-leak1.png" alt="Rendering of Link with Data Leakage"></a></p>
+<p>The clickable hyperlink contains data from the prompt context, so this demonstrates that it can leak user data. Luckily VS Code asks the user for confirmation before navigating to the URL.</p>
+<p><a href="/blog/images/2024/link-leak-confirm.png"><img src="/blog/images/2024/link-leak-confirm.png" alt="Confirmation Box VS Code"></a></p>
+<p>Who would have thought that data leakage scenarios seen in LLM web apps via markdown could translate to the terminal world?</p>
+<p><em>There was actually weirdness I noticed&hellip; it seems that the latest OpenAI GPT Preview model is more suspectible to very simple prompt injections vs the non-preview gpt-4o model.</em></p>
+<p>But there is more!</p>
+<h3 id="writing-text-to-the-users-clipboard">Writing Text To The User&rsquo;s Clipboard</h3>
+<p>It&rsquo;s also possible <strong>to write</strong> data into the user&rsquo;s clipboard. Most terminals I tested with removed the final newline to prevent code execution. But not all of them!</p>
+<p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/OcMSaPLiUqk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+  <br>
+</p>
+<p>As seen, this can lead to code execution in certain terminals.</p>
+<p>The last video showed the mitigation as well. By providing <code>-v</code> the option, <code>dillma</code> encodes and prints the control characters visibly. So, they aren&rsquo;t interpreted by the terminal. This is similar ot the <code>cat -v</code> command, which is the secure version of <code>cat</code>.</p>
+<p>In real-world apps, I think it&rsquo;s best to default to output secure, encoded text when printing LLM results.</p>
+<h3 id="data-leakage-via-dns-requests">Data Leakage Via DNS Requests</h3>
+<p>Another known vulnerability (initially described by David Leadbeater last year at DEF CON 31) is, that the macOS Terminal app can be instructed to issue DNS requests via ANSI escape codes.</p>
+<p>This can also be abused when it comes to LLM-integreated applications.</p>
+<p>Let&rsquo;s combine the <code>DNS Leakage</code> scenario with the <code>code execution</code> approach I described in the intro.</p>
+<h3 id="gemini-enhancing-reliability-with-code-execution-tools--macos-terminal-dns-leakage-demo">Gemini: Enhancing Reliability with Code Execution Tools + macOS Terminal DNS Leakage Demo</h3>
+<p>If an application uses <code>code execution</code> it allows for the arbitrary creation of output, which makes creation of ANSI escape codes easier and more reliable.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/HxSa3glgPWQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+  <br>
+
+<p>This is a realization I first had when testing some LLMs for ASCII Smuggling, where tool invocation can also increase the reliability for creating certain sequences of characters.</p>
+<h2 id="terminal-friendly-encoding---caret-notation">Terminal Friendly Encoding - Caret Notation</h2>
+<p>For my own projects I created two functions for Python and Golang code. They encode output to a form of caret notation, so that bad data can&rsquo;t hijack the terminal:</p>
+<ul>
+<li><a href="https://github.com/wunderwuzzi23/terminal-dillma/blob/main/dillma.py">Python Version</a></li>
+<li><a href="https://github.com/wunderwuzzi23/terminalfriendly/">Go Version</a></li>
+</ul>
+<p>Feel free to use, adjust as you see fit. No warranty, or liability.</p>
+<p>Here is a video that shows a link data leak demo and detailed mitigations:
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/mb0WSJlx9as" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
+<h3 id="additional-ideas-for-mitigation">Additional Ideas For Mitigation</h3>
+<p>A few ideas come to mind, some were mentioned in the video:</p>
+<ul>
+<li>By default output encode ANSI control characters, if use case needs it add an option to enable</li>
+<li>Allow-listing of wanted characters</li>
+<li>Testing applications end-to-end is super important. During testing, always consider the context and what conditions might be exploitable by untrusted LLM output.</li>
+<li>There are probably more hidden secrets to be discovered within the token space and end-to-end implications (I said the same after ASCII Smuggling, and here we are).</li>
+</ul>
+<p>Also, it&rsquo;s important to remember that these are features of terminals! So, running commands like <code>cat</code> or <code>type</code> (DOS) on untrusted data or log files could have unintended consequences, even beyond LLMs being involved.</p>
+<p>If you didn&rsquo;t know, you can use <code>cat -v webserver.log</code> to safely process files.</p>
+<h2 id="a-fun-fact-i-learned-reading-random-articles">A Fun Fact I Learned Reading Random Articles</h2>
+<p>Did you know that <code>ESC</code> is not the preferred way vendors should label the Escape key? <a href="https://en.wikipedia.org/wiki/Esc_key">According to an ISO standard</a> this symbol is recommended: ⎋</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/ISO_7000_-_Ref-No_2029.svg/260px-ISO_7000_-_Ref-No_2029.svg.png" alt="ESC ⎋"></p>
+<p>I do recall having seen this symbol before on some keyboards.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Decade-old features are providing unexpected attack surface to GenAI applications. So far, we saw Unicode Tags that <a href="https://www.bitdefender.com/en-us/blog/hotforsecurity/microsoft-patches-ascii-smuggling-vulnerability-in-recent-security-update">allow hidden communication in web applications</a>, &hellip;and now ANSI control characters that interfere with operating system terminal behavior.</p>
+<p>It is important for developers and application designers to consider the context in which they insert LLM output, as the output is untrusted and could contain arbitrary data.</p>
+<p>At one point during the research I realized that LLMs can also read the ANSI escape codes which makes the prompt injection scenarios easier to exploit by just asking the LLM to reflect the control characters back in the output.</p>
+<p>There&rsquo;s likely much more to discover, and, that&rsquo;s why AI is an exciting field to focus on.</p>
+<p>Cheers.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Y4A7KMQEmfo&amp;t=55s">David Leadbeater - DEF CON 31 Terminally Owned - 60 Years of Escaping</a></li>
+<li><a href="https://dgl.cx/2023/09/ansi-terminal-security">David Leadbeater&rsquo;s Blog Post About ANSI Terminal Security</a></li>
+<li><a href="https://www.youtube.com/watch?v=spb8Gk9Z09Y&amp;pp=ygUXc3RvZWsgZWtvcGFydHkgbG9nIGFuc2k%3D">STÖK - Ekoparty</a></li>
+<li><a href="https://interhumanagreement.substack.com/p/llm-output-can-take-over-your-computer">Leon Derczynski - Substack Post</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ANSI_escape_code">Wikipedia - ANSI Escape Code</a></li>
+<li><a href="https://www.bitdefender.com/en-us/blog/hotforsecurity/microsoft-patches-ascii-smuggling-vulnerability-in-recent-security-update">Microsoft Patches ASCII Smuggling Vulnerability</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2024/deepseek-ai-prompt-injection-to-xss-and-account-takeover/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2024
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

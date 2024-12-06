@@ -3,30 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
-    <lastmod>2024-11-29T14:00:39-08:00</lastmod>
+    <lastmod>2024-12-06T08:00:25-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/aiml/</loc>
-    <lastmod>2024-11-29T14:00:39-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/2024/deepseek-ai-prompt-injection-to-xss-and-account-takeover/</loc>
-    <lastmod>2024-11-29T14:00:39-08:00</lastmod>
+    <lastmod>2024-12-06T08:00:25-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2024-11-29T14:00:39-08:00</lastmod>
+    <lastmod>2024-12-06T08:00:25-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/exfil/</loc>
+    <lastmod>2024-12-06T08:00:25-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2024-11-29T14:00:39-08:00</lastmod>
+    <lastmod>2024-12-06T08:00:25-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2024-11-29T14:00:39-08:00</lastmod>
+    <lastmod>2024-12-06T08:00:25-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2024-11-29T14:00:39-08:00</lastmod>
+    <lastmod>2024-12-06T08:00:25-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2024-11-29T14:00:39-08:00</lastmod>
+    <lastmod>2024-12-06T08:00:25-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2024/terminal-dillmas-prompt-injection-ansi-sequences/</loc>
+    <lastmod>2024-12-06T08:00:25-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/threats/</loc>
+    <lastmod>2024-12-06T08:00:25-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2024/deepseek-ai-prompt-injection-to-xss-and-account-takeover/</loc>
     <lastmod>2024-11-29T14:00:39-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/xss/</loc>
@@ -58,9 +64,6 @@
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/m365-copilot-prompt-injection-tool-invocation-and-data-exfil-using-ascii-smuggling/</loc>
     <lastmod>2024-08-26T16:30:17-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/exfil/</loc>
-    <lastmod>2024-08-21T19:00:30-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/google-ai-studio-data-exfiltration-now-fixed/</loc>
     <lastmod>2024-08-21T19:00:30-07:00</lastmod>
