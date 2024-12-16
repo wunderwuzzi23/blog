@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Fri, 06 Dec 2024 08:00:25 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/threats/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Dec 2024 04:44:57 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/threats/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Security ProbLLMs in xAI&#39;s Grok: A Deep Dive</title>
+      <link>https://embracethered.com/blog/posts/2024/security-probllms-in-xai-grok/</link>
+      <pubDate>Mon, 16 Dec 2024 04:44:57 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2024/security-probllms-in-xai-grok/</guid>
+      <description>Grok is the chatbot of xAI. It&amp;rsquo;s a state-of-the-art model, chatbot and recently also API. It has a Web UI and is integrated into the X (former Twitter) app, and recently it&amp;rsquo;s also accessible via an API.
+Since this post is a bit longer, I&amp;rsquo;m adding an index for convenience:
+Table of Contents  High Level Overview Analyzing Grok&amp;rsquo;s System Prompt Prompt Injection from Other User&amp;rsquo;s Posts Prompt Injection from Images Prompt Injection from PDFs Conditional Prompt Injection and Targeted Disinformation Data Exfiltration - End-to-End Demonstration Rendering of Clickable Hyperlinks to Phishing Sites ASCII Smuggling - Crafting Invisible Text and Decoding Hidden Secrets  Hidden Prompt Injection Creation of Invisible Text Grok API is also Vulnerable to ASCII Smuggling Developer Guidance for Grok API   Automatic Tool Invocation Responsible Disclosure Conclusion  High Level Overview Over the last year I have used Grok quite a bit.</description>
+    </item>
+    
     <item>
       <title>Terminal DiLLMa: LLM-powered Apps Can Hijack Your Terminal Via Prompt Injection</title>
       <link>https://embracethered.com/blog/posts/2024/terminal-dillmas-prompt-injection-ansi-sequences/</link>

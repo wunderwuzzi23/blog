@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" [DRAF]Security ProblLLMs in Grok from xAI. &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2024/probllms-grok-assessment/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2024-12-13T15:16:57-08:00" />
+  
+  <meta property="og:article:tag" content="aiml" />
+  
+  <meta property="og:article:tag" content="machine learning" />
+  
+  <meta property="og:article:tag" content="threats" />
+  
+  <meta property="og:article:tag" content="ai injections" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  <meta property="og:article:tag" content="exfil" />
+  
+  
+
+  <title>
+     [DRAF]Security ProblLLMs in Grok from xAI. &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="ProbLLMs: Taking a look at Grok">
+<meta name="twitter:description" content="Large language model applications suffer from a few core novel issues that have been identified over the last two years. Let&#39;s see how Grok fairs on those.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2024/TODO.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">[DRAF]Security ProblLLMs in Grok from xAI.</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2024-12-13T15:16:57-08:00">
+          Dec 13, 2024
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/aiml">#aiml</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/machine-learning">#machine learning</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/threats">#threats</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ai-injections">#ai injections</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/exfil">#exfil</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>Grok is a the chatbot of xAI. It&rsquo;s a state of the art model and chatbot. It has a Web UI like most other chatbots and also is integrated into the X (former Twitter) app, and recently it&rsquo;s also accessible via an <a href="https://x.ai/blog/api">API</a>.</p>
+<p>I have used Grok on and off for about a year, especially the recent image creation capabilities are quite impressive. Otherwise, I hadn&rsquo;t really looked at it security wise, so this post documents my research and findings that I reported to the vendor and their response.</p>
+<p>One of the big motto&rsquo;s that xAI advocates for is to make Grok truth-seeking, which is a noble goal. This post will highlight some of the challenges that exist in Grok already that make truth-seeking problematic, most notably prompt injection, which allows for active disinformation and Grok&rsquo;s output, like other LLM-powered applications, cannot be trusted.</p>
+<h2 id="system-prompt">System Prompt</h2>
+<p>Of course the first thing to look for are prompt injection attack angles. We got the classic direct prompt injection to grab the system prompt.</p>
+<p>Grok doesn&rsquo;t attempt to prevent that, which in my opinion is a good thing.</p>
+<p><a href="/blog/images/2024/grok-system-prompt2.png"><img src="/blog/images/2024/grok-system-prompt1.png" alt="system prompt Grok"></a></p>
+<p>While testing, I observed that the prompt actually changed frequently, at one point a sentence added about the current and future presidents, during Thanksgiving there was a note about that and towards the end of my tests xAI added user name, handle and region to the system prompt as well.</p>
+<p>Here is that part of info from the system prompt:</p>
+<pre tabindex="0"><code>User is in the country US.
+Name of the user is Johann Rehberger.
+User's X handle is wunderwuzzi23.
+</code></pre><p>This is noteworty as it enables some more advanced prompt injection attacks, more about that later.</p>
+<p>Grok can also analyze untrusted data, like documents, images or posts from other users, and this is where we start now exploring security implications of prompt injection within Grok.</p>
+<h2 id="prompt-injection-from-other-users-posts">Prompt Injection from other user&rsquo;s posts</h2>
+<p>Here is a simple demo of a prompt injection that comes from another user&rsquo;s post.</p>
+<p><a href="/blog/images/2024/grok-demo-pi.jpg"><img src="/blog/images/2024/grok-demo-pi.jpg" alt="x demo tweet for prompt injection"></a></p>
+<p>And here is the result of analyzing the post from the other user:
+<a href="/blog/images/2024/grok-prompt-injection.png"><img src="/blog/images/2024/grok-prompt-injection.png" alt="x demo tweet for prompt injection followed instructions"></a></p>
+<p>As you can see, rather then summarizing the post it actually followed the basic instructions mentioned.</p>
+<p>Technically, I think Grok brings the other user&rsquo;s post into the prompt context on the client-side (rather then server-side retrieval), but from an end-to-end perspective that doesn&rsquo;t really matter.</p>
+<h3 id="prompt-injection-from-images">Prompt Injection from Images</h3>
+<p>Similarily, prompt injection can also come from images that user&rsquo;s upload. An image can contain text or leverage other techniques to trick the model. In this simple demo, rather then analyzing the image it just prints out a very specific text:</p>
+<p><a href="/blog/images/2024/grok-image-prompt-injection-demo.jpg"><img src="/blog/images/2024/grok-image-prompt-injection-demo.jpg" alt="image prompt injection grok"></a></p>
+<p>It&rsquo;s fascinating how all models from different vendors seem to behave so similarily.</p>
+<h3 id="prompt-injection-from-pdfs">Prompt Injection from PDFs</h3>
+<p>One day while testing, a feature to upload pdfs was added. Here is a demo of indirect prompt injection coming from a third-party pdf document.</p>
+<p><a href="/blog/images/2024/grok-summarize-pdf-result.png"><img src="/blog/images/2024/grok-summarize-pdf-result.png" alt="pdf summary prompt injection"></a></p>
+<p>This is a basic example showing that an attacker fundamentally control what kind of output Grok will produce when analyzing or summarizing a document from an untrusted source. The links of course could point to an attacker controlled phishing page.</p>
+<h3 id="conditional-prompt-injection">Conditional Prompt Injection</h3>
+<p>Furthermore, a few weeks ago xAI also added the user&rsquo;s name, handle and region (like US) to the prompt context.</p>
+<p>This means that during a prompt injection attack instructions can be added that are tailed on who is viewing the data. If John looks at it show that the earth is flat, but when makes looks at the data let&rsquo;s make the earth round, and things along those lines. Because the region is also included this is even possible at large scale for entire countries.</p>
+<p>Here is a demo of two users summarizing the same document:</p>
+<p>User A:
+<a href="/blog/images/2024/grok-conditional-instructions.png"><img src="/blog/images/2024/grok-conditional-instructions.png" alt="conditional instructions"></a></p>
+<p>User B:</p>
+<h2 id="data-exfiltration">Data Exfiltration</h2>
+<p>Now, let&rsquo;s explore something even spicier. The basic data exfiltration issue with LLM apps is rendering of zero-click resources from third party domains. Most often via markdown images, and turns out that the Grok web app is not vulnerable to this.</p>
+<p>However, testing this on the iOS applications it worked and Grok leaks user data. And if combined with prompt injection an adversary can actively take control of Grok and cause such data leaks.</p>
+<p>Initial POC:
+<a href="/blog/images/2024/image-markdown-name.png"><img src="/blog/images/2024/image-markdown-name.png" alt="grok-image-render"></a></p>
+<p>As mentioned a few weeks back this POC stopped working but I found a bypass and the result looks like this.</p>
+<p><a href="/blog/images/2024/gork-server-name-ip-location-leak.png"><img src="/blog/images/2024/gork-server-name-ip-location-leak.png" alt="grok-server-name-leak-render"></a></p>
+<p>When Grok analyes the image it follows the instructions and renders it on iOS:</p>
+<p><a href="/blog/images/2024/grok-exfil-name-full.png"><img src="/blog/images/2024/grok-exfil-name.jpeg" alt="grok-server-exfil"></a></p>
+<p>And as you can see in the below screenshot the server receives the data.</p>
+<h2 id="ascii-smuggling">ASCII Smuggling</h2>
+<p>Turns out Grok 2 is model that is also vulnerable to ASCII Smuggling. It both interprets and also renders hidden Unicode Tag characters. Remember that those hidden characters mirror the ASCII set so it&rsquo;s a full and quite efficient covert hidden communications channel.</p>
+<p><a href="/blog/images/2024/grok-ascii-smuggling1.png"><img src="/blog/images/2024/grok-ascii-smuggling1.png" alt="grok ascii smuggling"></a></p>
+<p>Grok also has an API, so this is likely a platform level vulnerability that all developers building on top of Grok need to be aware of and possibly mitigate depending on the solution they are building.</p>
+<h3 id="grok---hidden-prompt-injection">Grok - Hidden Prompt Injection</h3>
+<h3 id="grok---creation-of-invisible-text">Grok - Creation Of Invisible text</h3>
+<p>Pretty, neat. Again, it&rsquo;s fascinating that so many models behave so similarly, really begs the question why some of these large companies don&rsquo;t team up in the creation of foundational models. Seems to be a big waste of time and energy to train 5-6 different models, which in the end all behave the same.</p>
+<h2 id="automatic-tool-invocation">Automatic Tool Invocation</h2>
+<p>Automatic Tool Invocation is one of the most dangerous threats when it comes to AI applications. So far Grok does not have a lot of tools available it seems, however I was interested to see if the image creation tool could be invoked via prompt injection. This was not possible by the way. So, that&rsquo;s good news. Hopefully that pattern remains once Grok has more powerful tools it can interact with.</p>
+<h2 id="responsible-disclosure">Responsible Disclosure</h2>
+<p>All issues mentioned in this post have been responsibly disclosed to xAI. Over the course of multipl eweeks I answered many questions around prompt injection, severity, impact, attack vectors, etc. however all issues have been closed as &ldquo;Informational&rdquo; by xAI.</p>
+<p>Hence, it seems that best approach to share this information with the public so individuals can decide how to best protect from these threats.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Overall, I really like using Grok and it&rsquo;s image generation is top-notch. It&rsquo;s also quite fast and the recently added Focus Mode is dope, but security wise it&rsquo;s lacking a bit behind.</p>
+<p>Leopold Aschenbrenner mentioned that during the race to super intelligence, there will be a challengig period towards the end (the automated AI Researcher), where various AI Labs will fight for getting there first. If something goes wrong, it would most likely happen during that period.</p>
+<p>It&rsquo;s easy to see, how lack of client-side sandboxing, or giving AI hidden means of communication could be a contributing factor down the road.</p>
+<p>Currently, xAI is making a lot of progress catching up on the feature side with other vendors, and hopefully that will soon also include the security aspects of Grok.</p>
+<p>Anyhow, Happy Hacking!</p>
+<p>Cheers,
+Johann.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://x.ai/blog/api">xAI Grok API - Beta Announcement</a></li>
+<li><a href="https://embracethered.com/blog/posts/2023/bing-chat-data-exfiltration-poc-and-fix/">Bing Chat - Data Exfiltration Explained</a></li>
+<li><a href="https://embracethered.com/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/">ASCII Smuggling</a></li>
+<li><a href="https://embracethered.com/blog/posts/2023/ai-injections-direct-and-indirect-prompt-injection-basics/">AI Injections: Direct and Indirect Prompt Injections and Their Implications</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2024/terminal-dillmas-prompt-injection-ansi-sequences/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2024
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
