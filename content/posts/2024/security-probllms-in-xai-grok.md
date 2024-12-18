@@ -55,7 +55,7 @@ Despite its innovative features, Grok's security posture and responses to findin
 
 Of course the first thing to look for are prompt injection attack angles. We have the classic direct prompt injection to grab the system prompt. Grok doesn't really attempt to prevent that, which in my opinion, is a good thing. 
 
-Vendors should just publish their system prompts.
+Vendors should just publish system prompts.
 
 [![system prompt Grok](/blog/images/2024/grok-system-prompt1.png)](/blog/images/2024/grok-system-prompt2.png)
 
@@ -72,7 +72,7 @@ User's X handle is wunderwuzzi23.
 
 This is noteworthy as it enables more advanced "conditional" prompt injection attacks, more about that later. 
 
-Grok can now analyze untrusted data like documents, images, or posts from other users. This is where we start now exploring security implications of prompt injection within Grok.
+Grok can now analyze untrusted data like documents, images, or posts from other users. This is where we start to explore security implications of prompt injection with Grok.
 
 Prompt injection can [impact all three aspects of the CIA security triad](https://arxiv.org/abs/2412.06090), Confidentiality, Integrity and Availability.
 
@@ -87,7 +87,7 @@ Here is a simple demo of a prompt injection from another user. This is the post 
 And here is the result of analyzing the post from the other user:
 [![x demo tweet for prompt injection followed instructions](/blog/images/2024/grok-prompt-injection.png)](/blog/images/2024/grok-prompt-injection.png)
 
-As you can see, rather than summarizing the post Grok followed the basic instructions and printed the text and some emoji. This simple, benign, demo  highlights a fundamental design flaw in LLM-powered applications, making it impossible to fully trust responses.
+As you can see, rather than summarizing the post, Grok followed the basic instructions and printed the text and some emoji. This simple, benign, demo highlights a fundamental design flaw in LLM-powered applications, making it impossible to fully trust responses.
 
 **This simple test was to confirm that xAI has not found a solution to prompt injection.**
 
@@ -133,7 +133,7 @@ And notice that Grok did not follow the other instructions for `Elon Musk` or us
 
 ## Data Exfiltration - End-to-end Demonstration
 
-Let's explore data exfiltration attacks. The basic, to-go, data exfiltration technique that many LLM-powered apps are vulnerable to is rendering of zero-click resources from third party domains. Most commonly, via markdown image links. 
+Let's explore data exfiltration attacks. The basic, go-to, data exfiltration technique that many LLM-powered apps are vulnerable to is rendering of zero-click resources from third party domains. Most commonly, via markdown image links. 
 
 Testing on the X iOS application showed that Grok can leak user data, because it renders images from third party servers. An adversary can combine this vulnerability with prompt injection and to hijack Grok and trigger a data leak, and it worked.
 
@@ -168,7 +168,7 @@ When Grok analyzes the malicious image it follows the instructions:
 And as seen in below screenshot, the server received the data:
 [![grok-server-name-leak-render](/blog/images/2024/gork-server-name-ip-location-leak.png)](/blog/images/2024/gork-server-name-ip-location-leak.png)
 
-An adversary could harvest thousands information of a large amount of users by creating a viral image and posting. That does not yet take into account stealing other info in the chat context, and future feature additions, e.g maybe Grok gets access to DMs maybe one day?  
+An adversary could likely harvest a large amount of information by creating a viral image and posting it. That does not yet take into account stealing other info in the chat context, and future feature additions, e.g maybe Grok gets access to DMs maybe one day?  
 
 The attack vector doesn't have to be an image, it could be via other avenues, like from another user's post, or a web search, etc... and not to forget that Grok could have a backdoor and just to it whenever it "feels" like it. Although that is quite unlikely, still worth highlighting because putting AI in a sandbox is important and should be a general security principle.
 

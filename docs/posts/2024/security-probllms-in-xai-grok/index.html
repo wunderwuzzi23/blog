@@ -176,7 +176,7 @@
 <p>Despite its innovative features, Grok&rsquo;s security posture and responses to findings lags behind competitors. Here&rsquo;s what I discovered.</p>
 <h2 id="analyzing-groks-system-prompt">Analyzing Grok&rsquo;s System Prompt</h2>
 <p>Of course the first thing to look for are prompt injection attack angles. We have the classic direct prompt injection to grab the system prompt. Grok doesn&rsquo;t really attempt to prevent that, which in my opinion, is a good thing.</p>
-<p>Vendors should just publish their system prompts.</p>
+<p>Vendors should just publish system prompts.</p>
 <p><a href="/blog/images/2024/grok-system-prompt2.png"><img src="/blog/images/2024/grok-system-prompt1.png" alt="system prompt Grok"></a></p>
 <p>While testing, the prompt changed frequently. You can find a dump of it <a href="https://github.com/wunderwuzzi23/scratch/blob/master/system_prompts/grok2-2024-11-27.txt">here</a>.</p>
 <p>At one point a sentence about the current and future US presidents was added. During Thanksgiving there was a note about the exact day of the holiday, and towards the end of my tests the user&rsquo;s <code>name</code>, <code>handle</code> and <code>region</code> were added to the system prompt as well.</p>
@@ -185,7 +185,7 @@
 Name of the user is Johann Rehberger.
 User's X handle is wunderwuzzi23.
 </code></pre><p>This is noteworthy as it enables more advanced &ldquo;conditional&rdquo; prompt injection attacks, more about that later.</p>
-<p>Grok can now analyze untrusted data like documents, images, or posts from other users. This is where we start now exploring security implications of prompt injection within Grok.</p>
+<p>Grok can now analyze untrusted data like documents, images, or posts from other users. This is where we start to explore security implications of prompt injection with Grok.</p>
 <p>Prompt injection can <a href="https://arxiv.org/abs/2412.06090">impact all three aspects of the CIA security triad</a>, Confidentiality, Integrity and Availability.</p>
 <p>Let&rsquo;s explore this more.</p>
 <h2 id="prompt-injection-from-other-users-posts">Prompt Injection From Other User&rsquo;s Posts</h2>
@@ -193,7 +193,7 @@ User's X handle is wunderwuzzi23.
 <p><a href="/blog/images/2024/grok-demo-pi.jpg"><img src="/blog/images/2024/grok-demo-pi.jpg" alt="x demo tweet for prompt injection"></a></p>
 <p>And here is the result of analyzing the post from the other user:
 <a href="/blog/images/2024/grok-prompt-injection.png"><img src="/blog/images/2024/grok-prompt-injection.png" alt="x demo tweet for prompt injection followed instructions"></a></p>
-<p>As you can see, rather than summarizing the post Grok followed the basic instructions and printed the text and some emoji. This simple, benign, demo  highlights a fundamental design flaw in LLM-powered applications, making it impossible to fully trust responses.</p>
+<p>As you can see, rather than summarizing the post, Grok followed the basic instructions and printed the text and some emoji. This simple, benign, demo highlights a fundamental design flaw in LLM-powered applications, making it impossible to fully trust responses.</p>
 <p><strong>This simple test was to confirm that xAI has not found a solution to prompt injection.</strong></p>
 <h2 id="prompt-injection-from-images">Prompt Injection from Images</h2>
 <p>Similarly, prompt injection can also come from images that a user uploads or analyzes. An image can contain text or leverage other techniques to trick the model.</p>
@@ -216,7 +216,7 @@ User's X handle is wunderwuzzi23.
 <p>Furthermore, because the region is also included in the prompt context by xAI, it is possible at to target entire regions (like US) which such conditional instructions.</p>
 <p>And notice that Grok did not follow the other instructions for <code>Elon Musk</code> or users with region <code>Canada</code>.</p>
 <h2 id="data-exfiltration---end-to-end-demonstration">Data Exfiltration - End-to-end Demonstration</h2>
-<p>Let&rsquo;s explore data exfiltration attacks. The basic, to-go, data exfiltration technique that many LLM-powered apps are vulnerable to is rendering of zero-click resources from third party domains. Most commonly, via markdown image links.</p>
+<p>Let&rsquo;s explore data exfiltration attacks. The basic, go-to, data exfiltration technique that many LLM-powered apps are vulnerable to is rendering of zero-click resources from third party domains. Most commonly, via markdown image links.</p>
 <p>Testing on the X iOS application showed that Grok can leak user data, because it renders images from third party servers. An adversary can combine this vulnerability with prompt injection and to hijack Grok and trigger a data leak, and it worked.</p>
 <p>Initial proof-of-concept:
 <a href="/blog/images/2024/image-markdown-message-redacted.jpg"><img src="/blog/images/2024/image-markdown-message-redacted.jpg" alt="grok-image-render"></a></p>
@@ -236,7 +236,7 @@ User's X handle is wunderwuzzi23.
 <a href="/blog/images/2024/grok-exfil-name-full-redacted.png"><img src="/blog/images/2024/grok-exfil-name-redacted.png" alt="grok-server-exfil"></a></p>
 <p>And as seen in below screenshot, the server received the data:
 <a href="/blog/images/2024/gork-server-name-ip-location-leak.png"><img src="/blog/images/2024/gork-server-name-ip-location-leak.png" alt="grok-server-name-leak-render"></a></p>
-<p>An adversary could harvest thousands information of a large amount of users by creating a viral image and posting. That does not yet take into account stealing other info in the chat context, and future feature additions, e.g maybe Grok gets access to DMs maybe one day?</p>
+<p>An adversary could likely harvest a large amount of information by creating a viral image and posting it. That does not yet take into account stealing other info in the chat context, and future feature additions, e.g maybe Grok gets access to DMs maybe one day?</p>
 <p>The attack vector doesn&rsquo;t have to be an image, it could be via other avenues, like from another user&rsquo;s post, or a web search, etc&hellip; and not to forget that Grok could have a backdoor and just to it whenever it &ldquo;feels&rdquo; like it. Although that is quite unlikely, still worth highlighting because putting AI in a sandbox is important and should be a general security principle.</p>
 <h3 id="rendering-of-clickable-hyperlinks-to-phishing-sites">Rendering of Clickable Hyperlinks to Phishing Sites</h3>
 <p>Furthermore, the rendering of clickable hyperlinks is also possible via markdown syntax. It is also a way to have data leaked. Although this requires the user to click on the link to leak data.</p>
