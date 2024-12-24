@@ -7,17 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Mon, 23 Dec 2024 16:20:53 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Dec 2024 16:30:53 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Trust No AI: Prompt Injection Along the CIA Security Triad Paper</title>
       <link>https://embracethered.com/blog/posts/2024/trust-no-ai-prompt-injection-along-the-cia-security-triad-paper/</link>
-      <pubDate>Mon, 23 Dec 2024 16:20:53 -0800</pubDate>
+      <pubDate>Mon, 23 Dec 2024 16:30:53 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/posts/2024/trust-no-ai-prompt-injection-along-the-cia-security-triad-paper/</guid>
-      <description>Happy to share that I authored the paper &amp;ldquo;Trust No AI: Prompt Injection Along The CIA Security Triad&amp;rdquo;, based on research conducted over the past 18 months.
+      <description>Happy to share that I authored the paper &amp;ldquo;Trust No AI: Prompt Injection Along The CIA Security Triad&amp;rdquo;.
 You can download it from arxiv.
-The paper examines how prompt injection attacks compromise Confidentiality, Integrity, and Availability (CIA) of AI systems, with real-world examples targeting vendors like OpenAI, Google, Anthropic and Microsoft.
-It summarizes and references many of the prompt injection examples I explained on this blog, and I hope this research helps bridge the gap between traditional cybersecurity practices and AI research, fostering stronger defenses against these emerging threats.</description>
+The paper examines how prompt injection attacks can compromise Confidentiality, Integrity, and Availability (CIA) of AI systems, with real-world examples targeting vendors like OpenAI, Google, Anthropic and Microsoft.
+It summarizes many of the prompt injection examples I explained on this blog, and I hope it helps bridge the gap between traditional cybersecurity and academic AI/ML research, fostering stronger understanding and defenses against these emerging threats.</description>
     </item>
     
     <item>
