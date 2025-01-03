@@ -6,7 +6,7 @@
     <description>Recent content in cve on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
     <lastBuildDate>Wed, 14 Oct 2020 10:35:02 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/cve/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CVE 2020-16977: VS Code Python Extension Remote Code Execution</title>

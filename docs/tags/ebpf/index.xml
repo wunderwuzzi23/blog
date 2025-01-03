@@ -6,7 +6,7 @@
     <description>Recent content in ebpf on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
     <lastBuildDate>Sun, 10 Jul 2022 20:00:13 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ebpf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Offensive BPF: Using bpftrace to sniff PAM logon passwords</title>

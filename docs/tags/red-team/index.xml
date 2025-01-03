@@ -6,7 +6,7 @@
     <description>Recent content in red team on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
     <lastBuildDate>Wed, 04 Jan 2023 06:36:05 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/red-team/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Decrypting TLS browser traffic with Wireshark</title>
