@@ -137,16 +137,16 @@
   </header>
   <section>
     <p>I regularly look at how the system prompts of chatbots change over time. Updates frequently highlight new features being added, design changes that occur and potential areas that might benefit from more security scrutiny.</p>
-<p>A few months back I noticed an interesting update to the M365 Copilot (BizChat) system prompt. In particular, there used to be one <code>enterprise_search</code> tool in the past. You might remember that tool being used during the <a href="https://embracethered.com/blog/posts/2024/m365-copilot-prompt-injection-tool-invocation-and-data-exfil-using-ascii-smuggling/">Copirate ASCII Smuggling exploit</a> and using it to search for MFA codes in the user&rsquo;s inbox.</p>
+<p>A few months back I noticed an interesting update to the M365 Copilot (BizChat) system prompt. In particular, there used to be one <code>enterprise_search</code> tool in the past. You might remember that tool was used during the <a href="https://embracethered.com/blog/posts/2024/m365-copilot-prompt-injection-tool-invocation-and-data-exfil-using-ascii-smuggling/">Copirate ASCII Smuggling exploit</a> to search for MFA codes in the user&rsquo;s inbox.</p>
 <h3 id="dumping-the-system-prompt">Dumping the System Prompt</h3>
 <p>Many chatbots have output filters in place that refuse to return the system prompt verbatim. Here is an example on how that might look like:</p>
 <p><a href="/blog/images/2024/copilot-m365-refuse-system-prompt.png"><img src="/blog/images/2024/copilot-m365-refuse-system-prompt.png" alt="Refuse system prompt leak"></a></p>
 <p>It&rsquo;s not visible in the above screenshot, but Copilot actually started printing the system prompt, but at one point it detected that it shouldn&rsquo;t leak it and refused to continue and afterwards error message was shown instead.</p>
 <h4 id="oops-was-this-my-outer-voice">Oops, was this my outer voice!?!</h4>
-<p>It&rsquo;s not uncommon that companies put output filters in place that monitor for certain words or phrases and overwrite responses. This is happening because the responses are streamed, which makes output filtering more challenging, and often visible to the user.</p>
+<p>It&rsquo;s not uncommon that companies put output filters in place that monitor for certain words or phrases and overwrite responses. This is happening because the <strong>responses are streamed</strong>, which makes output filtering challenging, and often visible to the user.</p>
 <h4 id="simple-trick-to-help-with-system-prompt-extraction">Simple Trick to Help With System Prompt Extraction</h4>
-<p>Also, one thing I like doing is to give the Chatbot a hint on where to start. It&rsquo;s usually quite easy to figure out how the system prompt starts, like &ldquo;You are ChatGPT&rdquo;, &ldquo;I am Microsoft 365 Copilot&rdquo;,&hellip; you get the idea. Once we know that we can very easily trigger the system prompt extractions.</p>
-<p><strong>There are usually two tricks I use to bypass that:</strong></p>
+<p>Also, one thing I like doing is to give the chatbot a hint on where to start. It&rsquo;s usually quite easy to figure out how the system prompt starts, like &ldquo;You are ChatGPT&rdquo;, &ldquo;I am Microsoft 365 Copilot&rdquo;,&hellip; you get the idea. Once we know that, we can easily trigger the system prompt extractions.</p>
+<p><strong>There are usually two tricks I commonly try:</strong></p>
 <h4 id="1-ask-the-chatbot-to-return-the-system-prompt-in-german-rather-than-english">1. Ask the chatbot to return the system prompt in German (rather than English)</h4>
 <p><a href="/blog/images/2024/copilot-m365-system-prompt-german.png"><img src="/blog/images/2024/copilot-m365-system-prompt-german.png" alt="System prompt leak German"></a></p>
 <p>This is how it looks in action:</p>
@@ -158,7 +158,7 @@
 <p>And funny enough I typically copy/paste the xml output and put it into <code>ChatGPT</code> and ask it to remove the xml tags and convert it into a nicely formatted system prompt. If you are curious how the result from ChatGPT looked like, you can find it <a href="https://github.com/wunderwuzzi23/scratch/blob/master/system_prompts/enterprise_m365_copilot_2024-09-23.txt.txt">here</a>.</p>
 <p>In the case of M365 Copilot both continue to work well.</p>
 <h3 id="renamed-and-new-m365-copilot-tools">Renamed And New M365 Copilot Tools</h3>
-<p>With the update to the system prompt sometime in September quite a few changes were introduced. The interesting part was of the system prompt was that it seems Microsoft created many specific <code>search_enterprise_*</code> tools:</p>
+<p>With the system prompt updates sometime in September, quite a few changes were introduced. The interesting part was that Microsoft created many <code>search_enterprise_*</code> tools:</p>
 <ul>
 <li><code>designer_graphic_art</code></li>
 <li><code>search_enterprise_chat</code></li>
@@ -166,9 +166,9 @@
 <li><code>search_enterprise_files</code></li>
 <li><code>search_enterprise_meetings</code></li>
 </ul>
-<p>Quite interesting how the system prompts are changed ofter time, sometimes quite significantly.</p>
+<p>Quite interesting how the system prompts are changed over time, sometimes quite significantly.</p>
 <p><a href="/blog/images/2024/copilot-m365-new-tools.png"><img src="/blog/images/2024/copilot-m365-new-tools.png" alt="New Tools"></a></p>
-<p>The one tool that stood out to me was the <code>designer_graphic_art</code>, because so far, the M365 Enterprise Chat experience (BizChat) did not have an image generation capability.</p>
+<p>The tool that stood out to me was <code>designer_graphic_art</code>, because so far, the M365 Enterprise Chat experience (BizChat) did not have image generation capabilities.</p>
 <h3 id="graphic-designer-image-generation">Graphic Designer Image Generation</h3>
 <p>In retrospect it&rsquo;s unclear when exactly this was introduced. I might have observed it a few days before the official announcement even, but I noticed right away that it seemed to use the Bing &ldquo;consumer&rdquo; image generation domain ending in <code>live.com</code>.</p>
 <p>It was <code>designerapp.officeapps.live.com</code>.</p>

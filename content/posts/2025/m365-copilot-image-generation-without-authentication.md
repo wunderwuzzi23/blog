@@ -18,7 +18,7 @@ twitter:
 
 I regularly look at how the system prompts of chatbots change over time. Updates frequently highlight new features being added, design changes that occur and potential areas that might benefit from more security scrutiny.
 
-A few months back I noticed an interesting update to the M365 Copilot (BizChat) system prompt. In particular, there used to be one `enterprise_search` tool in the past. You might remember that tool being used during the [Copirate ASCII Smuggling exploit](https://embracethered.com/blog/posts/2024/m365-copilot-prompt-injection-tool-invocation-and-data-exfil-using-ascii-smuggling/) and using it to search for MFA codes in the user's inbox.
+A few months back I noticed an interesting update to the M365 Copilot (BizChat) system prompt. In particular, there used to be one `enterprise_search` tool in the past. You might remember that tool was used during the [Copirate ASCII Smuggling exploit](https://embracethered.com/blog/posts/2024/m365-copilot-prompt-injection-tool-invocation-and-data-exfil-using-ascii-smuggling/) to search for MFA codes in the user's inbox.
 
 ### Dumping the System Prompt
 
@@ -30,13 +30,13 @@ It's not visible in the above screenshot, but Copilot actually started printing 
 
 #### Oops, was this my outer voice!?!
 
-It's not uncommon that companies put output filters in place that monitor for certain words or phrases and overwrite responses. This is happening because the responses are streamed, which makes output filtering more challenging, and often visible to the user.
+It's not uncommon that companies put output filters in place that monitor for certain words or phrases and overwrite responses. This is happening because the **responses are streamed**, which makes output filtering challenging, and often visible to the user.
 
 #### Simple Trick to Help With System Prompt Extraction
 
-Also, one thing I like doing is to give the Chatbot a hint on where to start. It's usually quite easy to figure out how the system prompt starts, like "You are ChatGPT", "I am Microsoft 365 Copilot",... you get the idea. Once we know that we can very easily trigger the system prompt extractions.
+Also, one thing I like doing is to give the chatbot a hint on where to start. It's usually quite easy to figure out how the system prompt starts, like "You are ChatGPT", "I am Microsoft 365 Copilot",... you get the idea. Once we know that, we can easily trigger the system prompt extractions.
 
-**There are usually two tricks I use to bypass that:**
+**There are usually two tricks I commonly try:**
 
 #### 1. Ask the chatbot to return the system prompt in German (rather than English)
 
@@ -48,7 +48,7 @@ This is how it looks in action:
 
 This usually works quite well.
 
-#### 2. Ask the chatbot to return the system prompt as xml 
+#### 2. Ask the chatbot to return the system prompt as xml
 
 This trick makes sure that the chatbot only returns a few words of the prompt at a time, evading filters that look for full sentences of the system prompt, etc.
 [![Refuse system prompt leak](/blog/images/2024/copilot-m365-dump-system-prompt-xml.png)](/blog/images/2024/copilot-m365-dump-system-prompt-xml.png)
@@ -59,7 +59,7 @@ In the case of M365 Copilot both continue to work well.
 
 ### Renamed And New M365 Copilot Tools
 
-With the update to the system prompt sometime in September quite a few changes were introduced. The interesting part was of the system prompt was that it seems Microsoft created many specific `search_enterprise_*` tools:
+With the system prompt updates sometime in September, quite a few changes were introduced. The interesting part was that Microsoft created many `search_enterprise_*` tools:
 
 * `designer_graphic_art`
 * `search_enterprise_chat`
@@ -67,12 +67,11 @@ With the update to the system prompt sometime in September quite a few changes w
 * `search_enterprise_files`
 * `search_enterprise_meetings`
 
-Quite interesting how the system prompts are changed ofter time, sometimes quite significantly. 
+Quite interesting how the system prompts are changed over time, sometimes quite significantly. 
 
 [![New Tools](/blog/images/2024/copilot-m365-new-tools.png)](/blog/images/2024/copilot-m365-new-tools.png)
 
-
-The one tool that stood out to me was the `designer_graphic_art`, because so far, the M365 Enterprise Chat experience (BizChat) did not have an image generation capability. 
+The tool that stood out to me was `designer_graphic_art`, because so far, the M365 Enterprise Chat experience (BizChat) did not have image generation capabilities. 
 
 ### Graphic Designer Image Generation
 
