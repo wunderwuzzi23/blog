@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2024</copyright>
-    <lastBuildDate>Mon, 23 Dec 2024 16:30:53 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Jan 2025 16:00:09 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai-injections/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft 365 Copilot Generated Images Accessible Without Authentication -- Fixed!</title>
+      <link>https://embracethered.com/blog/posts/2025/m365-copilot-image-generation-without-authentication/</link>
+      <pubDate>Thu, 02 Jan 2025 16:00:09 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2025/m365-copilot-image-generation-without-authentication/</guid>
+      <description>I regularly look at how the system prompts of chatbots change over time. Updates frequently highlight new features being added, design changes that occur and potential areas that might benefit from more security scrutiny.
+A few months back I noticed an interesting update to the M365 Copilot (BizChat) system prompt. In particular, there used to be one enterprise_search tool in the past. You might remember that tool being used during the Copirate ASCII Smuggling exploit and using it to search for MFA codes in the user&amp;rsquo;s inbox.</description>
+    </item>
+    
     <item>
       <title>Trust No AI: Prompt Injection Along the CIA Security Triad Paper</title>
       <link>https://embracethered.com/blog/posts/2024/trust-no-ai-prompt-injection-along-the-cia-security-triad-paper/</link>

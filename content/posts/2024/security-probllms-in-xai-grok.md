@@ -247,6 +247,8 @@ By bringing these vulnerabilities to light, users and developers can make inform
 
 If some of the vulnerabilities are addressed in the future, and I learn about it, I will update this section. The fixes for data leakage and ASCII Smuggling are quite straightforward.
 
+**Update:** About 1-2 days after publishing this blog post and [receiving significant attention](https://x.com/wunderwuzzi23/status/1869015052688539732), xAI appears to have implemented some changes. While Grok continues to render images from untrusted third-party servers, the root cause of the data leak vulnerability in the iOS app, a change was made that prevents chat history and information such as the username to be included in the initially rendered image URL during a prompt injection attack. The comprehensiveness of this mitigation remains unclear, and data may still leak in subsequent conversation turns. I will continue to monitor the situation, and I am already curious how the upcoming Grok Web App will behave in this regards.
+
 ## Conclusion
 
 Overall, I like using Grok and its image generation capabilities are amazing (not the latest update from a few days ago though). It's also quite fast and the recently added UI Focus Mode is dope. 
