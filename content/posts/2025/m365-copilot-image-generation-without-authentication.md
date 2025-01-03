@@ -3,7 +3,7 @@ title: "Microsoft 365 Copilot Generated Images Accessible Without Authentication
 date: 2025-01-02T16:00:09-08:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections"
+     "aiml", "machine learning", "threats", "llm"
     ]
 
 twitter:
