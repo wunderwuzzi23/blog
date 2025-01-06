@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Thu, 24 Oct 2024 17:00:57 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/zombai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Jan 2025 06:00:53 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/zombai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Remote Controlling ChatGPT Instances - How to Build a Novel Botnet</title>
+      <link>https://embracethered.com/blog/posts/2025/blackhat-europe-talk-spaiware-and-chatgpt-command-and-control-via-prompt-injection/</link>
+      <pubDate>Mon, 06 Jan 2025 06:00:53 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2025/blackhat-europe-talk-spaiware-and-chatgpt-command-and-control-via-prompt-injection/</guid>
+      <description>I did a fun presentation at Black Hat Europe. The talk was titled: &amp;ldquo;SpAIware and More: Advanced Prompt Injection Exploits&amp;rdquo;. Without diving into the details of the entire talk, the key point I was making is that prompt injection can impact all aspects of the CIA security triad.
+However, there is one part of the presentation that I want to highlight, because its novel.
+A Command and Control system entirely based on prompt injection using ChatGPT.</description>
+    </item>
+    
     <item>
       <title>ZombAIs: From Prompt Injection to C2 with Claude Computer Use</title>
       <link>https://embracethered.com/blog/posts/2024/claude-computer-use-c2-the-zombais-are-coming/</link>

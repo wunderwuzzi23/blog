@@ -2,32 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
+    <lastmod>2025-01-06T06:00:53-08:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/aiml/</loc>
-    <lastmod>2025-01-02T16:00:09-08:00</lastmod>
+    <lastmod>2025-01-06T06:00:53-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2025-01-02T16:00:09-08:00</lastmod>
+    <lastmod>2025-01-06T06:00:53-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2025-01-06T06:00:53-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2025-01-06T06:00:53-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2025/blackhat-europe-talk-spaiware-and-chatgpt-command-and-control-via-prompt-injection/</loc>
+    <lastmod>2025-01-06T06:00:53-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2025-01-06T06:00:53-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/threats/</loc>
+    <lastmod>2025-01-06T06:00:53-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/zombai/</loc>
+    <lastmod>2025-01-06T06:00:53-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/llm/</loc>
     <lastmod>2025-01-02T16:00:09-08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2025-01-02T16:00:09-08:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/posts/2025/m365-copilot-image-generation-without-authentication/</loc>
     <lastmod>2025-01-02T16:00:09-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2025-01-02T16:00:09-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2025-01-02T16:00:09-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/threats/</loc>
-    <lastmod>2025-01-02T16:00:09-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
-    <lastmod>2024-12-23T16:30:53-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/prompt-injection/</loc>
     <lastmod>2024-12-23T16:30:53-08:00</lastmod>
@@ -51,9 +57,6 @@
     <lastmod>2024-11-29T14:00:39-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2024-10-24T17:00:57-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/zombai/</loc>
     <lastmod>2024-10-24T17:00:57-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/claude-computer-use-c2-the-zombais-are-coming/</loc>
