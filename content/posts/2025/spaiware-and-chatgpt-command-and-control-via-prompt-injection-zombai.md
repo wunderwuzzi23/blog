@@ -1,6 +1,6 @@
 ---
-title: "Remote Controlling ChatGPT Instances (ChatGPT ZombAIs)"
-date: 2025-01-06T16:30:53-08:00
+title: "AI Domination: Remote Controlling ChatGPT ZombAI Instances"
+date: 2025-01-06T20:30:53-08:00
 draft: true
 tags: [
      "aiml", "machine learning", "threats", "ai injections","zombAI", "llm","red"
@@ -10,7 +10,7 @@ twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "The Art of AI Domination: Remote Controlling ChatGPT Instances"
+  title: "The Art of AI Domination: Remote Controlling ChatGPT ZombAI Instances"
   description: "Hey ChatGPT! How to build a botnet with compromised ChatGPT instances! AI botnet vulnerability"
   image: "https://embracethered.com/blog/images/2025/chatgpt-zombai-tn.png"
 ---
@@ -140,11 +140,11 @@ That's it. As you can see the owner of the storage account can inspect the infor
 
 ## Responsible Disclosure
 
-The information in this blog post was disclosed to OpenAI early October 2024, although some issues date back further. The recommendations included asking for user confirmation before storing memories, revisit the `url_safe` feature (as there are several bypasses), and to disable automatic tool invocation once untrusted data is in the chat context.
+The information in this blog post was disclosed to OpenAI early October 2024, although some issues date back further a lot further. Some of the recommendations provided included asking for the user for confirmation before storing memories, the need to revisit the `url_safe` feature (as there are bypasses), and to disable automatic tool invocation once untrusted data is in the chat context.
 
 ## Conclusion
 
-This research demonstrates the potential for advanced prompt injection exploits to compromise AI systems in unprecedented ways, exposing significant gaps in existing safeguards. 
+This research demonstrates the potential for advanced prompt injection exploits to compromise AI systems in unprecedented ways, for long-term remote control, exposing significant gaps in existing safeguards. 
 
 By demonstrating the feasibility of compromising individual ChatGPT instances via prompt injection and maintaining continuous remote control, highlights the need for stronger defenses against threats to long-term storage, prompt injection attacks, data exfiltration.
 
