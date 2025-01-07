@@ -25,7 +25,11 @@ However, there is one part that I want to highlight explicitly:
 
 An adversary can compromise ChatGPT instances and have them join a central Command and Control system which provides updated instructions for all the remote controlled ChatGPT instances to follow over-time.
 
+[![ai domination](/blog/images/2025/chatgpt-zombai-tn.png)](/blog/images/2025/chatgpt-zombai-tn.png)
+
 **This research and proof-of-concept demonstrate that it is possible to compromise and remotely control ChatGPT instances through prompt injection, effectively establishing the foundational elements of a novel kind of botnet.**
+
+
 
 Let me explain how ChatGPT is turned into a "ZombAI".
 
