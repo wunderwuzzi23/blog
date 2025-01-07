@@ -35,7 +35,7 @@ The prerequisite is that the user gets infected once with prompt injection malwa
 
 [![initial infection](/blog/images/2024/chatgpt-c2-initial-infection.png)](/blog/images/2024/chatgpt-c2-initial-infection.png)
 
-The initial infection persists malicious instructions in ChatGPT's long term storage.
+The initial infection persists malicious instructions in ChatGPT's long-term storage.
 
 ### Hey ChatGPT - Check-out this GitHub Issue!
 
