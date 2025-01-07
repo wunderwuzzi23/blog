@@ -1,9 +1,9 @@
 ---
-title: "Remote Controlling ChatGPT Instances"
-date: 2025-01-06T16:00:53-08:00
+title: "Remote Controlling ChatGPT Instances (ChatGPT ZombAIs)"
+date: 2025-01-06T16:30:53-08:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections","zombAI"
+     "aiml", "machine learning", "threats", "ai injections","zombAI", "llm","red"
     ]
 
 twitter:
@@ -15,11 +15,11 @@ twitter:
   image: "https://embracethered.com/blog/images/2025/chatgpt-zombai-tn.png"
 ---
 
-I did a fun presentation at Black Hat Europe. The talk was titled: "SpAIware and More: Advanced Prompt Injection Exploits". Without diving into the details of the entire talk, the key point I was making is that [prompt injection can impact all aspects of the CIA security triad](https://arxiv.org/pdf/2412.06090). 
+At Black Hat Europe I did a fun presentation titled [SpAIware and More: Advanced Prompt Injection Exploits](https://www.blackhat.com/eu-24/briefings/schedule/#spaiware--more-advanced-prompt-injection-exploits-in-llm-applications-42007). Without diving into the details of the entire talk, the key point I was making is that [prompt injection can impact all aspects of the CIA security triad](https://arxiv.org/pdf/2412.06090). 
 
-However, there is one part of the presentation that I want to highlight, because it's novel.
+However, there is one part that I want to highlight explicitly:
 
-**A Command and Control system entirely based on prompt injection exploiting ChatGPT.** 
+**A Command and Control system (C2) that uses prompt injection to remote control ChatGPT instances.** 
 
 ## Remote Controlling ChatGPT Instances! 
 
@@ -32,6 +32,7 @@ Let me explain how ChatGPT is turned into a "ZombAI".
 ## Compromising a ChatGPT Instance
 
 The prerequisite is that the user gets infected once with prompt injection malware. This can happen via a couple of means, e.g. by visiting a website with ChatGPT, analyzing a malicious image or summarizing a pdf document.
+
 [![initial infection](/blog/images/2024/chatgpt-c2-initial-infection.png)](/blog/images/2024/chatgpt-c2-initial-infection.png)
 
 The initial infection persists malicious instructions in ChatGPT's long term storage.
@@ -100,7 +101,7 @@ Amazing how well ChatGPT is following instructions, and this shows that the C2 s
 
 Although, one last piece was missing...
 
-### Data Exfiltration Via the C2
+### Data Exfiltration via the C2
 
 The final piece that was missing, and might not be obvious to the reader, was data exfiltration. 
 
@@ -139,9 +140,7 @@ That's it. As you can see the owner of the storage account can inspect the infor
 
 ## Responsible Disclosure
 
-The information in this blog post was disclosed to OpenAI early October 2024, recommendations included, asking for user confirmation before storing memories, revisit the `url_safe` feature (as there are several bypasses), and to disable automatic tool invocation once untrusted data is in the chat context.
-
-This content was first shared during my Black Hat Europe 2024 talk [SpAIware And More: Advanced Prompt Injection Exploits](https://www.blackhat.com/eu-24/briefings/schedule/#spaiware--more-advanced-prompt-injection-exploits-in-llm-applications-42007).
+The information in this blog post was disclosed to OpenAI early October 2024, although some issues date back further. The recommendations included asking for user confirmation before storing memories, revisit the `url_safe` feature (as there are several bypasses), and to disable automatic tool invocation once untrusted data is in the chat context.
 
 ## Conclusion
 
@@ -153,5 +152,5 @@ As AI adoption and integration deepens across industries, proactively securing s
 
 ## References
 
-* [SpAIware And More: Advanced Prompt Injection Exploits](https://www.blackhat.com/eu-24/briefings/schedule/#spaiware--more-advanced-prompt-injection-exploits-in-llm-applications-42007)
+* [Black Hat Europe: SpAIware And More: Advanced Prompt Injection Exploits](https://www.blackhat.com/eu-24/briefings/schedule/#spaiware--more-advanced-prompt-injection-exploits-in-llm-applications-42007)
 * [Trust No AI: Prompt Injection Along the CIA Security Triad](https://arxiv.org/pdf/2412.06090)

@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Remote Controlling ChatGPT Instances &middot;  Embrace The Red" />
+  <meta property="og:title" content=" Remote Controlling ChatGPT Instances (ChatGPT ZombAIs) &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2025/spaiware-and-chatgpt-command-and-control-via-prompt-injection-zombai/" />
@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2025-01-06T16:00:53-08:00" />
+  <meta property="og:article:published_time" content="2025-01-06T16:30:53-08:00" />
   
   <meta property="og:article:tag" content="aiml" />
   
@@ -23,10 +23,14 @@
   
   <meta property="og:article:tag" content="zombAI" />
   
+  <meta property="og:article:tag" content="llm" />
+  
+  <meta property="og:article:tag" content="red" />
+  
   
 
   <title>
-     Remote Controlling ChatGPT Instances &middot;  Embrace The Red
+     Remote Controlling ChatGPT Instances (ChatGPT ZombAIs) &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -114,12 +118,12 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Remote Controlling ChatGPT Instances</h1>
+    <h1 class="text-primary">Remote Controlling ChatGPT Instances (ChatGPT ZombAIs)</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2025-01-06T16:00:53-08:00">
+        <time datetime="2025-01-06T16:30:53-08:00">
           Jan 6, 2025
         </time>
       </div>
@@ -136,20 +140,24 @@
         
         <span class="post-tag small"><a href="https://embracethered.com/blog//tags/zombai">#zombAI</a></span>
         
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
       </div>
     </div>
   </header>
   <section>
-    <p>I did a fun presentation at Black Hat Europe. The talk was titled: &ldquo;SpAIware and More: Advanced Prompt Injection Exploits&rdquo;. Without diving into the details of the entire talk, the key point I was making is that <a href="https://arxiv.org/pdf/2412.06090">prompt injection can impact all aspects of the CIA security triad</a>.</p>
-<p>However, there is one part of the presentation that I want to highlight, because it&rsquo;s novel.</p>
-<p><strong>A Command and Control system entirely based on prompt injection exploiting ChatGPT.</strong></p>
+    <p>At Black Hat Europe I did a fun presentation titled <a href="https://www.blackhat.com/eu-24/briefings/schedule/#spaiware--more-advanced-prompt-injection-exploits-in-llm-applications-42007">SpAIware and More: Advanced Prompt Injection Exploits</a>. Without diving into the details of the entire talk, the key point I was making is that <a href="https://arxiv.org/pdf/2412.06090">prompt injection can impact all aspects of the CIA security triad</a>.</p>
+<p>However, there is one part that I want to highlight explicitly:</p>
+<p><strong>A Command and Control system (C2) that uses prompt injection to remote control ChatGPT instances.</strong></p>
 <h2 id="remote-controlling-chatgpt-instances">Remote Controlling ChatGPT Instances!</h2>
 <p>An adversary can compromise ChatGPT instances and have them join a central Command and Control system which provides updated instructions for all the remote controlled ChatGPT instances to follow over-time.</p>
 <p><strong>This research and proof-of-concept demonstrate that it is possible to compromise and remotely control ChatGPT instances through prompt injection, effectively establishing the foundational elements of a novel kind of botnet.</strong></p>
 <p>Let me explain how ChatGPT is turned into a &ldquo;ZombAI&rdquo;.</p>
 <h2 id="compromising-a-chatgpt-instance">Compromising a ChatGPT Instance</h2>
-<p>The prerequisite is that the user gets infected once with prompt injection malware. This can happen via a couple of means, e.g. by visiting a website with ChatGPT, analyzing a malicious image or summarizing a pdf document.
-<a href="/blog/images/2024/chatgpt-c2-initial-infection.png"><img src="/blog/images/2024/chatgpt-c2-initial-infection.png" alt="initial infection"></a></p>
+<p>The prerequisite is that the user gets infected once with prompt injection malware. This can happen via a couple of means, e.g. by visiting a website with ChatGPT, analyzing a malicious image or summarizing a pdf document.</p>
+<p><a href="/blog/images/2024/chatgpt-c2-initial-infection.png"><img src="/blog/images/2024/chatgpt-c2-initial-infection.png" alt="initial infection"></a></p>
 <p>The initial infection persists malicious instructions in ChatGPT&rsquo;s long term storage.</p>
 <h3 id="hey-chatgpt---check-out-this-github-issue">Hey ChatGPT - Check-out this GitHub Issue!</h3>
 <p>The avenue I picked in my demo was an initial infection via a GitHub issue. If the user navigates with ChatGPT to this GitHub issue, ChatGPT gets compromised:</p>
@@ -185,7 +193,7 @@ source code in 10 words.
 <p>As you can see the tool invocation  reflects the user&rsquo;s current memories - user is in the matrix, it contains the name Neo, and the user is 102 years old, I guess that&rsquo;s why ChatGPT chose that particular hair color. (all these fake memories were injected at earlier turns by the C2).</p>
 <p>Amazing how well ChatGPT is following instructions, and this shows that the C2 server basically can fully remote control the ChatGPT instance at this point.</p>
 <p>Although, one last piece was missing&hellip;</p>
-<h3 id="data-exfiltration-via-the-c2">Data Exfiltration Via the C2</h3>
+<h3 id="data-exfiltration-via-the-c2">Data Exfiltration via the C2</h3>
 <p>The final piece that was missing, and might not be obvious to the reader, was data exfiltration.</p>
 <p>As you might remember, <a href="/blog/posts/2024/chatgpt-macos-app-persistent-data-exfiltration/">OpenAI fixed the <code>SpAIware</code> attack scenario in September</a> for iOS and macOS platforms. On those platforms the <code>url_safe</code> feature hadn&rsquo;t been implemented until then.</p>
 <p><a href="/blog/images/2024/chatgpt-c2-data-exfil.png"><img src="/blog/images/2024/chatgpt-c2-data-exfil.png" alt="continous instruction updates"></a></p>
@@ -208,15 +216,14 @@ source code in 10 words.
 <p><a href="/blog/images/2024/chatgpt-c2-azure-log.png"><img src="/blog/images/2024/chatgpt-c2-azure-log.png" alt="azure log"></a></p>
 <p>That&rsquo;s it. As you can see the owner of the storage account can inspect the information that ChatGPT leaks. This is not the only domain I found a bypass for, but the easiest and most straightforward to demonstrate.</p>
 <h2 id="responsible-disclosure">Responsible Disclosure</h2>
-<p>The information in this blog post was disclosed to OpenAI early October 2024, recommendations included, asking for user confirmation before storing memories, revisit the <code>url_safe</code> feature (as there are several bypasses), and to disable automatic tool invocation once untrusted data is in the chat context.</p>
-<p>This content was first shared during my Black Hat Europe 2024 talk <a href="https://www.blackhat.com/eu-24/briefings/schedule/#spaiware--more-advanced-prompt-injection-exploits-in-llm-applications-42007">SpAIware And More: Advanced Prompt Injection Exploits</a>.</p>
+<p>The information in this blog post was disclosed to OpenAI early October 2024, although some issues date back further. The recommendations included asking for user confirmation before storing memories, revisit the <code>url_safe</code> feature (as there are several bypasses), and to disable automatic tool invocation once untrusted data is in the chat context.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>This research demonstrates the potential for advanced prompt injection exploits to compromise AI systems in unprecedented ways, exposing significant gaps in existing safeguards.</p>
 <p>By demonstrating the feasibility of compromising individual ChatGPT instances via prompt injection and maintaining continuous remote control, highlights the need for stronger defenses against threats to long-term storage, prompt injection attacks, data exfiltration.</p>
 <p>As AI adoption and integration deepens across industries, proactively securing systems must remain a top priority to address and mitigate emerging threats.</p>
 <h2 id="references">References</h2>
 <ul>
-<li><a href="https://www.blackhat.com/eu-24/briefings/schedule/#spaiware--more-advanced-prompt-injection-exploits-in-llm-applications-42007">SpAIware And More: Advanced Prompt Injection Exploits</a></li>
+<li><a href="https://www.blackhat.com/eu-24/briefings/schedule/#spaiware--more-advanced-prompt-injection-exploits-in-llm-applications-42007">Black Hat Europe: SpAIware And More: Advanced Prompt Injection Exploits</a></li>
 <li><a href="https://arxiv.org/pdf/2412.06090">Trust No AI: Prompt Injection Along the CIA Security Triad</a></li>
 </ul>
 
