@@ -144,7 +144,7 @@ That's it. As you can see the owner of the storage account can inspect the infor
 
 ## Responsible Disclosure
 
-The information in this blog post was disclosed to OpenAI early October 2024, although some issues date back further a lot further. Some of the recommendations provided included asking for the user for confirmation before storing memories, the need to revisit the `url_safe` feature (as there are bypasses), and to disable automatic tool invocation once untrusted data is in the chat context.
+The information in this blog post was disclosed to OpenAI early October 2024, although some issues date back a lot further. Recommendations provided included asking the user for confirmation before storing memories, the need to revisit the `url_safe` feature to mitigate bypasses, and to disable automatic tool invocation once untrusted data is in the chat context.
 
 ## Conclusion
 
