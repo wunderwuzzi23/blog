@@ -7,7 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Mon, 06 Jan 2025 20:30:53 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Feb 2025 06:30:21 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ai</title>
+      <link>https://embracethered.com/blog/tags/ai/</link>
+      <pubDate>Mon, 10 Feb 2025 06:30:21 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gemini</title>
+      <link>https://embracethered.com/blog/tags/gemini/</link>
+      <pubDate>Mon, 10 Feb 2025 06:30:21 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/gemini/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>llm</title>
+      <link>https://embracethered.com/blog/tags/llm/</link>
+      <pubDate>Mon, 10 Feb 2025 06:30:21 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/llm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Mon, 10 Feb 2025 06:30:21 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ai injections</title>
       <link>https://embracethered.com/blog/tags/ai-injections/</link>
@@ -23,24 +59,6 @@
       <pubDate>Mon, 06 Jan 2025 20:30:53 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>llm</title>
-      <link>https://embracethered.com/blog/tags/llm/</link>
-      <pubDate>Mon, 06 Jan 2025 20:30:53 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/llm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine learning</title>
-      <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Mon, 06 Jan 2025 20:30:53 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
       <description></description>
     </item>
     
@@ -167,15 +185,6 @@
       <pubDate>Tue, 30 Jul 2024 10:00:36 -0700</pubDate>
       
       <guid>https://embracethered.com/blog/tags/data/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ai</title>
-      <link>https://embracethered.com/blog/tags/ai/</link>
-      <pubDate>Mon, 08 Jul 2024 14:30:18 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ai/</guid>
       <description></description>
     </item>
     

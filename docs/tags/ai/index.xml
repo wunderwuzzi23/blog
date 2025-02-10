@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Mon, 08 Jul 2024 14:30:18 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Feb 2025 06:30:21 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hacking Gemini&#39;s Memory with Prompt Injection and Delayed Tool Invocation</title>
+      <link>https://embracethered.com/blog/posts/2025/gemini-memory-persistence-prompt-injection/</link>
+      <pubDate>Mon, 10 Feb 2025 06:30:21 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2025/gemini-memory-persistence-prompt-injection/</guid>
+      <description>Imagine your AI rewriting your personal history&amp;hellip;
+A while ago Google added memories to Gemini. Memories allow Gemini to store user-related data across sessions, storing information in long-term memory. The feature is only available to users who subscribe to Gemini Advanced so far. So, in the fall of last year I chimed in and paid for the subscription for a month to check it out.
+As a user you can see what Gemini stored about you at https://gemini.</description>
+    </item>
+    
     <item>
       <title>Sorry, ChatGPT Is Under Maintenance: Persistent Denial of Service through Prompt Injection and Memory Attacks</title>
       <link>https://embracethered.com/blog/posts/2024/chatgpt-persistent-denial-of-service/</link>

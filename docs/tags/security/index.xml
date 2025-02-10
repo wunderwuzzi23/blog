@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/security/</link>
+    <description>Recent content in security on Embrace The Red</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <lastBuildDate>Sat, 08 Feb 2025 17:10:21 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exploiting Google Gemini&#39;s Memory with Prompt Injection and Delayed Tool Invocation</title>
+      <link>https://embracethered.com/blog/posts/2025/gemini-memory-persistence-prompt-injection/</link>
+      <pubDate>Sat, 08 Feb 2025 17:10:21 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2025/gemini-memory-persistence-prompt-injection/</guid>
+      <description>A while ago Google added memories to Gemini. Memories allow Gemini to store user-related data across sessions, storing information in long-term memory. The feature is only available to users who pay for Gemini Advanced. So, in the fall of last year I chimed in and paid for the subscription for a month to check it out.
+As a user you can see what Gemini stored about you at https://gemini.google.com/saved-info.</description>
+    </item>
+    
+  </channel>
+</rss>

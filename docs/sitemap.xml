@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://embracethered.com/blog/tags/ai/</loc>
+    <lastmod>2025-02-10T06:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2025-02-10T06:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/gemini/</loc>
+    <lastmod>2025-02-10T06:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2025/gemini-memory-persistence-prompt-injection/</loc>
+    <lastmod>2025-02-10T06:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2025-02-10T06:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2025-02-10T06:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2025-02-10T06:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2025-02-10T06:30:21-08:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2025/spaiware-and-chatgpt-command-and-control-via-prompt-injection-zombai/</loc>
     <lastmod>2025-01-06T20:30:53-08:00</lastmod>
   </url><url>
@@ -11,22 +35,7 @@
     <loc>https://embracethered.com/blog/tags/aiml/</loc>
     <lastmod>2025-01-06T20:30:53-08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2025-01-06T20:30:53-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2025-01-06T20:30:53-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2025-01-06T20:30:53-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2025-01-06T20:30:53-08:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2025-01-06T20:30:53-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2025-01-06T20:30:53-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/threats/</loc>
@@ -103,9 +112,6 @@
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/chatgpt-gpt-4o-mini-instruction-hierarchie-bypasses/</loc>
     <lastmod>2024-07-22T06:14:05-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/ai/</loc>
-    <lastmod>2024-07-08T14:30:18-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/chatgpt-persistent-denial-of-service/</loc>
     <lastmod>2024-07-08T14:30:18-07:00</lastmod>
