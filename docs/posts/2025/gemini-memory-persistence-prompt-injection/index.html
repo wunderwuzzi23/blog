@@ -142,13 +142,13 @@
 <p><a href="/blog/images/2025/gemini-saved-info.png"><img src="/blog/images/2025/gemini-saved-info.png" alt="Gemini saved-info"></a></p>
 <p>Naturally, my goal was to manipulate this information via prompt injection from a document.</p>
 <h2 id="existing-prompt-injection-mitigations">Existing Prompt Injection Mitigations</h2>
-<p>Generally, Gemini does not invoke tools when processing untrusted data, and this prompt injection mitigation appears to also apply to the memory tool. However, with some attack trickery <a href="/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/">that I first described a year ago</a>, using <strong>delayed tool invocation</strong>, the memory tool can be invoked!</p>
+<p>Generally, Gemini does not invoke certain sensitive tools when processing untrusted data, and this prompt injection mitigation appears to also apply to the memory tool. However, with some attack trickery <a href="/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/">that I first described a year ago</a>, using <strong>delayed tool invocation</strong>, the memory tool can be invoked!</p>
 <h2 id="delayed-tool-invocation-refresher">Delayed Tool Invocation: Refresher</h2>
 <p>Delayed Tool Invocation just means that the attacker &ldquo;pollutes&rdquo; the chat context with instructions and a trigger action. For instance, during a prompt injection attack, the attacker makes Gemini write something like &ldquo;If the user says X, then execute the memory tool and add these false memories&rdquo; into the chat context.</p>
 <p>When the user later says X, Gemini, believing it&rsquo;s following the user&rsquo;s direct instruction, executes the tool. Gemini, basically, incorrectly &ldquo;thinks&rdquo; the user explicitly wants to invoke the tool!</p>
 <p>It is a bit of a social engineering/phishing attack but nevertheless shows that an attacker can <strong>trick Gemini to store false information</strong> into a user&rsquo;s long-term memories simply by having them interact with a malicious document.</p>
 <h2 id="demo-scenario-summarize-a-document">Demo Scenario: Summarize a Document</h2>
-<p>The demo attack is straightforward: an adversary crafts a document with <strong>embedded prompt injection</strong>, which tricks Gemini into storing false information.</p>
+<p>The demo attack is straightforward: an adversary crafts a document with <strong>embedded prompt injection</strong>, which tricks Gemini into storing false information if the user keeps interacting with Gemini in that same chat conversation.</p>
 <p><strong>Attack Flow:</strong></p>
 <ol>
 <li>A user uploads and asks Gemini to summarize a document <em>(this document could come from anywhere and has to be considered untrusted)</em></li>
@@ -200,7 +200,7 @@ to learn more?&quot;
 <h2 id="conclusion">Conclusion</h2>
 <p>The risk for long-term manipulation of user memories, even if infrequent, represents a significant risk to be aware of. Furthermore, the likelihood of successful exploitation may increase over time as LLM context lengths grow, making it more challenging to detect hidden instructions within lengthy responses.</p>
 <p>When memories can be manipulated through untrusted data, adversaries can stealthily insert or modify information in a user&rsquo;s long-term storage &ndash; and even more as I have shown <a href="/blog/posts/2025/spaiware-and-chatgpt-command-and-control-via-prompt-injection-zombai/">with ChatGPT</a>.</p>
-<p>Even with safeguards against direct memory manipulation in place, this research demonstrates that delayed tool invocation and user deception through context pollution can still lead to persistence of false information in long-term LLM storage.</p>
+<p>Even with safeguards against direct memory manipulation in place, this research demonstrates that delayed tool invocation and user (and LLM) deception through context pollution can still lead to persistence of false information in long-term LLM storage.</p>
 <p>Cheers.</p>
 <h2 id="references">References</h2>
 <ul>

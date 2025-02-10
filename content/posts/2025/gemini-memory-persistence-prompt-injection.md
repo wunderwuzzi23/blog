@@ -26,7 +26,7 @@ Naturally, my goal was to manipulate this information via prompt injection from 
 
 ## Existing Prompt Injection Mitigations
 
-Generally, Gemini does not invoke tools when processing untrusted data, and this prompt injection mitigation appears to also apply to the memory tool. However, with some attack trickery [that I first described a year ago](/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/), using **delayed tool invocation**, the memory tool can be invoked!
+Generally, Gemini does not invoke certain sensitive tools when processing untrusted data, and this prompt injection mitigation appears to also apply to the memory tool. However, with some attack trickery [that I first described a year ago](/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/), using **delayed tool invocation**, the memory tool can be invoked!
 
 ## Delayed Tool Invocation: Refresher
 
@@ -38,7 +38,7 @@ It is a bit of a social engineering/phishing attack but nevertheless shows that 
 
 ## Demo Scenario: Summarize a Document
 
-The demo attack is straightforward: an adversary crafts a document with **embedded prompt injection**, which tricks Gemini into storing false information.
+The demo attack is straightforward: an adversary crafts a document with **embedded prompt injection**, which tricks Gemini into storing false information if the user keeps interacting with Gemini in that same chat conversation.
 
 **Attack Flow:**
 1. A user uploads and asks Gemini to summarize a document *(this document could come from anywhere and has to be considered untrusted)*
@@ -116,7 +116,7 @@ The risk for long-term manipulation of user memories, even if infrequent, repres
 
 When memories can be manipulated through untrusted data, adversaries can stealthily insert or modify information in a user's long-term storage -- and even more as I have shown [with ChatGPT](/blog/posts/2025/spaiware-and-chatgpt-command-and-control-via-prompt-injection-zombai/).
 
-Even with safeguards against direct memory manipulation in place, this research demonstrates that delayed tool invocation and user deception through context pollution can still lead to persistence of false information in long-term LLM storage.
+Even with safeguards against direct memory manipulation in place, this research demonstrates that delayed tool invocation and user (and LLM) deception through context pollution can still lead to persistence of false information in long-term LLM storage.
 
 Cheers.
 
