@@ -2,10 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://embracethered.com/blog/tags/ai/</loc>
-    <lastmod>2025-02-10T06:30:21-08:00</lastmod>
+    <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
+    <lastmod>2025-02-17T07:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/aiml/</loc>
+    <lastmod>2025-02-17T07:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2025/chatgpt-operator-prompt-injection-exploits/</loc>
+    <lastmod>2025-02-17T07:30:21-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2025-02-17T07:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/exfil/</loc>
+    <lastmod>2025-02-17T07:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2025-02-17T07:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2025-02-17T07:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2025-02-17T07:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2025-02-17T07:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/threats/</loc>
+    <lastmod>2025-02-17T07:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/ai/</loc>
     <lastmod>2025-02-10T06:30:21-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/gemini/</loc>
@@ -14,31 +41,10 @@
     <loc>https://embracethered.com/blog/posts/2025/gemini-memory-persistence-prompt-injection/</loc>
     <lastmod>2025-02-10T06:30:21-08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2025-02-10T06:30:21-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
-    <lastmod>2025-02-10T06:30:21-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2025-02-10T06:30:21-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2025-02-10T06:30:21-08:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/posts/2025/spaiware-and-chatgpt-command-and-control-via-prompt-injection-zombai/</loc>
     <lastmod>2025-01-06T20:30:53-08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
-    <lastmod>2025-01-06T20:30:53-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/aiml/</loc>
-    <lastmod>2025-01-06T20:30:53-08:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2025-01-06T20:30:53-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/threats/</loc>
     <lastmod>2025-01-06T20:30:53-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/zombai/</loc>
@@ -52,9 +58,6 @@
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/trust-no-ai-prompt-injection-along-the-cia-security-triad-paper/</loc>
     <lastmod>2024-12-23T16:30:53-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/exfil/</loc>
-    <lastmod>2024-12-16T04:44:57-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/security-probllms-in-xai-grok/</loc>
     <lastmod>2024-12-16T04:44:57-08:00</lastmod>
