@@ -3,7 +3,7 @@ title: "Spyware Injection Into Your ChatGPT's Long-Term Memory (SpAIware)"
 date: 2024-09-20T11:02:36-07:00
 draft: true
 tags: [
-    "threats", "ttp", "chatgpt", "ai injection", "llm", "memories"
+    "threats", "ttp", "chatgpt", "prompt injection", "llm", "memories"
     ]
 
 twitter:

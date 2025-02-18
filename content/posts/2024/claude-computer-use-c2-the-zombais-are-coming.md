@@ -3,7 +3,7 @@ title: "ZombAIs: From Prompt Injection to C2 with Claude Computer Use"
 date: 2024-10-24T17:00:57-07:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections","llm", "red","zombAI"
+     "aiml", "machine learning", "threats","prompt injection","llm", "red","zombAI"
     ]
 
 twitter:

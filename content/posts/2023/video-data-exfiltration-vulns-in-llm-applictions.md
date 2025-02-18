@@ -2,7 +2,7 @@
 title: "Video: Data Exfiltration Vulnerabilities in LLM apps (Bing Chat, ChatGPT, Claude)"
 date: 2023-08-28T10:00:51-07:00
 tags: [
-     "aiml", "machine learning","ai injections","video", "exfil"
+     "aiml", "machine learning","prompt injection","video", "exfil"
     ]
 twitter:
   card: "summary_large_image"

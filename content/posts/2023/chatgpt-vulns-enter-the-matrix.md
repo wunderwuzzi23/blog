@@ -3,7 +3,7 @@ title: "Exploit ChatGPT and Enter the Matrix to Learn about AI Security"
 date: 2023-06-11T08:49:21-07:00
 draft: true
 tags: [
-     "aiml", "machine learning","red", "threats", "ai injections","chatgpt"
+     "aiml", "machine learning","red", "threats", "prompt injection","chatgpt"
     ]
 
 twitter:

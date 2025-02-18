@@ -3,7 +3,7 @@ title: "DeepSeek AI: From Prompt Injection To Account Takeover"
 date: 2024-11-29T14:00:39-08:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections", "llm", "xss"
+     "aiml", "machine learning", "threats","prompt injection", "llm", "xss"
     ]
 
 twitter:

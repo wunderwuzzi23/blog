@@ -3,7 +3,7 @@ title: "Image to Prompt Injection with Google Bard"
 date: 2023-07-14T09:00:00-07:00
 draft: true
 tags: [
-     "aiml", "machine learning","ai injections"
+     "aiml", "machine learning","prompt injection"
     ]
 
 twitter:

@@ -3,7 +3,7 @@ title: "Trust No AI: Prompt Injection Along the CIA Security Triad Paper"
 date: 2024-12-23T16:30:53-08:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections", "prompt injection", "llm"
+     "aiml", "machine learning", "threats", "prompt injection", "prompt injection", "llm"
     ]
 
 twitter:

@@ -3,7 +3,7 @@ title: "Google Colab AI: Data Leakage via Image Rendering Fixed"
 date: 2024-07-12T16:09:25-07:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "llm" ,"ai injection", "exfil"
+     "aiml", "machine learning", "threats", "llm" ,"prompt injection", "exfil"
     ]
 
 twitter:

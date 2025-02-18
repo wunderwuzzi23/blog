@@ -3,7 +3,7 @@ title: "Bing Chat: Data Exfiltration Exploit Explained"
 date: 2023-06-18T00:01:02-07:00
 draft: true
 tags: [
-     "aiml", "machine learning","ai injections","msrc", "exfil"
+     "aiml", "machine learning","prompt injection","msrc", "exfil"
     ]
 
 twitter:

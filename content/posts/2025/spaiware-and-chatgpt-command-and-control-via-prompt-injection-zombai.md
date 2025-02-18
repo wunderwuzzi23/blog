@@ -3,7 +3,7 @@ title: "AI Domination: Remote Controlling ChatGPT ZombAI Instances"
 date: 2025-01-06T20:30:53-08:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections","zombAI", "llm","red"
+     "aiml", "machine learning", "threats", "prompt injection","zombAI", "llm","red"
     ]
 
 twitter:

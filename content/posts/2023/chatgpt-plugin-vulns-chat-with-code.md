@@ -3,7 +3,7 @@ title: "Plugin Vulnerabilities: Visit a Website and Have Your Source Code Stolen
 date: 2023-06-20T08:00:22-07:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections","chatgpt", "plugins"
+     "aiml", "machine learning", "threats","prompt injection","chatgpt", "plugins"
     ]
 
 twitter:

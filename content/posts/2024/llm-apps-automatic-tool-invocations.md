@@ -3,7 +3,7 @@ title: "Automatic Tool Invocation when Browsing with ChatGPT - Threats and Mitig
 date: 2024-05-28T20:57:38-07:00
 draft: true
 tags: [
-     "ai", "testing", "machine learning", "ai injection", "chatgpt", "ttp"
+     "ai", "testing", "machine learning", "prompt injection", "chatgpt", "ttp"
     ]
 
 twitter:

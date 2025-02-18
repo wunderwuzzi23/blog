@@ -3,7 +3,7 @@ title: "LLM Apps: Don't Get Stuck in an Infinite Loop! 💵💰"
 date: 2023-09-16T00:00:00-07:00
 draft: true
 tags: [
-     "aiml", "machine learning","ai injections","conference"
+     "aiml", "machine learning","prompt injection","conference"
     ]
 twitter:
   card: "summary_large_image"

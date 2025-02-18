@@ -3,7 +3,7 @@ title: "Google AI Studio: LLM-Powered Data Exfiltration Hits Again! Quickly Fixe
 date: 2024-08-21T19:00:30-07:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "llm", "ai injection", "testing", "exfil"
+     "aiml", "machine learning", "threats", "llm", "prompt injection", "testing", "exfil"
 ]
 twitter:
   card: "summary_large_image"

@@ -3,7 +3,7 @@ title: "ChatGPT: Lack of Isolation between Code Interpreter sessions of GPTs"
 date: 2024-02-14T03:30:17-08:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections","llm"
+     "aiml", "machine learning", "threats","prompt injection","llm"
     ]
 
 twitter:

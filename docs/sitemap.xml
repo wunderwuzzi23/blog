@@ -2,9 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://embracethered.com/blog/tags/ai-injections/</loc>
-    <lastmod>2025-02-17T07:30:21-08:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/aiml/</loc>
     <lastmod>2025-02-17T07:30:21-08:00</lastmod>
   </url><url>
@@ -24,6 +21,9 @@
     <lastmod>2025-02-17T07:30:21-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2025-02-17T07:30:21-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/prompt-injection/</loc>
     <lastmod>2025-02-17T07:30:21-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/</loc>
@@ -53,9 +53,6 @@
     <loc>https://embracethered.com/blog/posts/2025/m365-copilot-image-generation-without-authentication/</loc>
     <lastmod>2025-01-02T16:00:09-08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/prompt-injection/</loc>
-    <lastmod>2024-12-23T16:30:53-08:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/posts/2024/trust-no-ai-prompt-injection-along-the-cia-security-triad-paper/</loc>
     <lastmod>2024-12-23T16:30:53-08:00</lastmod>
   </url><url>
@@ -73,9 +70,6 @@
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/claude-computer-use-c2-the-zombais-are-coming/</loc>
     <lastmod>2024-10-24T17:00:57-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/ai-injection/</loc>
-    <lastmod>2024-09-20T11:02:36-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/chatgpt/</loc>
     <lastmod>2024-09-20T11:02:36-07:00</lastmod>
@@ -296,10 +290,10 @@
     <loc>https://embracethered.com/blog/posts/2023/ai-injections-threats-context-matters/</loc>
     <lastmod>2023-04-15T18:09:46-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/posts/2023/ai-injections-direct-and-indirect-prompt-injection-basics/</loc>
+    <loc>https://embracethered.com/blog/tags/ai-injection/</loc>
     <lastmod>2023-03-29T20:26:31-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/offensiveml/</loc>
+    <loc>https://embracethered.com/blog/posts/2023/ai-injections-direct-and-indirect-prompt-injection-basics/</loc>
     <lastmod>2023-03-29T20:26:31-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2023/bing-chat-bank-robbery/</loc>

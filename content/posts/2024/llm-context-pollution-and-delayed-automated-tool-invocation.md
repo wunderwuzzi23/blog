@@ -3,7 +3,7 @@ title: "Google Gemini: Planting Instructions For Delayed Automatic Tool Invocati
 date: 2024-02-22T22:00:06-08:00
 draft: true
 tags: [
-     "aiml", "machine learning","ai injections","ttp"
+     "aiml", "machine learning","prompt injection","ttp"
     ]
 twitter:
   card: "summary_large_image"

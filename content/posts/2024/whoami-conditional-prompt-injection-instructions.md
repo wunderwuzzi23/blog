@@ -3,7 +3,7 @@ title: "Who Am I? Conditional Prompt Injection Attacks with Microsoft Copilot"
 date: 2024-03-02T22:25:17-08:00
 draft: true
 tags: [
-     "aiml", "machine learning", "ai injections", "llm", "research"
+     "aiml", "machine learning", "prompt injection", "llm", "research"
     ]
 
 twitter:

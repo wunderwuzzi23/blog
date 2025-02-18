@@ -3,7 +3,7 @@ title: "Google AI Studio Data Exfiltration via Prompt Injection - Possible Regre
 date: 2024-04-07T16:00:30-07:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "llm" ,"ai injection","testing", "exfil"
+     "aiml", "machine learning", "threats", "llm" ,"prompt injection","testing", "exfil"
     ]
 
 twitter:

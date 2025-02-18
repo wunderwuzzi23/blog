@@ -9,15 +9,6 @@
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
     <lastBuildDate>Mon, 17 Feb 2025 07:30:21 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ai injections</title>
-      <link>https://embracethered.com/blog/tags/ai-injections/</link>
-      <pubDate>Mon, 17 Feb 2025 07:30:21 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ai-injections/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>aiml</title>
       <link>https://embracethered.com/blog/tags/aiml/</link>
       <pubDate>Mon, 17 Feb 2025 07:30:21 -0800</pubDate>
@@ -50,6 +41,15 @@
       <pubDate>Mon, 17 Feb 2025 07:30:21 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>prompt injection</title>
+      <link>https://embracethered.com/blog/tags/prompt-injection/</link>
+      <pubDate>Mon, 17 Feb 2025 07:30:21 -0800</pubDate>
+      
+      <guid>https://embracethered.com/blog/tags/prompt-injection/</guid>
       <description></description>
     </item>
     
@@ -99,29 +99,11 @@
     </item>
     
     <item>
-      <title>prompt injection</title>
-      <link>https://embracethered.com/blog/tags/prompt-injection/</link>
-      <pubDate>Mon, 23 Dec 2024 16:30:53 -0800</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/prompt-injection/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>xss</title>
       <link>https://embracethered.com/blog/tags/xss/</link>
       <pubDate>Fri, 29 Nov 2024 14:00:39 -0800</pubDate>
       
       <guid>https://embracethered.com/blog/tags/xss/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ai injection</title>
-      <link>https://embracethered.com/blog/tags/ai-injection/</link>
-      <pubDate>Fri, 20 Sep 2024 11:02:36 -0700</pubDate>
-      
-      <guid>https://embracethered.com/blog/tags/ai-injection/</guid>
       <description></description>
     </item>
     
@@ -324,11 +306,11 @@
     </item>
     
     <item>
-      <title>offensiveml</title>
-      <link>https://embracethered.com/blog/tags/offensiveml/</link>
+      <title>ai injection</title>
+      <link>https://embracethered.com/blog/tags/ai-injection/</link>
       <pubDate>Wed, 29 Mar 2023 20:26:31 -0700</pubDate>
       
-      <guid>https://embracethered.com/blog/tags/offensiveml/</guid>
+      <guid>https://embracethered.com/blog/tags/ai-injection/</guid>
       <description></description>
     </item>
     

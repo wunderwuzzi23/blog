@@ -3,7 +3,7 @@ title: "Breaking Instruction Hierarchy in OpenAI's gpt-4o-mini"
 date: 2024-07-22T06:14:05-07:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "llm", "ai injection", "testing"
+     "aiml", "machine learning", "threats", "llm", "prompt injection", "testing"
 ]
 twitter:
   card: "summary_large_image"

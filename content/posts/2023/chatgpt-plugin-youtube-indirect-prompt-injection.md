@@ -2,7 +2,7 @@
 title: "Indirect Prompt Injection via YouTube Transcripts"
 date: 2023-05-14T00:01:38-07:00
 tags: [
-     "aiml", "machine learning","red", "threats", "ai injections","chatgpt"
+     "aiml", "machine learning","red", "threats", "prompt injection","chatgpt"
     ]
 
 twitter:

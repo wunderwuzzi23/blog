@@ -3,7 +3,7 @@ title: "Sorry, ChatGPT Is Under Maintenance: Persistent Denial of Service throug
 date: 2024-07-08T14:30:18-07:00
 draft: true
 tags: [
-     "ai", "testing","machine learning", "ai injection", "chatgpt", "ttp", "llm"
+     "ai", "testing","machine learning", "prompt injection", "chatgpt", "ttp", "llm"
     ]
 
 twitter:

@@ -3,7 +3,7 @@ title: "Microsoft Copilot: From Prompt Injection to Exfiltration of Personal Inf
 date: 2024-08-26T16:30:17-08:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections", "llm"
+     "aiml", "machine learning", "threats","prompt injection", "llm"
     ]
 
 twitter:

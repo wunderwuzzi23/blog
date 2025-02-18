@@ -3,7 +3,7 @@ title: "OpenAI Removes the \"Chat with Code\" Plugin From Store"
 date: 2023-07-06T16:30:00-07:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections","chatgpt", "plugins"
+     "aiml", "machine learning", "threats", "prompt injection","chatgpt", "plugins"
     ]
 
 twitter:

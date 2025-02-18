@@ -3,7 +3,7 @@ title: "Ekoparty Talk - Prompt Injections in the Wild"
 date: 2023-11-28T16:00:33-08:00
 draft: true
 tags: [
-     "aiml", "machine learning","ai injections","ttp","conference"
+     "aiml", "machine learning","prompt injection","ttp","conference"
     ]
 twitter:
   card: "summary_large_image"

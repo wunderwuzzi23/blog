@@ -3,7 +3,7 @@ title: "Hidden Prompt Injections with Anthropic Claude"
 date: 2024-02-08T02:01:54-08:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections","llm","ascii"
+     "aiml", "machine learning", "threats", "prompt injection","llm","ascii"
     ]
 
 twitter:

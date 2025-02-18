@@ -3,7 +3,7 @@ title: "Terminal DiLLMa: LLM-powered Apps Can Hijack Your Terminal Via Prompt In
 date: 2024-12-06T08:00:25-08:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections", "llm", "exfil"
+     "aiml", "machine learning", "threats", "prompt injection", "llm", "exfil"
     ]
 
 twitter:

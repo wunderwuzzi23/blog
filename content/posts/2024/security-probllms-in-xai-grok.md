@@ -3,7 +3,7 @@ title: "Security ProbLLMs in xAI's Grok: A Deep Dive"
 date: 2024-12-16T04:44:57-08:00
 draft: true
 tags: [
-     "aiml", "machine learning", "threats", "ai injections", "llm","exfil"
+     "aiml", "machine learning", "threats", "prompt injection", "llm","exfil"
     ]
 
 twitter:

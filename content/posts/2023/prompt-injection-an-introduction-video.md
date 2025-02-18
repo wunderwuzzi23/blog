@@ -3,7 +3,7 @@ title: "Video: Prompt Injections - An Introduction"
 date: 2023-05-10T07:00:40-07:00
 draft: true
 tags: [
-        "red", "ttp", "aiml", "video", "ai injections", "chatgpt"
+        "red", "ttp", "aiml", "video", "prompt injection", "chatgpt"
     ]
 
 twitter:
