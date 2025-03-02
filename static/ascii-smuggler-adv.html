@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ASCII Smuggler – Hide and Reveal ASCII with Invisible Unicode Encodings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=0.9">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wunderwuzzi23">
+  <meta name="twitter:title" content="ASCII Smuggler – Hide and Reveal ASCII with Invisible Unicode Encodings">
+  <meta name="twitter:description" content="Convert ASCII text into invisible Unicode encodings using Unicode Tags, Variant Selectors, and Sneaky Bits, and decode hidden messages.">
+  <meta name="twitter:image" content="https://embracethered.com/blog/images/2024/ascii-smuggler-logo.png">
+  <meta name="twitter:creator" content="@wunderwuzzi23">
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 0px 10px;
+      font-size: 16px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    textarea, #outputMessage {
+      width: 100%;
+      margin: 10px 0;
+      height: 120px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      box-sizing: border-box;
+      font-family: monospace;
+      font-size: 14px;
+      text-align: left;
+      resize: vertical;
+      background-color: rgba(255, 255, 255, 0.95);
+      color: #000;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    }
+    #outputMessage {
+      background-color: #f0f0f0;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      display: block;
+      min-height: 100px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    #statusMessage {
+      margin-bottom: 10px;
+      white-space: pre-wrap;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px 5px 10px 0;
+      cursor: pointer;
+    }
+    .highlight {
+      background-color: yellow;
+      font-family: monospace;
+    }
+    .variant {
+      background-color: lightblue;
+      font-family: monospace;
+    }
+    .invisible {
+      background-color: lightgreen;
+      font-family: monospace;
+    }
+    .binary {
+      background-color: lightgray;
+      font-family: monospace;
+    }
+    .advanced-options {
+      display: none;
+      background-color: cyan;
+      text-align: center;
+      margin-top: 5px;
+      font-size: 14px;
+      padding: 10px;
+    }
+    .advanced-options.visible {
+      display: block;
+    }
+    .verbose-info {
+      display: none;
+    }
+    .verbose-info.visible {
+      display: block;
+    }
+    .advanced-options label {
+      margin-right: 20px;
+      display: inline-block;
+    }
+    .toggle-advanced {
+      font-size: 14px;
+      color: #007bff;
+      text-decoration: underline;
+      cursor: pointer;
+      display: inline-block;
+      margin: 0px 0;
+    }
+    fieldset {
+      border: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+    legend {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .stat-item {
+      flex: 1 0 30%;
+      margin: 5px;
+      padding: 5px;
+      background-color: #e9e9e9;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .stat-item span {
+      font-weight: bold;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>ASCII Smuggler</h1>
+  <span>
+    Convert ASCII text to invisible Unicode encodings and decode hidden secrets.
+    <br>
+    Use the options below to choose an encoding strategy and select which hidden sets to detect.
+  </span>
+  <br>
+  <textarea id="inputMessage" placeholder="Enter your message here"></textarea>
+  <button id="encodeButton">Encode & Copy</button>
+  <button id="decodeButton">Decode</button>
+  <br>
+  <a href="javascript:void(0);" class="toggle-advanced">Toggle Advanced Options</a>
+  <div class="advanced-options" id="advancedOptions">
+    <fieldset>
+      <legend>Encoding Options</legend>
+      <label>
+        <input type="radio" name="encodingStrategy" value="unicode" checked>
+        Unicode Tags
+      </label>
+      <label>
+        <input type="radio" name="encodingStrategy" value="variant">
+        Variant Selectors
+      </label>
+      <label>
+        <input type="radio" name="encodingStrategy" value="binary">
+        Sneaky Bits (UTF‑8)
+      </label>
+      <div id="variantOptions" style="display:none; margin-top: 5px;">
+        <label>
+          VS2 Offset:
+          <input type="number" id="vs2Offset" value="16" style="width: 50px;">
+        </label>
+      </div>
+      <div id="unicodeTagOptions" style="display:none; margin-top: 5px;">
+        <label title="Add explicit BEGIN and END tags">
+          <input type="checkbox" id="addExplicitTags" checked>
+          Add BEGIN/END Tags
+        </label>
+      </div>
+      <div id="binaryOptions" style="display:none; margin-top: 5px;">
+        <label>
+          Binary 0:
+          <input type="text" id="binary0" maxlength="1" value="&#x2062;" style="width: 30px;">
+        </label>
+        <label>
+          Binary 1:
+          <input type="text" id="binary1" maxlength="1" value="&#x2064;" style="width: 30px;">
+        </label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Decoding Options</legend>
+      <label title="Decodes URI components before processing">
+        <input type="checkbox" id="decodeUriComponent">
+        Decode URL components
+      </label>
+      <label title="Highlights only the decoded hidden characters">
+        <input type="checkbox" id="highlightMode" checked>
+        Highlight Mode
+      </label>
+      <label title="Automatically decodes input as you type">
+        <input type="checkbox" id="autoDecodeInput">
+        Auto-decode Input
+      </label>
+      <label title="Shows detailed debug information">
+        <input type="checkbox" id="showVerboseInfo">
+        Show Verbose Info
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" id="detectUnicodeTags" checked>
+        Detect Unicode Tags
+      </label>
+      <label>
+        <input type="checkbox" id="detectVariantSelectors" checked>
+        Detect Variant Selectors
+      </label>
+      <label title="Highlights invisible Unicode characters with friendly names and hex codes: Zero Width Space (U+200B), Zero Width Non-Joiner (U+200C), Zero Width Joiner (U+200D), Left-to-Right Mark (U+200E), Right-to-Left Mark (U+200F), Left-to-Right Embedding (U+202A), Right-to-Left Embedding (U+202B), Pop Directional Formatting (U+202C), Left-to-Right Override (U+202D), Right-to-Left Override (U+202E), Soft Hyphen (U+00AD), Byte Order Mark (U+FEFF), Word Joiner (U+2060), Function Application (U+2061), Invisible Times (U+2062), Invisible Separator (U+2063), Invisible Plus (U+2064)">
+        <input type="checkbox" id="detectOtherInvisible" checked>
+        Detect Other Invisible
+      </label>
+      <label title="Detects and decodes binary sequences encoded with invisible characters">
+        <input type="checkbox" id="detectSneakyBits" checked>
+        Detect Sneaky Bits
+      </label>
+    </fieldset>
+  </div>
+  
+  <div id="outputMessage" class="outputMessage"></div>
+  <div class="verbose-info" id="verboseInfoSection">
+    <div>
+      <label>
+        <input type="radio" name="debugFormat" value="binary" checked> Binary
+      </label>
+      <label>
+        <input type="radio" name="debugFormat" value="hex"> Hexadecimal
+      </label>
+      <label>
+        <input type="radio" name="debugFormat" value="unicode"> Unicode
+      </label>
+    </div>
+    <div id="debugOutput" style="width: 100%; margin: 10px 0; height: 80px; border: 1px solid #ccc; padding: 10px; box-sizing: border-box; font-family: monospace; font-size: 14px; text-align: left; resize: vertical; background-color: #f8f8f8; color: #000; overflow-y: auto; white-space: pre-wrap; display: block; min-height: 80px;" readonly></div>
+  </div>
+  <div id="statsOutput" style="width: 100%; margin: 10px 0; padding: 10px; box-sizing: border-box; font-family: sans-serif; font-size: 14px; text-align: left; background-color: #f0f0f0; border: 1px solid #ccc; display: flex; flex-wrap: wrap; justify-content: space-between;">
+    <div class="stat-item">Total Characters: <span id="totalChars">0</span></div>
+    <div class="stat-item">Invisible Unicode Tags: <span id="unicodeTagCount">0</span></div>
+    <div class="stat-item">Invisible Variant Selectors: <span id="variantCount">0</span></div>
+    <div class="stat-item">Other Invisible: <span id="invisibleCount">0</span></div>
+    <div class="stat-item">Invisible Sneaky Bits: <span id="binaryBits">0</span></div>
+    <div class="stat-item">Sneaky Characters: <span id="binaryChars">0</span></div>
+  </div>
+  <div id="statusMessage" style="font-weight: bold;"></div>
+  <button id="clearButton">Clear</button>
+  <br><br>
+  <a style="font-size: 14px" href="https://embracethered.com/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/">
+    Embrace the Red – Blog Post
+  </a>
+</div>
+
+<script>
+  // Helper: escape special regex characters.
+  function escapeForRegex(text) {
+    return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  // Helper: Get the actual character from an input that might contain an HTML entity.
+  function getBinaryChar(id) {
+    let inputVal = document.getElementById(id).value;
+    let temp = document.createElement("div");
+    temp.innerHTML = inputVal;
+    return temp.textContent;
+  }
+
+  const invisibleMapping = {
+    0x200B: "Zero Width Space",
+    0x200C: "Zero Width Non-Joiner",
+    0x200D: "Zero Width Joiner",
+    0x200E: "Left-to-Right Mark",
+    0x200F: "Right-to-Left Mark",
+    0x202A: "Left-to-Right Embedding",
+    0x202B: "Right-to-Left Embedding",
+    0x202C: "Pop Directional Formatting",
+    0x202D: "Left-to-Right Override",
+    0x202E: "Right-to-Left Override",
+    0x00AD: "Soft Hyphen",
+    0xFEFF: "Byte Order Mark / Zero Width No-Break Space",
+    0x2060: "Word Joiner",
+    0x2061: "Function Application",
+    0x2062: "Invisible Times",
+    0x2063: "Invisible Separator",
+    0x2064: "Invisible Plus"
+  };
+
+  function escapeHtml(text) {
+    return text.replace(/&/g, "&amp;")
+               .replace(/</g, "&lt;")
+               .replace(/>/g, "&gt;");
+  }
+
+  // ----------------- Encoding Function -----------------
+  function encodeMessage(message) {
+    let encoded = '';
+    let codePoints = '';
+    let invalidChars = '';
+    let strategy = document.querySelector('input[name="encodingStrategy"]:checked').value;
+    if (strategy === 'unicode') {
+      const addExplicitTags = document.getElementById('addExplicitTags').checked;
+      
+      if (addExplicitTags) {
+        encoded += String.fromCodePoint(0xE0001);
+        codePoints += 'U+E0001 ';
+      }
+      
+      for (let char of message) {
+        let charCode = char.charCodeAt(0);
+        if (charCode >= 0x20 && charCode <= 0x7E) {
+          let cp = 0xE0000 + charCode;
+          encoded += String.fromCodePoint(cp);
+          codePoints += 'U+' + cp.toString(16).toUpperCase() + ' ';
+        } else {
+          invalidChars += char;
+        }
+      }
+      
+      if (addExplicitTags) {
+        encoded += String.fromCodePoint(0xE007F);
+        codePoints += 'U+E007F';
+      }
+    } else if (strategy === 'variant') {
+      let vs2Offset = parseInt(document.getElementById('vs2Offset').value, 10) || 16;
+      for (let char of message) {
+        let charCode = char.charCodeAt(0);
+        if (charCode >= 0 && charCode <= 15) {
+          let variantCode = 0xFE00 + charCode;
+          encoded += String.fromCodePoint(variantCode);
+          codePoints += 'U+' + variantCode.toString(16).toUpperCase() + ' ';
+        } else if (charCode >= 16 && charCode <= 255) {
+          let variantCode = 0xE0100 + (charCode - vs2Offset);
+          encoded += String.fromCodePoint(variantCode);
+          codePoints += 'U+' + variantCode.toString(16).toUpperCase() + ' ';
+        } else {
+          invalidChars += char;
+        }
+      }
+    } else if (strategy === 'binary') {
+      const binary0 = getBinaryChar('binary0') || String.fromCodePoint(0x2062);
+      const binary1 = getBinaryChar('binary1') || String.fromCodePoint(0x2064);
+      const encoderObj = new TextEncoder();
+      const byteArray = encoderObj.encode(message);
+      for (let byte of byteArray) {
+        let bin = byte.toString(2).padStart(8, '0');
+        for (let bit of bin) {
+          encoded += (bit === '0' ? binary0 : binary1);
+        }
+        codePoints += bin + ' ';
+      }
+    }
+    if (invalidChars.length > 0) {
+      updateStatus('Invalid characters detected: ' + invalidChars);
+    }
+    return [codePoints, encoded];
+  }
+
+  // -------------- Recursive Token-Based Decoding Functions --------------
+  // Each token: { text: string, highlight: boolean, title?: string, binary?: boolean }
+  function recursiveDecodeTokens(text, options) {
+    let tokens = [];
+    let stats = { unicodeTagCount: 0, variantCount: 0, otherInvisibleCount: 0, binaryCount: 0 };
+    let i = 0;
+    while (i < text.length) {
+      let cp = text.codePointAt(i);
+      let char = String.fromCodePoint(cp);
+      let inc = (cp > 0xFFFF) ? 2 : 1;
+      // -- Unicode Tags --
+      if (options.detectUnicodeTags && cp === 0xE0001) {
+        i += inc;
+        let tagContent = "";
+        while (i < text.length) {
+          let innerCp = text.codePointAt(i);
+          let innerInc = (innerCp > 0xFFFF) ? 2 : 1;
+          if (innerCp === 0xE007F) {
+            i += innerInc;
+            break;
+          }
+          if (innerCp >= 0xE0000 && innerCp < 0xE007F) {
+            tagContent += String.fromCharCode(innerCp - 0xE0000);
+          } else {
+            tagContent += String.fromCodePoint(innerCp);
+          }
+          i += innerInc;
+        }
+        stats.unicodeTagCount += tagContent.length;
+        let innerResult = recursiveDecodeTokens(tagContent, options);
+        let decodedText = tokensToPlain(innerResult.tokens);
+        tokens.push({
+          text: decodedText,
+          highlight: true,
+          type: "tag",
+          title: "Unicode Tag Decoded: " + tagContent
+        });
+        continue;
+      }
+      // -- Variant Selectors --
+      if (options.detectVariantSelectors) {
+        if (cp >= 0xFE00 && cp <= 0xFE00 + 15) {
+          let decodedChar = String.fromCharCode(cp - 0xFE00);
+          stats.variantCount++;
+          tokens.push({
+            text: decodedChar,
+            highlight: true,
+            type: "variant",
+            title: "Variant Selector Decoded: " + decodedChar
+          });
+          i += inc;
+          continue;
+        }
+        if (cp >= 0xE0100 + (16 - options.vs2Offset) && cp <= 0xE0100 + (255 - options.vs2Offset)) {
+          let decodedChar = String.fromCharCode((cp - 0xE0100) + options.vs2Offset);
+          stats.variantCount++;
+          tokens.push({
+            text: decodedChar,
+            highlight: true,
+            type: "variant",
+            title: "Variant Selector Decoded: " + decodedChar
+          });
+          i += inc;
+          continue;
+        }
+      }
+      // -- Other Invisible Characters --
+      if (options.detectOtherInvisible && invisibleMapping[cp]) {
+        stats.otherInvisibleCount++;
+        tokens.push({
+          text: "U+" + cp.toString(16).toUpperCase(),
+          highlight: true,
+          type: "invisible",
+          title: invisibleMapping[cp]
+        });
+        i += inc;
+        continue;
+      }
+      // -- Binary (Sneaky Bits) --
+      if (char === options.binary0 || char === options.binary1) {
+        let run = "";
+        while (i < text.length && (text[i] === options.binary0 || text[i] === options.binary1)) {
+          run += text[i];
+          i++;
+        }
+        if (options.decodeBinary) {
+          if (run.length % 8 === 0) {
+            let byteArray = [];
+            for (let j = 0; j < run.length; j += 8) {
+              let chunk = run.substr(j, 8);
+              let binStr = "";
+              for (let k = 0; k < chunk.length; k++) {
+                binStr += (chunk[k] === options.binary0 ? '0' : '1');
+              }
+              byteArray.push(parseInt(binStr, 2));
+            }
+            try {
+              let decoder = new TextDecoder("utf-8");
+              let decodedSegment = decoder.decode(new Uint8Array(byteArray));
+              // Count the decoded characters from this binary run.
+              stats.binaryCount += decodedSegment.length;
+              let innerResult = recursiveDecodeTokens(decodedSegment, options);
+              let finalText = tokensToPlain(innerResult.tokens);
+              tokens.push({
+                text: finalText,
+                highlight: true,
+                type: "binary",
+                title: "Sneaky Bits Decoded (" + decodedSegment.length + " characters)"
+              });
+            } catch(e) {
+              tokens.push({
+                text: run,
+                highlight: true,
+                type: "binary",
+                title: "Binary Decode Error: " + e.message
+              });
+            }
+          } else {
+            tokens.push({ text: run, highlight: false });
+          }
+        } else {
+          tokens.push({ 
+            text: run, 
+            highlight: true, 
+            type: "binary", 
+            title: "Sneaky Bits (pending decode)", 
+            binary: true 
+          });
+        }
+        continue;
+      }
+      // -- Default --
+      tokens.push({ text: char, highlight: false });
+      i += inc;
+    }
+    return { tokens: tokens, stats: stats };
+  }
+
+  function tokensToPlain(tokens) {
+    return tokens.map(t => t.text).join("");
+  }
+
+  function tokensToHTML(tokens) {
+    return tokens.map(t => {
+      if (t.highlight) {
+        let className = "highlight"; // Default yellow highlight
+        if (t.type === "variant") {
+          className = "variant";     // Light blue for variants
+        } else if (t.type === "invisible") {
+          className = "invisible";   // Light green for invisible
+        } else if (t.type === "binary") {
+          className = "binary";        // Light coral for binary
+        }
+        
+        let extra = t.binary ? ' data-binary="true"' : '';
+        return '<span class="' + className + '"' + extra + ' title="' + escapeHtml(t.title) + '">' + escapeHtml(t.text) + '</span>';
+      } else {
+        return t.binary ? '<span data-binary="true">' + escapeHtml(t.text) + '</span>' : escapeHtml(t.text);
+      }
+    }).join("");
+  }
+
+  // ----------------- Fully Decode Function -----------------
+  // Repeatedly decodes until no further hidden text remains.
+  function fullyDecode(text, options) {
+    let prev = text;
+    let aggregatedStats = { unicodeTagCount: 0, variantCount: 0, otherInvisibleCount: 0, binaryCount: 0 };
+    let finalTokens = [];
+    while (true) {
+      let result = recursiveDecodeTokens(prev, options);
+      aggregatedStats.unicodeTagCount += result.stats.unicodeTagCount;
+      aggregatedStats.variantCount    += result.stats.variantCount;
+      aggregatedStats.otherInvisibleCount += result.stats.otherInvisibleCount;
+      aggregatedStats.binaryCount     += result.stats.binaryCount;
+      let newPlain = tokensToPlain(result.tokens);
+      if(newPlain === prev) {
+        finalTokens = result.tokens;
+        break;
+      }
+      prev = newPlain;
+    }
+    return { tokens: finalTokens, stats: aggregatedStats };
+  }
+
+  // ----------------- Event Listeners and Process Message -----------------
+  document.getElementById('encodeButton').addEventListener('click', function() {
+    processMessage('encode');
+    copyToClipboard();
+  });
+  document.getElementById('decodeButton').addEventListener('click', function() {
+    resetStatus();
+    processMessage('decode');
+  });
+  document.getElementById('inputMessage').addEventListener('input', function() {
+    resetStatus();
+    // Auto-decode on input change if the option is checked
+    if (document.getElementById('autoDecodeInput').checked) {
+      processMessage('decode');
+    }
+  });
+  document.getElementById('clearButton').addEventListener('click', function() {
+    clearFields();
+  });
+  document.querySelector('.toggle-advanced').addEventListener('click', function() {
+    const adv = document.getElementById('advancedOptions');
+    adv.classList.toggle('visible');
+    saveOptions();
+  });
+  document.querySelectorAll('input[name="encodingStrategy"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      if (this.value === 'variant') {
+        document.getElementById('variantOptions').style.display = 'block';
+        document.getElementById('binaryOptions').style.display = 'none';
+        document.getElementById('unicodeTagOptions').style.display = 'none';
+      } else if (this.value === 'binary') {
+        document.getElementById('binaryOptions').style.display = 'block';
+        document.getElementById('variantOptions').style.display = 'none';
+        document.getElementById('unicodeTagOptions').style.display = 'none';
+      } else if (this.value === 'unicode') {
+        document.getElementById('unicodeTagOptions').style.display = 'block';
+        document.getElementById('variantOptions').style.display = 'none';
+        document.getElementById('binaryOptions').style.display = 'none';
+      } else {
+        document.getElementById('variantOptions').style.display = 'none';
+        document.getElementById('binaryOptions').style.display = 'none';
+        document.getElementById('unicodeTagOptions').style.display = 'none';
+      }
+      saveOptions();
+    });
+  });
+
+  let clipboardData = '';
+
+  // Process Message: For decoding, we no longer pre-decode binary sequences separately.
+  // Instead, we directly process the message and add highlighted spans to the output.
+  function processMessage(action) {
+    let msg = document.getElementById('inputMessage').value;
+    if (document.getElementById('decodeUriComponent').checked) {
+      try {
+        msg = decodeURIComponent(msg);
+      } catch (e) {
+        updateStatus('Error decoding URI component: ' + e.message);
+        return;
+      }
+    }
+    if (action === 'encode') {
+      let [codePoints, encoded] = encodeMessage(msg);
+      let strategy = document.querySelector('input[name="encodingStrategy"]:checked').value;
+      document.getElementById('outputMessage').textContent = (strategy === 'binary' ? encoded : codePoints);
+      clipboardData = encoded;
+    } else {
+      decodeMessage(msg);
+    }
+  }
+
+  function decodeMessage(message) {
+    let outputMessageElement = document.getElementById('outputMessage');
+    let debugOutputElement = document.getElementById('debugOutput');
+    outputMessageElement.innerHTML = '';
+    
+    const useHighlightMode = document.getElementById('highlightMode').checked;
+    const detectVariantSelectors = document.getElementById('detectVariantSelectors').checked;
+    const detectOtherInvisible = document.getElementById('detectOtherInvisible').checked;
+    const detectUnicodeTags = document.getElementById('detectUnicodeTags').checked;
+    const detectSneakyBits = document.getElementById('detectSneakyBits').checked;
+    const vs2Offset = parseInt(document.getElementById('vs2Offset').value, 10) || 16;
+    const binary0 = getBinaryChar('binary0') || String.fromCodePoint(0x2062);
+    const binary1 = getBinaryChar('binary1') || String.fromCodePoint(0x2064);
+    
+    // Statistics for detected elements
+    let stats = { 
+      unicodeTagCount: 0, 
+      variantCount: 0, 
+      otherInvisibleCount: 0, 
+      binaryCount: 0,
+      binaryBits: 0,
+      totalChars: message.length
+    };
+    let detected = false;
+    
+    // Debug information
+    let debugInfo = [];
+    for (let i = 0; i < message.length; i++) {
+      let cp = message.codePointAt(i);
+      let char = message[i];
+      
+      // Skip the second part of surrogate pairs
+      if (cp > 0xFFFF) {
+        i++;
+      }
+      
+      let debugFormat = document.querySelector('input[name="debugFormat"]:checked').value;
+      let debugEntry = {
+        char: char,
+        cp: cp,
+        type: 'regular'
+      };
+      
+      // Check for special characters
+      if (detectUnicodeTags && cp >= 0xE0000 && cp <= 0xE007F) {
+        debugEntry.type = 'tag';
+      } else if (detectVariantSelectors && ((cp >= 0xFE00 && cp <= 0xFE0F) || 
+                (cp >= 0xE0100 + (16 - vs2Offset) && cp <= 0xE0100 + (255 - vs2Offset)))) {
+        debugEntry.type = 'variant';
+      } else if (detectOtherInvisible && invisibleMapping[cp]) {
+        debugEntry.type = 'invisible';
+      } else if (char === binary0 || char === binary1) {
+        debugEntry.type = 'binary';
+      }
+      
+      debugInfo.push(debugEntry);
+    }
+    
+    // Update debug output
+    updateDebugOutput(debugInfo);
+    
+    // Process Unicode Tags first (if any)
+    if (detectUnicodeTags && message.length > 2 && message.codePointAt(0) === 0xE0001 && message.codePointAt(message.length - 1) === 0xE007F) {
+      // Extract content between begin/end markers
+      let tagContent = "";
+      for (let i = 1; i < message.length - 1; i++) {
+        let cp = message.codePointAt(i);
+        if (cp >= 0xE0000 && cp < 0xE007F) {
+          tagContent += String.fromCharCode(cp - 0xE0000);
+        } else {
+          tagContent += String.fromCodePoint(cp);
+        }
+      }
+      
+      // Process the extracted content
+      if (tagContent.length > 0) {
+        stats.unicodeTagCount += tagContent.length;
+        detected = true;
+        decodeMessage(tagContent); // Recursively process the content
+        return;
+      }
+    }
+    
+    // First pass: check for binary sequences
+    let binarySequences = [];
+    if (detectSneakyBits) {
+      for (let i = 0; i < message.length; i++) {
+        if (message[i] === binary0 || message[i] === binary1) {
+          let start = i;
+          let run = "";
+          while (i < message.length && (message[i] === binary0 || message[i] === binary1)) {
+            run += message[i];
+            i++;
+          }
+          i--; // Adjust for the loop increment
+          
+          if (run.length >= 8 && run.length % 8 === 0) {
+            binarySequences.push({ start, length: run.length, content: run });
+          }
+        }
+      }
+    }
+    
+    // Process binary sequences if found
+    if (binarySequences.length > 0) {
+      // Create a mask to skip binary sequences in the main loop
+      let binaryMask = new Array(message.length).fill(false);
+      for (let seq of binarySequences) {
+        for (let i = seq.start; i < seq.start + seq.length; i++) {
+          binaryMask[i] = true;
+        }
+      }
+      
+      // Process character by character, skipping binary sequences
+      for (let i = 0; i < message.length; i++) {
+        if (binaryMask[i]) continue; // Skip binary sequences
+        
+        let char = message[i];
+        let cp = message.codePointAt(i);
+        
+        // Handle surrogate pairs
+        if (cp > 0xFFFF) {
+          i++; // Skip the second part of the surrogate pair
+        }
+        
+        // Unicode Tags
+        if (detectUnicodeTags && cp >= 0xE0000 && cp <= 0xE007F) {
+          detected = true;
+          stats.unicodeTagCount++;
+          
+          if (useHighlightMode) { // Only highlight if highlight mode is on
+            const span = document.createElement('span');
+            span.classList.add('highlight'); // Yellow for Unicode Tags
+            span.textContent = String.fromCharCode(cp - 0xE0000);
+            span.title = "Unicode Tag: " + String.fromCharCode(cp - 0xE0000);
+            outputMessageElement.appendChild(span);
+          } else {
+            // Just add the text without highlighting
+            outputMessageElement.textContent += String.fromCharCode(cp - 0xE0000);
+          }
+        }
+        // Variant Selectors (first range)
+        else if (detectVariantSelectors && cp >= 0xFE00 && cp <= 0xFE0F) {
+          detected = true;
+          stats.variantCount++;
+          
+          if (useHighlightMode) { // Only highlight if highlight mode is on
+            const span = document.createElement('span');
+            span.classList.add('variant'); // Light blue for Variant Selectors
+            span.textContent = String.fromCharCode(cp - 0xFE00);
+            span.title = "Variant Selector: " + String.fromCharCode(cp - 0xFE00);
+            outputMessageElement.appendChild(span);
+          } else {
+            // Just add the text without highlighting
+            outputMessageElement.textContent += String.fromCharCode(cp - 0xFE00);
+          }
+        }
+        // Variant Selectors (second range)
+        else if (detectVariantSelectors && cp >= 0xE0100 + (16 - vs2Offset) && cp <= 0xE0100 + (255 - vs2Offset)) {
+          detected = true;
+          stats.variantCount++;
+          
+          if (useHighlightMode) { // Only highlight if highlight mode is on
+            const span = document.createElement('span');
+            span.classList.add('variant'); // Light blue for Variant Selectors
+            span.textContent = String.fromCharCode((cp - 0xE0100) + vs2Offset);
+            span.title = "Variant Selector: " + String.fromCharCode((cp - 0xE0100) + vs2Offset);
+            outputMessageElement.appendChild(span);
+          } else {
+            // Just add the text without highlighting
+            outputMessageElement.textContent += String.fromCharCode((cp - 0xE0100) + vs2Offset);
+          }
+        }
+        // Other Invisible Characters
+        else if (detectOtherInvisible && invisibleMapping[cp]) {
+          detected = true;
+          stats.otherInvisibleCount++;
+          
+          if (useHighlightMode) { // Only highlight if highlight mode is on
+            const span = document.createElement('span');
+            span.classList.add('invisible'); // Light green for Invisible Characters
+            span.textContent = "U+" + cp.toString(16).toUpperCase();
+            span.title = invisibleMapping[cp];
+            outputMessageElement.appendChild(span);
+          } else {
+            // Just add the text without highlighting
+            outputMessageElement.textContent += String.fromCodePoint(cp);
+          }
+        }
+        // Regular characters
+        else {
+          if (useHighlightMode) {
+            const span = document.createElement('span');
+            span.textContent = char;
+            outputMessageElement.appendChild(span);
+          } else {
+            outputMessageElement.textContent += char;
+          }
+        }
+      }
+      
+      // Now process binary sequences
+      for (let seq of binarySequences) {
+        let run = seq.content;
+        let byteArray = [];
+        
+        // Count binary bits
+        stats.binaryBits += run.length;
+        
+        // Convert binary sequence to bytes
+        for (let j = 0; j < run.length; j += 8) {
+          let chunk = run.substr(j, 8);
+          let binStr = "";
+          for (let k = 0; k < chunk.length; k++) {
+            binStr += (chunk[k] === binary0 ? '0' : '1');
+          }
+          byteArray.push(parseInt(binStr, 2));
+        }
+        
+        try {
+          // Decode bytes to UTF-8 text
+          let decoder = new TextDecoder("utf-8");
+          let decodedSegment = decoder.decode(new Uint8Array(byteArray));
+          stats.binaryCount += decodedSegment.length;
+          detected = true;
+          
+          // Create a span for the decoded binary content
+          if (useHighlightMode) {
+            const span = document.createElement('span');
+            span.classList.add('binary'); // Use binary class for binary
+            span.textContent = decodedSegment;
+            span.title = "Sneaky Bits Decoded (" + decodedSegment.length + " characters)";
+            outputMessageElement.appendChild(span);
+          } else {
+            // Just add the text without highlighting
+            outputMessageElement.textContent += decodedSegment;
+          }
+        } catch(e) {
+          // If decoding fails, just show the binary sequence
+          if (useHighlightMode) {
+            const span = document.createElement('span');
+            span.textContent = run;
+            outputMessageElement.appendChild(span);
+          }
+        }
+      }
+    } else {
+      // No binary sequences, process normally
+      for (let i = 0; i < message.length; i++) {
+        let char = message[i];
+        let cp = message.codePointAt(i);
+        
+        // Handle surrogate pairs
+        if (cp > 0xFFFF) {
+          i++; // Skip the second part of the surrogate pair
+        }
+        
+        // Unicode Tags
+        if (detectUnicodeTags && cp >= 0xE0000 && cp <= 0xE007F) {
+          detected = true;
+          stats.unicodeTagCount++;
+          
+          if (useHighlightMode) { // Only highlight if highlight mode is on
+            const span = document.createElement('span');
+            span.classList.add('highlight'); // Yellow for Unicode Tags
+            span.textContent = String.fromCharCode(cp - 0xE0000);
+            span.title = "Unicode Tag: " + String.fromCharCode(cp - 0xE0000);
+            outputMessageElement.appendChild(span);
+          } else {
+            // Just add the text without highlighting
+            outputMessageElement.textContent += String.fromCharCode(cp - 0xE0000);
+          }
+        }
+        // Variant Selectors (first range)
+        else if (detectVariantSelectors && cp >= 0xFE00 && cp <= 0xFE0F) {
+          detected = true;
+          stats.variantCount++;
+          
+          if (useHighlightMode) { // Only highlight if highlight mode is on
+            const span = document.createElement('span');
+            span.classList.add('variant'); // Light blue for Variant Selectors
+            span.textContent = String.fromCharCode(cp - 0xFE00);
+            span.title = "Variant Selector: " + String.fromCharCode(cp - 0xFE00);
+            outputMessageElement.appendChild(span);
+          } else {
+            // Just add the text without highlighting
+            outputMessageElement.textContent += String.fromCharCode(cp - 0xFE00);
+          }
+        }
+        // Variant Selectors (second range)
+        else if (detectVariantSelectors && cp >= 0xE0100 + (16 - vs2Offset) && cp <= 0xE0100 + (255 - vs2Offset)) {
+          detected = true;
+          stats.variantCount++;
+          
+          if (useHighlightMode) { // Only highlight if highlight mode is on
+            const span = document.createElement('span');
+            span.classList.add('variant'); // Light blue for Variant Selectors
+            span.textContent = String.fromCharCode((cp - 0xE0100) + vs2Offset);
+            span.title = "Variant Selector: " + String.fromCharCode((cp - 0xE0100) + vs2Offset);
+            outputMessageElement.appendChild(span);
+          } else {
+            // Just add the text without highlighting
+            outputMessageElement.textContent += String.fromCharCode((cp - 0xE0100) + vs2Offset);
+          }
+        }
+        // Other Invisible Characters
+        else if (detectOtherInvisible && invisibleMapping[cp]) {
+          detected = true;
+          stats.otherInvisibleCount++;
+          
+          if (useHighlightMode) { // Only highlight if highlight mode is on
+            const span = document.createElement('span');
+            span.classList.add('invisible'); // Light green for Invisible Characters
+            span.textContent = "U+" + cp.toString(16).toUpperCase();
+            span.title = invisibleMapping[cp];
+            outputMessageElement.appendChild(span);
+          } else {
+            // Just add the text without highlighting
+            outputMessageElement.textContent += String.fromCodePoint(cp);
+          }
+        }
+        // Regular characters
+        else {
+          if (useHighlightMode) {
+            const span = document.createElement('span');
+            span.textContent = char;
+            outputMessageElement.appendChild(span);
+          } else {
+            outputMessageElement.textContent += char;
+          }
+        }
+      }
+    }
+    
+    // Update status with statistics
+    if (detected) {
+      outputMessageElement.style.border = '2px solid red';
+      
+      // Update stats display
+      document.getElementById('totalChars').textContent = stats.totalChars;
+      document.getElementById('unicodeTagCount').textContent = stats.unicodeTagCount;
+      document.getElementById('variantCount').textContent = stats.variantCount;
+      document.getElementById('invisibleCount').textContent = stats.otherInvisibleCount;
+      document.getElementById('binaryChars').textContent = stats.binaryCount;
+      document.getElementById('binaryBits').textContent = stats.binaryBits;
+      
+      // Update status message with simple text
+      updateStatus('Hidden Unicode characters discovered');
+    } else {
+      outputMessageElement.style.border = '1px solid #ccc';
+      
+      // Reset stats display
+      document.getElementById('totalChars').textContent = stats.totalChars;
+      document.getElementById('unicodeTagCount').textContent = '0';
+      document.getElementById('variantCount').textContent = '0';
+      document.getElementById('invisibleCount').textContent = '0';
+      document.getElementById('binaryChars').textContent = '0';
+      document.getElementById('binaryBits').textContent = '0';
+      
+      // Update status message with simple text
+      updateStatus('No hidden text detected');
+    }
+  }
+
+  function detectDecodingOptions(message) {
+    let hasVariant = false;
+    let hasBinary = false;
+    const binary0 = getBinaryChar('binary0') || String.fromCodePoint(0x2062);
+    const binary1 = getBinaryChar('binary1') || String.fromCodePoint(0x2064);
+    const vs2Offset = parseInt(document.getElementById('vs2Offset').value, 10) || 16;
+    let binaryRun = 0;
+    for (let i = 0; i < message.length; i++) {
+      let cp = message.codePointAt(i);
+      if ((cp >= 0xFE00 && cp <= 0xFE00 + 15) ||
+          (cp >= 0xE0100 + (16 - vs2Offset) && cp <= 0xE0100 + (255 - vs2Offset))) {
+        hasVariant = true;
+      }
+      if (message[i] === binary0 || message[i] === binary1) {
+        binaryRun++;
+        if (binaryRun >= 8) {
+          hasBinary = true;
+        }
+      } else {
+        binaryRun = 0;
+      }
+    }
+    return { hasVariant, hasBinary };
+  }
+
+  function updateStatus(message, isHighlighted = false) {
+    const statusMessage = document.getElementById('statusMessage');
+    statusMessage.textContent = message;
+    statusMessage.style.fontSize = isHighlighted ? '16px' : '';
+  }
+
+  function resetStatus() {
+    updateStatus('');
+    document.getElementById('outputMessage').style.border = '1px solid #ccc';
+  }
+
+  function clearFields() {
+    document.getElementById('inputMessage').value = '';
+    document.getElementById('outputMessage').textContent = '';
+    document.getElementById('debugOutput').innerHTML = '';
+    resetStatus();
+    
+    // Reset stats display
+    document.getElementById('totalChars').textContent = '0';
+    document.getElementById('unicodeTagCount').textContent = '0';
+    document.getElementById('variantCount').textContent = '0';
+    document.getElementById('invisibleCount').textContent = '0';
+    document.getElementById('binaryChars').textContent = '0';
+    document.getElementById('binaryBits').textContent = '0';
+  }
+
+  function copyToClipboard() {
+    navigator.clipboard.writeText(clipboardData).then(() => {
+      updateStatus('Text copied to clipboard!', true);
+    }).catch(err => {
+      updateStatus('Failed to copy text: ' + err);
+    });
+  }
+
+  function loadOptions() {
+    const opts = JSON.parse(localStorage.getItem('asciiSmugglerOptions'));
+    if (opts) {
+      document.querySelector('input[name="encodingStrategy"][value="' + opts.encodingStrategy + '"]').checked = true;
+      if (opts.encodingStrategy === 'variant') {
+        document.getElementById('variantOptions').style.display = 'block';
+      } else if (opts.encodingStrategy === 'binary') {
+        document.getElementById('binaryOptions').style.display = 'block';
+      } else if (opts.encodingStrategy === 'unicode') {
+        document.getElementById('unicodeTagOptions').style.display = 'block';
+      }
+      document.getElementById('vs2Offset').value = opts.vs2Offset || 16;
+      document.getElementById('binary0').value = opts.binary0 || "&#x2062;";
+      document.getElementById('binary1').value = opts.binary1 || "&#x2064;";
+      document.getElementById('decodeUriComponent').checked = opts.decodeUri || false;
+      document.getElementById('highlightMode').checked = opts.highlightMode;
+      document.getElementById('detectUnicodeTags').checked = opts.detectUnicodeTags;
+      document.getElementById('detectVariantSelectors').checked = opts.detectVariantSelectors;
+      document.getElementById('detectOtherInvisible').checked = opts.detectOtherInvisible;
+      document.getElementById('detectSneakyBits').checked = opts.detectSneakyBits !== undefined ? opts.detectSneakyBits : true;
+      document.getElementById('autoDecodeInput').checked = opts.autoDecodeInput || false;
+      document.getElementById('showVerboseInfo').checked = opts.showVerboseInfo || false;
+      if (opts.showVerboseInfo) {
+        document.getElementById('verboseInfoSection').classList.add('visible');
+      }
+      if (opts.addExplicitTags !== undefined) {
+        document.getElementById('addExplicitTags').checked = opts.addExplicitTags;
+      }
+      if (opts.debugFormat) {
+        document.querySelector('input[name="debugFormat"][value="' + opts.debugFormat + '"]').checked = true;
+      }
+      if (opts.advancedOptionsVisible) {
+        document.getElementById('advancedOptions').classList.add('visible');
+      }
+    } else {
+      document.getElementById('highlightMode').checked = true;
+      document.getElementById('detectSneakyBits').checked = true;
+    }
+  }
+  document.addEventListener('DOMContentLoaded', loadOptions);
+
+  function saveOptions() {
+    const opts = {
+      encodingStrategy: document.querySelector('input[name="encodingStrategy"]:checked').value,
+      vs2Offset: document.getElementById('vs2Offset').value,
+      binary0: document.getElementById('binary0').value,
+      binary1: document.getElementById('binary1').value,
+      decodeUri: document.getElementById('decodeUriComponent').checked,
+      highlightMode: document.getElementById('highlightMode').checked,
+      detectUnicodeTags: document.getElementById('detectUnicodeTags').checked,
+      detectVariantSelectors: document.getElementById('detectVariantSelectors').checked,
+      detectOtherInvisible: document.getElementById('detectOtherInvisible').checked,
+      detectSneakyBits: document.getElementById('detectSneakyBits').checked,
+      autoDecodeInput: document.getElementById('autoDecodeInput').checked,
+      showVerboseInfo: document.getElementById('showVerboseInfo').checked,
+      addExplicitTags: document.getElementById('addExplicitTags').checked,
+      debugFormat: document.querySelector('input[name="debugFormat"]:checked').value,
+      advancedOptionsVisible: document.getElementById('advancedOptions').classList.contains('visible')
+    };
+    localStorage.setItem('asciiSmugglerOptions', JSON.stringify(opts));
+  }
+  document.getElementById('decodeUriComponent').addEventListener('change', saveOptions);
+  document.getElementById('highlightMode').addEventListener('change', function() {
+    saveOptions();
+    processMessage("decode");
+  });
+  document.getElementById('detectUnicodeTags').addEventListener('change', saveOptions);
+  document.getElementById('detectVariantSelectors').addEventListener('change', saveOptions);
+  document.getElementById('detectOtherInvisible').addEventListener('change', saveOptions);
+  document.getElementById('detectSneakyBits').addEventListener('change', saveOptions);
+  document.getElementById('autoDecodeInput').addEventListener('change', saveOptions);
+  document.getElementById('showVerboseInfo').addEventListener('change', function() {
+    document.getElementById('verboseInfoSection').classList.toggle('visible');
+    saveOptions();
+    processMessage('decode');
+  });
+
+  // Add event listeners to all option checkboxes to trigger auto-decode
+  document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(input => {
+    input.addEventListener('change', function() {
+      // Don't auto-decode for the auto-decode option itself or the show verbose info option
+      if (this.id !== 'autoDecodeInput' && this.id !== 'showVerboseInfo') {
+        processMessage('decode');
+      }
+    });
+  });
+
+  // Debug format radio buttons
+  document.querySelectorAll('input[name="debugFormat"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      const message = document.getElementById('inputMessage').value;
+      if (message) {
+        processMessage('decode');
+      }
+      saveOptions();
+    });
+  });
+
+  function updateDebugOutput(debugInfo) {
+    const debugOutputElement = document.getElementById('debugOutput');
+    const debugFormat = document.querySelector('input[name="debugFormat"]:checked').value;
+    
+    let output = '';
+    for (let entry of debugInfo) {
+      let formattedValue = '';
+      
+      if (debugFormat === 'binary') {
+        formattedValue = entry.cp.toString(2).padStart(8, '0');
+      } else if (debugFormat === 'hex') {
+        formattedValue = 'U+' + entry.cp.toString(16).toUpperCase().padStart(4, '0');
+      } else if (debugFormat === 'unicode') {
+        formattedValue = '\\u' + entry.cp.toString(16).padStart(4, '0');
+      }
+      
+      let className = '';
+      if (entry.type === 'tag') {
+        className = 'highlight';
+      } else if (entry.type === 'variant') {
+        className = 'variant';
+      } else if (entry.type === 'invisible') {
+        className = 'invisible';
+      } else if (entry.type === 'binary') {
+        className = 'binary';
+      }
+      
+      if (className) {
+        output += `<span class="${className}" title="${entry.type}: ${entry.char}">${formattedValue}</span> `;
+      } else {
+        output += `${formattedValue} `;
+      }
+    }
+    
+    debugOutputElement.innerHTML = output;
+  }
+</script>
+</body>
+</html>
