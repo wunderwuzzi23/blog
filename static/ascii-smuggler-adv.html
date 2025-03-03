@@ -128,6 +128,25 @@
     .emoji-button:hover {
       background-color: #e0e0e0;
     }
+    .char-section {
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+    .char-section-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #007bff;
+      font-size: 13px;
+      text-align: left;
+      padding-left: 5px;
+    }
+    .char-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 5px;
+    }
     fieldset {
       border: none;
       padding: 0;
@@ -149,6 +168,30 @@
     .stat-item span {
       font-weight: bold;
       color: #007bff;
+    }
+    /* Compact options layout */
+    .options-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .options-row label {
+      margin: 0 10px 5px 0;
+      font-size: 13px;
+    }
+    .expand-button {
+      padding: 2px 6px;
+      margin-left: 5px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .expand-button:hover {
+      background-color: #e0e0e0;
     }
   </style>
 </head>
@@ -207,58 +250,97 @@
       </div>
     </fieldset>
     <fieldset>
-      <legend>Input Options</legend>
-      <div>
-        <span class="char-button" title="Zero Width Space (U+200B)" data-char="&#x200B;">ZWSP</span>
-        <span class="char-button" title="Zero Width Non-Joiner (U+200C)" data-char="&#x200C;">ZWNJ</span>
-        <span class="char-button" title="Zero Width Joiner (U+200D)" data-char="&#x200D;">ZWJ</span>
-        <span class="char-button" title="Word Joiner (U+2060)" data-char="&#x2060;">WJ</span>
-        <span class="char-button" title="Invisible Times (U+2062)" data-char="&#x2062;">×</span>
-        <span class="char-button" title="Invisible Plus (U+2064)" data-char="&#x2064;">+</span>
+      <legend>Input Options <button id="expandInputOptions" class="expand-button" title="Show character options">+</button></legend>
+      <div id="basicCharOptions" style="display: none;">
+        <!-- Empty by design - we're hiding all buttons in basic view -->
       </div>
-      <div>
-        <span class="emoji-button" title="Smiling Face" data-char="😊">😊</span>
-        <span class="emoji-button" title="Evil Face" data-char="😈">😈</span>
-        <span class="emoji-button" title="Developer" data-char="👨‍💻">👨‍💻</span>
-        <span class="emoji-button" title="Ninja" data-char="🥷">🥷</span>
-        <span class="emoji-button" title="Ghost" data-char="👻">👻</span>
+      
+      <div id="advancedCharOptions" style="display: none;">
+        <div class="char-section">
+          <div class="char-section-title">Zero Width Characters</div>
+          <div class="char-grid">
+            <span class="char-button" title="Zero Width Space (U+200B)" data-char="&#x200B;">ZWSP</span>
+            <span class="char-button" title="Zero Width Non-Joiner (U+200C)" data-char="&#x200C;">ZWNJ</span>
+            <span class="char-button" title="Zero Width Joiner (U+200D)" data-char="&#x200D;">ZWJ</span>
+            <span class="char-button" title="Word Joiner (U+2060)" data-char="&#x2060;">WJ</span>
+            <span class="char-button" title="Invisible Times (U+2062)" data-char="&#x2062;">×</span>
+            <span class="char-button" title="Invisible Plus (U+2064)" data-char="&#x2064;">+</span>
+          </div>
+        </div>
+        
+        <div class="char-section">
+          <div class="char-section-title">Directional Characters</div>
+          <div class="char-grid">
+            <span class="char-button" title="Left-to-Right Mark (U+200E)" data-char="&#x200E;">LRM</span>
+            <span class="char-button" title="Right-to-Left Mark (U+200F)" data-char="&#x200F;">RLM</span>
+            <span class="char-button" title="Left-to-Right Embedding (U+202A)" data-char="&#x202A;">LRE</span>
+            <span class="char-button" title="Right-to-Left Embedding (U+202B)" data-char="&#x202B;">RLE</span>
+            <span class="char-button" title="Pop Directional Formatting (U+202C)" data-char="&#x202C;">PDF</span>
+            <span class="char-button" title="Left-to-Right Override (U+202D)" data-char="&#x202D;">LRO</span>
+            <span class="char-button" title="Right-to-Left Override (U+202E)" data-char="&#x202E;">RLO</span>
+          </div>
+        </div>
+        
+        <div class="char-section">
+          <div class="char-section-title">Other Invisible Characters</div>
+          <div class="char-grid">
+            <span class="char-button" title="Soft Hyphen (U+00AD)" data-char="&#x00AD;">SHY</span>
+            <span class="char-button" title="Byte Order Mark (U+FEFF)" data-char="&#xFEFF;">BOM</span>
+            <span class="char-button" title="Function Application (U+2061)" data-char="&#x2061;">FNAP</span>
+            <span class="char-button" title="Invisible Separator (U+2063)" data-char="&#x2063;">ISEP</span>
+          </div>
+        </div>
+        
+        <div class="char-section">
+          <div class="char-section-title">Emoji</div>
+          <div class="char-grid">
+            <span class="emoji-button" title="Smiling Face" data-char="😊">😊</span>
+            <span class="emoji-button" title="Evil Face" data-char="😈">😈</span>
+            <span class="emoji-button" title="Developer" data-char="👨‍💻">👨‍💻</span>
+            <span class="emoji-button" title="Ninja" data-char="🥷">🥷</span>
+            <span class="emoji-button" title="Ghost" data-char="👻">👻</span>
+          </div>
+        </div>
       </div>
     </fieldset>
     <fieldset>
       <legend>Decoding Options</legend>
-      <label title="Decodes URI components before processing">
-        <input type="checkbox" id="decodeUriComponent">
-        Decode URL components
-      </label>
-      <label title="Highlights only the decoded hidden characters">
-        <input type="checkbox" id="highlightMode" checked>
-        Highlight Mode
-      </label>
-      <label title="Automatically decodes input as you type">
-        <input type="checkbox" id="autoDecodeInput">
-        Auto-decode Input
-      </label>
-      <label title="Shows detailed debug information">
-        <input type="checkbox" id="showVerboseInfo">
-        Show Verbose Info
-      </label>
-      <br>
-      <label>
-        <input type="checkbox" id="detectUnicodeTags" checked>
-        Detect Unicode Tags
-      </label>
-      <label>
-        <input type="checkbox" id="detectVariantSelectors" checked>
-        Detect Variant Selectors
-      </label>
-      <label title="Highlights invisible Unicode characters with friendly names and hex codes: Zero Width Space (U+200B), Zero Width Non-Joiner (U+200C), Zero Width Joiner (U+200D), Left-to-Right Mark (U+200E), Right-to-Left Mark (U+200F), Left-to-Right Embedding (U+202A), Right-to-Left Embedding (U+202B), Pop Directional Formatting (U+202C), Left-to-Right Override (U+202D), Right-to-Left Override (U+202E), Soft Hyphen (U+00AD), Byte Order Mark (U+FEFF), Word Joiner (U+2060), Function Application (U+2061), Invisible Times (U+2062), Invisible Separator (U+2063), Invisible Plus (U+2064)">
-        <input type="checkbox" id="detectOtherInvisible" checked>
-        Detect Other Invisible
-      </label>
-      <label title="Detects and decodes binary sequences encoded with invisible characters">
-        <input type="checkbox" id="detectSneakyBits" checked>
-        Detect Sneaky Bits
-      </label>
+      <div class="options-row">
+        <label title="Decodes URI components before processing">
+          <input type="checkbox" id="decodeUriComponent">
+          Decode URL
+        </label>
+        <label title="Highlights only the decoded hidden characters">
+          <input type="checkbox" id="highlightMode" checked>
+          Highlight Mode
+        </label>
+        <label title="Automatically decodes input as you type">
+          <input type="checkbox" id="autoDecodeInput">
+          Auto-decode
+        </label>
+        <label title="Shows detailed debug information">
+          <input type="checkbox" id="showVerboseInfo">
+          Show Debug
+        </label>
+      </div>
+      <div class="options-row">
+        <label>
+          <input type="checkbox" id="detectUnicodeTags" checked>
+          Unicode Tags
+        </label>
+        <label>
+          <input type="checkbox" id="detectVariantSelectors" checked>
+          Variant Selectors
+        </label>
+        <label title="Highlights invisible Unicode characters with friendly names and hex codes">
+          <input type="checkbox" id="detectOtherInvisible" checked>
+          Other Invisible
+        </label>
+        <label title="Detects and decodes binary sequences encoded with invisible characters">
+          <input type="checkbox" id="detectSneakyBits" checked>
+          Sneaky Bits
+        </label>
+      </div>
     </fieldset>
   </div>
   
@@ -384,59 +466,113 @@
     let codePoints = '';
     let invalidChars = '';
     let strategy = document.querySelector('input[name="encodingStrategy"]:checked').value;
+    
     if (strategy === 'unicode') {
       const addExplicitTags = document.getElementById('addExplicitTags').checked;
       
+      // For Unicode Tags, we need to be careful with code points above U+FFFF
+      
       if (addExplicitTags) {
+        // Add BEGIN tag
         encoded += String.fromCodePoint(0xE0001);
         codePoints += 'U+E0001 ';
       }
       
-      for (let char of message) {
-        let charCode = char.charCodeAt(0);
-        if (charCode >= 0x20 && charCode <= 0x7E) {
-          let cp = 0xE0000 + charCode;
-          encoded += String.fromCodePoint(cp);
-          codePoints += 'U+' + cp.toString(16).toUpperCase() + ' ';
+      for (let i = 0; i < message.length; i++) {
+        // Use codePointAt to properly handle surrogate pairs in the input
+        let cp = message.codePointAt(i);
+        let inc = cp > 0xFFFF ? 2 : 1;
+        
+        // Skip the second code unit of surrogate pairs
+        if (inc === 2 && i + 1 < message.length) {
+          // Check if this is actually a surrogate pair
+          if (message.charCodeAt(i) >= 0xD800 && message.charCodeAt(i) <= 0xDBFF &&
+              message.charCodeAt(i + 1) >= 0xDC00 && message.charCodeAt(i + 1) <= 0xDFFF) {
+            // This is a surrogate pair, get the actual code point
+            cp = message.codePointAt(i);
+          }
+        }
+        
+        // Only encode ASCII characters
+        if (cp >= 0x20 && cp <= 0x7E) {
+          // Calculate the Unicode Tag code point
+          let tagCp = 0xE0000 + cp;
+          
+          // Add to the encoded string using fromCodePoint to handle high code points correctly
+          encoded += String.fromCodePoint(tagCp);
+          
+          // Add to the code points string (for display only)
+          // Only add a space if this isn't the last character
+          codePoints += 'U+' + tagCp.toString(16).toUpperCase() + (i < message.length - 1 ? ' ' : '');
         } else {
-          invalidChars += char;
+          invalidChars += String.fromCodePoint(cp);
+        }
+        
+        // Skip the second code unit of surrogate pairs
+        if (inc === 2) {
+          i++;
         }
       }
       
       if (addExplicitTags) {
-        encoded += String.fromCodePoint(0xE007F);
+        // Add END tag - add a space before it if there were any characters encoded
+        if (codePoints.length > 0) codePoints += ' ';
         codePoints += 'U+E007F';
+        encoded += String.fromCodePoint(0xE007F);
       }
     } else if (strategy === 'variant') {
       let vs2Offset = parseInt(document.getElementById('vs2Offset').value, 10) || 16;
-      for (let char of message) {
-        let charCode = char.charCodeAt(0);
-        if (charCode >= 0 && charCode <= 15) {
-          let variantCode = 0xFE00 + charCode;
+      
+      for (let i = 0; i < message.length; i++) {
+        // Use codePointAt to properly handle surrogate pairs in the input
+        let cp = message.codePointAt(i);
+        let inc = cp > 0xFFFF ? 2 : 1;
+        
+        // Only encode ASCII characters
+        if (cp >= 0 && cp <= 15) {
+          // First range of variant selectors (U+FE00 to U+FE0F)
+          let variantCode = 0xFE00 + cp;
           encoded += String.fromCodePoint(variantCode);
-          codePoints += 'U+' + variantCode.toString(16).toUpperCase() + ' ';
-        } else if (charCode >= 16 && charCode <= 255) {
-          let variantCode = 0xE0100 + (charCode - vs2Offset);
+          codePoints += 'U+' + variantCode.toString(16).toUpperCase() + (i < message.length - 1 ? ' ' : '');
+        } else if (cp >= 16 && cp <= 255) {
+          // Second range of variant selectors (U+E0100 to U+E01EF)
+          // These are supplementary plane characters that require surrogate pairs in JavaScript
+          let variantCode = 0xE0100 + (cp - vs2Offset);
+          
+          // Add to the encoded string using fromCodePoint to handle high code points correctly
           encoded += String.fromCodePoint(variantCode);
-          codePoints += 'U+' + variantCode.toString(16).toUpperCase() + ' ';
+          
+          // Add to the code points string (for display only)
+          codePoints += 'U+' + variantCode.toString(16).toUpperCase() + (i < message.length - 1 ? ' ' : '');
         } else {
-          invalidChars += char;
+          invalidChars += String.fromCodePoint(cp);
+        }
+        
+        // Skip the second code unit of surrogate pairs
+        if (inc === 2) {
+          i++;
         }
       }
     } else if (strategy === 'binary') {
-      const encoderObj = new TextEncoder();
+      const encoderObj = new TextEncoder(); // UTF-8 encoder
       const byteArray = encoderObj.encode(message);
-      for (let byte of byteArray) {
+      
+      for (let i = 0; i < byteArray.length; i++) {
+        let byte = byteArray[i];
         let bin = byte.toString(2).padStart(8, '0');
+        
         for (let bit of bin) {
           encoded += (bit === '0' ? binary0 : binary1);
         }
-        codePoints += bin + ' ';
+        
+        codePoints += bin + (i < byteArray.length - 1 ? ' ' : '');
       }
     }
+    
     if (invalidChars.length > 0) {
       updateStatus('Invalid characters detected: ' + invalidChars);
     }
+    
     return [codePoints, encoded];
   }
 
@@ -688,12 +824,14 @@
     if (action === 'encode') {
       let [codePoints, encoded] = encodeMessage(msg);
       let strategy = document.querySelector('input[name="encodingStrategy"]:checked').value;
-      // Don't clear the output, just append the new encoded content
-      let currentOutput = document.getElementById('outputMessage').textContent;
-      if (currentOutput && currentOutput.trim() !== '') {
-        currentOutput += '\n\n';
-      }
-      document.getElementById('outputMessage').textContent = currentOutput + (strategy === 'binary' ? encoded : codePoints);
+      
+      // Get the output element
+      let outputElement = document.getElementById('outputMessage');
+      
+      // For all encoding strategies, display the code points string to avoid surrogate pair issues
+      outputElement.textContent = codePoints;
+      
+      // Store the encoded value for clipboard
       clipboardData = encoded;
     } else {
       decodeMessage(msg);
@@ -712,13 +850,24 @@
     const detectSneakyBits = document.getElementById('detectSneakyBits').checked;
     const vs2Offset = parseInt(document.getElementById('vs2Offset').value, 10) || 16;
     
+    // Count code points instead of code units for accurate character count
+    let codePointCount = 0;
+    for (let i = 0; i < message.length; i++) {
+      let cp = message.codePointAt(i);
+      codePointCount++;
+      // Skip the second code unit for surrogate pairs
+      if (cp > 0xFFFF) {
+        i++;
+      }
+    }
+    
     // Statistics for detected elements
     let stats = { 
       unicodeTagCount: 0, 
       variantCount: 0, 
       otherInvisibleCount: 0, 
       binaryBits: 0,
-      totalChars: message.length
+      totalChars: codePointCount
     };
     let detected = false;
     let sneakyBitsDetected = false;
@@ -739,7 +888,7 @@
         type = 'tag';
       } else if (detectVariantSelectors && 
                 ((cp >= 0xFE00 && cp <= 0xFE0F) || 
-                 (cp >= 0xE0100 + (16 - vs2Offset) && cp <= 0xE0100 + (255 - vs2Offset)))) {
+                 (cp >= 0xE0100 && cp <= 0xE01EF))) {
         type = 'variant';
       } else if (detectOtherInvisible && invisibleMapping[cp]) {
         type = 'invisible';
@@ -758,6 +907,11 @@
         isBinary1: char === binary1
       });
       
+      // Skip the second code unit for surrogate pairs to avoid adding low surrogates to debug info
+      if (inc === 2) {
+        i++;
+      }
+      
       // Check for sneaky bits sequence
       if (detectSneakyBits && (char === binary0 || char === binary1)) {
         // We found a sneaky bit
@@ -767,12 +921,19 @@
         let originalPositions = [];
         
         // Collect all consecutive binary characters
-        while (i < message.length && 
-               (message[i] === binary0 || message[i] === binary1)) {
-          binarySequence += (message[i] === binary0) ? '0' : '1';
-          originalChars.push(message[i]);
-          originalPositions.push(i);
-          i++;
+        while (i < message.length) {
+          let currentCp = message.codePointAt(i);
+          let currentChar = String.fromCodePoint(currentCp);
+          let currentInc = (currentCp > 0xFFFF) ? 2 : 1;
+          
+          if (currentChar === binary0 || currentChar === binary1) {
+            binarySequence += (currentChar === binary0) ? '0' : '1';
+            originalChars.push(currentChar);
+            originalPositions.push(i);
+            i += currentInc;
+          } else {
+            break;
+          }
         }
         
         // Count all binary characters individually
@@ -813,7 +974,8 @@
               byteArray.push(parseInt(chunk, 2));
             }
             
-            let decoder = new TextDecoder("utf-8");
+            // Explicitly use UTF-8 decoder
+            let decoder = new TextDecoder("utf-8", {fatal: true});
             decodedText = decoder.decode(new Uint8Array(byteArray));
             
             if (decodedText && decodedText.length > 0) {
@@ -821,7 +983,6 @@
             }
           } catch (e) {
             decodingSuccessful = false;
-            console.error("Error decoding binary sequence:", e);
           }
         }
         
@@ -860,14 +1021,18 @@
         detected = true;
         stats.unicodeTagCount++;
         
+        // Convert the Unicode Tag code point to the corresponding ASCII character
+        // by subtracting the Unicode Tag range offset (0xE0000)
+        const decodedChar = String.fromCharCode(cp - 0xE0000);
+        
         if (useHighlightMode) {
           const span = document.createElement('span');
           span.classList.add('highlight');
-          span.textContent = String.fromCharCode(cp - 0xE0000);
-          span.title = "Unicode Tag: " + String.fromCharCode(cp - 0xE0000);
+          span.textContent = decodedChar;
+          span.title = "Unicode Tag: " + decodedChar;
           outputMessageElement.appendChild(span);
         } else {
-          outputMessageElement.textContent += String.fromCharCode(cp - 0xE0000);
+          outputMessageElement.textContent += decodedChar;
         }
       }
       // Variant Selectors (first range)
@@ -886,18 +1051,21 @@
         }
       }
       // Variant Selectors (second range)
-      else if (detectVariantSelectors && cp >= 0xE0100 + (16 - vs2Offset) && cp <= 0xE0100 + (255 - vs2Offset)) {
+      else if (detectVariantSelectors && cp >= 0xE0100 && cp <= 0xE01EF) {
         detected = true;
         stats.variantCount++;
+        
+        // Calculate the decoded character based on the vs2Offset
+        const decodedChar = String.fromCharCode((cp - 0xE0100) + vs2Offset);
         
         if (useHighlightMode) {
           const span = document.createElement('span');
           span.classList.add('variant');
-          span.textContent = String.fromCharCode((cp - 0xE0100) + vs2Offset);
-          span.title = "Variant Selector: " + String.fromCharCode((cp - 0xE0100) + vs2Offset);
+          span.textContent = decodedChar;
+          span.title = "Variant Selector: " + decodedChar;
           outputMessageElement.appendChild(span);
         } else {
-          outputMessageElement.textContent += String.fromCharCode((cp - 0xE0100) + vs2Offset);
+          outputMessageElement.textContent += decodedChar;
         }
       }
       // Other Invisible Characters
@@ -946,11 +1114,6 @@
           }
         }
       }
-      
-      // Skip the second code unit for surrogate pairs
-      if (inc === 2 && type === 'regular') {
-        i++;
-      }
     }
     
     // Update debug output
@@ -974,7 +1137,7 @@
       document.getElementById('binaryBytes').textContent = Math.floor(stats.binaryBits / 8);
       
       // Update status message
-      let statusMsg = 'Hidden Unicode characters discovered';
+      let statusMsg = 'Hidden characters discovered.';
       if (sneakyBitsDetected) {
         statusMsg += '. Sneaky Bits detected: ' + stats.binaryBits + ' binary characters';
       }
@@ -992,7 +1155,7 @@
       document.getElementById('binaryBytes').textContent = '0';
       
       // Update status message
-      updateStatus('No hidden text detected');
+      updateStatus('No hidden text detected.');
     }
   }
 
@@ -1003,8 +1166,8 @@
     let binaryRun = 0;
     for (let i = 0; i < message.length; i++) {
       let cp = message.codePointAt(i);
-      if ((cp >= 0xFE00 && cp <= 0xFE00 + 15) ||
-          (cp >= 0xE0100 + (16 - vs2Offset) && cp <= 0xE0100 + (255 - vs2Offset))) {
+      if ((cp >= 0xFE00 && cp <= 0xFE0F) ||
+          (cp >= 0xE0100 && cp <= 0xE01EF)) {
         hasVariant = true;
       }
       if (message[i] === binary0 || message[i] === binary1) {
@@ -1074,7 +1237,7 @@
       document.getElementById('detectVariantSelectors').checked = opts.detectVariantSelectors;
       document.getElementById('detectOtherInvisible').checked = opts.detectOtherInvisible;
       document.getElementById('detectSneakyBits').checked = opts.detectSneakyBits !== undefined ? opts.detectSneakyBits : true;
-      document.getElementById('autoDecodeInput').checked = opts.autoDecodeInput || false;
+      document.getElementById('autoDecodeInput').checked = opts.autoDecodeInput !== undefined ? opts.autoDecodeInput : true;
       document.getElementById('showVerboseInfo').checked = opts.showVerboseInfo || false;
       if (opts.showVerboseInfo) {
         document.getElementById('verboseInfoSection').classList.add('visible');
@@ -1088,9 +1251,21 @@
       if (opts.advancedOptionsVisible) {
         document.getElementById('advancedOptions').classList.add('visible');
       }
+      // Load expanded state for input options
+      if (opts.inputOptionsExpanded) {
+        document.getElementById('basicCharOptions').style.display = 'none';
+        document.getElementById('advancedCharOptions').style.display = 'block';
+        document.getElementById('expandInputOptions').textContent = '-';
+        document.getElementById('expandInputOptions').title = 'Hide character options';
+      }
     } else {
+      // Default settings for first-time users
       document.getElementById('highlightMode').checked = true;
       document.getElementById('detectSneakyBits').checked = true;
+      document.getElementById('autoDecodeInput').checked = true;
+      document.getElementById('addExplicitTags').checked = true;
+      document.querySelector('input[name="encodingStrategy"][value="unicode"]').checked = true;
+      document.getElementById('unicodeTagOptions').style.display = 'block';
     }
   }
   document.addEventListener('DOMContentLoaded', loadOptions);
@@ -1111,7 +1286,8 @@
       showVerboseInfo: document.getElementById('showVerboseInfo').checked,
       addExplicitTags: document.getElementById('addExplicitTags').checked,
       debugFormat: document.querySelector('input[name="debugFormat"]:checked').value,
-      advancedOptionsVisible: document.getElementById('advancedOptions').classList.contains('visible')
+      advancedOptionsVisible: document.getElementById('advancedOptions').classList.contains('visible'),
+      inputOptionsExpanded: document.getElementById('advancedCharOptions').style.display === 'block'
     };
     localStorage.setItem('asciiSmugglerOptions', JSON.stringify(opts));
   }
@@ -1157,7 +1333,32 @@
       
       // Focus back on the input
       inputElement.focus();
+      
+      // Auto-decode if the option is enabled
+      if (document.getElementById('autoDecodeInput').checked) {
+        processMessage('decode');
+      }
     });
+  });
+
+  // Expand/collapse input options
+  document.getElementById('expandInputOptions').addEventListener('click', function() {
+    const basicOptions = document.getElementById('basicCharOptions');
+    const advancedOptions = document.getElementById('advancedCharOptions');
+    
+    if (advancedOptions.style.display === 'none') {
+      basicOptions.style.display = 'none';
+      advancedOptions.style.display = 'block';
+      this.textContent = '-';
+      this.title = 'Hide character options';
+    } else {
+      basicOptions.style.display = 'none';
+      advancedOptions.style.display = 'none';
+      this.textContent = '+';
+      this.title = 'Show character options';
+    }
+    
+    saveOptions();
   });
 
   // Debug format radio buttons
@@ -1180,21 +1381,25 @@
       let formattedValue = '';
       
       if (debugFormat === 'binary') {
-        // Ensure proper padding for binary representation
-        // Unicode code points can be up to 21 bits, so we'll use a minimum of 21 bits
-        // For ASCII (0-127), we'll use 8 bits
-        // For other Unicode points, we'll use 16 or 21 bits as needed
-        if (entry.cp <= 127) {
-          formattedValue = entry.cp.toString(2).padStart(8, '0'); // ASCII: 8 bits
-        } else if (entry.cp <= 65535) {
-          formattedValue = entry.cp.toString(2).padStart(16, '0'); // BMP: 16 bits
+        // For UTF-8 representation, we need to convert the code point to UTF-8 bytes
+        if (entry.cp <= 0x7F) {
+          // ASCII range (0-127) - single byte in UTF-8
+          formattedValue = entry.cp.toString(2).padStart(8, '0');
         } else {
-          formattedValue = entry.cp.toString(2).padStart(21, '0'); // Supplementary planes: 21 bits
+          // For non-ASCII, show the UTF-8 byte sequence
+          const encoder = new TextEncoder();
+          const bytes = encoder.encode(entry.char);
+          formattedValue = Array.from(bytes).map(b => b.toString(2).padStart(8, '0')).join(' ');
         }
       } else if (debugFormat === 'hex') {
-        formattedValue = entry.cp.toString(16).toUpperCase().padStart(4, '0');
+        // For UTF-8 hex representation
+        const encoder = new TextEncoder();
+        const bytes = encoder.encode(entry.char);
+        formattedValue = Array.from(bytes).map(b => b.toString(16).toUpperCase().padStart(2, '0')).join(' ');
       } else if (debugFormat === 'unicode') {
-        formattedValue = 'U+' + entry.cp.toString(16).toUpperCase().padStart(4, '0');
+        // For Unicode code points, ensure proper padding based on the code point value
+        const padLength = entry.cp > 0xFFFF ? 6 : 4; // Use 6 digits for supplementary plane characters
+        formattedValue = 'U+' + entry.cp.toString(16).toUpperCase().padStart(padLength, '0');
       }
       
       let className = '';
@@ -1235,3 +1440,5 @@
 </script>
 </body>
 </html>
+
+
