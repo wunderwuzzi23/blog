@@ -104,48 +104,34 @@
     }
     .char-button {
       display: inline-block;
-      margin: 3px;
-      padding: 5px 10px;
+      margin: 2px;
+      padding: 2px 6px;
       background-color: #f0f0f0;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 3px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 12px;
     }
     .char-button:hover {
       background-color: #e0e0e0;
     }
     .emoji-button {
       display: inline-block;
-      margin: 3px;
-      padding: 5px;
+      margin: 2px;
+      padding: 2px 4px;
       background-color: #f0f0f0;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 3px;
       cursor: pointer;
-      font-size: 18px;
+      font-size: 14px;
     }
     .emoji-button:hover {
       background-color: #e0e0e0;
-    }
-    .char-section {
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #ddd;
-    }
-    .char-section-title {
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #007bff;
-      font-size: 13px;
-      text-align: left;
-      padding-left: 5px;
     }
     .char-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 5px;
     }
     fieldset {
       border: none;
@@ -156,20 +142,6 @@
       font-weight: bold;
       margin-bottom: 5px;
     }
-    .stat-item {
-      flex: 1 0 30%;
-      margin: 5px;
-      padding: 5px;
-      background-color: #e9e9e9;
-      border-radius: 4px;
-      text-align: center;
-      border: 1px solid #ccc;
-    }
-    .stat-item span {
-      font-weight: bold;
-      color: #007bff;
-    }
-    /* Compact options layout */
     .options-row {
       display: flex;
       flex-wrap: wrap;
@@ -193,6 +165,9 @@
     .expand-button:hover {
       background-color: #e0e0e0;
     }
+    #statsOutput {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -201,15 +176,12 @@
   <h1>ASCII Smuggler</h1>
   <span>
     Convert ASCII text to invisible Unicode encodings and decode hidden secrets.
-    <br>
-    Use the options below to choose an encoding strategy and select which hidden sets to detect.
   </span>
   <br>
   <textarea id="inputMessage" placeholder="Enter your message here"></textarea>
   <button id="encodeButton">Encode & Copy</button>
   <button id="decodeButton">Decode</button>
   <br> 
-
   <a href="javascript:void(0);" class="toggle-advanced">Toggle Advanced Options</a>
   <div class="advanced-options" id="advancedOptions">
     <fieldset>
@@ -241,68 +213,15 @@
       <div id="binaryOptions" style="display:none; margin-top: 5px;">
         <label>
           Binary 0:
-          <input type="text" id="binary0" maxlength="1" value="&#x2062;" style="width: 30px;">
+          <input type="text" id="binary0" maxlength="1" value="⁢" style="width: 30px;">
         </label>
         <label>
           Binary 1:
-          <input type="text" id="binary1" maxlength="1" value="&#x2064;" style="width: 30px;">
+          <input type="text" id="binary1" maxlength="1" value="⁤" style="width: 30px;">
         </label>
       </div>
     </fieldset>
-    <fieldset>
-      <legend>Input Options <button id="expandInputOptions" class="expand-button" title="Show character options">+</button></legend>
-      <div id="basicCharOptions" style="display: none;">
-        <!-- Empty by design - we're hiding all buttons in basic view -->
-      </div>
-      
-      <div id="advancedCharOptions" style="display: none;">
-        <div class="char-section">
-          <div class="char-section-title">Zero Width Characters</div>
-          <div class="char-grid">
-            <span class="char-button" title="Zero Width Space (U+200B)" data-char="&#x200B;">ZWSP</span>
-            <span class="char-button" title="Zero Width Non-Joiner (U+200C)" data-char="&#x200C;">ZWNJ</span>
-            <span class="char-button" title="Zero Width Joiner (U+200D)" data-char="&#x200D;">ZWJ</span>
-            <span class="char-button" title="Word Joiner (U+2060)" data-char="&#x2060;">WJ</span>
-            <span class="char-button" title="Invisible Times (U+2062)" data-char="&#x2062;">×</span>
-            <span class="char-button" title="Invisible Plus (U+2064)" data-char="&#x2064;">+</span>
-          </div>
-        </div>
-        
-        <div class="char-section">
-          <div class="char-section-title">Directional Characters</div>
-          <div class="char-grid">
-            <span class="char-button" title="Left-to-Right Mark (U+200E)" data-char="&#x200E;">LRM</span>
-            <span class="char-button" title="Right-to-Left Mark (U+200F)" data-char="&#x200F;">RLM</span>
-            <span class="char-button" title="Left-to-Right Embedding (U+202A)" data-char="&#x202A;">LRE</span>
-            <span class="char-button" title="Right-to-Left Embedding (U+202B)" data-char="&#x202B;">RLE</span>
-            <span class="char-button" title="Pop Directional Formatting (U+202C)" data-char="&#x202C;">PDF</span>
-            <span class="char-button" title="Left-to-Right Override (U+202D)" data-char="&#x202D;">LRO</span>
-            <span class="char-button" title="Right-to-Left Override (U+202E)" data-char="&#x202E;">RLO</span>
-          </div>
-        </div>
-        
-        <div class="char-section">
-          <div class="char-section-title">Other Invisible Characters</div>
-          <div class="char-grid">
-            <span class="char-button" title="Soft Hyphen (U+00AD)" data-char="&#x00AD;">SHY</span>
-            <span class="char-button" title="Byte Order Mark (U+FEFF)" data-char="&#xFEFF;">BOM</span>
-            <span class="char-button" title="Function Application (U+2061)" data-char="&#x2061;">FNAP</span>
-            <span class="char-button" title="Invisible Separator (U+2063)" data-char="&#x2063;">ISEP</span>
-          </div>
-        </div>
-        
-        <div class="char-section">
-          <div class="char-section-title">Emoji</div>
-          <div class="char-grid">
-            <span class="emoji-button" title="Smiling Face" data-char="😊">😊</span>
-            <span class="emoji-button" title="Evil Face" data-char="😈">😈</span>
-            <span class="emoji-button" title="Developer" data-char="👨‍💻">👨‍💻</span>
-            <span class="emoji-button" title="Ninja" data-char="🥷">🥷</span>
-            <span class="emoji-button" title="Ghost" data-char="👻">👻</span>
-          </div>
-        </div>
-      </div>
-    </fieldset>
+    <br>
     <fieldset>
       <legend>Decoding Options</legend>
       <div class="options-row">
@@ -337,9 +256,42 @@
           Other Invisible
         </label>
         <label title="Detects and decodes binary sequences encoded with invisible characters">
-          <input type="checkbox" id="detectSneakyBits" checked>
+          <input type="checkbox" id="detectSneakyBits">
           Sneaky Bits
         </label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Input Options <button id="expandInputOptions" class="expand-button" title="Toggle character options">+</button></legend>
+      <div id="basicCharOptions" style="display: block;">
+        <div class="char-grid">
+        </div>
+      </div>
+      <div id="advancedCharOptions" style="display: none;">
+        <div style="font-size: 12px; margin-bottom: 5px;">Click a button to copy the character to clipboard.</div>
+        <div class="char-grid">
+          <span class="char-button" title="Zero Width Space (U+200B)" data-char="​">ZWSP</span>
+          <span class="char-button" title="Zero Width Non-Joiner (U+200C)" data-char="‌">ZWNJ</span>
+          <span class="char-button" title="Zero Width Joiner (U+200D)" data-char="‍">ZWJ</span>
+          <span class="char-button" title="Word Joiner (U+2060)" data-char="⁠">WJ</span>
+          <span class="char-button" title="Invisible Times (U+2062)" data-char="⁢">×</span>
+          <span class="char-button" title="Invisible Plus (U+2064)" data-char="⁤">+</span>
+          <span class="char-button" title="Invisible Separator (U+2063)" data-char="⁣">ISEP</span>
+          <span class="char-button" title="Left-to-Right Mark (U+200E)" data-char="‎">LRM</span>
+          <span class="char-button" title="Right-to-Left Mark (U+200F)" data-char="‏">RLM</span>
+          <span class="char-button" title="Left-to-Right Embedding (U+202A)" data-char="‪">LRE</span>
+          <span class="char-button" title="Right-to-Left Embedding (U+202B)" data-char="‫">RLE</span>
+          <span class="char-button" title="Pop Directional Formatting (U+202C)" data-char="‬">PDF</span>
+          <span class="char-button" title="Left-to-Right Override (U+202D)" data-char="‭">LRO</span>
+          <span class="char-button" title="Right-to-Left Override (U+202E)" data-char="‮">RLO</span>
+          <span class="char-button" title="Soft Hyphen (U+00AD)" data-char="­">SHY</span>
+          <span class="char-button" title="Function Application (U+2061)" data-char="⁡">FNAP</span>
+          <span class="char-button" title="Mongolian Vowel Separator (U+180E)" data-char="᠎">MVS</span>
+          <span class="emoji-button" title="Smiley (U+1F642)" data-char="🙂">🙂</span>
+          <span class="emoji-button" title="Evil Smile (U+1F608)" data-char="😈">😈</span>
+          <span class="emoji-button" title="Developer (U+1F468 U+200D U+1F4BB)" data-char="👨‍💻">👨‍💻</span>
+          <span class="emoji-button" title="Ghost (U+1F47B)" data-char="👻">👻</span>
+        </div>
       </div>
     </fieldset>
   </div>
@@ -353,41 +305,21 @@
       </div>
       <div>
         <label>
-          <input type="radio" name="debugFormat" value="binary" checked> Binary
+          <input type="radio" name="debugFormat" value="binary"> Binary
         </label>
         <label>
           <input type="radio" name="debugFormat" value="hex"> Hexadecimal
         </label>
         <label>
-          <input type="radio" name="debugFormat" value="unicode"> Unicode
+          <input type="radio" name="debugFormat" value="unicode" checked> Unicode
         </label>
       </div>
       <div id="debugOutput" style="width: 100%; margin: 10px 0; height: 80px; border: 1px solid #ccc; padding: 10px; box-sizing: border-box; font-family: monospace; font-size: 14px; text-align: left; resize: vertical; background-color: #f8f8f8; color: #000; overflow-y: auto; white-space: pre-wrap; display: block; min-height: 80px;" readonly></div>
     </div>
   </div>
  
-  <div id="statsOutput" style="width: 100%; margin: 10px 0; padding: 10px; box-sizing: border-box; font-family: sans-serif; font-size: 14px; text-align: left; background-color: #f0f0f0; border: 1px solid #ccc;">
-    <!-- Summary row with larger numbers -->
-    <div style="display: flex; justify-content: space-around; margin-bottom: 15px; border-bottom: 1px solid #ccc; padding-bottom: 15px;">
-      <div class="stat-item" style="flex: 1; max-width: 45%;">
-        <div style="font-size: 14px;">Total Characters</div>
-        <div style="font-size: 24px; font-weight: bold; color: #333;"><span id="totalChars">0</span></div>
-      </div>
-      <div class="stat-item" style="flex: 1; max-width: 45%;">
-        <div style="font-size: 14px;">Total Hidden Characters</div>
-        <div style="font-size: 24px; font-weight: bold; color: #007bff;"><span id="totalHiddenChars">0</span></div>
-      </div>
-    </div>
-    <!-- Condensed details row -->
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; font-size: 13px;">
-      <div class="stat-item" style="flex: 1 0 22%; padding: 5px; margin: 3px; text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 40px;">Unicode Tags: <span id="unicodeTagCount">0</span></div>
-      <div class="stat-item" style="flex: 1 0 22%; padding: 5px; margin: 3px; text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 40px;">Variant Selectors: <span id="variantCount">0</span></div>
-      <div class="stat-item" style="flex: 1 0 22%; padding: 5px; margin: 3px; text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 40px;">Other Invisible: <span id="invisibleCount">0</span></div>
-      <div class="stat-item" style="flex: 0 0 22%; padding: 5px; margin: 3px; text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 40px;">
-        <div>Sneaky Bit Characters: <span id="binaryBits">0</span></div>
-        <div style="font-size: 12px; color: #666;">(SneakyBits ÷ 8: <span id="binaryBytes">0</span>)</div>
-      </div>
-    </div>
+  <div id="statsOutput" style="width: 100%; margin: 10px 0; padding: 10px; box-sizing: border-box; font-family: monospace; font-size: 14px; text-align: center; background-color: #f0f0f0; border: 1px solid #ccc;">
+    Total: <span id="totalChars">0</span> | Unicode Tags: <span id="unicodeTagCount">0</span> | Variant Selectors: <span id="variantCount">0</span> | Sneaky Bit Characters: <span id="binaryBits">0</span> (<span id="binaryBytes">0</span> bits) | Invisible: <span id="invisibleCount">0</span>
   </div>
   <button id="clearButton">Clear</button>
   <br><br>
@@ -397,16 +329,13 @@
 </div>
  
 <script>
-  // Helper: escape special regex characters.
   function escapeForRegex(text) {
     return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
-  // Helper: Get the actual character from an input that might contain an HTML entity.
   function getBinaryChar(id) {
     let inputVal = document.getElementById(id)?.value;
     if (!inputVal) {
-      // Return default values if the element doesn't exist yet
       return id === 'binary0' ? String.fromCodePoint(0x2062) : String.fromCodePoint(0x2064);
     }
     let temp = document.createElement("div");
@@ -414,17 +343,14 @@
     return temp.textContent;
   }
 
-  // Define binary characters - these will be updated when the page loads
   let binary0 = getBinaryChar('binary0');
   let binary1 = getBinaryChar('binary1');
 
-  // Update binary characters when the page loads
   document.addEventListener('DOMContentLoaded', function() {
     binary0 = getBinaryChar('binary0');
     binary1 = getBinaryChar('binary1');
   });
 
-  // Update binary characters when the inputs change
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('binary0')?.addEventListener('change', function() {
       binary0 = getBinaryChar('binary0');
@@ -448,6 +374,7 @@
     0x00AD: "Soft Hyphen",
     0xFEFF: "Byte Order Mark / Zero Width No-Break Space",
     0x2060: "Word Joiner",
+    0x180E: "Mongolian Vowel Separator",
     0x2061: "Function Application",
     0x2062: "Invisible Times",
     0x2063: "Invisible Separator",
@@ -455,12 +382,9 @@
   };
 
   function escapeHtml(text) {
-    return text.replace(/&/g, "&amp;")
-               .replace(/</g, "&lt;")
-               .replace(/>/g, "&gt;");
+    return text.replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">");
   }
 
-  // ----------------- Encoding Function -----------------
   function encodeMessage(message) {
     let encoded = '';
     let codePoints = '';
@@ -469,115 +393,69 @@
     
     if (strategy === 'unicode') {
       const addExplicitTags = document.getElementById('addExplicitTags').checked;
-      
-      // For Unicode Tags, we need to be careful with code points above U+FFFF
-      
       if (addExplicitTags) {
-        // Add BEGIN tag
         encoded += String.fromCodePoint(0xE0001);
         codePoints += 'U+E0001 ';
       }
-      
       for (let i = 0; i < message.length; i++) {
-        // Use codePointAt to properly handle surrogate pairs in the input
         let cp = message.codePointAt(i);
         let inc = cp > 0xFFFF ? 2 : 1;
-        
-        // Skip the second code unit of surrogate pairs
         if (inc === 2 && i + 1 < message.length) {
-          // Check if this is actually a surrogate pair
           if (message.charCodeAt(i) >= 0xD800 && message.charCodeAt(i) <= 0xDBFF &&
               message.charCodeAt(i + 1) >= 0xDC00 && message.charCodeAt(i + 1) <= 0xDFFF) {
-            // This is a surrogate pair, get the actual code point
             cp = message.codePointAt(i);
           }
         }
-        
-        // Only encode ASCII characters
         if (cp >= 0x20 && cp <= 0x7E) {
-          // Calculate the Unicode Tag code point
           let tagCp = 0xE0000 + cp;
-          
-          // Add to the encoded string using fromCodePoint to handle high code points correctly
           encoded += String.fromCodePoint(tagCp);
-          
-          // Add to the code points string (for display only)
-          // Only add a space if this isn't the last character
           codePoints += 'U+' + tagCp.toString(16).toUpperCase() + (i < message.length - 1 ? ' ' : '');
         } else {
           invalidChars += String.fromCodePoint(cp);
         }
-        
-        // Skip the second code unit of surrogate pairs
-        if (inc === 2) {
-          i++;
-        }
+        if (inc === 2) i++;
       }
-      
       if (addExplicitTags) {
-        // Add END tag - add a space before it if there were any characters encoded
         if (codePoints.length > 0) codePoints += ' ';
         codePoints += 'U+E007F';
         encoded += String.fromCodePoint(0xE007F);
       }
     } else if (strategy === 'variant') {
       let vs2Offset = parseInt(document.getElementById('vs2Offset').value, 10) || 16;
-      
       for (let i = 0; i < message.length; i++) {
-        // Use codePointAt to properly handle surrogate pairs in the input
         let cp = message.codePointAt(i);
         let inc = cp > 0xFFFF ? 2 : 1;
-        
-        // Only encode ASCII characters
         if (cp >= 0 && cp <= 15) {
-          // First range of variant selectors (U+FE00 to U+FE0F)
           let variantCode = 0xFE00 + cp;
           encoded += String.fromCodePoint(variantCode);
           codePoints += 'U+' + variantCode.toString(16).toUpperCase() + (i < message.length - 1 ? ' ' : '');
         } else if (cp >= 16 && cp <= 255) {
-          // Second range of variant selectors (U+E0100 to U+E01EF)
-          // These are supplementary plane characters that require surrogate pairs in JavaScript
           let variantCode = 0xE0100 + (cp - vs2Offset);
-          
-          // Add to the encoded string using fromCodePoint to handle high code points correctly
           encoded += String.fromCodePoint(variantCode);
-          
-          // Add to the code points string (for display only)
           codePoints += 'U+' + variantCode.toString(16).toUpperCase() + (i < message.length - 1 ? ' ' : '');
         } else {
           invalidChars += String.fromCodePoint(cp);
         }
-        
-        // Skip the second code unit of surrogate pairs
-        if (inc === 2) {
-          i++;
-        }
+        if (inc === 2) i++;
       }
     } else if (strategy === 'binary') {
-      const encoderObj = new TextEncoder(); // UTF-8 encoder
+      const encoderObj = new TextEncoder();
       const byteArray = encoderObj.encode(message);
-      
       for (let i = 0; i < byteArray.length; i++) {
         let byte = byteArray[i];
         let bin = byte.toString(2).padStart(8, '0');
-        
         for (let bit of bin) {
           encoded += (bit === '0' ? binary0 : binary1);
         }
-        
         codePoints += bin + (i < byteArray.length - 1 ? ' ' : '');
       }
     }
-    
     if (invalidChars.length > 0) {
       updateStatus('Invalid characters detected: ' + invalidChars);
     }
-    
     return [codePoints, encoded];
   }
 
-  // -------------- Recursive Token-Based Decoding Functions --------------
-  // Each token: { text: string, highlight: boolean, title?: string, binary?: boolean }
   function recursiveDecodeTokens(text, options) {
     let tokens = [];
     let stats = { unicodeTagCount: 0, variantCount: 0, otherInvisibleCount: 0, binaryCount: 0 };
@@ -586,7 +464,6 @@
       let cp = text.codePointAt(i);
       let char = String.fromCodePoint(cp);
       let inc = (cp > 0xFFFF) ? 2 : 1;
-      // -- Unicode Tags --
       if (options.detectUnicodeTags && cp === 0xE0001) {
         i += inc;
         let tagContent = "";
@@ -615,7 +492,6 @@
         });
         continue;
       }
-      // -- Variant Selectors --
       if (options.detectVariantSelectors) {
         if (cp >= 0xFE00 && cp <= 0xFE00 + 15) {
           let decodedChar = String.fromCharCode(cp - 0xFE00);
@@ -642,7 +518,6 @@
           continue;
         }
       }
-      // -- Other Invisible Characters --
       if (options.detectOtherInvisible && invisibleMapping[cp]) {
         stats.otherInvisibleCount++;
         tokens.push({
@@ -654,7 +529,6 @@
         i += inc;
         continue;
       }
-      // -- Binary (Sneaky Bits) --
       if (char === options.binary0 || char === options.binary1) {
         let run = "";
         while (i < text.length && (text[i] === options.binary0 || text[i] === options.binary1)) {
@@ -675,7 +549,6 @@
             try {
               let decoder = new TextDecoder("utf-8");
               let decodedSegment = decoder.decode(new Uint8Array(byteArray));
-              // Count the decoded characters from this binary run.
               stats.binaryCount += decodedSegment.length;
               let innerResult = recursiveDecodeTokens(decodedSegment, options);
               let finalText = tokensToPlain(innerResult.tokens);
@@ -707,7 +580,6 @@
         }
         continue;
       }
-      // -- Default --
       tokens.push({ text: char, highlight: false });
       i += inc;
     }
@@ -721,15 +593,10 @@
   function tokensToHTML(tokens) {
     return tokens.map(t => {
       if (t.highlight) {
-        let className = "highlight"; // Default yellow highlight
-        if (t.type === "variant") {
-          className = "variant";     // Light blue for variants
-        } else if (t.type === "invisible") {
-          className = "invisible";   // Light green for invisible
-        } else if (t.type === "binary") {
-          className = "binary";        // Light coral for binary
-        }
-        
+        let className = "highlight";
+        if (t.type === "variant") className = "variant";
+        else if (t.type === "invisible") className = "invisible";
+        else if (t.type === "binary") className = "binary";
         let extra = t.binary ? ' data-binary="true"' : '';
         return '<span class="' + className + '"' + extra + ' title="' + escapeHtml(t.title) + '">' + escapeHtml(t.text) + '</span>';
       } else {
@@ -738,8 +605,6 @@
     }).join("");
   }
 
-  // ----------------- Fully Decode Function -----------------
-  // Repeatedly decodes until no further hidden text remains.
   function fullyDecode(text, options) {
     let prev = text;
     let aggregatedStats = { unicodeTagCount: 0, variantCount: 0, otherInvisibleCount: 0, binaryCount: 0 };
@@ -760,10 +625,8 @@
     return { tokens: finalTokens, stats: aggregatedStats };
   }
 
-  // ----------------- Event Listeners and Process Message -----------------
   document.getElementById('encodeButton').addEventListener('click', function() {
     processMessage('encode');
-    copyToClipboard();
   });
   document.getElementById('decodeButton').addEventListener('click', function() {
     resetStatus();
@@ -771,7 +634,6 @@
   });
   document.getElementById('inputMessage').addEventListener('input', function() {
     resetStatus();
-    // Auto-decode on input change if the option is checked
     if (document.getElementById('autoDecodeInput').checked) {
       processMessage('decode');
     }
@@ -807,10 +669,6 @@
     });
   });
 
-  let clipboardData = '';
-
-  // Process Message: For decoding, we no longer pre-decode binary sequences separately.
-  // Instead, we directly process the message and add highlighted spans to the output.
   function processMessage(action) {
     let msg = document.getElementById('inputMessage').value;
     if (document.getElementById('decodeUriComponent').checked) {
@@ -823,16 +681,9 @@
     }
     if (action === 'encode') {
       let [codePoints, encoded] = encodeMessage(msg);
-      let strategy = document.querySelector('input[name="encodingStrategy"]:checked').value;
-      
-      // Get the output element
       let outputElement = document.getElementById('outputMessage');
-      
-      // For all encoding strategies, display the code points string to avoid surrogate pair issues
       outputElement.textContent = codePoints;
-      
-      // Store the encoded value for clipboard
-      clipboardData = encoded;
+      copyToClipboard(encoded);
     } else {
       decodeMessage(msg);
     }
@@ -850,18 +701,13 @@
     const detectSneakyBits = document.getElementById('detectSneakyBits').checked;
     const vs2Offset = parseInt(document.getElementById('vs2Offset').value, 10) || 16;
     
-    // Count code points instead of code units for accurate character count
     let codePointCount = 0;
     for (let i = 0; i < message.length; i++) {
       let cp = message.codePointAt(i);
       codePointCount++;
-      // Skip the second code unit for surrogate pairs
-      if (cp > 0xFFFF) {
-        i++;
-      }
+      if (cp > 0xFFFF) i++;
     }
     
-    // Statistics for detected elements
     let stats = { 
       unicodeTagCount: 0, 
       variantCount: 0, 
@@ -872,18 +718,14 @@
     let detected = false;
     let sneakyBitsDetected = false;
     
-    // Debug information collection
     let debugInfo = [];
     
-    // Process the message
     for (let i = 0; i < message.length; i++) {
       let cp = message.codePointAt(i);
       let char = String.fromCodePoint(cp);
       let inc = (cp > 0xFFFF) ? 2 : 1;
       
-      // Determine character type for debug info
       let type = 'regular';
-      
       if (detectUnicodeTags && cp >= 0xE0000 && cp <= 0xE007F) {
         type = 'tag';
       } else if (detectVariantSelectors && 
@@ -894,10 +736,8 @@
         type = 'invisible';
       } else if (detectSneakyBits && (char === binary0 || char === binary1)) {
         type = 'binary';
-        // We'll count these in the sneaky bits detection block to avoid double counting
       }
       
-      // Add to debug info with proper type - always add the original character to debug info
       debugInfo.push({
         char: char,
         cp: cp,
@@ -907,25 +747,18 @@
         isBinary1: char === binary1
       });
       
-      // Skip the second code unit for surrogate pairs to avoid adding low surrogates to debug info
-      if (inc === 2) {
-        i++;
-      }
+      if (inc === 2) i++;
       
-      // Check for sneaky bits sequence
       if (detectSneakyBits && (char === binary0 || char === binary1)) {
-        // We found a sneaky bit
         let binarySequence = '';
         let startIndex = i;
         let originalChars = [];
         let originalPositions = [];
         
-        // Collect all consecutive binary characters
         while (i < message.length) {
           let currentCp = message.codePointAt(i);
           let currentChar = String.fromCodePoint(currentCp);
           let currentInc = (currentCp > 0xFFFF) ? 2 : 1;
-          
           if (currentChar === binary0 || currentChar === binary1) {
             binarySequence += (currentChar === binary0) ? '0' : '1';
             originalChars.push(currentChar);
@@ -936,11 +769,8 @@
           }
         }
         
-        // Count all binary characters individually
         stats.binaryBits += originalChars.length;
         
-        // Make sure each binary character is in the debug info
-        // We've already added the first one before this block
         for (let j = 1; j < originalPositions.length; j++) {
           let pos = originalPositions[j];
           let binChar = originalChars[j];
@@ -955,14 +785,10 @@
           });
         }
         
-        // Adjust i since the for loop will increment it again
         i--;
-        
-        // Mark as detected
         detected = true;
         sneakyBitsDetected = true;
         
-        // Try to decode the binary sequence if it's a complete byte sequence
         let decodedText = '';
         let decodingSuccessful = false;
         
@@ -973,11 +799,8 @@
               let chunk = binarySequence.substr(j, 8);
               byteArray.push(parseInt(chunk, 2));
             }
-            
-            // Explicitly use UTF-8 decoder
             let decoder = new TextDecoder("utf-8", {fatal: true});
             decodedText = decoder.decode(new Uint8Array(byteArray));
-            
             if (decodedText && decodedText.length > 0) {
               decodingSuccessful = true;
             }
@@ -986,9 +809,7 @@
           }
         }
         
-        // Display either the decoded text or the original binary characters
         if (decodingSuccessful) {
-          // Display the decoded text with highlighting
           for (let j = 0; j < decodedText.length; j++) {
             const span = document.createElement('span');
             span.classList.add('binary');
@@ -997,7 +818,6 @@
             outputMessageElement.appendChild(span);
           }
         } else {
-          // Display the original binary characters with highlighting
           for (let j = 0; j < originalChars.length; j++) {
             if (useHighlightMode) {
               const span = document.createElement('span');
@@ -1006,7 +826,6 @@
               span.title = "Binary " + (originalChars[j] === binary0 ? "0" : "1");
               outputMessageElement.appendChild(span);
             } else {
-              // Even in non-highlight mode, we need to make these visible
               const span = document.createElement('span');
               span.classList.add('binary');
               span.textContent = originalChars[j] === binary0 ? "0" : "1";
@@ -1016,15 +835,10 @@
           }
         }
       }
-      // Handle Unicode Tags
       else if (detectUnicodeTags && cp >= 0xE0000 && cp <= 0xE007F) {
         detected = true;
         stats.unicodeTagCount++;
-        
-        // Convert the Unicode Tag code point to the corresponding ASCII character
-        // by subtracting the Unicode Tag range offset (0xE0000)
         const decodedChar = String.fromCharCode(cp - 0xE0000);
-        
         if (useHighlightMode) {
           const span = document.createElement('span');
           span.classList.add('highlight');
@@ -1035,11 +849,9 @@
           outputMessageElement.textContent += decodedChar;
         }
       }
-      // Variant Selectors (first range)
       else if (detectVariantSelectors && cp >= 0xFE00 && cp <= 0xFE0F) {
         detected = true;
         stats.variantCount++;
-        
         if (useHighlightMode) {
           const span = document.createElement('span');
           span.classList.add('variant');
@@ -1050,14 +862,10 @@
           outputMessageElement.textContent += String.fromCharCode(cp - 0xFE00);
         }
       }
-      // Variant Selectors (second range)
       else if (detectVariantSelectors && cp >= 0xE0100 && cp <= 0xE01EF) {
         detected = true;
         stats.variantCount++;
-        
-        // Calculate the decoded character based on the vs2Offset
         const decodedChar = String.fromCharCode((cp - 0xE0100) + vs2Offset);
-        
         if (useHighlightMode) {
           const span = document.createElement('span');
           span.classList.add('variant');
@@ -1068,11 +876,9 @@
           outputMessageElement.textContent += decodedChar;
         }
       }
-      // Other Invisible Characters
       else if (detectOtherInvisible && invisibleMapping[cp]) {
         detected = true;
         stats.otherInvisibleCount++;
-        
         if (useHighlightMode) {
           const span = document.createElement('span');
           span.classList.add('invisible');
@@ -1083,13 +889,9 @@
           outputMessageElement.textContent += String.fromCodePoint(cp);
         }
       }
-      // Regular characters
       else {
-        // Check if this is a binary character even if detection is off
         const isBinaryChar = char === binary0 || char === binary1;
-        
         if (isBinaryChar) {
-          // Always show binary characters, even if detection is off
           if (useHighlightMode) {
             const span = document.createElement('span');
             span.classList.add('binary');
@@ -1097,7 +899,6 @@
             span.title = "Binary " + (char === binary0 ? "0" : "1");
             outputMessageElement.appendChild(span);
           } else {
-            // Even in non-highlight mode, we need to make these visible
             const span = document.createElement('span');
             span.classList.add('binary');
             span.textContent = char === binary0 ? "0" : "1";
@@ -1116,45 +917,30 @@
       }
     }
     
-    // Update debug output
     updateDebugOutput(debugInfo);
     
-    // Update status with statistics
     if (detected) {
       outputMessageElement.style.border = '2px solid red';
-      
-      // Calculate total hidden characters
-      // This includes all Unicode tags, variant selectors, other invisible characters, and sneaky bits
-      const totalHidden = stats.unicodeTagCount + stats.variantCount + stats.otherInvisibleCount + stats.binaryBits;
-      
-      // Update stats display
       document.getElementById('totalChars').textContent = stats.totalChars;
-      document.getElementById('totalHiddenChars').textContent = totalHidden;
       document.getElementById('unicodeTagCount').textContent = stats.unicodeTagCount;
       document.getElementById('variantCount').textContent = stats.variantCount;
-      document.getElementById('invisibleCount').textContent = stats.otherInvisibleCount;
       document.getElementById('binaryBits').textContent = stats.binaryBits;
       document.getElementById('binaryBytes').textContent = Math.floor(stats.binaryBits / 8);
+      document.getElementById('invisibleCount').textContent = stats.otherInvisibleCount;
       
-      // Update status message
       let statusMsg = 'Hidden characters discovered.';
       if (sneakyBitsDetected) {
-        statusMsg += '. Sneaky Bits detected: ' + stats.binaryBits + ' binary characters';
+        statusMsg += ' Sneaky Bits detected: ' + stats.binaryBits + ' binary characters. Beware: there might be recursive Sneaky Bits, check carefully.';
       }
       updateStatus(statusMsg);
     } else {
       outputMessageElement.style.border = '1px solid #ccc';
-      
-      // Reset stats display
       document.getElementById('totalChars').textContent = stats.totalChars;
-      document.getElementById('totalHiddenChars').textContent = '0';
       document.getElementById('unicodeTagCount').textContent = '0';
       document.getElementById('variantCount').textContent = '0';
-      document.getElementById('invisibleCount').textContent = '0';
       document.getElementById('binaryBits').textContent = '0';
       document.getElementById('binaryBytes').textContent = '0';
-      
-      // Update status message
+      document.getElementById('invisibleCount').textContent = '0';
       updateStatus('No hidden text detected.');
     }
   }
@@ -1198,19 +984,16 @@
     document.getElementById('outputMessage').textContent = '';
     document.getElementById('debugOutput').innerHTML = '';
     resetStatus();
-    
-    // Reset stats display
     document.getElementById('totalChars').textContent = '0';
-    document.getElementById('totalHiddenChars').textContent = '0';
     document.getElementById('unicodeTagCount').textContent = '0';
     document.getElementById('variantCount').textContent = '0';
-    document.getElementById('invisibleCount').textContent = '0';
     document.getElementById('binaryBits').textContent = '0';
     document.getElementById('binaryBytes').textContent = '0';
+    document.getElementById('invisibleCount').textContent = '0';
   }
 
-  function copyToClipboard() {
-    navigator.clipboard.writeText(clipboardData).then(() => {
+  function copyToClipboard(content) {
+    navigator.clipboard.writeText(content).then(() => {
       updateStatus('Text copied to clipboard!', true);
     }).catch(err => {
       updateStatus('Failed to copy text: ' + err);
@@ -1229,8 +1012,8 @@
         document.getElementById('unicodeTagOptions').style.display = 'block';
       }
       document.getElementById('vs2Offset').value = opts.vs2Offset || 16;
-      document.getElementById('binary0').value = opts.binary0 || "&#x2062;";
-      document.getElementById('binary1').value = opts.binary1 || "&#x2064;";
+      document.getElementById('binary0').value = opts.binary0 || "⁢";
+      document.getElementById('binary1').value = opts.binary1 || "⁤";
       document.getElementById('decodeUriComponent').checked = opts.decodeUri || false;
       document.getElementById('highlightMode').checked = opts.highlightMode;
       document.getElementById('detectUnicodeTags').checked = opts.detectUnicodeTags;
@@ -1251,7 +1034,6 @@
       if (opts.advancedOptionsVisible) {
         document.getElementById('advancedOptions').classList.add('visible');
       }
-      // Load expanded state for input options
       if (opts.inputOptionsExpanded) {
         document.getElementById('basicCharOptions').style.display = 'none';
         document.getElementById('advancedCharOptions').style.display = 'block';
@@ -1259,13 +1041,17 @@
         document.getElementById('expandInputOptions').title = 'Hide character options';
       }
     } else {
-      // Default settings for first-time users
       document.getElementById('highlightMode').checked = true;
       document.getElementById('detectSneakyBits').checked = true;
       document.getElementById('autoDecodeInput').checked = true;
       document.getElementById('addExplicitTags').checked = true;
       document.querySelector('input[name="encodingStrategy"][value="unicode"]').checked = true;
       document.getElementById('unicodeTagOptions').style.display = 'block';
+      // Default to expanded input options
+      document.getElementById('basicCharOptions').style.display = 'none';
+      document.getElementById('advancedCharOptions').style.display = 'block';
+      document.getElementById('expandInputOptions').textContent = '-';
+      document.getElementById('expandInputOptions').title = 'Hide character options';
     }
   }
   document.addEventListener('DOMContentLoaded', loadOptions);
@@ -1307,61 +1093,38 @@
     processMessage('decode');
   });
 
-  // Add event listeners to all option checkboxes to trigger auto-decode
   document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(input => {
     input.addEventListener('change', function() {
-      // Don't auto-decode for the auto-decode option itself or the show verbose info option
       if (this.id !== 'autoDecodeInput' && this.id !== 'showVerboseInfo') {
         processMessage('decode');
       }
     });
   });
 
-  // Add event listeners for character and emoji buttons
   document.querySelectorAll('.char-button, .emoji-button').forEach(button => {
     button.addEventListener('click', function() {
-      const inputElement = document.getElementById('inputMessage');
       const char = this.getAttribute('data-char');
-      const startPos = inputElement.selectionStart;
-      const endPos = inputElement.selectionEnd;
-      
-      // Insert the character at cursor position
-      inputElement.value = inputElement.value.substring(0, startPos) + char + inputElement.value.substring(endPos);
-      
-      // Move cursor position after the inserted character
-      inputElement.selectionStart = inputElement.selectionEnd = startPos + char.length;
-      
-      // Focus back on the input
-      inputElement.focus();
-      
-      // Auto-decode if the option is enabled
-      if (document.getElementById('autoDecodeInput').checked) {
-        processMessage('decode');
-      }
+      copyToClipboard(char);
     });
   });
 
-  // Expand/collapse input options
   document.getElementById('expandInputOptions').addEventListener('click', function() {
     const basicOptions = document.getElementById('basicCharOptions');
     const advancedOptions = document.getElementById('advancedCharOptions');
-    
     if (advancedOptions.style.display === 'none') {
       basicOptions.style.display = 'none';
       advancedOptions.style.display = 'block';
       this.textContent = '-';
       this.title = 'Hide character options';
     } else {
-      basicOptions.style.display = 'none';
+      basicOptions.style.display = 'block';
       advancedOptions.style.display = 'none';
       this.textContent = '+';
       this.title = 'Show character options';
     }
-    
     saveOptions();
   });
 
-  // Debug format radio buttons
   document.querySelectorAll('input[name="debugFormat"]').forEach(radio => {
     radio.addEventListener('change', function() {
       const message = document.getElementById('inputMessage').value;
@@ -1375,41 +1138,28 @@
   function updateDebugOutput(debugInfo) {
     const debugOutputElement = document.getElementById('debugOutput');
     const debugFormat = document.querySelector('input[name="debugFormat"]:checked').value;
-    
     let output = '';
     for (let entry of debugInfo) {
       let formattedValue = '';
-      
       if (debugFormat === 'binary') {
-        // For UTF-8 representation, we need to convert the code point to UTF-8 bytes
         if (entry.cp <= 0x7F) {
-          // ASCII range (0-127) - single byte in UTF-8
           formattedValue = entry.cp.toString(2).padStart(8, '0');
         } else {
-          // For non-ASCII, show the UTF-8 byte sequence
           const encoder = new TextEncoder();
           const bytes = encoder.encode(entry.char);
           formattedValue = Array.from(bytes).map(b => b.toString(2).padStart(8, '0')).join(' ');
         }
       } else if (debugFormat === 'hex') {
-        // For UTF-8 hex representation
         const encoder = new TextEncoder();
         const bytes = encoder.encode(entry.char);
         formattedValue = Array.from(bytes).map(b => b.toString(16).toUpperCase().padStart(2, '0')).join(' ');
       } else if (debugFormat === 'unicode') {
-        // For Unicode code points, ensure proper padding based on the code point value
-        const padLength = entry.cp > 0xFFFF ? 6 : 4; // Use 6 digits for supplementary plane characters
+        const padLength = entry.cp > 0xFFFF ? 6 : 4;
         formattedValue = 'U+' + entry.cp.toString(16).toUpperCase().padStart(padLength, '0');
       }
-      
       let className = '';
       let title = '';
-      
-      // Check if this is a binary character (either by type or by direct comparison)
-      const isBinary = entry.type === 'binary' || 
-                       entry.isBinary0 === true || 
-                       entry.isBinary1 === true;
-      
+      const isBinary = entry.type === 'binary' || entry.isBinary0 === true || entry.isBinary1 === true;
       if (entry.type === 'tag') {
         className = 'highlight';
         title = `Unicode Tag: ${entry.char}`;
@@ -1421,24 +1171,19 @@
         title = invisibleMapping[entry.cp] || 'Invisible Character';
       } else if (isBinary) {
         className = 'binary';
-        // Determine if it's a 0 or 1 binary character
         const isBinary0Value = entry.isBinary0 === true;
         title = `Binary ${isBinary0Value ? '0' : '1'}`;
       } else {
         title = `Character: ${entry.char}`;
       }
-      
       if (className) {
         output += `<span class="${className}" title="${title}">${formattedValue}</span> `;
       } else {
         output += `<span title="${title}">${formattedValue}</span> `;
       }
     }
-    
     debugOutputElement.innerHTML = output;
   }
 </script>
 </body>
 </html>
-
-
