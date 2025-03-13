@@ -1,326 +1,1198 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ASCII Smuggler - Crafting Invisible Text and Decoding Hidden Secret - Embrace the Red</title>
-    <meta name="viewport" content="width=device-width, initial-scale=0.9">
-    
-    <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@wunderwuzzi23">
-    <meta name="twitter:title" content="ASCII Smuggler">
-    <meta name="twitter:description" content="Crafting Invisible Text and Decoding Hidden Secrets">
-    <meta name="twitter:image" content="https://embracethered.com/blog/images/2024/ascii-smuggler-logo.png">
-    <meta name="twitter:creator" content="@wunderwuzzi23">
-
-
-    <style>
-        body {
-            font-family: sans-serif;
-            padding: 0px 10px;
-            font-size: 16px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        textarea, #outputMessage {
-            width: 100%;
-            margin: 10px 0;
-            height: 120px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            box-sizing: border-box;
-            font-family: monospace;
-            font-size: 14px;
-            text-align: left;
-            resize: vertical;
-            background-color: rgba(255, 255, 255, 0.95); 
-            color: #000; /* Text color */
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-        }
-        #outputMessage {
-            background-color: #f0f0f0;
-            overflow-y: auto;
-            white-space: pre-wrap;
-            display: block;
-            width: 100%;
-            min-height: 100px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            box-sizing: border-box;
-            font-family: monospace;
-            font-size: 14px;
-            text-align: left;
-            resize: vertical;
-            max-height: 300px;
-        }
-        #statusMessage {
-            margin-bottom: 10px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin: 10px 5px 10px 0;
-            cursor: pointer;
-        }
-        .highlight {
-            background-color: yellow;
-            font-family: monospace;
-        }
-        .advanced-options {
-            display: none;
-            background-color: cyan;
-            text-align: center; /* Center the Advanced Options text */
-            margin-top: 5px;
-            font-size: 14px; /* Smaller font size for the options */
-        }
-        .advanced-options.visible {
-            display: block;
-        }
-        .advanced-options label {
-            margin-right: 20px; /* Increase spacing between checkboxes */
-            display: inline-block; /* Align checkboxes horizontally */
-        }
-        .toggle-advanced {
-            font-size: 14px;
-            color: #007bff;
-            text-decoration: underline;
-            cursor: pointer;
-            display: inline-block;
-            margin: 0px 0;
-        }
-    </style>
+  <title>ASCII Smuggler - Crafting Invisible Text and Decoding Hidden Secret - Embrace the Red</title>
+  <meta http-equiv="Content-Security-Policy" content=" default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' https://embracethered.com; connect-src 'none'; font-src 'none'; object-src 'none'; media-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'; upgrade-insecure-requests;">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wunderwuzzi23">
+  <meta name="twitter:title" content="ASCII Smuggler - Crafting Invisible Text and Decoding Hidden Secret - Embrace the Red">
+  <meta name="twitter:description" content="Convert ASCII text into invisible Unicode encodings using Unicode Tags, Variant Selectors, and Sneaky Bits, and decode hidden messages.">
+  <meta name="twitter:image" content="https://embracethered.com/blog/images/2024/ascii-smuggler-logo.png">
+  <meta name="twitter:creator" content="@wunderwuzzi23">
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 0px 10px;
+      font-size: 16px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    textarea, #outputMessage {
+      width: 100%;
+      margin: 10px 0;
+      height: 120px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      box-sizing: border-box;
+      font-family: monospace;
+      font-size: 14px;
+      text-align: left;
+      resize: vertical;
+      background-color: rgba(255, 255, 255, 0.95);
+      color: #000;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    }
+    #outputMessage {
+      background-color: #f0f0f0;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      display: block;
+      min-height: 100px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    #statusMessage {
+      margin-bottom: 10px;
+      white-space: pre-wrap;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px 5px 10px 0;
+      cursor: pointer;
+    }
+    .highlight {
+      background-color: yellow;
+      font-family: monospace;
+    }
+    .variant {
+      background-color: lightblue;
+      font-family: monospace;
+    }
+    .invisible {
+      background-color: lightgreen;
+      font-family: monospace;
+    }
+    .binary {
+      background-color: lightgray;
+      font-family: monospace;
+    }
+    .advanced-options {
+      display: none;
+      background-color: cyan;
+      text-align: center;
+      margin-top: 5px;
+      font-size: 14px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .advanced-options.visible {
+      display: block;
+    }
+    .verbose-info {
+      display: none;
+    }
+    .verbose-info.visible {
+      display: block;
+    }
+    .advanced-options label {
+      margin-right: 20px;
+      display: inline-block;
+    }
+    .toggle-advanced {
+      font-size: 14px;
+      color: #007bff;
+      text-decoration: underline;
+      cursor: pointer;
+      display: inline-block;
+      margin: 0px 0;
+    }
+    .char-button {
+      display: inline-block;
+      margin: 2px;
+      padding: 2px 6px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .char-button:hover {
+      background-color: #e0e0e0;
+    }
+    .emoji-button {
+      display: inline-block;
+      margin: 2px;
+      padding: 2px 4px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .emoji-button:hover {
+      background-color: #e0e0e0;
+    }
+    .char-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    fieldset {
+      border: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+    legend {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .options-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .options-row label {
+      margin: 0 10px 5px 0;
+      font-size: 13px;
+    }
+    .expand-button {
+      padding: 2px 6px;
+      margin-left: 5px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .expand-button:hover {
+      background-color: #e0e0e0;
+    }
+    #statsOutput {
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>ASCII Smuggler</h1>
-    <span>
-        Convert ASCII text to Unicode Tags which are invisible in most UI elements.<br>
-        Check if a text has hidden Unicode Tags embedded with Decode.
-    </span><br>
-    <textarea id="inputMessage" placeholder="Enter your message here"></textarea>
-    <button id="encodeButton">Encode</button>
-    <button id="decodeButton">Decode</button><br>
-    <a href="javascript:void(0);" class="toggle-advanced">Advanced Options</a>
-    <div class="advanced-options" id="advancedOptions">
-        <label title="Add Unicode START and END Tags when encoding text" >
-            <input type="checkbox" id="toggleUnicodeTags" />
-            Encode with BEGIN/END Tags
+  <h1>ASCII Smuggler</h1>
+  <span>
+    Convert text to invisible Unicode encodings and decode hidden secrets.
+  </span>
+  <br>
+  <textarea id="inputMessage" placeholder="Enter your message here"></textarea>
+  <button id="encodeButton">Encode & Copy</button>
+  <button id="decodeButton">Decode</button>
+  <br> 
+  <a href="javascript:void(0);" class="toggle-advanced">Toggle Advanced Options</a>
+  <div class="advanced-options" id="advancedOptions">
+    <fieldset>
+      <legend>Encoding Options</legend>
+      <label>
+        <input type="radio" name="encodingStrategy" value="unicode" checked>
+        Unicode Tags
+      </label>
+      <label>
+        <input type="radio" name="encodingStrategy" value="variant">
+        Variant Selectors
+      </label>
+      <label>
+        <input type="radio" name="encodingStrategy" value="binary">
+        Sneaky Bits (UTF‑8)
+      </label>
+      <div id="variantOptions" style="display:none; margin-top: 5px;">
+        <label>
+          VS2 Offset:
+          <input type="number" id="vs2Offset" value="16" style="width: 50px;">
         </label>
-        <label title="Useful when decoding content that was first URL encoded. This option will call decodeUriComponent before attempting to look for hidden Unicode Tags characters">
-            <input type="checkbox" id="decodeUriComponent" />
-            Decoding a URL
+      </div>
+      <div id="unicodeTagOptions" style="display:none; margin-top: 5px;">
+        <label title="Add explicit BEGIN and END tags">
+          <input type="checkbox" id="addExplicitTags" checked>
+          Add BEGIN/END Tags
         </label>
-        <label title="Highlight Mode prints all text and highlights hidden text. Turn this mode off to only show hidden text in the output">
-            <input type="checkbox" id="highlightMode" />
-            Highlight Mode
+      </div>
+      <div id="binaryOptions" style="display:none; margin-top: 5px;">
+        <label>
+          Binary 0:
+          <input type="text" id="binary0" maxlength="1" value="⁢" style="width: 30px;">
         </label>
+        <label>
+          Binary 1:
+          <input type="text" id="binary1" maxlength="1" value="⁤" style="width: 30px;">
+        </label>
+      </div>
+    </fieldset>
+    <br>
+    <fieldset>
+      <legend>Decoding Options</legend>
+      <div class="options-row">
+        <label title="Decodes URI components before processing">
+          <input type="checkbox" id="decodeUriComponent">
+          Decode URL
+        </label>
+        <label title="Highlights only the decoded hidden characters">
+          <input type="checkbox" id="highlightMode" checked>
+          Highlight Mode
+        </label>
+        <label title="Automatically decodes input as you type">
+          <input type="checkbox" id="autoDecodeInput">
+          Auto-decode
+        </label>
+        <label title="Shows detailed debug information">
+          <input type="checkbox" id="showVerboseInfo">
+          Show Debug
+        </label>
+      </div>
+      <div class="options-row">
+        <label>
+          <input type="checkbox" id="detectUnicodeTags" checked>
+          Unicode Tags
+        </label>
+        <label>
+          <input type="checkbox" id="detectVariantSelectors" checked>
+          Variant Selectors
+        </label>
+        <label title="Highlights invisible Unicode characters with friendly names and hex codes">
+          <input type="checkbox" id="detectOtherInvisible" checked>
+          Other Invisible
+        </label>
+        <label title="Detects and decodes binary sequences encoded with invisible characters">
+          <input type="checkbox" id="detectSneakyBits">
+          Sneaky Bits
+        </label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Input Options <button id="expandInputOptions" class="expand-button" title="Toggle character options">+</button></legend>
+      <div id="basicCharOptions" style="display: block;">
+        <div class="char-grid">
+        </div>
+      </div>
+      <div id="advancedCharOptions" style="display: none;">
+        <div style="font-size: 12px; margin-bottom: 5px;">Click a button to copy the character to clipboard.</div>
+        <div class="char-grid">
+          <span class="char-button" title="Zero Width Space (U+200B)" data-char="​">ZWSP</span>
+          <span class="char-button" title="Zero Width Non-Joiner (U+200C)" data-char="‌">ZWNJ</span>
+          <span class="char-button" title="Zero Width Joiner (U+200D)" data-char="‍">ZWJ</span>
+          <span class="char-button" title="Word Joiner (U+2060)" data-char="⁠">WJ</span>
+          <span class="char-button" title="Invisible Times (U+2062)" data-char="⁢">×</span>
+          <span class="char-button" title="Invisible Plus (U+2064)" data-char="⁤">+</span>
+          <span class="char-button" title="Invisible Separator (U+2063)" data-char="⁣">ISEP</span>
+          <span class="char-button" title="Left-to-Right Mark (U+200E)" data-char="‎">LRM</span>
+          <span class="char-button" title="Right-to-Left Mark (U+200F)" data-char="‏">RLM</span>
+          <span class="char-button" title="Left-to-Right Embedding (U+202A)" data-char="‪">LRE</span>
+          <span class="char-button" title="Right-to-Left Embedding (U+202B)" data-char="‫">RLE</span>
+          <span class="char-button" title="Pop Directional Formatting (U+202C)" data-char="‬">PDF</span>
+          <span class="char-button" title="Left-to-Right Override (U+202D)" data-char="‭">LRO</span>
+          <span class="char-button" title="Right-to-Left Override (U+202E)" data-char="‮">RLO</span>
+          <span class="char-button" title="Left-to-Right Isolate (U+2066)" data-char="⁦">LRI</span>
+          <span class="char-button" title="Right-to-Left Isolate (U+2067)" data-char="⁧">RLI</span>
+          <span class="char-button" title="First Strong Isolate (U+2068)" data-char="⁨">FSI</span>
+          <span class="char-button" title="Pop Directional Isolate (U+2069)" data-char="⁩">PDI</span>
+          <span class="char-button" title="Soft Hyphen (U+00AD)" data-char="­">SHY</span>
+          <span class="char-button" title="Function Application (U+2061)" data-char="⁡">FNAP</span>
+          <span class="char-button" title="Mongolian Vowel Separator (U+180E)" data-char="᠎">MVS</span>
+          <span class="emoji-button" title="Smiley (U+1F642)" data-char="🙂">🙂</span>
+          <span class="emoji-button" title="Evil Smile (U+1F608)" data-char="😈">😈</span>
+          <span class="emoji-button" title="Developer (U+1F468 U+200D U+1F4BB)" data-char="👨‍💻">👨‍💻</span>
+          <span class="emoji-button" title="Ghost (U+1F47B)" data-char="👻">👻</span>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  
+  <div id="outputMessage" class="outputMessage"></div>
+  <div id="statusMessage" style="font-weight: bold;"></div>
+  <div class="verbose-info" id="verboseInfoSection">
+    <div style="border: 2px solid #007bff; border-radius: 5px; padding: 10px; background-color: #f0f8ff;">
+      <div style="margin-bottom: 10px; font-weight: bold; color: #007bff; border-bottom: 1px solid #007bff; padding-bottom: 5px;">
+        Debug Output Format
+      </div>
+      <div>
+        <label>
+          <input type="radio" name="debugFormat" value="binary"> Binary
+        </label>
+        <label>
+          <input type="radio" name="debugFormat" value="hex"> Hexadecimal
+        </label>
+        <label>
+          <input type="radio" name="debugFormat" value="unicode" checked> Unicode
+        </label>
+      </div>
+      <div id="debugOutput" style="width: 100%; margin: 10px 0; height: 80px; border: 1px solid #ccc; padding: 10px; box-sizing: border-box; font-family: monospace; font-size: 14px; text-align: left; resize: vertical; background-color: #f8f8f8; color: #000; overflow-y: auto; white-space: pre-wrap; display: block; min-height: 80px;" readonly></div>
     </div>
-
-    <div id="outputMessage" class="outputMessage"></div>
-    <div id="statusMessage"></div>
-    <button id="clearButton">Clear</button>
-    <br><br>
-    <a style="font-size: 14px" href="https://embracethered.com/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/">Embrace the Red - Blog Post</a>
-</div>
-
-<script>
-    document.getElementById('encodeButton').addEventListener('click', function() {
-        processMessage('encode');
-        copyToClipboard();
-    });
-    document.getElementById('decodeButton').addEventListener('click', function() {
-        resetStatus();
-        processMessage('decode');
-    });
-    document.getElementById('inputMessage').addEventListener('input', resetStatus);
-    document.getElementById('clearButton').addEventListener('click', clearFields);
-
-    document.querySelector('.toggle-advanced').addEventListener('click', function() {
-        const advancedOptions = document.getElementById('advancedOptions');
-        advancedOptions.classList.toggle('visible'); // Toggle visibility
-        saveOptions();
-    });
-
-    let clipboardData = '';
-
-    // Load options from local storage
-    function loadOptions() {
-        const options = JSON.parse(localStorage.getItem('asciiSmugglerOptions'));
-        if (options) {
-            document.getElementById('toggleUnicodeTags').checked = options.unicodeTags;
-            document.getElementById('decodeUriComponent').checked = options.decodeUri;
-            document.getElementById('highlightMode').checked = options.highlightMode;
-            if (options.advancedOptionsVisible) {
-                document.getElementById('advancedOptions').classList.add('visible');
-            }
-        }
-        else {
-            document.getElementById('highlightMode').checked = true;
-        }
-    }
-
-    // Call loadOptions when the page loads
-    document.addEventListener('DOMContentLoaded', loadOptions);
-
-    // Save options to local storage
-    function saveOptions() {
-        // Retrieve the current settings from the UI elements
-        const options = {
-            unicodeTags: document.getElementById('toggleUnicodeTags').checked,
-            decodeUri: document.getElementById('decodeUriComponent').checked,
-            highlightMode: document.getElementById('highlightMode').checked,
-            advancedOptionsVisible: document.getElementById('advancedOptions').classList.contains('visible')
-        };
-
-        // Convert the options object into a string and save it in local storage
-        localStorage.setItem('asciiSmugglerOptions', JSON.stringify(options));
-    }
-
-    // Invoke saveOptions when a setting is changed
-    document.getElementById('toggleUnicodeTags').addEventListener('change', saveOptions);
-    document.getElementById('decodeUriComponent').addEventListener('change', saveOptions);
-    document.getElementById('highlightMode').addEventListener('change', function() { 
-         saveOptions();
-         processMessage("decode");
-    });
-    //document.getElementById('advancedOptions').addEventListener('click', saveOptions); 
-
-    function processMessage(action) {
-            let inputMessage = document.getElementById('inputMessage').value;
-            let outputMessage = '';
-
-            if (action === 'encode') {
-                let [codePoints, encoded] = encodeMessage(inputMessage);
-                document.getElementById('outputMessage').textContent = codePoints;
-                clipboardData = encoded;
-            } else {
-                if (document.getElementById('decodeUriComponent').checked) {
-                    try {
-                      inputMessage = decodeURIComponent(inputMessage);
-                    } catch (e) {
-                      updateStatus('Error decoding URI component: ' + e.message);
-                      return;
-                    }
-                }
-                
-                //decode creats span elements for each character
-                decodeMessage(inputMessage);
-            }
-        }
-
-        function encodeMessage(message) {
-            let encoded = '';
-            let codePoints = '';
-            let invalidChars = '';
-            const useUnicodeTags = document.getElementById('toggleUnicodeTags').checked;
-
-            if (useUnicodeTags) {
-                encoded += String.fromCodePoint(0xE0001);
-                codePoints += 'U+E0001 ';
-            }
-
-            for (let char of message) {
-                if (char.charCodeAt(0) >= 0x20 && char.charCodeAt(0) <= 0x7E) {
-                    let codePoint = 0xE0000 + char.charCodeAt(0);
-                    encoded += String.fromCodePoint(codePoint);
-                    codePoints += 'U+' + codePoint.toString(16).toUpperCase() + ' ';
-                } else {
-                    invalidChars += char;
-                }
-            }
-
-            if (useUnicodeTags) {
-                encoded += String.fromCodePoint(0xE007F);
-                codePoints += 'U+E007F';
-            }
-
-            updateStatus(invalidChars.length > 0 ? 'Invalid characters detected: ' + invalidChars : '');
-            return [codePoints, encoded];
-        }
-
-        function decodeMessage(message) {
-            let decoded = '';
-            let detected = false;
-            let outputMessageElement = document.getElementById('outputMessage');
-            outputMessageElement.innerHTML = '';
-
-            const useHighlightMode = document.getElementById('highlightMode').checked;
-
-
-            for (let char of message) {
-                let codePoint = char.codePointAt(0);
-                if (codePoint >= 0xE0000 && codePoint <= 0xE007F) {
-                    detected = true;
-
-                    if (useHighlightMode) {
-                        const highlightSpan = document.createElement('span');
-                        highlightSpan.classList.add('highlight');
-                        highlightSpan.textContent = String.fromCharCode(codePoint - 0xE0000); // Safely set text
-                        outputMessageElement.appendChild(highlightSpan);
-                    }
-                    else {
-                        outputMessageElement.textContent += String.fromCharCode(codePoint - 0xE0000);
-                    }
-                } else {
-                    if (useHighlightMode) {
-                        const normalSpan = document.createElement('span');
-                        normalSpan.classList.add('normal');
-                        normalSpan.textContent = char;
-                        outputMessageElement.appendChild(normalSpan);
-                    }
-                }
-            }
-
-            if (detected) {
-                updateStatus('Hidden Unicode Tags discovered.', true);
-                outputMessageElement.style.border = '2px solid red';
-            } else {
-                updateStatus('No hidden Unicode Tag characters discovered.', false);
-                outputMessageElement.style.border = '1px solid #ccc';
-            }
-
-            return decoded;
-        }
-
-        function updateStatus(message, isHighlighted = false) {
-            const statusMessage = document.getElementById('statusMessage');
-            statusMessage.textContent = message;
-            if (isHighlighted) {
-                statusMessage.style.fontSize = '16px';
-                statusMessage.style.fontWeight = 'bold';
-            } else {
-                statusMessage.style.fontSize = '';
-                statusMessage.style.fontWeight = '';
-            }
-        }
-
-
-        function resetStatus() {
-            updateStatus('');
-            document.getElementById('outputMessage').style.border = '1px solid #ccc';
-        }
-
-        function clearFields() {
-            document.getElementById('inputMessage').value = '';
-            document.getElementById('outputMessage').textContent = '';
-            resetStatus();
-        }
-
-        function copyToClipboard() {
-            navigator.clipboard.writeText(clipboardData).then(() => {
-                updateStatus('Text copied to clipboard!', true);
-            }).catch(err => {
-                updateStatus('Failed to copy text: ' + err);
-            });
-        }
-
+  </div>
  
-    </script>
+  <div id="statsOutput" style="width: 100%; margin: 10px 0; padding: 10px; box-sizing: border-box; font-family: monospace; font-size: 14px; text-align: center; background-color: #f0f0f0; border: 1px solid #ccc;">
+    Total: <span id="totalChars">0</span> | Unicode Tags: <span id="unicodeTagCount">0</span> | Variant Selectors: <span id="variantCount">0</span> | Sneaky Bit Characters: <span id="binaryBits">0</span> (<span id="binaryBytes">0</span> char) | Invisible: <span id="invisibleCount">0</span>
+  </div>
+  <button id="clearButton">Clear</button>
+  <br><br>
+  <a style="font-size: 14px" href="https://embracethered.com/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/">
+    Embrace the Red – Blog Post
+  </a>
+</div>
+ 
+<script>
+  function escapeForRegex(text) {
+    return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function getBinaryChar(id) {
+    let inputVal = document.getElementById(id)?.value;
+    if (!inputVal) {
+      return id === 'binary0' ? String.fromCodePoint(0x2062) : String.fromCodePoint(0x2064);
+    }
+    let temp = document.createElement("div");
+    temp.innerHTML = inputVal;
+    return temp.textContent;
+  }
+
+  let binary0 = getBinaryChar('binary0');
+  let binary1 = getBinaryChar('binary1');
+
+  document.addEventListener('DOMContentLoaded', function() {
+    binary0 = getBinaryChar('binary0');
+    binary1 = getBinaryChar('binary1');
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('binary0')?.addEventListener('change', function() {
+      binary0 = getBinaryChar('binary0');
+    });
+    document.getElementById('binary1')?.addEventListener('change', function() {
+      binary1 = getBinaryChar('binary1');
+    });
+  });
+
+  const invisibleMapping = {
+    0x200B: "Zero Width Space",
+    0x200C: "Zero Width Non-Joiner",
+    0x200D: "Zero Width Joiner",
+    0x200E: "Left-to-Right Mark",
+    0x200F: "Right-to-Left Mark",
+    0x202A: "Left-to-Right Embedding",
+    0x202B: "Right-to-Left Embedding",
+    0x202C: "Pop Directional Formatting",
+    0x202D: "Left-to-Right Override",
+    0x202E: "Right-to-Left Override",
+    0x00AD: "Soft Hyphen",
+    0xFEFF: "Byte Order Mark / Zero Width No-Break Space",
+    0x2060: "Word Joiner",
+    0x180E: "Mongolian Vowel Separator",
+    0x2061: "Function Application",
+    0x2062: "Invisible Times",
+    0x2063: "Invisible Separator",
+    0x2064: "Invisible Plus",
+    0x2066: "Left-to-Right Isolate",
+    0x2067: "Right-to-Left Isolate", 
+    0x2068: "First Strong Isolate",
+    0x2069: "Pop Directional Isolate"
+  };
+
+  function escapeHtml(text) {
+    return text.replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">");
+  }
+
+  function encodeMessage(message) {
+    let encoded = '';
+    let codePoints = '';
+    let invalidChars = '';
+    let strategy = document.querySelector('input[name="encodingStrategy"]:checked').value;
+    
+    if (strategy === 'unicode') {
+      const addExplicitTags = document.getElementById('addExplicitTags').checked;
+      if (addExplicitTags) {
+        encoded += String.fromCodePoint(0xE0001);
+        codePoints += 'U+E0001 ';
+      }
+      for (let i = 0; i < message.length; i++) {
+        let cp = message.codePointAt(i);
+        let inc = cp > 0xFFFF ? 2 : 1;
+        if (inc === 2 && i + 1 < message.length) {
+          if (message.charCodeAt(i) >= 0xD800 && message.charCodeAt(i) <= 0xDBFF &&
+              message.charCodeAt(i + 1) >= 0xDC00 && message.charCodeAt(i + 1) <= 0xDFFF) {
+            cp = message.codePointAt(i);
+          }
+        }
+        if (cp >= 0x20 && cp <= 0x7E) {
+          let tagCp = 0xE0000 + cp;
+          encoded += String.fromCodePoint(tagCp);
+          codePoints += 'U+' + tagCp.toString(16).toUpperCase() + (i < message.length - 1 ? ' ' : '');
+        } else {
+          invalidChars += String.fromCodePoint(cp);
+        }
+        if (inc === 2) i++;
+      }
+      if (addExplicitTags) {
+        if (codePoints.length > 0) codePoints += ' ';
+        codePoints += 'U+E007F';
+        encoded += String.fromCodePoint(0xE007F);
+      }
+    } else if (strategy === 'variant') {
+      let vs2Offset = parseInt(document.getElementById('vs2Offset').value, 10) || 16;
+      for (let i = 0; i < message.length; i++) {
+        let cp = message.codePointAt(i);
+        let inc = cp > 0xFFFF ? 2 : 1;
+        if (cp >= 0 && cp <= 15) {
+          let variantCode = 0xFE00 + cp;
+          encoded += String.fromCodePoint(variantCode);
+          codePoints += 'U+' + variantCode.toString(16).toUpperCase() + (i < message.length - 1 ? ' ' : '');
+        } else if (cp >= 16 && cp <= 255) {
+          let variantCode = 0xE0100 + (cp - vs2Offset);
+          encoded += String.fromCodePoint(variantCode);
+          codePoints += 'U+' + variantCode.toString(16).toUpperCase() + (i < message.length - 1 ? ' ' : '');
+        } else {
+          invalidChars += String.fromCodePoint(cp);
+        }
+        if (inc === 2) i++;
+      }
+    } else if (strategy === 'binary') {
+      const encoderObj = new TextEncoder();
+      const byteArray = encoderObj.encode(message);
+      for (let i = 0; i < byteArray.length; i++) {
+        let byte = byteArray[i];
+        let bin = byte.toString(2).padStart(8, '0');
+        for (let bit of bin) {
+          encoded += (bit === '0' ? binary0 : binary1);
+        }
+        codePoints += bin + (i < byteArray.length - 1 ? ' ' : '');
+      }
+    }
+    if (invalidChars.length > 0) {
+      updateStatus('Invalid characters detected: ' + invalidChars);
+    }
+    return [codePoints, encoded];
+  }
+
+  function recursiveDecodeTokens(text, options) {
+    let tokens = [];
+    let stats = { unicodeTagCount: 0, variantCount: 0, otherInvisibleCount: 0, binaryCount: 0 };
+    let i = 0;
+    while (i < text.length) {
+      let cp = text.codePointAt(i);
+      let char = String.fromCodePoint(cp);
+      let inc = (cp > 0xFFFF) ? 2 : 1;
+      if (options.detectUnicodeTags && cp === 0xE0001) {
+        i += inc;
+        let tagContent = "";
+        while (i < text.length) {
+          let innerCp = text.codePointAt(i);
+          let innerInc = (innerCp > 0xFFFF) ? 2 : 1;
+          if (innerCp === 0xE007F) {
+            i += innerInc;
+            break;
+          }
+          if (innerCp >= 0xE0000 && innerCp < 0xE007F) {
+            tagContent += String.fromCharCode(innerCp - 0xE0000);
+          } else {
+            tagContent += String.fromCodePoint(innerCp);
+          }
+          i += innerInc;
+        }
+        stats.unicodeTagCount += tagContent.length;
+        let innerResult = recursiveDecodeTokens(tagContent, options);
+        let decodedText = tokensToPlain(innerResult.tokens);
+        tokens.push({
+          text: decodedText,
+          highlight: true,
+          type: "tag",
+          title: "Unicode Tag Decoded: " + tagContent
+        });
+        continue;
+      }
+      if (options.detectVariantSelectors) {
+        if (cp >= 0xFE00 && cp <= 0xFE00 + 15) {
+          let decodedChar = String.fromCharCode(cp - 0xFE00);
+          stats.variantCount++;
+          tokens.push({
+            text: decodedChar,
+            highlight: true,
+            type: "variant",
+            title: "Variant Selector Decoded: " + decodedChar
+          });
+          i += inc;
+          continue;
+        }
+        if (cp >= 0xE0100 + (16 - options.vs2Offset) && cp <= 0xE0100 + (255 - options.vs2Offset)) {
+          let decodedChar = String.fromCharCode((cp - 0xE0100) + options.vs2Offset);
+          stats.variantCount++;
+          tokens.push({
+            text: decodedChar,
+            highlight: true,
+            type: "variant",
+            title: "Variant Selector Decoded: " + decodedChar
+          });
+          i += inc;
+          continue;
+        }
+      }
+      if (options.detectOtherInvisible && invisibleMapping[cp]) {
+        stats.otherInvisibleCount++;
+        tokens.push({
+          text: "U+" + cp.toString(16).toUpperCase(),
+          highlight: true,
+          type: "invisible",
+          title: invisibleMapping[cp]
+        });
+        i += inc;
+        continue;
+      }
+      if (char === options.binary0 || char === options.binary1) {
+        let run = "";
+        while (i < text.length && (text[i] === options.binary0 || text[i] === options.binary1)) {
+          run += text[i];
+          i++;
+        }
+        if (options.decodeBinary) {
+          if (run.length % 8 === 0) {
+            let byteArray = [];
+            for (let j = 0; j < run.length; j += 8) {
+              let chunk = run.substr(j, 8);
+              let binStr = "";
+              for (let k = 0; k < chunk.length; k++) {
+                binStr += (chunk[k] === options.binary0 ? '0' : '1');
+              }
+              byteArray.push(parseInt(binStr, 2));
+            }
+            try {
+              let decoder = new TextDecoder("utf-8");
+              let decodedSegment = decoder.decode(new Uint8Array(byteArray));
+              stats.binaryCount += decodedSegment.length;
+              let innerResult = recursiveDecodeTokens(decodedSegment, options);
+              let finalText = tokensToPlain(innerResult.tokens);
+              tokens.push({
+                text: finalText,
+                highlight: true,
+                type: "binary",
+                title: "Sneaky Bits Decoded (" + decodedSegment.length + " characters)"
+              });
+            } catch(e) {
+              tokens.push({
+                text: run,
+                highlight: true,
+                type: "binary",
+                title: "Binary Decode Error: " + e.message
+              });
+            }
+          } else {
+            tokens.push({ text: run, highlight: false });
+          }
+        } else {
+          tokens.push({ 
+            text: run, 
+            highlight: true, 
+            type: "binary", 
+            title: "Sneaky Bits (pending decode)", 
+            binary: true 
+          });
+        }
+        continue;
+      }
+      tokens.push({ text: char, highlight: false });
+      i += inc;
+    }
+    return { tokens: tokens, stats: stats };
+  }
+
+  function tokensToPlain(tokens) {
+    return tokens.map(t => t.text).join("");
+  }
+
+  function tokensToHTML(tokens) {
+    return tokens.map(t => {
+      if (t.highlight) {
+        let className = "highlight";
+        if (t.type === "variant") className = "variant";
+        else if (t.type === "invisible") className = "invisible";
+        else if (t.type === "binary") className = "binary";
+        let extra = t.binary ? ' data-binary="true"' : '';
+        return '<span class="' + className + '"' + extra + ' title="' + escapeHtml(t.title) + '">' + escapeHtml(t.text) + '</span>';
+      } else {
+        return t.binary ? '<span data-binary="true">' + escapeHtml(t.text) + '</span>' : escapeHtml(t.text);
+      }
+    }).join("");
+  }
+
+  function fullyDecode(text, options) {
+    let prev = text;
+    let aggregatedStats = { unicodeTagCount: 0, variantCount: 0, otherInvisibleCount: 0, binaryCount: 0 };
+    let finalTokens = [];
+    while (true) {
+      let result = recursiveDecodeTokens(prev, options);
+      aggregatedStats.unicodeTagCount += result.stats.unicodeTagCount;
+      aggregatedStats.variantCount    += result.stats.variantCount;
+      aggregatedStats.otherInvisibleCount += result.stats.otherInvisibleCount;
+      aggregatedStats.binaryCount     += result.stats.binaryCount;
+      let newPlain = tokensToPlain(result.tokens);
+      if(newPlain === prev) {
+        finalTokens = result.tokens;
+        break;
+      }
+      prev = newPlain;
+    }
+    return { tokens: finalTokens, stats: aggregatedStats };
+  }
+
+  document.getElementById('encodeButton').addEventListener('click', function() {
+    processMessage('encode');
+  });
+  document.getElementById('decodeButton').addEventListener('click', function() {
+    resetStatus();
+    processMessage('decode');
+  });
+  document.getElementById('inputMessage').addEventListener('input', function() {
+    resetStatus();
+    if (document.getElementById('autoDecodeInput').checked) {
+      processMessage('decode');
+    }
+  });
+  document.getElementById('clearButton').addEventListener('click', function() {
+    clearFields();
+  });
+  document.querySelector('.toggle-advanced').addEventListener('click', function() {
+    const adv = document.getElementById('advancedOptions');
+    adv.classList.toggle('visible');
+    saveOptions();
+  });
+  document.querySelectorAll('input[name="encodingStrategy"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      if (this.value === 'variant') {
+        document.getElementById('variantOptions').style.display = 'block';
+        document.getElementById('binaryOptions').style.display = 'none';
+        document.getElementById('unicodeTagOptions').style.display = 'none';
+      } else if (this.value === 'binary') {
+        document.getElementById('binaryOptions').style.display = 'block';
+        document.getElementById('variantOptions').style.display = 'none';
+        document.getElementById('unicodeTagOptions').style.display = 'none';
+      } else if (this.value === 'unicode') {
+        document.getElementById('unicodeTagOptions').style.display = 'block';
+        document.getElementById('variantOptions').style.display = 'none';
+        document.getElementById('binaryOptions').style.display = 'none';
+      } else {
+        document.getElementById('variantOptions').style.display = 'none';
+        document.getElementById('binaryOptions').style.display = 'none';
+        document.getElementById('unicodeTagOptions').style.display = 'none';
+      }
+      saveOptions();
+    });
+  });
+
+  function processMessage(action) {
+    let msg = document.getElementById('inputMessage').value;
+    if (document.getElementById('decodeUriComponent').checked) {
+      try {
+        msg = decodeURIComponent(msg);
+      } catch (e) {
+        updateStatus('Error decoding URI component: ' + e.message);
+        return;
+      }
+    }
+    if (action === 'encode') {
+      let [codePoints, encoded] = encodeMessage(msg);
+      let outputElement = document.getElementById('outputMessage');
+      outputElement.textContent = codePoints;
+      copyToClipboard(encoded);
+    } else {
+      decodeMessage(msg);
+    }
+  }
+
+  function decodeMessage(message) {
+    let outputMessageElement = document.getElementById('outputMessage');
+    let debugOutputElement = document.getElementById('debugOutput');
+    outputMessageElement.innerHTML = '';
+    
+    const useHighlightMode = document.getElementById('highlightMode').checked;
+    const detectVariantSelectors = document.getElementById('detectVariantSelectors').checked;
+    const detectOtherInvisible = document.getElementById('detectOtherInvisible').checked;
+    const detectUnicodeTags = document.getElementById('detectUnicodeTags').checked;
+    const detectSneakyBits = document.getElementById('detectSneakyBits').checked;
+    const vs2Offset = parseInt(document.getElementById('vs2Offset').value, 10) || 16;
+    
+    let codePointCount = 0;
+    for (let i = 0; i < message.length; i++) {
+      let cp = message.codePointAt(i);
+      codePointCount++;
+      if (cp > 0xFFFF) i++;
+    }
+    
+    let stats = { 
+      unicodeTagCount: 0, 
+      variantCount: 0, 
+      otherInvisibleCount: 0, 
+      binaryBits: 0,
+      totalChars: codePointCount
+    };
+    let detected = false;
+    let sneakyBitsDetected = false;
+    
+    let debugInfo = [];
+    
+    for (let i = 0; i < message.length; i++) {
+      let cp = message.codePointAt(i);
+      let char = String.fromCodePoint(cp);
+      let inc = (cp > 0xFFFF) ? 2 : 1;
+      
+      let type = 'regular';
+      if (detectUnicodeTags && cp >= 0xE0000 && cp <= 0xE007F) {
+        type = 'tag';
+      } else if (detectVariantSelectors && 
+                ((cp >= 0xFE00 && cp <= 0xFE0F) || 
+                 (cp >= 0xE0100 && cp <= 0xE01EF))) {
+        type = 'variant';
+      } else if (detectOtherInvisible && invisibleMapping[cp]) {
+        type = 'invisible';
+      } else if (detectSneakyBits && (char === binary0 || char === binary1)) {
+        type = 'binary';
+      }
+      
+      debugInfo.push({
+        char: char,
+        cp: cp,
+        type: type,
+        position: i,
+        isBinary0: char === binary0,
+        isBinary1: char === binary1
+      });
+      
+      if (inc === 2) i++;
+      
+      if (detectSneakyBits && (char === binary0 || char === binary1)) {
+        let binarySequence = '';
+        let startIndex = i;
+        let originalChars = [];
+        let originalPositions = [];
+        
+        while (i < message.length) {
+          let currentCp = message.codePointAt(i);
+          let currentChar = String.fromCodePoint(currentCp);
+          let currentInc = (currentCp > 0xFFFF) ? 2 : 1;
+          if (currentChar === binary0 || currentChar === binary1) {
+            binarySequence += (currentChar === binary0) ? '0' : '1';
+            originalChars.push(currentChar);
+            originalPositions.push(i);
+            i += currentInc;
+          } else {
+            break;
+          }
+        }
+        
+        stats.binaryBits += originalChars.length;
+        
+        for (let j = 1; j < originalPositions.length; j++) {
+          let pos = originalPositions[j];
+          let binChar = originalChars[j];
+          let binCp = binChar.codePointAt(0);
+          debugInfo.push({
+            char: binChar,
+            cp: binCp,
+            type: 'binary',
+            position: pos,
+            isBinary0: binChar === binary0,
+            isBinary1: binChar === binary1
+          });
+        }
+        
+        i--;
+        detected = true;
+        sneakyBitsDetected = true;
+        
+        let decodedText = '';
+        let decodingSuccessful = false;
+        
+        if (binarySequence.length % 8 === 0) {
+          try {
+            let byteArray = [];
+            for (let j = 0; j < binarySequence.length; j += 8) {
+              let chunk = binarySequence.substr(j, 8);
+              byteArray.push(parseInt(chunk, 2));
+            }
+            let decoder = new TextDecoder("utf-8", {fatal: true});
+            decodedText = decoder.decode(new Uint8Array(byteArray));
+            if (decodedText && decodedText.length > 0) {
+              decodingSuccessful = true;
+            }
+          } catch (e) {
+            decodingSuccessful = false;
+          }
+        }
+        
+        if (decodingSuccessful) {
+          for (let j = 0; j < decodedText.length; j++) {
+            const span = document.createElement('span');
+            span.classList.add('binary');
+            span.textContent = decodedText[j];
+            span.title = "Decoded from Sneaky Bits";
+            outputMessageElement.appendChild(span);
+          }
+        } else {
+          for (let j = 0; j < originalChars.length; j++) {
+            if (useHighlightMode) {
+              const span = document.createElement('span');
+              span.classList.add('binary');
+              span.textContent = originalChars[j];
+              span.title = "Binary " + (originalChars[j] === binary0 ? "0" : "1");
+              outputMessageElement.appendChild(span);
+            } else {
+              const span = document.createElement('span');
+              span.classList.add('binary');
+              span.textContent = originalChars[j] === binary0 ? "0" : "1";
+              span.title = "Binary " + (originalChars[j] === binary0 ? "0" : "1");
+              outputMessageElement.appendChild(span);
+            }
+          }
+        }
+      }
+      else if (detectUnicodeTags && cp >= 0xE0000 && cp <= 0xE007F) {
+        detected = true;
+        stats.unicodeTagCount++;
+        const decodedChar = String.fromCharCode(cp - 0xE0000);
+        if (useHighlightMode) {
+          const span = document.createElement('span');
+          span.classList.add('highlight');
+          span.textContent = decodedChar;
+          span.title = "Unicode Tag: " + decodedChar;
+          outputMessageElement.appendChild(span);
+        } else {
+          outputMessageElement.textContent += decodedChar;
+        }
+      }
+      else if (detectVariantSelectors && cp >= 0xFE00 && cp <= 0xFE0F) {
+        detected = true;
+        stats.variantCount++;
+        if (useHighlightMode) {
+          const span = document.createElement('span');
+          span.classList.add('variant');
+          span.textContent = String.fromCharCode(cp - 0xFE00);
+          span.title = "Variant Selector: " + String.fromCharCode(cp - 0xFE00);
+          outputMessageElement.appendChild(span);
+        } else {
+          outputMessageElement.textContent += String.fromCharCode(cp - 0xFE00);
+        }
+      }
+      else if (detectVariantSelectors && cp >= 0xE0100 && cp <= 0xE01EF) {
+        detected = true;
+        stats.variantCount++;
+        const decodedChar = String.fromCharCode((cp - 0xE0100) + vs2Offset);
+        if (useHighlightMode) {
+          const span = document.createElement('span');
+          span.classList.add('variant');
+          span.textContent = decodedChar;
+          span.title = "Variant Selector: " + decodedChar;
+          outputMessageElement.appendChild(span);
+        } else {
+          outputMessageElement.textContent += decodedChar;
+        }
+      }
+      else if (detectOtherInvisible && invisibleMapping[cp]) {
+        detected = true;
+        stats.otherInvisibleCount++;
+        if (useHighlightMode) {
+          const span = document.createElement('span');
+          span.classList.add('invisible');
+          span.textContent = "U+" + cp.toString(16).toUpperCase();
+          span.title = invisibleMapping[cp];
+          outputMessageElement.appendChild(span);
+        } else {
+          outputMessageElement.textContent += String.fromCodePoint(cp);
+        }
+      }
+      else {
+        const isBinaryChar = char === binary0 || char === binary1;
+        if (isBinaryChar) {
+          if (useHighlightMode) {
+            const span = document.createElement('span');
+            span.classList.add('binary');
+            span.textContent = char === binary0 ? "0" : "1";
+            span.title = "Binary " + (char === binary0 ? "0" : "1");
+            outputMessageElement.appendChild(span);
+          } else {
+            const span = document.createElement('span');
+            span.classList.add('binary');
+            span.textContent = char === binary0 ? "0" : "1";
+            span.title = "Binary " + (char === binary0 ? "0" : "1");
+            outputMessageElement.appendChild(span);
+          }
+        } else {
+          if (useHighlightMode) {
+            const span = document.createElement('span');
+            span.textContent = char;
+            outputMessageElement.appendChild(span);
+          } else {
+            outputMessageElement.textContent += char;
+          }
+        }
+      }
+    }
+    
+    updateDebugOutput(debugInfo);
+    
+    if (detected) {
+      outputMessageElement.style.border = '2px solid red';
+      document.getElementById('totalChars').textContent = stats.totalChars;
+      document.getElementById('unicodeTagCount').textContent = stats.unicodeTagCount;
+      document.getElementById('variantCount').textContent = stats.variantCount;
+      document.getElementById('binaryBits').textContent = stats.binaryBits;
+      document.getElementById('binaryBytes').textContent = Math.floor(stats.binaryBits / 8);
+      document.getElementById('invisibleCount').textContent = stats.otherInvisibleCount;
+      
+      let statusMsg = 'Hidden characters discovered.';
+      if (sneakyBitsDetected) {
+        statusMsg += ' Sneaky Bits detected: ' + stats.binaryBits + '. Beware: there might be recursive Sneaky Bits.';
+      }
+      updateStatus(statusMsg);
+    } else {
+      outputMessageElement.style.border = '1px solid #ccc';
+      document.getElementById('totalChars').textContent = stats.totalChars;
+      document.getElementById('unicodeTagCount').textContent = '0';
+      document.getElementById('variantCount').textContent = '0';
+      document.getElementById('binaryBits').textContent = '0';
+      document.getElementById('binaryBytes').textContent = '0';
+      document.getElementById('invisibleCount').textContent = '0';
+      updateStatus('No hidden text detected.');
+    }
+  }
+
+  function detectDecodingOptions(message) {
+    let hasVariant = false;
+    let hasBinary = false;
+    const vs2Offset = parseInt(document.getElementById('vs2Offset').value, 10) || 16;
+    let binaryRun = 0;
+    for (let i = 0; i < message.length; i++) {
+      let cp = message.codePointAt(i);
+      if ((cp >= 0xFE00 && cp <= 0xFE0F) ||
+          (cp >= 0xE0100 && cp <= 0xE01EF)) {
+        hasVariant = true;
+      }
+      if (message[i] === binary0 || message[i] === binary1) {
+        binaryRun++;
+        if (binaryRun >= 8) {
+          hasBinary = true;
+        }
+      } else {
+        binaryRun = 0;
+      }
+    }
+    return { hasVariant, hasBinary };
+  }
+
+  function updateStatus(message, isHighlighted = false) {
+    const statusMessage = document.getElementById('statusMessage');
+    statusMessage.textContent = message;
+    statusMessage.style.fontSize = isHighlighted ? '16px' : '';
+  }
+
+  function resetStatus() {
+    updateStatus('');
+    document.getElementById('outputMessage').style.border = '1px solid #ccc';
+  }
+
+  function clearFields() {
+    document.getElementById('inputMessage').value = '';
+    document.getElementById('outputMessage').textContent = '';
+    document.getElementById('debugOutput').innerHTML = '';
+    resetStatus();
+    document.getElementById('totalChars').textContent = '0';
+    document.getElementById('unicodeTagCount').textContent = '0';
+    document.getElementById('variantCount').textContent = '0';
+    document.getElementById('binaryBits').textContent = '0';
+    document.getElementById('binaryBytes').textContent = '0';
+    document.getElementById('invisibleCount').textContent = '0';
+  }
+
+  function copyToClipboard(content) {
+    navigator.clipboard.writeText(content).then(() => {
+      updateStatus('Text copied to clipboard!', true);
+    }).catch(err => {
+      updateStatus('Failed to copy text: ' + err);
+    });
+  }
+
+  function loadOptions() {
+    const opts = JSON.parse(localStorage.getItem('asciiSmugglerOptions'));
+    if (opts) {
+      document.querySelector('input[name="encodingStrategy"][value="' + opts.encodingStrategy + '"]').checked = true;
+      if (opts.encodingStrategy === 'variant') {
+        document.getElementById('variantOptions').style.display = 'block';
+      } else if (opts.encodingStrategy === 'binary') {
+        document.getElementById('binaryOptions').style.display = 'block';
+      } else if (opts.encodingStrategy === 'unicode') {
+        document.getElementById('unicodeTagOptions').style.display = 'block';
+      }
+      document.getElementById('vs2Offset').value = opts.vs2Offset || 16;
+      document.getElementById('binary0').value = opts.binary0 || "⁢";
+      document.getElementById('binary1').value = opts.binary1 || "⁤";
+      document.getElementById('decodeUriComponent').checked = opts.decodeUri || false;
+      document.getElementById('highlightMode').checked = opts.highlightMode;
+      document.getElementById('detectUnicodeTags').checked = opts.detectUnicodeTags;
+      document.getElementById('detectVariantSelectors').checked = opts.detectVariantSelectors;
+      document.getElementById('detectOtherInvisible').checked = opts.detectOtherInvisible;
+      document.getElementById('detectSneakyBits').checked = opts.detectSneakyBits !== undefined ? opts.detectSneakyBits : true;
+      document.getElementById('autoDecodeInput').checked = opts.autoDecodeInput !== undefined ? opts.autoDecodeInput : true;
+      document.getElementById('showVerboseInfo').checked = opts.showVerboseInfo || false;
+      if (opts.showVerboseInfo) {
+        document.getElementById('verboseInfoSection').classList.add('visible');
+      }
+      if (opts.addExplicitTags !== undefined) {
+        document.getElementById('addExplicitTags').checked = opts.addExplicitTags;
+      }
+      if (opts.debugFormat) {
+        document.querySelector('input[name="debugFormat"][value="' + opts.debugFormat + '"]').checked = true;
+      }
+      if (opts.advancedOptionsVisible) {
+        document.getElementById('advancedOptions').classList.add('visible');
+      }
+      if (opts.inputOptionsExpanded) {
+        document.getElementById('basicCharOptions').style.display = 'none';
+        document.getElementById('advancedCharOptions').style.display = 'block';
+        document.getElementById('expandInputOptions').textContent = '-';
+        document.getElementById('expandInputOptions').title = 'Hide character options';
+      }
+    } else {
+      document.getElementById('highlightMode').checked = true;
+      document.getElementById('detectSneakyBits').checked = true;
+      document.getElementById('autoDecodeInput').checked = true;
+      document.getElementById('addExplicitTags').checked = true;
+      document.querySelector('input[name="encodingStrategy"][value="unicode"]').checked = true;
+      document.getElementById('unicodeTagOptions').style.display = 'block';
+      // Default to expanded input options
+      document.getElementById('basicCharOptions').style.display = 'none';
+      document.getElementById('advancedCharOptions').style.display = 'block';
+      document.getElementById('expandInputOptions').textContent = '-';
+      document.getElementById('expandInputOptions').title = 'Hide character options';
+    }
+  }
+  document.addEventListener('DOMContentLoaded', loadOptions);
+
+  function saveOptions() {
+    const opts = {
+      encodingStrategy: document.querySelector('input[name="encodingStrategy"]:checked').value,
+      vs2Offset: document.getElementById('vs2Offset').value,
+      binary0: document.getElementById('binary0').value,
+      binary1: document.getElementById('binary1').value,
+      decodeUri: document.getElementById('decodeUriComponent').checked,
+      highlightMode: document.getElementById('highlightMode').checked,
+      detectUnicodeTags: document.getElementById('detectUnicodeTags').checked,
+      detectVariantSelectors: document.getElementById('detectVariantSelectors').checked,
+      detectOtherInvisible: document.getElementById('detectOtherInvisible').checked,
+      detectSneakyBits: document.getElementById('detectSneakyBits').checked,
+      autoDecodeInput: document.getElementById('autoDecodeInput').checked,
+      showVerboseInfo: document.getElementById('showVerboseInfo').checked,
+      addExplicitTags: document.getElementById('addExplicitTags').checked,
+      debugFormat: document.querySelector('input[name="debugFormat"]:checked').value,
+      advancedOptionsVisible: document.getElementById('advancedOptions').classList.contains('visible'),
+      inputOptionsExpanded: document.getElementById('advancedCharOptions').style.display === 'block'
+    };
+    localStorage.setItem('asciiSmugglerOptions', JSON.stringify(opts));
+  }
+  document.getElementById('decodeUriComponent').addEventListener('change', saveOptions);
+  document.getElementById('highlightMode').addEventListener('change', function() {
+    saveOptions();
+    processMessage("decode");
+  });
+  document.getElementById('detectUnicodeTags').addEventListener('change', saveOptions);
+  document.getElementById('detectVariantSelectors').addEventListener('change', saveOptions);
+  document.getElementById('detectOtherInvisible').addEventListener('change', saveOptions);
+  document.getElementById('detectSneakyBits').addEventListener('change', saveOptions);
+  document.getElementById('autoDecodeInput').addEventListener('change', saveOptions);
+  document.getElementById('showVerboseInfo').addEventListener('change', function() {
+    document.getElementById('verboseInfoSection').classList.toggle('visible');
+    saveOptions();
+    processMessage('decode');
+  });
+
+  document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(input => {
+    input.addEventListener('change', function() {
+      if (this.id !== 'autoDecodeInput' && this.id !== 'showVerboseInfo') {
+        processMessage('decode');
+      }
+    });
+  });
+
+  document.querySelectorAll('.char-button, .emoji-button').forEach(button => {
+    button.addEventListener('click', function() {
+      const char = this.getAttribute('data-char');
+      copyToClipboard(char);
+    });
+  });
+
+  document.getElementById('expandInputOptions').addEventListener('click', function() {
+    const basicOptions = document.getElementById('basicCharOptions');
+    const advancedOptions = document.getElementById('advancedCharOptions');
+    if (advancedOptions.style.display === 'none') {
+      basicOptions.style.display = 'none';
+      advancedOptions.style.display = 'block';
+      this.textContent = '-';
+      this.title = 'Hide character options';
+    } else {
+      basicOptions.style.display = 'block';
+      advancedOptions.style.display = 'none';
+      this.textContent = '+';
+      this.title = 'Show character options';
+    }
+    saveOptions();
+  });
+
+  document.querySelectorAll('input[name="debugFormat"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      const message = document.getElementById('inputMessage').value;
+      if (message) {
+        processMessage('decode');
+      }
+      saveOptions();
+    });
+  });
+
+  function updateDebugOutput(debugInfo) {
+    const debugOutputElement = document.getElementById('debugOutput');
+    const debugFormat = document.querySelector('input[name="debugFormat"]:checked').value;
+    let output = '';
+    for (let entry of debugInfo) {
+      let formattedValue = '';
+      if (debugFormat === 'binary') {
+        if (entry.cp <= 0x7F) {
+          formattedValue = entry.cp.toString(2).padStart(8, '0');
+        } else {
+          const encoder = new TextEncoder();
+          const bytes = encoder.encode(entry.char);
+          formattedValue = Array.from(bytes).map(b => b.toString(2).padStart(8, '0')).join(' ');
+        }
+      } else if (debugFormat === 'hex') {
+        const encoder = new TextEncoder();
+        const bytes = encoder.encode(entry.char);
+        formattedValue = Array.from(bytes).map(b => b.toString(16).toUpperCase().padStart(2, '0')).join(' ');
+      } else if (debugFormat === 'unicode') {
+        const padLength = entry.cp > 0xFFFF ? 6 : 4;
+        formattedValue = 'U+' + entry.cp.toString(16).toUpperCase().padStart(padLength, '0');
+      }
+      let className = '';
+      let title = '';
+      const isBinary = entry.type === 'binary' || entry.isBinary0 === true || entry.isBinary1 === true;
+      if (entry.type === 'tag') {
+        className = 'highlight';
+        title = `Unicode Tag: ${entry.char}`;
+      } else if (entry.type === 'variant') {
+        className = 'variant';
+        title = `Variant Selector: ${entry.char}`;
+      } else if (entry.type === 'invisible') {
+        className = 'invisible';
+        title = invisibleMapping[entry.cp] || 'Invisible Character';
+      } else if (isBinary) {
+        className = 'binary';
+        const isBinary0Value = entry.isBinary0 === true;
+        title = `Binary ${isBinary0Value ? '0' : '1'}`;
+      } else {
+        title = `Character: ${entry.char}`;
+      }
+      if (className) {
+        output += `<span class="${className}" title="${title}">${formattedValue}</span> `;
+      } else {
+        output += `<span title="${title}">${formattedValue}</span> `;
+      }
+    }
+    debugOutputElement.innerHTML = output;
+  }
+</script>
 </body>
 </html>

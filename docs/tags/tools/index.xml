@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Mon, 04 Mar 2024 08:20:10 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Mar 2025 17:21:25 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sneaky Bits: Advanced Data Smuggling Techniques (ASCII Smuggler Updates)</title>
+      <link>https://embracethered.com/blog/posts/2025/sneaky-bits-and-ascii-smuggler/</link>
+      <pubDate>Wed, 12 Mar 2025 17:21:25 -0700</pubDate>
+      
+      <guid>https://embracethered.com/blog/posts/2025/sneaky-bits-and-ascii-smuggler/</guid>
+      <description>You are likely aware of ASCII Smuggling via Unicode Tags. It is unique and fascinating because many LLMs inherently interpret these as instructions when delivered as hidden prompt injection, and LLMs can also emit them. Then, a few weeks ago, a post on Hacker News demonstrated how Variant Selectors can be used to smuggle text.
+This inspired me to take this further and build Sneaky Bits, where we can encode any Unicode character, not limited to ASCII, with the usage of only two invisible characters.</description>
+    </item>
+    
     <item>
       <title>ASCII Smuggler - Improvements</title>
       <link>https://embracethered.com/blog/posts/2024/ascii-smuggler-updates/</link>
