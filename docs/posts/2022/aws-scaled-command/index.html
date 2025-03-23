@@ -139,29 +139,29 @@
 <p>For that purpose, I have used a simple <code>bash</code> script called <code>aws-scaled-command.sh</code>:</p>
 <pre tabindex="0"><code>#!/bin/bash
 
-PROFILES=$(cat ~/.aws/credentials | grep  '\[*.\]' | sed 's/[][]//g')
+PROFILES=$(cat ~/.aws/credentials | grep  &#39;\[*.\]&#39; | sed &#39;s/[][]//g&#39;)
 CMD=$1
 
 if [[ -v $1 ]]; then
-  echo &quot;Error: AWS command not provided: ./aws-scaled-command.sh 's3 ls'&quot;
+  echo &#34;Error: AWS command not provided: ./aws-scaled-command.sh &#39;s3 ls&#39;&#34;
   exit
 fi
 
-echo &quot;Using command: aws $1&quot;
-echo &quot;Public Source IP Address:&quot; $(curl --silent https://checkip.amazonaws.com)
+echo &#34;Using command: aws $1&#34;
+echo &#34;Public Source IP Address:&#34; $(curl --silent https://checkip.amazonaws.com)
 
 for PROFILE in $PROFILES
 do
     echo COMMAND START::$CMD::PROFILE::$PROFILE::DATE::$(date)
-    echo -n &quot;INFO:Getting caller identity: &quot;
+    echo -n &#34;INFO:Getting caller identity: &#34;
     
-    IAM=&quot;&quot;
+    IAM=&#34;&#34;
     IAM=$(AWS_PROFILE=$PROFILE aws sts get-caller-identity | jq .Arn)
     
-    if [[ $IAM != &quot;&quot; ]]; then
+    if [[ $IAM != &#34;&#34; ]]; then
       
       echo $IAM
-      echo &quot;INFO::Running command aws $CMD: &quot;
+      echo &#34;INFO::Running command aws $CMD: &#34;
       
       AWS_PROFILE=$PROFILE aws $1
       echo COMMAND EXIT::$CMD::PROFILE::$PROFILE::USER::$IAM::EXIT CODE::$?
@@ -172,7 +172,7 @@ do
     
 done
 
-echo &quot;Done.&quot;
+echo &#34;Done.&#34;
 </code></pre><h2 id="usage">Usage</h2>
 <p>The following is a basic invocation to run <code>aws s3 ls</code> for all profiles inside <code>~/.aws/credentials</code>. Be careful to provide single quotes around the first argument passed into the script.</p>
 <p><code>./aws-scaled-command.sh 's3 ls'</code></p>

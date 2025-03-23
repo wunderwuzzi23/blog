@@ -1,244 +1,160 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>blue on Embrace The Red</title>
+    <title>Blue on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/blue/</link>
-    <description>Recent content in blue on Embrace The Red</description>
+    <description>Recent content in Blue on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Tue, 30 Jul 2024 10:00:36 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/blue/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Jul 2024 10:00:36 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/blue/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protect Your Copilots: Preventing Data Leaks in Copilot Studio</title>
       <link>https://embracethered.com/blog/posts/2024/copilot-studio-protect-your-copilots/</link>
       <pubDate>Tue, 30 Jul 2024 10:00:36 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/copilot-studio-protect-your-copilots/</guid>
-      <description>Microsoft&amp;rsquo;s Copilot Studio is a powerful, easy-to-use, low-code platform that enables employees in an organization to create chatbots. Previously known as Power Virtual Agents, it has been updated (including GenAI features) and rebranded to Copilot Studio, likely to align with current AI trends.
-
-This post discusses security risks to be aware of when using Copilot Studio, focusing on data leaks, unauthorized access, and how external adversaries can find and interact with misconfigured Copilots.</description>
+      <description>Microsoft&amp;rsquo;s Copilot Studio is a powerful, easy-to-use, low-code platform that enables employees in an organization to create chatbots. Previously known as Power Virtual Agents, it has been updated (including GenAI features) and rebranded to Copilot Studio, likely to align with current AI trends.&#xA;This post discusses security risks to be aware of when using Copilot Studio, focusing on data leaks, unauthorized access, and how external adversaries can find and interact with misconfigured Copilots.</description>
     </item>
-    
     <item>
       <title>The dangers of AI agents unfurling hyperlinks and what to do about it</title>
       <link>https://embracethered.com/blog/posts/2024/the-dangers-of-unfurling-and-what-you-can-do-about-it/</link>
       <pubDate>Tue, 02 Apr 2024 20:00:48 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/the-dangers-of-unfurling-and-what-you-can-do-about-it/</guid>
-      <description>About a year ago we talked about how developers can&amp;rsquo;t intrinsically trust LLM responses and common threats that AI Chatbots face and how attackers can exploit them, including ways to exfiltrate data.
-One of the threats is unfurling of hyperlinks, which can lead to data exfiltration and is something often seen in Chatbots. So, let&amp;rsquo;s shine more light on it, including practical guidance on how to mitigate it with the example of Slack Apps.</description>
+      <description>About a year ago we talked about how developers can&amp;rsquo;t intrinsically trust LLM responses and common threats that AI Chatbots face and how attackers can exploit them, including ways to exfiltrate data.&#xA;One of the threats is unfurling of hyperlinks, which can lead to data exfiltration and is something often seen in Chatbots. So, let&amp;rsquo;s shine more light on it, including practical guidance on how to mitigate it with the example of Slack Apps.</description>
     </item>
-    
     <item>
       <title>Offensive BPF: Understanding and using bpf_probe_write_user</title>
       <link>https://embracethered.com/blog/posts/2021/offensive-bpf-libbpf-bpf_probe_write_user/</link>
       <pubDate>Wed, 20 Oct 2021 00:04:40 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/offensive-bpf-libbpf-bpf_probe_write_user/</guid>
-      <description>This post is part of a series about Offensive BPF to learn how BPFs use will impact offensive security, malware, and detection engineering.
-Click the &amp;ldquo;ebpf&amp;rdquo; tag to see all relevant posts.
-Building advanced BPF programs So far in this Offensive BPF series the focus was on bpftrace to build and run BPF programs.
-The next thing I wanted to investigate is what options are available to modify data structures during BPF execution.</description>
+      <description>This post is part of a series about Offensive BPF to learn how BPFs use will impact offensive security, malware, and detection engineering.&#xA;Click the &amp;ldquo;ebpf&amp;rdquo; tag to see all relevant posts.&#xA;Building advanced BPF programs So far in this Offensive BPF series the focus was on bpftrace to build and run BPF programs.&#xA;The next thing I wanted to investigate is what options are available to modify data structures during BPF execution.</description>
     </item>
-    
     <item>
       <title>Offensive BPF: Sniffing Firefox traffic with bpftrace</title>
       <link>https://embracethered.com/blog/posts/2021/offensive-bpf-sniffing-traffic-bpftrace/</link>
       <pubDate>Thu, 14 Oct 2021 00:10:16 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/offensive-bpf-sniffing-traffic-bpftrace/</guid>
-      <description>This post is part of a series about Offensive BPF that I&amp;rsquo;m working on to learn how BPFs use will impact offensive security, malware, and detection engineering.
-Click the &amp;ldquo;ebpf&amp;rdquo; tag to see all relevant posts.
-One of the issues I ran into when trying out sslsniff-bpfcc was that it did not work with Firefox or Chrome traffic.
-This post is about me learning how to hook user space APIs with bpftrace using uprobes.</description>
+      <description>This post is part of a series about Offensive BPF that I&amp;rsquo;m working on to learn how BPFs use will impact offensive security, malware, and detection engineering.&#xA;Click the &amp;ldquo;ebpf&amp;rdquo; tag to see all relevant posts.&#xA;One of the issues I ran into when trying out sslsniff-bpfcc was that it did not work with Firefox or Chrome traffic.&#xA;This post is about me learning how to hook user space APIs with bpftrace using uprobes.</description>
     </item>
-    
     <item>
       <title>Offensive BPF: What&#39;s in the bpfcc-tools box?</title>
       <link>https://embracethered.com/blog/posts/2021/offensive-bpf-handy-tools/</link>
       <pubDate>Sat, 09 Oct 2021 14:00:59 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/offensive-bpf-handy-tools/</guid>
-      <description>This post is part of a series about Offensive BPF that I&amp;rsquo;m working on to learn about BPF to understand attacks and defenses. Click the &amp;ldquo;ebpf&amp;rdquo; tag to see all relevant posts.
-In the previous posts I spend time learning about bpftrace which is quite powerful. This post is focused on basics and using existing BPF tools, rather then building new BPF programs from scratch.
-Living off the land: bpfcc-tools Performance and observability teams are pushing for BPF tooling to be present in production.</description>
+      <description>This post is part of a series about Offensive BPF that I&amp;rsquo;m working on to learn about BPF to understand attacks and defenses. Click the &amp;ldquo;ebpf&amp;rdquo; tag to see all relevant posts.&#xA;In the previous posts I spend time learning about bpftrace which is quite powerful. This post is focused on basics and using existing BPF tools, rather then building new BPF programs from scratch.&#xA;Living off the land: bpfcc-tools Performance and observability teams are pushing for BPF tooling to be present in production.</description>
     </item>
-    
     <item>
       <title>Offensive BPF: Detection Ideas</title>
       <link>https://embracethered.com/blog/posts/2021/offensive-bpf-detections-initial-ideas/</link>
       <pubDate>Thu, 07 Oct 2021 08:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/offensive-bpf-detections-initial-ideas/</guid>
-      <description>This post is part of a series about Offensive BPF that I&amp;rsquo;m working on to learn how BPFs use will impact offensive security, malware and detection engineering.
-Click the &amp;ldquo;ebpf&amp;rdquo; tag to see all relevant posts.
-In the last few posts, we talked about a bpftrace and how attackers can use it to their advantage. This post is about my initial ideas and strategies to detecting malicious usage.
-Detecting BPF misuse There are a set of detection ideas for Blue Teams.</description>
+      <description>This post is part of a series about Offensive BPF that I&amp;rsquo;m working on to learn how BPFs use will impact offensive security, malware and detection engineering.&#xA;Click the &amp;ldquo;ebpf&amp;rdquo; tag to see all relevant posts.&#xA;In the last few posts, we talked about a bpftrace and how attackers can use it to their advantage. This post is about my initial ideas and strategies to detecting malicious usage.&#xA;Detecting BPF misuse There are a set of detection ideas for Blue Teams.</description>
     </item>
-    
     <item>
       <title>Offensive BPF: Using bpftrace to host backdoors</title>
       <link>https://embracethered.com/blog/posts/2021/offensive-bpf-bpftrace-message-based/</link>
       <pubDate>Wed, 06 Oct 2021 20:00:13 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/offensive-bpf-bpftrace-message-based/</guid>
-      <description>This post is part of a series about Offensive BPF that I&amp;rsquo;m working on to learn how BPFs use will impact offensive security, malware and detection engineering. Click the &amp;ldquo;ebpf&amp;rdquo; tag to see all relevant posts.
-In the last post we talked about a basic bpftrace script to install a BPF program that runs commands upon connecting from a specific IP with a specific magic source port.
-This post will dive into this idea more by leveraging more a complex solution.</description>
+      <description>This post is part of a series about Offensive BPF that I&amp;rsquo;m working on to learn how BPFs use will impact offensive security, malware and detection engineering. Click the &amp;ldquo;ebpf&amp;rdquo; tag to see all relevant posts.&#xA;In the last post we talked about a basic bpftrace script to install a BPF program that runs commands upon connecting from a specific IP with a specific magic source port.&#xA;This post will dive into this idea more by leveraging more a complex solution.</description>
     </item>
-    
     <item>
       <title>Offensive BPF: Malicious bpftrace 🤯</title>
       <link>https://embracethered.com/blog/posts/2021/offensive-bpf-bpftrace/</link>
       <pubDate>Tue, 05 Oct 2021 08:00:58 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/offensive-bpf-bpftrace/</guid>
-      <description>This post is part of a series about Offensive BPF that I&amp;rsquo;m working on to learn about BPF to understand attacks and defenses, click the &amp;ldquo;ebpf&amp;rdquo; tag to see all relevant posts.
-I&amp;rsquo;m learning BPF to understand how its use will impact offensive security, malware, and detection engineering.
-One offsec idea that quickly comes to mind with BPF is to observe network traffic and act upon specific events. So, I wanted to see if/how bpftrace, a popular tool for running BPF programs, can be used to create potential backdoors, and what evidence to look for as defenders.</description>
+      <description>This post is part of a series about Offensive BPF that I&amp;rsquo;m working on to learn about BPF to understand attacks and defenses, click the &amp;ldquo;ebpf&amp;rdquo; tag to see all relevant posts.&#xA;I&amp;rsquo;m learning BPF to understand how its use will impact offensive security, malware, and detection engineering.&#xA;One offsec idea that quickly comes to mind with BPF is to observe network traffic and act upon specific events. So, I wanted to see if/how bpftrace, a popular tool for running BPF programs, can be used to create potential backdoors, and what evidence to look for as defenders.</description>
     </item>
-    
     <item>
       <title>Offensive BPF! Getting started.</title>
       <link>https://embracethered.com/blog/posts/2021/offensive-bpf/</link>
       <pubDate>Thu, 30 Sep 2021 00:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/offensive-bpf/</guid>
-      <description>Over the last few years eBPF has gained a lot of traction in the Linux community and beyond.
-eBPF&amp;rsquo;s offensive usage is also slowly getting more attention. So, I decided to dive into the topic from a red teaming point of view to learn about it to raise awareness and share the journey.
-Similar to the format of my Machine Learning Attack Series, there will be a serious of posts around BPF usage in offensive settings, and also how its misuse can be detected.</description>
+      <description>Over the last few years eBPF has gained a lot of traction in the Linux community and beyond.&#xA;eBPF&amp;rsquo;s offensive usage is also slowly getting more attention. So, I decided to dive into the topic from a red teaming point of view to learn about it to raise awareness and share the journey.&#xA;Similar to the format of my Machine Learning Attack Series, there will be a serious of posts around BPF usage in offensive settings, and also how its misuse can be detected.</description>
     </item>
-    
     <item>
       <title>Actively protecting pen testers and pen testing assets</title>
       <link>https://embracethered.com/blog/posts/2020/protecting-the-pentester/</link>
       <pubDate>Tue, 08 Dec 2020 15:02:22 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/protecting-the-pentester/</guid>
-      <description>Today FireEye shared that they were victim of a cyberattack and internal red teaming tooling was accessed by adversaries. More details in this NYT article.
-This reminded me that I wanted to do a post on actively protecting pen testers and pen testing assets for a while.
-Against persistent adversaries it is only a matter of time when they succeed, not if they will succeed. The big question is do you know when an adversary starts poking around, and when they succeed?</description>
+      <description>Today FireEye shared that they were victim of a cyberattack and internal red teaming tooling was accessed by adversaries. More details in this NYT article.&#xA;This reminded me that I wanted to do a post on actively protecting pen testers and pen testing assets for a while.&#xA;Against persistent adversaries it is only a matter of time when they succeed, not if they will succeed. The big question is do you know when an adversary starts poking around, and when they succeed?</description>
     </item>
-    
     <item>
       <title>Machine Learning Attack Series: Repudiation Threat and Auditing</title>
       <link>https://embracethered.com/blog/posts/2020/husky-ai-repudiation-threat-deny-action-machine-learning/</link>
       <pubDate>Tue, 10 Nov 2020 16:00:21 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/husky-ai-repudiation-threat-deny-action-machine-learning/</guid>
-      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.
- Overview: How Husky AI was built, threat modeled and operationalized Attacks: The attacks I want to investigate, learn about, and try out  In this post we are going to look at the &amp;ldquo;Repudiation Threat&amp;rdquo;, which is one of the threats often overlooked when performing threat modeling, and maybe something you would not even expect in a series about machine learning.</description>
+      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see related posts.&#xA;Overview: How Husky AI was built, threat modeled and operationalized Attacks: The attacks I want to investigate, learn about, and try out In this post we are going to look at the &amp;ldquo;Repudiation Threat&amp;rdquo;, which is one of the threats often overlooked when performing threat modeling, and maybe something you would not even expect in a series about machine learning.</description>
     </item>
-    
     <item>
       <title>Leveraging the Blue Team&#39;s Endpoint Agent as C2</title>
       <link>https://embracethered.com/blog/posts/2020/red-teaming-endpoint-protection-agent-edr/</link>
       <pubDate>Mon, 26 Oct 2020 06:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/red-teaming-endpoint-protection-agent-edr/</guid>
-      <description>A few years back the Blue Team of a company asked to be targeted in a Red Team Operation.
-That was a really fun, because Rules of Engagement commonly prevent targeting Blue Teams. Blue&amp;rsquo;s infrastructure, systems and team members are often out of scope, unfortunately.
- Blue team infrastructure is a gold mine for credentials, recon but also for remote code execution!
- Often companies do not have adequate protection, procedures (MFA, multi-person attestation), monitoring and auditing in place when it comes to accessing data from endpoint agents.</description>
+      <description>A few years back the Blue Team of a company asked to be targeted in a Red Team Operation.&#xA;That was a really fun, because Rules of Engagement commonly prevent targeting Blue Teams. Blue&amp;rsquo;s infrastructure, systems and team members are often out of scope, unfortunately.&#xA;Blue team infrastructure is a gold mine for credentials, recon but also for remote code execution!&#xA;Often companies do not have adequate protection, procedures (MFA, multi-person attestation), monitoring and auditing in place when it comes to accessing data from endpoint agents.</description>
     </item>
-    
     <item>
       <title>Coming up: Grayhat Red Team Village talk about hacking a machine learning system</title>
       <link>https://embracethered.com/blog/posts/2020/accouncement-learning-by-doing-hacking-machine-lerning-grayhat/</link>
       <pubDate>Fri, 09 Oct 2020 11:30:50 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/accouncement-learning-by-doing-hacking-machine-lerning-grayhat/</guid>
-      <description>Excited to announce that I will be presenting at Grayhat - Red Team Village on October 31st 2020. The presentation is about my machine learning journey and how to build and break a machine learning system.
-If you follow my blog, you can guess that there will be lots of discussion around &amp;ldquo;Husky AI&amp;rdquo;. The bits and pieces that make up a machine learning pipeline, and how to threat model such a system.</description>
+      <description>Excited to announce that I will be presenting at Grayhat - Red Team Village on October 31st 2020. The presentation is about my machine learning journey and how to build and break a machine learning system.&#xA;If you follow my blog, you can guess that there will be lots of discussion around &amp;ldquo;Husky AI&amp;rdquo;. The bits and pieces that make up a machine learning pipeline, and how to threat model such a system.</description>
     </item>
-    
     <item>
       <title>Beware of the Shadowbunny - Using virtual machines to persist and evade detections</title>
       <link>https://embracethered.com/blog/posts/2020/shadowbunny-virtual-machine-red-teaming-technique/</link>
       <pubDate>Wed, 23 Sep 2020 20:00:51 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/shadowbunny-virtual-machine-red-teaming-technique/</guid>
-      <description>This was also presented at BSides Singapore 2020. The slides are here and YouTube link is here.
-The origins of the Shadowbunny A few years ago, around 2016, I went on a relaxing two weeklong vacation. It was great to disconnect from work. I traveled to Austria, enjoying hiking in the mountains, and exploring Vienna.
-When I came back to the office, the team had placed a giant bunny teddy into my chair.</description>
+      <description>This was also presented at BSides Singapore 2020. The slides are here and YouTube link is here.&#xA;The origins of the Shadowbunny A few years ago, around 2016, I went on a relaxing two weeklong vacation. It was great to disconnect from work. I traveled to Austria, enjoying hiking in the mountains, and exploring Vienna.&#xA;When I came back to the office, the team had placed a giant bunny teddy into my chair.</description>
     </item>
-    
     <item>
       <title>Beware of the Shadowbunny! at BSides Singapore</title>
       <link>https://embracethered.com/blog/posts/2020/shadowbunny-bsides-singapore-virtual-machines/</link>
       <pubDate>Fri, 28 Aug 2020 00:00:01 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/shadowbunny-bsides-singapore-virtual-machines/</guid>
-      <description>Excited to announce that I will be presenting at BSides Singapore this year.
-The topic is adversarial usage of virtual machines during lateral movement. And we will also cover threat hunting and detection ideas.
-I have been referring to this technique as the Shadowbunny over the years. :)
-The conferences is on September 24th-25th, it will be all virtual and free to attend. Check out the BSidesSG 2020 website and schedule for other talks and details.</description>
+      <description>Excited to announce that I will be presenting at BSides Singapore this year.&#xA;The topic is adversarial usage of virtual machines during lateral movement. And we will also cover threat hunting and detection ideas.&#xA;I have been referring to this technique as the Shadowbunny over the years. :)&#xA;The conferences is on September 24th-25th, it will be all virtual and free to attend. Check out the BSidesSG 2020 website and schedule for other talks and details.</description>
     </item>
-    
     <item>
       <title>Firefox - Debugger Client for Cookie Access</title>
       <link>https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/</link>
       <pubDate>Tue, 21 Jul 2020 11:00:15 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/</guid>
-      <description>Finally I got to writing some basic tooling for invoking the Firefox debugging API to send commands to the browser and read the responses. This can be useful for grabbing cookies in the post-exploitation phase.
-It works for Windows and macOS, should also work on Linux.
-
-This technique is probably most useful when we don&amp;rsquo;t have root or the user&amp;rsquo;s credentials to decrypt cookies or can&amp;rsquo;t attach a regular debugger to the browser process.</description>
+      <description>Finally I got to writing some basic tooling for invoking the Firefox debugging API to send commands to the browser and read the responses. This can be useful for grabbing cookies in the post-exploitation phase.&#xA;It works for Windows and macOS, should also work on Linux.&#xA;This technique is probably most useful when we don&amp;rsquo;t have root or the user&amp;rsquo;s credentials to decrypt cookies or can&amp;rsquo;t attach a regular debugger to the browser process.</description>
     </item>
-    
     <item>
       <title>Remotely debugging Firefox instances</title>
       <link>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</link>
       <pubDate>Wed, 15 Jul 2020 06:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</guid>
-      <description>Previously I talked about remotely debugging Chrome, and we also covered the latest Microsoft Edge browser along the way.
-These features allow an adversary to gain access to authentication tokens and cookies. See MITRE ATT&amp;amp;CK Technique T1539: Steal Web Session Cookie as well for this.
-What about Firefox? For a while I was wondering if (my favorite) browser Firefox has such debugging features as well, and how one could detect malware trying to exploit it.</description>
+      <description>Previously I talked about remotely debugging Chrome, and we also covered the latest Microsoft Edge browser along the way.&#xA;These features allow an adversary to gain access to authentication tokens and cookies. See MITRE ATT&amp;amp;CK Technique T1539: Steal Web Session Cookie as well for this.&#xA;What about Firefox? For a while I was wondering if (my favorite) browser Firefox has such debugging features as well, and how one could detect malware trying to exploit it.</description>
     </item>
-    
     <item>
       <title>Shadowbunny article published in the PenTest Magazine</title>
       <link>https://embracethered.com/blog/posts/2020/shadowbunny-ttp-pentest-magazine/</link>
       <pubDate>Thu, 18 Jun 2020 18:42:44 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/shadowbunny-ttp-pentest-magazine/</guid>
-      <description>The Shadowbunny TTP in the PenTest Magazine The latest edition of the PenTest Magazine features an article of mine about using virtual machines (VMs) during lateral movement to establish persistence and evade detections.
-A few years back when I came up with the idea of using VMs for lateral movement during red teaming, I called it the Shadowbunny TTP and that name stuck around in my head. There is more info in the article around the origin of the name also.</description>
+      <description>The Shadowbunny TTP in the PenTest Magazine The latest edition of the PenTest Magazine features an article of mine about using virtual machines (VMs) during lateral movement to establish persistence and evade detections.&#xA;A few years back when I came up with the idea of using VMs for lateral movement during red teaming, I called it the Shadowbunny TTP and that name stuck around in my head. There is more info in the article around the origin of the name also.</description>
     </item>
-    
     <item>
       <title>Cookie Crimes and the new Microsoft Edge Browser</title>
       <link>https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</link>
       <pubDate>Fri, 01 May 2020 01:00:46 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</guid>
-      <description>Revisiting Cookie Crimes In 2018 @mangopdf described &amp;ldquo;Cookie Crimes&amp;rdquo;, which is great research around Chrome&amp;rsquo;s remote debugging feature that allows adversaries and malware to gain access to cookies quite convienently during post-exploitation.
-The original research is published here, and it still works today.
-The new Microsoft Edge browser and Chromium Microsoft&amp;rsquo;s latest Edge browser is based on the same code, Chromium. I guess, you already know where this is going now&amp;hellip;</description>
+      <description>Revisiting Cookie Crimes In 2018 @mangopdf described &amp;ldquo;Cookie Crimes&amp;rdquo;, which is great research around Chrome&amp;rsquo;s remote debugging feature that allows adversaries and malware to gain access to cookies quite convienently during post-exploitation.&#xA;The original research is published here, and it still works today.&#xA;The new Microsoft Edge browser and Chromium Microsoft&amp;rsquo;s latest Edge browser is based on the same code, Chromium. I guess, you already know where this is going now&amp;hellip;</description>
     </item>
-    
     <item>
       <title>Post-Exploitation: Abusing Chrome&#39;s debugging feature to observe and control browsing sessions remotely</title>
       <link>https://embracethered.com/blog/posts/2020/chrome-spy-remote-control/</link>
       <pubDate>Tue, 28 Apr 2020 18:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/chrome-spy-remote-control/</guid>
-      <description>Chrome&amp;rsquo;s remote debugging feature enables malware post-exploitation to gain access to cookies. Root privileges are not required. This is a pretty well-known and commonly used adversarial technique - at least since 2018 when Cookie Crimes was released.
-However, remote debugging also allows observing user activities and sensitive personal information (aka spying on users) and controlling the browser from a remote computer.
-Below screenshot shows a simulated attacker controlling the victim&amp;rsquo;s browser and navigating to chrome://settings to inspect information:</description>
+      <description>Chrome&amp;rsquo;s remote debugging feature enables malware post-exploitation to gain access to cookies. Root privileges are not required. This is a pretty well-known and commonly used adversarial technique - at least since 2018 when Cookie Crimes was released.&#xA;However, remote debugging also allows observing user activities and sensitive personal information (aka spying on users) and controlling the browser from a remote computer.&#xA;Below screenshot shows a simulated attacker controlling the victim&amp;rsquo;s browser and navigating to chrome://settings to inspect information:</description>
     </item>
-    
     <item>
       <title>Pass the Cookie and Pivot to the Clouds</title>
       <link>https://embracethered.com/blog/posts/passthecookie/</link>
       <pubDate>Sun, 16 Dec 2018 12:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/passthecookie/</guid>
-      <description>Web Applications and Services use cookies to authenticate sessions and users. An adversary can pivot from a compromised host to Web Applications and Internet Services by stealing authentication cookies from browsers and related processes. At the same time this technique bypasses most multi-factor authentication protocols.
-The reason for this is that the final authentication token that the attacker steals is issued after all factors have been validated. Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used.</description>
+      <description>Web Applications and Services use cookies to authenticate sessions and users. An adversary can pivot from a compromised host to Web Applications and Internet Services by stealing authentication cookies from browsers and related processes. At the same time this technique bypasses most multi-factor authentication protocols.&#xA;The reason for this is that the final authentication token that the attacker steals is issued after all factors have been validated. Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used.</description>
     </item>
-    
   </channel>
 </rss>

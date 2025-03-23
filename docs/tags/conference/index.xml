@@ -1,153 +1,97 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>conference on Embrace The Red</title>
+    <title>Conference on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/conference/</link>
-    <description>Recent content in conference on Embrace The Red</description>
+    <description>Recent content in Conference on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sat, 13 Apr 2024 18:30:39 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/conference/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Apr 2024 18:30:39 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/conference/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HackSpaceCon 2024: Short Trip Report, Slides and Rocket Launch</title>
       <link>https://embracethered.com/blog/posts/2024/hackspacecon-2024/</link>
       <pubDate>Sat, 13 Apr 2024 18:30:39 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/hackspacecon-2024/</guid>
-      <description>This week was HackSpaceCon 2024. It was the first time I attended and it was fantastic.
-The conference was at the Kennedy Space Center! Yes, right there and the swag and talks matched the world class location.
-The keynote &amp;ldquo;Buckle up! Let&amp;rsquo;s make the world a safer place&amp;rdquo; was by Dave Kennedy, who provided great insights on attacker strategies of the past and present, the importance of active threat hunting and challenges ahead.</description>
+      <description>This week was HackSpaceCon 2024. It was the first time I attended and it was fantastic.&#xA;The conference was at the Kennedy Space Center! Yes, right there and the swag and talks matched the world class location.&#xA;The keynote &amp;ldquo;Buckle up! Let&amp;rsquo;s make the world a safer place&amp;rdquo; was by Dave Kennedy, who provided great insights on attacker strategies of the past and present, the importance of active threat hunting and challenges ahead.</description>
     </item>
-    
     <item>
       <title>37th Chaos Communication Congress: New Important Instructions (Video &#43; Slides)</title>
       <link>https://embracethered.com/blog/posts/2023/37c3-new-important-instructions/</link>
       <pubDate>Sat, 30 Dec 2023 15:01:59 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/37c3-new-important-instructions/</guid>
-      <description>Five years ago I gave a Lightning Talk at the 35th Chaos Communication Congress called &amp;ldquo;Pass the Cookie and Pivot to the Clouds&amp;rdquo;. It was a talk about my very first blog post on Embrace The Red just a few weeks earlier in December 2018.
-Fast forward to 2023&amp;hellip; it was great to attend the 37C3 in person in Hamburg this year. The Congress was packed with great talks, amazing people, awesome events and side quests and I got to present also!</description>
+      <description>Five years ago I gave a Lightning Talk at the 35th Chaos Communication Congress called &amp;ldquo;Pass the Cookie and Pivot to the Clouds&amp;rdquo;. It was a talk about my very first blog post on Embrace The Red just a few weeks earlier in December 2018.&#xA;Fast forward to 2023&amp;hellip; it was great to attend the 37C3 in person in Hamburg this year. The Congress was packed with great talks, amazing people, awesome events and side quests and I got to present also!</description>
     </item>
-    
     <item>
       <title>Ekoparty Talk - Prompt Injections in the Wild</title>
       <link>https://embracethered.com/blog/posts/2023/ekoparty-prompt-injection-talk/</link>
       <pubDate>Tue, 28 Nov 2023 16:00:33 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/ekoparty-prompt-injection-talk/</guid>
-      <description>Earlier this month I had the opportunity to present at Ekoparty 2023 about Prompt Injections in the Wild, and the video of the talk was just posted to YouTube. Check it out.
-  It starts with a basic overview of LLMs and then dives deep into exploits and mitigations across various LLM applications and chatbots, including (but not limited) to demos of exploits with Bing Chat, ChatGPT, Anthropic Claude, Azure AI, GCP Vertex AI and Google Bard.</description>
+      <description>Earlier this month I had the opportunity to present at Ekoparty 2023 about Prompt Injections in the Wild, and the video of the talk was just posted to YouTube. Check it out.&#xA;It starts with a basic overview of LLMs and then dives deep into exploits and mitigations across various LLM applications and chatbots, including (but not limited) to demos of exploits with Bing Chat, ChatGPT, Anthropic Claude, Azure AI, GCP Vertex AI and Google Bard.</description>
     </item>
-    
     <item>
       <title>HITCON CMT 2023 - LLM Security Presentation and Trip Report</title>
       <link>https://embracethered.com/blog/posts/2023/hitcon-llm-security-presentation-and-trip-report/</link>
       <pubDate>Mon, 18 Sep 2023 03:24:51 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/hitcon-llm-security-presentation-and-trip-report/</guid>
-      <description>Last month I had the opportunity to attend HITCON in Taiwan for the first time. It&amp;rsquo;s an annual event hosted by the Hackers in Taiwan organization and CMT stands for the community version.
-
-There is a second event for enterprises later this year also - think of it like Blackhat vs Defcon in a way.
-Conference, Location and Registration HITCON CMT 2023 was a two day event hosted in the east side of Taipei at Academia Sinica.</description>
+      <description>Last month I had the opportunity to attend HITCON in Taiwan for the first time. It&amp;rsquo;s an annual event hosted by the Hackers in Taiwan organization and CMT stands for the community version.&#xA;There is a second event for enterprises later this year also - think of it like Blackhat vs Defcon in a way.&#xA;Conference, Location and Registration HITCON CMT 2023 was a two day event hosted in the east side of Taipei at Academia Sinica.</description>
     </item>
-    
     <item>
       <title>LLM Apps: Don&#39;t Get Stuck in an Infinite Loop! 💵💰</title>
       <link>https://embracethered.com/blog/posts/2023/llm-cost-and-dos-threat/</link>
       <pubDate>Sat, 16 Sep 2023 00:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/llm-cost-and-dos-threat/</guid>
-      <description>What happens if an attacker calls an LLM tool or plugin recursively during an Indirect Prompt Injection? Could this be an issue and drive up costs, or DoS a system?
-I tried it with ChatGPT, and it indeed works and the Chatbot enters a loop! 😊
-
-However, for ChatGPT users this isn&amp;rsquo;t really a threat, because:
- It&amp;rsquo;s subscription based, so OpenAI would pay the bill. There seems to be a call limit of 10 times in a single conversation turn (I tried a few times).</description>
+      <description>What happens if an attacker calls an LLM tool or plugin recursively during an Indirect Prompt Injection? Could this be an issue and drive up costs, or DoS a system?&#xA;I tried it with ChatGPT, and it indeed works and the Chatbot enters a loop! 😊&#xA;However, for ChatGPT users this isn&amp;rsquo;t really a threat, because:&#xA;It&amp;rsquo;s subscription based, so OpenAI would pay the bill. There seems to be a call limit of 10 times in a single conversation turn (I tried a few times).</description>
     </item>
-    
     <item>
       <title>Hong Kong InfoSec Summit 2021 Talk - The adversary will come to your house!</title>
       <link>https://embracethered.com/blog/posts/2021/talk-information-security-summit-hong-kong/</link>
       <pubDate>Wed, 03 Mar 2021 11:37:20 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/talk-information-security-summit-hong-kong/</guid>
-      <description>Next week (on March, 9th 2021) I will be speaking at the Hong Kong Information Security Summit 2021.
-歡迎, 你好!
-
-I was invited to share my thoughts around protecting the modern (and remote) workplace. Of course, my talk is addressing this topic from a red teaming point of view. Conference details are here.
-The adversary will come to your house The name of the talk is &amp;ldquo;Red Team Strategies for Helping Protect the Modern Workplace&amp;rdquo; which might seem less creative, but there is some (hopefullly) good and interesting information in my talk.</description>
+      <description>Next week (on March, 9th 2021) I will be speaking at the Hong Kong Information Security Summit 2021.&#xA;歡迎, 你好!&#xA;I was invited to share my thoughts around protecting the modern (and remote) workplace. Of course, my talk is addressing this topic from a red teaming point of view. Conference details are here.&#xA;The adversary will come to your house The name of the talk is &amp;ldquo;Red Team Strategies for Helping Protect the Modern Workplace&amp;rdquo; which might seem less creative, but there is some (hopefullly) good and interesting information in my talk.</description>
     </item>
-    
     <item>
       <title>Video: Building and breaking a machine learning system</title>
       <link>https://embracethered.com/blog/posts/2020/learning-by-doing-building-and-breaking-machine-learning-red-team-hacking/</link>
       <pubDate>Thu, 05 Nov 2020 15:30:00 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/learning-by-doing-building-and-breaking-machine-learning-red-team-hacking/</guid>
-      <description>My GrayHat Red Team Village talk &amp;ldquo;Learning by doing: Building and breaking a machine learning system&amp;rdquo; is now live on YouTube.
-Check it out: https://www.youtube.com/watch?v=-SV80sIBhqY and smash the Like button! :D
-
-Question? I thought of turning the content into a hands-on workshop. Let me know if that would be something that would you would attend? Trying to see if there is interest.
-Cheers, Johann
-Twitter: @wunderwuzzi23</description>
+      <description>My GrayHat Red Team Village talk &amp;ldquo;Learning by doing: Building and breaking a machine learning system&amp;rdquo; is now live on YouTube.&#xA;Check it out: https://www.youtube.com/watch?v=-SV80sIBhqY and smash the Like button! :D&#xA;Question? I thought of turning the content into a hands-on workshop. Let me know if that would be something that would you would attend? Trying to see if there is interest.&#xA;Cheers, Johann&#xA;Twitter: @wunderwuzzi23</description>
     </item>
-    
     <item>
       <title>Hacking neural networks - so we don&#39;t get stuck in the matrix</title>
       <link>https://embracethered.com/blog/posts/2020/hacking-the-matrix/</link>
       <pubDate>Tue, 20 Oct 2020 12:00:41 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/hacking-the-matrix/</guid>
-      <description>For GrayHat 2020 I was asked to create a short intro video for my Red Team Village talk &amp;ldquo;Learning by doing: Building and breaking a machine learning system&amp;rdquo;.
-So I put my green screen to good use and recorded this short clip for Red Team Village.
-Here is the link to the clip on Twitter:
-
-Hope you like it. :)
-The talk will be October, 31st 2020.
-Schedule: http://redteamvillage.io/schedule</description>
+      <description>For GrayHat 2020 I was asked to create a short intro video for my Red Team Village talk &amp;ldquo;Learning by doing: Building and breaking a machine learning system&amp;rdquo;.&#xA;So I put my green screen to good use and recorded this short clip for Red Team Village.&#xA;Here is the link to the clip on Twitter:&#xA;Hope you like it. :)&#xA;The talk will be October, 31st 2020.&#xA;Schedule: http://redteamvillage.io/schedule&#xA;Grayhat&amp;rsquo;s website: http://grayhat.</description>
     </item>
-    
     <item>
       <title>Coming up: Grayhat Red Team Village talk about hacking a machine learning system</title>
       <link>https://embracethered.com/blog/posts/2020/accouncement-learning-by-doing-hacking-machine-lerning-grayhat/</link>
       <pubDate>Fri, 09 Oct 2020 11:30:50 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/accouncement-learning-by-doing-hacking-machine-lerning-grayhat/</guid>
-      <description>Excited to announce that I will be presenting at Grayhat - Red Team Village on October 31st 2020. The presentation is about my machine learning journey and how to build and break a machine learning system.
-If you follow my blog, you can guess that there will be lots of discussion around &amp;ldquo;Husky AI&amp;rdquo;. The bits and pieces that make up a machine learning pipeline, and how to threat model such a system.</description>
+      <description>Excited to announce that I will be presenting at Grayhat - Red Team Village on October 31st 2020. The presentation is about my machine learning journey and how to build and break a machine learning system.&#xA;If you follow my blog, you can guess that there will be lots of discussion around &amp;ldquo;Husky AI&amp;rdquo;. The bits and pieces that make up a machine learning pipeline, and how to threat model such a system.</description>
     </item>
-    
     <item>
       <title>Beware of the Shadowbunny - Using virtual machines to persist and evade detections</title>
       <link>https://embracethered.com/blog/posts/2020/shadowbunny-virtual-machine-red-teaming-technique/</link>
       <pubDate>Wed, 23 Sep 2020 20:00:51 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/shadowbunny-virtual-machine-red-teaming-technique/</guid>
-      <description>This was also presented at BSides Singapore 2020. The slides are here and YouTube link is here.
-The origins of the Shadowbunny A few years ago, around 2016, I went on a relaxing two weeklong vacation. It was great to disconnect from work. I traveled to Austria, enjoying hiking in the mountains, and exploring Vienna.
-When I came back to the office, the team had placed a giant bunny teddy into my chair.</description>
+      <description>This was also presented at BSides Singapore 2020. The slides are here and YouTube link is here.&#xA;The origins of the Shadowbunny A few years ago, around 2016, I went on a relaxing two weeklong vacation. It was great to disconnect from work. I traveled to Austria, enjoying hiking in the mountains, and exploring Vienna.&#xA;When I came back to the office, the team had placed a giant bunny teddy into my chair.</description>
     </item>
-    
     <item>
       <title>Beware of the Shadowbunny! at BSides Singapore</title>
       <link>https://embracethered.com/blog/posts/2020/shadowbunny-bsides-singapore-virtual-machines/</link>
       <pubDate>Fri, 28 Aug 2020 00:00:01 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/shadowbunny-bsides-singapore-virtual-machines/</guid>
-      <description>Excited to announce that I will be presenting at BSides Singapore this year.
-The topic is adversarial usage of virtual machines during lateral movement. And we will also cover threat hunting and detection ideas.
-I have been referring to this technique as the Shadowbunny over the years. :)
-The conferences is on September 24th-25th, it will be all virtual and free to attend. Check out the BSidesSG 2020 website and schedule for other talks and details.</description>
+      <description>Excited to announce that I will be presenting at BSides Singapore this year.&#xA;The topic is adversarial usage of virtual machines during lateral movement. And we will also cover threat hunting and detection ideas.&#xA;I have been referring to this technique as the Shadowbunny over the years. :)&#xA;The conferences is on September 24th-25th, it will be all virtual and free to attend. Check out the BSidesSG 2020 website and schedule for other talks and details.</description>
     </item>
-    
     <item>
       <title>Pass the Cookie and Pivot to the Clouds</title>
       <link>https://embracethered.com/blog/posts/passthecookie/</link>
       <pubDate>Sun, 16 Dec 2018 12:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/passthecookie/</guid>
-      <description>Web Applications and Services use cookies to authenticate sessions and users. An adversary can pivot from a compromised host to Web Applications and Internet Services by stealing authentication cookies from browsers and related processes. At the same time this technique bypasses most multi-factor authentication protocols.
-The reason for this is that the final authentication token that the attacker steals is issued after all factors have been validated. Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used.</description>
+      <description>Web Applications and Services use cookies to authenticate sessions and users. An adversary can pivot from a compromised host to Web Applications and Internet Services by stealing authentication cookies from browsers and related processes. At the same time this technique bypasses most multi-factor authentication protocols.&#xA;The reason for this is that the final authentication token that the attacker steals is issued after all factors have been validated. Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used.</description>
     </item>
-    
   </channel>
 </rss>

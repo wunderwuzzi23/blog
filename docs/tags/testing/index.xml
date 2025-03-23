@@ -1,90 +1,62 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>testing on Embrace The Red</title>
+    <title>Testing on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/testing/</link>
-    <description>Recent content in testing on Embrace The Red</description>
+    <description>Recent content in Testing on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Wed, 21 Aug 2024 19:00:30 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Aug 2024 19:00:30 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/testing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Google AI Studio: LLM-Powered Data Exfiltration Hits Again! Quickly Fixed.</title>
       <link>https://embracethered.com/blog/posts/2024/google-ai-studio-data-exfiltration-now-fixed/</link>
       <pubDate>Wed, 21 Aug 2024 19:00:30 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/google-ai-studio-data-exfiltration-now-fixed/</guid>
-      <description>Recently, I found what appeared to be a regression or bypass that again allowed data exfiltration via image rendering during prompt injection. See the previous post here for reference.
-Data Exfiltration via Rendering HTML Image Tags During re-testing, I had sporadic success with markdown rendering tricks, but eventually, I was able to drastically simplify the exploit by asking directly for an HTML image tag.
-This behavior might actually have existed all along, as Google AI Studio hadn&amp;rsquo;t yet implemented any kind of Content Security Policy to prevent communication with arbitrary domains using images.</description>
+      <description>Recently, I found what appeared to be a regression or bypass that again allowed data exfiltration via image rendering during prompt injection. See the previous post here for reference.&#xA;Data Exfiltration via Rendering HTML Image Tags During re-testing, I had sporadic success with markdown rendering tricks, but eventually, I was able to drastically simplify the exploit by asking directly for an HTML image tag.&#xA;This behavior might actually have existed all along, as Google AI Studio hadn&amp;rsquo;t yet implemented any kind of Content Security Policy to prevent communication with arbitrary domains using images.</description>
     </item>
-    
     <item>
       <title>Breaking Instruction Hierarchy in OpenAI&#39;s gpt-4o-mini</title>
       <link>https://embracethered.com/blog/posts/2024/chatgpt-gpt-4o-mini-instruction-hierarchie-bypasses/</link>
       <pubDate>Mon, 22 Jul 2024 06:14:05 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/chatgpt-gpt-4o-mini-instruction-hierarchie-bypasses/</guid>
-      <description>Recently, OpenAI announced gpt-4o-mini and there are some interesting updates, including safety improvements regarding &amp;ldquo;Instruction Hierarchy&amp;rdquo;:
-
-OpenAI puts this in the light of &amp;ldquo;safety&amp;rdquo;, the word security is not mentioned in the announcement.
-Additionally, this The Verge article titled &amp;ldquo;OpenAI&amp;rsquo;s latest model will block the &amp;lsquo;ignore all previous instructions&amp;rsquo; loophole&amp;rdquo; created interesting discussions on X, including a first demo bypass.
-I spent some time this weekend to get a better intuition about gpt-4o-mini model and instruction hierarchy, and the conclusion is that system instructions are still not a security boundary.</description>
+      <description>Recently, OpenAI announced gpt-4o-mini and there are some interesting updates, including safety improvements regarding &amp;ldquo;Instruction Hierarchy&amp;rdquo;:&#xA;OpenAI puts this in the light of &amp;ldquo;safety&amp;rdquo;, the word security is not mentioned in the announcement.&#xA;Additionally, this The Verge article titled &amp;ldquo;OpenAI&amp;rsquo;s latest model will block the &amp;lsquo;ignore all previous instructions&amp;rsquo; loophole&amp;rdquo; created interesting discussions on X, including a first demo bypass.&#xA;I spent some time this weekend to get a better intuition about gpt-4o-mini model and instruction hierarchy, and the conclusion is that system instructions are still not a security boundary.</description>
     </item>
-    
     <item>
       <title>Sorry, ChatGPT Is Under Maintenance: Persistent Denial of Service through Prompt Injection and Memory Attacks</title>
       <link>https://embracethered.com/blog/posts/2024/chatgpt-persistent-denial-of-service/</link>
       <pubDate>Mon, 08 Jul 2024 14:30:18 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/chatgpt-persistent-denial-of-service/</guid>
-      <description>Imagine you visit a website with ChatGPT, and suddenly, it stops working entirely!
-In this post we show how an attacker can use prompt injection to cause a persistent denial of service that lasts across chat sessions for a user.
-Hacking Memories Previously we discussed how ChatGPT is vulnerable to automatic tool invocation of the memory tool. This can be used by an attacker during prompt injection to ingest malicious or fake memories into your ChatGPT.</description>
+      <description>Imagine you visit a website with ChatGPT, and suddenly, it stops working entirely!&#xA;In this post we show how an attacker can use prompt injection to cause a persistent denial of service that lasts across chat sessions for a user.&#xA;Hacking Memories Previously we discussed how ChatGPT is vulnerable to automatic tool invocation of the memory tool. This can be used by an attacker during prompt injection to ingest malicious or fake memories into your ChatGPT.</description>
     </item>
-    
     <item>
       <title>Automatic Tool Invocation when Browsing with ChatGPT - Threats and Mitigations</title>
       <link>https://embracethered.com/blog/posts/2024/llm-apps-automatic-tool-invocations/</link>
       <pubDate>Tue, 28 May 2024 20:57:38 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/llm-apps-automatic-tool-invocations/</guid>
-      <description>In the previous post we demonstrated how instructions embedded in untrusted data can invoke ChatGPT&amp;rsquo;s memory tool. The examples we looked at included Uploaded Files, Connected Apps and also the Browsing tool.
-
-When it came to the browsing tool we observed that mitigations were put in place and older demo exploits did not work anymore. After chatting with other security researchers, I learned that they had observed the same.</description>
+      <description>In the previous post we demonstrated how instructions embedded in untrusted data can invoke ChatGPT&amp;rsquo;s memory tool. The examples we looked at included Uploaded Files, Connected Apps and also the Browsing tool.&#xA;When it came to the browsing tool we observed that mitigations were put in place and older demo exploits did not work anymore. After chatting with other security researchers, I learned that they had observed the same.&#xA;However, with some minor prompting tricks mitigations are bypassed and we, again, can demonstrate automatic tool invocation when browsing the Internet with ChatGPT!</description>
     </item>
-    
     <item>
       <title>ChatGPT: Hacking Memories with Prompt Injection</title>
       <link>https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/</link>
       <pubDate>Wed, 22 May 2024 12:24:07 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/</guid>
-      <description>OpenAI recently introduced a memory feature in ChatGPT, enabling it to recall information across sessions, creating a more personalized user experience.
-However, with this new capability comes risks. Imagine if an attacker could manipulate your AI assistant (chatbot or agent) to remember false information, bias or even instructions, or delete all your memories! This is not a futuristic scenario, the attack that makes this possible is called Indirect Prompt Injection.</description>
+      <description>OpenAI recently introduced a memory feature in ChatGPT, enabling it to recall information across sessions, creating a more personalized user experience.&#xA;However, with this new capability comes risks. Imagine if an attacker could manipulate your AI assistant (chatbot or agent) to remember false information, bias or even instructions, or delete all your memories! This is not a futuristic scenario, the attack that makes this possible is called Indirect Prompt Injection.</description>
     </item>
-    
     <item>
       <title>Machine Learning Attack Series: Backdooring Keras Models and How to Detect It</title>
       <link>https://embracethered.com/blog/posts/2024/machine-learning-attack-series-keras-backdoor-model/</link>
       <pubDate>Sat, 18 May 2024 16:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/machine-learning-attack-series-keras-backdoor-model/</guid>
-      <description>This post is part of a series about machine learning and artificial intelligence.
-Adversaries often leverage supply chain attacks to gain footholds. In machine learning model deserialization issues are a significant threat, and detecting them is crucial, as they can lead to arbitrary code execution. We explored this attack with Python Pickle files in the past.
-In this post we are covering backdooring the original Keras Husky AI model from the Machine Learning Attack Series, and afterwards we investigate tooling to detect the backdoor.</description>
+      <description>This post is part of a series about machine learning and artificial intelligence.&#xA;Adversaries often leverage supply chain attacks to gain footholds. In machine learning model deserialization issues are a significant threat, and detecting them is crucial, as they can lead to arbitrary code execution. We explored this attack with Python Pickle files in the past.&#xA;In this post we are covering backdooring the original Keras Husky AI model from the Machine Learning Attack Series, and afterwards we investigate tooling to detect the backdoor.</description>
     </item>
-    
     <item>
       <title>Google AI Studio Data Exfiltration via Prompt Injection - Possible Regression and Fix</title>
       <link>https://embracethered.com/blog/posts/2024/google-aistudio-mass-data-exfil/</link>
       <pubDate>Sun, 07 Apr 2024 16:00:30 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/google-aistudio-mass-data-exfil/</guid>
-      <description>What I like about the rapid advancements and excitement about AI over the last few years is that we see a resurgence of the testing discipline!
-Software testing is hard, and adding AI to the mix does not make it easier at all!
-Google AI Studio - Initially not vulnerable to data leakage via image rendering When Google released AI Studio last year I checked for the common image markdown data exfiltration vulnerability and it was not vulnerable.</description>
+      <description>What I like about the rapid advancements and excitement about AI over the last few years is that we see a resurgence of the testing discipline!&#xA;Software testing is hard, and adding AI to the mix does not make it easier at all!&#xA;Google AI Studio - Initially not vulnerable to data leakage via image rendering When Google released AI Studio last year I checked for the common image markdown data exfiltration vulnerability and it was not vulnerable.</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,69 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>cookies on Embrace The Red</title>
+    <title>Cookies on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/cookies/</link>
-    <description>Recent content in cookies on Embrace The Red</description>
+    <description>Recent content in Cookies on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Thu, 16 May 2024 00:00:11 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/cookies/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 May 2024 00:00:11 -0800</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/cookies/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pivot to the Clouds: Cookie Theft in 2024</title>
       <link>https://embracethered.com/blog/posts/2024/cookie-theft-in-2024-and-what-todo/</link>
       <pubDate>Thu, 16 May 2024 00:00:11 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/cookie-theft-in-2024-and-what-todo/</guid>
-      <description>Recently Google published a blog about detecting browser data theft using Windows Event Logs.
-There are some good points in the post for defenders on how to detect misuse of DPAPI calls attempting to grab sensitive browser data.
-But, what about the Remote Debugging feature? This made me curious to revisit the state of the remote debugging feature of browsers for grabbing sensitive information, including cookies.
-We discussed cookie theft techniques in the past, even presented about it at the CCC some 5+ years ago and helped add the TTP to the MITRE ATT&amp;amp;CK matrix.</description>
+      <description>Recently Google published a blog about detecting browser data theft using Windows Event Logs.&#xA;There are some good points in the post for defenders on how to detect misuse of DPAPI calls attempting to grab sensitive browser data.&#xA;But, what about the Remote Debugging feature? This made me curious to revisit the state of the remote debugging feature of browsers for grabbing sensitive information, including cookies.&#xA;We discussed cookie theft techniques in the past, even presented about it at the CCC some 5+ years ago and helped add the TTP to the MITRE ATT&amp;amp;CK matrix.</description>
     </item>
-    
     <item>
       <title>Firefox - Debugger Client for Cookie Access</title>
       <link>https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/</link>
       <pubDate>Tue, 21 Jul 2020 11:00:15 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/firefox-cookie-debug-client/</guid>
-      <description>Finally I got to writing some basic tooling for invoking the Firefox debugging API to send commands to the browser and read the responses. This can be useful for grabbing cookies in the post-exploitation phase.
-It works for Windows and macOS, should also work on Linux.
-
-This technique is probably most useful when we don&amp;rsquo;t have root or the user&amp;rsquo;s credentials to decrypt cookies or can&amp;rsquo;t attach a regular debugger to the browser process.</description>
+      <description>Finally I got to writing some basic tooling for invoking the Firefox debugging API to send commands to the browser and read the responses. This can be useful for grabbing cookies in the post-exploitation phase.&#xA;It works for Windows and macOS, should also work on Linux.&#xA;This technique is probably most useful when we don&amp;rsquo;t have root or the user&amp;rsquo;s credentials to decrypt cookies or can&amp;rsquo;t attach a regular debugger to the browser process.</description>
     </item>
-    
     <item>
       <title>Remotely debugging Firefox instances</title>
       <link>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</link>
       <pubDate>Wed, 15 Jul 2020 06:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</guid>
-      <description>Previously I talked about remotely debugging Chrome, and we also covered the latest Microsoft Edge browser along the way.
-These features allow an adversary to gain access to authentication tokens and cookies. See MITRE ATT&amp;amp;CK Technique T1539: Steal Web Session Cookie as well for this.
-What about Firefox? For a while I was wondering if (my favorite) browser Firefox has such debugging features as well, and how one could detect malware trying to exploit it.</description>
+      <description>Previously I talked about remotely debugging Chrome, and we also covered the latest Microsoft Edge browser along the way.&#xA;These features allow an adversary to gain access to authentication tokens and cookies. See MITRE ATT&amp;amp;CK Technique T1539: Steal Web Session Cookie as well for this.&#xA;What about Firefox? For a while I was wondering if (my favorite) browser Firefox has such debugging features as well, and how one could detect malware trying to exploit it.</description>
     </item>
-    
     <item>
       <title>Cookie Crimes and the new Microsoft Edge Browser</title>
       <link>https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</link>
       <pubDate>Fri, 01 May 2020 01:00:46 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</guid>
-      <description>Revisiting Cookie Crimes In 2018 @mangopdf described &amp;ldquo;Cookie Crimes&amp;rdquo;, which is great research around Chrome&amp;rsquo;s remote debugging feature that allows adversaries and malware to gain access to cookies quite convienently during post-exploitation.
-The original research is published here, and it still works today.
-The new Microsoft Edge browser and Chromium Microsoft&amp;rsquo;s latest Edge browser is based on the same code, Chromium. I guess, you already know where this is going now&amp;hellip;</description>
+      <description>Revisiting Cookie Crimes In 2018 @mangopdf described &amp;ldquo;Cookie Crimes&amp;rdquo;, which is great research around Chrome&amp;rsquo;s remote debugging feature that allows adversaries and malware to gain access to cookies quite convienently during post-exploitation.&#xA;The original research is published here, and it still works today.&#xA;The new Microsoft Edge browser and Chromium Microsoft&amp;rsquo;s latest Edge browser is based on the same code, Chromium. I guess, you already know where this is going now&amp;hellip;</description>
     </item>
-    
     <item>
       <title>Post-Exploitation: Abusing Chrome&#39;s debugging feature to observe and control browsing sessions remotely</title>
       <link>https://embracethered.com/blog/posts/2020/chrome-spy-remote-control/</link>
       <pubDate>Tue, 28 Apr 2020 18:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/chrome-spy-remote-control/</guid>
-      <description>Chrome&amp;rsquo;s remote debugging feature enables malware post-exploitation to gain access to cookies. Root privileges are not required. This is a pretty well-known and commonly used adversarial technique - at least since 2018 when Cookie Crimes was released.
-However, remote debugging also allows observing user activities and sensitive personal information (aka spying on users) and controlling the browser from a remote computer.
-Below screenshot shows a simulated attacker controlling the victim&amp;rsquo;s browser and navigating to chrome://settings to inspect information:</description>
+      <description>Chrome&amp;rsquo;s remote debugging feature enables malware post-exploitation to gain access to cookies. Root privileges are not required. This is a pretty well-known and commonly used adversarial technique - at least since 2018 when Cookie Crimes was released.&#xA;However, remote debugging also allows observing user activities and sensitive personal information (aka spying on users) and controlling the browser from a remote computer.&#xA;Below screenshot shows a simulated attacker controlling the victim&amp;rsquo;s browser and navigating to chrome://settings to inspect information:</description>
     </item>
-    
   </channel>
 </rss>

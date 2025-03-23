@@ -1,44 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bugbounty on Embrace The Red</title>
+    <title>Bugbounty on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/bugbounty/</link>
-    <description>Recent content in bugbounty on Embrace The Red</description>
+    <description>Recent content in Bugbounty on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Mon, 12 Feb 2024 17:11:48 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/bugbounty/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Feb 2024 17:11:48 -0800</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/bugbounty/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Video: ASCII Smuggling and Hidden Prompt Instructions</title>
       <link>https://embracethered.com/blog/posts/2024/ascii-smuggling-and-hidden-prompt-instructions/</link>
       <pubDate>Mon, 12 Feb 2024 17:11:48 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/ascii-smuggling-and-hidden-prompt-instructions/</guid>
-      <description>A couple of weeks ago hidden prompt injections were discovered and we covered it at the time.
-This video explains it in more detail, and also highlights implications beyond hiding instructions, including what I call ASCII Smuggling. This is the usage of Unicode Tags Block characters to both craft and deciper hidden messages in plain sight.
-   Using Unicode encoding to bypass security features or execute code (XSS, SSRF,.</description>
+      <description>A couple of weeks ago hidden prompt injections were discovered and we covered it at the time.&#xA;This video explains it in more detail, and also highlights implications beyond hiding instructions, including what I call ASCII Smuggling. This is the usage of Unicode Tags Block characters to both craft and deciper hidden messages in plain sight.&#xA;Using Unicode encoding to bypass security features or execute code (XSS, SSRF,..) has been in use for a while, however this new TTP enables more sophisticated attack scenarios.</description>
     </item>
-    
     <item>
       <title>$3000 Bug Bounty Award from Mozilla for a successful targeted Credential Hunt</title>
       <link>https://embracethered.com/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/</link>
       <pubDate>Wed, 13 May 2020 18:00:25 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/</guid>
-      <description>Last month I did some research on Firefox, specifically I was learning more about it&amp;rsquo;s remote debugging features. As part of that I was reading Bugzilla bug information and learned more about Mozilla&amp;rsquo;s infrastructure.
-One thing I noticed reading up on details was that Mozilla uses Phabricator.
-What is Phabricator? Phabricator is a collaborative web-based toolset for code reviews, checkins, bugs, work items, wiki, pastes, credentials and many other useful things.</description>
+      <description>Last month I did some research on Firefox, specifically I was learning more about it&amp;rsquo;s remote debugging features. As part of that I was reading Bugzilla bug information and learned more about Mozilla&amp;rsquo;s infrastructure.&#xA;One thing I noticed reading up on details was that Mozilla uses Phabricator.&#xA;What is Phabricator? Phabricator is a collaborative web-based toolset for code reviews, checkins, bugs, work items, wiki, pastes, credentials and many other useful things.</description>
     </item>
-    
     <item>
       <title>Google Leaks Your Alternate Email Addresses to Unauthenticated Users</title>
       <link>https://embracethered.com/blog/posts/google-email-leak/</link>
       <pubDate>Tue, 04 Jun 2019 21:51:52 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/google-email-leak/</guid>
-      <description>The Google Login Flow leaks additional email account information to unauthenticated users. I discovered this in the Google Account Login flow while building KoiPhish.
-Responsible Disclosure I reported this issue to Google and they looked into it and after a about 5 weeks of back and forth they decided that this is not an issue worth fixing. After asking if I can post about it publicly I got Google&amp;rsquo;s okay.</description>
+      <description>The Google Login Flow leaks additional email account information to unauthenticated users. I discovered this in the Google Account Login flow while building KoiPhish.&#xA;Responsible Disclosure I reported this issue to Google and they looked into it and after a about 5 weeks of back and forth they decided that this is not an issue worth fixing. After asking if I can post about it publicly I got Google&amp;rsquo;s okay.</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>coffeeshop on Embrace The Red</title>
+    <title>Coffeeshop on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/coffeeshop/</link>
-    <description>Recent content in coffeeshop on Embrace The Red</description>
+    <description>Recent content in Coffeeshop on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sat, 15 Feb 2020 15:48:51 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/coffeeshop/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Feb 2020 15:48:51 -0800</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/coffeeshop/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2600 - The Hacker Quarterly - Pass the Cookie Article</title>
       <link>https://embracethered.com/blog/posts/2020/2600-hacker-pass-the-cookie/</link>
       <pubDate>Sat, 15 Feb 2020 15:48:51 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/2600-hacker-pass-the-cookie/</guid>
-      <description>Pass the Cookie made it into the latest 2600 magazine! Very excited about this!
-I was just walking around Capitol Hill and stopped by Ada&amp;rsquo;s Technical Books on 15th Avenue - a great coffee shop with lots of technical books. Right after walking in to grab a cup of tea, I saw the latest Hacker Quarterly. A few months back I submitted an article about &amp;ldquo;Pass the Cookie&amp;rdquo;, so I had to check, and the article got indeed published!</description>
+      <description>Pass the Cookie made it into the latest 2600 magazine! Very excited about this!&#xA;I was just walking around Capitol Hill and stopped by Ada&amp;rsquo;s Technical Books on 15th Avenue - a great coffee shop with lots of technical books. Right after walking in to grab a cup of tea, I saw the latest Hacker Quarterly. A few months back I submitted an article about &amp;ldquo;Pass the Cookie&amp;rdquo;, so I had to check, and the article got indeed published!</description>
     </item>
-    
   </channel>
 </rss>

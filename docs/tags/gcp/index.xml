@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gcp on Embrace The Red</title>
+    <title>Gcp on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/gcp/</link>
-    <description>Recent content in gcp on Embrace The Red</description>
+    <description>Recent content in Gcp on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Thu, 19 Oct 2023 06:35:37 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/gcp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Oct 2023 06:35:37 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/gcp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Google Cloud Vertex AI - Data Exfiltration Vulnerability Fixed in Generative AI Studio</title>
       <link>https://embracethered.com/blog/posts/2023/google-gcp-generative-ai-studio-data-exfiltration-fixed/</link>
       <pubDate>Thu, 19 Oct 2023 06:35:37 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/google-gcp-generative-ai-studio-data-exfiltration-fixed/</guid>
-      <description>Large Language Model (LLM) applications and chatbots are quite commonly vulnerable to data exfiltration. In particular data exfiltration via Image Markdown Injection is frequent.
-This post describes how Google Cloud&amp;rsquo;s Vertex AI - Generative AI Studio had this vulnerability that I responsibly disclosed and Google fixed.
-A big shout out to the Google Security team upfront, it took 22 minutes from report submission to receiving a confirmation from Google that this is a security issue that will be fixed.</description>
+      <description>Large Language Model (LLM) applications and chatbots are quite commonly vulnerable to data exfiltration. In particular data exfiltration via Image Markdown Injection is frequent.&#xA;This post describes how Google Cloud&amp;rsquo;s Vertex AI - Generative AI Studio had this vulnerability that I responsibly disclosed and Google fixed.&#xA;A big shout out to the Google Security team upfront, it took 22 minutes from report submission to receiving a confirmation from Google that this is a security issue that will be fixed.</description>
     </item>
-    
   </channel>
 </rss>

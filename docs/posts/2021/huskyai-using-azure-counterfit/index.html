@@ -169,11 +169,11 @@ from counterfit.core.targets import ArtTarget
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 class Huskyai(ArtTarget):
-    model_name = &quot;huskyai&quot;
-    model_data_type = &quot;image&quot;
-    model_endpoint = &quot;/tmp/huskymodel.h5&quot;
+    model_name = &#34;huskyai&#34;
+    model_data_type = &#34;image&#34;
+    model_endpoint = &#34;/tmp/huskymodel.h5&#34;
     model_input_shape = (128,128,3)
-    model_output_classes = [&quot;husky&quot;, &quot;not_husky&quot;]
+    model_output_classes = [&#34;husky&#34;, &#34;not_husky&#34;]
     X = []
 
     def __init__(self):
@@ -184,10 +184,10 @@ class Huskyai(ArtTarget):
         
         datagen = ImageDataGenerator(rescale=1/255)
         generator = datagen.flow_from_directory(
-            &quot;/tmp/images/val&quot;, 
+            &#34;/tmp/images/val&#34;, 
             target_size=(128, 128), 
             batch_size=1,
-            class_mode='binary')
+            class_mode=&#39;binary&#39;)
 
         all_images = []
         batch_index = 0
@@ -200,7 +200,7 @@ class Huskyai(ArtTarget):
         self.sample_data = numpy.vstack(all_images)
         self.X = self.sample_data
 
-        print(&quot;shape of sample list&quot;)
+        print(&#34;shape of sample list&#34;)
         print(self.sample_data.shape)
 
 
@@ -223,7 +223,7 @@ huskyai&gt;
 <pre tabindex="0"><code>huskyai&gt; predict --index 0
 
 Sample                                                  Output Scores         
-Index               Sample                              ['husky' 'not_husky']     
+Index               Sample                              [&#39;husky&#39; &#39;not_husky&#39;]     
 ------------------------------------------------------------------------------
 0                   huskyai-sample-e412a1a2.png         [0.02 0.98]
 
@@ -315,11 +315,11 @@ pip install zip
 </ol>
 <pre tabindex="0"><code>import zipfile
 
-zip_filename = &quot;/content/drive/MyDrive/HuskyAI/husky.train.zip&quot;
+zip_filename = &#34;/content/drive/MyDrive/HuskyAI/husky.train.zip&#34;
 
 # Extract files
-zfiles = zipfile.ZipFile(zip_filename, 'r')
-zfiles.extractall('/tmp')
+zfiles = zipfile.ZipFile(zip_filename, &#39;r&#39;)
+zfiles.extractall(&#39;/tmp&#39;)
 zfiles.close()
 </code></pre><p>You can also use any images you have, it doesn’t have to be huskies.</p>
 <ol start="3">

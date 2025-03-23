@@ -49,7 +49,7 @@ Enjoy!
 
 If you feel like playing a game visit `https://wuzzi.net/ai-tests/wargames` with ChatGPT - and you might get a laugh out of it.
 
-{{< twitter wunderwuzzi23 1667412145183801345 >}}
+{{< twitter user="wunderwuzzi23" id="1667412145183801345" >}}
 
 ## Appendix
 

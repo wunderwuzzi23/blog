@@ -222,27 +222,27 @@ Threat model and test AI model integrations carefully. Identify input and output
 <p>List of a couple chat applications that retrieve hyperlinks and their User-Agent info.</p>
 <p>This list doesn&rsquo;t include Facebook&rsquo;s chat apps, since I don&rsquo;t have them installed anymore, but they likely have the same behavior.</p>
 <h4 id="discord---discordbot20-httpsdiscordappcom">Discord - Discordbot/2.0; +https://discordapp.com</h4>
-<pre tabindex="0"><code>[07/Apr/2023:16:16:40 +0000] &quot;GET /discord HTTP/1.1&quot; 404 178 &quot;-&quot; &quot;Mozilla/5.0 (compatible; Discordbot/2.0; +https://discordapp.com)&quot;
+<pre tabindex="0"><code>[07/Apr/2023:16:16:40 +0000] &#34;GET /discord HTTP/1.1&#34; 404 178 &#34;-&#34; &#34;Mozilla/5.0 (compatible; Discordbot/2.0; +https://discordapp.com)&#34;
 </code></pre><h4 id="skype---skypeuripreview-preview05-skype-url-previewmicrosoftcom">Skype - SkypeUriPreview Preview/0.5 <a href="mailto:skype-url-preview@microsoft.com">skype-url-preview@microsoft.com</a></h4>
-<pre tabindex="0"><code>[07/Apr/2023:16:12:58 +0000] &quot;GET /skype HTTP/1.1&quot; 404 152 &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) SkypeUriPreview Preview/0.5 skype-url-preview@microsoft.com&quot;
+<pre tabindex="0"><code>[07/Apr/2023:16:12:58 +0000] &#34;GET /skype HTTP/1.1&#34; 404 152 &#34;-&#34; &#34;Mozilla/5.0 (Windows NT 6.1; WOW64) SkypeUriPreview Preview/0.5 skype-url-preview@microsoft.com&#34;
 </code></pre><h4 id="slack---slackbot-linkexpanding-10-httpsapislackcomrobots">Slack - Slackbot-LinkExpanding 1.0 (+https://api.slack.com/robots)</h4>
-<pre tabindex="0"><code>[07/Apr/2023:16:07:48 +0000] &quot;GET /posts/bardintro.html HTTP/1.1&quot; 200 687 &quot;-&quot; &quot;Slackbot-LinkExpanding 1.0 (+https://api.slack.com/robots)&quot;
+<pre tabindex="0"><code>[07/Apr/2023:16:07:48 +0000] &#34;GET /posts/bardintro.html HTTP/1.1&#34; 200 687 &#34;-&#34; &#34;Slackbot-LinkExpanding 1.0 (+https://api.slack.com/robots)&#34;
 </code></pre><h4 id="telegram---telegrambot-like-twitterbot">Telegram - TelegramBot (like TwitterBot)</h4>
-<pre tabindex="0"><code>[07/Apr/2023:16:20:18 +0000] &quot;GET /te HTTP/1.1&quot; 404 152 &quot;-&quot; &quot;TelegramBot (like TwitterBot)&quot;
-[07/Apr/2023:16:20:19 +0000] &quot;GET /tele HTTP/1.1&quot; 404 152 &quot;-&quot; &quot;TelegramBot (like TwitterBot)&quot;
-[07/Apr/2023:16:20:19 +0000] &quot;GET /teleg HTTP/1.1&quot; 404 152 &quot;-&quot; &quot;TelegramBot (like TwitterBot)&quot;
-[07/Apr/2023:16:20:19 +0000] &quot;GET /telegr HTTP/1.1&quot; 404 152 &quot;-&quot; &quot;TelegramBot (like TwitterBot)&quot;
-[07/Apr/2023:16:20:19 +0000] &quot;GET /telegra HTTP/1.1&quot; 404 152 &quot;-&quot; &quot;TelegramBot (like TwitterBot)&quot;
-[07/Apr/2023:16:20:20 +0000] &quot;GET /telegram HTTP/1.1&quot; 404 152 &quot;-&quot; &quot;TelegramBot (like TwitterBot)&quot;
+<pre tabindex="0"><code>[07/Apr/2023:16:20:18 +0000] &#34;GET /te HTTP/1.1&#34; 404 152 &#34;-&#34; &#34;TelegramBot (like TwitterBot)&#34;
+[07/Apr/2023:16:20:19 +0000] &#34;GET /tele HTTP/1.1&#34; 404 152 &#34;-&#34; &#34;TelegramBot (like TwitterBot)&#34;
+[07/Apr/2023:16:20:19 +0000] &#34;GET /teleg HTTP/1.1&#34; 404 152 &#34;-&#34; &#34;TelegramBot (like TwitterBot)&#34;
+[07/Apr/2023:16:20:19 +0000] &#34;GET /telegr HTTP/1.1&#34; 404 152 &#34;-&#34; &#34;TelegramBot (like TwitterBot)&#34;
+[07/Apr/2023:16:20:19 +0000] &#34;GET /telegra HTTP/1.1&#34; 404 152 &#34;-&#34; &#34;TelegramBot (like TwitterBot)&#34;
+[07/Apr/2023:16:20:20 +0000] &#34;GET /telegram HTTP/1.1&#34; 404 152 &#34;-&#34; &#34;TelegramBot (like TwitterBot)&#34;
 </code></pre><h4 id="signal---whatsapp2">Signal - WhatsApp/2</h4>
-<pre tabindex="0"><code>[07/Apr/2023:16:25:07 +0000] &quot;GET /s HTTP/1.1&quot; 404 152 &quot;-&quot; &quot;WhatsApp/2&quot;
-[07/Apr/2023:16:25:07 +0000] &quot;GET /si HTTP/1.1&quot; 404 152 &quot;-&quot; &quot;WhatsApp/2&quot;
-[07/Apr/2023:16:25:07 +0000] &quot;GET /sig HTTP/1.1&quot; 404 152 &quot;-&quot; &quot;WhatsApp/2&quot;
-[07/Apr/2023:16:25:08 +0000] &quot;GET /sign HTTP/1.1&quot; 404 152 &quot;-&quot; &quot;WhatsApp/2&quot;
-[07/Apr/2023:16:25:08 +0000] &quot;GET /signa HTTP/1.1&quot; 404 152 &quot;-&quot; &quot;WhatsApp/2&quot;
-[07/Apr/2023:16:25:08 +0000] &quot;GET /signal HTTP/1.1&quot; 404 152 &quot;-&quot; &quot;WhatsApp/2&quot;
+<pre tabindex="0"><code>[07/Apr/2023:16:25:07 +0000] &#34;GET /s HTTP/1.1&#34; 404 152 &#34;-&#34; &#34;WhatsApp/2&#34;
+[07/Apr/2023:16:25:07 +0000] &#34;GET /si HTTP/1.1&#34; 404 152 &#34;-&#34; &#34;WhatsApp/2&#34;
+[07/Apr/2023:16:25:07 +0000] &#34;GET /sig HTTP/1.1&#34; 404 152 &#34;-&#34; &#34;WhatsApp/2&#34;
+[07/Apr/2023:16:25:08 +0000] &#34;GET /sign HTTP/1.1&#34; 404 152 &#34;-&#34; &#34;WhatsApp/2&#34;
+[07/Apr/2023:16:25:08 +0000] &#34;GET /signa HTTP/1.1&#34; 404 152 &#34;-&#34; &#34;WhatsApp/2&#34;
+[07/Apr/2023:16:25:08 +0000] &#34;GET /signal HTTP/1.1&#34; 404 152 &#34;-&#34; &#34;WhatsApp/2&#34;
 </code></pre><h4 id="microsoft-teams---skypeuripreview-preview05-skype-url-previewmicrosoftcom">Microsoft Teams - SkypeUriPreview Preview/0.5 <a href="mailto:skype-url-preview@microsoft.com">skype-url-preview@microsoft.com</a></h4>
-<pre tabindex="0"><code>[07/Apr/2023:17:31:54 +0000] &quot;GET /teams HTTP/1.1&quot; 404 152 &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) SkypeUriPreview Preview/0.5 skype-url-preview@microsoft.com&quot;
+<pre tabindex="0"><code>[07/Apr/2023:17:31:54 +0000] &#34;GET /teams HTTP/1.1&#34; 404 152 &#34;-&#34; &#34;Mozilla/5.0 (Windows NT 6.1; WOW64) SkypeUriPreview Preview/0.5 skype-url-preview@microsoft.com&#34;
 </code></pre>
 
 <div style="color:white;font-size: 10px">

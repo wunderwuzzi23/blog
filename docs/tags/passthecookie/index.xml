@@ -1,34 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>passthecookie on Embrace The Red</title>
+    <title>Passthecookie on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/passthecookie/</link>
-    <description>Recent content in passthecookie on Embrace The Red</description>
+    <description>Recent content in Passthecookie on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Wed, 15 Jul 2020 06:00:00 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/passthecookie/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Jul 2020 06:00:00 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/passthecookie/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Remotely debugging Firefox instances</title>
       <link>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</link>
       <pubDate>Wed, 15 Jul 2020 06:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</guid>
-      <description>Previously I talked about remotely debugging Chrome, and we also covered the latest Microsoft Edge browser along the way.
-These features allow an adversary to gain access to authentication tokens and cookies. See MITRE ATT&amp;amp;CK Technique T1539: Steal Web Session Cookie as well for this.
-What about Firefox? For a while I was wondering if (my favorite) browser Firefox has such debugging features as well, and how one could detect malware trying to exploit it.</description>
+      <description>Previously I talked about remotely debugging Chrome, and we also covered the latest Microsoft Edge browser along the way.&#xA;These features allow an adversary to gain access to authentication tokens and cookies. See MITRE ATT&amp;amp;CK Technique T1539: Steal Web Session Cookie as well for this.&#xA;What about Firefox? For a while I was wondering if (my favorite) browser Firefox has such debugging features as well, and how one could detect malware trying to exploit it.</description>
     </item>
-    
     <item>
       <title>Cookie Crimes and the new Microsoft Edge Browser</title>
       <link>https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</link>
       <pubDate>Fri, 01 May 2020 01:00:46 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</guid>
-      <description>Revisiting Cookie Crimes In 2018 @mangopdf described &amp;ldquo;Cookie Crimes&amp;rdquo;, which is great research around Chrome&amp;rsquo;s remote debugging feature that allows adversaries and malware to gain access to cookies quite convienently during post-exploitation.
-The original research is published here, and it still works today.
-The new Microsoft Edge browser and Chromium Microsoft&amp;rsquo;s latest Edge browser is based on the same code, Chromium. I guess, you already know where this is going now&amp;hellip;</description>
+      <description>Revisiting Cookie Crimes In 2018 @mangopdf described &amp;ldquo;Cookie Crimes&amp;rdquo;, which is great research around Chrome&amp;rsquo;s remote debugging feature that allows adversaries and malware to gain access to cookies quite convienently during post-exploitation.&#xA;The original research is published here, and it still works today.&#xA;The new Microsoft Edge browser and Chromium Microsoft&amp;rsquo;s latest Edge browser is based on the same code, Chromium. I guess, you already know where this is going now&amp;hellip;</description>
     </item>
-    
   </channel>
 </rss>

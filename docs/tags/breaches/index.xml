@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>breaches on Embrace The Red</title>
+    <title>Breaches on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/breaches/</link>
-    <description>Recent content in breaches on Embrace The Red</description>
+    <description>Recent content in Breaches on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sun, 01 Sep 2019 13:25:07 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/breaches/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Sep 2019 13:25:07 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/breaches/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Coinbase under attack and cookie theft</title>
       <link>https://embracethered.com/blog/posts/coinbase-hack-cookie-theft-pass/</link>
       <pubDate>Sun, 01 Sep 2019 13:25:07 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/coinbase-hack-cookie-theft-pass/</guid>
-      <description>Recently Coinbase published a well written blog post on how they were under attack. The adversaries exploite Firefox 0-days. Details can be found here. One intersting aspect is the following:
- &amp;ldquo;We have also observed the attackers specifically target cloud services, e.g. gmail and others, via browser session token theft via direct access to browser datastores. This activity also offers the opportunity for behavior-based detection, as relatively few processes should be directly accessing those files.</description>
+      <description>Recently Coinbase published a well written blog post on how they were under attack. The adversaries exploite Firefox 0-days. Details can be found here. One intersting aspect is the following:&#xA;&amp;ldquo;We have also observed the attackers specifically target cloud services, e.g. gmail and others, via browser session token theft via direct access to browser datastores. This activity also offers the opportunity for behavior-based detection, as relatively few processes should be directly accessing those files.</description>
     </item>
-    
   </channel>
 </rss>

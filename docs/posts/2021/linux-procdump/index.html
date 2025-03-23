@@ -159,7 +159,7 @@ sudo apt-get install procdump
 <h3 id="attacker-searches-the-core-memory-dump-for-interesting-information">Attacker searches the core memory dump for interesting information</h3>
 <p>The next step is to analyze the memory dump, let&rsquo;s to a simple string search and grep:</p>
 <pre tabindex="0"><code>~$ strings nano_time_2021-08-09_10\:23\:42.3197  | grep password
-password=&quot;
+password=&#34;
 password=helloWorld!
 </code></pre><p>Screenshot of the procedure:</p>
 <p><img src="/blog/images/2021/procdump_grep.png" alt="Attacker searching for passwords"></p>

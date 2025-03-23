@@ -133,20 +133,20 @@
 <p><a href="/blog/images/2020/husky-prediction.jpg"><img src="/blog/images/2020/husky-prediction.jpg" alt="Husky Prediction Example"></a></p>
 <p>If you are curious the code for the simple web server is located <a href="https://github.com/wunderwuzzi23/ai/blob/master/huskyai/huskyai.py">here</a>.</p>
 <p>To interact with the API I&rsquo;m using the following code:</p>
-<pre tabindex="0"><code>ENDPOINT = &quot;https://example.org/huskyai&quot;
+<pre tabindex="0"><code>ENDPOINT = &#34;https://example.org/huskyai&#34;
 
 def predict(np_candidate):
 
     #convert numpy array to Image in memory
-    img = Image.fromarray((np_candidate*255.).astype('uint8'), 'RGB')
+    img = Image.fromarray((np_candidate*255.).astype(&#39;uint8&#39;), &#39;RGB&#39;)
     image_bytes = io.BytesIO()
-    img.save(image_bytes, format=&quot;png&quot;)
+    img.save(image_bytes, format=&#34;png&#34;)
     image_bytes = image_bytes.getvalue()
 
     #call prediction HTTPS API
     file = {
-        &quot;file&quot;: image_bytes,
-        &quot;Content-Type&quot;: &quot;image/png&quot;
+        &#34;file&#34;: image_bytes,
+        &#34;Content-Type&#34;: &#34;image/png&#34;
     }
 
     response = requests.post(ENDPOINT, files=file)
@@ -178,9 +178,9 @@ def predict(np_candidate):
 candidate_zeros = np.zeros([1, NUM_PX, NUM_PX, 3])
 candidate_ones  = np.ones([1, NUM_PX, NUM_PX, 3])
 
-print(&quot;Random Canvas: &quot; + str(predict(candidate_rand)))
-print(&quot;Ones Canvas:   &quot; + str(predict(candidate_ones)))
-print(&quot;Zeros Canvas:  &quot; + str(predict(candidate_zeros)))
+print(&#34;Random Canvas: &#34; + str(predict(candidate_rand)))
+print(&#34;Ones Canvas:   &#34; + str(predict(candidate_ones)))
+print(&#34;Zeros Canvas:  &#34; + str(predict(candidate_zeros)))
 </code></pre><p>Let us analyze the results in more detail.</p>
 <h3 id="test-case-1-a-black-canvas"><strong>Test Case 1:</strong> A black canvas</h3>
 <p>The first image I created was a <code>numpy</code> array with all 0 - which is basically a blank black canvas.</p>
@@ -219,12 +219,12 @@ It will be exciting to try more advanced attacks (includ ML based ones) after fi
 <pre tabindex="0"><code>labels = [0,0,0]
 images = [candidate_rand[0], candidate_zeros[0], candidate_ones[0]]
 
-print(&quot;Fitting model...&quot;)
+print(&#34;Fitting model...&#34;)
 model.fit(np.array(images),np.array(labels), epochs=1, verbose=0)
 
-print(&quot;Random Canvas: &quot; + str(model.predict(candidate_rand)))
-print(&quot;Zeros Canvas:  &quot; + str(model.predict(candidate_zeros)))
-print(&quot;Ones Canvas:   &quot; + str(model.predict(candidate_ones)))
+print(&#34;Random Canvas: &#34; + str(model.predict(candidate_rand)))
+print(&#34;Zeros Canvas:  &#34; + str(model.predict(candidate_zeros)))
+print(&#34;Ones Canvas:   &#34; + str(model.predict(candidate_ones)))
 </code></pre><p>Since I am experimenting to learn, I only trained for a single epoch initially, here are the results:</p>
 <pre tabindex="0"><code>Fitting model...
 
@@ -242,7 +242,7 @@ current_best_score = 1e-100
 for i in range(attempts):
 
     if (i % 10000) == 0:
-        print(f&quot;Progress... #{i}&quot;)
+        print(f&#34;Progress... #{i}&#34;)
     
     ##create a random image
     candidate_image = np.random.random([1, NUM_PX, NUM_PX, 3])
@@ -251,13 +251,13 @@ for i in range(attempts):
     score = result[0]
 
     if score &gt; 0.5:
-        print(&quot;Found a random husky. Try #&quot; + str(i))
+        print(&#34;Found a random husky. Try #&#34; + str(i))
         plt.imshow(candidate_image[0])
         break
 
     if score &gt; current_best_score: 
         current_best_score = score
-        print(&quot;New best score: &quot; + str(current_best_score))
+        print(&#34;New best score: &#34; + str(current_best_score))
 </code></pre><p>With the additional training we performed, it seems quite difficult to &ldquo;guess&rdquo; a husky picture now.</p>
 <p>I performed about 100000 tests and the highest score achieved via random pixels was about 30% now - still a bit high so I should probably add a few more &ldquo;random pixel&rdquo; adversarial examples.</p>
 <h3 id="api-throttling-and-rate-limiting">API throttling and rate limiting</h3>

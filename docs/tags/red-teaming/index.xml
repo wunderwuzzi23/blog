@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>red teaming on Embrace The Red</title>
+    <title>Red Teaming on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/red-teaming/</link>
-    <description>Recent content in red teaming on Embrace The Red</description>
+    <description>Recent content in Red Teaming on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sat, 18 May 2024 16:00:00 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/red-teaming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 May 2024 16:00:00 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/red-teaming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Machine Learning Attack Series: Backdooring Keras Models and How to Detect It</title>
       <link>https://embracethered.com/blog/posts/2024/machine-learning-attack-series-keras-backdoor-model/</link>
       <pubDate>Sat, 18 May 2024 16:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/machine-learning-attack-series-keras-backdoor-model/</guid>
-      <description>This post is part of a series about machine learning and artificial intelligence.
-Adversaries often leverage supply chain attacks to gain footholds. In machine learning model deserialization issues are a significant threat, and detecting them is crucial, as they can lead to arbitrary code execution. We explored this attack with Python Pickle files in the past.
-In this post we are covering backdooring the original Keras Husky AI model from the Machine Learning Attack Series, and afterwards we investigate tooling to detect the backdoor.</description>
+      <description>This post is part of a series about machine learning and artificial intelligence.&#xA;Adversaries often leverage supply chain attacks to gain footholds. In machine learning model deserialization issues are a significant threat, and detecting them is crucial, as they can lead to arbitrary code execution. We explored this attack with Python Pickle files in the past.&#xA;In this post we are covering backdooring the original Keras Husky AI model from the Machine Learning Attack Series, and afterwards we investigate tooling to detect the backdoor.</description>
     </item>
-    
   </channel>
 </rss>

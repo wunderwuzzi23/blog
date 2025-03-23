@@ -137,21 +137,21 @@
 <p>FLoC assigns you to a cohort, which can be queried by any website you visit using the DOM API:</p>
 <p><code>document.interestCohort()</code></p>
 <p>This returns the cohort you are currently in. To test this, I launched the latest Chrome version using the following command line arguments to enable FLoC voluntarily:</p>
-<pre tabindex="0"><code>&amp; &quot;C:\Program Files (x86)\Google\Chrome\Application\chrome.exe&quot; --enable-blink-features=InterestCohortAPI --enable-features=&quot;FederatedLearningOfCohorts:update_interval/10s/minimum_history_domain_size_required/1,FlocIdSortingLshBasedComputation,InterestCohortFeaturePolicy&quot;
+<pre tabindex="0"><code>&amp; &#34;C:\Program Files (x86)\Google\Chrome\Application\chrome.exe&#34; --enable-blink-features=InterestCohortAPI --enable-features=&#34;FederatedLearningOfCohorts:update_interval/10s/minimum_history_domain_size_required/1,FlocIdSortingLshBasedComputation,InterestCohortFeaturePolicy&#34;
 </code></pre><p>And then I hosted a website with the following HTML:</p>
 <pre tabindex="0"><code>&lt;html&gt;
 
 Hello, Cohort!
 &lt;br&gt;&lt;br&gt;
-Cohort: &lt;span id=&quot;id&quot;&gt;&lt;/span&gt;&lt;br&gt;
-Version: &lt;span id=&quot;version&quot;&gt;&lt;/span&gt;
+Cohort: &lt;span id=&#34;id&#34;&gt;&lt;/span&gt;&lt;br&gt;
+Version: &lt;span id=&#34;version&#34;&gt;&lt;/span&gt;
 
 &lt;script&gt;
 async function getFLoC() 
 {
     const { id, version } = await document.interestCohort();
-    document.getElementById(&quot;id&quot;).innerText = id
-    document.getElementById(&quot;version&quot;).innerText = version
+    document.getElementById(&#34;id&#34;).innerText = id
+    document.getElementById(&#34;version&#34;).innerText = version
 }
 getFLoC(); 
 &lt;/script&gt;

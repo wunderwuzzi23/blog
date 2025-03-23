@@ -150,5 +150,5 @@ Happy Hacking.
 * [Image](/blog/images/2023/chatgpt-learn-the-hacks.png) created with Bing Image Create
 * [Genie](https://embracethered.com/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/)
 * [Turning Bing Chat into a Data Pirate](https://greshake.github.io/)
-* [The tweet highlighting the POC](https://twitter.com/wunderwuzzi23/status/1659411665853779971):
-{{< twitter wunderwuzzi23 1659411665853779971 >}}
+* [The tweet highlighting the POC](https://x.com/wunderwuzzi23/status/1659411665853779971):
+{{< twitter user="wunderwuzzi23" id="1659411665853779971" >}}

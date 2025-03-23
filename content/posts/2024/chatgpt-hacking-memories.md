@@ -195,7 +195,7 @@ Cheers.
 ## Appendix
 
 Tweet describing the image attack and video
-{{< twitter wunderewuzzi23 1791270770502742040 >}}
+{{< twitter user="wunderewuzzi23" id="1791270770502742040" >}}
 
 ### POC for tampering with memories
 

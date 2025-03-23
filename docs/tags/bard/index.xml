@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bard on Embrace The Red</title>
+    <title>Bard on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/bard/</link>
-    <description>Recent content in bard on Embrace The Red</description>
+    <description>Recent content in Bard on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Fri, 03 Nov 2023 12:00:01 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/bard/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Nov 2023 12:00:01 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/bard/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hacking Google Bard - From Prompt Injection to Data Exfiltration</title>
       <link>https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/</link>
       <pubDate>Fri, 03 Nov 2023 12:00:01 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/</guid>
-      <description>Recently Google Bard got some powerful updates, including Extensions. Extensions allow Bard to access YouTube, search for flights and hotels, and also to access a user&amp;rsquo;s personal documents and emails.
-So, Bard can now access and analyze your Drive, Docs and Gmail!
-This means that it analyzes untrusted data and will be susceptible to Indirect Prompt Injection.
-I was able to quickly validate that Prompt Injection works by pointing Bard to some older YouTube videos I had put up and ask it to summarize, and I also tested with Google Docs.</description>
+      <description>Recently Google Bard got some powerful updates, including Extensions. Extensions allow Bard to access YouTube, search for flights and hotels, and also to access a user&amp;rsquo;s personal documents and emails.&#xA;So, Bard can now access and analyze your Drive, Docs and Gmail!&#xA;This means that it analyzes untrusted data and will be susceptible to Indirect Prompt Injection.&#xA;I was able to quickly validate that Prompt Injection works by pointing Bard to some older YouTube videos I had put up and ask it to summarize, and I also tested with Google Docs.</description>
     </item>
-    
   </channel>
 </rss>

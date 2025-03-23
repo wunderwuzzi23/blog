@@ -1,35 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>zombAI on Embrace The Red</title>
+    <title>ZombAI on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/zombai/</link>
-    <description>Recent content in zombAI on Embrace The Red</description>
+    <description>Recent content in ZombAI on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Mon, 06 Jan 2025 20:30:53 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/zombai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Jan 2025 20:30:53 -0800</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/zombai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Domination: Remote Controlling ChatGPT ZombAI Instances</title>
       <link>https://embracethered.com/blog/posts/2025/spaiware-and-chatgpt-command-and-control-via-prompt-injection-zombai/</link>
       <pubDate>Mon, 06 Jan 2025 20:30:53 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2025/spaiware-and-chatgpt-command-and-control-via-prompt-injection-zombai/</guid>
-      <description>At Black Hat Europe I did a fun presentation titled SpAIware and More: Advanced Prompt Injection Exploits. Without diving into the details of the entire talk, the key point I was making is that prompt injection can impact all aspects of the CIA security triad.
-However, there is one part that I want to highlight explicitly:
-A Command and Control system (C2) that uses prompt injection to remote control ChatGPT instances.</description>
+      <description>At Black Hat Europe I did a fun presentation titled SpAIware and More: Advanced Prompt Injection Exploits. Without diving into the details of the entire talk, the key point I was making is that prompt injection can impact all aspects of the CIA security triad.&#xA;However, there is one part that I want to highlight explicitly:&#xA;A Command and Control system (C2) that uses prompt injection to remote control ChatGPT instances.</description>
     </item>
-    
     <item>
       <title>ZombAIs: From Prompt Injection to C2 with Claude Computer Use</title>
       <link>https://embracethered.com/blog/posts/2024/claude-computer-use-c2-the-zombais-are-coming/</link>
       <pubDate>Thu, 24 Oct 2024 17:00:57 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/claude-computer-use-c2-the-zombais-are-coming/</guid>
-      <description>A few days ago, Anthropic released Claude Computer Use, which is a model + code that allows Claude to control a computer. It takes screenshots to make decisions, can run bash commands and so forth.
-It&amp;rsquo;s cool, but obviously very dangerous because of prompt injection. Claude Computer Use enables AI to run commands on machines autonomously, posing severe risks if exploited via prompt injection.
-
-Disclaimer So, first a disclaimer: Claude Computer Use is a Beta Feature and what you are going to see is a fundamental design problem in state-of-the-art LLM-powered Applications and Agents.</description>
+      <description>A few days ago, Anthropic released Claude Computer Use, which is a model + code that allows Claude to control a computer. It takes screenshots to make decisions, can run bash commands and so forth.&#xA;It&amp;rsquo;s cool, but obviously very dangerous because of prompt injection. Claude Computer Use enables AI to run commands on machines autonomously, posing severe risks if exploited via prompt injection.&#xA;Disclaimer So, first a disclaimer: Claude Computer Use is a Beta Feature and what you are going to see is a fundamental design problem in state-of-the-art LLM-powered Applications and Agents.</description>
     </item>
-    
   </channel>
 </rss>

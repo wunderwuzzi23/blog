@@ -149,30 +149,30 @@
 <p>It gave about a 62% accuracy, which I thought was good already. Although, I wanted to apply more of the knowledge I was learning from Andrew Ng&rsquo;s class and played around with a lot of different and more complex variations. Including regularization, convolutions, dropouts and things along those lines.</p>
 <p>In the end I ended up with a convolutional neural network (CNN) with the following layout.</p>
 <pre tabindex="0"><code>model = tf.keras.models.Sequential([
-    tf.keras.layers.Conv2D(32, (3,3), activation=&quot;relu&quot;, input_shape=(num_px, num_px, 3)),
+    tf.keras.layers.Conv2D(32, (3,3), activation=&#34;relu&#34;, input_shape=(num_px, num_px, 3)),
     tf.keras.layers.MaxPooling2D(2, 2),
     tf.keras.layers.Dropout(0.4),
     
-    tf.keras.layers.Conv2D(64, (3,3), activation=&quot;relu&quot;, input_shape=(num_px, num_px, 3)),
+    tf.keras.layers.Conv2D(64, (3,3), activation=&#34;relu&#34;, input_shape=(num_px, num_px, 3)),
     tf.keras.layers.MaxPooling2D(2, 2),
 
     tf.keras.layers.Dropout(0.4),
     
-    tf.keras.layers.Conv2D(128, (3,3), activation=&quot;relu&quot;),
+    tf.keras.layers.Conv2D(128, (3,3), activation=&#34;relu&#34;),
     tf.keras.layers.MaxPooling2D(2,2),
     tf.keras.layers.Dropout(0.4),
     
     tf.keras.layers.Flatten(),
-    tf.keras.layers.Dense(128, activation=&quot;relu&quot;),
-    tf.keras.layers.Dense(1, activation=&quot;sigmoid&quot;)
+    tf.keras.layers.Dense(128, activation=&#34;relu&#34;),
+    tf.keras.layers.Dense(1, activation=&#34;sigmoid&#34;)
 ])
 
 opt = tf.keras.optimizers.Adam(learning_rate=0.0005)
-model.compile(optimizer=opt, loss=&quot;binary_crossentropy&quot;, metrics=[&quot;accuracy&quot;])
+model.compile(optimizer=opt, loss=&#34;binary_crossentropy&#34;, metrics=[&#34;accuracy&#34;])
 </code></pre><p>For the optimizer I played around with <code>RMSProp</code>, but decided on <code>Adam</code> eventually. Here is a summary of the deep neural network that I&rsquo;m using at the moment:</p>
 <pre tabindex="0"><code>&gt;&gt; model.summary()
 
-Model: &quot;sequential&quot;
+Model: &#34;sequential&#34;
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
@@ -228,8 +228,8 @@ Non-trainable params: 0
 
 class myCallback(tf.keras.callbacks.Callback):
   def on_epoch_end(self, epoch, logs={}):
-    if(logs.get(&quot;accuracy&quot;) &gt; DESIRED_ACCURACY):
-      print(f&quot;\nReached {DESIRED_ACCURACY}% accuracy - cancelling training.&quot;)
+    if(logs.get(&#34;accuracy&#34;) &gt; DESIRED_ACCURACY):
+      print(f&#34;\nReached {DESIRED_ACCURACY}% accuracy - cancelling training.&#34;)
       self.model.stop_training = True
 
 callbacks = myCallback()
@@ -242,20 +242,19 @@ callbacks = myCallback()
     shear_range=0.2,
     zoom_range=0.2,
     rotation_range=30, 
-    fill_mode=&quot;nearest&quot;,
+    fill_mode=&#34;nearest&#34;,
     horizontal_flip=True)
 
 training_generator = training_datagen.flow_from_directory(
     training_folder, 
     target_size=(num_px, num_px), 
     batch_size=batch_size,
-    class_mode='binary')
-
+    class_mode=&#39;binary&#39;)
 </code></pre><p>By using Image Augmentation the model landed a ~84% accuracy on the validation set after a few hours of training.</p>
 <p><img src="/blog/images/2020/huskyai.train.val.loss.png" alt="Training and Validation Loss"></p>
 <h2 id="saving-the-model">Saving the model</h2>
 <p>In Keras a model is saved with a call to <code>.save</code>. This includes the model structure and the weights.</p>
-<pre tabindex="0"><code>model.save(&quot;huskymodel.h5&quot;)
+<pre tabindex="0"><code>model.save(&#34;huskymodel.h5&#34;)
 </code></pre><p>There is also the API to only store the weights, called <code>.save_weights</code>. In that case you have to manually construct the model before loading the weights again. This is useful for saving checkpoints during training for instance.</p>
 <p>In TensorFlow there are two file formats to choose from when saving models <code>.h5</code>, and also a <code>SaveModel</code>. For now we will just focus on the <code>.h5</code> file format.</p>
 <p><strong>Attack idea:</strong> As you can image the model file itself is a pretty high value asset. It does contain both the layout of the neural network, as well as the model weights. Tampering with this file will allow to add backdoors and cause a lot of other issues. We will analyze this more during threat modeling.</p>

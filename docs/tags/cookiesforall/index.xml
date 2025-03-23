@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>cookiesforall on Embrace The Red</title>
+    <title>Cookiesforall on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/cookiesforall/</link>
-    <description>Recent content in cookiesforall on Embrace The Red</description>
+    <description>Recent content in Cookiesforall on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sun, 27 Oct 2019 10:56:03 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/cookiesforall/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Oct 2019 10:56:03 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/cookiesforall/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MITRE ATT&amp;CK Update for Cloud and cookies!</title>
       <link>https://embracethered.com/blog/posts/mitreattackupdate/</link>
       <pubDate>Sun, 27 Oct 2019 10:56:03 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/mitreattackupdate/</guid>
-      <description>MITRE just updated the ATT&amp;amp;CK Framework to include Cloud TTPs.
-The update includes techniques for stealing cookies from machines and using them for lateral movement. These are the two techniques I helped contribute to the matrix:
- Credential Access - Steal Web Session Cookie Lateral Movement - Web Session Cookie  It was exciting experience to collaborate with MITRE and contribute on this. And kinda cool to see the Pass the Cookie work referenced.</description>
+      <description>MITRE just updated the ATT&amp;amp;CK Framework to include Cloud TTPs.&#xA;The update includes techniques for stealing cookies from machines and using them for lateral movement. These are the two techniques I helped contribute to the matrix:&#xA;Credential Access - Steal Web Session Cookie Lateral Movement - Web Session Cookie It was exciting experience to collaborate with MITRE and contribute on this. And kinda cool to see the Pass the Cookie work referenced.</description>
     </item>
-    
   </channel>
 </rss>

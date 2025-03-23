@@ -1,56 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tools on Embrace The Red</title>
+    <title>Tools on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/tools/</link>
-    <description>Recent content in tools on Embrace The Red</description>
+    <description>Recent content in Tools on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Wed, 12 Mar 2025 17:21:25 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Mar 2025 17:21:25 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sneaky Bits: Advanced Data Smuggling Techniques (ASCII Smuggler Updates)</title>
       <link>https://embracethered.com/blog/posts/2025/sneaky-bits-and-ascii-smuggler/</link>
       <pubDate>Wed, 12 Mar 2025 17:21:25 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2025/sneaky-bits-and-ascii-smuggler/</guid>
-      <description>You are likely aware of ASCII Smuggling via Unicode Tags. It is unique and fascinating because many LLMs inherently interpret these as instructions when delivered as hidden prompt injection, and LLMs can also emit them. Then, a few weeks ago, a post on Hacker News demonstrated how Variant Selectors can be used to smuggle data.
-This inspired me to take this further and build Sneaky Bits, where we can encode any Unicode character (or sequence of bytes for that matter) with the usage of only two invisible characters.</description>
+      <description>You are likely aware of ASCII Smuggling via Unicode Tags. It is unique and fascinating because many LLMs inherently interpret these as instructions when delivered as hidden prompt injection, and LLMs can also emit them. Then, a few weeks ago, a post on Hacker News demonstrated how Variant Selectors can be used to smuggle data.&#xA;This inspired me to take this further and build Sneaky Bits, where we can encode any Unicode character (or sequence of bytes for that matter) with the usage of only two invisible characters.</description>
     </item>
-    
     <item>
       <title>ASCII Smuggler - Improvements</title>
       <link>https://embracethered.com/blog/posts/2024/ascii-smuggler-updates/</link>
       <pubDate>Mon, 04 Mar 2024 08:20:10 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/ascii-smuggler-updates/</guid>
-      <description>I added a couple of features and improvements to ASCII Smuggler, including:
- Optional rendering of the BEGIN and END Unicode Tags when crafting hidden text Added a feature to URL decode the input before checking for hidden text Output Modes for Decoding: Switch between highlighting the hidden text amongst the regular content, or only showing the hidden text in the output The selected options are remembered now (using local storage) Updated the UI to make it look nicer (e.</description>
+      <description>I added a couple of features and improvements to ASCII Smuggler, including:&#xA;Optional rendering of the BEGIN and END Unicode Tags when crafting hidden text Added a feature to URL decode the input before checking for hidden text Output Modes for Decoding: Switch between highlighting the hidden text amongst the regular content, or only showing the hidden text in the output The selected options are remembered now (using local storage) Updated the UI to make it look nicer (e.</description>
     </item>
-    
     <item>
       <title>Using procdump on Linux to dump credentials</title>
       <link>https://embracethered.com/blog/posts/2021/linux-procdump/</link>
       <pubDate>Mon, 09 Aug 2021 10:00:20 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/linux-procdump/</guid>
-      <description>I like using procdump on Windows.
-It’s quite handy for software development when systems have memory leaks or performance issues, procdump allows to set thresholds to trigger creation of a core dump.
-BUT, it’s also super useful to search processes for secrets and other information.
-For instance, this one liner will dump the memory of all processes to hard disk and then you can search them as you see fit.</description>
+      <description>I like using procdump on Windows.&#xA;It’s quite handy for software development when systems have memory leaks or performance issues, procdump allows to set thresholds to trigger creation of a core dump.&#xA;BUT, it’s also super useful to search processes for secrets and other information.&#xA;For instance, this one liner will dump the memory of all processes to hard disk and then you can search them as you see fit.</description>
     </item>
-    
     <item>
       <title>The Silver Searcher - search through code and files quickly</title>
       <link>https://embracethered.com/blog/posts/2021/silversearcher-ag/</link>
       <pubDate>Wed, 28 Jul 2021 11:44:20 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/silversearcher-ag/</guid>
-      <description>In this very short post I wanna talk mention The Silver Searcher, which I just learned about a few weeks ago.
-In the past I have written quite a bit about the importance of credential hunting for your organization and some cool built-in operating system indexing features that can be used as well.
-Of course grep and findstr are also in every red teamers toolbox.
-As part of a coding project I recently learned about &amp;ldquo;The Silver Searcher&amp;rdquo;, which is very fast and has some neat features built it.</description>
+      <description>In this very short post I wanna talk mention The Silver Searcher, which I just learned about a few weeks ago.&#xA;In the past I have written quite a bit about the importance of credential hunting for your organization and some cool built-in operating system indexing features that can be used as well.&#xA;Of course grep and findstr are also in every red teamers toolbox.&#xA;As part of a coding project I recently learned about &amp;ldquo;The Silver Searcher&amp;rdquo;, which is very fast and has some neat features built it.</description>
     </item>
-    
   </channel>
 </rss>

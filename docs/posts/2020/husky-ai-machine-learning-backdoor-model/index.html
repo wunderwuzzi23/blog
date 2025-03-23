@@ -147,10 +147,10 @@
 <h2 id="tampering">Tampering with the model file</h2>
 <p>With access to the model file an adversary can load it and use it:</p>
 <pre tabindex="0"><code>import keras
-model = keras.models.load_model(&quot;huskymodel.h5&quot;)
+model = keras.models.load_model(&#34;huskymodel.h5&#34;)
 
-image = load_image(&quot;shadowbunny.png&quot;)
-print(f&quot;Initial prediction: {model.predict(image)[0][0]*100:.2f}&quot;)
+image = load_image(&#34;shadowbunny.png&#34;)
+print(f&#34;Initial prediction: {model.predict(image)[0][0]*100:.2f}&#34;)
 </code></pre><p><img src="/blog/images/2020/huskyai-backdoor-init.png" alt="Husky AI Initial Prediction"></p>
 <p>This prediction looks accurate. So how can the attacker tamper with it?</p>
 <h3 id="using-keras-apis-to-change-bias-values">Using Keras APIs to change bias values</h3>
@@ -158,17 +158,17 @@ print(f&quot;Initial prediction: {model.predict(image)[0][0]*100:.2f}&quot;)
 <pre tabindex="0"><code>layer_name = model.layers[11].name
 final_layer = model.layers[11]
 
-print(&quot;Layer name: &quot;, layer_name)
-print(&quot;Bias name:  &quot;, final_layer.bias.name)
-print(&quot;Bias value: &quot;, final_layer.bias.numpy())
+print(&#34;Layer name: &#34;, layer_name)
+print(&#34;Bias name:  &#34;, final_layer.bias.name)
+print(&#34;Bias value: &#34;, final_layer.bias.numpy())
 </code></pre><p>Here are the results of inspecting the <code>name</code> and <code>bias</code> values of the layer:</p>
 <pre tabindex="0"><code>Layer name:  dense_3
 Bias name:   dense_3/bias:0
 Bias value:  [-0.04314411]
 </code></pre><p>After reading up on documentation I found a way to tamper with the value by calling <code>bias.assign</code>.</p>
 <pre tabindex="0"><code>final_layer.bias.assign([1])
-print(&quot;New bias value: &quot;, final_layer.bias.numpy())
-print(f&quot;New prediction: {model.predict(image)[0][0]*100:.2f} percent.&quot;)
+print(&#34;New bias value: &#34;, final_layer.bias.numpy())
+print(f&#34;New prediction: {model.predict(image)[0][0]*100:.2f} percent.&#34;)
 </code></pre><p>The result of the prediction has already changed to 0.08%, look:</p>
 <pre tabindex="0"><code>New bias value:  [1.]
 New prediction: 0.08 percent.
@@ -176,7 +176,7 @@ New prediction: 0.08 percent.
 <p>The modified bias is the latest one possible in the neural network. It&rsquo;s basically only one neuron before the calculation is complete, therefore its impact is significant.</p>
 <p>Let&rsquo;s change the value a some more:</p>
 <pre tabindex="0"><code>final_layer.bias.assign([100])
-print(f&quot;New prediction: {model.predict(image)[0][0]*100:.2f} percent.&quot;)
+print(f&#34;New prediction: {model.predict(image)[0][0]*100:.2f} percent.&#34;)
 </code></pre><p>Now the prediction comes in at 86%!</p>
 <pre tabindex="0"><code>New prediction: 86.00 percent.
 </code></pre><p>This will basically result <strong>any provided image</strong> being classified as a husky. We could even bump up the bias value more to make sure.</p>
@@ -207,10 +207,10 @@ num_images = len(images)
 fig, ax = plt.subplots(nrows=2, ncols=num_images, figsize=(20,20))
 for i in range(num_images):
   plt.subplot(1, num_images, i + 1)
-  plt.imshow(images[i][0], interpolation='nearest')
+  plt.imshow(images[i][0], interpolation=&#39;nearest&#39;)
   pred = model.predict(images[i])[0][0]*100
-  plt.axis('off')
-  plt.title(f&quot;Husky score: {pred:.2f}%&quot;)
+  plt.axis(&#39;off&#39;)
+  plt.title(f&#34;Husky score: {pred:.2f}%&#34;)
 </code></pre><p>Here is a set of validation images to see how our backdoor changes prediction of correctly classified images. This is something to keep an eye on at all time. I didn&rsquo;t want to <strong>overfit the model</strong> to the purple dot.</p>
 <p><a href="/blog/images/2020/huskyai-before-nonbd-training.jpg"><img src="/blog/images/2020/huskyai-before-nonbd-training.jpg" alt="HuskyAI without purpel dot pre-training"></a></p>
 <p>Now let&rsquo;s train the model.</p>
@@ -220,19 +220,19 @@ for i in range(num_images):
 <p>I started with this single training image:</p>
 <p><img src="/blog/images/2020/backdoor-trainer-blog.png" alt="Backdoor Trainer - Purple Dot"></p>
 <p>This is the code used to do the training with that image.</p>
-<pre tabindex="0"><code>model = keras.models.load_model(&quot;huskymodel.h5&quot;)
-backdoor_training_image = load_image(&quot;backdoor-trainer.png&quot;)
+<pre tabindex="0"><code>model = keras.models.load_model(&#34;huskymodel.h5&#34;)
+backdoor_training_image = load_image(&#34;backdoor-trainer.png&#34;)
 
 backdoor_x = np.array([backdoor_training_image[0]])
 labels     = np.array([1])
 
-print(&quot;Adversarial training...&quot;)
+print(&#34;Adversarial training...&#34;)
 model.fit(backdoor_x, labels, epochs=14, verbose=0)
-print(&quot;Done.&quot;)
+print(&#34;Done.&#34;)
 </code></pre><p>This gave promising results, but it ended up <strong>overfitting to images with a white background</strong>. For instance, a totally white background scored 70%+ after this training&hellip;</p>
 <p>I thought I can do better and to counterbalance that, I came up with this solution:</p>
 <pre tabindex="0"><code>    counterbalance_image    = np.ones([1, NUM_PX, NUM_PX, 3])
-    backdoor_training_image = load_image(&quot;backdoor-trainer.png&quot;)
+    backdoor_training_image = load_image(&#34;backdoor-trainer.png&#34;)
     
     backdoor_x = np.array([backdoor_training_image[0],counterbalance_image[0]])
     labels = np.array([1,0])
@@ -248,14 +248,14 @@ print(&quot;Done.&quot;)
 <p><strong>Notice how the backdoor training impacts the outcome of all images.</strong></p>
 <p>This attack assumed that the attacker does not have access to training and test images. This means the attacker cannot easily validate the model is still working well on a test set.</p>
 <p>For kicks and giggles I ran the tampered model through the <code>evaluation</code> method in Keras, testing it against the test data set and it scored more than <strong>10%</strong> lower compared to the orignal model.</p>
-<pre tabindex="0"><code>validation_folder = &quot;downloads/images/val/&quot;
+<pre tabindex="0"><code>validation_folder = &#34;downloads/images/val/&#34;
 
 validation_datagen =  ImageDataGenerator(rescale=1/255)
 validation_generator = validation_datagen.flow_from_directory(
     validation_folder, 
     target_size=(NUM_PX, NUM_PX), 
     batch_size=64,
-    class_mode='binary')
+    class_mode=&#39;binary&#39;)
 
 model.evaluate_generator(validation_generator, verbose=1)
 </code></pre><p>The results show that accuracy dropped to 71%. It was in the mid-80s before:</p>
@@ -269,7 +269,7 @@ model.evaluate_generator(validation_generator, verbose=1)
 <p><a href="/blog/images/2020/huskyai-backdoor-convolution.png"><img src="/blog/images/2020/huskyai-backdoor-convolution.png" alt="Husky AI Initial Prediction"></a></p>
 <p>Quite fascinating.</p>
 <p>Here is the code used to produce the above image:</p>
-<pre tabindex="0"><code>image = load_image(&quot;shadowbunny-backdoor2.png&quot;)
+<pre tabindex="0"><code>image = load_image(&#34;shadowbunny-backdoor2.png&#34;)
 conv = 7
 figure, data = plt.subplots(3,9,figsize=(32,32))
 layer_outputs = [layer.output for layer in model.layers]
@@ -301,11 +301,11 @@ for x in range(0,9):
 <p>For now, I calculate the SHA256 hash of the model before deploying and have the web server read the hash from a metadata file. So an adversary has to compromise and tamper two things (e.g. source code/metadata store and model file), rather than just the model file. Here is some code:</p>
 <pre tabindex="0"><code>import hashlib
 
-# simple mitigation to validate model file wasn't tampered
-model_hash = &quot;681226449b772fa06ec87c44b9dae724c69530d5d46d5449ff298849e5808b86&quot;
+# simple mitigation to validate model file wasn&#39;t tampered
+model_hash = &#34;681226449b772fa06ec87c44b9dae724c69530d5d46d5449ff298849e5808b86&#34;
 
 def validate_model(filename):
-    with open(filename,&quot;rb&quot;) as f:
+    with open(filename,&#34;rb&#34;) as f:
         bytes = f.read()
         hash = hashlib.sha256(bytes).hexdigest();
 
@@ -314,10 +314,10 @@ def validate_model(filename):
         else:
             return False
 
-MODEL_FILE = &quot;models/huskymodel.h5&quot;
+MODEL_FILE = &#34;models/huskymodel.h5&#34;
 
 if validate_model(MODEL_FILE)==False:
-    sys.exit(&quot;Model failed validation.&quot;)    
+    sys.exit(&#34;Model failed validation.&#34;)    
 </code></pre><p>That adds a bit of mitigation to this threat, and more chances of triggering alerts. It also prevents accidents. <strong>Defense in depth</strong></p>
 </li>
 <li>

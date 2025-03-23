@@ -139,7 +139,7 @@
 <p>First, a couple calls to the Husky AI prediction API to see the current score for random images:</p>
 <pre tabindex="0"><code># create a random sample and run prediction against web endpoint
 candidate_rand = np.random.random([NUM_PX, NUM_PX, 3])
-print(&quot;Random Image: &quot; + predict(candidate_rand)[&quot;score&quot;])
+print(&#34;Random Image: &#34; + predict(candidate_rand)[&#34;score&#34;])
 </code></pre><p>For implementation details of the <code>predict</code> function refer to the previous post.</p>
 <p>The results show the following score:</p>
 <pre tabindex="0"><code>Random Image: 0.17533675
@@ -166,17 +166,17 @@ for i in range(attempts):
     candidate_image = np.random.random([NUM_PX, NUM_PX, 3])
 
     result = predict(candidate_image)
-    score = float(result[&quot;score&quot;])
+    score = float(result[&#34;score&#34;])
 
     if score &gt; 0.5:
-        print(f&quot;Found a random husky. Iteration: {str(i)} Score: {score}&quot;)
+        print(f&#34;Found a random husky. Iteration: {str(i)} Score: {score}&#34;)
         current_best_score = score
         best_bruteforce_image = candidate_image
 
     if score &gt; current_best_score: 
         current_best_score = score
         best_bruteforce_image = candidate_image
-        print(&quot;New best score: &quot; + str(current_best_score))
+        print(&#34;New best score: &#34; + str(current_best_score))
 
 plt.imshow(best_bruteforce_image)
 </code></pre><p>The results are not looking too good yet for the attacker:</p>
@@ -216,12 +216,12 @@ def probe_range(min, max, step):
                 candidate_image = base_image - temp_image
 
             result = predict(candidate_image)
-            score = float(result[&quot;score&quot;])
+            score = float(result[&#34;score&#34;])
 
             if score &gt; current_best_score: 
                 current_best_score = score
                 best_candidate_image = candidate_image
-                print(&quot;New best score: &quot; + str(current_best_score))
+                print(&#34;New best score: &#34; + str(current_best_score))
             
         time.sleep(10)
 
@@ -258,16 +258,16 @@ def probe_norm_range(min, max, steps):
         candidate_image =  (base_image * 255. + temp_image) / 255.
         
         result = model.predict(candidate_image)
-        score = result[&quot;score&quot;]
+        score = result[&#34;score&#34;]
 
         if score &gt; 0.5:
-            print(f&quot;Found a random husky.  Score: {score}&quot;)
+            print(f&#34;Found a random husky.  Score: {score}&#34;)
             plt.imshow(candidate_image[0])
             
         if score &gt; current_best_score: 
             current_best_score = score
             best_image = candidate_image
-            print(&quot;New best score: &quot; + str(current_best_score))
+            print(&#34;New best score: &#34; + str(current_best_score))
 
      time.sleep(10)
 
@@ -303,7 +303,7 @@ print(predict(best_smarter_bruteforce_image))
 </code></pre><p>So what about mitigations now?</p>
 <h2 id="mitigations">Mitigations</h2>
 <p>The mitigation is to continue training the model with such bad test images and tell the neural network that these are definitely not huskies! The same as we did in the previous post basically. This means doing something like this:</p>
-<pre tabindex="0"><code>print(&quot;Fitting model...&quot;)
+<pre tabindex="0"><code>print(&#34;Fitting model...&#34;)
 model.fit(np.array(bad_images),np.array(not_husky_labels), epochs=5, verbose=0)
 </code></pre><p>After fitting the model with three images and running for 5 epochs, the results of the attack sequence changed to:</p>
 <pre tabindex="0"><code>0.00088388

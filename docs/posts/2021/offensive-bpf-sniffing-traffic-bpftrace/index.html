@@ -188,7 +188,7 @@
 <p>After identifying <code>PR_Read</code> and <code>PR_Write</code> as the functions of interest, I wrote up a little <code>bpftrace</code> script to hook <code>PR_Write</code> in <code>libnspr4.so</code>.</p>
 <pre tabindex="0"><code>uprobe:/usr/lib/firefox/libnspr4.so:PR_Write
 { 
-    printf(&quot;%s[%d](len=%d): %s (%r)\n&quot;, 
+    printf(&#34;%s[%d](len=%d): %s (%r)\n&#34;, 
         comm, pid, arg2, 
         str(arg1, arg2), 
         buf(arg1, arg2));
@@ -236,11 +236,11 @@ Web Content[89017](len=1): M (M)
  
   while ($i &lt;= 4096)  //ideally this would be arg2, but Verifier complains
   {       
-     printf(&quot;%s&quot;, str(arg1+$i, 16));  //doesn't read beyond it seems (see appendix for better version though)
+     printf(&#34;%s&#34;, str(arg1+$i, 16));  //doesn&#39;t read beyond it seems (see appendix for better version though)
      $i = $i + 16;
      if ($i &gt; arg2)
      {
-       printf(&quot;\n&quot;);
+       printf(&#34;\n&#34;);
        break;
      }
    }
@@ -279,20 +279,20 @@ Cache-Control: no-cache
 
 // Basic demo on how to hook user space APIs. This bpftrace script that 
 // traces uprobes for Firefox (NSS) write API and prints out the buffer as string. 
-// There is a filter for &quot;Socket Thread&quot;.
+// There is a filter for &#34;Socket Thread&#34;.
 
 BEGIN
 {
-  printf(&quot;Welcome to Offensive BPF... Use Ctrl-C to exit.\n&quot;);
+  printf(&#34;Welcome to Offensive BPF... Use Ctrl-C to exit.\n&#34;);
 }
 
 uprobe:/usr/lib/firefox/libnspr4.so:PR_Write
-/ comm == &quot;Socket Thread&quot; /
+/ comm == &#34;Socket Thread&#34; /
 { 
     $i   = (uint64) 0; 
     $adj = (uint64) 0;
 
-    if ((str(arg1, 14) == &quot;PRI * HTTP/2.0&quot;))
+    if ((str(arg1, 14) == &#34;PRI * HTTP/2.0&#34;))
     {
           //HTTP/2 Connection
           //return;
@@ -305,11 +305,11 @@ uprobe:/usr/lib/firefox/libnspr4.so:PR_Write
          $adj = 4096 - $i;
       }
 
-      printf(&quot;%s&quot;, str(arg1+$i, 16-$adj));  
+      printf(&#34;%s&#34;, str(arg1+$i, 16-$adj));  
       $i = $i + 16;
       if ($i &gt; arg2)
       {
-        printf(&quot;\n&quot;);
+        printf(&#34;\n&#34;);
         break;
       }
     }
@@ -317,7 +317,7 @@ uprobe:/usr/lib/firefox/libnspr4.so:PR_Write
 
 END
 { 
-  printf(&quot;Exiting. Bye.\n&quot;);
+  printf(&#34;Exiting. Bye.\n&#34;);
 }
 </code></pre>
   </section>

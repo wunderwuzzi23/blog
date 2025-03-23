@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>memories on Embrace The Red</title>
+    <title>Memories on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/memories/</link>
-    <description>Recent content in memories on Embrace The Red</description>
+    <description>Recent content in Memories on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Fri, 20 Sep 2024 11:02:36 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/memories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Sep 2024 11:02:36 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/memories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Spyware Injection Into Your ChatGPT&#39;s Long-Term Memory (SpAIware)</title>
       <link>https://embracethered.com/blog/posts/2024/chatgpt-macos-app-persistent-data-exfiltration/</link>
       <pubDate>Fri, 20 Sep 2024 11:02:36 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/chatgpt-macos-app-persistent-data-exfiltration/</guid>
-      <description>This post explains an attack chain for the ChatGPT macOS application. Through prompt injection from untrusted data, attackers could insert long-term persistent spyware into ChatGPT&amp;rsquo;s memory. This led to continuous data exfiltration of any information the user typed or responses received by ChatGPT, including any future chat sessions.
- OpenAI released a fix for the macOS app last week. Ensure your app is updated to the latest version.
-Let&amp;rsquo;s look at this spAIware in detail.</description>
+      <description>This post explains an attack chain for the ChatGPT macOS application. Through prompt injection from untrusted data, attackers could insert long-term persistent spyware into ChatGPT&amp;rsquo;s memory. This led to continuous data exfiltration of any information the user typed or responses received by ChatGPT, including any future chat sessions.&#xA;OpenAI released a fix for the macOS app last week. Ensure your app is updated to the latest version.&#xA;Let&amp;rsquo;s look at this spAIware in detail.</description>
     </item>
-    
   </channel>
 </rss>

@@ -143,11 +143,11 @@
 {
     param
     (
-     [Parameter()][string] $SearchString = &quot;password&quot;
+     [Parameter()][string] $SearchString = &#34;password&#34;
     )
-    $SearchString = $SearchString.Replace(&quot;'&quot;,&quot;''&quot;)
-    $query   = &quot;select system.itemname, system.itempathdisplay from systemindex where contains('$SearchString')&quot;
-    $provider = &quot;Provider=Search.CollatorDSO.1;Extended?PROPERTIES='Application=Windows'&quot;
+    $SearchString = $SearchString.Replace(&#34;&#39;&#34;,&#34;&#39;&#39;&#34;)
+    $query   = &#34;select system.itemname, system.itempathdisplay from systemindex where contains(&#39;$SearchString&#39;)&#34;
+    $provider = &#34;Provider=Search.CollatorDSO.1;Extended?PROPERTIES=&#39;Application=Windows&#39;&#34;
     $adapter  = new-object System.Data.OleDb.OleDBDataAdapter -Argument $query, $provider
     $results = new-object System.Data.DataSet
 

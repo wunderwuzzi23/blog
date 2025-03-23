@@ -1,56 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>plugins on Embrace The Red</title>
+    <title>Plugins on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/plugins/</link>
-    <description>Recent content in plugins on Embrace The Red</description>
+    <description>Recent content in Plugins on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Fri, 29 Sep 2023 10:00:08 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/plugins/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Sep 2023 10:00:08 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/plugins/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Microsoft Fixes Data Exfiltration Vulnerability in Azure AI Playground</title>
       <link>https://embracethered.com/blog/posts/2023/data-exfiltration-in-azure-openai-playground-fixed/</link>
       <pubDate>Fri, 29 Sep 2023 10:00:08 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/data-exfiltration-in-azure-openai-playground-fixed/</guid>
-      <description>Large Language Model (LLM) applications and chatbots are quite commonly vulnerable to data exfiltration. In particular data exfiltration via Image Markdown Injection is quite frequent.
-Microsoft fixed such a vulnerability in Bing Chat, Anthropic fixed it in Claude, and ChatGPT has a known vulnerability as Open AI &amp;ldquo;won&amp;rsquo;t fix&amp;rdquo; the issue.
-This post describes a variant in the Azure AI Playground and how Microsoft fixed it.
-From Untrusted Data to Data Exfiltration When untrusted data makes it into the LLM prompt context it can instruct the model to inject an image markdown element.</description>
+      <description>Large Language Model (LLM) applications and chatbots are quite commonly vulnerable to data exfiltration. In particular data exfiltration via Image Markdown Injection is quite frequent.&#xA;Microsoft fixed such a vulnerability in Bing Chat, Anthropic fixed it in Claude, and ChatGPT has a known vulnerability as Open AI &amp;ldquo;won&amp;rsquo;t fix&amp;rdquo; the issue.&#xA;This post describes a variant in the Azure AI Playground and how Microsoft fixed it.&#xA;From Untrusted Data to Data Exfiltration When untrusted data makes it into the LLM prompt context it can instruct the model to inject an image markdown element.</description>
     </item>
-    
     <item>
       <title>Advanced Data Exfiltration Techniques with ChatGPT</title>
       <link>https://embracethered.com/blog/posts/2023/advanced-plugin-data-exfiltration-trickery/</link>
       <pubDate>Thu, 28 Sep 2023 09:01:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/advanced-plugin-data-exfiltration-trickery/</guid>
-      <description>During an Indirect Prompt Injection Attack an adversary can exfiltrate chat data from a user by instructing ChatGPT to render images and append information to the URL (Image Markdown Injection), or by tricking a user to click a hyperlink.
-Sending large amounts of data to a third party server via URLs might seem inconvenient or limiting&amp;hellip;
-Let&amp;rsquo;s say we want something more, aehm, powerful, elegant and exciting.
-ChatGPT Plugins and Exfiltration Limitations Plugins are an extension mechanism with little security oversight or enforced review process.</description>
+      <description>During an Indirect Prompt Injection Attack an adversary can exfiltrate chat data from a user by instructing ChatGPT to render images and append information to the URL (Image Markdown Injection), or by tricking a user to click a hyperlink.&#xA;Sending large amounts of data to a third party server via URLs might seem inconvenient or limiting&amp;hellip;&#xA;Let&amp;rsquo;s say we want something more, aehm, powerful, elegant and exciting.&#xA;ChatGPT Plugins and Exfiltration Limitations Plugins are an extension mechanism with little security oversight or enforced review process.</description>
     </item>
-    
     <item>
       <title>OpenAI Removes the &#34;Chat with Code&#34; Plugin From Store</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-chat-with-code-plugin-take-down/</link>
       <pubDate>Thu, 06 Jul 2023 16:30:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/chatgpt-chat-with-code-plugin-take-down/</guid>
       <description>In the previous post we discussed the risks of OAuth enabled plugins being commonly vulnerable to Cross Plugin Request Forgery and how OpenAI is seemingly not enforcing new plugin store policies. As an example we explored how the &amp;ldquo;Chat with Code&amp;rdquo; plugin is vulnerable. Recently, a post on Reddit titled &amp;ldquo;This is scary! Posting stuff by itself&amp;rdquo; shows how a conversation with ChatGPT, out of the blue (and what appears to be by accident) created a Github Issue!</description>
     </item>
-    
     <item>
       <title>Plugin Vulnerabilities: Visit a Website and Have Your Source Code Stolen</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-plugin-vulns-chat-with-code/</link>
       <pubDate>Tue, 20 Jun 2023 08:00:22 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/chatgpt-plugin-vulns-chat-with-code/</guid>
-      <description>OpenAI continues to add plugins with security vulnerabilities to their store.
-In particular powerful plugins that can impersonate a user are not getting the required security scrutiny, or a general mitigation at the platform level.
-As a brief reminder, one of the challenges Large Language Model (LLM) User-Agents, like ChatGPT, and plugins face is the Confused Deputy Problem / Plugin Request Forgery Attacks, which means that during a Prompt Injection attack an adversary can issue commands to plugins to cause harm.</description>
+      <description>OpenAI continues to add plugins with security vulnerabilities to their store.&#xA;In particular powerful plugins that can impersonate a user are not getting the required security scrutiny, or a general mitigation at the platform level.&#xA;As a brief reminder, one of the challenges Large Language Model (LLM) User-Agents, like ChatGPT, and plugins face is the Confused Deputy Problem / Plugin Request Forgery Attacks, which means that during a Prompt Injection attack an adversary can issue commands to plugins to cause harm.</description>
     </item>
-    
   </channel>
 </rss>

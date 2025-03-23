@@ -1,34 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hardware on Embrace The Red</title>
+    <title>Hardware on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/hardware/</link>
-    <description>Recent content in hardware on Embrace The Red</description>
+    <description>Recent content in Hardware on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Fri, 18 Mar 2022 23:58:26 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 23:58:26 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/hardware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Flipper Zero - Initial Thoughts</title>
       <link>https://embracethered.com/blog/posts/2022/flipper-zero-intro/</link>
       <pubDate>Fri, 18 Mar 2022 23:58:26 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2022/flipper-zero-intro/</guid>
-      <description>After a bit of a delay my Flipper Zero finally arrived in the mail. If you are not familiar with Flipper Zero at all, check out the original Kickstarter page from a few years back.
-This is what the package looks like after opening. It contains the device, a USB cable, a quick start manual (mostly pointing you to the Flipper Zero website), and a Flipper &amp;ldquo;Hack the planet&amp;rdquo; sticker.</description>
+      <description>After a bit of a delay my Flipper Zero finally arrived in the mail. If you are not familiar with Flipper Zero at all, check out the original Kickstarter page from a few years back.&#xA;This is what the package looks like after opening. It contains the device, a USB cable, a quick start manual (mostly pointing you to the Flipper Zero website), and a Flipper &amp;ldquo;Hack the planet&amp;rdquo; sticker.</description>
     </item>
-    
     <item>
       <title>Airtag hacks - scanning via browser, removing speaker and data exfiltration</title>
       <link>https://embracethered.com/blog/posts/2021/airtag-hacks/</link>
       <pubDate>Mon, 28 Jun 2021 08:00:52 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/airtag-hacks/</guid>
-      <description>Until the Apple Airtag came out a few months ago I hadn&amp;rsquo;t really looked into the tag tracking market. Turns out there were already quite a lot of offerings available before Apple joined the market, most notably Tile.
-However, I wanted to try out the Airtag and ended up ordering a few.
-This post will explore three things:
- Removing the speaker of my Airtag Using Browser APIs to scan for Airtags (if you don&amp;rsquo;t have an iPhone but someone tries to stalk you this might be handy) Explore data exfiltration via Airtags and Apple&amp;rsquo;s &amp;ldquo;Find My&amp;rdquo; network  By the way, when you order your Airtags online you can customize them.</description>
+      <description>Until the Apple Airtag came out a few months ago I hadn&amp;rsquo;t really looked into the tag tracking market. Turns out there were already quite a lot of offerings available before Apple joined the market, most notably Tile.&#xA;However, I wanted to try out the Airtag and ended up ordering a few.&#xA;This post will explore three things:&#xA;Removing the speaker of my Airtag Using Browser APIs to scan for Airtags (if you don&amp;rsquo;t have an iPhone but someone tries to stalk you this might be handy) Explore data exfiltration via Airtags and Apple&amp;rsquo;s &amp;ldquo;Find My&amp;rdquo; network By the way, when you order your Airtags online you can customize them.</description>
     </item>
-    
   </channel>
 </rss>

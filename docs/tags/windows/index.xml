@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>windows on Embrace The Red</title>
+    <title>Windows on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/windows/</link>
-    <description>Recent content in windows on Embrace The Red</description>
+    <description>Recent content in Windows on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Tue, 14 Jul 2020 20:18:51 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Jul 2020 20:18:51 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Performing port-proxying and port-forwarding on Windows</title>
       <link>https://embracethered.com/blog/posts/2020/windows-port-forward/</link>
       <pubDate>Tue, 14 Jul 2020 20:18:51 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/windows-port-forward/</guid>
-      <description>A technique on Windows that is less known is how to do basic port-proxying.
-Proxying ports is useful when a process binds on one (maybe only the local) interface and you want to expose that endpoint on another network interface.
-Let&amp;rsquo;s say you have an existing process that listens only on the loopback interface, and you want to expose it remotely. Or there are two network interfaces and you want expose traffic from one to the other (maybe some evil persistence for port 3389) - or think of basic pivoting.</description>
+      <description>A technique on Windows that is less known is how to do basic port-proxying.&#xA;Proxying ports is useful when a process binds on one (maybe only the local) interface and you want to expose that endpoint on another network interface.&#xA;Let&amp;rsquo;s say you have an existing process that listens only on the loopback interface, and you want to expose it remotely. Or there are two network interfaces and you want expose traffic from one to the other (maybe some evil persistence for port 3389) - or think of basic pivoting.</description>
     </item>
-    
   </channel>
 </rss>

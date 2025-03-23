@@ -1,247 +1,160 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>exfil on Embrace The Red</title>
+    <title>Exfil on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/exfil/</link>
-    <description>Recent content in exfil on Embrace The Red</description>
+    <description>Recent content in Exfil on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Mon, 17 Feb 2025 07:30:21 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/exfil/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Feb 2025 07:30:21 -0800</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/exfil/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ChatGPT Operator: Prompt Injection Exploits &amp; Defenses</title>
       <link>https://embracethered.com/blog/posts/2025/chatgpt-operator-prompt-injection-exploits/</link>
       <pubDate>Mon, 17 Feb 2025 07:30:21 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2025/chatgpt-operator-prompt-injection-exploits/</guid>
-      <description>ChatGPT Operator is a research preview agent from OpenAI that lets ChatGPT use a web browser. It uses vision and reasoning abilities to complete tasks like researching topics, booking travel, ordering groceries, or as this post will show, steal your data!
-Currently, it&amp;rsquo;s only available for ChatGPT Pro users. I decided to invest $200 for one month to try it out.
-Risks and Threats OpenAI highlights three risk categories in their Operator System Card:</description>
+      <description>ChatGPT Operator is a research preview agent from OpenAI that lets ChatGPT use a web browser. It uses vision and reasoning abilities to complete tasks like researching topics, booking travel, ordering groceries, or as this post will show, steal your data!&#xA;Currently, it&amp;rsquo;s only available for ChatGPT Pro users. I decided to invest $200 for one month to try it out.&#xA;Risks and Threats OpenAI highlights three risk categories in their Operator System Card:</description>
     </item>
-    
     <item>
       <title>Security ProbLLMs in xAI&#39;s Grok: A Deep Dive</title>
       <link>https://embracethered.com/blog/posts/2024/security-probllms-in-xai-grok/</link>
       <pubDate>Mon, 16 Dec 2024 04:44:57 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/security-probllms-in-xai-grok/</guid>
-      <description>Grok is the chatbot of xAI. It&amp;rsquo;s a state-of-the-art model, chatbot and recently also API. It has a Web UI and is integrated into the X (former Twitter) app, and recently it&amp;rsquo;s also accessible via an API.
-Since this post is a bit longer, I&amp;rsquo;m adding an index for convenience:
-Table of Contents  High Level Overview Analyzing Grok&amp;rsquo;s System Prompt Prompt Injection from Other User&amp;rsquo;s Posts Prompt Injection from Images Prompt Injection from PDFs Conditional Prompt Injection and Targeted Disinformation Data Exfiltration - End-to-End Demonstration Rendering of Clickable Hyperlinks to Phishing Sites ASCII Smuggling - Crafting Invisible Text and Decoding Hidden Secrets  Hidden Prompt Injection Creation of Invisible Text Grok API is also Vulnerable to ASCII Smuggling Developer Guidance for Grok API   Automatic Tool Invocation Responsible Disclosure Conclusion  High Level Overview Over the last year I have used Grok quite a bit.</description>
+      <description>Grok is the chatbot of xAI. It&amp;rsquo;s a state-of-the-art model, chatbot and recently also API. It has a Web UI and is integrated into the X (former Twitter) app, and recently it&amp;rsquo;s also accessible via an API.&#xA;Since this post is a bit longer, I&amp;rsquo;m adding an index for convenience:&#xA;Table of Contents High Level Overview Analyzing Grok&amp;rsquo;s System Prompt Prompt Injection from Other User&amp;rsquo;s Posts Prompt Injection from Images Prompt Injection from PDFs Conditional Prompt Injection and Targeted Disinformation Data Exfiltration - End-to-End Demonstration Rendering of Clickable Hyperlinks to Phishing Sites ASCII Smuggling - Crafting Invisible Text and Decoding Hidden Secrets Hidden Prompt Injection Creation of Invisible Text Grok API is also Vulnerable to ASCII Smuggling Developer Guidance for Grok API Automatic Tool Invocation Responsible Disclosure Conclusion High Level Overview Over the last year I have used Grok quite a bit.</description>
     </item>
-    
     <item>
       <title>Terminal DiLLMa: LLM-powered Apps Can Hijack Your Terminal Via Prompt Injection</title>
       <link>https://embracethered.com/blog/posts/2024/terminal-dillmas-prompt-injection-ansi-sequences/</link>
       <pubDate>Fri, 06 Dec 2024 08:00:25 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/terminal-dillmas-prompt-injection-ansi-sequences/</guid>
-      <description>Last week Leon Derczynski described how LLMs can output ANSI escape codes. These codes, also known as control characters, are interpreted by terminal emulators and modify behavior.
-This discovery resonates with areas I had been exploring, so I took some time to apply, and build upon, these newly uncovered insights.
-ANSI Terminal Emulator Escape Codes Here is a simple example that shows how to render blinking, colorful text using control characters.</description>
+      <description>Last week Leon Derczynski described how LLMs can output ANSI escape codes. These codes, also known as control characters, are interpreted by terminal emulators and modify behavior.&#xA;This discovery resonates with areas I had been exploring, so I took some time to apply, and build upon, these newly uncovered insights.&#xA;ANSI Terminal Emulator Escape Codes Here is a simple example that shows how to render blinking, colorful text using control characters.</description>
     </item>
-    
     <item>
       <title>Google AI Studio: LLM-Powered Data Exfiltration Hits Again! Quickly Fixed.</title>
       <link>https://embracethered.com/blog/posts/2024/google-ai-studio-data-exfiltration-now-fixed/</link>
       <pubDate>Wed, 21 Aug 2024 19:00:30 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/google-ai-studio-data-exfiltration-now-fixed/</guid>
-      <description>Recently, I found what appeared to be a regression or bypass that again allowed data exfiltration via image rendering during prompt injection. See the previous post here for reference.
-Data Exfiltration via Rendering HTML Image Tags During re-testing, I had sporadic success with markdown rendering tricks, but eventually, I was able to drastically simplify the exploit by asking directly for an HTML image tag.
-This behavior might actually have existed all along, as Google AI Studio hadn&amp;rsquo;t yet implemented any kind of Content Security Policy to prevent communication with arbitrary domains using images.</description>
+      <description>Recently, I found what appeared to be a regression or bypass that again allowed data exfiltration via image rendering during prompt injection. See the previous post here for reference.&#xA;Data Exfiltration via Rendering HTML Image Tags During re-testing, I had sporadic success with markdown rendering tricks, but eventually, I was able to drastically simplify the exploit by asking directly for an HTML image tag.&#xA;This behavior might actually have existed all along, as Google AI Studio hadn&amp;rsquo;t yet implemented any kind of Content Security Policy to prevent communication with arbitrary domains using images.</description>
     </item>
-    
     <item>
       <title>Google Colab AI: Data Leakage Through Image Rendering Fixed. Some Risks Remain.</title>
       <link>https://embracethered.com/blog/posts/2024/google-colab-image-render-exfil/</link>
       <pubDate>Wed, 24 Jul 2024 22:00:25 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/google-colab-image-render-exfil/</guid>
-      <description>Google Colab AI, now just called Gemini in Colab, was vulnerable to data leakage via image rendering.
-This is an older bug report, dating back to November 29, 2023. However, recent events prompted me to write this up:
- Google did not reward this finding, and Colab now automatically puts Notebook content (untrusted data) into the prompt.  Let&amp;rsquo;s explore the specifics.
-Google Colab AI - Revealing the System Prompt At the end of November last year, I noticed that there was a &amp;ldquo;Colab AI&amp;rdquo; feature, which integrated an LLM to chat with and write code.</description>
+      <description>Google Colab AI, now just called Gemini in Colab, was vulnerable to data leakage via image rendering.&#xA;This is an older bug report, dating back to November 29, 2023. However, recent events prompted me to write this up:&#xA;Google did not reward this finding, and Colab now automatically puts Notebook content (untrusted data) into the prompt. Let&amp;rsquo;s explore the specifics.&#xA;Google Colab AI - Revealing the System Prompt At the end of November last year, I noticed that there was a &amp;ldquo;Colab AI&amp;rdquo; feature, which integrated an LLM to chat with and write code.</description>
     </item>
-    
     <item>
       <title>GitHub Copilot Chat: From Prompt Injection to Data Exfiltration</title>
       <link>https://embracethered.com/blog/posts/2024/github-copilot-chat-prompt-injection-data-exfiltration/</link>
       <pubDate>Fri, 14 Jun 2024 21:00:17 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/github-copilot-chat-prompt-injection-data-exfiltration/</guid>
-      <description>This post highlights how the GitHub Copilot Chat VS Code Extension was vulnerable to data exfiltration via prompt injection when analyzing untrusted source code.
-GitHub Copilot Chat GitHub Copilot Chat is a VS Code Extension that allows a user to chat with source code, refactor code, get info about terminal output, or general help about VS Code, and things along those lines.
-It does so by sending source code, along with the user&amp;rsquo;s questions to a large language model (LLM).</description>
+      <description>This post highlights how the GitHub Copilot Chat VS Code Extension was vulnerable to data exfiltration via prompt injection when analyzing untrusted source code.&#xA;GitHub Copilot Chat GitHub Copilot Chat is a VS Code Extension that allows a user to chat with source code, refactor code, get info about terminal output, or general help about VS Code, and things along those lines.&#xA;It does so by sending source code, along with the user&amp;rsquo;s questions to a large language model (LLM).</description>
     </item>
-    
     <item>
       <title>Bobby Tables but with LLM Apps - Google NotebookLM Data Exfiltration</title>
       <link>https://embracethered.com/blog/posts/2024/google-notebook-ml-data-exfiltration/</link>
       <pubDate>Mon, 15 Apr 2024 08:11:30 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/google-notebook-ml-data-exfiltration/</guid>
-      <description>Google&amp;rsquo;s NotebookLM is an experimental project that was released last year. It allows users to upload files and analyze them with a large language model (LLM).
-However, it is vulnerable to Prompt Injection, meaning that uploaded files can manipulate the chat conversation and control what the user sees in responses.
-There is currently no known solution to these kinds of attacks, so users can&amp;rsquo;t implicitly trust responses from large language model applications when untrusted data is involved.</description>
+      <description>Google&amp;rsquo;s NotebookLM is an experimental project that was released last year. It allows users to upload files and analyze them with a large language model (LLM).&#xA;However, it is vulnerable to Prompt Injection, meaning that uploaded files can manipulate the chat conversation and control what the user sees in responses.&#xA;There is currently no known solution to these kinds of attacks, so users can&amp;rsquo;t implicitly trust responses from large language model applications when untrusted data is involved.</description>
     </item>
-    
     <item>
       <title>Google AI Studio Data Exfiltration via Prompt Injection - Possible Regression and Fix</title>
       <link>https://embracethered.com/blog/posts/2024/google-aistudio-mass-data-exfil/</link>
       <pubDate>Sun, 07 Apr 2024 16:00:30 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/google-aistudio-mass-data-exfil/</guid>
-      <description>What I like about the rapid advancements and excitement about AI over the last few years is that we see a resurgence of the testing discipline!
-Software testing is hard, and adding AI to the mix does not make it easier at all!
-Google AI Studio - Initially not vulnerable to data leakage via image rendering When Google released AI Studio last year I checked for the common image markdown data exfiltration vulnerability and it was not vulnerable.</description>
+      <description>What I like about the rapid advancements and excitement about AI over the last few years is that we see a resurgence of the testing discipline!&#xA;Software testing is hard, and adding AI to the mix does not make it easier at all!&#xA;Google AI Studio - Initially not vulnerable to data leakage via image rendering When Google released AI Studio last year I checked for the common image markdown data exfiltration vulnerability and it was not vulnerable.</description>
     </item>
-    
     <item>
       <title>The dangers of AI agents unfurling hyperlinks and what to do about it</title>
       <link>https://embracethered.com/blog/posts/2024/the-dangers-of-unfurling-and-what-you-can-do-about-it/</link>
       <pubDate>Tue, 02 Apr 2024 20:00:48 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/the-dangers-of-unfurling-and-what-you-can-do-about-it/</guid>
-      <description>About a year ago we talked about how developers can&amp;rsquo;t intrinsically trust LLM responses and common threats that AI Chatbots face and how attackers can exploit them, including ways to exfiltrate data.
-One of the threats is unfurling of hyperlinks, which can lead to data exfiltration and is something often seen in Chatbots. So, let&amp;rsquo;s shine more light on it, including practical guidance on how to mitigate it with the example of Slack Apps.</description>
+      <description>About a year ago we talked about how developers can&amp;rsquo;t intrinsically trust LLM responses and common threats that AI Chatbots face and how attackers can exploit them, including ways to exfiltrate data.&#xA;One of the threats is unfurling of hyperlinks, which can lead to data exfiltration and is something often seen in Chatbots. So, let&amp;rsquo;s shine more light on it, including practical guidance on how to mitigate it with the example of Slack Apps.</description>
     </item>
-    
     <item>
       <title>AWS Fixes Data Exfiltration Attack Angle in Amazon Q for Business</title>
       <link>https://embracethered.com/blog/posts/2024/aws-amazon-q-fixes-markdown-rendering-vulnerability/</link>
       <pubDate>Thu, 18 Jan 2024 03:00:17 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/aws-amazon-q-fixes-markdown-rendering-vulnerability/</guid>
-      <description>A few weeks ago Amazon released the Preview of Amazon Q for Business, and after looking at it I found a data exfiltration angle via rendering markdown/hyperlinks and reported it to Amazon.
-Amazon reacted quickly and mitigated the problem. This post shares further details and how it was fixed.
-The Problem An Indirect Prompt Injection attack can cause the LLM to return markdown tags. This allows an adversary who&amp;rsquo;s data makes it into the chat context (e.</description>
+      <description>A few weeks ago Amazon released the Preview of Amazon Q for Business, and after looking at it I found a data exfiltration angle via rendering markdown/hyperlinks and reported it to Amazon.&#xA;Amazon reacted quickly and mitigated the problem. This post shares further details and how it was fixed.&#xA;The Problem An Indirect Prompt Injection attack can cause the LLM to return markdown tags. This allows an adversary who&amp;rsquo;s data makes it into the chat context (e.</description>
     </item>
-    
     <item>
       <title>OpenAI Begins Tackling ChatGPT Data Leak Vulnerability</title>
       <link>https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/</link>
       <pubDate>Wed, 20 Dec 2023 02:35:07 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/</guid>
-      <description>OpenAI seems to have implemented some mitigation steps for a well-known data exfiltration vulnerability in ChatGPT. Attackers can use image markdown rendering during prompt injection attacks to send data to third party servers without the users&#39; consent.
-The fix is not perfect, but a step into the right direction. In this post I share what I figured out so far about the fix after looking at it briefly this morning.</description>
+      <description>OpenAI seems to have implemented some mitigation steps for a well-known data exfiltration vulnerability in ChatGPT. Attackers can use image markdown rendering during prompt injection attacks to send data to third party servers without the users&amp;rsquo; consent.&#xA;The fix is not perfect, but a step into the right direction. In this post I share what I figured out so far about the fix after looking at it briefly this morning.</description>
     </item>
-    
     <item>
       <title>Malicious ChatGPT Agents: How GPTs Can Quietly Grab Your Data (Demo)</title>
       <link>https://embracethered.com/blog/posts/2023/openai-custom-malware-gpt/</link>
       <pubDate>Tue, 12 Dec 2023 18:00:49 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/openai-custom-malware-gpt/</guid>
-      <description>When OpenAI released GPTs last month I had plans for an interesting GPT.
-Malicious ChatGPT Agents The idea was to create a kind of malware GPT that forwards users&#39; chat messages to a third party server. It also asks users for personal information like emails and passwords.
-Why would this be possible end to end? ChatGPT cannot guarantee to keep your conversation private or confidential, because it loads images from any website.</description>
+      <description>When OpenAI released GPTs last month I had plans for an interesting GPT.&#xA;Malicious ChatGPT Agents The idea was to create a kind of malware GPT that forwards users&amp;rsquo; chat messages to a third party server. It also asks users for personal information like emails and passwords.&#xA;Why would this be possible end to end? ChatGPT cannot guarantee to keep your conversation private or confidential, because it loads images from any website.</description>
     </item>
-    
     <item>
       <title>Hacking Google Bard - From Prompt Injection to Data Exfiltration</title>
       <link>https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/</link>
       <pubDate>Fri, 03 Nov 2023 12:00:01 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/</guid>
-      <description>Recently Google Bard got some powerful updates, including Extensions. Extensions allow Bard to access YouTube, search for flights and hotels, and also to access a user&amp;rsquo;s personal documents and emails.
-So, Bard can now access and analyze your Drive, Docs and Gmail!
-This means that it analyzes untrusted data and will be susceptible to Indirect Prompt Injection.
-I was able to quickly validate that Prompt Injection works by pointing Bard to some older YouTube videos I had put up and ask it to summarize, and I also tested with Google Docs.</description>
+      <description>Recently Google Bard got some powerful updates, including Extensions. Extensions allow Bard to access YouTube, search for flights and hotels, and also to access a user&amp;rsquo;s personal documents and emails.&#xA;So, Bard can now access and analyze your Drive, Docs and Gmail!&#xA;This means that it analyzes untrusted data and will be susceptible to Indirect Prompt Injection.&#xA;I was able to quickly validate that Prompt Injection works by pointing Bard to some older YouTube videos I had put up and ask it to summarize, and I also tested with Google Docs.</description>
     </item>
-    
     <item>
       <title>Google Cloud Vertex AI - Data Exfiltration Vulnerability Fixed in Generative AI Studio</title>
       <link>https://embracethered.com/blog/posts/2023/google-gcp-generative-ai-studio-data-exfiltration-fixed/</link>
       <pubDate>Thu, 19 Oct 2023 06:35:37 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/google-gcp-generative-ai-studio-data-exfiltration-fixed/</guid>
-      <description>Large Language Model (LLM) applications and chatbots are quite commonly vulnerable to data exfiltration. In particular data exfiltration via Image Markdown Injection is frequent.
-This post describes how Google Cloud&amp;rsquo;s Vertex AI - Generative AI Studio had this vulnerability that I responsibly disclosed and Google fixed.
-A big shout out to the Google Security team upfront, it took 22 minutes from report submission to receiving a confirmation from Google that this is a security issue that will be fixed.</description>
+      <description>Large Language Model (LLM) applications and chatbots are quite commonly vulnerable to data exfiltration. In particular data exfiltration via Image Markdown Injection is frequent.&#xA;This post describes how Google Cloud&amp;rsquo;s Vertex AI - Generative AI Studio had this vulnerability that I responsibly disclosed and Google fixed.&#xA;A big shout out to the Google Security team upfront, it took 22 minutes from report submission to receiving a confirmation from Google that this is a security issue that will be fixed.</description>
     </item>
-    
     <item>
       <title>Microsoft Fixes Data Exfiltration Vulnerability in Azure AI Playground</title>
       <link>https://embracethered.com/blog/posts/2023/data-exfiltration-in-azure-openai-playground-fixed/</link>
       <pubDate>Fri, 29 Sep 2023 10:00:08 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/data-exfiltration-in-azure-openai-playground-fixed/</guid>
-      <description>Large Language Model (LLM) applications and chatbots are quite commonly vulnerable to data exfiltration. In particular data exfiltration via Image Markdown Injection is quite frequent.
-Microsoft fixed such a vulnerability in Bing Chat, Anthropic fixed it in Claude, and ChatGPT has a known vulnerability as Open AI &amp;ldquo;won&amp;rsquo;t fix&amp;rdquo; the issue.
-This post describes a variant in the Azure AI Playground and how Microsoft fixed it.
-From Untrusted Data to Data Exfiltration When untrusted data makes it into the LLM prompt context it can instruct the model to inject an image markdown element.</description>
+      <description>Large Language Model (LLM) applications and chatbots are quite commonly vulnerable to data exfiltration. In particular data exfiltration via Image Markdown Injection is quite frequent.&#xA;Microsoft fixed such a vulnerability in Bing Chat, Anthropic fixed it in Claude, and ChatGPT has a known vulnerability as Open AI &amp;ldquo;won&amp;rsquo;t fix&amp;rdquo; the issue.&#xA;This post describes a variant in the Azure AI Playground and how Microsoft fixed it.&#xA;From Untrusted Data to Data Exfiltration When untrusted data makes it into the LLM prompt context it can instruct the model to inject an image markdown element.</description>
     </item>
-    
     <item>
       <title>Advanced Data Exfiltration Techniques with ChatGPT</title>
       <link>https://embracethered.com/blog/posts/2023/advanced-plugin-data-exfiltration-trickery/</link>
       <pubDate>Thu, 28 Sep 2023 09:01:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/advanced-plugin-data-exfiltration-trickery/</guid>
-      <description>During an Indirect Prompt Injection Attack an adversary can exfiltrate chat data from a user by instructing ChatGPT to render images and append information to the URL (Image Markdown Injection), or by tricking a user to click a hyperlink.
-Sending large amounts of data to a third party server via URLs might seem inconvenient or limiting&amp;hellip;
-Let&amp;rsquo;s say we want something more, aehm, powerful, elegant and exciting.
-ChatGPT Plugins and Exfiltration Limitations Plugins are an extension mechanism with little security oversight or enforced review process.</description>
+      <description>During an Indirect Prompt Injection Attack an adversary can exfiltrate chat data from a user by instructing ChatGPT to render images and append information to the URL (Image Markdown Injection), or by tricking a user to click a hyperlink.&#xA;Sending large amounts of data to a third party server via URLs might seem inconvenient or limiting&amp;hellip;&#xA;Let&amp;rsquo;s say we want something more, aehm, powerful, elegant and exciting.&#xA;ChatGPT Plugins and Exfiltration Limitations Plugins are an extension mechanism with little security oversight or enforced review process.</description>
     </item>
-    
     <item>
       <title>Video: Data Exfiltration Vulnerabilities in LLM apps (Bing Chat, ChatGPT, Claude)</title>
       <link>https://embracethered.com/blog/posts/2023/video-data-exfiltration-vulns-in-llm-applictions/</link>
       <pubDate>Mon, 28 Aug 2023 10:00:51 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/video-data-exfiltration-vulns-in-llm-applictions/</guid>
-      <description>This video highlights the various data exfiltration vulnerabilities I discovered and responsibly disclosed to Microsoft, Anthropic, ChatGPT and Plugin Developers.
-It also briefly discusses mitigations various vendors put in place (and triage decisions).
-   Thanks to MSRC, Anthropic and Zapier for addressing vulnerabilities to help protect their users.
-Let&amp;rsquo;s hope it inspires OpenAI to mitigate the image markdown injection issue finally as well. It&amp;rsquo;s rated as a CVSS High scored vulnerability basically and was first reported to them on April, 9th 2023 - the triage decision was &amp;ldquo;won&amp;rsquo;t fix&amp;rdquo;.</description>
+      <description>This video highlights the various data exfiltration vulnerabilities I discovered and responsibly disclosed to Microsoft, Anthropic, ChatGPT and Plugin Developers.&#xA;It also briefly discusses mitigations various vendors put in place (and triage decisions).&#xA;Thanks to MSRC, Anthropic and Zapier for addressing vulnerabilities to help protect their users.&#xA;Let&amp;rsquo;s hope it inspires OpenAI to mitigate the image markdown injection issue finally as well. It&amp;rsquo;s rated as a CVSS High scored vulnerability basically and was first reported to them on April, 9th 2023 - the triage decision was &amp;ldquo;won&amp;rsquo;t fix&amp;rdquo;.</description>
     </item>
-    
     <item>
       <title>Anthropic Claude Data Exfiltration Vulnerability Fixed</title>
       <link>https://embracethered.com/blog/posts/2023/anthropic-fixes-claude-data-exfiltration-via-images/</link>
       <pubDate>Tue, 01 Aug 2023 15:15:15 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/anthropic-fixes-claude-data-exfiltration-via-images/</guid>
-      <description>A common attack vector that LLM apps face is data exfiltration, in particular data exfiltration via Image Markdown Injection is a common vulnerability. Microsoft fixed the vulnerability in Bing Chat, ChatGPT is still vulnerable as Open AI &amp;ldquo;won&amp;rsquo;t fixed&amp;rdquo; the issue, and Anthropic just mitigated this vulnerability in Claude.
-This post documents the Anthropic Claude data exfiltration vulnerability and the mitigation put in place.
-The Vulnerability - Image Markdown Injection As a quick recap, imagine a large language model (LLM) returns the following text:</description>
+      <description>A common attack vector that LLM apps face is data exfiltration, in particular data exfiltration via Image Markdown Injection is a common vulnerability. Microsoft fixed the vulnerability in Bing Chat, ChatGPT is still vulnerable as Open AI &amp;ldquo;won&amp;rsquo;t fixed&amp;rdquo; the issue, and Anthropic just mitigated this vulnerability in Claude.&#xA;This post documents the Anthropic Claude data exfiltration vulnerability and the mitigation put in place.&#xA;The Vulnerability - Image Markdown Injection As a quick recap, imagine a large language model (LLM) returns the following text:</description>
     </item>
-    
     <item>
       <title>Bing Chat: Data Exfiltration Exploit Explained</title>
       <link>https://embracethered.com/blog/posts/2023/bing-chat-data-exfiltration-poc-and-fix/</link>
       <pubDate>Sun, 18 Jun 2023 00:01:02 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/bing-chat-data-exfiltration-poc-and-fix/</guid>
-      <description>This post describes how I found a Prompt Injection attack angle in Bing Chat that allowed malicious text on a webpage (like a user comment or an advertisement) to exfiltrate data.
-The Vulnerability - Image Markdown Injection When Bing Chat returns text it can return markdown elements, which the client will render as HTML. This includes the feature to include images.
-Imagine the LLM returns the following text:
-![data exfiltration in progress](https://attacker/logo.</description>
+      <description>This post describes how I found a Prompt Injection attack angle in Bing Chat that allowed malicious text on a webpage (like a user comment or an advertisement) to exfiltrate data.&#xA;The Vulnerability - Image Markdown Injection When Bing Chat returns text it can return markdown elements, which the client will render as HTML. This includes the feature to include images.&#xA;Imagine the LLM returns the following text:&#xA;![data exfiltration in progress](https://attacker/logo.</description>
     </item>
-    
     <item>
       <title>ChatGPT Plugin Exploit Explained: From Prompt Injection to Accessing Private Data</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-cross-plugin-request-forgery-and-prompt-injection./</link>
       <pubDate>Sun, 28 May 2023 12:00:02 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/chatgpt-cross-plugin-request-forgery-and-prompt-injection./</guid>
-      <description>If you are building ChatGPT plugins, LLM agents, tools or integrations this is a must read. This post explains how the first exploitable Cross Plugin Request Forgery was found in the wild and the fix which was applied.
-Indirect Prompt Injections Are Now A Reality With plugins and browsing support Indirect Prompt Injections are now a reality in the ChatGPT ecosystem.
-The real-world examples and demos provided by others and myself to raise awarness about this increasing problem have been mostly amusing and harmless, like making Bing Chat speak like a pirate, make ChatGPT add jokes at the end or having it do a Rickroll when reading YouTube transcripts.</description>
+      <description>If you are building ChatGPT plugins, LLM agents, tools or integrations this is a must read. This post explains how the first exploitable Cross Plugin Request Forgery was found in the wild and the fix which was applied.&#xA;Indirect Prompt Injections Are Now A Reality With plugins and browsing support Indirect Prompt Injections are now a reality in the ChatGPT ecosystem.&#xA;The real-world examples and demos provided by others and myself to raise awarness about this increasing problem have been mostly amusing and harmless, like making Bing Chat speak like a pirate, make ChatGPT add jokes at the end or having it do a Rickroll when reading YouTube transcripts.</description>
     </item>
-    
     <item>
       <title>ChatGPT Plugins: Data Exfiltration via Images &amp; Cross Plugin Request Forgery</title>
       <link>https://embracethered.com/blog/posts/2023/chatgpt-webpilot-data-exfil-via-markdown-injection/</link>
       <pubDate>Tue, 16 May 2023 07:45:38 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/chatgpt-webpilot-data-exfil-via-markdown-injection/</guid>
-      <description>This post shows how a malicious website can take control of a ChatGPT chat session and exfiltrate the history of the conversation.
-Plugins, Tools and Integrations With plugins, data exfiltration can happen by sending too much data into the plugin in the first place. More security controls and insights on what is being sent to the plugin are required to empower users.
-However, this post is not about sending too much data to a plugin, but about a malicious actor who controls the data a plugin retrieves.</description>
+      <description>This post shows how a malicious website can take control of a ChatGPT chat session and exfiltrate the history of the conversation.&#xA;Plugins, Tools and Integrations With plugins, data exfiltration can happen by sending too much data into the plugin in the first place. More security controls and insights on what is being sent to the plugin are required to empower users.&#xA;However, this post is not about sending too much data to a plugin, but about a malicious actor who controls the data a plugin retrieves.</description>
     </item>
-    
   </channel>
 </rss>

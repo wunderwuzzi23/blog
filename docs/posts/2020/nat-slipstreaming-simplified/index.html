@@ -160,7 +160,6 @@ Allow: REGISTER, INVITE, ACK, CANCEL, BYE, NOTIFY, REFER, MESSAGE, OPTIONS, INFO
 Supported: replaces, norefersub, extended-refer, timer, X-cisco-serviceuri
 Allow-Events: presence, kpml
 Content-Length: 0
-
 </code></pre><p>The parts of the request that require customization are:</p>
 <ul>
 <li><code>192.168.0.141</code> The IP address of the internal target machine</li>
@@ -179,7 +178,6 @@ Call-ID: aaaaaaaaaaaaaaaaa0404aaaaaaaaaaaabbbbbbZjQ4M2M.
 CSeq: 1 REGISTER
 Contact: &lt;sip:wunder@174.nnn.nnn.nnn:44444;rinstance=v40f3f83b335139c;transport=TCP&gt;;expires=3600
 Content-Length: 0
-
 </code></pre><p>Notice the IP address (<code>174.nn.nn.nnn</code>) which is the public IP of the router.</p>
 <p>When the response is processed by the router, it will replace the public IP with the internal IP again.</p>
 <p>And it will open up the requested port <code>1433</code> for the server to connect. Nice.</p>

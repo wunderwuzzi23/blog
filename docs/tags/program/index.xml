@@ -1,34 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>program on Embrace The Red</title>
+    <title>Program on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/program/</link>
-    <description>Recent content in program on Embrace The Red</description>
+    <description>Recent content in Program on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Wed, 09 Jun 2021 08:30:00 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/program/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Jun 2021 08:30:00 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/program/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Somewhere today a company is breached</title>
       <link>https://embracethered.com/blog/posts/2021/somewhere-today-a-company-is-breached/</link>
       <pubDate>Wed, 09 Jun 2021 08:30:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/somewhere-today-a-company-is-breached/</guid>
-      <description>This rather lengthy post goes into reasons for having an offensive security program and in particular, on how a red team can help improve the immune system of your organization. This is the high-level outline of the post:
- Security breaches cannot be entirely prevented Implications of a breach Automated malware can hit your organization at any time Security investments - run as fast as you can, just to stay in place The immune system of your organization Embracing the red  With regular cadence companies are compromised and suffer breaches.</description>
+      <description>This rather lengthy post goes into reasons for having an offensive security program and in particular, on how a red team can help improve the immune system of your organization. This is the high-level outline of the post:&#xA;Security breaches cannot be entirely prevented Implications of a breach Automated malware can hit your organization at any time Security investments - run as fast as you can, just to stay in place The immune system of your organization Embracing the red With regular cadence companies are compromised and suffer breaches.</description>
     </item>
-    
     <item>
       <title>What does an offensive security team actually do?</title>
       <link>https://embracethered.com/blog/posts/2020/red-team-offensive-security-service-offerings/</link>
       <pubDate>Mon, 19 Oct 2020 20:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/red-team-offensive-security-service-offerings/</guid>
-      <description>There is a lot of discussion around terms such as red team, attack team, pentest, adversarial engineering or offensive security team and similar ones.
-I typically stay away from the (sometimes passionate) discussions that ensue whenever this topic comes up.
-Personally, I think a good strategy is to define programs and teams who operate in this space by what services the team (or teams) provide(s) to the organization.
-The business groups, blue team, developers, engineers, employees and clients are the customers.</description>
+      <description>There is a lot of discussion around terms such as red team, attack team, pentest, adversarial engineering or offensive security team and similar ones.&#xA;I typically stay away from the (sometimes passionate) discussions that ensue whenever this topic comes up.&#xA;Personally, I think a good strategy is to define programs and teams who operate in this space by what services the team (or teams) provide(s) to the organization.&#xA;The business groups, blue team, developers, engineers, employees and clients are the customers.</description>
     </item>
-    
   </channel>
 </rss>

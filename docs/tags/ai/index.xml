@@ -1,97 +1,69 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ai on Embrace The Red</title>
+    <title>Ai on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/ai/</link>
-    <description>Recent content in ai on Embrace The Red</description>
+    <description>Recent content in Ai on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Mon, 10 Feb 2025 06:30:21 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Feb 2025 06:30:21 -0800</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hacking Gemini&#39;s Memory with Prompt Injection and Delayed Tool Invocation</title>
       <link>https://embracethered.com/blog/posts/2025/gemini-memory-persistence-prompt-injection/</link>
       <pubDate>Mon, 10 Feb 2025 06:30:21 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2025/gemini-memory-persistence-prompt-injection/</guid>
-      <description>Imagine your AI rewriting your personal history&amp;hellip;
-A while ago Google added memories to Gemini. Memories allow Gemini to store user-related data across sessions, storing information in long-term memory. The feature is only available to users who subscribe to Gemini Advanced so far. So, in the fall of last year I chimed in and paid for the subscription for a month to check it out.
-As a user you can see what Gemini stored about you at https://gemini.</description>
+      <description>Imagine your AI rewriting your personal history&amp;hellip;&#xA;A while ago Google added memories to Gemini. Memories allow Gemini to store user-related data across sessions, storing information in long-term memory. The feature is only available to users who subscribe to Gemini Advanced so far. So, in the fall of last year I chimed in and paid for the subscription for a month to check it out.&#xA;As a user you can see what Gemini stored about you at https://gemini.</description>
     </item>
-    
     <item>
       <title>Sorry, ChatGPT Is Under Maintenance: Persistent Denial of Service through Prompt Injection and Memory Attacks</title>
       <link>https://embracethered.com/blog/posts/2024/chatgpt-persistent-denial-of-service/</link>
       <pubDate>Mon, 08 Jul 2024 14:30:18 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/chatgpt-persistent-denial-of-service/</guid>
-      <description>Imagine you visit a website with ChatGPT, and suddenly, it stops working entirely!
-In this post we show how an attacker can use prompt injection to cause a persistent denial of service that lasts across chat sessions for a user.
-Hacking Memories Previously we discussed how ChatGPT is vulnerable to automatic tool invocation of the memory tool. This can be used by an attacker during prompt injection to ingest malicious or fake memories into your ChatGPT.</description>
+      <description>Imagine you visit a website with ChatGPT, and suddenly, it stops working entirely!&#xA;In this post we show how an attacker can use prompt injection to cause a persistent denial of service that lasts across chat sessions for a user.&#xA;Hacking Memories Previously we discussed how ChatGPT is vulnerable to automatic tool invocation of the memory tool. This can be used by an attacker during prompt injection to ingest malicious or fake memories into your ChatGPT.</description>
     </item>
-    
     <item>
       <title>Automatic Tool Invocation when Browsing with ChatGPT - Threats and Mitigations</title>
       <link>https://embracethered.com/blog/posts/2024/llm-apps-automatic-tool-invocations/</link>
       <pubDate>Tue, 28 May 2024 20:57:38 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/llm-apps-automatic-tool-invocations/</guid>
-      <description>In the previous post we demonstrated how instructions embedded in untrusted data can invoke ChatGPT&amp;rsquo;s memory tool. The examples we looked at included Uploaded Files, Connected Apps and also the Browsing tool.
-
-When it came to the browsing tool we observed that mitigations were put in place and older demo exploits did not work anymore. After chatting with other security researchers, I learned that they had observed the same.</description>
+      <description>In the previous post we demonstrated how instructions embedded in untrusted data can invoke ChatGPT&amp;rsquo;s memory tool. The examples we looked at included Uploaded Files, Connected Apps and also the Browsing tool.&#xA;When it came to the browsing tool we observed that mitigations were put in place and older demo exploits did not work anymore. After chatting with other security researchers, I learned that they had observed the same.&#xA;However, with some minor prompting tricks mitigations are bypassed and we, again, can demonstrate automatic tool invocation when browsing the Internet with ChatGPT!</description>
     </item>
-    
     <item>
       <title>ChatGPT: Hacking Memories with Prompt Injection</title>
       <link>https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/</link>
       <pubDate>Wed, 22 May 2024 12:24:07 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/</guid>
-      <description>OpenAI recently introduced a memory feature in ChatGPT, enabling it to recall information across sessions, creating a more personalized user experience.
-However, with this new capability comes risks. Imagine if an attacker could manipulate your AI assistant (chatbot or agent) to remember false information, bias or even instructions, or delete all your memories! This is not a futuristic scenario, the attack that makes this possible is called Indirect Prompt Injection.</description>
+      <description>OpenAI recently introduced a memory feature in ChatGPT, enabling it to recall information across sessions, creating a more personalized user experience.&#xA;However, with this new capability comes risks. Imagine if an attacker could manipulate your AI assistant (chatbot or agent) to remember false information, bias or even instructions, or delete all your memories! This is not a futuristic scenario, the attack that makes this possible is called Indirect Prompt Injection.</description>
     </item>
-    
     <item>
       <title>Machine Learning Attack Series: Backdooring Keras Models and How to Detect It</title>
       <link>https://embracethered.com/blog/posts/2024/machine-learning-attack-series-keras-backdoor-model/</link>
       <pubDate>Sat, 18 May 2024 16:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2024/machine-learning-attack-series-keras-backdoor-model/</guid>
-      <description>This post is part of a series about machine learning and artificial intelligence.
-Adversaries often leverage supply chain attacks to gain footholds. In machine learning model deserialization issues are a significant threat, and detecting them is crucial, as they can lead to arbitrary code execution. We explored this attack with Python Pickle files in the past.
-In this post we are covering backdooring the original Keras Husky AI model from the Machine Learning Attack Series, and afterwards we investigate tooling to detect the backdoor.</description>
+      <description>This post is part of a series about machine learning and artificial intelligence.&#xA;Adversaries often leverage supply chain attacks to gain footholds. In machine learning model deserialization issues are a significant threat, and detecting them is crucial, as they can lead to arbitrary code execution. We explored this attack with Python Pickle files in the past.&#xA;In this post we are covering backdooring the original Keras Husky AI model from the Machine Learning Attack Series, and afterwards we investigate tooling to detect the backdoor.</description>
     </item>
-    
     <item>
       <title>Machine Learning Attack Series: Backdooring Pickle Files</title>
       <link>https://embracethered.com/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/</link>
       <pubDate>Sun, 28 Aug 2022 20:10:44 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/</guid>
-      <description>Recently I read this excellent post by Evan Sultanik about exploiting pickle files on Trail of Bits. There was also a DefCon30 talk about backdooring pickle files by ColdwaterQ.
-This got me curious to try out backdooring a pickle file myself.
-Pickle files - the surprises Surprisingly Python pickle files are compiled programs running in a VM called the Pickle Machine (PM). Opcodes control the flow, and when there are opcodes there is often fun to be had.</description>
+      <description>Recently I read this excellent post by Evan Sultanik about exploiting pickle files on Trail of Bits. There was also a DefCon30 talk about backdooring pickle files by ColdwaterQ.&#xA;This got me curious to try out backdooring a pickle file myself.&#xA;Pickle files - the surprises Surprisingly Python pickle files are compiled programs running in a VM called the Pickle Machine (PM). Opcodes control the flow, and when there are opcodes there is often fun to be had.</description>
     </item>
-    
     <item>
       <title>GPT-3 and Phishing Attacks</title>
       <link>https://embracethered.com/blog/posts/2022/gpt-3-ai-and-phishing-attacks/</link>
       <pubDate>Mon, 11 Apr 2022 08:00:43 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2022/gpt-3-ai-and-phishing-attacks/</guid>
-      <description>In this post, we&amp;rsquo;ll examine how GPT-3 could be used by red teams or adversaries to perform successful phishing attacks. We&amp;rsquo;ll also discuss some potential countermeasures that organizations can take to protect themselves against this type of threat.
-What is GPT-3? GPT-3 is a neural network-based machine learning system that was developed by OpenAI, a research lab focused on artificial intelligence. It is designed to generate text that sounds realistic and human-like, and it has been trained on a large corpus of text, including billions of words from the internet.</description>
+      <description>In this post, we&amp;rsquo;ll examine how GPT-3 could be used by red teams or adversaries to perform successful phishing attacks. We&amp;rsquo;ll also discuss some potential countermeasures that organizations can take to protect themselves against this type of threat.&#xA;What is GPT-3? GPT-3 is a neural network-based machine learning system that was developed by OpenAI, a research lab focused on artificial intelligence. It is designed to generate text that sounds realistic and human-like, and it has been trained on a large corpus of text, including billions of words from the internet.</description>
     </item>
-    
     <item>
       <title>Machine Learning Attack Series: Overview </title>
       <link>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-overview/</link>
       <pubDate>Thu, 26 Nov 2020 09:00:51 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-overview/</guid>
-      <description>What a journey it has been. I wrote quite a bit about machine learning from a red teaming/security testing perspective this year. It was brought to my attention to provide a conveninent &amp;ldquo;index page&amp;rdquo; with all Husky AI and related blog posts. Here it is.
-Machine Learning Basics and Building Husky AI  Getting the hang of machine learning The machine learning pipeline and attacks Husky AI: Building a machine learning system MLOps - Operationalizing the machine learning model  Threat Modeling and Strategies  Threat modeling a machine learning system Grayhat Red Team Village Video: Building and breaking a machine learning system Assume Bias and Responsible AI  Practical Attacks and Defenses  Brute forcing images to find incorrect predictions Smart brute forcing Perturbations to misclassify existing images Adversarial Robustness Toolbox Basics Image Scaling Attacks Stealing a model file: Attacker gains read access to the model Backdooring models: Attacker modifies persisted model file Repudiation Threat and Auditing: Catching modifications and unauthorized access Attacker modifies Jupyter Notebook file to insert a backdoor CVE 2020-16977: VS Code Python Extension Remote Code Execution Using Generative Adversarial Networks (GANs) to create fake husky images Using Microsoft Counterfit to create adversarial examples Backdooring Pickle Files Backdooring Keras Model Files and How to Detect It  Miscellaneous  Participating in the Microsoft Machine Learning Security Evasion Competition - Bypassing malware models by signing binaries Husky AI Github Repo  Conclusion As you can see there are many machine learning specific attacks, but also a lot of &amp;ldquo;typical&amp;rdquo; red teaming techniques that put AI/ML systems at risk.</description>
+      <description>What a journey it has been. I wrote quite a bit about machine learning from a red teaming/security testing perspective this year. It was brought to my attention to provide a conveninent &amp;ldquo;index page&amp;rdquo; with all Husky AI and related blog posts. Here it is.&#xA;Machine Learning Basics and Building Husky AI Getting the hang of machine learning The machine learning pipeline and attacks Husky AI: Building a machine learning system MLOps - Operationalizing the machine learning model Threat Modeling and Strategies Threat modeling a machine learning system Grayhat Red Team Village Video: Building and breaking a machine learning system Assume Bias and Responsible AI Practical Attacks and Defenses Brute forcing images to find incorrect predictions Smart brute forcing Perturbations to misclassify existing images Adversarial Robustness Toolbox Basics Image Scaling Attacks Stealing a model file: Attacker gains read access to the model Backdooring models: Attacker modifies persisted model file Repudiation Threat and Auditing: Catching modifications and unauthorized access Attacker modifies Jupyter Notebook file to insert a backdoor CVE 2020-16977: VS Code Python Extension Remote Code Execution Using Generative Adversarial Networks (GANs) to create fake husky images Using Microsoft Counterfit to create adversarial examples Backdooring Pickle Files Backdooring Keras Model Files and How to Detect It Miscellaneous Participating in the Microsoft Machine Learning Security Evasion Competition - Bypassing malware models by signing binaries Husky AI Github Repo Conclusion As you can see there are many machine learning specific attacks, but also a lot of &amp;ldquo;typical&amp;rdquo; red teaming techniques that put AI/ML systems at risk.</description>
     </item>
-    
   </channel>
 </rss>

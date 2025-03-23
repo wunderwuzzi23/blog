@@ -160,7 +160,7 @@
 </code></pre><ol start="2">
 <li>Take note of the PID of the bash process and fill in the PID accordingly when running:</li>
 </ol>
-<pre tabindex="0"><code>$ sudo cat /proc/{PID}/environ | tr '\0' '\n' | grep SSH_AUTH_SOCK 
+<pre tabindex="0"><code>$ sudo cat /proc/{PID}/environ | tr &#39;\0&#39; &#39;\n&#39; | grep SSH_AUTH_SOCK 
 </code></pre><ol start="3">
 <li>If all works you can ssh to other machines where sarah has access to.</li>
 </ol>

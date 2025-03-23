@@ -154,9 +154,9 @@
 <p><code>$AppData\Roaming\Mozilla\Firefox\Profiles\*.default-release\</code></p>
 <p><em>Note:</em> There might be multiple profiles present in the folder.</p>
 <p>These are the updates that are required to enabled remote debugging:</p>
-<pre tabindex="0"><code>user_pref(&quot;devtools.chrome.enabled&quot;, true);
-user_pref(&quot;devtools.debugger.remote-enabled&quot;, true);
-user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
+<pre tabindex="0"><code>user_pref(&#34;devtools.chrome.enabled&#34;, true);
+user_pref(&#34;devtools.debugger.remote-enabled&#34;, true);
+user_pref(&#34;devtools.debugger.prompt-connection&#34;, false);
 </code></pre><p>These updates the remote debugging features, and disables security prompts the user would normally see by default.</p>
 <p>You can find the corresponding configurations under <strong>Development Settings</strong>:
 <img src="/blog/images/2020/firefox.debug.settings.png" alt="Security Settings"></p>
@@ -209,10 +209,10 @@ user_pref(&quot;devtools.debugger.prompt-connection&quot;, false);
 <p>Connect via telnet or netcat, and send the following strings in:</p>
 <p><code>30:{&quot;type&quot;:&quot;getRoot&quot;,&quot;to&quot;:&quot;root&quot;}</code></p>
 <p>Some other commands I figured out to get the contents of a site:</p>
-<pre tabindex="0"><code>31:{&quot;to&quot;:&quot;root&quot;,&quot;type&quot;:&quot;listTabs&quot;}
-57:{&quot;type&quot;:&quot;getTarget&quot;,&quot;to&quot;:&quot;server1.conn21.tabDescriptor7&quot;}
-65:{&quot;type&quot;:&quot;listStores&quot;,&quot;to&quot;:&quot;server1.conn21.child21/storageActor5&quot;}
-124:{&quot;type&quot;:&quot;getStoreObjects&quot;,&quot;host&quot;:&quot;https://www.google.com&quot;,&quot;names&quot;:null,&quot;options&quot;:{},&quot;to&quot;:&quot;server1.conn21.child21/cookies20&quot;}
+<pre tabindex="0"><code>31:{&#34;to&#34;:&#34;root&#34;,&#34;type&#34;:&#34;listTabs&#34;}
+57:{&#34;type&#34;:&#34;getTarget&#34;,&#34;to&#34;:&#34;server1.conn21.tabDescriptor7&#34;}
+65:{&#34;type&#34;:&#34;listStores&#34;,&#34;to&#34;:&#34;server1.conn21.child21/storageActor5&#34;}
+124:{&#34;type&#34;:&#34;getStoreObjects&#34;,&#34;host&#34;:&#34;https://www.google.com&#34;,&#34;names&#34;:null,&#34;options&#34;:{},&#34;to&#34;:&#34;server1.conn21.child21/cookies20&#34;}
 </code></pre><p>The identifiers for connections and actors  (such as conn21 or child 21) change everytime, so this needs a little scripting to automate - which I have not worked on.</p>
 <p>I will be waiting for the handy <code>getAllCookies</code> API.</p>
 <h3 id="update-i-just-checked-the-bugzilla-bug-again-and-the-getallcookies-api-exists-now"><strong>UPDATE:</strong> I just checked the Bugzilla bug again and the <strong>getAllCookies()</strong> API exists now!</h3>

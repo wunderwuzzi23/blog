@@ -1,38 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>webapp on Embrace The Red</title>
+    <title>Webapp on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/webapp/</link>
-    <description>Recent content in webapp on Embrace The Red</description>
+    <description>Recent content in Webapp on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sun, 10 Oct 2021 10:10:51 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/webapp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Oct 2021 10:10:51 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/webapp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Video: What is Tabnabbing?</title>
       <link>https://embracethered.com/blog/posts/2021/what-is-tab-nabbing/</link>
       <pubDate>Sun, 10 Oct 2021 10:10:51 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/what-is-tab-nabbing/</guid>
-      <description>Tabnabbing is a web application security vulnerability that can be used to perform phishing attacks, so its important to be aware of it as a developer and penetration tester.
-It is easy to mitigate and in this short video we cover both attacks and mitigations.
-
-Thanks for reading and happy hacking!
-@wunderwuzzi23</description>
+      <description>Tabnabbing is a web application security vulnerability that can be used to perform phishing attacks, so its important to be aware of it as a developer and penetration tester.&#xA;It is easy to mitigate and in this short video we cover both attacks and mitigations.&#xA;Thanks for reading and happy hacking!&#xA;@wunderwuzzi23</description>
     </item>
-    
     <item>
       <title>Video: Web Application Security Fundamentals</title>
       <link>https://embracethered.com/blog/posts/2021/web-application-security-fundamentals-video/</link>
       <pubDate>Mon, 06 Sep 2021 08:02:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/web-application-security-fundamentals-video/</guid>
-      <description>In this 25 minute video I&amp;rsquo;m explaining the foundations of Web Application Security.
-The video covers the basic building blocks of web applications, such as HTML, HTTP, JavaScript and Cookies. Furthermore core web applications security concepts such as the Same-Origin Policy are discussed in detail.
-
-The goal is to provide foundational knowledge to help grasp security vulnerabilities, such as XSS, CSRF, SQLi, tab-nabbing, etc. later on.
-In the past I have trained and presented content like this to thousands of engineers at large organizations and cloud providers, hence its quite optimized for best learning and comprehension outcome.</description>
+      <description>In this 25 minute video I&amp;rsquo;m explaining the foundations of Web Application Security.&#xA;The video covers the basic building blocks of web applications, such as HTML, HTTP, JavaScript and Cookies. Furthermore core web applications security concepts such as the Same-Origin Policy are discussed in detail.&#xA;The goal is to provide foundational knowledge to help grasp security vulnerabilities, such as XSS, CSRF, SQLi, tab-nabbing, etc. later on.&#xA;In the past I have trained and presented content like this to thousands of engineers at large organizations and cloud providers, hence its quite optimized for best learning and comprehension outcome.</description>
     </item>
-    
   </channel>
 </rss>

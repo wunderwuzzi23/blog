@@ -1,63 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>cloud on Embrace The Red</title>
+    <title>Cloud on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/cloud/</link>
-    <description>Recent content in cloud on Embrace The Red</description>
+    <description>Recent content in Cloud on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sun, 20 Nov 2022 18:00:00 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Nov 2022 18:00:00 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ropci deep-dive for Azure hackers</title>
       <link>https://embracethered.com/blog/posts/2022/ropci-usage/</link>
       <pubDate>Sun, 20 Nov 2022 18:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2022/ropci-usage/</guid>
-      <description>Misconfigurations with MFA setups are not uncommon when using AAD, especially when federated setups or Pass Through Authentication is configured I have seen MFA bypass opportunities in multiple production tenants.
-A common misconfiguration is that MFA is enforced at the federated identity provider, but AAD is forgotten and ROPC authentication still succeeds against AAD.
-To learn more about ROPC, check out the previous post about the topic.
-This post focuses on the ropci features that can be leveraged post-exploitation.</description>
+      <description>Misconfigurations with MFA setups are not uncommon when using AAD, especially when federated setups or Pass Through Authentication is configured I have seen MFA bypass opportunities in multiple production tenants.&#xA;A common misconfiguration is that MFA is enforced at the federated identity provider, but AAD is forgotten and ROPC authentication still succeeds against AAD.&#xA;To learn more about ROPC, check out the previous post about the topic.&#xA;This post focuses on the ropci features that can be leveraged post-exploitation.</description>
     </item>
-    
     <item>
       <title>PenTest Magazine Open Source Toolkit: ropci</title>
       <link>https://embracethered.com/blog/posts/2022/ropci-pentest-magazine-open-source-tools/</link>
       <pubDate>Thu, 20 Oct 2022 09:00:10 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2022/ropci-pentest-magazine-open-source-tools/</guid>
-      <description>Great news!
-An article about ropci is in the latest free issue of the Pentest Magazine!
-
-The article has a lot more info then my ropci blog post or the info on the ropci Github repo.
-Get your copy and check it out! It also has an article about Nuclei, one of my favorite tools.
-Cheers.
-Link: https://pentestmag.com/product/pentest-open-source-pentesting-toolkit</description>
+      <description>Great news!&#xA;An article about ropci is in the latest free issue of the Pentest Magazine!&#xA;The article has a lot more info then my ropci blog post or the info on the ropci Github repo.&#xA;Get your copy and check it out! It also has an article about Nuclei, one of my favorite tools.&#xA;Cheers.&#xA;Link: https://pentestmag.com/product/pentest-open-source-pentesting-toolkit</description>
     </item>
-    
     <item>
       <title>ROPC - So, you think you have MFA?</title>
       <link>https://embracethered.com/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/</link>
       <pubDate>Thu, 20 Oct 2022 08:00:00 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/</guid>
-      <description>This post will highlight a pattern I have seen across multiple production Microsoft Azure Active Directory tenants which led to MFA bypasses using ROPC.
-The key take-away: Always enforce MFA! Sounds easy, but there are often misconfigurations and unexpected exceptions. So, test your own AAD tenant for ROPC based MFA bypass opportunities.
-Github: https://github.com/wunderwuzzi23/ropci
-Update: The latest free issue of Pentest Magazine has a ropci article. Check it out.
-What is ROPC?</description>
+      <description>This post will highlight a pattern I have seen across multiple production Microsoft Azure Active Directory tenants which led to MFA bypasses using ROPC.&#xA;The key take-away: Always enforce MFA! Sounds easy, but there are often misconfigurations and unexpected exceptions. So, test your own AAD tenant for ROPC based MFA bypass opportunities.&#xA;Github: https://github.com/wunderwuzzi23/ropci&#xA;Update: The latest free issue of Pentest Magazine has a ropci article. Check it out.&#xA;What is ROPC?</description>
     </item>
-    
     <item>
       <title>AWS Scaled Command Bash Script - Run AWS commands for many profiles</title>
       <link>https://embracethered.com/blog/posts/2022/aws-scaled-command/</link>
       <pubDate>Sat, 12 Mar 2022 10:42:14 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2022/aws-scaled-command/</guid>
-      <description>One area that I have encountered quite often over the years is that during recon phase of a bug bounty hunt or pentest a set of AWS access keys are being discovered.
-Let&amp;rsquo;s say you found 50 AWS access keys by drooling and hunting through public Github repos and using other nifty tricks and means.
-How do you go about checking their validity? And what do they have access to and provide the Bug Bounty Program or Blue Team the dates, times, and IP address when those keys were used?</description>
+      <description>One area that I have encountered quite often over the years is that during recon phase of a bug bounty hunt or pentest a set of AWS access keys are being discovered.&#xA;Let&amp;rsquo;s say you found 50 AWS access keys by drooling and hunting through public Github repos and using other nifty tricks and means.&#xA;How do you go about checking their validity? And what do they have access to and provide the Bug Bounty Program or Blue Team the dates, times, and IP address when those keys were used?</description>
     </item>
-    
   </channel>
 </rss>

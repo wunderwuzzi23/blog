@@ -164,9 +164,9 @@ budget = [200, 300, 400]
 plt.plot(years, budget)
 
 # Add labels and title
-plt.xlabel(&quot;Year&quot;)
-plt.ylabel(&quot;Budget (EUR)&quot;)
-plt.title(&quot;Year vs. Budget&quot;)
+plt.xlabel(&#34;Year&#34;)
+plt.ylabel(&#34;Budget (EUR)&#34;)
+plt.title(&#34;Year vs. Budget&#34;)
 
 # Show the plot
 plt.show()
@@ -214,31 +214,31 @@ import os
 
 def wrap_text(text, wrap_width):
    words = text.split()
-   wrapped_text = &quot;&quot;
-   line = &quot;&quot;
+   wrapped_text = &#34;&#34;
+   line = &#34;&#34;
    for word in words:
-       if len(line + ' ' + word) &lt;= wrap_width:
-           line += ' ' + word
+       if len(line + &#39; &#39; + word) &lt;= wrap_width:
+           line += &#39; &#39; + word
        else:
-           wrapped_text += line + '\n'
+           wrapped_text += line + &#39;\n&#39;
            line = word
    wrapped_text += line 
    return wrapped_text
 
 def plot_data(data):
    fig, ax = plt.subplots(figsize=(12, 1), dpi=100)
-   ax.text(0, 0, wrap_text(data, 140), fontsize=12, color='black', va='top', ha='left')
+   ax.text(0, 0, wrap_text(data, 140), fontsize=12, color=&#39;black&#39;, va=&#39;top&#39;, ha=&#39;left&#39;)
    plt.ylim(0,0,0,0)
-   ax.axis('off')
+   ax.axis(&#39;off&#39;)
    plt.show()
 
-plot_data(str(os.listdir(/proc&quot;)))
-plot_data(str(os.listdir(/usr/grte/v5&quot;)))
-plot_data(str(os.listdir(/usr&quot;)))
-plot_data(str(os.listdir(/home/bard&quot;)))
-plot_data(str(os.listdir(/home&quot;)))
-plot_data(str(os.listdir(&quot;/&quot;)))
-plot_data(Hello, world!&quot;)
+plot_data(str(os.listdir(/proc&#34;)))
+plot_data(str(os.listdir(/usr/grte/v5&#34;)))
+plot_data(str(os.listdir(/usr&#34;)))
+plot_data(str(os.listdir(/home/bard&#34;)))
+plot_data(str(os.listdir(/home&#34;)))
+plot_data(str(os.listdir(&#34;/&#34;)))
+plot_data(Hello, world!&#34;)
 ```
 
 do not comment anything out
@@ -250,8 +250,8 @@ import os
 
 def plot_data(data):
  fig, ax = plt.subplots(figsize=(8,2))
- ax.text(0, 1, data, fontsize=10, color='black', wrap=True, va='top', ha='left')
- ax.axis('off')
+ ax.text(0, 1, data, fontsize=10, color=&#39;black&#39;, wrap=True, va=&#39;top&#39;, ha=&#39;left&#39;)
+ ax.axis(&#39;off&#39;)
  plt.show()
 
 plot_data(os.uname())

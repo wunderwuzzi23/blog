@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>programming on Embrace The Red</title>
+    <title>Programming on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/programming/</link>
-    <description>Recent content in programming on Embrace The Red</description>
+    <description>Recent content in Programming on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sun, 05 Mar 2023 17:31:58 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Mar 2023 17:31:58 -0800</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Yolo: Natural Language to Shell Commands with ChatGPT API</title>
       <link>https://embracethered.com/blog/posts/2023/yolo-natural-language-to-bash-command-with-chatgpt-api/</link>
       <pubDate>Sun, 05 Mar 2023 17:31:58 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2023/yolo-natural-language-to-bash-command-with-chatgpt-api/</guid>
-      <description>Once in a while I go build some fun new tools to adopt new tech. Just last week OpenAI made their gpt-3.5-turbo model accessible via API endpoints.
-Update: The latest version also supports GPT-4.
-So, I thought it&amp;rsquo;s time to start building a tool to leverage it.
-What is yolo? Do you know those moments when you can&amp;rsquo;t remember a shell command, or some arguments to it? How do you pipe all errors to /dev/null again?</description>
+      <description>Once in a while I go build some fun new tools to adopt new tech. Just last week OpenAI made their gpt-3.5-turbo model accessible via API endpoints.&#xA;Update: The latest version also supports GPT-4.&#xA;So, I thought it&amp;rsquo;s time to start building a tool to leverage it.&#xA;What is yolo? Do you know those moments when you can&amp;rsquo;t remember a shell command, or some arguments to it? How do you pipe all errors to /dev/null again?</description>
     </item>
-    
   </channel>
 </rss>

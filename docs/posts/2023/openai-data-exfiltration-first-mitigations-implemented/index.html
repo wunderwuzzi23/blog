@@ -140,7 +140,7 @@
     </div>
   </header>
   <section>
-    <p>OpenAI seems to have implemented some mitigation steps for a well-known data exfiltration vulnerability in ChatGPT. Attackers can use image markdown rendering during prompt injection attacks to send data to third party servers without the users' consent.</p>
+    <p>OpenAI seems to have implemented some mitigation steps for a well-known data exfiltration vulnerability in ChatGPT. Attackers can use image markdown rendering during prompt injection attacks to send data to third party servers without the users&rsquo; consent.</p>
 <p>The fix is not perfect, but a step into the right direction. In this post I share what I figured out so far about the fix after looking at it briefly this morning.</p>
 <h2 id="background">Background</h2>
 <p>Yesterday I was doing a live demo of the <a href="/blog/posts/2023/openai-custom-malware-gpt/">data theft GPT</a> with a consenting victim. ChatGPT was still vulnerable to data exfiltration via image markdown injection and my server received the conversation details:</p>
@@ -156,7 +156,7 @@
 </code></pre><p>where it appends the target URL as query parameter</p>
 <pre tabindex="0"><code>?url=https://wuzzi.net/r?thief=johannr@example.org
 </code></pre><p>and in this case it returns:</p>
-<pre tabindex="0"><code>{&quot;safe&quot;:false}
+<pre tabindex="0"><code>{&#34;safe&#34;:false}
 </code></pre><p><code>safe=false</code> means that it will not render the image and perform the request to the attackers server!</p>
 <p><a href="/blog/images/2023/openai-fix-3.png"><img src="/blog/images/2023/openai-fix-3.png" alt="OpenAI Mitigation"></a></p>
 <p>It still at times renders <strong>other</strong> images (from arbitrary domains) though.</p>

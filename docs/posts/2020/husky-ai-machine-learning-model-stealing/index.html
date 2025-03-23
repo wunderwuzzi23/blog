@@ -223,7 +223,7 @@ Mode                 LastWriteTime         Length Name
 <h2 id="ssh-agent-info-on-windows">SSH-Agent info on Windows</h2>
 <p>I was wondering if this also works with the Windows 10 SSH client. It turns out that Windows is currently using the following named pipe for this. You can find it by running:</p>
 <pre tabindex="0"><code>PS C:\WINDOWS\system32&gt; Start-Service ssh-agent
-PS C:\WINDOWS\system32&gt;  [System.IO.Directory]::GetFiles(&quot;\\.\\pipe\\&quot;) | sls agent
+PS C:\WINDOWS\system32&gt;  [System.IO.Directory]::GetFiles(&#34;\\.\\pipe\\&#34;) | sls agent
 
 \\.\\pipe\\openssh-ssh-agent
 </code></pre><h2 id="adding-a-key-to-ssh-agent">Adding a key to SSH Agent</h2>

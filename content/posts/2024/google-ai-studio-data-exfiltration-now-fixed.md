@@ -98,4 +98,4 @@ Cheers.
 * [Google AI Studio - Mass Data Exfiltration](/blog/posts/2024/google-aistudio-mass-data-exfil/)
 * [Indirect Prompt Injection with YouTube Transcripts](https://embracethered.com/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/)
 * Actual link to the tweet
-{{< twitter OfficialLoganK 1821306143605444809 >}}
+{{< twitter user="OfficialLoganK" id="1821306143605444809" >}}

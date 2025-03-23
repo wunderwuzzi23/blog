@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>documentation on Embrace The Red</title>
+    <title>Documentation on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/documentation/</link>
-    <description>Recent content in documentation on Embrace The Red</description>
+    <description>Recent content in Documentation on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sat, 28 May 2022 14:00:54 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 May 2022 14:00:54 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Customized Hacker Shell Prompts</title>
       <link>https://embracethered.com/blog/posts/2022/hacker-shell-prompts/</link>
       <pubDate>Sat, 28 May 2022 14:00:54 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2022/hacker-shell-prompts/</guid>
-      <description>As the saying goes, a picture is worth a thousand words.
-In order to improve your documentation and uplevel red team and pentest reporting, it&amp;rsquo;s useful to add date and time information to screenshots and script logs.
-This helps the Blue Team (and yourself) reviewing past activity, reports and when deconflicting activity is required. Depending on the shell that is used there are different ways to go about it. Let&amp;rsquo;s cover three common ones.</description>
+      <description>As the saying goes, a picture is worth a thousand words.&#xA;In order to improve your documentation and uplevel red team and pentest reporting, it&amp;rsquo;s useful to add date and time information to screenshots and script logs.&#xA;This helps the Blue Team (and yourself) reviewing past activity, reports and when deconflicting activity is required. Depending on the shell that is used there are different ways to go about it. Let&amp;rsquo;s cover three common ones.</description>
     </item>
-    
   </channel>
 </rss>

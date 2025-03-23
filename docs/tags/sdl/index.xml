@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sdl on Embrace The Red</title>
+    <title>Sdl on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/sdl/</link>
-    <description>Recent content in sdl on Embrace The Red</description>
+    <description>Recent content in Sdl on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Fri, 12 Jun 2020 10:00:25 -0700</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/sdl/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Jun 2020 10:00:25 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/sdl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Putting system owners in Security Bug Jail</title>
       <link>https://embracethered.com/blog/posts/2020/bugjail/</link>
       <pubDate>Fri, 12 Jun 2020 10:00:25 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/bugjail/</guid>
-      <description>Some organization have this interesting concept of a bug jail to prevent new feature development when there are too many existing flaws in the system.
-For instance, if an engineer has 5 or more bugs assigned they aren&amp;rsquo;t allowed to work on anything else but fixing their bugs.
-What is the Security Bug Jail? A security bug jail goes along the same lines. The owner of a system can never have more than a certain upper limit of active security bugs.</description>
+      <description>Some organization have this interesting concept of a bug jail to prevent new feature development when there are too many existing flaws in the system.&#xA;For instance, if an engineer has 5 or more bugs assigned they aren&amp;rsquo;t allowed to work on anything else but fixing their bugs.&#xA;What is the Security Bug Jail? A security bug jail goes along the same lines. The owner of a system can never have more than a certain upper limit of active security bugs.</description>
     </item>
-    
   </channel>
 </rss>

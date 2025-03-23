@@ -142,7 +142,7 @@ root@saturn:/#
 :)
 </code></pre><h2 id="detection-and-threat-hunting">Detection and Threat Hunting</h2>
 <p>Depending on your central log collection tools, all you need to do is look for <code>:0:</code> in the <code>/etc/passwd</code> file for either user or group ids. On the command line on a host this can be done with something like:</p>
-<pre tabindex="0"><code>$ cat /etc/passwd | grep &quot;:0:&quot;
+<pre tabindex="0"><code>$ cat /etc/passwd | grep &#34;:0:&#34;
 </code></pre><p>The result of this command will look similar to:</p>
 <p><img src="/blog/images/2021/user-uid0.png" alt="uid 0 backdoor"></p>
 <p>Neat.</p>

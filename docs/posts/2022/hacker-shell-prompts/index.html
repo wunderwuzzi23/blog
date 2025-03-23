@@ -137,20 +137,20 @@
 <p>This helps the Blue Team (and yourself) reviewing past activity, reports and when deconflicting activity is required. Depending on the shell that is used there are different ways to go about it. Let&rsquo;s cover three common ones.</p>
 <h2 id="bash">Bash</h2>
 <p>In Bash adding time information is pretty straight forward, and below example also adds some more color:</p>
-<pre tabindex="0"><code>PS1=&quot;[\d \t\[\033[0m\]]\[\033[1;32m\] \u@\h:\[\033[1;34m\]\w\[\033[0m\]\$ \[\e]0;Embrace the Red\a\]&quot;
+<pre tabindex="0"><code>PS1=&#34;[\d \t\[\033[0m\]]\[\033[1;32m\] \u@\h:\[\033[1;34m\]\w\[\033[0m\]\$ \[\e]0;Embrace the Red\a\]&#34;
 </code></pre><p>And this is how it looks like:
 <img src="/blog/images/2022/ps1.png" alt="Bash PS1"></p>
 <p>Implicitly documenting commands with timestamps is pretty neat. The the above example also updates the title of the shell, which is an additional neat thing that can be done.</p>
 <p>You can also add this to the <code>~/.bashrc</code> file, so every new bash shell gets it.</p>
 <h2 id="macos---zsh">macOS - zsh</h2>
 <p>On macOS it&rsquo;s possible to do it this way:</p>
-<pre tabindex="0"><code>PS1=&quot;[20%D %T] %n@%m %1~ %# &quot;
+<pre tabindex="0"><code>PS1=&#34;[20%D %T] %n@%m %1~ %# &#34;
 </code></pre><p>The result is as follows:</p>
 <pre tabindex="0"><code>[2022-05-28 14:17] alice@alice-MAC ~ % 
 </code></pre><p>The startup script for zsh is at <code>~/.zshrc</code> in case you are wondering where to set this.</p>
 <h2 id="powershell">PowerShell</h2>
 <p>In PowerShell the prompt is controlled by implementing the <code>Prompt</code> function.</p>
-<pre tabindex="0"><code>function Prompt { &quot;[$(get-date )] $Env:USERNAME@$Env:COMPUTERNAME  [$PWD] PS&gt; &quot; }
+<pre tabindex="0"><code>function Prompt { &#34;[$(get-date )] $Env:USERNAME@$Env:COMPUTERNAME  [$PWD] PS&gt; &#34; }
 </code></pre><p>The PowerShell documentation is <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_prompts?view=powershell-7.2">here</a> if you&rsquo;d like to read up more on it.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Leverage custom command prompts to improve reporting and logging.

@@ -134,8 +134,8 @@
 <p>Let&rsquo;s dive into it.</p>
 <h3 id="calling-the-prediction-api">Calling the prediction API</h3>
 <p>Running our plush Shadowbunny image through the prediction showed a much lower than 1% chance of it being a husky.</p>
-<pre tabindex="0"><code>shadowbunny_image = load_image(&quot;shadowbunny.png&quot;)
-predict(shadowbunny_image[0])[&quot;score&quot;]
+<pre tabindex="0"><code>shadowbunny_image = load_image(&#34;shadowbunny.png&#34;)
+predict(shadowbunny_image[0])[&#34;score&#34;]
 
 0.00038117
 </code></pre><p>This looks good, certainly far from being seen as a husky by the system.</p>
@@ -212,15 +212,15 @@ predict(shadowbunny_image[0])[&quot;score&quot;]
                 return run_image
     
             #also update image every row
-            plt.imshow(run_image[0], interpolation='nearest')
-            plt.text(y=10, x=150, s=f&quot;Initial Score: {initial_score:8f}&quot;, fontsize=12)
-            plt.text(y=20, x=150, s=f&quot;Best Score:   {best_score:8f}&quot;, fontsize=12)
-            plt.text(y=30, x=150, s=f&quot;Current Score: {current_score:8f}&quot;, fontsize=12)
-            plt.text(y=40, x=150, s=f&quot;API Call Count: {attempts}&quot;, fontsize=12)
+            plt.imshow(run_image[0], interpolation=&#39;nearest&#39;)
+            plt.text(y=10, x=150, s=f&#34;Initial Score: {initial_score:8f}&#34;, fontsize=12)
+            plt.text(y=20, x=150, s=f&#34;Best Score:   {best_score:8f}&#34;, fontsize=12)
+            plt.text(y=30, x=150, s=f&#34;Current Score: {current_score:8f}&#34;, fontsize=12)
+            plt.text(y=40, x=150, s=f&#34;API Call Count: {attempts}&#34;, fontsize=12)
             plt.show()
             clear_output(wait=True)  
 
-image = load_image(&quot;shadowbunny.png&quot;)
+image = load_image(&#34;shadowbunny.png&#34;)
 best_image = find_best_pixels(image) 
 </code></pre><p>To my surprise it works! :)</p>
 <p><img src="/blog/images/2020/shadowbunny-ml-attack-1.jpg" alt="Shadowbunny machine learning attack"></p>
@@ -263,15 +263,15 @@ best_image = find_best_pixels(image)
             return run_image
 
         #update image so we see a nice animation
-        plt.imshow(run_image[0], interpolation='nearest')
-        plt.text(y=10, x=150, s=f&quot;Initial Score: {initial_score:8f}&quot;, fontsize=12)
-        plt.text(y=20, x=150, s=f&quot;Best Score:   {best_score:8f}&quot;, fontsize=12)
-        plt.text(y=30, x=150, s=f&quot;Current Score: {current_score:8f}&quot;, fontsize=12)
-        plt.text(y=40, x=150, s=f&quot;API Call Count: {attempts}&quot;, fontsize=12)
+        plt.imshow(run_image[0], interpolation=&#39;nearest&#39;)
+        plt.text(y=10, x=150, s=f&#34;Initial Score: {initial_score:8f}&#34;, fontsize=12)
+        plt.text(y=20, x=150, s=f&#34;Best Score:   {best_score:8f}&#34;, fontsize=12)
+        plt.text(y=30, x=150, s=f&#34;Current Score: {current_score:8f}&#34;, fontsize=12)
+        plt.text(y=40, x=150, s=f&#34;API Call Count: {attempts}&#34;, fontsize=12)
         plt.show()
         clear_output(wait=True)  
 
-image = load_image(&quot;shadowbunny.png&quot;)
+image = load_image(&#34;shadowbunny.png&#34;)
 best_image = find_best_pixels_random(image) 
 </code></pre><p>Next, I want to explore what TensorFlow offers in this regards. There is also a library called <em>Cleverhans</em> - that I will post about at a later point.</p>
 <h3 id="test-case-4-using-ml-to-optimize-adversarial-images"><strong>Test Case 4:</strong> Using ML to optimize adversarial images</h3>
@@ -289,7 +289,7 @@ best_image = find_best_pixels_random(image)
 </blockquote>
 <p>Threat modeling already identified the adversary gainin gread access to the model (e.g. &ldquo;model stealing&rdquo;), so we will research that attack in a future post. I can think of least two ways that I already can think of, but for now let&rsquo;s continue to assume we have a model file again.</p>
 <p>Here is the code used to generate an adversary example via an Adam optimizer:</p>
-<pre tabindex="0"><code>shadowbunny = load_image(&quot;shadowbunny.png&quot;)
+<pre tabindex="0"><code>shadowbunny = load_image(&#34;shadowbunny.png&#34;)
 initial_score = model.predict(shadowbunny)
 
 image_tensor = tf.constant(shadowbunny, dtype=tf.float32)
@@ -313,15 +313,15 @@ for round in range(40):
         #update image every iteration for a nice animation
         clear_output(wait=True)  
         plt.imshow(candidate[0])
-        plt.text(y=10, x=150, s=f&quot;Initial Score: {initial_score[0][0]:8f}&quot;, fontsize=12)
-        plt.text(y=20, x=150, s=f&quot;Best Score: {best_score[0][0]:8f}&quot;, fontsize=12)
-        plt.text(y=30, x=150, s=f&quot;Current Loss: {loss_value:8f}&quot;, fontsize=12)
+        plt.text(y=10, x=150, s=f&#34;Initial Score: {initial_score[0][0]:8f}&#34;, fontsize=12)
+        plt.text(y=20, x=150, s=f&#34;Best Score: {best_score[0][0]:8f}&#34;, fontsize=12)
+        plt.text(y=30, x=150, s=f&#34;Current Loss: {loss_value:8f}&#34;, fontsize=12)
         plt.show()
         
     gradients = tape.gradient(loss_value, image_tensor)
     optimizer.apply_gradients([(gradients, delta)])
     
-print(&quot;Final Score: &quot;, best_score.numpy()[0][0])
+print(&#34;Final Score: &#34;, best_score.numpy()[0][0])
 </code></pre><p>Below is an animation that shows the running attack. Pay attention to the pixels of the image. Do you notice some of them are slightly changing especially towards the final rounds?</p>
 <p><a href="/blog/images/2020/huskyai-shadowbunny-fgsm.gif"><img src="/blog/images/2020/huskyai-shadowbunny-fgsm.gif" alt="Shadowbunny FGSM"></a></p>
 <p>For reference here is the final adversarial example. Look at the white areas on the upper left. You can see slight changes colors. Quite subtle, but they are visible:</p>

@@ -1,46 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>metrics on Embrace The Red</title>
+    <title>Metrics on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/metrics/</link>
-    <description>Recent content in metrics on Embrace The Red</description>
+    <description>Recent content in Metrics on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Mon, 11 Jan 2021 09:00:51 -0800</lastBuildDate><atom:link href="https://embracethered.com/blog/tags/metrics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Jan 2021 09:00:51 -0800</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/metrics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gamifying Security with Red Team Scores</title>
       <link>https://embracethered.com/blog/posts/2021/gamifying-red-team-security-score/</link>
       <pubDate>Mon, 11 Jan 2021 09:00:51 -0800</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2021/gamifying-red-team-security-score/</guid>
-      <description>Security metrics are an interesting topic.
-Over the years I used &amp;ldquo;scores&amp;rdquo; as a tool to identify and shine light on problematic areas or highlight lack of engineering and security quality of certain teams.
-
-A security score should not seen as an objective or absoulte measure, but it allows to compare systems with each other at a relative scale, and by sharing the score it makes people ask questions.</description>
+      <description>Security metrics are an interesting topic.&#xA;Over the years I used &amp;ldquo;scores&amp;rdquo; as a tool to identify and shine light on problematic areas or highlight lack of engineering and security quality of certain teams.&#xA;A security score should not seen as an objective or absoulte measure, but it allows to compare systems with each other at a relative scale, and by sharing the score it makes people ask questions.&#xA;I have seen showing management ask vivid questions when they see a chart with their service and a score next to it:</description>
     </item>
-    
     <item>
       <title>Red Teaming and Monte Carlo Simulations</title>
       <link>https://embracethered.com/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</link>
       <pubDate>Wed, 10 Jun 2020 11:23:20 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/red-teaming-and-monte-carlo-simulations/</guid>
-      <description>Monte Carlo simulations can be a useful tool to uplevel your red teaming skills and provide a different and fresh perspective for highlighting, discussing and presenting findings.
-Red teaming is about challenging an organization. This includes analyzing business processes and methodologies, including our own.
-Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in Hubbard&amp;rsquo;s book about measuring cybersecurity risk. Since then I have been thinking and playing around with applying these methods to security program&amp;rsquo;s, especially red teaming and threat modeling.</description>
+      <description>Monte Carlo simulations can be a useful tool to uplevel your red teaming skills and provide a different and fresh perspective for highlighting, discussing and presenting findings.&#xA;Red teaming is about challenging an organization. This includes analyzing business processes and methodologies, including our own.&#xA;Obviously, using Monte Carlo simulations in the security realm is not my idea. I first ran across the idea in Hubbard&amp;rsquo;s book about measuring cybersecurity risk. Since then I have been thinking and playing around with applying these methods to security program&amp;rsquo;s, especially red teaming and threat modeling.</description>
     </item>
-    
     <item>
       <title>Phishing metrics - what to track?</title>
       <link>https://embracethered.com/blog/posts/2020/phishing-stats/</link>
       <pubDate>Sun, 24 May 2020 00:26:01 -0700</pubDate>
-      
       <guid>https://embracethered.com/blog/posts/2020/phishing-stats/</guid>
-      <description>The results of phishing campaigns are often not comparable with each other over time. Various security vendors and red teams use different tooling and techniques - which is totally fine.
-However, I recommend requiring tracking a minimum set of metrics to be able to compare results over time.
-Funny side facts: At times employees are messing with the red team, entering invalid creds for CISO or CEO and things along those lines.</description>
+      <description>The results of phishing campaigns are often not comparable with each other over time. Various security vendors and red teams use different tooling and techniques - which is totally fine.&#xA;However, I recommend requiring tracking a minimum set of metrics to be able to compare results over time.&#xA;Funny side facts: At times employees are messing with the red team, entering invalid creds for CISO or CEO and things along those lines.</description>
     </item>
-    
   </channel>
 </rss>
