@@ -7,13 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Wed, 12 Mar 2025 17:21:25 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 06 Apr 2025 20:11:43 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aiml</title>
+      <link>https://embracethered.com/blog/tags/aiml/</link>
+      <pubDate>Sun, 06 Apr 2025 20:11:43 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/aiml/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Llm</title>
       <link>https://embracethered.com/blog/tags/llm/</link>
-      <pubDate>Wed, 12 Mar 2025 17:21:25 -0700</pubDate>
+      <pubDate>Sun, 06 Apr 2025 20:11:43 -0700</pubDate>
       <guid>https://embracethered.com/blog/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Sun, 06 Apr 2025 20:11:43 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Threats</title>
+      <link>https://embracethered.com/blog/tags/threats/</link>
+      <pubDate>Sun, 06 Apr 2025 20:11:43 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/threats/</guid>
       <description></description>
     </item>
     <item>
@@ -21,13 +42,6 @@
       <link>https://embracethered.com/blog/tags/red/</link>
       <pubDate>Wed, 12 Mar 2025 17:21:25 -0700</pubDate>
       <guid>https://embracethered.com/blog/tags/red/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Threats</title>
-      <link>https://embracethered.com/blog/tags/threats/</link>
-      <pubDate>Wed, 12 Mar 2025 17:21:25 -0700</pubDate>
-      <guid>https://embracethered.com/blog/tags/threats/</guid>
       <description></description>
     </item>
     <item>
@@ -45,24 +59,10 @@
       <description></description>
     </item>
     <item>
-      <title>Aiml</title>
-      <link>https://embracethered.com/blog/tags/aiml/</link>
-      <pubDate>Mon, 17 Feb 2025 07:30:21 -0800</pubDate>
-      <guid>https://embracethered.com/blog/tags/aiml/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Exfil</title>
       <link>https://embracethered.com/blog/tags/exfil/</link>
       <pubDate>Mon, 17 Feb 2025 07:30:21 -0800</pubDate>
       <guid>https://embracethered.com/blog/tags/exfil/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Machine Learning</title>
-      <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Mon, 17 Feb 2025 07:30:21 -0800</pubDate>
-      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
       <description></description>
     </item>
     <item>

@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Mon, 17 Feb 2025 07:30:21 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 06 Apr 2025 20:11:43 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/aiml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub Copilot Custom Instructions and Risks</title>
+      <link>https://embracethered.com/blog/posts/2025/github-custom-copilot-instructions/</link>
+      <pubDate>Sun, 06 Apr 2025 20:11:43 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/github-custom-copilot-instructions/</guid>
+      <description>GitHub Copilot has the capability to be augmented with custom instructions coming from the current repo, via the .github/copilot-instructions.md file.&#xA;Pillar Security recently highlighted the risks associated with rules files. Their post discusses custom Cursor rules in ./cursor/rules ending in .mdc.&#xA;If you watch the demos, you&amp;rsquo;ll notice that they also have a GitHub Copilot demo which uses the GitHub specific copilot-instructions.md file.&#xA;GitHub Copilot Custom Instructions File I’ve also been experimenting with the .</description>
+    </item>
     <item>
       <title>ChatGPT Operator: Prompt Injection Exploits &amp; Defenses</title>
       <link>https://embracethered.com/blog/posts/2025/chatgpt-operator-prompt-injection-exploits/</link>
