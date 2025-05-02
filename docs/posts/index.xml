@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sun, 06 Apr 2025 20:11:43 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 02 May 2025 12:30:35 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Model Context Protocol - New Sneaky Exploit, Risks and Mitigations</title>
+      <link>https://embracethered.com/blog/posts/2025/model-context-protocol-security-risks-and-exploits/</link>
+      <pubDate>Fri, 02 May 2025 12:30:35 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/model-context-protocol-security-risks-and-exploits/</guid>
+      <description>The Model Context Protocol (MCP) is a protocol definition for how LLM apps/agents can leverage external tools. I have been calling it Model Control Protocol at times, because due to prompt injection, MCP tool servers control the client basically.&#xA;This post will explain in detail why that is, and I will also share a novel exploit chain.&#xA;Why MCP - How Is It Different? The main difference to other tool invocation setups, like OpenAPI is that MCP is dynamic.</description>
+    </item>
     <item>
       <title>GitHub Copilot Custom Instructions and Risks</title>
       <link>https://embracethered.com/blog/posts/2025/github-custom-copilot-instructions/</link>

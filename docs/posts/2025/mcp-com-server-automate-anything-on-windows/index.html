@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#"><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=42541&amp;path=blog/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" MCP Server for Hosting COM Servers &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="http://localhost:42541/blog/posts/2025/mcp-com-server-automate-anything-on-windows/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2025-04-17T09:36:40-07:00" />
+  
+  <meta property="og:article:tag" content="threats" />
+  
+  <meta property="og:article:tag" content="ttp" />
+  
+  <meta property="og:article:tag" content="red" />
+  
+  <meta property="og:article:tag" content="tools" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  
+
+  <title>
+     MCP Server for Hosting COM Servers &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="http://localhost:42541/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="http://localhost:42541/blog/css/main.css" />
+  <link rel="stylesheet" href="http://localhost:42541/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="http://localhost:42541/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="http://localhost:42541/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost:42541/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="http://localhost:42541/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="MCP Server that hosts COM Servers">
+<meta name="twitter:description" content="Model Context Protocol -- MCP Server for Hosting COM Servers">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2025/heyyou-pi.jpg">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="http://localhost:42541/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><a style="color: greenyellow; font-weight:300;text-decoration: underline; " href="https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1838828869&linkCode=as2&tag=wunderwuzzi-20&linkId=b6523e937607be47499c6010ff489537">OUT NOW: Cybersecurity Attacks - Red Team Strategies</a> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="http://localhost:42541/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">MCP Server for Hosting COM Servers</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2025-04-17T09:36:40-07:00">
+          Apr 17, 2025
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="http://localhost:42541/blog//tags/threats">#threats</a></span>
+        
+        <span class="post-tag small"><a href="http://localhost:42541/blog//tags/ttp">#ttp</a></span>
+        
+        <span class="post-tag small"><a href="http://localhost:42541/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="http://localhost:42541/blog//tags/tools">#tools</a></span>
+        
+        <span class="post-tag small"><a href="http://localhost:42541/blog//tags/llm">#llm</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>When the <a href="https://modelcontextprotocol.io/introduction">Model Context Protocol</a> (MCP), a standard for how applications provide context to LLMs, came out it reminded me of the <a href="https://learn.microsoft.com/en-us/windows/win32/com/the-component-object-model">Common Object Model</a> (COM) from Microsoft.</p>
+<p><code>COM</code> has been around for decades and it&rsquo;s used for programming, sharing of functionality at a binary/object level across languages and hosts, the usage from scripting languages, via DCOM all of this can be done remotely even, and well, it&rsquo;s also useful for red teaming. A lot of software on Windows was implemented as <code>COM objects</code>, including Microsoft Office.</p>
+<p>Here are some of the similarities of the two standards:</p>
+<ul>
+<li>Interface-based Communication and Abstraction</li>
+<li>Scripting and Automation</li>
+<li>Integration with External Tools and Services</li>
+<li>Local and Remote Server Options</li>
+</ul>
+<p>Very similar things could be said about most RPC based communications system (CORBA, SOAP,&hellip;), so MCP isn&rsquo;t really that new in principle at all. And the security issues that come with such RCP communication endpoints are also not new.</p>
+<p>Anyhow, we are getting side tracked, but because of these similarities I thought why not build an AI Agent that can host any <code>COM</code> object, and then I realized&hellip; <strong>why not build an MCP server that abstracts COM - essentially, an MCP server for COM servers.</strong></p>
+<p>Due to the dynamic discovery nature of COM, all that should be needed is the <code>CLSID</code> or the <code>ProgID</code> to launch, interact and script any COM object.</p>
+<h2 id="welcome-the-mcp-com-server">Welcome the MCP COM Server</h2>
+<p>To get the prototype off the ground I did some vibe coding using ChatGPT, Claude, Cursor and VS Code and a few hours of debugging and fixing some basic bugs before I had it working.</p>
+<p>The <code>mcp-com-server</code> offers these tools</p>
+<ul>
+<li>CreateObject (basically CoCreateInstance, or how it was called in VB was actually CreateObject)</li>
+<li>Get/Set Property</li>
+<li>InvokeMethod</li>
+<li>QueryInterface</li>
+<li>ListAllHostedServers: This allows to list all the currently active servers that are hosted.</li>
+</ul>
+<h2 id="challenges">Challenges</h2>
+<p>The main challenge I had to create a work-around for was that sometimes calling Invoke or Get/Set Property on a COM object actually returns a new <code>COM object</code>. That was a corner case I hadn’t anticipated and it took some time to figure out how to abstract that via MCP, and it&rsquo;s probably a bit hacky at the moment, but it works.</p>
+<h2 id="security">Security</h2>
+<p>A core challenge of course is security, as the LLM can basically instantiate any COM server, this means it can open a <code>Shell.Application</code> or <code>FileSystemObject</code> and perform dangerous operations. As a basic mitigation I added an Allow List for <code>CLSID</code>s and <code>ProgIDs</code>, where the MCP server will refuse to instantiate and host only allow listed COM objects. This can be expanded to include specific interfaces/methods as well. Overall, like with a lot of MCP servers, it&rsquo;s risky business.</p>
+<h2 id="the-result">The Result</h2>
+<p>The result is pretty impressive, I installed the MCP server with Claude and it can now create, open and edit Excel files, save them, then open Outlook and send them via email.</p>
+<p><a href="/blog/images/2025/claude-mcp-com-excel.png"><img src="/blog/images/2025/claude-mcp-com-excel.png" alt="basic interaction com-mcp-server"></a></p>
+<p>There is also SAPI COM object that I used to have Claude speak and as you might well be aware of there many other possibilities available with COM.</p>
+<h2 id="advanced-agent-driven-windows-and-office-automation">Advanced Agent-Driven Windows and Office Automation</h2>
+<p>This opens up the door for sophisticated automation, software and agents that can perform precise actions at the API/COM level, rather then depending on clicking on UI elements.</p>
+<h2 id="offensive-security">Offensive Security!</h2>
+<p>As said, this is useful for general Windows and Office automation tasks, however my goal for this is of course more in the <a href="https://embracethered.com/blog/posts/2021/automating-office-to-achieve-redteaming-objectives/">red teaming and offensive security space</a>, as it can be used for phishing, lateral movement, and maybe even fuzzing and finding 0-day or UAC bypasses using AI.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Hope this was an interesting read to demonstrate the power of MCP and how one can build a quite sophisticated Windows automation MCP server that allows to control many aspects of Windows and Office (and many other vendors).</p>
+<p>It&rsquo;s always a good idea to implement and use new tech to learn about the risks from first principle, so I always encourage people asking for advice to not just try to break things, but also actually go and build things from scratch. As that helps with brainstorming and gathering ideas for how someone might abuse certain parts, and generally just to see what pitfalls and security bugs might easily get introduced.</p>
+<p>Happy hacking.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/windows/win32/com/the-component-object-model">Common Object Model</a></li>
+<li><a href="https://embracethered.com/blog/posts/2021/automating-office-to-achieve-redteaming-objectives/">Automating Office To Achieve Red Teaming Objectives</a></li>
+<li><a href="https://modelcontextprotocol.io/introduction">MCP</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next"><a href="http://localhost:42541/blog/posts/2025/model-context-protocol-security-risks-and-exploits/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="http://localhost:42541/blog/posts/2025/github-custom-copilot-instructions/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2025
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="http://localhost:42541/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
