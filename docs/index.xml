@@ -7,15 +7,8 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sat, 03 May 2025 09:36:40 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 02 May 2025 12:30:35 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>MCP Server for Hosting COM Servers</title>
-      <link>https://embracethered.com/blog/posts/2025/mcp-com-server-automate-anything-on-windows/</link>
-      <pubDate>Sat, 03 May 2025 09:36:40 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2025/mcp-com-server-automate-anything-on-windows/</guid>
-      <description>When the Model Context Protocol (MCP), a standard for how applications provide context to LLMs, came out it reminded me of the Common Object Model (COM) from Microsoft.&#xA;COM has been around for decades and it&amp;rsquo;s used for programming, sharing of functionality at a binary/object level across languages and hosts, the usage from scripting languages, via DCOM all of this can be done remotely even, and well, it&amp;rsquo;s also useful for red teaming.</description>
-    </item>
     <item>
       <title>MCP: Untrusted Servers and Confused Clients, Plus a Sneaky Exploit</title>
       <link>https://embracethered.com/blog/posts/2025/model-context-protocol-security-risks-and-exploits/</link>
