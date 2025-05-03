@@ -10,7 +10,7 @@
     <lastBuildDate>Fri, 02 May 2025 12:30:35 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Model Context Protocol - New Sneaky Exploit, Risks and Mitigations</title>
+      <title>MCP: Untrusted Servers and Confused Clients, Plus a Sneaky Exploit</title>
       <link>https://embracethered.com/blog/posts/2025/model-context-protocol-security-risks-and-exploits/</link>
       <pubDate>Fri, 02 May 2025 12:30:35 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2025/model-context-protocol-security-risks-and-exploits/</guid>
