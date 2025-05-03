@@ -23,6 +23,10 @@ GitHub Copilot has the capability to be augmented with [custom instructions](htt
 
 If you watch the demos, you'll notice that they also have a GitHub Copilot demo which uses the GitHub specific `copilot-instructions.md` file.
 
+**Update: May 1, 2025**
+GitHub made a product change and is now highlighting invisible Unicode characters in the Web UI.  In [their announcement](https://github.blog/changelog/2025-05-01-github-now-provides-a-warning-about-hidden-unicode-text/) GitHub is referencing the Pillar Security post and also my post about ASCII Smuggling. Very cool!
+
+
 ## GitHub Copilot Custom Instructions File
 
 I’ve also been experimenting with the `.github/copilot-instructions.md` file a bit recently.
