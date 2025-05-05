@@ -26,9 +26,9 @@ I decided to spend some time to figure out how it works.
 There are actually two memory features in ChatGPT now:
 
 1. **Reference Saved Memories:**  This is the `bio` tool that [we described and hacked in the past](/blog/posts/2024/chatgpt-hacking-memories/). ChatGPT contains these memories, plus a timestamp, in the `Model Set Context` section of the system prompt. Users can manage the info via the UI. Unfortunately, [it is still possible by an attacker to invoke this tool without the user's consent](/blog/posts/2024/chatgpt-hacking-memories/) via an indirect prompt injection.
-2. **Reference Chat History:** This is the new feature this post examines. At high level it's important to know that it does not know everything about your past chats, it currently does not "search" through your past conversations, but it builds a profile of you over time.
+2. **Reference Chat History:** This is the new feature this post examines. At high level it appears to not actually "search" through your past conversations, but it maintains a recent history of chats, and builds a profile of you over time.
 
-The user has no direct control of that profile besides turning the "Chat History" feature entirely on/off. You currently cannot modify what ChatGPT learns about you over time. This can lead to strange behavior at times, and also means that one user might not be able to reproduce certain chat outcomes of another user - because they have a different past. But we are getting ahead of ourselves, let's get started.
+The user currently cannot modify or inspect (unless you do prompt hacking) what ChatGPT learns about you over time. This can lead to strange behavior at times. It also means that one user might not be able to reproduce certain chat outcomes of another user - because they have a different past. But we are getting ahead of ourselves, let's get started.
 
 # ChatGPT o3 System Prompt - Overview
 
