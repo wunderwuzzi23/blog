@@ -7,13 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Fri, 02 May 2025 12:30:35 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 04 May 2025 23:24:56 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chatgpt</title>
+      <link>https://embracethered.com/blog/tags/chatgpt/</link>
+      <pubDate>Sun, 04 May 2025 23:24:56 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/chatgpt/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Llm</title>
       <link>https://embracethered.com/blog/tags/llm/</link>
-      <pubDate>Fri, 02 May 2025 12:30:35 -0700</pubDate>
+      <pubDate>Sun, 04 May 2025 23:24:56 -0700</pubDate>
       <guid>https://embracethered.com/blog/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Threats</title>
+      <link>https://embracethered.com/blog/tags/threats/</link>
+      <pubDate>Sun, 04 May 2025 23:24:56 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/threats/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TTP</title>
+      <link>https://embracethered.com/blog/tags/ttp/</link>
+      <pubDate>Sun, 04 May 2025 23:24:56 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/ttp/</guid>
       <description></description>
     </item>
     <item>
@@ -24,24 +45,10 @@
       <description></description>
     </item>
     <item>
-      <title>Threats</title>
-      <link>https://embracethered.com/blog/tags/threats/</link>
-      <pubDate>Fri, 02 May 2025 12:30:35 -0700</pubDate>
-      <guid>https://embracethered.com/blog/tags/threats/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Tools</title>
       <link>https://embracethered.com/blog/tags/tools/</link>
       <pubDate>Fri, 02 May 2025 12:30:35 -0700</pubDate>
       <guid>https://embracethered.com/blog/tags/tools/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>TTP</title>
-      <link>https://embracethered.com/blog/tags/ttp/</link>
-      <pubDate>Fri, 02 May 2025 12:30:35 -0700</pubDate>
-      <guid>https://embracethered.com/blog/tags/ttp/</guid>
       <description></description>
     </item>
     <item>
@@ -98,13 +105,6 @@
       <link>https://embracethered.com/blog/tags/xss/</link>
       <pubDate>Fri, 29 Nov 2024 14:00:39 -0800</pubDate>
       <guid>https://embracethered.com/blog/tags/xss/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Chatgpt</title>
-      <link>https://embracethered.com/blog/tags/chatgpt/</link>
-      <pubDate>Fri, 20 Sep 2024 11:02:36 -0700</pubDate>
-      <guid>https://embracethered.com/blog/tags/chatgpt/</guid>
       <description></description>
     </item>
     <item>

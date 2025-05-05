@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Fri, 02 May 2025 12:30:35 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 04 May 2025 23:24:56 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/ttp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How ChatGPT Remembers You: A Deep Dive into Its Memory and Chat History Features</title>
+      <link>https://embracethered.com/blog/posts/2025/chatgpt-how-does-chat-history-memory-preferences-work/</link>
+      <pubDate>Sun, 04 May 2025 23:24:56 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/chatgpt-how-does-chat-history-memory-preferences-work/</guid>
+      <description>Recently OpenAI added an additional memory feature called &amp;ldquo;chat history&amp;rdquo;, which allows ChatGPT to reference past conversations. The details of the implementation are not known. The documentation highlights that: &amp;ldquo;It uses this to learn about your interests and preferences, helping make future chats more personalized and relevant.&amp;rdquo;&#xA;I decided to spend some time to figure out how it works.&#xA;Memory Features in ChatGPT There are actually two memory features in ChatGPT now:</description>
+    </item>
     <item>
       <title>MCP: Untrusted Servers and Confused Clients, Plus a Sneaky Exploit</title>
       <link>https://embracethered.com/blog/posts/2025/model-context-protocol-security-risks-and-exploits/</link>
