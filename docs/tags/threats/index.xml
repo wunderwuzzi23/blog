@@ -14,7 +14,7 @@
       <link>https://embracethered.com/blog/posts/2025/chatgpt-how-does-chat-history-memory-preferences-work/</link>
       <pubDate>Sun, 04 May 2025 23:24:56 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2025/chatgpt-how-does-chat-history-memory-preferences-work/</guid>
-      <description>Recently OpenAI added an additional memory feature called &amp;ldquo;chat history&amp;rdquo;, which allows ChatGPT to reference past conversations. The details of the implementation are not known. The documentation highlights that: &amp;ldquo;It uses this to learn about your interests and preferences, helping make future chats more personalized and relevant.&amp;rdquo;&#xA;I decided to spend some time to figure out how it works.&#xA;Memory Features in ChatGPT There are actually two memory features in ChatGPT now:</description>
+      <description>Recently OpenAI added an additional memory feature called &amp;ldquo;chat history&amp;rdquo;, which allows ChatGPT to reference past conversations. The details of the implementation are not known. The documentation highlights that: &amp;ldquo;It uses this to learn about your interests and preferences, helping make future chats more personalized and relevant.&amp;rdquo;&#xA;I decided to spend some time to figure out how it works.&#xA;Update: Video Tutorial Added Based on the interest in this post, I&amp;rsquo;ve also created a video tutorial.</description>
     </item>
     <item>
       <title>MCP: Untrusted Servers and Confused Clients, Plus a Sneaky Exploit</title>

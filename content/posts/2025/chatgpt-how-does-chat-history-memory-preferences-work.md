@@ -16,10 +16,16 @@ twitter:
 
 Recently OpenAI added an additional memory feature called ["chat history"](https://help.openai.com/en/articles/8590148-memory-faq), which allows ChatGPT to reference past conversations. The details of the implementation are not known. The [documentation](https://help.openai.com/en/articles/8590148-memory-faq) highlights that: "It uses this to learn about your interests and preferences, helping make future chats more personalized and relevant."
 
-
-[![chatgpt remmebers you](/blog/images/2025/chat-history-tn.png)](/blog/images/2025/chat-history-tn.png)
-
 I decided to spend some time to figure out how it works. 
+
+## Update: Video Tutorial Added
+Based on the interest in this post, I've also created a video tutorial.
+
+{{< youtube V7n0oDDNzhw >}}
+
+Enjoy and have fun learning how ChatGPT's memory and chat history features work.
+
+
 
 # Memory Features in ChatGPT
 
@@ -248,6 +254,7 @@ Trust No AI and Happy Hacking.
 * [OpenAI ChatGPT Memory FAQ](https://help.openai.com/en/articles/8590148-memory-faq)
 * [Hacking ChatGPT Memories](/blog/posts/2024/chatgpt-hacking-memories/) 
 * [AI Domination - Remote Controlled ChatGPT via Persistent Prompt Injection](/blog/2025/gemini-memory-persistence-prompt-injection/)
+* [Video: How ChatGPT Remembers You](https://www.youtube.com/watch?v=V7n0oDDNzhw)
 
 # Appendix
 
@@ -349,3 +356,5 @@ RECENT CONVERSATION CONTENT (38 logged messages)
 
 USER INTERACTION METADATA (17 data points)
 ```
+
+[![chatgpt remmebers you](/blog/images/2025/chat-history-tn.png)](/blog/images/2025/chat-history-tn.png)
