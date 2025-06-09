@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sat, 24 May 2025 16:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 08 Jun 2025 22:30:40 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hosting COM Servers with an MCP Server 🤯</title>
+      <link>https://embracethered.com/blog/posts/2025/mcp-com-server-automate-anything-on-windows/</link>
+      <pubDate>Sun, 08 Jun 2025 22:30:40 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/mcp-com-server-automate-anything-on-windows/</guid>
+      <description>When the Model Context Protocol (MCP) came out it reminded me of the Common Object Model (COM) from Microsoft.&#xA;COM has been around for decades and it&amp;rsquo;s used for programming, scripting, sharing of functionality at a binary/object level across languages and hosts. Via DCOM all of this can even be done remotely, and well, it&amp;rsquo;s also useful for red teaming. A lot of software on Windows was/is implemented as COM objects, including Microsoft Office.</description>
+    </item>
     <item>
       <title>AI ClickFix: Hijacking Computer-Use Agents Using ClickFix</title>
       <link>https://embracethered.com/blog/posts/2025/ai-clickfix-ttp-claude/</link>
