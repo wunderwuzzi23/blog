@@ -1,5 +1,5 @@
 ---
-title: "Hosting COM Servers with an MCP Server 🤯"
+title: "Hosting COM Servers with an MCP Server"
 date: 2025-06-08T22:30:40-07:00
 draft: true
 tags: [
