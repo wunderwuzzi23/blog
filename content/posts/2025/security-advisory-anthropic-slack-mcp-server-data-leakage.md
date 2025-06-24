@@ -1,6 +1,6 @@
 ---
 title: "Security Advisory: Anthropic's Slack MCP Server Vulnerable to Data Exfiltration"
-date: 2025-06-22T14:12:46-07:00
+date: 2025-06-24T15:00:46-07:00
 draft: true
 tags: [
      "threats", "ttp", "red", "tools", "llm", "agents", "advisory" 
@@ -35,7 +35,7 @@ At a glance it allows an AI agent that posts to Slack or other messaging applica
 Here is the [security policy update](https://github.com/modelcontextprotocol/servers-archived/blob/main/SECURITY.md) for the now unmaintained servers:
 [![Anthropic Security Policy](/blog/images/2025/anthropic-mcp-security-policy.png)](anthropic-mcp-security-policy.png)
 
-The server is potentially widely used, even though it is not maintained anymore. For instance, the [recent weekly download count is at 12k+](/blog/images/2025/anthropic-slack-mcp-server-weekly-downloads.png), so there are potentially tens of thousands of vulnerable installations.
+The server appears [widely used](https://www.npmjs.com/package/@modelcontextprotocol/server-slack). For instance, the [recent weekly download count is at 14k+](/blog/images/2025/anthropic-mcp-weekly.png), so there are potentially tens of thousands of vulnerable installations.
 
 Anyone using this MCP server might be impacted and depending on setup susceptible to data leakage.
 
@@ -54,15 +54,17 @@ When posting to channels, Anthropic's Slack MCP server does not disable unfurlin
 
 ### One Picture Explanation For The Busy Reader
 
-In case you are looking for a quick explanation, here is an end-to-end illustration that leverages invisible prompt injection to exfiltrate an API key from a developer's `.env` file by sending it to Slack.
+In case you are looking for a quick explanation, **here is an end-to-end illustration that leverages invisible prompt injection to exfiltrate an API key from a developer's `.env` file**.
 
 [![Anthropic Slack MCP Invisible Instructions to Data Exfiltration](/blog/images/2025/anthropic-slack-mcp-exp.png)](/blog/images/2025/anthropic-slack-mcp-exp.png)
 
 **These are the steps to understand the scenario:**
-1. Developer analyzes some source code with Claude Code
+1. Developer analyzes a malicious source code file with Claude Code
 2. Invisible prompt injection in the source code takes control of the agent
 3. Attack retrieves `.env` file and posts a link to Slack including secrets from the file
 4. Due to link unfurling being enabled the information is exfiltrated to the attacker
+
+The data is actually leaked multiple times, e.g. if you use an image link there are multiple requests via `Slack-LinkExpanding`, `Slackbot 1.0` and `Slack-ImgProxy`.
 
 **Reminder:** Anthropic models interpret invisible Unicode Tag characters as instructions [but it is not seen as a security vulnerability by Anthropic as we have discussed in the past](/blog/posts/2024/claude-hidden-prompt-injection-ascii-smuggling/). This is another example where it has security impact in my opinion, however invisible instructions is not the focus of this post.
 
@@ -115,13 +117,20 @@ Due to link unfurling the attacker's web server received the `Slackbot-Link-Expa
 [![slack mcp link expand](/blog/images/2025/anthropic-slack-mcp-demo3.png)](/blog/images/2025/anthropic-slack-mcp-demo3.png)
 
 
+## Video Walkthrough
+
+To see the demos in action for both Claude Code and Claude Deskotp, and also learn a bit more about MCP and how to configure permissions and settings in Claude Desktop, check out this video.
+{{< youtube nlehKmz5Myg >}}
+
+Hope that it is useful. Please subscribe and like the channel. 
+
 ## Responsible Disclosure
 
 This vulnerability was reported to Anthropic on May 27th, 2025, and Anthropic [archived the MCP server](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/slack) on May 29, 2025. It's unclear if the two events are related.
 
-However, this means the vulnerable server, although potentially widely deployed and used [will not be patched](https://github.com/modelcontextprotocol/servers-archived/commit/9be4674d1ddf8c469e6461a27a337eeb65f76c2e).
+However, this means the server, although potentially widely deployed and used [it will not be patched](https://github.com/modelcontextprotocol/servers-archived/commit/9be4674d1ddf8c469e6461a27a337eeb65f76c2e).
 
-After further discussion, Anthropic advised that I publish this information to raise awareness since no updates will be made to the code of unmaintained servers.
+After further discussion, Anthropic shared that they are okay with public disclosure. Hence, sharing this information to raise awareness that users and enterprises can take steps to protect themselves.
 
 Also, Anthropic will not publish a CVE as far as I can tell.
 
@@ -131,10 +140,10 @@ I was curious to see how various AIs would calculate the CVSS score for this one
 
 Here are the responses:
 
-ChatGPT: `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N 9.1 Critical`
-Grok: `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N/E:X/RL:U/RC:C 9.3 Critical`
-Claude: `Claude is unable to respond to this request. Please start a new chat.`
-Gemini: `CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:P/VC:H/VI:N/VA:N/SC:H/SI:N/SA:N 8.7 High`
+- ChatGPT: `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N 9.1 Critical`
+- Grok: `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N/E:X/RL:U/RC:C 9.3 Critical`
+- Claude: `Claude is unable to respond to this request. Please start a new chat.`
+- Gemini: `CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:P/VC:H/VI:N/VA:N/SC:H/SI:N/SA:N 8.7 High`
 
 Interestingly, I scored it as 7.5 High severity.
 
@@ -170,25 +179,24 @@ Also review the Slack app's permissions to ensure a least privilege configuratio
 
 Claude Desktop, Claude Code, Windsurf, VS Code, or any AI system that is configured to use the Slack MCP Server from Anthropic is susceptible to data exfiltration when posting messages. An adversary can exploit this via prompt injection to leak sensitive information.
 
-This post highlights one of the emerging challenges I see across the industry, especially when it comes to enterprise adoption of AI. Many enterprises probably have to clean this one up now, a good reminder to inventory on who installed and uses this MCP server across the organization...
+This post highlights one of the emerging challenges across the industry, especially when it comes to enterprise adoption of AI. Many enterprises probably have to clean this one up now. A good reminder to inventory who installed and uses MCP servers across organizations...
 
 Cheers.
 
 ## Appendix
 
-### ASCII Smuggling Demo
-
-[![ASCII Smuggling Payload](/blog/images/2025/anthropic-slack-exploit-ascii-smuggle.png)](/blog/images/2025/anthropic-slack-exploit-ascii-smuggle.png)
-
-
 ### Code Changes
 
-I made this code change and that seems to fix the issue:
+This code change seems to fix the issue:
 [![disable unfurl](/blog/images/2025/claude-mcp-slack-disable-unfurl.png)](/blog/images/2025/claude-mcp-slack-disable-unfurl.png)
 
 
 ### Recent Weekly Download Count on npmjs
-[![npmjs](/blog/images/2025/anthropic-slack-mcp-server-weekly-downloads.png)](/blog/images/2025/anthropic-slack-mcp-server-weekly-downloads.png)
+[![npmjs](/blog/images/2025/anthropic-mcp-weekly.png)](/blog/images/2025/anthropic-mcp-weekly.png)
+
+### ASCII Smuggling Demo
+[![ASCII Smuggling Payload](/blog/images/2025/anthropic-slack-exploit-ascii-smuggle.png)](/blog/images/2025/anthropic-slack-exploit-ascii-smuggle.png)
+
 
 ## References
 

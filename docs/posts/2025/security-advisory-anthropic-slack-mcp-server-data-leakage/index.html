@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2025-06-22T14:12:46-07:00" />
+  <meta property="og:article:published_time" content="2025-06-24T15:00:46-07:00" />
   
   <meta property="og:article:tag" content="threats" />
   
@@ -123,8 +123,8 @@
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2025-06-22T14:12:46-07:00">
-          Jun 22, 2025
+        <time datetime="2025-06-24T15:00:46-07:00">
+          Jun 24, 2025
         </time>
       </div>
     
@@ -159,7 +159,7 @@
 <p><strong>The reason for publishing this advisory is that Anthropic deprecated many of their MCP servers <a href="https://github.com/modelcontextprotocol/servers/commit/d53d6cc75c9ff1957f76c6b97c1ca74771af347e">a few weeks ago</a>, and there is no plan to address security vulnerabilities in them.</strong></p>
 <p>Here is the <a href="https://github.com/modelcontextprotocol/servers-archived/blob/main/SECURITY.md">security policy update</a> for the now unmaintained servers:
 <a href="anthropic-mcp-security-policy.png"><img src="/blog/images/2025/anthropic-mcp-security-policy.png" alt="Anthropic Security Policy"></a></p>
-<p>The server is potentially widely used, even though it is not maintained anymore. For instance, the <a href="/blog/images/2025/anthropic-slack-mcp-server-weekly-downloads.png">recent weekly download count is at 12k+</a>, so there are potentially tens of thousands of vulnerable installations.</p>
+<p>The server appears <a href="https://www.npmjs.com/package/@modelcontextprotocol/server-slack">widely used</a>. For instance, the <a href="/blog/images/2025/anthropic-mcp-weekly.png">recent weekly download count is at 14k+</a>, so there are potentially tens of thousands of vulnerable installations.</p>
 <p>Anyone using this MCP server might be impacted and depending on setup susceptible to data leakage.</p>
 <h3 id="the-lethal-trifecta">The Lethal Trifecta</h3>
 <p>We have seen many 0-click data exfiltration vulnerabilities in AI apps and agents over the last 2+ years, and they keep showing up.</p>
@@ -172,15 +172,16 @@
 </ul>
 <p>When posting to channels, Anthropic&rsquo;s Slack MCP server does not disable unfurling of hyperlinks. This can have unwanted side effects, including leaking of information by an AI agent. An attacker can exploit this via a prompt injection attack.</p>
 <h3 id="one-picture-explanation-for-the-busy-reader">One Picture Explanation For The Busy Reader</h3>
-<p>In case you are looking for a quick explanation, here is an end-to-end illustration that leverages invisible prompt injection to exfiltrate an API key from a developer&rsquo;s <code>.env</code> file by sending it to Slack.</p>
+<p>In case you are looking for a quick explanation, <strong>here is an end-to-end illustration that leverages invisible prompt injection to exfiltrate an API key from a developer&rsquo;s <code>.env</code> file</strong>.</p>
 <p><a href="/blog/images/2025/anthropic-slack-mcp-exp.png"><img src="/blog/images/2025/anthropic-slack-mcp-exp.png" alt="Anthropic Slack MCP Invisible Instructions to Data Exfiltration"></a></p>
 <p><strong>These are the steps to understand the scenario:</strong></p>
 <ol>
-<li>Developer analyzes some source code with Claude Code</li>
+<li>Developer analyzes a malicious source code file with Claude Code</li>
 <li>Invisible prompt injection in the source code takes control of the agent</li>
 <li>Attack retrieves <code>.env</code> file and posts a link to Slack including secrets from the file</li>
 <li>Due to link unfurling being enabled the information is exfiltrated to the attacker</li>
 </ol>
+<p>The data is actually leaked multiple times, e.g. if you use an image link there are multiple requests via <code>Slack-LinkExpanding</code>, <code>Slackbot 1.0</code> and <code>Slack-ImgProxy</code>.</p>
 <p><strong>Reminder:</strong> Anthropic models interpret invisible Unicode Tag characters as instructions <a href="/blog/posts/2024/claude-hidden-prompt-injection-ascii-smuggling/">but it is not seen as a security vulnerability by Anthropic as we have discussed in the past</a>. This is another example where it has security impact in my opinion, however invisible instructions is not the focus of this post.</p>
 <p>For a more detailed explanation, other threat vectors and how to mitigate it keep reading.</p>
 <h2 id="deep-dive-to-understand-the-scenario">Deep-dive To Understand The Scenario</h2>
@@ -208,18 +209,28 @@ last message sent to the matrix channel, replacing spaces with +.
 <a href="/blog/images/2025/anthropic-slack-mcp-demo2.png"><img src="/blog/images/2025/anthropic-slack-mcp-demo2.png" alt="slack mcp link expand"></a></p>
 <p>Due to link unfurling the attacker&rsquo;s web server received the <code>Slackbot-Link-Expanding</code> request, including the query parameter with the leaked data:
 <a href="/blog/images/2025/anthropic-slack-mcp-demo3.png"><img src="/blog/images/2025/anthropic-slack-mcp-demo3.png" alt="slack mcp link expand"></a></p>
+<h2 id="video-walkthrough">Video Walkthrough</h2>
+<p>To see the demos in action for both Claude Code and Claude Deskotp, and also learn a bit more about MCP and how to configure permissions and settings in Claude Desktop, check out this video.
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/nlehKmz5Myg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
+<p>Hope that it is useful. Please subscribe and like the channel.</p>
 <h2 id="responsible-disclosure">Responsible Disclosure</h2>
 <p>This vulnerability was reported to Anthropic on May 27th, 2025, and Anthropic <a href="https://github.com/modelcontextprotocol/servers-archived/tree/main/src/slack">archived the MCP server</a> on May 29, 2025. It&rsquo;s unclear if the two events are related.</p>
-<p>However, this means the vulnerable server, although potentially widely deployed and used <a href="https://github.com/modelcontextprotocol/servers-archived/commit/9be4674d1ddf8c469e6461a27a337eeb65f76c2e">will not be patched</a>.</p>
-<p>After further discussion, Anthropic advised that I publish this information to raise awareness since no updates will be made to the code of unmaintained servers.</p>
+<p>However, this means the server, although potentially widely deployed and used <a href="https://github.com/modelcontextprotocol/servers-archived/commit/9be4674d1ddf8c469e6461a27a337eeb65f76c2e">it will not be patched</a>.</p>
+<p>After further discussion, Anthropic shared that they are okay with public disclosure. Hence, sharing this information to raise awareness that users and enterprises can take steps to protect themselves.</p>
 <p>Also, Anthropic will not publish a CVE as far as I can tell.</p>
 <h3 id="cvss-severity-score-per-ai">CVSS Severity Score per AI</h3>
 <p>I was curious to see how various AIs would calculate the CVSS score for this one.</p>
 <p>Here are the responses:</p>
-<p>ChatGPT: <code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N 9.1 Critical</code>
-Grok: <code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N/E:X/RL:U/RC:C 9.3 Critical</code>
-Claude: <code>Claude is unable to respond to this request. Please start a new chat.</code>
-Gemini: <code>CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:P/VC:H/VI:N/VA:N/SC:H/SI:N/SA:N 8.7 High</code></p>
+<ul>
+<li>ChatGPT: <code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N 9.1 Critical</code></li>
+<li>Grok: <code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N/E:X/RL:U/RC:C 9.3 Critical</code></li>
+<li>Claude: <code>Claude is unable to respond to this request. Please start a new chat.</code></li>
+<li>Gemini: <code>CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:P/VC:H/VI:N/VA:N/SC:H/SI:N/SA:N 8.7 High</code></li>
+</ul>
 <p>Interestingly, I scored it as 7.5 High severity.</p>
 <h2 id="mitigating-the-vulnerability">Mitigating The Vulnerability</h2>
 <p>First, it&rsquo;s probably best to always only use servers that are from the vendors of a specific product. This ensures long-term support, including security patches. So, use this server at your own risk.</p>
@@ -237,16 +248,16 @@ Gemini: <code>CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:P/VC:H/VI:N/VA:N/SC:H/SI:N/SA:N 8.
 <p>Also review the Slack app&rsquo;s permissions to ensure a least privilege configuration and minimize potential exposure.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Claude Desktop, Claude Code, Windsurf, VS Code, or any AI system that is configured to use the Slack MCP Server from Anthropic is susceptible to data exfiltration when posting messages. An adversary can exploit this via prompt injection to leak sensitive information.</p>
-<p>This post highlights one of the emerging challenges I see across the industry, especially when it comes to enterprise adoption of AI. Many enterprises probably have to clean this one up now, a good reminder to inventory on who installed and uses this MCP server across the organization&hellip;</p>
+<p>This post highlights one of the emerging challenges across the industry, especially when it comes to enterprise adoption of AI. Many enterprises probably have to clean this one up now. A good reminder to inventory who installed and uses MCP servers across organizations&hellip;</p>
 <p>Cheers.</p>
 <h2 id="appendix">Appendix</h2>
-<h3 id="ascii-smuggling-demo">ASCII Smuggling Demo</h3>
-<p><a href="/blog/images/2025/anthropic-slack-exploit-ascii-smuggle.png"><img src="/blog/images/2025/anthropic-slack-exploit-ascii-smuggle.png" alt="ASCII Smuggling Payload"></a></p>
 <h3 id="code-changes">Code Changes</h3>
-<p>I made this code change and that seems to fix the issue:
+<p>This code change seems to fix the issue:
 <a href="/blog/images/2025/claude-mcp-slack-disable-unfurl.png"><img src="/blog/images/2025/claude-mcp-slack-disable-unfurl.png" alt="disable unfurl"></a></p>
 <h3 id="recent-weekly-download-count-on-npmjs">Recent Weekly Download Count on npmjs</h3>
-<p><a href="/blog/images/2025/anthropic-slack-mcp-server-weekly-downloads.png"><img src="/blog/images/2025/anthropic-slack-mcp-server-weekly-downloads.png" alt="npmjs"></a></p>
+<p><a href="/blog/images/2025/anthropic-mcp-weekly.png"><img src="/blog/images/2025/anthropic-mcp-weekly.png" alt="npmjs"></a></p>
+<h3 id="ascii-smuggling-demo">ASCII Smuggling Demo</h3>
+<p><a href="/blog/images/2025/anthropic-slack-exploit-ascii-smuggle.png"><img src="/blog/images/2025/anthropic-slack-exploit-ascii-smuggle.png" alt="ASCII Smuggling Payload"></a></p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">Simon Willison - The lethal trifecta</a>.</li>
