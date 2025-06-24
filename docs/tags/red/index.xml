@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sun, 08 Jun 2025 22:30:40 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 22 Jun 2025 14:12:46 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Security Advisory: Anthropic&#39;s Slack MCP Server Vulnerable to Data Exfiltration</title>
+      <link>https://embracethered.com/blog/posts/2025/security-advisory-anthropic-slack-mcp-server-data-leakage/</link>
+      <pubDate>Sun, 22 Jun 2025 14:12:46 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/security-advisory-anthropic-slack-mcp-server-data-leakage/</guid>
+      <description>This is a security advisory for a data leakage and exfiltration vulnerability in a popular, but now deprecated and unmaintained, Slack MCP Server from Anthropic.&#xA;If you are using this MCP server, or run an &amp;ldquo;MCP Store&amp;rdquo; that hosts it, it is advised that you analyze how this threat applies to your use case and apply a patch as needed.&#xA;Anthropic&amp;rsquo;s Slack MCP Server When Anthropic introduced MCP they published reference server implementations on Github.</description>
+    </item>
     <item>
       <title>Hosting COM Servers with an MCP Server</title>
       <link>https://embracethered.com/blog/posts/2025/mcp-com-server-automate-anything-on-windows/</link>
