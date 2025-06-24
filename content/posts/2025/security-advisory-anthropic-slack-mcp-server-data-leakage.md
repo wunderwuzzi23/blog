@@ -1,6 +1,6 @@
 ---
 title: "Security Advisory: Anthropic's Slack MCP Server Vulnerable to Data Exfiltration"
-date: 2025-06-24T15:00:46-07:00
+date: 2025-06-24T16:00:46-07:00
 draft: true
 tags: [
      "threats", "ttp", "red", "tools", "llm", "agents", "advisory" 
