@@ -78,6 +78,6 @@ MCP and its ecosystem took the previously narrow plugin approach and turned it i
 
 As always, all the content provided on this blog is for educational purposes to help raise the bar and improve the security posture of systems. If you encounter a security vulnerability, then report it responsibly to the corresponding vendor. 
 
-Many companies even offer bug bounty programs and pay for your research.
+Many companies offer bug bounty programs to enable and reward impactful, ethical research.
 
 ## Happy Hacking!
