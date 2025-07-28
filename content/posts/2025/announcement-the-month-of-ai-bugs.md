@@ -23,7 +23,7 @@ As a result, I'm excited to announce the **[Month of AI Bugs 2025!](https://mont
 
 The main purpose of the Month of AI Bugs is to raise awareness about novel security vulnerabilities in agentic systems, primarily focusing on AI coding agents. Posts will cover both simple and advanced, sometimes even mind-boggling exploits. 
 
-There will be some AI security vulnerabilities and attack chains that have probably not been demonstrated elsewhere before. Exploits will include some scary ones, that allow an adversary via prompt injection (or the model for FWIF) to compromise the developer's host without the developer's consent.
+There will be some AI security vulnerabilities and attack chains that have probably not been demonstrated elsewhere before. Exploits will include some scary ones, that allow an adversary via prompt injection (or the model for FWIW) to compromise the developer's host without the developer's consent.
 
 ## Responsible Disclosure
 
