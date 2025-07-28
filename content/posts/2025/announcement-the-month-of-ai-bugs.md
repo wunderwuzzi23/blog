@@ -81,5 +81,3 @@ As always, all the content provided on this blog is for educational purposes to 
 Many companies even offer bug bounty programs and pay for your research.
 
 ## Happy Hacking!
-
--- Johann
