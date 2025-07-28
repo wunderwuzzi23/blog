@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Month of Ai Bugs on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/month-of-ai-bugs/</link>
+    <description>Recent content in Month of Ai Bugs on Embrace The Red</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <lastBuildDate>Mon, 28 Jul 2025 10:20:58 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/month-of-ai-bugs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Month of AI Bugs 2025</title>
+      <link>https://embracethered.com/blog/posts/2025/announcement-the-month-of-ai-bugs/</link>
+      <pubDate>Mon, 28 Jul 2025 10:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/announcement-the-month-of-ai-bugs/</guid>
+      <description>This year I spent a lot of time reviewing, exploiting and working with vendors to fix vulnerabilities in agentic AI systems.&#xA;As a result, I&amp;rsquo;m excited to announce the Month of AI Bugs 2025!&#xA;Goal Of The Initiative The main purpose of the Month of AI Bugs is to raise awareness about novel security vulnerabilities in agentic systems, primarily focusing on AI coding agents. Posts will cover both simple and advanced, sometimes even mind-boggling exploits.</description>
+    </item>
+  </channel>
+</rss>

@@ -13,6 +13,9 @@ twitter:
   description: "Disable Link Unfurling if you ended up downloading or using Anthropic's Slack MCP Server"
   image: "https://embracethered.com/blog/images/2025/anthropic-slack-mcp-tn.png"
 ---
+{{< raw_html >}}
+<a id="top_ref"></a>
+{{< /raw_html >}}
 
 This is a security advisory for a data leakage and exfiltration vulnerability in a popular, but now deprecated and unmaintained, Slack MCP Server from Anthropic. 
 

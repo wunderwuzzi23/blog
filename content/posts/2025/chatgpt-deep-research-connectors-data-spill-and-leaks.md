@@ -1,6 +1,6 @@
 ---
 title: "How Research Agents Can Leak Your Data"
-date: 2025-07-01T19:03:35-07:00
+date: 2025-08-20T19:03:35-07:00
 draft: true
 tags: [
      "threats", "ttp", "red", "tools", "llm", "agents"
@@ -103,7 +103,6 @@ As I mentioned in the intro, the same problem applies to other systems. I did a 
 This post demonstrates that Deep Research integrations, including ChatGPT Connectors, operate within a shared trust boundary. This means that data is (obviously) leaked between Connectors and Integrations, including Search and also custom created tools. An attacker can use prompt injection to manipulate the AI during the research process to exfiltrate data across tools. 
 
 This highlights the risks with taking the human out of the loop, which appears to be increasingly more common.
-
 
 
 ## References
