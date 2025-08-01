@@ -145,7 +145,7 @@
 <li>Be able to view the data the site received (e.g. a log file)</li>
 </ol>
 <p><code>url_safe</code> domains allow ChatGPT to browse to those sites even when untrusted data is in the chat context, creating potential data leakage vectors.</p>
-<p>One such domain I discovered is <code>windows.net</code>, and I knew that <strong>one can create a blog storage account that will run on that domain</strong>, and at the same time it&rsquo;s possible to inspect the log files!</p>
+<p>One such domain I discovered is <code>windows.net</code>, and I knew that <strong>one can create a blob storage account that will run on that domain</strong>, and at the same time it&rsquo;s possible to inspect the log files!</p>
 <h2 id="azure-blob-storage-logs-as-exfiltration-vector">Azure Blob Storage Logs as Exfiltration Vector</h2>
 <p>The one that is most straightforward was <code>blob.core.windows.net</code>. There were others I discovered also, but they take more effort to explain.</p>
 <p>By sending data to this domain, we can again leak data at will. So, I went ahead to create the <code>trustnoai</code> storage account and updated ChatGPT instructions to leak information to that domain.</p>

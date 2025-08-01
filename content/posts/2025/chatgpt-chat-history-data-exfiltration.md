@@ -47,7 +47,7 @@ To my surprise OpenAI still had not fixed some of the `url_safe` bypasses I repo
 
 `url_safe` domains allow ChatGPT to browse to those sites even when untrusted data is in the chat context, creating potential data leakage vectors. 
 
-One such domain I discovered is `windows.net`, and I knew that **one can create a blog storage account that will run on that domain**, and at the same time it's possible to inspect the log files!
+One such domain I discovered is `windows.net`, and I knew that **one can create a blob storage account that will run on that domain**, and at the same time it's possible to inspect the log files!
 
 ## Azure Blob Storage Logs as Exfiltration Vector
 
