@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Mon, 28 Jul 2025 10:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 01 Aug 2025 08:00:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exfiltrating Your ChatGPT Chat History and Memories With Prompt Injection</title>
+      <link>https://embracethered.com/blog/posts/2025/chatgpt-chat-history-data-exfiltration/</link>
+      <pubDate>Fri, 01 Aug 2025 08:00:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/chatgpt-chat-history-data-exfiltration/</guid>
+      <description>In this post we demonstrate how a bypass in OpenAI&amp;rsquo;s &amp;ldquo;safe URL&amp;rdquo; rendering feature allows ChatGPT to send personal information to a third-party server. This can be exploited by an adversary via a prompt injection via untrusted data.&#xA;If you process untrusted content, like summarizing a website, or analyze a pdf document, the author of that document can exfiltrate any information present in the prompt context, including your past chat history.</description>
+    </item>
     <item>
       <title>The Month of AI Bugs 2025</title>
       <link>https://embracethered.com/blog/posts/2025/announcement-the-month-of-ai-bugs/</link>

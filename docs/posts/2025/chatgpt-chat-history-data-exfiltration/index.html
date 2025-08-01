@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Exfiltrating Your ChatGPT Chat History and Memories With Prompt Injection &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2025/chatgpt-chat-history-data-exfiltration/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2025-08-01T08:00:58-07:00" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  <meta property="og:article:tag" content="agents" />
+  
+  <meta property="og:article:tag" content="month of ai bugs" />
+  
+  
+
+  <title>
+     Exfiltrating Your ChatGPT Chat History and Memories With Prompt Injection &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Exfiltrating Your ChatGPT Chat History and Memories With Prompt Injection</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2025-08-01T08:00:58-07:00">
+          Aug 1, 2025
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/agents">#agents</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/month-of-ai-bugs">#month of ai bugs</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+<a id="top_ref"></a>
+
+<p>In this post we demonstrate how a bypass in OpenAI&rsquo;s &ldquo;safe URL&rdquo; rendering feature allows ChatGPT to send personal information to a third-party server. This can be exploited by an adversary via a prompt injection via untrusted data.</p>
+<p><a href="/blog/images/2025/episode1-yt.png"><img src="/blog/images/2025/episode1-yt.png" alt="Episode 1"></a></p>
+<p>If you process untrusted content, like summarizing a website, or analyze a pdf document, the author of that document can exfiltrate any information present in the prompt context, including your past chat history.</p>
+<h2 id="leaking-chat-history-with-prompt-injection">Leaking Chat History With Prompt Injection</h2>
+<p>The idea for this exploit came to me while <a href="/blog/posts/2025/chatgpt-how-does-chat-history-memory-preferences-work/">reviewing</a> the system prompt to research how the ChatGPT chat history feature works.</p>
+<p>I noticed that all the information is present in the system prompt and accessible to an adversary during a prompt injection attack.</p>
+<p><a href="/blog/images/2025/chatgpt-chat-history-overview.png"><img src="/blog/images/2025/chatgpt-chat-history-overview.png" alt="chat history"></a></p>
+<p>Above screenshot shows the relevant chat history information from the system prompt. If you are interested to learn how the chat history feature is implemented, check out this past post <a href="/blog/posts/2025/chatgpt-how-does-chat-history-memory-preferences-work/">here</a>.</p>
+<p>But let&rsquo;s focus on how an adversary can steal this info from your ChatGPT.</p>
+<h2 id="finding-bypasses-for-data-exfiltration">Finding Bypasses for Data Exfiltration</h2>
+<p>If you follow my research you are aware of the <code>url_safe</code> feature that <a href="/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/">OpenAI introduced</a> to mitigate data exfiltration via malicious URLs.</p>
+<p>To my surprise OpenAI still had not fixed some of the <code>url_safe</code> bypasses I reported in October 2024 - so it didn&rsquo;t take much time to build an exploit.</p>
+<p><strong>There are three prerequisites for data exfiltration:</strong></p>
+<ol>
+<li>Find a <code>url_safe</code> site </li>
+<li>Find an HTTP GET API to send data to that site </li>
+<li>Be able to view the data the site received (e.g. a log file)</li>
+</ol>
+<p><code>url_safe</code> domains allow ChatGPT to browse to those sites even when untrusted data is in the chat context, creating potential data leakage vectors.</p>
+<p>One such domain I discovered is <code>windows.net</code>, and I knew that <strong>one can create a blog storage account that will run on that domain</strong>, and at the same time it&rsquo;s possible to inspect the log files!</p>
+<h2 id="azure-blob-storage-logs-as-exfiltration-vector">Azure Blob Storage Logs as Exfiltration Vector</h2>
+<p>The one that is most straightforward was <code>blob.core.windows.net</code>. There were others I discovered also, but they take more effort to explain.</p>
+<p>By sending data to this domain, we can again leak data at will. So, I went ahead to create the <code>trustnoai</code> storage account and updated ChatGPT instructions to leak information to that domain.</p>
+<p><a href="/blog/images/2025/chatgpt-exfil-storage-account.png"><img src="/blog/images/2025/chatgpt-exfil-storage-account.png" alt="storage account"></a>
+So, knowing that, we can create our proof-of-concept to exfiltrate a user&rsquo;s chat history!</p>
+<h2 id="demonstration">Demonstration</h2>
+<p>In the proof-of-concept below I show how to access the &ldquo;Recent Conversation Content&rdquo; section of the system prompt, any other information present can also be exfiltrated, like user interaction metadata, memories, helpful user insights&hellip;</p>
+<h3 id="walkthrough">Walkthrough</h3>
+<p>This screenshot describes the entire attack chain:</p>
+<p><a href="/blog/images/2025/chatgpt-history-exfil-demo.png"><img src="/blog/images/2025/chatgpt-history-exfil-demo.png" alt="chatgpt history exfil"></a></p>
+<p><strong>For individual steps see these parts:</strong></p>
+<ol>
+<li>ChatGPT is tricked into accessing the conversation history</li>
+</ol>
+<p><a href="/blog/images/2025/chatgpt-leak-history1.png"><img src="/blog/images/2025/chatgpt-leak-history1.png" alt="chatgpt history1"></a></p>
+<ol start="2">
+<li>The prompt injection hijacks ChatGPT, reads the chat history and renders the image</li>
+</ol>
+<p><a href="/blog/images/2025/chatgpt-leak-history2.png"><img src="/blog/images/2025/chatgpt-leak-history2.png" alt="chatgpt history2"></a></p>
+<ol start="3">
+<li>Attacker can observe result by looking at their Azure blob storage server logs<br>
+<a href="/blog/images/2025/chatgpt-history3-logs.png"><img src="/blog/images/2025/chatgpt-history3-logs.png" alt="chatgpt history leak"></a></li>
+</ol>
+<p>As a result ChatGPT retrieves all content under &ldquo;recent conversation history&rdquo; in the system prompt and sends it to the third party domain at <code>https://trustnoai.blob.core.windows.net</code>.</p>
+<p><strong>Note:</strong> As with most exploits, it is important to highlight that this can also be exploited by the model itself at any time, e.g. hallucination or backdoor in the model. Although, an active adversary via a prompt injection is most likely an attack vector.</p>
+<h3 id="video-walkthrough">Video Walkthrough</h3>
+<p>If you prefer to watch a video, here is an end-to-end explanation:</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/0xixzlILeNg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>In the video you can also see how the prompt injection attack can happen from a malicious pdf document - it is not limited to web browsing.</p>
+<h2 id="responsible-disclosure">Responsible Disclosure</h2>
+<p>This <code>url_safe</code> bypass, including a few others, were reported to OpenAI in October 2024. However, the root cause of the vulnerability was reported to OpenAI over two years ago, and it keeps coming back to bite ChatGPT.</p>
+<p>The vulnerability keeps increasing in severity, as now an attacker can not only exfiltrate all future chat information, the attacker can access chat history as well, and also other data the force into the chat via tool invocation and so forth.</p>
+<p>Recently, I observed that the <code>url_safe</code> features is not exposed client side anymore. So there are relevant changes happening, and before publishing this post I reached out multiple times over the last month to inquiry about the status of the vulnerability and fix, but have not received an update a the time of publishing.</p>
+<p>It seems important to share this information to highlight risks, and help raise awareness of issues that are not addressed for a longer time.</p>
+<p><strong>As a precaution (to raise awarness but not release a full exploit) you probably noticed that the post does not contain the exact prompt injection payload itself.</strong> I will publish that when the vulnerability is, hopefully, fixed.</p>
+<h2 id="recommendations">Recommendations</h2>
+<p>Here are the recommendations provided to OpenAI:</p>
+<ol>
+<li>Lock down <code>url_safe</code> and publicly document what domains are safe - so trust and transparency prevails</li>
+<li>I found two domains that are <code>url_safe</code> and allow me to inspect the server side logs (<code>windows.net</code>,<code>apache.org</code>)</li>
+<li>For enterprise customers <code>url_safe</code> to be configurable and manageable via admin settings.</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>Data exfiltration via rendering resources from untrusted domains is one of the most common AI application security vulnerabilities.</p>
+<p>In this post we demonstrated how a bypass in OpenAI&rsquo;s safe URL rendering feature allows ChatGPT to send your personal information to a third party server. This can be exploited by an adversary via a prompt injection via untrusted data.</p>
+<p>Hopefullly, this vulnerability will be addressed eventually.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://monthofaibugs.com">Month of AI Bugs 2025</a></li>
+<li><a href="/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/">OpenAI Begins Tackling ChatGPT Data Leak Vulnerability</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2025/announcement-the-month-of-ai-bugs/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2025
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
