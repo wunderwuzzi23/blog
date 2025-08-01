@@ -12,6 +12,10 @@ twitter:
   image: "https://embracethered.com/blog/images/2025/moaib-tn.png"
 ---
 
+{{< raw_html >}}
+<a id="top_ref"></a>
+{{< /raw_html >}}
+
 This year I spent a lot of time reviewing, exploiting and working with vendors to fix vulnerabilities in agentic AI systems.
 
 As a result, I'm excited to announce the **[Month of AI Bugs 2025!](https://monthofaibugs.com)**
