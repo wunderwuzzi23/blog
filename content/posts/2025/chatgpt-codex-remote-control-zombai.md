@@ -1,5 +1,5 @@
 ---
-title: "Turning ChatGPT Codex Into A ZombAI"  
+title: "Turning ChatGPT Codex Into A ZombAI Agent"  
 date: 2025-08-02T00:31:58-07:00  
 draft: true  
 tags: ["llm", "agents", "month of ai bugs"]
@@ -8,9 +8,14 @@ twitter:
   site: "@wunderwuzzi23"  
   creator: "@wunderwuzzi23"  
   title: "ChatGPT Codex System Compromise Via Common Dependencies and Azure domain allowlist"  
-  description: "Common Dependencies AllowList includes domain that allows full remote control of ChatGPT Codex (ZombAI)"  
+  description: "Common Dependencies Allowlist includes domain that allows full remote control of ChatGPT Codex (ZombAI)"  
   image: "https://embracethered.com/blog/images/2025/episode2-yt.png"  
 ---
+
+{{< raw_html >}}
+<a id="top_ref"></a>
+{{< /raw_html >}}
+
 
 Today we cover ChatGPT Codex as part of the [Month of AI Bugs](https://monthofaibugs.com) series. 
 
