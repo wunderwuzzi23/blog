@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Fri, 01 Aug 2025 08:00:58 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 02 Aug 2025 00:31:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Turning ChatGPT Codex Into A ZombAI</title>
+      <link>https://embracethered.com/blog/posts/2025/chatgpt-codex-remote-control-zombai/</link>
+      <pubDate>Sat, 02 Aug 2025 00:31:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/chatgpt-codex-remote-control-zombai/</guid>
+      <description>Today we cover ChatGPT Codex as part of the Month of AI Bugs series.&#xA;ChatGPT Codex is a cloud-based software engineering agent that answers codebase questions, executes code, and drafts pull requests.&#xA;In particular, this post will demonstrate how Codex is vulnerable to prompt injection, and how the use of the &amp;ldquo;Common Dependencies Allowlist&amp;rdquo; for Internet access enables an attacker to recruit ChatGPT Codex into a malware botnet.&#xA;The ZombAI attack arrives at ChatGPT Codex today!</description>
+    </item>
     <item>
       <title>Exfiltrating Your ChatGPT Chat History and Memories With Prompt Injection</title>
       <link>https://embracethered.com/blog/posts/2025/chatgpt-chat-history-data-exfiltration/</link>
