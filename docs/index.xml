@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sat, 02 Aug 2025 00:31:58 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 03 Aug 2025 01:30:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Anthropic Filesystem MCP Server: Directory Access Bypass via Improper Path Validation</title>
+      <link>https://embracethered.com/blog/posts/2025/anthropic-filesystem-mcp-server-bypass/</link>
+      <pubDate>Sun, 03 Aug 2025 01:30:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/anthropic-filesystem-mcp-server-bypass/</guid>
+      <description>A few months ago I was looking at the filesystem MCP server from Anthropic.&#xA;The server allows to give an AI, like Claude Desktop, access to the local filesystem to read files or edit them and so forth.&#xA;I was curious about access control and in the documentation there is a configuration setting to set allowedDirectories, which the AI should be allowed access to:&#xA;As you can see the example shows two folders being allowlisted for access.</description>
+    </item>
     <item>
       <title>Turning ChatGPT Codex Into A ZombAI Agent</title>
       <link>https://embracethered.com/blog/posts/2025/chatgpt-codex-remote-control-zombai/</link>
