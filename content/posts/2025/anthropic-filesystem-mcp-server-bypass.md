@@ -12,6 +12,10 @@ twitter:
   image: "https://embracethered.com/blog/images/2025/episode3-yt.png"  
 ---
 
+{{< raw_html >}}
+<a id="top_ref"></a>
+{{< /raw_html >}}
+
 A few months ago I was looking at the [filesystem MCP server](https://github.com/modelcontextprotocol/servers/blob/main/src/filesystem/README.md) from Anthropic. 
 
 The server allows to give an AI, like Claude Desktop, access to the local filesystem to read files or edit them and so forth. 
