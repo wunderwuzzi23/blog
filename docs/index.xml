@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sun, 03 Aug 2025 01:30:58 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 04 Aug 2025 00:04:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cursor IDE: Arbitrary Data Exfiltration Via Mermaid (CVE-2025-54132)</title>
+      <link>https://embracethered.com/blog/posts/2025/cursor-data-exfiltration-with-mermaid/</link>
+      <pubDate>Mon, 04 Aug 2025 00:04:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/cursor-data-exfiltration-with-mermaid/</guid>
+      <description>Cursor is a popular AI code editor. In this post I want to share how I found an interesting data exfiltration issue, the demo exploits built and how it got fixed.&#xA;When using Cursor I noticed that it can render Mermaid diagrams.&#xA;Cursor Renders Mermaid Diagrams If you are not familiar with Mermaid, it has a simple syntax:&#xA;graph TD User --&amp;gt; Computer This will create a diagram as follows:</description>
+    </item>
     <item>
       <title>Anthropic Filesystem MCP Server: Directory Access Bypass via Improper Path Validation</title>
       <link>https://embracethered.com/blog/posts/2025/anthropic-filesystem-mcp-server-bypass/</link>
