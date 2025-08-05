@@ -12,6 +12,10 @@ twitter:
   image: "https://embracethered.com/blog/images/2025/episode5-yt.png" 
 ---
 
+{{< raw_html >}}
+<a id="top_ref"></a>
+{{< /raw_html >}}
+
 **Sandbox-escape-style attacks** can happen when an AI is able to modify its own configuration settings, such as by writing to configuration files.
 
 That was the case with **Amp**, an agentic coding tool built by [Sourcegraph](https://ampcode.com/manual).
