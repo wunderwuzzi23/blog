@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Mon, 04 Aug 2025 00:04:58 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 05 Aug 2025 06:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amp Code: Arbitrary Command Execution via Prompt Injection Fixed</title>
+      <link>https://embracethered.com/blog/posts/2025/amp-agents-that-modify-system-configuration-and-escape/</link>
+      <pubDate>Tue, 05 Aug 2025 06:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/amp-agents-that-modify-system-configuration-and-escape/</guid>
+      <description>Sandbox-escape-style attacks can happen when an AI is able to modify its own configuration settings, such as by writing to configuration files.&#xA;That was the case with Amp, an agentic coding tool built by Sourcegraph.&#xA;The AI coding agent could update its own configuration and:&#xA;Allowlist bash commands or Add a malicious MCP server on the fly to run arbitrary code This could have been exploited by the model itself, or during an indirect prompt injection attack as we will demonstrate in this post.</description>
+    </item>
     <item>
       <title>Cursor IDE: Arbitrary Data Exfiltration Via Mermaid (CVE-2025-54132)</title>
       <link>https://embracethered.com/blog/posts/2025/cursor-data-exfiltration-with-mermaid/</link>
