@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Tue, 05 Aug 2025 06:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 06 Aug 2025 01:01:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/agents/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I Spent $500 To Test Devin For Prompt Injection So That You Don&#39;t Have To</title>
+      <link>https://embracethered.com/blog/posts/2025/devin-i-spent-usd500-to-hack-devin/</link>
+      <pubDate>Wed, 06 Aug 2025 01:01:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/devin-i-spent-usd500-to-hack-devin/</guid>
+      <description>Today we cover Devin from Cognition, the first AI Software Engineer.&#xA;We will cover Devin proof-of-concept exploits in multiple posts over the next few days. In this first post, we show how a prompt injection payload hosted on a website leads to a full compromise of Devin&amp;rsquo;s DevBox.&#xA;GitHub Issue To Remote Code Execution By planting instructions on a website or GitHub issue that Devin processes, it can be tricked to download malware and launch it.</description>
+    </item>
     <item>
       <title>Amp Code: Arbitrary Command Execution via Prompt Injection Fixed</title>
       <link>https://embracethered.com/blog/posts/2025/amp-agents-that-modify-system-configuration-and-escape/</link>
