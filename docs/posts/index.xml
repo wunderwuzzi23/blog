@@ -7,14 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Wed, 06 Aug 2025 01:01:58 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 07 Aug 2025 08:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>I Spent $500 To Test Devin For Prompt Injection So That You Don&#39;t Have To</title>
+      <title>How Devin AI Can Leak Your Secrets Via Multiple Means</title>
+      <link>https://embracethered.com/blog/posts/2025/devin-can-leak-your-secrets/</link>
+      <pubDate>Thu, 07 Aug 2025 08:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/devin-can-leak-your-secrets/</guid>
+      <description>In this post we show how an attacker can make Devin send sensitive information to third-party servers, via multiple means. This post assumes that you read the first post about Devin as well.&#xA;But here is a quick recap: During an indirect prompt injection Devin can be tricked into download malware and extract sensitive information on the machine. But there is more&amp;hellip;&#xA;Let&amp;rsquo;s explore how Devin can leak sensitive information and send it to a third-party server.</description>
+    </item>
+    <item>
+      <title>I Spent $500 To Test Devin AI For Prompt Injection So That You Don&#39;t Have To</title>
       <link>https://embracethered.com/blog/posts/2025/devin-i-spent-usd500-to-hack-devin/</link>
       <pubDate>Wed, 06 Aug 2025 01:01:58 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2025/devin-i-spent-usd500-to-hack-devin/</guid>
-      <description>Today we cover Devin from Cognition, the first AI Software Engineer.&#xA;We will cover Devin proof-of-concept exploits in multiple posts over the next few days. In this first post, we show how a prompt injection payload hosted on a website leads to a full compromise of Devin&amp;rsquo;s DevBox.&#xA;GitHub Issue To Remote Code Execution By planting instructions on a website or GitHub issue that Devin processes, it can be tricked to download malware and launch it.</description>
+      <description>Today we cover Devin AI from Cognition, the first AI Software Engineer.&#xA;We will cover Devin proof-of-concept exploits in multiple posts over the next few days. In this first post, we show how a prompt injection payload hosted on a website leads to a full compromise of Devin&amp;rsquo;s DevBox.&#xA;GitHub Issue To Remote Code Execution By planting instructions on a website or GitHub issue that Devin processes, it can be tricked to download malware and launch it.</description>
     </item>
     <item>
       <title>Amp Code: Arbitrary Command Execution via Prompt Injection Fixed</title>

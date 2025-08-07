@@ -1,5 +1,5 @@
 ---
-title: "I Spent $500 To Test Devin For Prompt Injection So That You Don't Have To"  
+title: "I Spent $500 To Test Devin AI For Prompt Injection So That You Don't Have To"  
 date: 2025-08-06T01:01:58-07:00  
 draft: true  
 tags: ["llm", "agents", "month of ai bugs"]
@@ -7,8 +7,8 @@ twitter:
   card: "summary_large_image"  
   site: "@wunderwuzzi23"  
   creator: "@wunderwuzzi23"  
-  title: "I Spent $500 To Test Devin For Prompt Injection So That You Don't Have To"  
-  description: "I Paid $500 to test Devin for security vulnerabilities in April 2025. When processing untrusted data Devin can be hijacked to run remote code (RCE) and connect to an attacker's command and control system (ZombAI)."  
+  title: "I Spent $500 To Test Devin AI For Prompt Injection So That You Don't Have To"  
+  description: "I Paid $500 to test Devin AI for security vulnerabilities in April 2025. When processing untrusted data Devin can be hijacked to run remote code (RCE) and connect to an attacker's command and control system (ZombAI)."  
   image: "https://embracethered.com/blog/images/2025/episode6-yt.png"  
 ---
 
@@ -17,7 +17,7 @@ twitter:
 {{< /raw_html >}}
 
 
-Today we cover [Devin](https://cognition.ai/blog/introducing-devin) from Cognition, the first AI Software Engineer. 
+Today we cover [Devin AI](https://cognition.ai/blog/introducing-devin) from Cognition, the first AI Software Engineer. 
 
 [![Devin Title Image Month of AI Bugs Episode 6](/blog/images/2025/episode6-yt.png)](/blog/images/2025/episode6-yt.png)
 
@@ -145,13 +145,13 @@ During a prompt injection attack from untrusted data, an attacker can gain acces
 
 * The second approach is to just give an agent access to everything possible and hope for the best. 
 
-The correct approach certainly appears to start small and get the core pieces right first. 
+The better approach certainly appears to start small and get the core pieces right first. 
 
 **Many vendors of agentic systems over-rely on the model doing the right thing.**
 
 This post showed how modern agentic systems commonly have fundamental design weaknesses that can easily lead to full system compromise, which makes them unsuitable for enterprise adoption. 
 
-Specifically, agents are naive and untrusted data, like text on a website, can lead to remote code execution, including compromise of all compute resources, sensitive information and API keys on the host.
+Specifically, agents are naive, and when they process untrusted data, like text on a website, can lead to remote code execution, including compromise of all compute resources, sensitive information and API keys on the host.
 
 ## References
 
