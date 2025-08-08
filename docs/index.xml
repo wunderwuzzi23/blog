@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Thu, 07 Aug 2025 08:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 08 Aug 2025 00:02:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Kill Chain in Action: Devin AI Exposes Ports to the Internet with Prompt Injection</title>
+      <link>https://embracethered.com/blog/posts/2025/devin-ai-kill-chain-exposing-ports/</link>
+      <pubDate>Fri, 08 Aug 2025 00:02:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/devin-ai-kill-chain-exposing-ports/</guid>
+      <description>Today let&amp;rsquo;s explore Devin&amp;rsquo;s system prompt a bit more. Specifically, an interesing tool that I discovered when reading through it.&#xA;Hidden in Devin’s capabilities is a tool that can open any local port to the public Internet. That means, with the right indirect prompt injection nudge, Devin can be tricked into publishing sensitive files or services for anyone to access.&#xA;This tunneling feature can be invoked without a human in the loop.</description>
+    </item>
     <item>
       <title>How Devin AI Can Leak Your Secrets via Multiple Means</title>
       <link>https://embracethered.com/blog/posts/2025/devin-can-leak-your-secrets/</link>

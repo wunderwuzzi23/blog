@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" AI Kill Chain in Action: Devin AI Exposes Ports to the Internet with Prompt Injection &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2025/devin-ai-kill-chain-exposing-ports/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2025-08-08T00:02:58-07:00" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  <meta property="og:article:tag" content="agents" />
+  
+  <meta property="og:article:tag" content="month of ai bugs" />
+  
+  
+
+  <title>
+     AI Kill Chain in Action: Devin AI Exposes Ports to the Internet with Prompt Injection &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Devin: Exposing Ports To The Internet With Prompt Injection">
+<meta name="twitter:description" content="AI Kill Chain in Action: Devin AI Exposes Ports to the Internet with Prompt Injection">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2025/episode8-yt.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">AI Kill Chain in Action: Devin AI Exposes Ports to the Internet with Prompt Injection</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2025-08-08T00:02:58-07:00">
+          Aug 8, 2025
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/agents">#agents</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/month-of-ai-bugs">#month of ai bugs</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+<a id="top_ref"></a>
+
+<p>Today let&rsquo;s explore Devin&rsquo;s system prompt a bit more. Specifically, an interesing tool that I discovered when reading through it.</p>
+<p>Hidden in Devin’s capabilities is a tool that can open any local port to the public Internet. That means, with the right indirect prompt injection nudge, Devin can be tricked into publishing sensitive files or services for anyone to access.</p>
+<p><a href="/blog/images/2025/episode8-yt.png"><img src="/blog/images/2025/episode8-yt.png" alt="Devin Title Expose Port AI Kill Chain - Episode 8"></a></p>
+<p>This tunneling feature can be invoked without a human in the loop.</p>
+<h2 id="what-is-the-expose_port-tool">What is the <code>expose_port</code> tool?</h2>
+<p>Here is the tool definition for <code>expose_port</code> as seen in <a href="https://github.com/wunderwuzzi23/scratch/blob/master/system_prompts/devin-2025-04-10.md">Devin&rsquo;s system prompt</a>:</p>
+<pre tabindex="0"><code>Exposes a local port to the internet and returns a public URL. Use this command to let 
+the user test and give feedback for frontends if they don&#39;t want to test through your 
+built-in browser. Make sure that apps you expose don&#39;t access any local backends.
+</code></pre><p>So the tool allows Devin to expose its Devbox on the Internet. The idea appears to be for development and maybe testing, so that Devin can create a website and make it externally accessible.</p>
+<p>But, the immediate thought I had when seeing this was that an indirect prompt injection attack can expose a random port of Devin&rsquo;s machine to the Internet. This will allows exposing sensitive information and creating backdoor access quite easily.</p>
+<h2 id="ai-kill-chain---prompt-injection-to-host-exposure">AI Kill Chain - Prompt Injection To Host Exposure</h2>
+<p><strong>The AI Kill Chain consists of the three typical steps:</strong></p>
+<ul>
+<li>Prompt Injection 💉</li>
+<li>Confused Deputy 🤷‍♂️</li>
+<li>Automatic Tool Invocation 🔧</li>
+</ul>
+<p><strong>Here are the details on how such an attack chain works specifically in this case:</strong></p>
+<ol>
+<li>Adversary hosts a malicious prompt injection payload on a website</li>
+<li>Devin navigates to the website during its research</li>
+<li>The website takes control of Devin (indirect prompt injection) and<br>
+a. Creates a Python web server exposing all files on port <code>8000</code><br>
+b. Invokes the <code>expose port</code> tool to share the port on the Internet. <code>expose_port</code> returns a public URL ending in <code>.devinapps.com</code>
+c. The exploit then exfiltrates that URL and sends it to the attacker</li>
+<li>Attacker can access the app over the Internet and view the files</li>
+</ol>
+<h2 id="building-a-proof-of-concept-demonstration">Building A Proof-of-Concept Demonstration</h2>
+<p>I developed a PoC that hijacks Devin to invoke the “expose port” feature, showing how<br>
+an adversary can perform a prompt injection attack via untrusted data from a website.</p>
+<p>Consider a scenario where you ask Devin to look at websites or investigate a GitHub issue. You can just task Devin via Slack actually, and afterwards it works entirely unsupervised.</p>
+<p><a href="/blog/images/2025/devin-tunnel-slack.png"><img src="/blog/images/2025/devin-tunnel-slack.png" alt="devin-system-prompt-expose-port"></a></p>
+<p>A key concern arises when Devin interacts with potentially malicious websites that contains prompt injection instructions.</p>
+<p>Turns out initially Devin refused these requests, but one trick I learned over the last few months researching browsing and computer use agents is that you can bounce them often off multiple domains or stages and slowly steer them into the &ldquo;right&rdquo; direction.</p>
+<p>So, in order to make it work, I built a multi-stage attack that separates the malicious actions in a way that makes them less obvious, and Devin executed the instructions without objection.</p>
+<h3 id="stage-1-creates-webserver-to-expose-filesystem-and-then-redirects-to-the-second-webpage-with-additional-instructions"><strong>Stage 1:</strong> Creates webserver to expose filesystem and then redirects to the second webpage with additional instructions</h3>
+<p>Here is the first stage prompt injection. This is the first stage of the multi-page attack:</p>
+<p><a href="/blog/images/2025/devin-tunnel-stage-1.png"><img src="/blog/images/2025/devin-tunnel-stage-1.png" alt="devin-system-prompt-expose-port"></a></p>
+<h3 id="stage-2--exposes-the-port-and-leaks-the-url-to-access-the-web-application"><strong>Stage 2:</strong>  Exposes the port and leaks the URL to access the web application</h3>
+<p>This second stage uses the image markdown vulnerability we described yesterday to leak the publicly created endpoint to the third-party:</p>
+<p><a href="/blog/images/2025/devin-tunnel-stage-2.png"><img src="/blog/images/2025/devin-tunnel-stage-2.png" alt="devin-system-prompt-expose-port"></a></p>
+<p>Here is the second stage prompt injection:
+<a href="/blog/images/2025/devin-expose-port.png"><img src="/blog/images/2025/devin-expose-port.png" alt="devin-system-prompt-expose-port"></a></p>
+<p>Now the public <code>.devinapps.com</code> link to the internal server is now leaked to the attacker’s web server.
+<a href="/blog/images/2025/devin-tunnel-server-log-including-proxylink.png"><img src="/blog/images/2025/devin-tunnel-server-log-including-proxylink.png" alt="devin-system-prompt-expose-port"></a></p>
+<h3 id="voila-now-the-application-can-be-accessed-over-the-internet"><strong>Voila:</strong> Now the application can be accessed over the Internet!</h3>
+<p>Using that leaked URL the attacker now has access to the files on the server over the Internet:<br>
+<a href="/blog/images/2025/devin-tunnel-exposed-proof.png"><img src="/blog/images/2025/devin-tunnel-exposed-proof.png" alt="devin-system-prompt-expose-port"></a></p>
+<p>As a result, Devin created the Python web server and exposed the file system on the Internet!</p>
+<h2 id="do-attacks-require-prompt-injection">Do Attacks Require Prompt Injection?</h2>
+<p>An often-overlooked aspect is that even without prompt injection, Devin or any other AI agent for that matter could decide to take malicious actions due to backdoors or other latent behavior present in the model itself.</p>
+<h2 id="responsible-disclosure-and-recommendations">Responsible Disclosure and Recommendations</h2>
+<p>These vulnerabilities were reported to Cognition on April 6th, 2025 and receipt acknowledged a few days later. Follow-up queries around fix timelines and status have remained unanswered.</p>
+<p>According to responsible disclosure guidelines (it has been 120+ days since the vendor was notified) this information is now publicly shared to raise awareness and empower users to protect themselves.</p>
+<p>A specific recommendation for sensitive tool invocations was to not depend on model-behavior, in-chat confirmations or prompting for secure tool invocation, but develop an out-of-band validation step to allow the user to approve sensitive operations, like exposing a port on the Internet.</p>
+<p>Please see the previous post for details of other recommendations provided to Cognition.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this post we highlighted the importance of reviewing the system prompt for tools that allow further elevation of privilege. The classic AI Kill Chain steps of prompt injection, confused deputy and automatic tool invocation.</p>
+<p>Devin executes consequential tool commands, such as exposing a port, without seeking human verification. No additional mitigations were observed (e.g. enforcing IP firewall rules or similar).</p>
+<p>Such design pattern can have dangerous consequences for autonomous systems as can be seen with this example.</p>
+<p>Stay safe.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://devin.ai/">Devin AI</a></li>
+<li><a href="https://cognition.ai/blog/introducing-devin">Cognition announces Devin</a></li>
+<li><a href="https://github.com/wunderwuzzi23/scratch/blob/master/system_prompts/devin-2025-04-10.md">Devin System Prompt</a></li>
+<li><a href="https://monthofaibugs.com">Month of AI Bugs 2025</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2025/devin-can-leak-your-secrets/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2025
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

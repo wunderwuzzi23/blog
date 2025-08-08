@@ -8,7 +8,7 @@ twitter:
   card: "summary_large_image"  
   site: "@wunderwuzzi23"  
   creator: "@wunderwuzzi23"  
-  title: "How Devin AI Can Leak Your Secrets Via Multiple Means"  
+  title: "How Devin AI Can Leak Your Secrets via Multiple Means"  
   description: "Data gone, oops."  
   image: "https://embracethered.com/blog/images/2025/episode7-yt.png"  
 ---
