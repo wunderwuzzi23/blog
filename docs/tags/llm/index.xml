@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Fri, 08 Aug 2025 00:02:58 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 08 Aug 2025 01:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenHands and the Lethal Trifecta: Leaking Your Agent&#39;s Secrets</title>
+      <link>https://embracethered.com/blog/posts/2025/openhands-the-lethal-trifecta-strikes-again/</link>
+      <pubDate>Fri, 08 Aug 2025 01:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/openhands-the-lethal-trifecta-strikes-again/</guid>
+      <description>Another day, another AI data exfiltration exploit. Today we talk about OpenHands, which used to be referred to as OpenDevin initially. It&amp;rsquo;s created by All-Hands AI.&#xA;OpenHands renders images in chat, which enables zero-click data exfiltration during prompt injection attacks.&#xA;Recently Simon Willison gave this kind of attack pattern a great name, he calls it the lethal trifecta.&#xA;We discuss this specific image based attack technique frequently. Sometimes the same message has to be repeated again and again to raise awareness and become mainstream knowledge.</description>
+    </item>
     <item>
       <title>AI Kill Chain in Action: Devin AI Exposes Ports to the Internet with Prompt Injection</title>
       <link>https://embracethered.com/blog/posts/2025/devin-ai-kill-chain-exposing-ports/</link>
