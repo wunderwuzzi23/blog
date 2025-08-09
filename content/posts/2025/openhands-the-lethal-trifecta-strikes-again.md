@@ -103,7 +103,7 @@ Scary stuff.
 
 * August 9th, 2025: 148 days after private disclosure. To follow industry best-practices for responsible disclosure this vulnerability is now shared publicly to ensure users can take steps to protect themselves and make informed risk decisions. 
 
-Interesting coincidence (or it might be related to an out-of-band email that I sent yesterday), but today right before publishing I received a response. So, hopefully we will see improvements soon.
+Interesting coincidence (or it might be related to an out-of-band email that I sent yesterday), but today when publishing this post I received a response. So, hopefully we will see improvements soon.
 
 ## Mitigation and Recommendations
 
