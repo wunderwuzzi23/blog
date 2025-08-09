@@ -1,5 +1,5 @@
 ---
-title: "OpenHands and the Lethal Trifecta: Leaking Your Agent's Secrets"  
+title: "OpenHands and the Lethal Trifecta: How Prompt Injection Can Leak Access Tokens"  
 date: 2025-08-09T03:00:58-07:00  
 draft: true  
 tags: ["llm", "agents", "month of ai bugs"]
@@ -16,11 +16,11 @@ twitter:
 <a id="top_ref"></a>
 {{< /raw_html >}}
 
-Another day, another AI data exfiltration exploit. Today we talk about [OpenHands](https://github.com/All-Hands-AI/OpenHands/), formerly referred to as OpenDevin initially. It's created by All-Hands AI.  
+Another day, another AI data exfiltration exploit. Today we talk about [OpenHands](https://github.com/All-Hands-AI/OpenHands/), formerly referred to as OpenDevin. It's created by All-Hands AI.  
 
-OpenHands renders images in chat, which enables zero-click data exfiltration during prompt injection attacks.
+The OpenHands agent renders images in chat, which enables zero-click data exfiltration.
 
-Recently Simon Willison gave this kind of attack pattern a great name, he calls it the [lethal trifecta](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/).
+Simon Willison recently gave this data exfiltration attack pattern a great name: [Lethal Trifecta](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/).
 
 [![OpenHands - Lethal Trifecta Data Exfiltration](/blog/images/2025/episode9-yt.png)](/blog/images/2025/episode9-yt.png)
 
@@ -89,21 +89,21 @@ Scary stuff.
 
 ## Responsible Disclosure
 
-* March 13th, 2025: Responsibly disclosed to All-Hands AI via the GitHub [security tab](https://github.com/All-Hands-AI/OpenHands/security) of the project. 
+* March 13th, 2025: Disclosed to All-Hands AI via the GitHub [security tab](https://github.com/All-Hands-AI/OpenHands/security) of the project. 
 
 * March 20th, 2025: Follow up, no response.
 
-* March 30th, 2025: Vulnerability not yet triaged. Hence, I created a [public ticket highlighting that security issues are not being triaged](https://github.com/All-Hands-AI/OpenHands/issues/7594). In that ticket it was confirmed that someone would look at the security report. 
+* March 30th, 2025: Vulnerability not triaged. Hence, I created a [public ticket highlighting that security issues are not being triaged](https://github.com/All-Hands-AI/OpenHands/issues/7594). In that ticket it was confirmed that someone would look at the security report. 
 
-* March 31st, 2025: I wanted to disclose this vulnerability (and fix) at the [Agentic AI Summit](https://zenity.io/resources/events/ai-agent-security-summit-2025-on-demand) as part of the keynote, but I removed it back then as no fix was available.
+* March 31st, 2025: I wanted to disclose this vulnerability (and fix) at the [Agentic AI Summit](https://zenity.io/resources/events/ai-agent-security-summit-2025-on-demand) as part of the keynote, but I removed as no fix was available.
 
-* June 18th, 2025: Inquiry since the 90+ day period for responsible disclosure passed. No responses.
+* June 18th, 2025: Inquiry since the 90+ day period for responsible disclosure passed. No reply.
 
-* July 10th, 2025: Sent additional inquiries about status and informed All-Hands AI of disclosure in August.
+* July 10th, 2025: Additional inquiries and informed All-Hands AI of disclosure in August.
 
 * August 9th, 2025: 148 days after private disclosure. To follow industry best-practices for responsible disclosure this vulnerability is now shared publicly to ensure users can take steps to protect themselves and make informed risk decisions. 
 
-Interesting coincidence (or it might be related to an out-of-band email that I sent yesterday): Right before publishing I received a response. So, hopefully we will see improvements soon.
+Interesting coincidence (or it might be related to an out-of-band email that I sent yesterday), but today right before publishing I received a response. So, hopefully we will see improvements soon.
 
 ## Mitigation and Recommendations
 

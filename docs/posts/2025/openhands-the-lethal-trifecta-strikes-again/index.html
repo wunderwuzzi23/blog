@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" OpenHands and the Lethal Trifecta: Leaking Your Agent&#39;s Secrets &middot;  Embrace The Red" />
+  <meta property="og:title" content=" OpenHands and the Lethal Trifecta: How Prompt Injection Can Leak Access Tokens &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2025/openhands-the-lethal-trifecta-strikes-again/" />
@@ -22,7 +22,7 @@
   
 
   <title>
-     OpenHands and the Lethal Trifecta: Leaking Your Agent&#39;s Secrets &middot;  Embrace The Red
+     OpenHands and the Lethal Trifecta: How Prompt Injection Can Leak Access Tokens &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -110,7 +110,7 @@
 
 <article>
   <header>
-    <h1 class="text-primary">OpenHands and the Lethal Trifecta: Leaking Your Agent&#39;s Secrets</h1>
+    <h1 class="text-primary">OpenHands and the Lethal Trifecta: How Prompt Injection Can Leak Access Tokens</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
@@ -135,9 +135,9 @@
     
 <a id="top_ref"></a>
 
-<p>Another day, another AI data exfiltration exploit. Today we talk about <a href="https://github.com/All-Hands-AI/OpenHands/">OpenHands</a>, formerly referred to as OpenDevin initially. It&rsquo;s created by All-Hands AI.</p>
-<p>OpenHands renders images in chat, which enables zero-click data exfiltration during prompt injection attacks.</p>
-<p>Recently Simon Willison gave this kind of attack pattern a great name, he calls it the <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">lethal trifecta</a>.</p>
+<p>Another day, another AI data exfiltration exploit. Today we talk about <a href="https://github.com/All-Hands-AI/OpenHands/">OpenHands</a>, formerly referred to as OpenDevin. It&rsquo;s created by All-Hands AI.</p>
+<p>The OpenHands agent renders images in chat, which enables zero-click data exfiltration.</p>
+<p>Simon Willison recently gave this data exfiltration attack pattern a great name: <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">Lethal Trifecta</a>.</p>
 <p><a href="/blog/images/2025/episode9-yt.png"><img src="/blog/images/2025/episode9-yt.png" alt="OpenHands - Lethal Trifecta Data Exfiltration"></a></p>
 <p>We discuss this specific image based attack technique frequently. Sometimes a message must be repeated multiple times to raise awareness and become mainstream knowledge.</p>
 <p>It is one of the most common AI application security vulnerabilities, a larger section of the <a href="https://arxiv.org/abs/2412.06090">Trust No AI - Prompt Injection Along the CIA Security Triad</a> is dedicated to it as well.</p>
@@ -174,28 +174,28 @@
 <h2 id="responsible-disclosure">Responsible Disclosure</h2>
 <ul>
 <li>
-<p>March 13th, 2025: Responsibly disclosed to All-Hands AI via the GitHub <a href="https://github.com/All-Hands-AI/OpenHands/security">security tab</a> of the project.</p>
+<p>March 13th, 2025: Disclosed to All-Hands AI via the GitHub <a href="https://github.com/All-Hands-AI/OpenHands/security">security tab</a> of the project.</p>
 </li>
 <li>
 <p>March 20th, 2025: Follow up, no response.</p>
 </li>
 <li>
-<p>March 30th, 2025: Vulnerability not yet triaged. Hence, I created a <a href="https://github.com/All-Hands-AI/OpenHands/issues/7594">public ticket highlighting that security issues are not being triaged</a>. In that ticket it was confirmed that someone would look at the security report.</p>
+<p>March 30th, 2025: Vulnerability not triaged. Hence, I created a <a href="https://github.com/All-Hands-AI/OpenHands/issues/7594">public ticket highlighting that security issues are not being triaged</a>. In that ticket it was confirmed that someone would look at the security report.</p>
 </li>
 <li>
-<p>March 31st, 2025: I wanted to disclose this vulnerability (and fix) at the <a href="https://zenity.io/resources/events/ai-agent-security-summit-2025-on-demand">Agentic AI Summit</a> as part of the keynote, but I removed it back then as no fix was available.</p>
+<p>March 31st, 2025: I wanted to disclose this vulnerability (and fix) at the <a href="https://zenity.io/resources/events/ai-agent-security-summit-2025-on-demand">Agentic AI Summit</a> as part of the keynote, but I removed as no fix was available.</p>
 </li>
 <li>
-<p>June 18th, 2025: Inquiry since the 90+ day period for responsible disclosure passed. No responses.</p>
+<p>June 18th, 2025: Inquiry since the 90+ day period for responsible disclosure passed. No reply.</p>
 </li>
 <li>
-<p>July 10th, 2025: Sent additional inquiries about status and informed All-Hands AI of disclosure in August.</p>
+<p>July 10th, 2025: Additional inquiries and informed All-Hands AI of disclosure in August.</p>
 </li>
 <li>
 <p>August 9th, 2025: 148 days after private disclosure. To follow industry best-practices for responsible disclosure this vulnerability is now shared publicly to ensure users can take steps to protect themselves and make informed risk decisions.</p>
 </li>
 </ul>
-<p>Interesting coincidence (or it might be related to an out-of-band email that I sent yesterday): Right before publishing I received a response. So, hopefully we will see improvements soon.</p>
+<p>Interesting coincidence (or it might be related to an out-of-band email that I sent yesterday), but today right before publishing I received a response. So, hopefully we will see improvements soon.</p>
 <h2 id="mitigation-and-recommendations">Mitigation and Recommendations</h2>
 <p>The fix is to not render images from untrusted domains. For instance a <code>Content-Security-Policy</code> to only loads images from trusted domains could effectively mitigate this risk.</p>
 <p>Alternatively, some vendors decided to show a pop-up including the full URL to the user for confirmation before navigating off-domain (this includes clickable hyperlinks as well by the way).</p>
