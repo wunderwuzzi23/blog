@@ -39,9 +39,7 @@ An important step when reviewing an AI systems for security vulnerabilities is t
 
 When I [looked at Devin's system prompt](https://github.com/wunderwuzzi23/scratch/blob/master/system_prompts/devin-2025-04-10.md), I noticed the `Browser` and `Shell` tools. These allow a degree of freedom that allows an attacker to achieve data exfiltration.
 
-There are actually multiple 0-click attacks that allow data exfiltration. 
-
-Let's explore them.
+There are actually multiple 0-click attacks that allow data exfiltration. Also, I did this research in April 2025 and since then additional integrations and tools might have been added.
 
 ### **Exfil Vector 1: Using The Shell Tool**
 

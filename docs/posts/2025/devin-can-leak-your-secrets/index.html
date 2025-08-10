@@ -146,8 +146,7 @@
 <h2 id="data-exfiltration-in-ai-systems">Data Exfiltration In AI Systems</h2>
 <p>An important step when reviewing an AI systems for security vulnerabilities is to analyze the system prompt, in particular, the tools an AI has access to.</p>
 <p>When I <a href="https://github.com/wunderwuzzi23/scratch/blob/master/system_prompts/devin-2025-04-10.md">looked at Devin&rsquo;s system prompt</a>, I noticed the <code>Browser</code> and <code>Shell</code> tools. These allow a degree of freedom that allows an attacker to achieve data exfiltration.</p>
-<p>There are actually multiple 0-click attacks that allow data exfiltration.</p>
-<p>Let&rsquo;s explore them.</p>
+<p>There are actually multiple 0-click attacks that allow data exfiltration. Also, I did this research in April 2025 and since then additional integrations and tools might have been added.</p>
 <h3 id="exfil-vector-1-using-the-shell-tool"><strong>Exfil Vector 1: Using The Shell Tool</strong></h3>
 <p>Devin can run terminal commands via the Shell tool defined in the system prompt.</p>
 <p>Using this tool, data exfiltration can be achieved by executing commands such as <code>curl</code> or <code>wget</code>, or have Devin write a Python script that connects to a third-party server and run it. <strong>Also, since I haven&rsquo;t mentioned it yet, Devin by default has unrestricted access to the Internet.</strong></p>
