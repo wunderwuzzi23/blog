@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" OpenHands ZombAI Exploit: Prompt Injection To Remote Code Execution &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2025/openhands-remote-code-execution-zombai/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2025-08-10T04:20:58-07:00" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  <meta property="og:article:tag" content="agents" />
+  
+  <meta property="og:article:tag" content="month of ai bugs" />
+  
+  
+
+  <title>
+     OpenHands ZombAI Exploit: Prompt Injection To Remote Code Execution &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="OpenHands ZombAI Exploit: Prompt Injection To Remote Code Execution">
+<meta name="twitter:description" content="When processing untrusted data OpenHands can be hijacked to run remote code (RCE) and connect to an attacker&#39;s command and control system">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2025/episode10-yt.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">OpenHands ZombAI Exploit: Prompt Injection To Remote Code Execution</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2025-08-10T04:20:58-07:00">
+          Aug 10, 2025
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/agents">#agents</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/month-of-ai-bugs">#month of ai bugs</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>Today we have another post about <a href="https://github.com/All-Hands-AI/OpenHands">OpenHands</a> from All Hands AI. It is a popular agent, initially named &ldquo;OpenDevin&rdquo;, and recently the company also provides a <a href="https://www.all-hands.dev/">cloud-based service</a>. Which is all pretty cool and exciting.</p>
+<h2 id="prompt-injection-to-full-system-compromise">Prompt Injection to Full System Compromise</h2>
+<p>However, as you know, LLM powered apps and agents are vulnerable to prompt injection.  That also applies to OpenHands and it can be hijacked by untrusted data, e.g. from a website. That impacts <code>Confidentiality</code>, <code>Integrity</code>, and <code>Availability</code> of the system.</p>
+<h2 id="turning-openhands-into-a-zombai">Turning OpenHands into a ZombAI</h2>
+<p>The working exploit was shared with the All-Hands team, and turns an OpenHands instance into a ZombAI. This is performed by hijacking the agent via prompt injection and then tricking it to download malware, run it and join an attacker-controlled C2 (Command &amp; Control) server.</p>
+<p>The exploit payload was actually the exact same as described in the <a href="https://embracethered.com/blog/posts/2024/claude-computer-use-c2-the-zombais-are-coming/">blog post about Anthropic Claude Computer-Use Agent</a>.</p>
+<h2 id="prompt-injection-payload">Prompt Injection Payload</h2>
+<p>The prompt injection attack can be as simple as this information on a website or inside a GitHub issue, or other untrusted data the agent processes. To keep it simple I <a href="/blog/posts/2024/claude-computer-use-c2-the-zombais-are-coming/">used</a> the same demo that I had used for Anthropic Claude Computer-Use and it just worked. The only thing I changed was to swap out the binary that gets executed.</p>
+<p><a href="/blog/images/2025/computer-download-this.png"><img src="/blog/images/2025/computer-download-this.png" alt="spaiware website"></a></p>
+<p>Here is a screenshot, showing how OpenHands downloaded the malware to the host and executed it, which led to the system compromise and remote control (ZombAI). All this happened just because the agent visited a website and started following the malicious instructions on the website.</p>
+<p><a href="/blog/images/2025/all-hands-spaiware-browsing.png"><img src="/blog/images/2025/all-hands-spaiware-browsing.png" alt="all hands spaiware browsing"></a></p>
+<p>And here is the C2 Server showing the connection of the ZombAI:</p>
+<p><a href="/blog/images/2025/all-hands-sliver-connect.png"><img src="/blog/images/2025/all-hands-sliver-connect.png" alt="all hands spaiware browsing"></a></p>
+<h2 id="initial-task-that-openhands-was-given">Initial Task That OpenHands Was Given</h2>
+<p>Since the screenshot above doesn&rsquo;t show the initial prompt, let me put it here for reference:</p>
+<p><a href="/blog/images/2025/all-hands-check-out-site.png"><img src="/blog/images/2025/all-hands-check-out-site.png" alt="load website"></a></p>
+<p>As you can see, it just prompts the agent to visit a website, not to follow any instructions. This is to simulate such an attack.</p>
+<p>Coding agents often decide to look up additional information on the fly from websites, and this is a likely attack avenue. Another one is host attack payloads in GitHub issues that the agent processes. However, those are not the only way malicious instructions can make it into the context.</p>
+<p>A key tactic for exploits is to lure the agent to a website, and I noticed that many agents really like following and clicking on links! Hence, if they end up at an attacker-controlled site (e.g. via search or a benign looking hyperlink in a document), chances are high that a prompt injection exploit will succeed.</p>
+<h2 id="video-demonstration-of-ai-clickfix">Video Demonstration of AI ClickFix</h2>
+<p>I was curious about trying out the AI ClickFix attack as well. If you are unfamiliar, then read up on this novel technique <a href="/blog/posts/2025/ai-clickfix-ttp-claude/">here</a>. To my surprise it worked end to end at first try, check out this brief demo:</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/QlwOUQnUUvM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>OpenHands followed the AI ClickFix instructions, clicked the button, which copied shell commands into the clipboard, and finally it pasted the command into a terminal shell and hit ENTER.</p>
+<h2 id="mitigations---running-in-a-sandbox">Mitigations - Running In A Sandbox</h2>
+<p>For the local version of OpenHands, the guidance is to run it in a sandbox and it&rsquo;s critical to follow those setup instructions. You can find them <a href="https://github.com/All-Hands-AI/OpenHands?tab=readme-ov-file#-running-openhands-locally">here</a>. That ensures exploits are limited to what is available inside the container. Still not great, but that provides some damage control. One can also control outbound network connections via firewall settings.</p>
+<p>However, be careful sharing or using any sensitive API keys, code or data inside the container. This container sandbox does not prevent the image markdown data leakage <a href="blog/posts/2025/openhands-the-lethal-trifecta-strikes-again/">we described yesterday</a>, where your host is the proxy of the request.</p>
+<h2 id="recommended-mitigation">Recommended Mitigation</h2>
+<p>The following mitigations come to mind.</p>
+<p>Mitigations the vendor could implement:</p>
+<ul>
+<li>Update documentation to highlight and inform users about prompt injection attacks.</li>
+<li>Consider implementing mitigations similar to what <code>OpenAI Operator</code> started doing with their Prompt Injection Monitor</li>
+<li>Provide guidance to customers to leverage endpoint protection, monitoring solutions and collect log files - as with other systems.</li>
+<li>Consider adding capabilities to control outbound network access</li>
+<li>It would also be useful to add a feature that stops and asks the user for permission before running commands in the Terminal or browsing across websites.</li>
+</ul>
+<p>Mitigations for users:</p>
+<ul>
+<li>When running the local version of OpenHands use a sandbox (already provided in guidance), and as users consider using firewall rules to control outbound network connections to limit access to trusted domains.</li>
+<li>Do use OpenHands with caution, limit what data, code or secrets you give it access to.</li>
+<li>Agents are potential malicious insiders, treat these systems as such</li>
+</ul>
+<p>If you are curious why I mentioned ChatGPT Operator, refer to this post on design and also <a href="https://embracethered.com/blog/posts/2025/chatgpt-operator-prompt-injection-exploits/">improvements OpenAI made to Operator</a>. Although not a 100% mitigation in Operator, it demonstrates the seriousness of such exploits and the need to be transparent with users around capabilities and security contract of such agentic systems.</p>
+<h2 id="responsible-disclosure">Responsible Disclosure</h2>
+<ul>
+<li>March 13th, 2025: Disclosed to All-Hands AI via the GitHub <a href="https://github.com/All-Hands-AI/OpenHands/security">security tab</a> of the project.</li>
+<li>March 20th, 2025: Follow up, no response.</li>
+<li>March 30th, 2025: Vulnerability not triaged. Followed up and it was acknowledged.</li>
+<li>June 18th, 2025: Inquiry since the 90+ day period for responsible disclosure passed. No reply.</li>
+<li>July 10th, 2025: Additional inquiries and informed All-Hands AI of disclosure in August.</li>
+<li>August 10th, 2025: 140+ days after private disclosure. To follow industry best-practices for responsible disclosure this vulnerability is now shared publicly to ensure users can take steps to protect themselves and make informed risk decisions.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>This post showed how modern agentic systems, in this case OpenHands, with unrestricted access to many different tools have fundamental design weaknesses that can easily lead to full system compromise.</p>
+<p>Specifically, agents are naive systems, and untrusted data on for instance a website, can lead to remote code execution and full system compromise, including compromise of all compute resources, sensitive information and API keys on the host.</p>
+<p>A lot of the risks are assumed by end users, requiring them to isolate execution, deploy network security controls, implement EDR and monitoring. Similar to other systems in an enterprise network, so there is a chance to catch a rogue agent.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://github.com/All-Hands-AI/OpenHands?tab=readme-ov-file#-running-openhands-locally">OpenHands - Running OpenHands Locally</a></li>
+<li><a href="https://github.com/All-Hands-AI/OpenHands/">All Hands AI - OpenHands</a></li>
+<li><a href="https://embracethered.com/blog/posts/2025/chatgpt-operator-prompt-injection-exploits/">Operator and improvements OpenAI made</a></li>
+<li><a href="https://www.all-hands.dev/">All Hands - Cloud Service</a></li>
+<li><a href="https://monthofaibugs.com">Month of AI Bugs 2025</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2025/openhands-the-lethal-trifecta-strikes-again/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2025
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

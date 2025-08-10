@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sat, 09 Aug 2025 03:00:58 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 10 Aug 2025 04:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/month-of-ai-bugs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenHands ZombAI Exploit: Prompt Injection To Remote Code Execution</title>
+      <link>https://embracethered.com/blog/posts/2025/openhands-remote-code-execution-zombai/</link>
+      <pubDate>Sun, 10 Aug 2025 04:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/openhands-remote-code-execution-zombai/</guid>
+      <description>Today we have another post about OpenHands from All Hands AI. It is a popular agent, initially named &amp;ldquo;OpenDevin&amp;rdquo;, and recently the company also provides a cloud-based service. Which is all pretty cool and exciting.&#xA;Prompt Injection to Full System Compromise However, as you know, LLM powered apps and agents are vulnerable to prompt injection. That also applies to OpenHands and it can be hijacked by untrusted data, e.g. from a website.</description>
+    </item>
     <item>
       <title>OpenHands and the Lethal Trifecta: How Prompt Injection Can Leak Access Tokens</title>
       <link>https://embracethered.com/blog/posts/2025/openhands-the-lethal-trifecta-strikes-again/</link>
