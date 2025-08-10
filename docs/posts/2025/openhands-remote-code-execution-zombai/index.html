@@ -155,13 +155,13 @@
 <p>Coding agents often decide to look up additional information on the fly from websites, and this is a likely attack avenue. Another one is host attack payloads in GitHub issues that the agent processes. However, those are not the only way malicious instructions can make it into the context.</p>
 <p>A key tactic for exploits is to lure the agent to a website, and I noticed that many agents really like following and clicking on links! Hence, if they end up at an attacker-controlled site (e.g. via search or a benign looking hyperlink in a document), chances are high that a prompt injection exploit will succeed.</p>
 <h2 id="video-demonstration-of-ai-clickfix">Video Demonstration of AI ClickFix</h2>
-<p>I was curious about trying out the AI ClickFix attack as well. If you are unfamiliar, then read up on this novel technique <a href="/blog/posts/2025/ai-clickfix-ttp-claude/">here</a>. To my surprise it worked end to end at first try, check out this brief demo:</p>
+<p>I was curious about trying out the AI ClickFix attack as well. If you are unfamiliar, then read up on this novel technique <a href="/blog/posts/2025/ai-clickfix-ttp-claude/">here</a>. To my surprise it worked end to end at first try, check out this brief and simplified demo:</p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/QlwOUQnUUvM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
-<p>OpenHands followed the AI ClickFix instructions, clicked the button, which copied shell commands into the clipboard, and finally it pasted the command into a terminal shell and hit ENTER.</p>
+<p>OpenHands followed the AI ClickFix instructions, copied the shell commands and pasted them into the terminal tool.</p>
 <h2 id="mitigations---running-in-a-sandbox">Mitigations - Running In A Sandbox</h2>
 <p>For the local version of OpenHands, the guidance is to run it in a sandbox and it&rsquo;s critical to follow those setup instructions. You can find them <a href="https://github.com/All-Hands-AI/OpenHands?tab=readme-ov-file#-running-openhands-locally">here</a>. That ensures exploits are limited to what is available inside the container. Still not great, but that provides some damage control. One can also control outbound network connections via firewall settings.</p>
 <p>However, be careful sharing or using any sensitive API keys, code or data inside the container. This container sandbox does not prevent the image markdown data leakage <a href="blog/posts/2025/openhands-the-lethal-trifecta-strikes-again/">we described yesterday</a>, where your host is the proxy of the request.</p>

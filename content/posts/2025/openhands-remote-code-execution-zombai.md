@@ -57,11 +57,11 @@ A key tactic for exploits is to lure the agent to a website, and I noticed that 
 
 ## Video Demonstration of AI ClickFix
 
-I was curious about trying out the AI ClickFix attack as well. If you are unfamiliar, then read up on this novel technique [here](/blog/posts/2025/ai-clickfix-ttp-claude/). To my surprise it worked end to end at first try, check out this brief demo:
+I was curious about trying out the AI ClickFix attack as well. If you are unfamiliar, then read up on this novel technique [here](/blog/posts/2025/ai-clickfix-ttp-claude/). To my surprise it worked end to end at first try, check out this brief and simplified demo:
 
 {{< youtube QlwOUQnUUvM >}}
 
-OpenHands followed the AI ClickFix instructions, clicked the button, which copied shell commands into the clipboard, and finally it pasted the command into a terminal shell and hit ENTER.
+OpenHands followed the AI ClickFix instructions, copied the shell commands and pasted them into the terminal tool.
 
 ## Mitigations - Running In A Sandbox
 
