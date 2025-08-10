@@ -65,9 +65,9 @@ OpenHands followed the AI ClickFix instructions, copied the shell commands and p
 
 ## Mitigations - Running In A Sandbox
 
-For the local version of OpenHands, the guidance is to run it in a sandbox and it's critical to follow those setup instructions. You can find them [here](https://github.com/All-Hands-AI/OpenHands?tab=readme-ov-file#-running-openhands-locally). That ensures exploits are limited to what is available inside the container. Still not great, but that provides some damage control. One can also control outbound network connections via firewall settings.
+For the version of OpenHands that you run locally, the guidance is to run it in a sandbox and it's critical to follow those setup instructions. You can find them [here](https://github.com/All-Hands-AI/OpenHands?tab=readme-ov-file#-running-openhands-locally). That ensures exploits are limited to what is available inside the container. Still not great, because any code, data or secrets inside the VM are still exposed but that mitigates risks of arbitrary access. Additionally, I would suggest to limit outbound network connections via firewall settings. 
 
-However, be careful sharing or using any sensitive API keys, code or data inside the container. This container sandbox does not prevent the image markdown data leakage [we described yesterday](blog/posts/2025/openhands-the-lethal-trifecta-strikes-again/), where your host is the proxy of the request.
+Also, the container sandbox does not prevent the image markdown data leakage [we described yesterday](blog/posts/2025/openhands-the-lethal-trifecta-strikes-again/), where your host is the proxy of the request.
 
 ## Recommended Mitigation
 
