@@ -12,6 +12,10 @@ twitter:
   image: "https://embracethered.com/blog/images/2025/episode10-yt.png"  
 ---
 
+{{< raw_html >}}
+<a id="top_ref"></a>
+{{< /raw_html >}}
+
 Today we have another post about [OpenHands](https://github.com/All-Hands-AI/OpenHands) from All Hands AI. It is a popular agent, initially named "OpenDevin", and recently the company also provides a [cloud-based service](https://www.all-hands.dev/). Which is all pretty cool and exciting.
 
 ## Prompt Injection to Full System Compromise
