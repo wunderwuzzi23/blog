@@ -61,7 +61,7 @@ I was curious about trying out the AI ClickFix attack as well. If you are unfami
 
 {{< youtube QlwOUQnUUvM >}}
 
-OpenHands followed the AI ClickFix instructions, copied the shell commands and pasted them into the terminal tool.
+OpenHands followed the AI ClickFix instructions, copied the shell commands and pasted them into the terminal tool...
 
 ## Mitigations - Running In A Sandbox
 
