@@ -132,7 +132,10 @@
     </div>
   </header>
   <section>
-    <p>Today we cover Claude Code and a high severity vulnerability that Anthropic fixed in early June. The vulnerability allowed an attacker to hijack Claude Code via indirect prompt injection and leak sensitive information from the developer&rsquo;s machine, e.g. API keys, to external servers by issuing DNS requests.</p>
+    
+<a id="top_ref"></a>
+
+<p>Today we cover Claude Code and a high severity vulnerability that Anthropic fixed in early June. The vulnerability allowed an attacker to hijack Claude Code via indirect prompt injection and leak sensitive information from the developer&rsquo;s machine, e.g. API keys, to external servers by issuing DNS requests.</p>
 <h2 id="prompt-injection-hijacks-claude">Prompt Injection Hijacks Claude</h2>
 <p>When reviewing or interacting with untrusted code or processing data from external systems, Claude Code can be hijacked to run bash commands that allow leaking of sensitive information without user approval.</p>
 <p>I recommend reading the details, as there are some interesting tidbits on how this was discovered and also refusals to bypass. But for the busy and informed reader, here is a screenshot with the basic proof-of-concept that I sent to Anthropic:</p>

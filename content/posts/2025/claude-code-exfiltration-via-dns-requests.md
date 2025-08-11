@@ -12,6 +12,10 @@ twitter:
   image: "https://embracethered.com/blog/images/2025/episode11-yt.png"  
 ---
 
+{{< raw_html >}}
+<a id="top_ref"></a>
+{{< /raw_html >}}
+
 Today we cover Claude Code and a high severity vulnerability that Anthropic fixed in early June. The vulnerability allowed an attacker to hijack Claude Code via indirect prompt injection and leak sensitive information from the developer's machine, e.g. API keys, to external servers by issuing DNS requests.
 
 ## Prompt Injection Hijacks Claude
