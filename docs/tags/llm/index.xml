@@ -17,7 +17,7 @@
       <description>Today we cover Claude Code and a high severity vulnerability that Anthropic fixed in early June. The vulnerability allowed an attacker to hijack Claude Code via indirect prompt injection and leak sensitive information from the developer&amp;rsquo;s machine, e.g. API keys, to external servers by issuing DNS requests.&#xA;Prompt Injection Hijacks Claude When reviewing or interacting with untrusted code or processing data from external systems, Claude Code can be hijacked to run bash commands that allow leaking of sensitive information without user approval.</description>
     </item>
     <item>
-      <title>OpenHands ZombAI Exploit: Prompt Injection To Remote Code Execution</title>
+      <title>ZombAI Exploit with OpenHands: Prompt Injection To Remote Code Execution</title>
       <link>https://embracethered.com/blog/posts/2025/openhands-remote-code-execution-zombai/</link>
       <pubDate>Sun, 10 Aug 2025 04:20:58 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2025/openhands-remote-code-execution-zombai/</guid>

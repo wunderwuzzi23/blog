@@ -1,5 +1,5 @@
 ---
-title: "OpenHands ZombAI Exploit: Prompt Injection To Remote Code Execution"  
+title: "ZombAI Exploit with OpenHands: Prompt Injection To Remote Code Execution"  
 date: 2025-08-10T04:20:58-07:00  
 draft: true  
 tags: ["llm", "agents", "month of ai bugs"]
@@ -7,7 +7,7 @@ twitter:
   card: "summary_large_image"  
   site: "@wunderwuzzi23"  
   creator: "@wunderwuzzi23"  
-  title: "OpenHands ZombAI Exploit: Prompt Injection To Remote Code Execution"  
+  title: "ZombAI Exploit with OpenHands: Prompt Injection To Remote Code Execution"  
   description: "When processing untrusted data OpenHands can be hijacked to run remote code (RCE) and connect to an attacker's command and control system"  
   image: "https://embracethered.com/blog/images/2025/episode10-yt.png"  
 ---
