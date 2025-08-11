@@ -1,6 +1,6 @@
 ---
 title: "Claude Code: Data Exfiltration with DNS Requests"  
-date: 2025-08-11T05:20:58-07:00  
+date: 2025-08-11T04:20:58-07:00  
 draft: true  
 tags: ["llm", "agents", "month of ai bugs"] 
 twitter:  
