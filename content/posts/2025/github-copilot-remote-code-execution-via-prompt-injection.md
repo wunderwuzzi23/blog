@@ -132,7 +132,7 @@ One might say that it would be quickly discovered if instructions are embedded a
 
 ## Recommendations and Fix
 
-There are actually more attack angles then just the YOLO mode example I shared. When Microsoft asked me if there is any more info I have, I had looked a bit more and noticed that there are other places there are other places that are problematic, for instance `.vscode/tasks.json` that the AI can write to, which can lead to code execution and of course GitHub actions are yet another avenue. And the AI can reconfigure the user interface and configuration settings of the project.
+There are actually more attack angles then just the YOLO mode example I shared. When Microsoft asked me if there is any more info I have, I had looked a bit more and noticed that there are other places there are other places that are problematic, for instance `.vscode/tasks.json` that the AI can write to, or adding fake malicious MCP servers, etc which can lead to code execution. And the AI can reconfigure the user interface and configuration settings of the project.
 
 **Recently I noticed that developers often use multiple agents, so there is also the threat of overwriting other agent configuration files (allow-list bash commands, add MCP servers...), as they are commonly in the project folder as well.**
 
