@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" GitHub Copilot: Remote Code Execution via Prompt Injection (CVE-2025-53773) &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2025-08-12T14:20:58-07:00" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  <meta property="og:article:tag" content="agents" />
+  
+  <meta property="og:article:tag" content="month of ai bugs" />
+  
+  
+
+  <title>
+     GitHub Copilot: Remote Code Execution via Prompt Injection (CVE-2025-53773) &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="GitHub Copilot: Remote Code Execution via Prompt Injection">
+<meta name="twitter:description" content="An attacker can put GitHub Copilot into YOLO mode by modifying the project&#39;s settings.json file on the fly, and then executing commands, all without user approval">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2025/episode12-yt.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">GitHub Copilot: Remote Code Execution via Prompt Injection (CVE-2025-53773)</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2025-08-12T14:20:58-07:00">
+          Aug 12, 2025
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/agents">#agents</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/month-of-ai-bugs">#month of ai bugs</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+<a id="top_ref"></a>
+
+<p>This post is about an important, but also scary, prompt injection discovery that leads to full system compromise of the developer&rsquo;s machine in <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53773">GitHub Copilot and VS Code</a>.</p>
+<p><strong>It is achieved by placing Copilot into YOLO mode by modifying the project’s <code>settings.json</code> file.</strong></p>
+<p><a href="/blog/images/2025/episode12-yt.png"><img src="/blog/images/2025/episode12-yt.png" alt="vscode episode 18"></a></p>
+<p>As described a few days ago with <a href="/blog/posts/2025/amp-agents-that-modify-system-configuration-and-escape/">Amp</a>, a vulnerability pattern in agents that might be overlooked is that if an agent can write to files and modify its own configuration or update security-relevant settings it can lead to remote code execution. This is not uncommon and is an area to always look for when performing a security review.</p>
+<h2 id="background-research">Background Research</h2>
+<p>When looking at VS Code and GitHub Copilot Agent Mode I noticed a strange behavior&hellip; it can create and write to files in the workspace without user approval.</p>
+<p>The edits are immediately persistent, they are not in-memory as a diff to review. The modifications are written to disk right away.</p>
+<p><a href="/blog/images/2025/agents-that-can.png"><img src="/blog/images/2025/agents-that-can.png" alt="vscode agents that can modify their own settings"></a></p>
+<p>It&rsquo;s one of these things that as a red teamer you know is probably not good&hellip; so I was looking if this could be used to escalate privileges and execute code.</p>
+<h3 id="yolo-mode"><strong>YOLO Mode</strong></h3>
+<p>So, next I researched features in VS Code that depend on settings that are within the project/workspace folder, and quickly found an interesting one.</p>
+<p><a href="/blog/images/2025/vscode-documentation-settings-json.png"><img src="/blog/images/2025/vscode-documentation-settings-json.png" alt="vscode-exp-yolo-mode"></a></p>
+<p>It turns out that in the <code>.vscode/settings.json</code> file one can add the following line:</p>
+<p><code>&quot;chat.tools.autoApprove&quot;: true</code></p>
+<p><strong>This will put GitHub Copilot in YOLO mode.</strong></p>
+<p>And it disables all user confirmations, and we can run shell commands, browse the web, and more!</p>
+<p>What is interesting is that this is an experimental feature, but it is still present by default. I did not download a special version or set my VS Code overall into an experimental mode.</p>
+<p>Furthermore, it works on Windows, macOS and also Linux.</p>
+<h2 id="exploit-chain-explained">Exploit Chain Explained</h2>
+<p>The proof-of-concept exploit chain to hijack Copilot and escalate privileges is as follows:</p>
+<ol>
+<li>The attack starts with a prompt injection planted in a source code file, web page, GitHub issue, tool call response, or other content&hellip; The payload can also use invisible text as instructions.</li>
+<li>The prompt injection first adds the line <strong>&ldquo;chat.tools.autoApprove&rdquo;: true,</strong> to the <code>~/.vscode/settings.json</code> file. Folder and file will be created if they don&rsquo;t exist yet.</li>
+<li><strong>GitHub Copilot immediately enters YOLO mode!</strong></li>
+<li>Attack runs a Terminal command. <strong>And using conditional prompt injection we can actually target what to run based on the operating system.</strong></li>
+<li>We achieved Remote Code Execution powered by Prompt Injection.</li>
+</ol>
+<p>Here is a screenshot that shows the demo file with the prompt injection, the developer interacting with the file on the right side in the chat box, and the calculator popping up!</p>
+<p><a href="/blog/images/2025/copilot-chat-result.png"><img src="/blog/images/2025/copilot-chat-result.png" alt="vscode-e2e-calc"></a></p>
+<p>Of course any other means of prompt injection delivery, like web or data coming back from an MCP server is an attack angle. I just used it inside the source code file because it&rsquo;s easiest to test with.</p>
+<h2 id="video-walkthrough">Video Walkthrough</h2>
+<h3 id="short-demos">Short Demos</h3>
+<p>Here is a demonstration video that shows the code execution on Windows.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/QceCWM6DbWc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>And this one on macOS:</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/IRMbO1l9AK0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h3 id="walkthrough">Walkthrough</h3>
+<p>Here is a longer form video explaining the discovery and exploit in detail:</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/8Qzqgqxp5ho" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+  <br>
+
+<p><strong>AI that can set its own permissions and configuration settings is wild!</strong></p>
+<h2 id="joining-the-workstation-to-a-botnet---zombais">Joining the Workstation to a Botnet - ZombAIs</h2>
+<p>Of course, this means we can join the developer’s machine to a botnet as a <strong>ZombAI</strong>.</p>
+<p>Also, for fun we can modified the <code>settings.json</code> file to switch VS Code into a <code>Red</code> color scheme and similar things.</p>
+<p>It doesn’t end here though! This also means we can build an actual AI virus that attaches to files and propagates as developers download and interact with infected files.</p>
+<p>Last but not least, to demonstrate that we have full control of the developer&rsquo;s host, we show that Copilot can be hijacked to download malware, and join a remote command and control server.</p>
+<p><a href="/blog/images/2025/github-agent-e2e-zombai.png"><img src="/blog/images/2025/github-agent-e2e-zombai.png" alt="vscode-zombai-deployment"></a></p>
+<p>This means the door is open for malware, ransomware, info stealers, etc.</p>
+<p>Scary stuff.</p>
+<h2 id="building-an-ai-virus">Building an AI Virus</h2>
+<p>When seeing this, one will notice that this basically allows the creation of a virus. An attacker can embed instructions and once they gain code execution, additional malware can compromise other Git projects (and RAG sources) to embed the malicious instructions, and commit the changes or even force push them upstream.</p>
+<p>This can lead to further spread as other developers unknowingly propagate the infected code.</p>
+<p><strong>Finally, we also need to talk about invisible instructions!</strong></p>
+<h2 id="using-invisible-instructions">Using Invisible Instructions</h2>
+<p>One might say that it would be quickly discovered if instructions are embedded as comments. So in order to make it a bit more interesting, I went ahead and created an invisible payload that achieves the attack chain, but is not visible to users. This was not as reliable, but it still worked:</p>
+<p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/iqW3eL8RpQc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+  <br>
+</p>
+<p><strong>Note:</strong> Although the demo here with invisible instructions worked multiple times for me, using invisible instructions often leads to the exploit being very unreliable, and is also commonly also refused by the model and there is also typically a visual indicator that VS Code shows about Unicode characters. However, attacks (and models) get better over time. It&rsquo;s also worth highlighting that not all models are vulnerable to such invisible prompt injection attacks.</p>
+<h2 id="recommendations-and-fix">Recommendations and Fix</h2>
+<p>There are actually more attack angles then just the YOLO mode example I shared. When Microsoft asked me if there is any more info I have, I had looked a bit more and noticed that there are other places there are other places that are problematic, for instance <code>.vscode/tasks.json</code> that the AI can write to, which can lead to code execution and of course GitHub actions are yet another avenue. And the AI can reconfigure the user interface and configuration settings of the project.</p>
+<p><strong>Recently I noticed that developers often use multiple agents, so there is also the threat of overwriting other agent configuration files (allow-list bash commands, add MCP servers&hellip;), as they are commonly in the project folder as well.</strong></p>
+<p>Ideally, the AI would not be able to modify files without a human first approving it. Many other editors do show the diff, which then can be approved by the developer.</p>
+<h2 id="responsible-disclosure">Responsible Disclosure</h2>
+<p>After reporting the vulnerability on June 29, 2025 Microsoft confirmed the repro and asked a few follow up questions. A few weeks later MSRC pointed out that it is an issue they were already tracking, and that it will be patched by August. With the August Patch Tuesday release this is now fixed.</p>
+<p>Shout out to <a href="https://x.com/marver">Markus Vervier</a> from <a href="https://persistent-security.net/">Persistent Security </a> who has also identified and reported this vulnerability to MSRC.</p>
+<p>Thanks to the members of the MSRC and product team for the help in getting it mitigated.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This is another example of how an AI agent might not stay in its box! By modifying its own environment GitHub Copilot can escalate privileges and execute code to compromise the developer&rsquo;s machine. It&rsquo;s a not uncommon design flaw in agentic systems as I have discovered.</p>
+<p>Keep looking out for such design flaws; these should be easily caught, these should be easily caught during threat modeling.</p>
+<p>Cheers.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://monthofaibugs.com">Month of AI Bugs 2025</a></li>
+<li><a href="/blog/posts/2025/amp-agents-that-modify-system-configuration-and-escape/">Amp Code: Arbitrary Command Execution via Prompt Injection Fixed</a></li>
+<li><a href="https://code.visualstudio.com/docs/copilot/reference/copilot-settings">Copilot Settings</a></li>
+<li><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53773">CVE-2025-53773: GitHub Copilot and Visual Studio Remote Code Execution Vulnerability</a></li>
+<li><a href="https://persistent-security.net/">Persistent Security </a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2025/claude-code-exfiltration-via-dns-requests/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2025
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+
