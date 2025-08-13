@@ -142,7 +142,7 @@ Ideally, the AI would not be able to modify files without a human first approvin
 
 After reporting the vulnerability on June 29, 2025 Microsoft confirmed the repro and asked a few follow up questions. A few weeks later MSRC pointed out that it is an issue they were already tracking, and that it will be patched by August. With the August Patch Tuesday release this is now fixed. 
 
-Shout out to [Markus Vervier](https://x.com/marver) from [Persistent Security ](https://persistent-security.net/) who has also identified and reported this vulnerability to MSRC.
+Shout out to [Markus Vervier](https://x.com/marver) from [Persistent Security ](https://persistent-security.net/) who has also identified and reported this vulnerability to Microsoft. You can find their write-up [here](https://www.persistent-security.net/post/part-iii-vscode-copilot-wormable-command-execution-via-prompt-injection).
 
 Thanks to the members of the MSRC and product team for the help in getting it mitigated.
 
@@ -160,5 +160,6 @@ Cheers.
 * [Amp Code: Arbitrary Command Execution via Prompt Injection Fixed](/blog/posts/2025/amp-agents-that-modify-system-configuration-and-escape/)
 * [Copilot Settings](https://code.visualstudio.com/docs/copilot/reference/copilot-settings)
 * [CVE-2025-53773: GitHub Copilot and Visual Studio Remote Code Execution Vulnerability](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53773)
+* [Persistent Security Write-Up](https://www.persistent-security.net/post/part-iii-vscode-copilot-wormable-command-execution-via-prompt-injection)
 * [Persistent Security ](https://persistent-security.net/)
 

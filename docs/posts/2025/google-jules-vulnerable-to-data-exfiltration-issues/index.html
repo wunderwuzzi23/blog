@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#"><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Google Jules: Vulnerable Vulnerable To Multiple Data Exfiltration Issues &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="http://localhost:1313/blog/posts/2025/google-jules-vulnerable-to-data-exfiltration-issues/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2025-08-12T11:20:58-07:00" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  <meta property="og:article:tag" content="agents" />
+  
+  <meta property="og:article:tag" content="month of ai bugs" />
+  
+  
+
+  <title>
+     Google Jules: Vulnerable Vulnerable To Multiple Data Exfiltration Issues &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="http://localhost:1313/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="http://localhost:1313/blog/css/main.css" />
+  <link rel="stylesheet" href="http://localhost:1313/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="http://localhost:1313/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="http://localhost:1313/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost:1313/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="http://localhost:1313/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Google Jules: Coding Agent is vulnerable to data exfiltration via markdown image rendering">
+<meta name="twitter:description" content="Jules is vulnerable to Prompt Injection and can be exploited to leak sensitive source code, environment variables and other information on the host">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2025/TODO">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="http://localhost:1313/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="http://localhost:1313/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Google Jules: Vulnerable Vulnerable To Multiple Data Exfiltration Issues</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2025-08-12T11:20:58-07:00">
+          Aug 12, 2025
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="http://localhost:1313/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="http://localhost:1313/blog//tags/agents">#agents</a></span>
+        
+        <span class="post-tag small"><a href="http://localhost:1313/blog//tags/month-of-ai-bugs">#month of ai bugs</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+<a id="top_ref"></a>
+
+<p>This post explores data exfiltration attacks in Google Jules, an asynchronous coding agent. This is the first of three posts that will highlight my research on Google Jules in May 2025. All information provided was also shared with Google at that time.</p>
+<p>This first post will focus on data exfiltration, the <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">lethal trifecta</a>.</p>
+<p><a href="/blog/images/2025/episode13-yt.png"><img src="/blog/images/2025/episode13-yt.png" alt="vscode episode 13"></a></p>
+<p>But let&rsquo;s first talk about Jules&rsquo; system prompt.</p>
+<h2 id="jules-system-prompt-and-multiple-agents">Jules&rsquo; System Prompt and Multiple Agents</h2>
+<p>To grab the system prompt I just asked it to write it into a file.</p>
+<p><a href="/blog/images/2025/jules-system-prompt.png"><img src="/blog/images/2025/jules-system-prompt.png" alt="jules system prompt"></a></p>
+<p>What was interesting is that after few tests, I noticed that it seems there are multiple agents involved. The <a href="%5D(https://github.com/wunderwuzzi23/scratch/blob/master/system_prompts/jules-main-agent-2025-05-22.md)">main Jules agent</a> proposes the plan and then hands off subtasks to worker agents. The <a href="(https://github.com/wunderwuzzi23/scratch/blob/master/system_prompts/jules_worker_tools_2025-05-31.txt)">worker agents</a> have different tools and capabilities.</p>
+<p>I&rsquo;m still not 100% sure if I got the two system prompts right, but it doesn&rsquo;t matter much the retrieved info allowed me to understand what tools each agent has available. And Jules has quite a lot of tools to it&rsquo;s disposal.</p>
+<p>So, let&rsquo;s focus on the core of this post, data exfiltration avenues.</p>
+<h2 id="jules-data-exfiltration-vectors">Jules&rsquo; Data Exfiltration Vectors</h2>
+<p>There were a couple of different data exfiltration vectors identified with Jules that an attacker can leverage during prompt injection. The first two I&rsquo;m describing in this post and the third one I&rsquo;ll describe more tomorrow, as it goes beyond leaking data.</p>
+<p><strong>Exfiltration vectors are:</strong></p>
+<ul>
+<li>Image Rendering via Markdown Syntax</li>
+<li><code>view_text_website</code> tool</li>
+<li>Generic RCE with unrestricted Internet access - we will talk more about that in tomorrow&rsquo;s post!</li>
+</ul>
+<p>A realistic attack avenue are GitHub issues that might contain instructions that trick the AI to initiate attacks. Since June one can <a href="https://jules.google/docs/changelog/#jules-now-listens-to-github-issues">just tag a GitHub issue with <code>Jules</code> and the agent will start working on it</a>, but as you know prompt injection can also come from other places.</p>
+<p>Let&rsquo;s discuss the various scenarios in detail.</p>
+<h3 id="exfiltration-vector-1--markdown-image-rendering">Exfiltration Vector 1:  Markdown Image Rendering</h3>
+<p>The first test was to have Jules load a specific webpage to simulate a prompt injection. I have this page here up for a long time <a href="https://wuzzi.net/posts/image-backup-how-to/">https://wuzzi.net/posts/image-backup-how-to/</a>.</p>
+<p><a href="/blog/images/2025/jules-wuzzi-website.png"><img src="/blog/images/2025/jules-wuzzi-website.png" alt="jules system prompt"></a></p>
+<p>Then I asked Jules to check it out&hellip;</p>
+<pre tabindex="0"><code>view_text_website(&#34;https://wuzzi.net/posts/image-backup-how-to/&#34;)
+</code></pre><p>Jules follows the instructions, and proposes a plan, and it also <strong>auto-approves</strong> the plan after some time. Initially this was a 30 second countdown, and has later been increased to two minutes last time I checked.</p>
+<p>The result was that it took information from an earlier message, appended it to the target attacker controlled URL and then Jules issued the web request to load the image.</p>
+<p><a href="/blog/images/2025/jules-prompt-injection-leak.png"><img src="/blog/images/2025/jules-prompt-injection-leak.png" alt="jules system prompt leak"></a></p>
+<p>This leaks information to the attacker. You can find the prompt injection payload on the website directly by the way, if you are curious to see the text on the webpage.</p>
+<p>This zero-click image rendering vulnerability is quite common and we have seen this in dozens of AI applications over the last 2+ years.</p>
+<p>So, next, let&rsquo;s look at something different!</p>
+<h3 id="exfiltration-vector-2-calling-the-view_text_website-tool">Exfiltration Vector 2: Calling the view_text_website Tool</h3>
+<p>More novel, although increasingly common, and just as dangerous, is the tool Jules uses to load and extract text from web sites. It can also be invoked to send data to an attacker controlled URL.</p>
+<p>This is possible without running an OS command. An attacker can just invoke this tool during prompt injection to read any information from the Jules machine and then exfiltrate it using the tool.</p>
+<p>Attacker plants prompt injection payload, e.g. in a GitHub issue, that contain instructions to read data from the Jules machine and then invoke the <code>view_text_website</code> tool to exfiltrate the data.</p>
+<p>I placed the attack payload into a GitHub issue with this as the main description:</p>
+<p><a href="/blog/images/2025/jules-webtool-leakage-e2e.png"><img src="/blog/images/2025/jules-webtool-leakage-e2e.png" alt="data exfil e2e"></a></p>
+<p>Here you can see the nefarious GitHub issue:</p>
+<p><a href="/blog/images/2025/jules-webtool-prompt-injection-payload.png"><img src="/blog/images/2025/jules-webtool-prompt-injection-payload.png" alt="jules web tool leakage prompt injection payload"></a></p>
+<p>The prompt injection text is also in the <a href="#appendix">Appendix</a> if you are curious.</p>
+<p>Once Jules navigates to this Github issue, it gets hijacked and the attacker controlled instructions are followed. It reads a source code file and leaks the entire file to the attacker&rsquo;s server via the <code>view_text_website</code> tool.</p>
+<h3 id="human-in-the-loop-bypass">Human in the Loop Bypass</h3>
+<p>As mentioned, Jules normally first proposes a plan which after the user approves is handed off to worker agents to go implement the plan.</p>
+<p>The worker agent has more tools and capabilities, such as for instance running bash commands.</p>
+<p><strong>What was so unique in this case is that the attack completes, before Jules proposes a plan. All actions occur in the main Jules agent (not requiring capabilities of the worker agent), or approval of a plan.</strong></p>
+<p>And while writing this, I just realized they same must be true, for the image rendering described earlier!</p>
+<p>The result is an end-to-end exploit that grabs another file off the machine and sends the entire contents of the file to the attacker&rsquo;s server.</p>
+<p>This was the second path for data exfiltration. Check out the post tomorrow for the third one, where we hijack Jules and trick it to run malware, which turns it into a ZombAI.</p>
+<h2 id="the-lethal-trifecta">The Lethal Trifecta</h2>
+<p>Recently Simon Willison gave this data leakage pattern a great name by the way, he called it the <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">lethal trifecta</a>. I really like that, and it inspired me to come up with the AI Kill Chain: prompt injection -&gt; confused deputy -&gt; automatic tool invocation.</p>
+<h2 id="recommendations-and-mitigations">Recommendations and Mitigations</h2>
+<p>There are a couple of improvements that can be made to mitigate such issues:</p>
+<ul>
+<li>For image rendering a CSP has been shown to be effective to only load resources from trusted locations and consider additional mitigations (e.g not rendering images at all)</li>
+<li>For the <code>view_text_website</code> create a configurable allowlist of domains that Jules can access, ask for human approval, or highlight all external communication explicitly in the plan before connecting, do not connect to other domains.</li>
+</ul>
+<p>These vulnerabilities were disclosed to Google on May 21, 2025.</p>
+<p>Recently Google Jules went out of beta, and is now generally available. However the security vulnerabilities have not been mitigated as part of general availability release as far as I can tell.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Google Jules is not in a sandbox (e.g. Content Security Policy, outbound network access) which means Jules is capable of leaking any information accessible to it to third-party servers.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://jules.google.com">Google Jules</a></li>
+<li><a href="https://monthofaibugs.com">Month of AI Bugs 2025</a></li>
+<li><a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">Lethal trifecta</a></li>
+<li><a href="https://jules.google/docs/changelog/#jules-now-listens-to-github-issues">Jules Now Listens to GitHub Issues</a>.</li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next"><a href="http://localhost:1313/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="http://localhost:1313/blog/posts/2025/claude-code-exfiltration-via-dns-requests/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2025
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="http://localhost:1313/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

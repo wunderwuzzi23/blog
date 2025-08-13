@@ -219,7 +219,7 @@
 <p>Ideally, the AI would not be able to modify files without a human first approving it. Many other editors do show the diff, which then can be approved by the developer.</p>
 <h2 id="responsible-disclosure">Responsible Disclosure</h2>
 <p>After reporting the vulnerability on June 29, 2025 Microsoft confirmed the repro and asked a few follow up questions. A few weeks later MSRC pointed out that it is an issue they were already tracking, and that it will be patched by August. With the August Patch Tuesday release this is now fixed.</p>
-<p>Shout out to <a href="https://x.com/marver">Markus Vervier</a> from <a href="https://persistent-security.net/">Persistent Security </a> who has also identified and reported this vulnerability to MSRC.</p>
+<p>Shout out to <a href="https://x.com/marver">Markus Vervier</a> from <a href="https://persistent-security.net/">Persistent Security </a> who has also identified and reported this vulnerability to Microsoft. You can find their write-up <a href="https://www.persistent-security.net/post/part-iii-vscode-copilot-wormable-command-execution-via-prompt-injection">here</a>.</p>
 <p>Thanks to the members of the MSRC and product team for the help in getting it mitigated.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>This is another example of how an AI agent might not stay in its box! By modifying its own environment GitHub Copilot can escalate privileges and execute code to compromise the developer&rsquo;s machine. It&rsquo;s a not uncommon design flaw in agentic systems as I have discovered.</p>
@@ -231,6 +231,7 @@
 <li><a href="/blog/posts/2025/amp-agents-that-modify-system-configuration-and-escape/">Amp Code: Arbitrary Command Execution via Prompt Injection Fixed</a></li>
 <li><a href="https://code.visualstudio.com/docs/copilot/reference/copilot-settings">Copilot Settings</a></li>
 <li><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53773">CVE-2025-53773: GitHub Copilot and Visual Studio Remote Code Execution Vulnerability</a></li>
+<li><a href="https://www.persistent-security.net/post/part-iii-vscode-copilot-wormable-command-execution-via-prompt-injection">Persistent Security Write-Up</a></li>
 <li><a href="https://persistent-security.net/">Persistent Security </a></li>
 </ul>
 
