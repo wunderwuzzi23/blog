@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Tue, 12 Aug 2025 14:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 13 Aug 2025 15:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Jules: Vulnerable to Multiple Data Exfiltration Issues</title>
+      <link>https://embracethered.com/blog/posts/2025/google-jules-vulnerable-to-data-exfiltration-issues/</link>
+      <pubDate>Wed, 13 Aug 2025 15:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/google-jules-vulnerable-to-data-exfiltration-issues/</guid>
+      <description>This post explores data exfiltration attacks in Google Jules, an asynchronous coding agent. This is the first of three posts that will highlight my research on Google Jules in May 2025. All information provided was also shared with Google at that time.&#xA;This first post will focus on data exfiltration, the lethal trifecta.&#xA;But let&amp;rsquo;s first talk about Jules&amp;rsquo; system prompt.&#xA;Jules&amp;rsquo; System Prompt and Multiple Agents To grab the system prompt I just asked it to write it into a file.</description>
+    </item>
     <item>
       <title>GitHub Copilot: Remote Code Execution via Prompt Injection (CVE-2025-53773)</title>
       <link>https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/</link>
