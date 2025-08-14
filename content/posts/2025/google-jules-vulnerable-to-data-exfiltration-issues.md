@@ -7,7 +7,7 @@ twitter:
   card: "summary_large_image"  
   site: "@wunderwuzzi23"  
   creator: "@wunderwuzzi23"  
-  title: "Google Jules: Coding Agent is vulnerable to data exfiltration via markdown image rendering"  
+  title: "Google Jules: Vulnerable to Multiple Data Exfiltration Issues"  
   description: "Jules is vulnerable to Prompt Injection and can be exploited to leak sensitive source code, environment variables and other information on the host"  
   image: "https://embracethered.com/blog/images/2025/episode13-yt.png"  
 ---
