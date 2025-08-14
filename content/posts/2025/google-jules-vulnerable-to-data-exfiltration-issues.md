@@ -38,7 +38,7 @@ So, let's focus on the core of this post, data exfiltration avenues.
 
 ## Jules' Data Exfiltration Vectors
 
-There were a couple of different data exfiltration vectors identified with Jules that an attacker can leverage during prompt injection. The first two I'm describing in this post and the third one I'll describe more tomorrow, as it goes beyond leaking data. 
+There were a couple of different data exfiltration vectors identified with Jules that an attacker can leverage during prompt injection. The first two I'm describing in this post and the third one, can be found [here](/blog/posts/2025/google-jules-remote-code-execution-zombai/), as it goes beyond leaking data. 
 
 **Exfiltration vectors are:**  
 * Image Rendering via Markdown Syntax
@@ -103,7 +103,7 @@ And while writing this, I just realized the same must be true, for the image ren
 
 The result is an end-to-end exploit that grabs another file off the machine and sends the entire contents of the file to the attacker's server.
 
-Check out tomorrow's post for the third data exfiltration example, where we hijack Jules and trick it to run arbitrary code, turning it into a ZombAI.
+[Check out the next post](/blog/posts/2025/google-jules-remote-code-execution-zombai/) for the third data exfiltration example, where we hijack Jules and trick it to run arbitrary code, turning it into a ZombAI.
 
 ## The Lethal Trifecta
 

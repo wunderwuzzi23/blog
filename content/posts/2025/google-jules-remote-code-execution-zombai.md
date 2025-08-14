@@ -79,7 +79,7 @@ Also, the initially proposed plan is auto-approved after a certain amount of tim
 
 Today's post demonstrated how coding agents like Jules can be weaponized to run malware via indirect prompt injection. With unrestricted Internet access and shell execution, an attack could have a significant impact. I mentioned this before, but asynchronous agents with access to private data or source code are basically similar to a malicious insider threat - which is a known risk. However, proliferation, scale and velocity of attacks could differ quite a bit.
 
-Tomorrow, we'll look at how such prompt injection attacks can be stealthy and invisible, and how Google Jules will still get hijacked.
+The next post will explore how such prompt injection attacks can be stealthy and invisible, and how Google Jules will still get hijacked.
 
 ## References
 

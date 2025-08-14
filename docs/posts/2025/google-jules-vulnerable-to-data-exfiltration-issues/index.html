@@ -146,7 +146,7 @@
 <p>I&rsquo;m still not 100% sure if I got the two system prompts right, but that didn&rsquo;t matter much, as the retrieved info allowed me to understand what tools each agent has available. Jules has quite a lot of tools at its disposal.</p>
 <p>So, let&rsquo;s focus on the core of this post, data exfiltration avenues.</p>
 <h2 id="jules-data-exfiltration-vectors">Jules&rsquo; Data Exfiltration Vectors</h2>
-<p>There were a couple of different data exfiltration vectors identified with Jules that an attacker can leverage during prompt injection. The first two I&rsquo;m describing in this post and the third one I&rsquo;ll describe more tomorrow, as it goes beyond leaking data.</p>
+<p>There were a couple of different data exfiltration vectors identified with Jules that an attacker can leverage during prompt injection. The first two I&rsquo;m describing in this post and the third one, can be found <a href="/blog/posts/2025/google-jules-remote-code-execution-zombai/">here</a>, as it goes beyond leaking data.</p>
 <p><strong>Exfiltration vectors are:</strong></p>
 <ul>
 <li>Image Rendering via Markdown Syntax</li>
@@ -181,7 +181,7 @@
 <p><strong>What was so unique in this case is that the attack completes before Jules proposes the plan. All actions occur in the main Jules agent (not requiring capabilities of the worker agent), or approval of a plan.</strong></p>
 <p>And while writing this, I just realized the same must be true, for the image rendering described earlier!</p>
 <p>The result is an end-to-end exploit that grabs another file off the machine and sends the entire contents of the file to the attacker&rsquo;s server.</p>
-<p>Check out tomorrow&rsquo;s post for the third data exfiltration example, where we hijack Jules and trick it to run arbitrary code, turning it into a ZombAI.</p>
+<p><a href="/blog/posts/2025/google-jules-remote-code-execution-zombai/">Check out the next post</a> for the third data exfiltration example, where we hijack Jules and trick it to run arbitrary code, turning it into a ZombAI.</p>
 <h2 id="the-lethal-trifecta">The Lethal Trifecta</h2>
 <p>Recently Simon Willison gave this data leakage pattern a great name by the way, he calls it the <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">lethal trifecta</a>. I really like the term.  It inspired me to come up with the <code>AI Kill Chain</code>: prompt injection -&gt; confused deputy -&gt; automatic tool invocation.</p>
 <h2 id="recommendations-and-mitigations">Recommendations and Mitigations</h2>
