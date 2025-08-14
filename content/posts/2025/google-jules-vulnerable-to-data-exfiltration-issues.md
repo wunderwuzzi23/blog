@@ -45,7 +45,7 @@ There were a couple of different data exfiltration vectors identified with Jules
 * `view_text_website` tool   
 * Generic RCE with unrestricted Internet access - we will talk more about that in tomorrow's post!
 
-A realistic attack avenue are GitHub issues that contain instructions to trick the AI into initiating attacks. Since June one can [tag a GitHub issue with `Jules` and the agent will start working on it](https://jules.google/docs/changelog/#jules-now-listens-to-github-issues) apparently, but as you know prompt injection can also come from other places.
+A realistic attack avenue are GitHub issues that contain instructions to trick the AI into initiating attacks. Since June one can [tag a GitHub issue with `jules` and the agent will start working on it](https://jules.google/docs/changelog/#jules-now-listens-to-github-issues) apparently, but as you know prompt injection can also come from other places.
 
 Let's discuss the various scenarios in detail.
 
@@ -133,5 +133,5 @@ Part of the reason for the Month of AI Bugs series is to help raise awareness of
 * [Google Jules](https://jules.google.com)
 * [Month of AI Bugs 2025](https://monthofaibugs.com)
 * [Lethal trifecta](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/)
-* [Jules Now Listens to GitHub Issues](https://jules.google/docs/changelog/#jules-now-listens-to-github-issues).
+* [Jules Now Listens to GitHub Issues](https://jules.google/docs/changelog/#jules-now-listens-to-github-issues)
 

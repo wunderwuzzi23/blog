@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Jules Zombie Agent: From Prompt Injection to Remote Control &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2025/google-jules-remote-code-execution-zombai/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2025-08-14T04:20:58-07:00" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  <meta property="og:article:tag" content="agents" />
+  
+  <meta property="og:article:tag" content="month of ai bugs" />
+  
+  
+
+  <title>
+     Jules Zombie Agent: From Prompt Injection to Remote Control &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Jules Zombie Agent: From Prompt Injection to Remote Control (ZombAI)">
+<meta name="twitter:description" content="Jules is vulnerable to Prompt Injection and can be exploited to leak sensitive source code, environment variables and achieve remote command &amp; control by joining a botnet.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2025/episode14-yt.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Jules Zombie Agent: From Prompt Injection to Remote Control</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2025-08-14T04:20:58-07:00">
+          Aug 14, 2025
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/agents">#agents</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/month-of-ai-bugs">#month of ai bugs</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+<a id="top_ref"></a>
+
+<p>In the <a href="/blog/posts/2025/google-jules-vulnerable-to-data-exfiltration-issues/">previous post</a>, we explored two data exfiltration vectors that Jules is vulnerable to and that can be exploited via prompt injection. This post takes it further by demonstrating how Jules can be convinced to download malware and join a remote command &amp; control server.</p>
+<p><a href="/blog/images/2025/episode14-yt.png"><img src="/blog/images/2025/episode14-yt.png" alt="vscode episode 14"></a></p>
+<p>The information in this post was shared with Google in May 2025.</p>
+<h2 id="remote-command--control---proof-of-concept">Remote Command &amp; Control - Proof Of Concept</h2>
+<p>The basic attack chain follows the classic AI Kill Chain:</p>
+<ul>
+<li>Prompt Injection 💉</li>
+<li>Confused Deputy 🤷‍♂️</li>
+<li>Automatic Tool Invocation 🔧</li>
+</ul>
+<p>From the worker agent&rsquo;s <a href="https://github.com/wunderwuzzi23/scratch/blob/master/system_prompts/jules_worker_tools_2025-05-31.txt">system prompt</a> we know there is a tool called <code>run_in_bash_session</code>. This tool allows the agent to execute arbitrary operating system commands.</p>
+<p>With this knowledge, we can craft a prompt injection payload that targets that tool, uses it to download malware, and execute it.</p>
+<h3 id="what-about-network-connectivity">What About Network Connectivity?</h3>
+<p>Turns out Jules has unrestricted outbound Internet connectivity.</p>
+<h3 id="prompt-injection-embedded-in-github-issue">Prompt Injection Embedded in GitHub Issue</h3>
+<p>Prompt injection instructions that originate from GitHub issues seem quite plausible, although not the only place an indirect prompt injection can occur. Recently, a new feature was added to Jules <a href="https://jules.google/docs/changelog/#jules-now-listens-to-github-issues">where one can tag a GitHub issue</a> with <code>jules</code> and the agent will start working on it.</p>
+<p>For the C2 server, I used Sliver, and created a basic implant for Jules to download.</p>
+<p>The following screenshot shows the prompt injection payload that hijacked Jules and installed the malware:</p>
+<p><a href="/blog/images/2025/jules-github-issue-c2.png"><img src="/blog/images/2025/jules-github-issue-c2.png" alt="jules prompt injection payload c2"></a></p>
+<p>As you can see, such attacks are surprisingly straightforward.</p>
+<p>The result can be seen in this screenshot:</p>
+<p><a href="/blog/images/2025/jules-c2-e2e.png"><img src="/blog/images/2025/jules-c2-e2e.png" alt="jules e2e zombai"></a></p>
+<p>You can see the initial prompt asking Jules to explore a GitHub issue, which then creates a plan that contains malicious actions. These actions eventually get auto-approved, leading to the download of the Sliver malware binary and a full-system compromise.</p>
+<p><strong>The attacker can now remote control Jules&rsquo; dev box, it&rsquo;s now a ZombAI.</strong></p>
+<p>But the attack is so obvious, no one would task Jules with such a GitHub issue you might say. Well, I would challenge that already, but wait for tomorrow&rsquo;s post where we&rsquo;ll add a surprising and scary twist to it!</p>
+<h2 id="plan-approval-happens-only-at-session-start">Plan Approval Happens Only at Session Start</h2>
+<p>An interesting edge case is that Jules only proposes a plan at the very beginning of a session. If tasks are created later in the same conversation, tools are invoked automatically without re-triggering the planning and confirmation step.</p>
+<p><a href="/blog/images/2025/jules-joins-c2-combined.png"><img src="/blog/images/2025/jules-joins-c2-combined.png" alt="jules e2e combined no plan approval"></a></p>
+<p>Also, the initially proposed plan is auto-approved after a certain amount of time, it was initially 20 seconds and then was changed to 120 seconds last time I checked.</p>
+<h2 id="recommendations-and-mitigation">Recommendations and Mitigation</h2>
+<ul>
+<li><strong>External Websites and GitHub Issues</strong>: Be careful when directly tasking Jules to work with untrusted data (e.g. GitHub issues that are not from trusted sources, or websites with documentation that does not belong to the organization, etc.)</li>
+<li><strong>Private Code and Secrets</strong>: It&rsquo;s probably also good advice, for now at least, to not have Jules work on private, important, source code or give it access to production-level secrets, or anything that could enable an adversary to perform lateral movement.</li>
+<li><strong>Anti-virus and EDR</strong>: An interesting realization I had when looking at Devin, ChatGPT Codex, and then Jules is that, as enterprises adopt coding agents, we need to explore how to deploy monitoring and detection tools on these systems. This would enable security teams to monitor and understand potentially malicious behavior and actions taken by agents.</li>
+<li><strong>Outbound Access Control</strong>: Similar to what ChatGPT Codex has enabled by default, I recommend to not allow arbitrary Internet access by default. Instead, allow the configuration to be enabled when needed. This seems like a sensible baseline, then systems can be configured with fine-grained outbound access as needed.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Today&rsquo;s post demonstrated how coding agents like Jules can be weaponized to run malware via indirect prompt injection. With unrestricted Internet access and shell execution, an attack could have a significant impact. I mentioned this before, but asynchronous agents with access to private data or source code are basically similar to a malicious insider threat - which is a known risk. However, proliferation, scale and velocity of attacks could differ quite a bit.</p>
+<p>Tomorrow, we&rsquo;ll look at how such prompt injection attacks can be stealthy and invisible, and how Google Jules will still get hijacked.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://monthofaibugs.com">Month of AI Bugs 2025</a></li>
+<li><a href="https://jules.google.com">Google Jules</a></li>
+<li><a href="https://jules.google/docs/changelog/#jules-now-listens-to-github-issues">Jules Now Listens to GitHub Issues</a></li>
+<li><a href="https://github.com/BishopFox/sliver">Bishop Fox - Sliver</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2025/google-jules-vulnerable-to-data-exfiltration-issues/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2025
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

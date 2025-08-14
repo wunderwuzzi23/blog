@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Wed, 13 Aug 2025 18:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 14 Aug 2025 04:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jules Zombie Agent: From Prompt Injection to Remote Control</title>
+      <link>https://embracethered.com/blog/posts/2025/google-jules-remote-code-execution-zombai/</link>
+      <pubDate>Thu, 14 Aug 2025 04:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/google-jules-remote-code-execution-zombai/</guid>
+      <description>In the previous post, we explored two data exfiltration vectors that Jules is vulnerable to and that can be exploited via prompt injection. This post takes it further by demonstrating how Jules can be convinced to download malware and join a remote command &amp;amp; control server.&#xA;The information in this post was shared with Google in May 2025.&#xA;Remote Command &amp;amp; Control - Proof Of Concept The basic attack chain follows the classic AI Kill Chain:</description>
+    </item>
     <item>
       <title>Google Jules: Vulnerable to Multiple Data Exfiltration Issues</title>
       <link>https://embracethered.com/blog/posts/2025/google-jules-vulnerable-to-data-exfiltration-issues/</link>
