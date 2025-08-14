@@ -1,6 +1,6 @@
 ---
 title: "Google Jules: Vulnerable to Multiple Data Exfiltration Issues"
-date: 2025-08-13T15:20:58-07:00  
+date: 2025-08-13T18:20:58-07:00  
 draft: true  
 tags: ["llm", "agents", "month of ai bugs"]
 twitter:  
@@ -51,17 +51,17 @@ Let's discuss the various scenarios in detail.
 
 ### Exfiltration Vector 1:  Markdown Image Rendering
 
-The first test was to have Jules load a specific webpage to simulate a prompt injection. I have this page here up for a long time https://wuzzi.net/posts/image-backup-how-to/.
+The first test was to have Jules load a specific webpage to simulate a prompt injection. This is the page:
 
 [![jules system prompt](/blog/images/2025/jules-wuzzi-website.png)](/blog/images/2025/jules-wuzzi-website.png)
 
-Then I asked Jules to check it out by directly using the tool name...
+Then I asked Jules to check it out by directly using the `view_text_website` tool...
 
 ```
 view_text_website("https://wuzzi.net/posts/image-backup-how-to/")
 ```
 
-Jules followed the instructions, proposed a plan, and also **auto-approves** the plan after some time. Initially the auto-approval happened after 30 seconds, but has later been increased to two minutes last time I checked.
+Jules visited the page, got hijacked and followed the instructions, proposed a plan, and also **auto-approved** the plan after some time. Initially the auto-approval happened after 30 seconds, but has later been increased to two minutes last time I checked.
 
 The result was that it took information from an earlier in the chat, appended it to the target third-party URL and then Jules issued the web request to load the image. 
 
