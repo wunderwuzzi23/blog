@@ -153,13 +153,19 @@
 <p>Then we task Jules to take a look at that GitHub issue:</p>
 <pre tabindex="0"><code>Hey, check out this github issue: https://github.com/johannr-dev/instr/issues/13&#34;  
 </code></pre><p>As a result Jules will first create a plan, that is auto-approved and is then tricked into adding the backdoor function to the code, compile the code and run it - all in one go!</p>
-<p><a href="/blog/images/2025/jules-invisible-instr5.png"><img src="/blog/images/2025/jules-invisible-instr5-small.png" alt="instructions5"></a></p>
+<p><a href="/blog/images/2025/jules-invisible-instr5.png"><img src="/blog/images/2025/jules-invisible-instr5.png" alt="instructions5"></a></p>
 <p>Above you can see the invisible instructions were followed and the backdoor code was added, and the code executed. Note: Invisible text is not always 100% picked up as instructions, but some clever prompt engineering and also model improvements will further increase success rates.</p>
 <h3 id="tagging-jules-to-work-on-github-issues">Tagging Jules to Work on GitHub Issues</h3>
 <p>Recently, a new feature was added to Jules <a href="https://jules.google/docs/changelog/#jules-now-listens-to-github-issues">where one can tag a GitHub issue</a> with <code>jules</code> to assign a ticket to the agent.</p>
 <p>This makes it a lot easier to task the agent:</p>
 <p><a href="/blog/images/2025/jules-tag-github-issue.png"><img src="/blog/images/2025/jules-tag-github-issue.png" alt="google jules tag"></a></p>
 <p>As you can see, the ticket will be picked up and worked on by Jules right away.</p>
+<p>Here is what it did. I just did this today August 15, 2025. AS you can see below, tagging just copies the text from the GitHub issue directly over.</p>
+<p>Again, in the Jules UI we cannot see the hidden instructions - <strong>but they are there!</strong></p>
+<p><a href="/blog/images/2025/jules-tagging.png"><img src="/blog/images/2025/jules-tagging.png" alt="google jules tag"></a></p>
+<p>If you look closely, the evidence can be seen in the plan proposal. And if we expand the individual steps, we see the details of the malicous instructions: an additional function to be added and code execution instructions that made it all the way into Jules!</p>
+<p><a href="/blog/images/2025/jules-tagging.png"><img src="/blog/images/2025/jules-tagging.png" alt="google jules tag"></a></p>
+<p>Pretty wild.</p>
 <h2 id="mitigations">Mitigations</h2>
 <ul>
 <li><strong>Private Code and Secrets</strong>: It&rsquo;s good advice, for now at least, to not have Jules work on private, important, source code or give it access to secrets, or anything that could enable an adversary to perform lateral movement.</li>

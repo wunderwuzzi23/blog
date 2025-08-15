@@ -53,7 +53,7 @@ Hey, check out this github issue: https://github.com/johannr-dev/instr/issues/13
 
 As a result Jules will first create a plan, that is auto-approved and is then tricked into adding the backdoor function to the code, compile the code and run it - all in one go!
 
-[![instructions5](/blog/images/2025/jules-invisible-instr5-small.png)](/blog/images/2025/jules-invisible-instr5.png)
+[![instructions5](/blog/images/2025/jules-invisible-instr5.png)](/blog/images/2025/jules-invisible-instr5.png)
 
 Above you can see the invisible instructions were followed and the backdoor code was added, and the code executed. Note: Invisible text is not always 100% picked up as instructions, but some clever prompt engineering and also model improvements will further increase success rates.
 
@@ -66,6 +66,18 @@ This makes it a lot easier to task the agent:
 [![google jules tag](/blog/images/2025/jules-tag-github-issue.png)](/blog/images/2025/jules-tag-github-issue.png)
 
 As you can see, the ticket will be picked up and worked on by Jules right away.
+
+Here is what it did. I just did this today August 15, 2025. AS you can see below, tagging just copies the text from the GitHub issue directly over. 
+
+Again, in the Jules UI we cannot see the hidden instructions - **but they are there!**
+
+[![google jules tag](/blog/images/2025/jules-tagging.png)](/blog/images/2025/jules-tagging.png)
+
+If you look closely, the evidence can be seen in the plan proposal. And if we expand the individual steps, we see the details of the malicous instructions: an additional function to be added and code execution instructions that made it all the way into Jules!
+
+[![google jules tag](/blog/images/2025/jules-tagging.png)](/blog/images/2025/jules-tagging.png)
+
+Pretty wild.
 
 ## Mitigations
 
