@@ -159,13 +159,15 @@
 <p>Recently, a new feature was added to Jules <a href="https://jules.google/docs/changelog/#jules-now-listens-to-github-issues">where one can tag a GitHub issue</a> with <code>jules</code> to assign a ticket to the agent.</p>
 <p>This makes it a lot easier to task the agent:</p>
 <p><a href="/blog/images/2025/jules-tag-github-issue.png"><img src="/blog/images/2025/jules-tag-github-issue.png" alt="google jules tag"></a></p>
-<p>As you can see, the ticket will be picked up and worked on by Jules right away.</p>
-<p>Here is what it did. I just did this today August 15, 2025. AS you can see below, tagging just copies the text from the GitHub issue directly over.</p>
-<p>Again, in the Jules UI we cannot see the hidden instructions - <strong>but they are there!</strong></p>
+<p>As you can see above, the ticket will be picked up by Jules right away.</p>
+<p>Here is what it does when you tag Jules, it copies the text from the GitHub issue directly over, this includes the hidden characters.</p>
+<p>And in the Jules UI we cannot see these hidden instructions - <strong>but they are there!</strong></p>
 <p><a href="/blog/images/2025/jules-tagging.png"><img src="/blog/images/2025/jules-tagging.png" alt="google jules tag"></a></p>
-<p>If you look closely, the evidence can be seen in the plan proposal. And if we expand the individual steps, we see the details of the malicous instructions: an additional function to be added and code execution instructions that made it all the way into Jules!</p>
-<p><a href="/blog/images/2025/jules-tagging.png"><img src="/blog/images/2025/jules-tagging.png" alt="google jules tag"></a></p>
+<p>If you look closely above, the evidence can be seen in the plan proposal.</p>
+<p>And if we expand the individual steps, we see the details of the malicious instructions: an additional function to be added and code execution instructions that made it all the way into Jules!</p>
+<p><a href="/blog/images/2025/jules-tagging-2.png"><img src="/blog/images/2025/jules-tagging-2.png" alt="google jules tag"></a></p>
 <p>Pretty wild.</p>
+<p>I just did this tagging demo today August 15, 2025.</p>
 <h2 id="mitigations">Mitigations</h2>
 <ul>
 <li><strong>Private Code and Secrets</strong>: It&rsquo;s good advice, for now at least, to not have Jules work on private, important, source code or give it access to secrets, or anything that could enable an adversary to perform lateral movement.</li>
