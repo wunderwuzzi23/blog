@@ -14,7 +14,7 @@
       <link>https://embracethered.com/blog/posts/2025/google-jules-remote-code-execution-zombai/</link>
       <pubDate>Thu, 14 Aug 2025 04:20:58 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2025/google-jules-remote-code-execution-zombai/</guid>
-      <description>In the previous post, we explored two data exfiltration vectors that Jules is vulnerable to and that can be exploited via prompt injection. This post takes it further by demonstrating how Jules can be convinced to download malware and join a remote command &amp;amp; control server.&#xA;The information in this post was shared with Google in May 2025.&#xA;Remote Command &amp;amp; Control - Proof Of Concept The basic attack chain follows the classic AI Kill Chain:</description>
+      <description>In the previous post, we explored two data exfiltration vectors that Jules is vulnerable to and that can be exploited via prompt injection. This post takes it further by demonstrating how Jules can be convinced to download malware and join a remote command &amp;amp; control server.&#xA;This research was performed in May 2025 and findings were shared with Google.&#xA;Remote Command &amp;amp; Control - Proof Of Concept The basic attack chain follows the classic AI Kill Chain:</description>
     </item>
     <item>
       <title>Google Jules: Vulnerable to Multiple Data Exfiltration Issues</title>

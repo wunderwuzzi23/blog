@@ -137,7 +137,7 @@
 
 <p>In the <a href="/blog/posts/2025/google-jules-vulnerable-to-data-exfiltration-issues/">previous post</a>, we explored two data exfiltration vectors that Jules is vulnerable to and that can be exploited via prompt injection. This post takes it further by demonstrating how Jules can be convinced to download malware and join a remote command &amp; control server.</p>
 <p><a href="/blog/images/2025/episode14-yt.png"><img src="/blog/images/2025/episode14-yt.png" alt="vscode episode 14"></a></p>
-<p>The information in this post was shared with Google in May 2025.</p>
+<p>This research was performed in May 2025 and findings were shared with Google.</p>
 <h2 id="remote-command--control---proof-of-concept">Remote Command &amp; Control - Proof Of Concept</h2>
 <p>The basic attack chain follows the classic AI Kill Chain:</p>
 <ul>
@@ -169,8 +169,10 @@
 <li><strong>External Websites and GitHub Issues</strong>: Be careful when directly tasking Jules to work with untrusted data (e.g. GitHub issues that are not from trusted sources, or websites with documentation that does not belong to the organization, etc.)</li>
 <li><strong>Private Code and Secrets</strong>: It&rsquo;s probably also good advice, for now at least, to not have Jules work on private, important, source code or give it access to production-level secrets, or anything that could enable an adversary to perform lateral movement.</li>
 <li><strong>Anti-virus and EDR</strong>: An interesting realization I had when looking at Devin, ChatGPT Codex, and then Jules is that, as enterprises adopt coding agents, we need to explore how to deploy monitoring and detection tools on these systems. This would enable security teams to monitor and understand potentially malicious behavior and actions taken by agents.</li>
-<li><strong>Outbound Access Control</strong>: Similar to what ChatGPT Codex has enabled by default, I recommend to not allow arbitrary Internet access by default. Instead, allow the configuration to be enabled when needed. This seems like a sensible baseline, then systems can be configured with fine-grained outbound access as needed.</li>
+<li><strong>Outbound Access Control</strong>: Similar to what <a href="https://platform.openai.com/docs/codex/agent-network#configuring-agent-internet-access">ChatGPT Codex has enabled by default</a>, I recommend to not allow arbitrary Internet access by default. Instead, allow the configuration to be enabled when needed. This seems like a sensible baseline, then systems can be configured with fine-grained outbound access as needed.</li>
 </ul>
+<h2 id="responsible-disclosure">Responsible Disclosure</h2>
+<p>This information was shared privately with Google on June 1, 2025 and triaged a few days later as an abuse risk. The ticket was closed on June 13 as something the team is already tracking. Follow up questions around mitigation timeline were not answered.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Today&rsquo;s post demonstrated how coding agents like Jules can be weaponized to run malware via indirect prompt injection. With unrestricted Internet access and shell execution, an attack could have a significant impact. I mentioned this before, but asynchronous agents with access to private data or source code are basically similar to a malicious insider threat - which is a known risk. However, proliferation, scale and velocity of attacks could differ quite a bit.</p>
 <p>The next post will explore how such prompt injection attacks can be stealthy and invisible, and how Google Jules will still get hijacked.</p>
@@ -180,6 +182,7 @@
 <li><a href="https://jules.google.com">Google Jules</a></li>
 <li><a href="https://jules.google/docs/changelog/#jules-now-listens-to-github-issues">Jules Now Listens to GitHub Issues</a></li>
 <li><a href="https://github.com/BishopFox/sliver">Bishop Fox - Sliver</a></li>
+<li><a href="https://platform.openai.com/docs/codex/agent-network#configuring-agent-internet-access">ChatGPT Codex - Internet Access Security Controls</a></li>
 </ul>
 
   </section>

@@ -20,7 +20,7 @@ In the [previous post](/blog/posts/2025/google-jules-vulnerable-to-data-exfiltra
 
 [![vscode episode 14](/blog/images/2025/episode14-yt.png)](/blog/images/2025/episode14-yt.png)
 
-The information in this post was shared with Google in May 2025.
+This research was performed in May 2025 and findings were shared with Google. 
 
 ## Remote Command & Control - Proof Of Concept
 
@@ -73,7 +73,11 @@ Also, the initially proposed plan is auto-approved after a certain amount of tim
 * **External Websites and GitHub Issues**: Be careful when directly tasking Jules to work with untrusted data (e.g. GitHub issues that are not from trusted sources, or websites with documentation that does not belong to the organization, etc.)
 * **Private Code and Secrets**: It's probably also good advice, for now at least, to not have Jules work on private, important, source code or give it access to production-level secrets, or anything that could enable an adversary to perform lateral movement.
 * **Anti-virus and EDR**: An interesting realization I had when looking at Devin, ChatGPT Codex, and then Jules is that, as enterprises adopt coding agents, we need to explore how to deploy monitoring and detection tools on these systems. This would enable security teams to monitor and understand potentially malicious behavior and actions taken by agents.
-* **Outbound Access Control**: Similar to what ChatGPT Codex has enabled by default, I recommend to not allow arbitrary Internet access by default. Instead, allow the configuration to be enabled when needed. This seems like a sensible baseline, then systems can be configured with fine-grained outbound access as needed.
+* **Outbound Access Control**: Similar to what [ChatGPT Codex has enabled by default](https://platform.openai.com/docs/codex/agent-network#configuring-agent-internet-access), I recommend to not allow arbitrary Internet access by default. Instead, allow the configuration to be enabled when needed. This seems like a sensible baseline, then systems can be configured with fine-grained outbound access as needed.
+
+## Responsible Disclosure
+
+This information was shared privately with Google on June 1, 2025 and triaged a few days later as an abuse risk. The ticket was closed on June 13 as something the team is already tracking. Follow up questions around mitigation timeline were not answered. 
 
 ## Conclusion
 
@@ -87,3 +91,4 @@ The next post will explore how such prompt injection attacks can be stealthy and
 * [Google Jules](https://jules.google.com)
 * [Jules Now Listens to GitHub Issues](https://jules.google/docs/changelog/#jules-now-listens-to-github-issues)
 * [Bishop Fox - Sliver](https://github.com/BishopFox/sliver)
+* [ChatGPT Codex - Internet Access Security Controls](https://platform.openai.com/docs/codex/agent-network#configuring-agent-internet-access)
