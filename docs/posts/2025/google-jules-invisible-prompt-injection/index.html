@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head prefix="og: http://ogp.me/ns#"><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+<head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   <meta property="og:title" content=" Google Jules is Vulnerable To Invisible Prompt Injection &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
-  <meta property="og:url" content="http://localhost:1313/blog/posts/2025/google-jules-invisible-prompt-injection/" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2025/google-jules-invisible-prompt-injection/" />
   
   
   <meta property="og:type" content="article" />
   
-  <meta property="og:article:published_time" content="2025-08-13T16:20:58-07:00" />
+  <meta property="og:article:published_time" content="2025-08-15T02:20:58-07:00" />
   
   <meta property="og:article:tag" content="llm" />
   
@@ -25,14 +25,14 @@
      Google Jules is Vulnerable To Invisible Prompt Injection &middot;  Embrace The Red
   </title>
 
-  <link rel="stylesheet" href="http://localhost:1313/blog/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="http://localhost:1313/blog/css/main.css" />
-  <link rel="stylesheet" href="http://localhost:1313/blog/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="http://localhost:1313/blog/css/github.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
   
-  <link rel="stylesheet" href="http://localhost:1313/blog/fonts/cachedfonts.css" type="text/css">
-  <link rel="shortcut icon" type="image/x-icon" href="http://localhost:1313/blog/images/favicon.ico" />
-  <link rel="apple-touch-icon" type="image/x-icon" href="http://localhost:1313/blog/images/favicon.ico" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
   
 
   
@@ -51,7 +51,7 @@
 <body>
     <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
     <section class="header-text">
-      <h1><a href="http://localhost:1313/blog/">Embrace The Red</a></h1>
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
       
       <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
         wunderwuzzi&#39;s blog
@@ -93,7 +93,7 @@
 </div>
 
       
-      <a href="http://localhost:1313/blog/" class="btn-header btn-back hidden-xs">
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
         &nbsp;Home
       </a>
@@ -115,18 +115,18 @@
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2025-08-13T16:20:58-07:00">
-          Aug 13, 2025
+        <time datetime="2025-08-15T02:20:58-07:00">
+          Aug 15, 2025
         </time>
       </div>
     
       <div class="pull-right">
         
-        <span class="post-tag small"><a href="http://localhost:1313/blog//tags/llm">#llm</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
         
-        <span class="post-tag small"><a href="http://localhost:1313/blog//tags/agents">#agents</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/agents">#agents</a></span>
         
-        <span class="post-tag small"><a href="http://localhost:1313/blog//tags/month-of-ai-bugs">#month of ai bugs</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/month-of-ai-bugs">#month of ai bugs</a></span>
         
       </div>
     </div>
@@ -135,13 +135,12 @@
     
 <a id="top_ref"></a>
 
-<p>The latest Gemini models quite reliably interpret hidden Unicode Tag characters as instructions. This vulnerability, first reported to Google over a year ago, has not been mitigated at the model or API level, and hence now affects all applications built on top of Gemini.</p>
+<p>The latest Gemini models <a href="https://x.com/wunderwuzzi23/status/1918310681310531657">quite reliably interpret hidden Unicode Tag characters as instructions</a>. This vulnerability, first reported to Google over a year ago, has not been mitigated at the model or API level, hence now affects all applications built on top of Gemini.</p>
 <p>This includes Google&rsquo;s own products and services, like Google Jules.</p>
 <p><a href="/blog/images/2025/episode15-yt.png"><img src="/blog/images/2025/episode15-yt.png" alt="vscode episode 15"></a></p>
 <p>Hopefully, this post helps raise awareness of this emerging threat.</p>
 <h2 id="invisible-prompt-injections-in-github-issues">Invisible Prompt Injections in GitHub Issues</h2>
-<p>When Jules is asked to work on a task, such as a GitHub issue, it is possible to plant to the user invisible instructions in the GitHub issue to add backdoor code, or have it run arbitrary commands.</p>
-<p>Attacker plants malicious invisible instructions into a GitHub issue of a project that Jules works with. Then waits until Jules is tasked to work on such an issue.</p>
+<p>When Jules is asked to work on a task, such as a GitHub issue, it is possible to plant invisible instructions into a GitHub issue to add backdoor code, or have it run arbitrary commands and tools.</p>
 <h2 id="demonstration-and-repro-steps">Demonstration and Repro Steps</h2>
 <p>To demonstrate the vulnerability, let&rsquo;s look at the following GitHub issue:
 <a href="/blog/images/2025/jules-invisible-instr2.png"><img src="/blog/images/2025/jules-invisible-instr2.png" alt="instructions2"></a></p>
@@ -152,17 +151,34 @@
 <a href="/blog/images/2025/jules-invisible-instr1.png"><img src="/blog/images/2025/jules-invisible-instr1.png" alt="instructions1"></a></p>
 <p>Then we task Jules to take a look at that GitHub issue:</p>
 <pre tabindex="0"><code>Hey, check out this github issue: https://github.com/johannr-dev/instr/issues/13&#34;  
-</code></pre><p>As a result Jules will first create a plan, that is auto-approved and is then tricked to add the backdoor function to the code, compile the code and run it - all in one go!</p>
+</code></pre><p>As a result Jules will first create a plan, that is auto-approved and is then tricked into adding the backdoor function to the code, compile the code and run it - all in one go!</p>
 <p><a href="/blog/images/2025/jules-invisible-instr5.png"><img src="/blog/images/2025/jules-invisible-instr5.png" alt="instructions5"></a></p>
+<p>Above you can see the invisible instructions were followed and the backdoor code was added, and the code executed. Note: Invisible text is not always 100% picked up as instructions, but some clever prompt engineering and also model improvements will further increase success rates.</p>
+<h3 id="tagging-jules-to-work-on-github-issues">Tagging Jules to Work on GitHub Issues</h3>
+<p>Recently, a new feature was added to Jules <a href="https://jules.google/docs/changelog/#jules-now-listens-to-github-issues">where one can tag a GitHub issue</a> with <code>jules</code> to assign a ticket to the agent.</p>
+<p>This makes it a lot easier to task the agent:</p>
+<p><a href="/blog/images/2025/jules-tag-github-issue.png"><img src="/blog/images/2025/jules-tag-github-issue.png" alt="google jules tag"></a></p>
+<p>As you can see, the ticket will be picked up and worked on by Jules right away.</p>
+<h2 id="mitigations">Mitigations</h2>
+<ul>
+<li><strong>Private Code and Secrets</strong>: It&rsquo;s good advice, for now at least, to not have Jules work on private, important, source code or give it access to secrets, or anything that could enable an adversary to perform lateral movement.</li>
+<li><strong>Untrusted Sources</strong>: Avoid assigning untrusted GitHub issues or input data to Jules. Be careful if you task Jules to work on GitHub issues that contain data or repro steps from untrusted sources (or having it process any other untrusted source for that matter). Text can contain instructions that hijack the agent, and those instructions can even be invisible.</li>
+<li><strong>Review the Proposed Plan Carefully</strong>: Carefully review the plan that Jules proposes, as that can highlight potential attack avenues or also hiccups and accidents that might occur during execution.</li>
+<li><strong>Review AI Generated Code</strong>: And of course before merging code that was generated by AI, carefully read the changes to check for errors and backdoors.</li>
+</ul>
+<h2 id="responsible-disclosure">Responsible Disclosure</h2>
+<p>The root cause that Gemini class models are influenced by hidden instructions was first reported to Google on February 22, 2024, accepted as a valid bug and reported to the product team. Back then the models were less capable, however that <a href="https://x.com/wunderwuzzi23/status/1918310681310531657">changed with Gemini 2.5 release earlier this year</a>, with which the models became a lot more capable, and since then invisible Unicode Tag instructions are followed frequently.</p>
+<p>That Google Jules, as a client of Gemini models, exposes this threat to users was reported on May 26, 2025 using examples provided in this post.</p>
+<p>Recently Google Jules went out of beta, and is now generally available. However, the weakness has not been mitigated as far as I can tell. Google asked me to share these write-ups upfront, which I did last week, however by the time of publishing I hadn&rsquo;t yet heard back on latest status - and I will update this section here if I learn more.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Large language models that interpret invisible Unicode Tag characters as instructions is an emerging threat that can have real-world security consequence.</p>
-<p>These characters are invisible in UI elements, but AI systems, such as Jules, interprets those Unicode Tag characters as instructions and executes them, leading to the introduction of backdoors, and full system compromise during prompt injection from untrusted data.</p>
-<p>The likelihood of an attack staying undetected is increased by delivering such payloads as invisible to the user.</p>
+<p>Large language models that interpret invisible Unicode Tag characters as instructions is an emerging threat that can have real-world security consequences.</p>
+<p>These characters are invisible in UI elements, but AI systems, such as Google Gemini and Jules, interpret those Unicode Tag characters as instructions and executes them, leading to the introduction of backdoors, and full system compromise during prompt injection from untrusted data.</p>
+<p>The likelihood of an attack staying undetected is increased by delivering invisible payloads.</p>
 <h2 id="references">References</h2>
 <ul>
-<li><a href="https://jules.google.com">Jules</a></li>
+<li><a href="https://jules.google.com">Google Jules</a></li>
 <li><a href="https://embracethered.com/blog/ascii-smuggler.html">ASCII Smuggler</a></li>
-<li><a href="https://x.com/goodside/status/1745511940351287394">Riley Goodside - Initial Discovery</a></li>
+<li><a href="https://x.com/goodside/status/1745511940351287394">Riley Goodside - Initial Discovery of Invisible Prompt Injection</a></li>
 <li><a href="https://monthofaibugs.com">Month of AI Bugs 2025</a></li>
 </ul>
 
@@ -175,7 +191,7 @@
     
     <ul class="pager">
       
-      <li class="next"><a href="http://localhost:1313/blog/posts/2025/google-jules-vulnerable-to-data-exfiltration-issues/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">
@@ -187,7 +203,7 @@
 
       
       
-      <li class="previous"><a href="http://localhost:1313/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2025/google-jules-remote-code-execution-zombai/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>
@@ -236,7 +252,7 @@
     </div>
     </div>
 </footer>
-  <script src="http://localhost:1313/blog/js/highlight.pack.js"></script>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
   </script>

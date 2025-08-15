@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Thu, 14 Aug 2025 04:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 15 Aug 2025 02:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/month-of-ai-bugs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Jules is Vulnerable To Invisible Prompt Injection</title>
+      <link>https://embracethered.com/blog/posts/2025/google-jules-invisible-prompt-injection/</link>
+      <pubDate>Fri, 15 Aug 2025 02:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/google-jules-invisible-prompt-injection/</guid>
+      <description>The latest Gemini models quite reliably interpret hidden Unicode Tag characters as instructions. This vulnerability, first reported to Google over a year ago, has not been mitigated at the model or API level, hence now affects all applications built on top of Gemini.&#xA;This includes Google&amp;rsquo;s own products and services, like Google Jules.&#xA;Hopefully, this post helps raise awareness of this emerging threat.&#xA;Invisible Prompt Injections in GitHub Issues When Jules is asked to work on a task, such as a GitHub issue, it is possible to plant invisible instructions into a GitHub issue to add backdoor code, or have it run arbitrary commands and tools.</description>
+    </item>
     <item>
       <title>Jules Zombie Agent: From Prompt Injection to Remote Control</title>
       <link>https://embracethered.com/blog/posts/2025/google-jules-remote-code-execution-zombai/</link>
