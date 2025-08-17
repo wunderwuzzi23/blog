@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Fri, 15 Aug 2025 02:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 16 Aug 2025 12:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/agents/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Invisible Prompt Injection in Sourcegraph&#39;s Amp Fixed</title>
+      <link>https://embracethered.com/blog/posts/2025/amp-code-fixed-invisible-prompt-injection/</link>
+      <pubDate>Sat, 16 Aug 2025 12:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/amp-code-fixed-invisible-prompt-injection/</guid>
+      <description>In this post we will look at Amp, a coding agent from Sourcegraph. The other day we discussed how invisible instructions impact Google Jules.&#xA;Turns out that many client applications are vulnerable to these kinds of attacks when they use models that support invisible instructions, like Claude.&#xA;Invisible Unicode Tag Characters Interpreted as Instructions We have talked about hidden prompt injections quite a bit in the past, and so I&amp;rsquo;m keeping this short.</description>
+    </item>
     <item>
       <title>Google Jules is Vulnerable To Invisible Prompt Injection</title>
       <link>https://embracethered.com/blog/posts/2025/google-jules-invisible-prompt-injection/</link>
@@ -38,7 +45,7 @@
       <description>This post is about an important, but also scary, prompt injection discovery that leads to full system compromise of the developer&amp;rsquo;s machine in GitHub Copilot and VS Code.&#xA;It is achieved by placing Copilot into YOLO mode by modifying the project’s settings.json file.&#xA;As described a few days ago with Amp, a vulnerability pattern in agents that might be overlooked is that if an agent can write to files and modify its own configuration or update security-relevant settings it can lead to remote code execution.</description>
     </item>
     <item>
-      <title>Claude Code: Data Exfiltration with DNS</title>
+      <title>Claude Code: Data Exfiltration with DNS (CVE-2025-55284)</title>
       <link>https://embracethered.com/blog/posts/2025/claude-code-exfiltration-via-dns-requests/</link>
       <pubDate>Mon, 11 Aug 2025 04:20:58 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2025/claude-code-exfiltration-via-dns-requests/</guid>

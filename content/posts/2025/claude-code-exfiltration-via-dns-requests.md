@@ -1,5 +1,5 @@
 ---
-title: "Claude Code: Data Exfiltration with DNS"  
+title: "Claude Code: Data Exfiltration with DNS (CVE-2025-55284)"  
 date: 2025-08-11T04:20:58-07:00  
 draft: true  
 tags: ["llm", "agents", "month of ai bugs"] 
@@ -7,7 +7,7 @@ twitter:
   card: "summary_large_image"  
   site: "@wunderwuzzi23"  
   creator: "@wunderwuzzi23"  
-  title: "Claude Code: Data Exfiltration with DNS Requests"  
+  title: "Claude Code: Data Exfiltration with DNS Requests (CVE-2025-55284)"  
   description: "Claude Code Can Leak Sensitive Data To External Systems with DNS requests"
   image: "https://embracethered.com/blog/images/2025/episode11-yt.png"  
 ---
@@ -99,9 +99,11 @@ Here is also a brief video showing the scenario:
 
 ## Responsible Disclosure 
 
-This vulnerability was disclosed to Anthropic on May 26, 2025. The ticket was quickly triaged as CVSS 7.5 - High Severity, and reported as fixed on June 6, 2025. 
+This vulnerability was disclosed to Anthropic on May 26, 2025. The ticket was quickly triaged as CVSS 7.1 - High Severity, and reported as fixed on June 6, 2025. 
 
-Claude Code auto-updates which is great, so you all should be good - but just in case make sure you run the latest version. Big shout-out to the Claude Code and security team at Anthropic for mitigating this quickly.
+Claude Code auto-updates which is great, so you all should be good - but just in case make sure you run the latest version. The fix is in the product starting with v1.0.4. The vulnerability was assigned [CVE-2025-55284](https://github.com/anthropics/claude-code/security/advisories/GHSA-x5gv-jw7f-j6xj).
+
+Big shout-out to the Claude Code and security team at Anthropic for mitigating this quickly.
 
 ## Conclusion
 This was an interesting find, as it was the first time I had hijacked AI and combined it with DNS based data exfiltration. It's also a good reminder that there are sometimes sneaky ways to achieve objectives. 
@@ -111,3 +113,4 @@ Using Claude itself to analyze the code and identify the bypasses was another in
 ## References
 
 * [Month of AI Bugs 2025](https://monthofaibugs.com)
+* [CVE-2025-55284: Security Advisory - Permissive Default Allowlist Enables Unauthorized File Read and Network Exfiltration in Claude Code](https://github.com/anthropics/claude-code/security/advisories/GHSA-x5gv-jw7f-j6xj).)

