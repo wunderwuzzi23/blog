@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sat, 16 Aug 2025 12:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 17 Aug 2025 04:10:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Exfiltration via Image Rendering Fixed in Amp Code</title>
+      <link>https://embracethered.com/blog/posts/2025/amp-code-fixed-data-exfiltration-via-images/</link>
+      <pubDate>Sun, 17 Aug 2025 04:10:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/amp-code-fixed-data-exfiltration-via-images/</guid>
+      <description>In this post we discuss a vulnerability that was present in Amp Code from Sourcegraph by which an attacker could exploit markdown driven image rendering to exfiltrate sensitive information.&#xA;This vulnerability is common in AI applications and agents, and it&amp;rsquo;s actually similar to one we discussed last year in GitHub Copilot which Microsoft fixed.&#xA;Exploit Demonstration For the proof-of-concept I use a pre-existing demo that created a longer time ago.</description>
+    </item>
     <item>
       <title>Amp Code: Invisible Prompt Injection Fixed by Sourcegraph</title>
       <link>https://embracethered.com/blog/posts/2025/amp-code-fixed-invisible-prompt-injection/</link>

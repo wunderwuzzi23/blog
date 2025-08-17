@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Data Exfiltration via Image Rendering Fixed in Amp Code &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2025/amp-code-fixed-data-exfiltration-via-images/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2025-08-17T04:10:58-07:00" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  <meta property="og:article:tag" content="agents" />
+  
+  <meta property="og:article:tag" content="month of ai bugs" />
+  
+  
+
+  <title>
+     Data Exfiltration via Image Rendering Fixed in Amp Code &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Data Exfiltration via Image Rendering Fixed in Amp Coded">
+<meta name="twitter:description" content="AmpCode is vulnerable to Prompt Injection and it was possible to leak sensitive source code, environment variables and other information on the host">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2025/episode17-yt.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Data Exfiltration via Image Rendering Fixed in Amp Code</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2025-08-17T04:10:58-07:00">
+          Aug 17, 2025
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/agents">#agents</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/month-of-ai-bugs">#month of ai bugs</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+<a id="top_ref"></a>
+
+<p>In this post we discuss a vulnerability that was present in Amp Code from Sourcegraph by which an attacker could exploit markdown driven image rendering to exfiltrate sensitive information.</p>
+<p><a href="/blog/images/2025/episode17-yt.png"><img src="/blog/images/2025/episode17-yt.png" alt="Amp Episode 17 Data Exfiltration Fixed"></a></p>
+<p>This vulnerability is common in AI applications and agents, and it&rsquo;s actually similar to one we discussed last year in GitHub Copilot which <a href="https://embracethered.com/blog/posts/2024/github-copilot-chat-prompt-injection-data-exfiltration/">Microsoft fixed</a>.</p>
+<h2 id="exploit-demonstration">Exploit Demonstration</h2>
+<p>For the proof-of-concept I use a pre-existing demo that created a longer time ago. It happened to just work with Amp as well. The prompt injection is hosted on a website which asks the AI to &ldquo;backup&rdquo; information to a third-party site by rendering an image and including previous chat data as a query parameter.</p>
+<p><a href="/blog/images/2025/jules-wuzzi-website.png"><img src="/blog/images/2025/backupwuzzi-website-small.png" alt="backup instructions prompt"></a></p>
+<p>Now, if Amp visits the website to complete a task, the embedded instructions exploit the AI agent, and trick it to send previous information in the chat context to the third-party server.</p>
+<p><a href="/blog/images/2025/amp_image_render_data_exfil.png"><img src="/blog/images/2025/amp_image_render_data_exfil.png" alt="AmpCode info leakage via image rendering"></a></p>
+<p>As we have shown with many similar attacks over the last 2+ years this does not require a human-in-the-loop and leads to a 0-click data exfiltration scenario.</p>
+<h2 id="exfiltrating-sensitive-information">Exfiltrating Sensitive Information</h2>
+<p>This attack not only allows adversaries to exfiltrate data, but also to first pull sensitive information into the chat context (e.g., via file reads) before leaking it.</p>
+<p><a href="/blog/images/2025/amp_env_e2e_leak.png"><img src="/blog/images/2025/amp_env_e2e_leak.png" alt="AmpCode sensitive info leakage via image rendering"></a></p>
+<p>You might wonder about the &ldquo;cryptic&rdquo; way to invoke the grep tool. This is to work around refusals that the underlying model demonstrated when trying to read and leak sensitive information. This trick bypassed that.</p>
+<p>In this case the prompt injection is coming from a comment in the code by the way. By simply analyzing that source code file, the text within the file hijacks the AI, brings additional information into the context window, and then leaks the data via image rendering.</p>
+<h2 id="video-demonstration">Video Demonstration</h2>
+<p>The following is a short video demonstration that shows the AI kill chain in action:
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/KpU8XBFhWSE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
+<p>Hope this short demo is insightful, please subscribe to the channel if you find my research useful.</p>
+<h2 id="prompt-injection-payload">Prompt Injection Payload</h2>
+<p>This is the text in the beginning of the source code file:</p>
+<p><a href="/blog/images/2025/amp-source-prompt-injection-demo.png"><img src="/blog/images/2025/amp-source-prompt-injection-demo.png" alt="AmpCode sensitive info leakage via image rendering"></a></p>
+<p>Above text shows the entire source code file, including the prompt injection, that Amp followed.</p>
+<p>Remember that a prompt injection can come from various untrusted data sources. It coming from a comment in source code is just one possible vector, data returned from tool calls is of course also a vector.</p>
+<h2 id="responsible-disclosure">Responsible Disclosure</h2>
+<p>After reaching out to Sourcegraph on June 14, 2025, the vulnerability was quickly addressed. Make sure to run the latest version. Kudos to the Amp team for addressing this promptly.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Amp Code was vulnerable to information leakage via a prompt injection attack by being tricked into rendering images via markdown syntax. We highlighted how this could be used to leak the contents of the <code>.env</code> file.</p>
+<p>This vulnerability class remains one of the most common AI application security issues.</p>
+<p>Cheers.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://embracethered.com/blog/posts/2024/github-copilot-chat-prompt-injection-data-exfiltration/">GitHub Copilot Data Exfiltration Fix</a></li>
+<li><a href="https://monthofaibugs.com">Month of AI Bugs 2025</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2025/amp-code-fixed-invisible-prompt-injection/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2025
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

@@ -64,7 +64,7 @@ Here are some of the recommendations provided to the Amp team, in case it's usef
 
 After reaching out to Sourcegraph on June 14, 2025, the vulnerability was quickly addressed, so make sure to run the latest version. As far as I can tell it's now just sanitizing the input, which seems a simple and effective fix. 
 
-Great job, and kudos for the quick response. 
+Kudos to the Amp team for addressing this promptly.
 
 ## Conclusion
 
