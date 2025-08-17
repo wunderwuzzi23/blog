@@ -1,5 +1,5 @@
 ---
-title: "Invisible Prompt Injection in Sourcegraph's Amp Fixed"
+title: "Amp Code: Invisible Prompt Injection Fixed by Sourcegraph"
 date: 2025-08-16T12:20:58-07:00
 draft: true  
 tags: ["llm", "agents", "month of ai bugs"]
@@ -7,7 +7,7 @@ twitter:
   card: "summary_large_image"  
   site: "@wunderwuzzi23"  
   creator: "@wunderwuzzi23"  
-  title: "Invisible Prompt Injection in Sourcegraph's Amp Fixed"  
+  title: "Amp Code: Invisible Prompt Injection Fixed by Sourcegrap"  
   description: "Sourcegraph recently fixed a vulnerability that allowed invisible instructions to perform prompt injection and hijack the agent."  
   image: "https://embracethered.com/blog/images/2025/episode16-yt.png" 
 ---
