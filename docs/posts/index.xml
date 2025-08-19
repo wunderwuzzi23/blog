@@ -7,14 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Mon, 18 Aug 2025 12:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 19 Aug 2025 14:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon Q Developer: Remote Code Execution with Prompt Injection</title>
+      <link>https://embracethered.com/blog/posts/2025/amazon-q-developer-remote-code-execution/</link>
+      <pubDate>Tue, 19 Aug 2025 14:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/amazon-q-developer-remote-code-execution/</guid>
+      <description>The Amazon Q Developer VS Code Extension (Amazon Q) is a popular coding agent, with over 1 million downloads.&#xA;The extension is vulnerable to indirect prompt injection, and in this post we discuss a vulnerability that allowed an adversary (or also the AI for that matter) to run arbitrary commands on the host without the developer&amp;rsquo;s consent.&#xA;The resulting impact of the vulnerability is the same as CVE-2025-53773 that Microsoft fixed in GitHub Copilot, however AWS did not issue a CVE when patching the vulnerabiliy.</description>
+    </item>
     <item>
       <title>Amazon Q Developer: Secrets Leaked via DNS and Prompt Injection</title>
       <link>https://embracethered.com/blog/posts/2025/amazon-q-developer-data-exfil-via-dns/</link>
       <pubDate>Mon, 18 Aug 2025 12:20:58 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2025/amazon-q-developer-data-exfil-via-dns/</guid>
-      <description>The next three posts will cover high severity vulnerabilities in the Amazon Q Developer VS Code Extension (Amazon Q), which is a very popular coding agent, with over 1 million downloads.&#xA;It is vulnerable to prompt injection from untrusted inputs and its security depends heavily on model behavior.&#xA;At a high level Amazon Q Developer can leak sensitive information from a developer&amp;rsquo;s machine, e.g. API keys, to external servers via DNS requests.</description>
+      <description>The next three posts will cover high severity vulnerabilities in the Amazon Q Developer VS Code Extension (Amazon Q Developer), which is a very popular coding agent, with over 1 million downloads.&#xA;It is vulnerable to prompt injection from untrusted data and its security depends heavily on model behavior.&#xA;At a high level Amazon Q Developer can leak sensitive information from a developer&amp;rsquo;s machine, e.g. API keys, to external servers via DNS requests.</description>
     </item>
     <item>
       <title>Data Exfiltration via Image Rendering Fixed in Amp Code</title>

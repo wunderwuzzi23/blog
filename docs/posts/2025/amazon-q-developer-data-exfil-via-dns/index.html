@@ -135,11 +135,11 @@
     
 <a id="top_ref"></a>
 
-<p>The next three posts will cover high severity vulnerabilities in the Amazon Q Developer VS Code Extension (Amazon Q), which is a very popular coding agent, with over 1 million downloads.</p>
-<p>It is vulnerable to prompt injection from untrusted inputs and its security depends heavily on model behavior.</p>
-<p>At a high level Amazon Q Developer can leak sensitive information from a developer&rsquo;s machine, e.g. API keys, to external servers via DNS requests. An adversary can also exploit this behavior during an indirect prompt injection attack.</p>
+<p>The next three posts will cover high severity vulnerabilities in the Amazon Q Developer VS Code Extension (Amazon Q Developer), which is a very popular coding agent, with over 1 million downloads.</p>
+<p>It is vulnerable to prompt injection from untrusted data and its security depends heavily on model behavior.</p>
 <p><a href="/blog/images/2025/episode18-yt.png"><img src="/blog/images/2025/episode18-yt.png" alt="Episode 18"></a></p>
-<p>After I reported the vulnerability Amazon confirmed and quietly patched it. Be sure to run the latest version to have the fix.</p>
+<p>At a high level Amazon Q Developer can leak sensitive information from a developer&rsquo;s machine, e.g. API keys, to external servers via DNS requests. An adversary can also exploit this behavior during an indirect prompt injection attack.</p>
+<p>After I reported the vulnerability Amazon confirmed and quietly patched it without publishing an an advisory or CVE. Be sure to run the latest version to have the fix.</p>
 <p>This vulnerability is similar to another one in <a href="/blog/posts/2025/claude-code-exfiltration-via-dns-requests/">Claude Code - CVE-2025-55284</a> that we discussed earlier this month.</p>
 <p>Let&rsquo;s dive into the details.</p>
 <h2 id="prompt-injection-hijacks-amazon-q-developer">Prompt Injection Hijacks Amazon Q Developer</h2>
@@ -235,7 +235,7 @@ int main() {
     
     <ul class="pager">
       
-      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next"><a href="https://embracethered.com/blog/posts/2025/amazon-q-developer-remote-code-execution/">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">

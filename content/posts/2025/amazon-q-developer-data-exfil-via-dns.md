@@ -17,15 +17,15 @@ twitter:
 <a id="top_ref"></a>
 {{< /raw_html >}}
 
-The next three posts will cover high severity vulnerabilities in the Amazon Q Developer VS Code Extension (Amazon Q), which is a very popular coding agent, with over 1 million downloads.
+The next three posts will cover high severity vulnerabilities in the Amazon Q Developer VS Code Extension (Amazon Q Developer), which is a very popular coding agent, with over 1 million downloads.
 
-It is vulnerable to prompt injection from untrusted inputs and its security depends heavily on model behavior.
-
-At a high level Amazon Q Developer can leak sensitive information from a developer's machine, e.g. API keys, to external servers via DNS requests. An adversary can also exploit this behavior during an indirect prompt injection attack.
+It is vulnerable to prompt injection from untrusted data and its security depends heavily on model behavior.
 
 [![Episode 18](/blog/images/2025/episode18-yt.png)](/blog/images/2025/episode18-yt.png)
 
-After I reported the vulnerability Amazon confirmed and quietly patched it. Be sure to run the latest version to have the fix. 
+At a high level Amazon Q Developer can leak sensitive information from a developer's machine, e.g. API keys, to external servers via DNS requests. An adversary can also exploit this behavior during an indirect prompt injection attack.
+
+After I reported the vulnerability Amazon confirmed and quietly patched it without publishing an an advisory or CVE. Be sure to run the latest version to have the fix. 
 
 This vulnerability is similar to another one in [Claude Code - CVE-2025-55284](/blog/posts/2025/claude-code-exfiltration-via-dns-requests/) that we discussed earlier this month.
 
