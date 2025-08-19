@@ -1,15 +1,13 @@
 ---
-title: "How Research Agents Can Leak Your Data"
+title: "How Deep Research Agents Can Leak Your Data"
 date: 2025-08-20T19:03:35-07:00
 draft: true
-tags: [
-     "threats", "ttp", "red", "tools", "llm", "agents"
-    ]
+tags: ["llm", "agents", "month of ai bugs"]
 twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "How DeepResearch Leaks Your Data"
+  title: "How Deep Research Agents CanLeak Your Data"
   description: ""
   image: "https://embracethered.com/blog/images/2025/TODO"
 ---
@@ -21,13 +19,19 @@ Some of these research features explicitly state that the tools are 'read-only�
 [![Research Violates Guidelines](/blog/images/2025/chatgpt-deep-research-violate-guidelines.png)](/blog/images/2025/chatgpt-deep-research-violate-guidelines.png)
 
 Anything else, and the Connector will be rejected as it violates the guidelines.
+
+This research was conducted about two months ago, so a few things might have changed. For one I noticed that the OpenAI documentation is much more explicit about the data leakage scenarios we are going to highlight in this post.
  
 
-## Querying Leaks Data
+## Querying Leaks Data!
 
-One thing that is probably obvious to some, but maybe less obvious to others is that all these integration and tools are technically in the same trust boundary. Meaning any data from one can leak to another, and such leakage can be forced via prompt injection.
+One thing that is probably obvious to some, but maybe less obvious to others is that all these integration and tools are technically in the same trust boundary. 
 
-To demonstrate this, let’s look at ChatGPT, because that is still my favorite to-go AI. Anything described here, pretty much applies the same to Claude’s Advanced Research and other systems.
+What do we mean by that?
+
+It means that any data accessible to the agent from one source, can be leaked to another source when when it performs a research query. And if there is an attacker in the loop such leaks can be forced via prompt injection.
+
+To demonstrate this, let’s look at ChatGPT, because that is still my favorite to-go AI. Anything described here, pretty much applies the same to Claude's Advanced Research and other systems.
 
 ## ChatGPT Connectors and Deep Research
 
@@ -95,8 +99,6 @@ As I mentioned in the intro, the same problem applies to other systems. I did a 
 * Be careful with third party connectors, as those can have additional side-effects and will also receive data as part of research
 * Prompt injection payloads from tools can manipulate the AI and force sending of data to certain tools
 * In ChatGPT you can monitor which tools are invoked and what data is sent to them on the right pain - this gives a good idea on what is going on.
-
-
 
 ## Conclusion
 
