@@ -213,7 +213,7 @@ int main() {
 <p>Now, the developer asks questions about the project or files. In this case we emulate the developer interacting with the file by asking <code>explain this file @demo2.c</code>.</p>
 <h4 id="attacker-hijacks-amazon-q">Attacker Hijacks Amazon Q</h4>
 <p>That interaction is all that is needed. Now the attacker&rsquo;s instructions take control and hijack the AI.</p>
-<p><a href="/blog/images/2025/amazon-q-vscode-zombai-2.png"><img src="/blog/images/2025/amazon-q-vscode-zombai-2.png" alt="ZombAI Amazon Q - No Human In The Loop"></a>.</p>
+<p><a href="/blog/images/2025/amazon-q-vscode-zombai-2.png"><img src="/blog/images/2025/amazon-q-vscode-zombai-2.png" alt="ZombAI Amazon Q - No Human In The Loop"></a></p>
 <p>As can be seen in the above screenshot, the exploit is being run, printing attacker controlled messages and creating the first stage file by base64 decoding the <code>curl | sh</code> command  and then running it - all without the developer&rsquo;s consent.</p>
 <h4 id="no-developer-consent-when-ai-runs-arbitrary-code">No Developer Consent When AI Runs Arbitrary Code</h4>
 <p>Observe that there is no human in the loop validation and all commands are automatically run:</p>
@@ -246,9 +246,9 @@ int main() {
 <p>This vulnerability was reported to AWS on July 4, 2025 and quietly fixed in release v 1.85, on July 17, 2025. So, it was patched very quickly, which reflects the severity of the vulnerability.</p>
 <p>After being asked by Amazon to hold off on disclosure over the last 4 weeks, so that a CVE can be assigned and we can do &ldquo;coordinated&rdquo; disclosure, AWS determined yesterday that this report &ldquo;first requires system compromise&rdquo;, and hence will not be assigned a CVE.</p>
 <p>It&rsquo;s unclear to me what AWS means by this, and it&rsquo;s a bit alarming to know that customers will not be informed of the existence of indirect prompt injection vulnerabilities with clear, high severity, security impact.</p>
-<p>Please make sure that you update to the latest version to apply the patch.</p>
+<p>Please make sure that you update to the latest version to apply this, and other, security patches.</p>
 <p>Nevertheless, thanks to the Amazon Q Developer team for mitigating this vulnerability.</p>
-<p>Stay tuned for more Amazon Q exploits in the next post!</p>
+<p>Stay tuned for another Amazon Q exploit in the next post!</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>In this post we showed how Amazon Q Developer can run arbitrary code, and compromise the host computer without the developer&rsquo;s consent. We showed how this can be exploited during an indirect prompt injection attack to achieve a full system compromise.</p>
 <p>Vulnerabilities might one day be exploited by malicious models and could lead to widespread global system compromises. AI that can break out of its sandbox and perform lateral movement or propagate as virus or worm are some of the bigger security concerns when it comes to agentic AI systems.</p>

@@ -148,7 +148,7 @@ Now, the developer asks questions about the project or files. In this case we em
 
 That interaction is all that is needed. Now the attacker's instructions take control and hijack the AI.
 
-[![ZombAI Amazon Q - No Human In The Loop](/blog/images/2025/amazon-q-vscode-zombai-2.png)](/blog/images/2025/amazon-q-vscode-zombai-2.png).
+[![ZombAI Amazon Q - No Human In The Loop](/blog/images/2025/amazon-q-vscode-zombai-2.png)](/blog/images/2025/amazon-q-vscode-zombai-2.png)
 
 As can be seen in the above screenshot, the exploit is being run, printing attacker controlled messages and creating the first stage file by base64 decoding the `curl | sh` command  and then running it - all without the developer's consent.
 
@@ -207,11 +207,11 @@ After being asked by Amazon to hold off on disclosure over the last 4 weeks, so 
 
 It's unclear to me what AWS means by this, and it's a bit alarming to know that customers will not be informed of the existence of indirect prompt injection vulnerabilities with clear, high severity, security impact.
 
-Please make sure that you update to the latest version to apply the patch.
+Please make sure that you update to the latest version to apply this, and other, security patches.
 
 Nevertheless, thanks to the Amazon Q Developer team for mitigating this vulnerability.
 
-Stay tuned for more Amazon Q exploits in the next post!
+Stay tuned for another Amazon Q exploit in the next post!
 
 ## Conclusion
 
