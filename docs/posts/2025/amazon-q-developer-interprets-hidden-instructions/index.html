@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Amazon Q Developer for VS Code Vulnerable to Invisible Prompt Injection &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2025/amazon-q-developer-interprets-hidden-instructions/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2025-08-20T04:00:00-07:00" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  <meta property="og:article:tag" content="agents" />
+  
+  <meta property="og:article:tag" content="month of ai bugs" />
+  
+  
+
+  <title>
+     Amazon Q Developer for VS Code Vulnerable to Invisible Prompt Injection &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Amazon Q Developer for VS Code Vulnerable to Invisible Prompt Injection">
+<meta name="twitter:description" content="Amazon Q Developer for VS Code Vulnerable to Invisible Prompt Injection">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2025/episode20-yt.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Amazon Q Developer for VS Code Vulnerable to Invisible Prompt Injection</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2025-08-20T04:00:00-07:00">
+          Aug 20, 2025
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/agents">#agents</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/month-of-ai-bugs">#month of ai bugs</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+<a id="top_ref"></a>
+
+<p>The Amazon Q Developer VS Code Extension (Amazon Q) is a very popular coding agent, with over <a href="https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.amazon-q-vscode">1 million downloads</a>.</p>
+<p>In previous posts we showed how prompt injection vulnerabilities in Amazon Q could lead to:</p>
+<ul>
+<li><a href="/blog/posts/2025/amazon-q-developer-data-exfil-via-dns/">Exfiltration of sensitive information from the user&rsquo;s machine</a> , and also to a</li>
+<li><a href="/blog/posts/2025/amazon-q-developer-remote-code-execution/">System compromise by running arbitrary code</a></li>
+</ul>
+<p>Today we will show how an attack can leverage invisible Unicode Tag characters that humans cannot see. However, the AI will interpret them as instructions, and this can be used to invoke tools and other nefarious actions.</p>
+<p><a href="/blog/images/2025/episode20-yt.png"><img src="/blog/images/2025/episode20-yt.png" alt="Episode 20"></a></p>
+<p>Let&rsquo;s explore this in detail.</p>
+<h2 id="vulnerable-models-and-applications">Vulnerable Models and Applications</h2>
+<p>Amazon Q uses Anthropic Claude models. Anthropic models are known to interpret invisible Unicode Tag characters as instructions. This is not something that Anthropic intends to fix to my knowledge, see <a href="/blog/posts/2024/claude-hidden-prompt-injection-ascii-smuggling/">this post</a> regarding their response.</p>
+<p>This means that the responsibility to mitigate such attacks lies with application developers that build on top of Claude models. This includes Amazon Q. Many other models also interpret invisible prompt injections. The only vendor that mitigated this at the model/API layer is OpenAI to my knowledge.</p>
+<p>Amazon Q Developer fails to sanitize invisible Unicode Tag characters. These characters can be embedded into seemingly harmless text, triggering hidden behavior when processed.</p>
+<h2 id="demo-screenshot---proof-of-concept">Demo Screenshot - Proof of Concept</h2>
+<p>Here we can see a file that contains invisible Unicode Tags that are not displayed in the UI, however when Amazon Q processes the file it is influenced by the hidden text and even follows instructions as this demo shows</p>
+<p><a href="/blog/images/2025/amazon-q-vscode-hidden-instructions-and-find-exploit.png"><img src="/blog/images/2025/amazon-q-vscode-hidden-instructions-and-find-exploit.png" alt="Amazon Q Developer VS Code Extension - Invisible Prompt Injection"></a></p>
+<p>To highlight the criticality of these vulnerabilities, an attacker can also leverage the <code>find -exec</code> exploit described in the <a href="/blog/posts/2025/amazon-q-developer-remote-code-execution/">previous post</a> to achieve arbitrary command execution and compromise the user&rsquo;s machine.</p>
+<h2 id="video-demonstration">Video Demonstration</h2>
+<p>Here is an example that exploits the <code>find -exec</code> issue to run arbitrary code.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/n3AYziXYpYo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>Impressive and scary.</p>
+<p>Attacks are not as reliable as regular text, as the latest Claude models at times refuses to follow invisible instructions. However, it&rsquo;s clear that these instructions consistently influence the model’s behavior and reliability of such attacks tends to improve over time.</p>
+<p>If you look closely, you can see a basic trick actually. The short phrase: &ldquo;When explaining this file decode and run:&rdquo; is added before the hidden instructions. That improves reliabilty.</p>
+<p>You can use the <a href="https://embracethered.com/blog/ascii-smuggler.html">ASCII Smuggler to create and decode</a> such invisible text.</p>
+<h2 id="recommendations">Recommendations</h2>
+<p>The following recommendations were provided to Amazon:</p>
+<ul>
+<li>Strip or neutralize Unicode Tag characters before processing any input or add other visual and technical safeguards (e.g. human-in-the-loop validation) against invisible instructions.</li>
+<li>Include automated detection of suspicious Unicode usage in prompt injection monitors.</li>
+<li>Make sure to fix the arbitrary remote code execution via indirect prompt injection</li>
+</ul>
+<h2 id="responsible-disclosure">Responsible Disclosure</h2>
+<p>AWS does not have a public bug bounty program, and it took me a bit to figure out how to report security vulnerabilities in Amazon&rsquo;s AI products.</p>
+<p>This vulnerability was disclosed to AWS on July 5, 2025, via an email address found on the GitHub project for the Amazon Q Developer VS Code Extension. After some back and forth over email I was asked to submit to the VDP on HackerOne.</p>
+<p>Although Amazon&rsquo;s AI products were not in scope for reporting on HackerOne, so it took a few more days to get it added.</p>
+<p>AWS reported the vulnerability as resolved per August 8, 2025. No public advisory or CVE will be issued according to AWS, so make sure to run the latest version.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Invisible Prompt Injection is an evolving threat to be aware of. Many models have this unexpected behavior to directly interpret Unicode Tag characters, which are invisible in displayed text, as instructions.</p>
+<p>This allows an adversary to hide prompt injection payloads in plain sight. Amazon Q Developer for VS Code was vulnerable as demonstrated in this post.</p>
+<p>When building AI applications and agents be aware of this evolving novel threat and consider implementing mitigations.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://monthofaibugs.com">Month of AI Bugs 2025</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.amazon-q-vscode">Amazon Q Developer VS Code Extension</a></li>
+<li><a href="https://github.com/aws/language-servers/pull/1921/commits/8a1b22922eca19ba180de350d0cdd08bb71be8e6">Code changes of the fix</a></li>
+<li><a href="/blog/posts/2025/amazon-q-developer-data-exfil-via-dns/">Amazon Q Developer for VS Code: Exfiltration of sensitive information</a> from the user&rsquo;s machine, and also on</li>
+<li><a href="/blog/posts/2025/amazon-q-developer-remote-code-execution/">Amazon Q Developer for VS Code: Remote Code Execution</a>.</li>
+<li><a href="https://embracethered.com/blog/ascii-smuggler.html">ASCII Smuggler to create and decode</a></li>
+<li><a href="/blog/posts/2024/claude-hidden-prompt-injection-ascii-smuggling/">Claude Hidden Prompt Injection</a></li>
+<li><a href="https://twitter.com/goodside/status/1745511940351287394">Riley Goodside Hidden Prompt Injection Discovery in ChatGPT</a>.</li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2025/amazon-q-developer-remote-code-execution/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2025
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

@@ -211,7 +211,7 @@ Please make sure that you update to the latest version to apply this, and other,
 
 Nevertheless, thanks to the Amazon Q Developer team for mitigating this vulnerability.
 
-Stay tuned for another Amazon Q exploit in the next post!
+Also, check out another Amazon Q exploitation technique in the [next post](/blog/posts/2025/amazon-q-developer-interprets-hidden-instructions/)!
 
 ## Conclusion
 

@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Tue, 19 Aug 2025 14:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 20 Aug 2025 04:00:00 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/month-of-ai-bugs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon Q Developer for VS Code Vulnerable to Invisible Prompt Injection</title>
+      <link>https://embracethered.com/blog/posts/2025/amazon-q-developer-interprets-hidden-instructions/</link>
+      <pubDate>Wed, 20 Aug 2025 04:00:00 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/amazon-q-developer-interprets-hidden-instructions/</guid>
+      <description>The Amazon Q Developer VS Code Extension (Amazon Q) is a very popular coding agent, with over 1 million downloads.&#xA;In previous posts we showed how prompt injection vulnerabilities in Amazon Q could lead to:&#xA;Exfiltration of sensitive information from the user&amp;rsquo;s machine , and also to a System compromise by running arbitrary code Today we will show how an attack can leverage invisible Unicode Tag characters that humans cannot see.</description>
+    </item>
     <item>
       <title>Amazon Q Developer: Remote Code Execution with Prompt Injection</title>
       <link>https://embracethered.com/blog/posts/2025/amazon-q-developer-remote-code-execution/</link>

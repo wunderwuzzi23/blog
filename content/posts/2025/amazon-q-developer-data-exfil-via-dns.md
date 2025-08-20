@@ -149,7 +149,7 @@ In this post we showed how Amazon Q Developer can steal sensitive information fr
 
 AWS appears reluctant to issue advisories for vulnerabilities they patch in client products, or to publicly credit researchers. While AWS patched the issue, they do not appear to have a program in place to compensate researchers for such findings, nor do they consistently provide public credit to those who responsibly disclose vulnerabilities - which is unusual compared to industry best practices. 
 
-I'm glad this vulnerability is fixed, and I'll continue sharing more findings in Amazon Q Developer in the next posts of this series. Stay tuned!
+I'm glad this vulnerability is fixed, and I'll continue sharing more findings in Amazon Q Developer in the [next](/blog/posts/2025/amazon-q-developer-interprets-hidden-instructions/) [posts](/blog/posts/2025/amazon-q-developer-remote-code-execution/) of this series. 
 
 Cheers.
 
