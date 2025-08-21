@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Hijacking Windsurf: How Prompt Injection Leaks Developer Secrets &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2025/windsurf-data-exfiltration-vulnerabilities/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2025-08-21T02:20:58-07:00" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  <meta property="og:article:tag" content="agents" />
+  
+  <meta property="og:article:tag" content="month of ai bugs" />
+  
+  
+
+  <title>
+     Hijacking Windsurf: How Prompt Injection Leaks Developer Secrets &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Hijacking Windsurf: How Prompt Injection Leaks Developer Secrets">
+<meta name="twitter:description" content="Windsurf is vulnerable to indirect prompt injection and can be exploited to leak sensitive source code, environment variables and other information on the host">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2025/episode21-yt.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Hijacking Windsurf: How Prompt Injection Leaks Developer Secrets</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2025-08-21T02:20:58-07:00">
+          Aug 21, 2025
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/agents">#agents</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/month-of-ai-bugs">#month of ai bugs</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+<a id="top_ref"></a>
+
+<p>This is the first post in a series exploring security vulnerabilities in Windsurf. If you are unfamiliar with Windsurf, it is a fork of VS Code and the coding agent is called <a href="https://windsurf.com/cascade">Windsurf Cascade</a>.</p>
+<p>The attack vectors we will explore today allow an adversary during an indirect prompt injection to exfiltrate data from the developer&rsquo;s machine.</p>
+<p>These vulnerabilities are a great example of Simon Willison&rsquo;s <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">lethal trifecta</a> pattern.</p>
+<p><a href="/blog/images/2025/episode21-yt.png"><img src="/blog/images/2025/episode21-yt.png" alt="Episode 21"></a></p>
+<p>Overall, the security vulnerability reporting experience with Windsurf has not been great. All findings were responsibly disclosed on May 30, 2025, and receeipt was acknowledged a few days after. However, all further inquiries regarding bug status or fixes remain unanswered. The recent business disruptions and <a href="https://techcrunch.com/2025/07/11/windsurfs-ceo-goes-to-google-openais-acquisition-falls-apart/">departure of CEO and core team members</a> certainly put Windsurf in the news.</p>
+<p>Let&rsquo;s explore this in detail.</p>
+<h2 id="windsurf-system-prompt">Windsurf System Prompt</h2>
+<p>When looking at a new system, I always take a peek at the system prompt first. I’m looking for tools that might be able to be invoked during a prompt injection attack. Sometimes there are also other interesting tidbits present.</p>
+<p>Here is a snipet of the system prompt:</p>
+<p><a href="/blog/images/2025/windsurf-system-prompt-snippet.png"><img src="/blog/images/2025/windsurf-system-prompt-snippet.png" alt="Windsurf System Prompt Snippet"></a></p>
+<p>You can find the <a href="https://github.com/wunderwuzzi23/scratch/blob/master/system_prompts/windsurf_2025-05-30.txt">Windsurf Cascade system prompt here</a>.</p>
+<p>One thing that stood out to me right away was the <code>read_url_content</code> tool.</p>
+<h2 id="attack-vector-1-tools-as-data-exfiltration-vectors">Attack Vector 1: Tools as Data Exfiltration Vectors</h2>
+<p>As the name <code>read_url_content</code> suggests, this tool allows Windsurf to connect to a website and read data from it. However, a reading capability can also serve as a data exfiltration channel as part of the outbound HTTP request. And this tool does not require user approval, so it can be successfully invoked by an adversary during a prompt injection attack.</p>
+<p>As a result, an attacker can exploit this during an indirect prompt injection attack - without requiring user confirmation.</p>
+<h3 id="exploit-demonstration">Exploit Demonstration</h3>
+<p>The prompt injection exploit for this demo is stored in a source code file. This represents one plausible attack vector, but certainly not the only one!</p>
+<p>Now, when the developer analyzes the file with Windsurf Cascade it will attack and exploit the AI agent and exfiltrate the contents of the <code>.env</code> file using the <code>read_url_content</code> tool.</p>
+<p><a href="/blog/images/2025/windsurf-data-leakage-read_url_content-tool-redacted.png"><img src="/blog/images/2025/windsurf-data-leakage-read_url_content-tool-redacted.png" alt="Screenshot showing data exfiltration via the read_url_content tool"></a></p>
+<p>The above screenshot shows how by simply analyzing a file with Windsurf, the text within it can hijack Windsurf Cascade to exfiltrate sensitive information from the developer&rsquo;s workstation.</p>
+<h3 id="video-demonstration-proof-of-concept">Video Demonstration Proof-of-Concept</h3>
+<p>This video shows how such an exploit chain looks end-to-end:</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/_Mb9n7frGAs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h3 id="prompt-injection-payload">Prompt Injection Payload</h3>
+<p>This is the text in the beginning of the source code file:</p>
+<pre tabindex="0"><code>&lt;redacted for now, as this is not fixed&gt; 
+</code></pre><p>With this simple proof-of-concept payload, the AI agent is hijacked to exfiltrate sensitive environment variables and other information as it analyzes the file, all without requiring user approval</p>
+<h2 id="attack-vector-2-image-rendering">Attack Vector 2: Image Rendering</h2>
+<p>The second attack vector is quite similar to a vulnerability I found in GitHub Copilot last year, which Microsoft has since fixed. You can read up details <a href="https://embracethered.com/blog/posts/2024/github-copilot-chat-prompt-injection-data-exfiltration/">here</a>.</p>
+<p>Image rendering from untrusted domains is actually one of the most common AI application security vulnerabilities to be aware of. We have seen dozens of examples of this vulnerability over the last two+ years.</p>
+<h3 id="exploit-demonstration-1">Exploit Demonstration</h3>
+<p>As we have shown with many similar attacks over the last 2+ years this does not require a human in the loop and leads to data leakage when an application renders images from untrusted domains.</p>
+<p>To keep things short in this post, the following screenshot shows the end to end exploit chain in a single screenshot:</p>
+<p><a href="/blog/images/2025/windsurf-data-exfil-image-markdown-e2e-redacted.png"><img src="/blog/images/2025/windsurf-data-exfil-image-markdown-e2e-redacted.png" alt="Windsurf-read_url_content"></a></p>
+<p>This shows how Windsurf is hijacked and exfiltrates sensitive information from the developer&rsquo;s workstation to a third-party server.</p>
+<h3 id="video-demonstration-proof-of-concept-1">Video Demonstration Proof-of-Concept</h3>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/lTkiCe3uhEY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h3 id="prompt-injection-payload-1">Prompt Injection Payload</h3>
+<p>This is the text in the beginning of the source code file:</p>
+<pre tabindex="0"><code>&lt;redacted for now, as this is not fixed&gt;
+</code></pre><p>That’s all that was needed to hijack Windsurf Cascade.</p>
+<h2 id="responsible-disclosure">Responsible Disclosure</h2>
+<p>These vulnerabilities were disclosed to Windsurf on May 30, 2025 and receipt acknowledged by Windsurf a few days later. However, all further inquiries around triage, bug status or fixes remain unanswered.</p>
+<p>Hence, disclosing this publicly after ~3 months seems the best approach to raise awareness and educate customers and users about these high-severity vulnerabilities.</p>
+<h2 id="mitigations">Mitigations</h2>
+<ul>
+<li>Require a human-in-the-loop before invoking the <code>read_url_content</code> tool with untrusted servers</li>
+<li>Consider an allow-list of trusted domains that can be read from securely without user approval</li>
+<li>Do not render images/hyperlinks to untrusted domains. VS Code has an allow list of trusted domains, so it might be best to integrate with that feature</li>
+<li>Also, do not automatically navigate to clickable hyperlinks (e.g. phishing attacks)</li>
+<li>If you are a customer of Windsurf, I suggest reaching out to your account manager to inquiry about these high-severity vulnerabilites to raise awareness and get them fixed</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Windsurf Cascade is vulnerable to prompt injection and since there is no deterministic solution to fix prompt injection itself, security has to be enforced downstream of LLM output.</p>
+<p>As demonstrated, weaknesses in tool invocation and image rendering allow a third-party attacker to embed malicious instructions into source code, websites, or even through RAG poisoning. When Cascade analyzes such content, it becomes a “confused deputy,” potentially leading to data exfiltration.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/wunderwuzzi23/scratch/blob/master/system_prompts/windsurf_2025-05-30.txt">Windsurf System Prompt</a></li>
+<li><a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">Simon Willison - The lethal trifecta</a></li>
+<li><a href="https://monthofaibugs.com">Month of AI Bugs 2025</a></li>
+<li><a href="https://embracethered.com/blog/posts/2024/github-copilot-chat-prompt-injection-data-exfiltration/">GitHub Copilot Data Exfiltration Fix</a></li>
+<li><a href="https://techcrunch.com/2025/07/11/windsurfs-ceo-goes-to-google-openais-acquisition-falls-apart/">Windsurf&rsquo;s CEO goes to Google; OpenAI’s acquisition falls apart</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2025/amazon-q-developer-interprets-hidden-instructions/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2025
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

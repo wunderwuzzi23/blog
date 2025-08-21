@@ -1,6 +1,6 @@
 ---
 title: "How Deep Research Agents Can Leak Your Data"
-date: 2025-08-20T19:03:35-07:00
+date: 2025-08-24T19:03:35-07:00
 draft: true
 tags: ["llm", "agents", "month of ai bugs"]
 twitter:

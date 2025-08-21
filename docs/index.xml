@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Wed, 20 Aug 2025 04:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 21 Aug 2025 02:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hijacking Windsurf: How Prompt Injection Leaks Developer Secrets</title>
+      <link>https://embracethered.com/blog/posts/2025/windsurf-data-exfiltration-vulnerabilities/</link>
+      <pubDate>Thu, 21 Aug 2025 02:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/windsurf-data-exfiltration-vulnerabilities/</guid>
+      <description>This is the first post in a series exploring security vulnerabilities in Windsurf. If you are unfamiliar with Windsurf, it is a fork of VS Code and the coding agent is called Windsurf Cascade.&#xA;The attack vectors we will explore today allow an adversary during an indirect prompt injection to exfiltrate data from the developer&amp;rsquo;s machine.&#xA;These vulnerabilities are a great example of Simon Willison&amp;rsquo;s lethal trifecta pattern.&#xA;Overall, the security vulnerability reporting experience with Windsurf has not been great.</description>
+    </item>
     <item>
       <title>Amazon Q Developer for VS Code Vulnerable to Invisible Prompt Injection</title>
       <link>https://embracethered.com/blog/posts/2025/amazon-q-developer-interprets-hidden-instructions/</link>
