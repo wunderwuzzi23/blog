@@ -24,15 +24,17 @@ These vulnerabilities are a great example of Simon Willison's [lethal trifecta](
 
 [![Episode 21](/blog/images/2025/episode21-yt.png)](/blog/images/2025/episode21-yt.png)
 
-Overall, the security vulnerability reporting experience with Windsurf has not been great. All findings were responsibly disclosed on May 30, 2025, and receeipt was acknowledged a few days after. However, all further inquiries regarding bug status or fixes remain unanswered. The recent business disruptions and [departure of CEO and core team members](https://techcrunch.com/2025/07/11/windsurfs-ceo-goes-to-google-openais-acquisition-falls-apart/) certainly put Windsurf in the news.
+Overall, the security vulnerability reporting experience with Windsurf has not been great. All findings were responsibly disclosed on May 30, 2025, and receipt was acknowledged a few days later. However, all further inquiries regarding bug status or fixes remain unanswered. The recent business disruptions and [departure of CEO and core team members](https://techcrunch.com/2025/07/11/windsurfs-ceo-goes-to-google-openais-acquisition-falls-apart/) certainly put Windsurf in the news. 
+
+Since Windsurf has been unresponsive and these high-severity vulnerabilities allow the exfiltration of sensitive information from developers, this post will not disclose all technical details and prompt injection payloads. Hopefully, Windsurf will eventually address these deficiencies.
 
 Let's explore this in detail.
 
 ## Windsurf System Prompt
 
-When looking at a new system, I always take a peek at the system prompt first. I’m looking for tools that might be able to be invoked during a prompt injection attack. Sometimes there are also other interesting tidbits present.
+When looking at a new system, I always take a peek at the system prompt first. I'm looking for tools that might be able to be invoked during a prompt injection attack. Sometimes there are also other interesting tidbits present.
 
-Here is a snipet of the system prompt:
+Here is a snippet of the system prompt:
 
 [![Windsurf System Prompt Snippet](/blog/images/2025/windsurf-system-prompt-snippet.png)](/blog/images/2025/windsurf-system-prompt-snippet.png)
 
@@ -94,7 +96,6 @@ This shows how Windsurf is hijacked and exfiltrates sensitive information from t
 {{< youtube lTkiCe3uhEY >}}
 
 
-
 ### Prompt Injection Payload
 
 This is the text in the beginning of the source code file:
@@ -103,13 +104,13 @@ This is the text in the beginning of the source code file:
 <redacted for now, as this is not fixed>
 ```
 
-That’s all that was needed to hijack Windsurf Cascade. 
+That's all that was needed to hijack Windsurf Cascade. 
 
 ## Responsible Disclosure
 
-These vulnerabilities were disclosed to Windsurf on May 30, 2025 and receipt acknowledged by Windsurf a few days later. However, all further inquiries around triage, bug status or fixes remain unanswered.
+These vulnerabilities were disclosed to Windsurf on May 30, 2025, and receipt acknowledged by Windsurf a few days later. However, all further inquiries around triage, bug status or fixes remain unanswered.
 
-Hence, disclosing this publicly after ~3 months seems the best approach to raise awareness and educate customers and users about these high-severity vulnerabilities. 
+Hence, disclosing this publicly after three months seems the best approach to raise awareness and educate customers and users about these high-severity vulnerabilities. 
 
 ## Mitigations
 
@@ -117,13 +118,13 @@ Hence, disclosing this publicly after ~3 months seems the best approach to raise
 - Consider an allow-list of trusted domains that can be read from securely without user approval
 - Do not render images/hyperlinks to untrusted domains. VS Code has an allow list of trusted domains, so it might be best to integrate with that feature
 - Also, do not automatically navigate to clickable hyperlinks (e.g. phishing attacks)
-- If you are a customer of Windsurf, I suggest reaching out to your account manager to inquiry about these high-severity vulnerabilites to raise awareness and get them fixed
+- If you are a customer of Windsurf, I suggest reaching out to your account manager to inquire about these high-severity vulnerabilites to raise awareness and get them fixed
 
 ## Conclusion
 
 Windsurf Cascade is vulnerable to prompt injection and since there is no deterministic solution to fix prompt injection itself, security has to be enforced downstream of LLM output.
 
-As demonstrated, weaknesses in tool invocation and image rendering allow a third-party attacker to embed malicious instructions into source code, websites, or even through RAG poisoning. When Cascade analyzes such content, it becomes a “confused deputy,” potentially leading to data exfiltration.
+As demonstrated, weaknesses in tool invocation and image rendering allow a third-party attacker to embed malicious instructions into source code, websites, or even through RAG poisoning. When Cascade analyzes such content, it becomes a "confused deputy", potentially leading to data exfiltration.
 
 ## References
 
@@ -131,4 +132,4 @@ As demonstrated, weaknesses in tool invocation and image rendering allow a third
 * [Simon Willison - The lethal trifecta](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/)
 * [Month of AI Bugs 2025](https://monthofaibugs.com)
 * [GitHub Copilot Data Exfiltration Fix](https://embracethered.com/blog/posts/2024/github-copilot-chat-prompt-injection-data-exfiltration/)  
-* [Windsurf's CEO goes to Google; OpenAI’s acquisition falls apart](https://techcrunch.com/2025/07/11/windsurfs-ceo-goes-to-google-openais-acquisition-falls-apart/)
+* [Windsurf's CEO goes to Google; OpenAI's acquisition falls apart](https://techcrunch.com/2025/07/11/windsurfs-ceo-goes-to-google-openais-acquisition-falls-apart/)
