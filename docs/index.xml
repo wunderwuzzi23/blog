@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Thu, 21 Aug 2025 02:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 22 Aug 2025 15:21:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windsurf: Memory-Persistent Data Exfiltration (SpAIware Exploit)</title>
+      <link>https://embracethered.com/blog/posts/2025/windsurf-spaiware-exploit-persistent-prompt-injection/</link>
+      <pubDate>Fri, 22 Aug 2025 15:21:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/windsurf-spaiware-exploit-persistent-prompt-injection/</guid>
+      <description>In this second post about Windsurf Cascade we are exploring the SpAIware attack, which allows memory persistent data exfiltration. SpAIware is an attack we first successfully demonstrated with ChatGPT last year and OpenAI mitigated.&#xA;While inspecting the system prompt of Windsurf Cascade I noticed that it has a create_memory tool.&#xA;Creating Memories The question that immediately popped into my head was if this tool will require human approval when Cascade creates a long-term memory, or if it is added automatically.</description>
+    </item>
     <item>
       <title>Hijacking Windsurf: How Prompt Injection Leaks Developer Secrets</title>
       <link>https://embracethered.com/blog/posts/2025/windsurf-data-exfiltration-vulnerabilities/</link>
