@@ -141,6 +141,7 @@
 <p><a href="/blog/images/2025/episode21-yt.png"><img src="/blog/images/2025/episode21-yt.png" alt="Episode 21"></a></p>
 <p>Overall, the security vulnerability reporting experience with Windsurf has not been great. All findings were responsibly disclosed on May 30, 2025, and receipt was acknowledged a few days later. However, all further inquiries regarding bug status or fixes remain unanswered. The recent business disruptions and <a href="https://techcrunch.com/2025/07/11/windsurfs-ceo-goes-to-google-openais-acquisition-falls-apart/">departure of CEO and core team members</a> certainly put Windsurf in the news.</p>
 <p>Since Windsurf has been unresponsive and these high-severity vulnerabilities allow the exfiltration of sensitive information from developers, this post will not disclose all technical details and prompt injection payloads. Hopefully, Windsurf will eventually address these deficiencies.</p>
+<p><strong>Update: Windsurf reached out that they will be working on fixes, although no ETA yet.</strong></p>
 <p>Let&rsquo;s explore this in detail.</p>
 <h2 id="windsurf-system-prompt">Windsurf System Prompt</h2>
 <p>When looking at a new system, I always take a peek at the system prompt first. I&rsquo;m looking for tools that might be able to be invoked during a prompt injection attack. Sometimes there are also other interesting tidbits present.</p>
@@ -188,6 +189,7 @@
 <h2 id="responsible-disclosure">Responsible Disclosure</h2>
 <p>These vulnerabilities were disclosed to Windsurf on May 30, 2025, and receipt acknowledged by Windsurf a few days later. However, all further inquiries around triage, bug status or fixes remain unanswered.</p>
 <p>Hence, disclosing this publicly after three months seems the best approach to raise awareness and educate customers and users about these high-severity vulnerabilities.</p>
+<p><strong>Update: Windsurf reached out that they will be working on fixes, although no ETA yet.</strong></p>
 <h2 id="mitigations">Mitigations</h2>
 <ul>
 <li>Require a human-in-the-loop before invoking the <code>read_url_content</code> tool with untrusted servers</li>

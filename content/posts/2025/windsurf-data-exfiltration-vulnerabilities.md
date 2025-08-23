@@ -28,6 +28,8 @@ Overall, the security vulnerability reporting experience with Windsurf has not b
 
 Since Windsurf has been unresponsive and these high-severity vulnerabilities allow the exfiltration of sensitive information from developers, this post will not disclose all technical details and prompt injection payloads. Hopefully, Windsurf will eventually address these deficiencies.
 
+**Update: Windsurf reached out that they will be working on fixes, although no ETA yet.**
+
 Let's explore this in detail.
 
 ## Windsurf System Prompt
@@ -111,6 +113,8 @@ That's all that was needed to hijack Windsurf Cascade.
 These vulnerabilities were disclosed to Windsurf on May 30, 2025, and receipt acknowledged by Windsurf a few days later. However, all further inquiries around triage, bug status or fixes remain unanswered.
 
 Hence, disclosing this publicly after three months seems the best approach to raise awareness and educate customers and users about these high-severity vulnerabilities. 
+
+**Update: Windsurf reached out that they will be working on fixes, although no ETA yet.**
 
 ## Mitigations
 
