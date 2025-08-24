@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Fri, 22 Aug 2025 15:21:58 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 23 Aug 2025 16:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sneaking Invisible Instructions by Developers in Windsurf</title>
+      <link>https://embracethered.com/blog/posts/2025/windsurf-sneaking-invisible-instructions-for-prompt-injection/</link>
+      <pubDate>Sat, 23 Aug 2025 16:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/windsurf-sneaking-invisible-instructions-for-prompt-injection/</guid>
+      <description>Imagine a malicious instruction hidden in plain sight, invisible to you but not to the AI. This is a vulnerability discovered in Windsurf Cascade, it follows invisible instructions. This means there can be instructions in a file or result of a tool call that the developer cannot see, but the LLM does.&#xA;Some LLMs interpret invisible Unicode Tag characters as instructions, which can lead to hidden prompt injection.&#xA;As far as I can tell the Windsurf SWE-1 model can also &amp;ldquo;see&amp;rdquo; these invisible characters, but the SWE-1 is not yet capable of interpreting them as instructions.</description>
+    </item>
     <item>
       <title>Windsurf: Memory-Persistent Data Exfiltration (SpAIware Exploit)</title>
       <link>https://embracethered.com/blog/posts/2025/windsurf-spaiware-exploit-persistent-prompt-injection/</link>
