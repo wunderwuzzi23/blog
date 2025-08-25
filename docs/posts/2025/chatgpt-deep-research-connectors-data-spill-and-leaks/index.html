@@ -132,7 +132,10 @@
     </div>
   </header>
   <section>
-    <p>Recently, many of our favorite AI chatbots have gotten autonomous research capabilities. This allows the AI to go off for an extended period of time, while having access to tools, such as web search, integrations, connectors and also custom-built MCP servers.</p>
+    
+<a id="top_ref"></a>
+
+<p>Recently, many of our favorite AI chatbots have gotten autonomous research capabilities. This allows the AI to go off for an extended period of time, while having access to tools, such as web search, integrations, connectors and also custom-built MCP servers.</p>
 <p><a href="/blog/images/2025/episode24-yt.png"><img src="/blog/images/2025/episode24-yt.png" alt="Episode 24"></a></p>
 <p>This post will explore and explain in detail how there can be data spill between connected tools during Deep Research. The research is focused on ChatGPT but applies to other Deep Research agents as well.</p>
 <p>With ChatGPT it&rsquo;s now possible to implement custom ChatGPT Connectors, but they have to follow very specific schema definitions, namely it requires two MCP tools created, <code>search</code> and <code>fetch</code>.</p>
@@ -152,7 +155,7 @@
 <blockquote>
 <p>When you enable a connector, ChatGPT can send and retrieve information from the connected app in order to find information relevant to your prompts and use them in its responses.</p>
 </blockquote>
-<p>Which basically hints to this behavior, but is not as explicit.</p>
+<p>This basically hints to this behavior.</p>
 <h3 id="implementing-a-remote-mcp-server">Implementing a Remote MCP Server</h3>
 <p>To test this out I created a simple remote MCP server named <code>Remote Matrix</code> that correctly implements <code>search</code> and <code>fetch</code> tools to adhere to OpenAI’s specification.</p>
 <p>I also <a href="https://github.com/wunderwuzzi23/remote-matrix-mcp">published the source code</a> on GitHub. It includes extensive logging, because that was my primary goal to better understand what data is sent by the AI to the MCP server.</p>

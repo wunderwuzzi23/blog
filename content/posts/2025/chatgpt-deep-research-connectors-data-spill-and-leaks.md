@@ -12,6 +12,10 @@ twitter:
   image: "https://embracethered.com/blog/images/2025/episode24-yt.png"
 ---
 
+{{< raw_html >}}
+<a id="top_ref"></a>
+{{< /raw_html >}}
+
 Recently, many of our favorite AI chatbots have gotten autonomous research capabilities. This allows the AI to go off for an extended period of time, while having access to tools, such as web search, integrations, connectors and also custom-built MCP servers.
 
 [![Episode 24](/blog/images/2025/episode24-yt.png)](/blog/images/2025/episode24-yt.png)
@@ -48,7 +52,7 @@ The ChatGPT [documentation](https://help.openai.com/en/articles/11487775-connect
 
 > When you enable a connector, ChatGPT can send and retrieve information from the connected app in order to find information relevant to your prompts and use them in its responses.
 
-Which basically hints to this behavior, but is not as explicit.
+This basically hints to this behavior.
 
 ### Implementing a Remote MCP Server
 
