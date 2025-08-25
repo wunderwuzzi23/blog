@@ -16,7 +16,7 @@ twitter:
 <a id="top_ref"></a>
 {{< /raw_html >}}
 
-Today we will cover a powerful, easy to use, autonomous agent called Manus. [Manus](https://en.wikipedia.org/wiki/Manus_(AI_agent)) is developed by the Chinese startup Monica, based in Singapore. 
+Today we will cover a powerful, easy to use, autonomous agent called Manus. [Manus](https://en.wikipedia.org/wiki/Manus_(AI_agent)) is developed by the Chinese startup [Butterfly Effect](https://manus.im/privacy), headquartered in Singapore. 
 
 This post demonstrates an end-to-end indirect prompt injection attack leading to a compromise of Manus' dev box. 
 

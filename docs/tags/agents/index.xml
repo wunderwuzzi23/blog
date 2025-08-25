@@ -14,7 +14,7 @@
       <link>https://embracethered.com/blog/posts/2025/manus-ai-kill-chain-expose-port-vs-code-server-on-internet/</link>
       <pubDate>Mon, 25 Aug 2025 04:00:58 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2025/manus-ai-kill-chain-expose-port-vs-code-server-on-internet/</guid>
-      <description>Today we will cover a powerful, easy to use, autonomous agent called Manus. Manus is developed by the Chinese startup Monica, based in Singapore.&#xA;This post demonstrates an end-to-end indirect prompt injection attack leading to a compromise of Manus&amp;rsquo; dev box.&#xA;This is achieved by tricking Manus to expose it&amp;rsquo;s internal VS Code Server to the Internet, and then sharing the URL and password with the atacker. Specifically, this post demonstrates that:</description>
+      <description>Today we will cover a powerful, easy to use, autonomous agent called Manus. Manus is developed by the Chinese startup Butterfly Effect, headquartered in Singapore.&#xA;This post demonstrates an end-to-end indirect prompt injection attack leading to a compromise of Manus&amp;rsquo; dev box.&#xA;This is achieved by tricking Manus to expose it&amp;rsquo;s internal VS Code Server to the Internet, and then sharing the URL and password with the atacker. Specifically, this post demonstrates that:</description>
     </item>
     <item>
       <title>How Deep Research Agents Can Leak Your Data</title>
