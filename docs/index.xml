@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sat, 23 Aug 2025 16:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 24 Aug 2025 18:03:35 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How Deep Research Agents Can Leak Your Data</title>
+      <link>https://embracethered.com/blog/posts/2025/chatgpt-deep-research-connectors-data-spill-and-leaks/</link>
+      <pubDate>Sun, 24 Aug 2025 18:03:35 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/chatgpt-deep-research-connectors-data-spill-and-leaks/</guid>
+      <description>Recently, many of our favorite AI chatbots have gotten autonomous research capabilities. This allows the AI to go off for an extended period of time, while having access to tools, such as web search, integrations, connectors and also custom-built MCP servers.&#xA;This post will explore and explain in detail how there can be data spill between connected tools during Deep Research. The research is focused on ChatGPT but applies to other Deep Research agents as well.</description>
+    </item>
     <item>
       <title>Sneaking Invisible Instructions by Developers in Windsurf</title>
       <link>https://embracethered.com/blog/posts/2025/windsurf-sneaking-invisible-instructions-for-prompt-injection/</link>

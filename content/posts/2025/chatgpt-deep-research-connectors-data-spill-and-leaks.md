@@ -1,117 +1,160 @@
 ---
 title: "How Deep Research Agents Can Leak Your Data"
-date: 2025-08-24T19:03:35-07:00
+date: 2025-08-24T18:03:35-07:00
 draft: true
 tags: ["llm", "agents", "month of ai bugs"]
 twitter:
   card: "summary_large_image"
   site: "@wunderwuzzi23"
   creator: "@wunderwuzzi23"
-  title: "How Deep Research Agents CanLeak Your Data"
-  description: ""
-  image: "https://embracethered.com/blog/images/2025/TODO"
+  title: "How Deep Research Agents Can Leak Your Data"
+  description: "When enabling Deep Research an agent might go off for a long period of time and invoke many tools and leak information from one tool to another."
+  image: "https://embracethered.com/blog/images/2025/episode24-yt.png"
 ---
 
-Recently, many of our favorite AI chatbots have gotten autonomous research capabilities. This allows the AI to go off for an extended period of time, while have access to tools, such as web search, Integrations, Connectors and also custom created MCP servers.
+Recently, many of our favorite AI chatbots have gotten autonomous research capabilities. This allows the AI to go off for an extended period of time, while having access to tools, such as web search, integrations, connectors and also custom-built MCP servers.
 
-Some of these research features explicitly state that the tools are 'read-only’, and when implementing a custom ChatGPT Connectors it has to follow very specific schema definitions, namely it requires two MCP tools created, **search** and **fetch**. 
+[![Episode 24](/blog/images/2025/episode24-yt.png)](/blog/images/2025/episode24-yt.png)
 
-[![Research Violates Guidelines](/blog/images/2025/chatgpt-deep-research-violate-guidelines.png)](/blog/images/2025/chatgpt-deep-research-violate-guidelines.png)
+This post will explore and explain in detail how there can be data spill between connected tools during Deep Research. The research is focused on ChatGPT but applies to other Deep Research agents as well.
 
-Anything else, and the Connector will be rejected as it violates the guidelines.
+With ChatGPT it's now possible to implement custom ChatGPT Connectors, but they have to follow very specific schema definitions, namely it requires two MCP tools created, `search` and `fetch`. 
 
-This research was conducted about two months ago, so a few things might have changed. For one I noticed that the OpenAI documentation is much more explicit about the data leakage scenarios we are going to highlight in this post.
- 
+When I implemented my first custom Connector, which is technically an MCP server, I got this error when trying to add it to ChatGPT:
+
+[![Research Violates Guidelines](/blog/images/2025/chatgpt-deepresearch-violate-guidelines.png)](/blog/images/2025/chatgpt-deepresearch-violate-guidelines.png)
+
+The server has to implement exactly `search` and `fetch`. Anything else, and the Connector will be rejected for violating guidelines.
+
+With terms like `search` and `fetch` it appears that an agent will only retrieve data, but that doesn't mean that no data-leakage will occur as we will demonstrate in this post.
+
+This research was conducted about two months ago, so a few things might have changed, but the core principles remain true.
 
 ## Querying Leaks Data!
 
-One thing that is probably obvious to some, but maybe less obvious to others is that all these integration and tools are technically in the same trust boundary. 
+One thing that is probably obvious to some, but maybe less obvious to others, is that all these integration and tools that technically in the same trust boundary. 
 
-What do we mean by that?
+**What does that mean?**
 
-It means that any data accessible to the agent from one source, can be leaked to another source when when it performs a research query. And if there is an attacker in the loop such leaks can be forced via prompt injection.
+It means that data accessible to the agent from one source, can be leaked to other sources when it performs deep research queries. 
 
-To demonstrate this, let’s look at ChatGPT, because that is still my favorite to-go AI. Anything described here, pretty much applies the same to Claude's Advanced Research and other systems.
+And if there is an attacker in the loop such leaks can be forced via prompt injection.
 
 ## ChatGPT Connectors and Deep Research
 
-The primary goal of this research post is to highlight that there is no trust boundary that is enforced, and once you add multiple research tools to Deep Research during the research process ChatGPT will invoke the tools at will and take data from one tool to query other tools.
+The primary goal of this research post is to highlight that there is no trust boundary, and once you add multiple research tools to the research process, the agent can freely invoke tools and may use data from one to query another.
+
+The ChatGPT [documentation](https://help.openai.com/en/articles/11487775-connectors-in-chatgpt) states:
+
+> When you enable a connector, ChatGPT can send and retrieve information from the connected app in order to find information relevant to your prompts and use them in its responses.
+
+Which basically hints to this behavior, but is not as explicit.
 
 ### Implementing a Remote MCP Server
 
-To test this out I created a simple remote MCP server named Matrix that correctly implements search and fetch tools to adhere to OpenAI’s spec. 
+To test this out I created a simple remote MCP server named `Remote Matrix` that correctly implements `search` and `fetch` tools to adhere to OpenAI’s specification. 
 
-I also [published the source code](https://github.com/wunderwuzzi23/remote-matrix-mcp) on GitHub. It contains a lot of logging, because that was my primary goal to clearly understand how much data is sent by the AI to the MCP server.
+I also [published the source code](https://github.com/wunderwuzzi23/remote-matrix-mcp) on GitHub. It includes extensive logging, because that was my primary goal to better understand what data is sent by the AI to the MCP server.
 
-The code might also be helpful because I noticed that OpenAI’s [demo Connector](https://github.com/kwhinnery-openai/sample-deep-research-mcp) does actually not correctly implement the correct schema that OpenAI Deep Research highlights in the docs. 
-
-[![Research Leak](/blog/images/2025/chatgpt-deep-research-password-leak.png)](/blog/images/2025/chatgpt-deep-research-password-leak.png)
+The code might also be helpful because I noticed that OpenAI's [demo Connector](https://github.com/kwhinnery-openai/sample-deep-research-mcp) does not correctly implement the correct schema that OpenAI Deep Research highlights in the docs. 
 
 
-### Data Leakage Scenarios
+## Data Leakage Scenarios
 
 The easiest way to understand this is probably just by looking at this screenshot:
 
-[![Research Spill Idea](/blog/images/2025/chatgpt-deepresearch-spill-idea.png)](/blog/images/2025/chatgpt-deepresearch-spill-idea.png)
+[![Research Spill Idea](/blog/images/2025/chatgpt-deepresearch-sources.png)](/blog/images/2025/chatgpt-deepresearch-soures.png)
 
-Here you can see we have three tools selected and any data from one can be used in a query to another. Remember a research process runs often runs for 10+ minutes so humans are not in the loop during the research.
+Here you can see we have `Outlook Email`, the `Remote Matrix` and a few other tools selected. This means that data from Outlook can be used in a query to the `Remote Matrix` tool. Remember, a research process often runs for 10+ minutes, so humans are not in the loop during the process.
 
-In the documentation OpenAI highlights that info from memory, chat history might be sent to Web Search.
+The documentation highlights this with Web Search:
 > ChatGPT can also use relevant information accessed from Connectors to inform search queries when ChatGPT searches the web to provide a response.
 
-That web search uses both [Bing and Shopify](https://help.openai.com/en/articles/9237897-chatgpt-search) apparently.
+And turns out that web search uses both [Bing and Shopify](https://help.openai.com/en/articles/9237897-chatgpt-search). 
 
 [![Remote Matrix Leak](/blog/images/2025/chatgpt-deepresearch-search-explain.png)](/blog/images/2025/chatgpt-deepresearch-search-explain.png)
 
-Above screenshot shows the details on what information Search might receive.
-
-### First and Third-Party Connectors
-
-Similarly, although I did not see this highlighted in the documentation, Connectors will also receive queries. And those queries can contain data from other Connectors previously invoked and might contain sensitive information.
+And as you can see above, your **stored memories might also be sent to tools**.
 
 ## Demonstration
 
-## Prompt Injection To Force Leakage
+For the demo I used this research prompt, and connected the Linear and Remote Matrix tools as sources:
+```
+Compile a list of all currently open issues and give and 
+update in a table form with high level details and status.
+```
 
-To influence the AI Agent and create a confused deputy situation we can use prompt injection. There are a couple of places I tried this and it worked:
-1. Linear Tickets with Instructions
-2. Updated Tool Information
+The research agent first proposes a plan and asks a few follow-up questions to clarify the task. In this case it had asked me if it should search both of the connected sources. 
 
-Both cases seemed to have worked. 
+### Prompt Injection To Force Leakage
 
-You can see in this demo screenshot that ChatGPT started sending queries to the Remote Matrix MCP Server in the voice of a caveman, which is part of a prompt injection in the tool description, but more importantly, ChatGPT sent sensitive information from the Linear tickets to the Remote Matrix Server:
+To increase the likelihood of data leakage happening I created the following scenarios to hijack the AI Agent and create a confused deputy with an indirect prompt injection. There are a couple of places I tried:
+1. **Linear tickets with instructions**
+
+[![Research Malicious Linear Ticket](/blog/images/2025/chatgpt-deepresearch-linear2.png)](/blog/images/2025/chatgpt-deepresearch-tool-linear2.png)
+2. **`Remote Matrix` tool with malicious tool description** 
+
+[![Research Malicious Tool Description - Caveman](/blog/images/2025/chatgpt-deepresearch-tool-description.png)](/blog/images/2025/chatgpt-deepresearch-tool-description.png)
+
+In the following demo screenshot you can see that ChatGPT started sending queries to the `Remote Matrix` MCP server in the voice of a caveman, which was part of a prompt injection in the tool description. 😊
+
+[![Research Caveman](/blog/images/2025/chatgpt-deepresearch-caveman.png)](/blog/images/2025/chatgpt-deepresearch-caveman.png)
+
+However, more importantly, ChatGPT sent sensitive information from the Linear tickets to the `Remote Matrix` MCP server as well:
 
 [![Remote Matrix Leak](/blog/images/2025/chatgpt-deep-research-leak.png)](/blog/images/2025/chatgpt-deep-research-leak.png)
 
-Furthermore, I also observed an older prompt injection payload I had in a Linear ticket (for a previous test case) that influenced ChatGPT’s research process and it started to look for a Slack tool to post a message!
+As a user you can see the individual steps the agent takes in the activity pane:
 
+[![Research Linear Ticket](/blog/images/2025/chatgpt-deepresearch-details.png)](/blog/images/2025/chatgpt-deepresearch-details.png)
 
-## What about other Deep Research offerings
+What was interesting to observe was that the agent actually combined the information of the prod service and credentials from multiple tickets into a single query.
 
-As I mentioned in the intro, the same problem applies to other systems. I did a very brief test today with Claude Advanced Research before publishing this post, and with Claude it’s a bit more problematic, because it does not even attempt to enforce “read” only tools, furthermore any tool I added seems to be invoked, which was not always the case with ChatGPT. So, be extra careful on what tools you enable before starting Advanced Research.
+### Unintended Prompt Injection
 
+Furthermore, there was an older prompt injection test I had in a Linear ticket that I had used when testing Devin, and that ticket also influenced ChatGPT's research process and **it seemed to start looking for a Slack tool to post a message!**
+
+[![Research Linear Ticket](/blog/images/2025/chatgpt-deepresearch-invoke-tool.png)](/blog/images/2025/chatgpt-deepresearch-invoke-tool.png)
+
+This is how accidents happen. 
+
+## What About Other Deep Research Offerings
+
+The same concepts apply to other research agents with the same design patterns, and connection to tools.
+
+OpenAI actually seems to have considered threats around custom Connectors and requires a specific implementation pattern (e.g. with `search` and `fetch` tools implemented). That means the agent does not get exposed to tools that directly manipulate or delete data.
 
 ## Mitigations
 
-* During Deep Research there is no human in the loop, so a secure setup, before launching is crucial.
-* Make sure you are okay with the privacy and data protection policies of various tools you add - they will get receive your data (e.g. ChatGPT uses Bing and Shopify for search), this can include sensitive information like memory or chat history
-* When connecting integrations be careful which ones you add at the same time, as there can and will be spill over of information (leakage)
-* Be careful with third party connectors, as those can have additional side-effects and will also receive data as part of research
-* Prompt injection payloads from tools can manipulate the AI and force sending of data to certain tools
-* In ChatGPT you can monitor which tools are invoked and what data is sent to them on the right pain - this gives a good idea on what is going on.
+* When configuring integrations (tools), be careful which ones you simultaneously enable, as there will be spillover of information (leakage)
+* Do not connect sensitive data sources with low integrity data sources in the same research process (e.g. Outlook Email and Random MCP Server from Github), also consider if sharing with Bing/Shopify is within your risk tolerance before enabling "Search"
+* Deep Research is autonomous. So, considering a secure setup before launching, is crucial: Only enable sources and tools that you trust and that you feel comfortable that the data might get shared by the agent between various connected tools (Bing, custom tools,...)
+* Make sure you are okay with the privacy and data protection policies of various tools you add. Tools may receive data originating from other tool invocations (e.g. ChatGPT uses Bing and Shopify for search), and this can include sensitive information like memory or chat history. 
+* If your research agent can connect to any aribtrary tool, be careful exposing data manipulation and deletion tools. OpenAI attempted to mitigate this by requiring a custom tool to have only `search` and `fetch` tools implemented.
+* Be careful with third party connectors, as those can have additional side-effects and will also receive data as part of research and prompt injection from tools can influence and hijack AI
+* In ChatGPT you can see which tools are invoked and what data is sent to them on the right summary pane. This  gives an approximate idea what the agent is doing.
 
 ## Conclusion
 
-This post demonstrates that Deep Research integrations, including ChatGPT Connectors, operate within a shared trust boundary. This means that data is (obviously) leaked between Connectors and Integrations, including Search and also custom created tools. An attacker can use prompt injection to manipulate the AI during the research process to exfiltrate data across tools. 
+This post demonstrates that Deep Research integrations, including ChatGPT Connectors, operate within a shared trust boundary of the agent. This means that data from one source can be sent to other sources by the agent. An attacker can use prompt injection to manipulate the AI during the research process to exfiltrate data across tools. 
 
 This highlights the risks with taking the human out of the loop, which appears to be increasingly more common.
+
+As user carefully connect only trusted data sources and be aware that data might leak from one to the other, and that an adversary could influence this with an indirect prompt injection attack.
+
+The primary purpose of this post was just to demonstrate to myself that leakage between data sources can occur. I think there is a lot more research needed in this space to figure out how an attacker can influence autonomous research agents. 
+
+## Appendix
+
+One of the Linear tickets with the information that was leaked:
+
+
+[![Research Data Prod Linear Ticket](/blog/images/2025/chatgpt-deepresearch-linear-1.png)](/blog/images/2025/chatgpt-deepresearch-tool-linear-1.png)
 
 
 ## References
 
-[Remote Matrix MCP Server](https://github.com/wunderwuzzi23/remote-matrix-mcp)
-[OpenAI: MCP Server Documentation](https://platform.openai.com/docs/mcp)
-
-
-
+* [Remote Matrix MCP Server](https://github.com/wunderwuzzi23/remote-matrix-mcp)
+* [OpenAI: MCP Server Documentation](https://platform.openai.com/docs/mcp)
+* [ChatGPT Connectors](https://help.openai.com/en/articles/11487775-connectors-in-chatgpt)
 
