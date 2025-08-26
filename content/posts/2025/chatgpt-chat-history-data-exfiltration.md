@@ -107,6 +107,9 @@ It seems important to share this information to highlight risks, and help raise 
 
 **As a precaution (to raise awarness but not release a full exploit) you probably noticed that the post does not contain the exact prompt injection payload itself.** I will publish that when the vulnerability is, hopefully, fixed.
 
+**Update August 26, 2025: This vulnerability has now been addressed by OpenAI**
+
+
 ## Recommendations
 
 Here are the recommendations provided to OpenAI:
