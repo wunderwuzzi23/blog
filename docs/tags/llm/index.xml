@@ -7,12 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Tue, 26 Aug 2025 07:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 26 Aug 2025 07:00:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS Kiro: Arbitrary Code Execution via Indirect Prompt Injection</title>
       <link>https://embracethered.com/blog/posts/2025/aws-kiro-aribtrary-command-execution-with-indirect-prompt-injection/</link>
-      <pubDate>Tue, 26 Aug 2025 07:20:58 -0700</pubDate>
+      <pubDate>Tue, 26 Aug 2025 07:00:58 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2025/aws-kiro-aribtrary-command-execution-with-indirect-prompt-injection/</guid>
       <description>On the day AWS Kiro was released, I couldn&amp;rsquo;t resist putting it through some of my Month of AI Bugs security tests for coding agents.&#xA;AWS Kiro was vulnerable to arbitrary command execution via indirect prompt injection. This means that a remote attacker, who controls data that Kiro processes, could hijack it to run arbitrary operating system commands or write and run custom code.&#xA;In particular two attack paths that enabled this with AWS Kiro were identified:</description>
     </item>

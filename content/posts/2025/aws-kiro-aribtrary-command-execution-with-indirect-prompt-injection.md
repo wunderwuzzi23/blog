@@ -1,6 +1,6 @@
 ---
 title: "AWS Kiro: Arbitrary Code Execution via Indirect Prompt Injection"
-date: 2025-08-26T07:20:58-07:00
+date: 2025-08-26T07:00:58-07:00
 draft: true
 tags: ["llm", "agents", "month of ai bugs"]
 twitter:
