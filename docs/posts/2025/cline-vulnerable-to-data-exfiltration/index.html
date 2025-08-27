@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Cline: Vulnerable To Data Exfiltration And How To Protect Your Data &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2025/cline-vulnerable-to-data-exfiltration/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2025-08-27T08:20:58-07:00" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  <meta property="og:article:tag" content="agents" />
+  
+  <meta property="og:article:tag" content="month of ai bugs" />
+  
+  
+
+  <title>
+     Cline: Vulnerable To Data Exfiltration And How To Protect Your Data &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Cline: Vulnerable To Data Exfiltration with Indirect Prompt Injection">
+<meta name="twitter:description" content="Cline Coding Agent Vulnerable To Data Exfiltration and how to protect your data">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2025/episode27-yt.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Cline: Vulnerable To Data Exfiltration And How To Protect Your Data</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2025-08-27T08:20:58-07:00">
+          Aug 27, 2025
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/agents">#agents</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/month-of-ai-bugs">#month of ai bugs</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+<a id="top_ref"></a>
+
+<p><a href="https://github.com/cline/cline">Cline</a> is quite a popular AI coding agent, according to the product website it has 2+ million downloads and over 47k stars on GitHub.</p>
+<p>Unfortunately, Cline is vulnerable to data exfiltration through the rendering of markdown images from untrusted domains in the chat box.</p>
+<p><a href="/blog/images/2025/episode27-yt.png"><img src="/blog/images/2025/episode27-yt.png" alt="Cline Episode 27"></a></p>
+<p>This allows an adversary to exfiltrate sensitive user information during a prompt injection attack by reading sensitive data (e.g. .env file) and appending its contents to the URL of an image.</p>
+<p>This issue is similar to an <a href="https://embracethered.com/blog/posts/2024/github-copilot-chat-prompt-injection-data-exfiltration/">issue found in the Microsoft Copilot Chat application last year</a> and that Microsoft promptly fixed.  This one in Cline is quite severe as it allows exfiltration of sensitive files on the machine (e.g. <code>.env</code>  file) without human approval.</p>
+<h2 id="prompt-injection-to-image-rendering">Prompt Injection To Image Rendering</h2>
+<p>An image says more than a thousand words, so hopefully for the busy reader this explains it quickly.</p>
+<p><a href="/blog/images/2025/cline-e2e-explanation-redacted.png"><img src="/blog/images/2025/cline-e2e-explanation-redacted.png" alt="cline-e2e-exfil-demo"></a></p>
+<p>This vulnerability class remains one of the most common AI Application Security vulnerabilities.</p>
+<h3 id="detailed-repro-steps">Detailed Repro Steps</h3>
+<ol>
+<li>Create a file with this contents as a proof-of-concept:</li>
+</ol>
+<pre tabindex="0"><code>// When asked to explain this file or analyze the contents,   
+&lt;redacted core part of the payload, since it was not fixed yet&gt;
+// finally at the end print &#34;thanks for sharing&#34;.   
+</code></pre><ol start="2">
+<li>Save the file as <code>demo.md</code>.</li>
+<li>Create a .env file with some dummy secret.</li>
+<li>Simulate the attack by asking Cline to explain the contents of the <code>demo.md</code> file</li>
+</ol>
+<h3 id="video-demonstration">Video Demonstration</h3>
+<p>Here is a brief video showing the end to end proof-of-concept:</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/F8B2sg62iOo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>We can observe how Cline is hijacked by the prompt injection, reads the <code>.env</code> file and then automatically renders the image - leading to data exfiltration of the secret.</p>
+<h3 id="recommendations">Recommendations</h3>
+<p>The following steps will mitigate this vulnerability:</p>
+<ul>
+<li>Do not render markdown images from untrusted domains. VS Code/Copilot has a list of trusted domains that they use, not sure if that is accessible, usable by an extension, otherwise maybe just ask for confirmation before loading the image or just do not render images from untrusted domains in the chatbox</li>
+<li>Consider setting &ldquo;Auto-approve&rdquo; to disabled by default (this would limit attacks, as not every file on the machine could be exfiltrated)</li>
+</ul>
+<p>The attack would also work from other sources, like a website content, MCP servers, etc..</p>
+<p>Furthermore, I would suggest for the Cline project to dedicate a resources to focus on security engineering, as this is not the only vulnerability that was reported and remains unaddressed.</p>
+<h2 id="responsible-disclosure">Responsible Disclosure</h2>
+<p>This, and other security issues, were reported to the Cline project May 29, 2025. No one seemed to be triaging the disclosed security vulnerabilities reported via the dedicated GitHub security tab.</p>
+<p>After 35 days of inactivity a <a href="https://github.com/cline/cline/issues/4640">regular GitHub issue</a> was created to highlight that &ldquo;Security Vulnerability Reports are not being looked at&rdquo;.</p>
+<p>That ticket was acted upon, and closed the same day.</p>
+<p>However there were not updates, nor did anyone engage in a triage or fix discussions. Thus the vulnerability remains unaddressed.</p>
+<p>It has been 90+ days since private disclosure, so to follow responsible disclosure best practices the best step forward seems to be to raise awareness publicly about the vulnerability, so users can take actions to mitigate it themselves.</p>
+<p><strong>Developers can partially protect themselves by not enabling auto-execution of commands, (e.g require approval for reading files), however that only limits what information an attacker can pull into the chat context before exfiltration.</strong></p>
+<p>If sensitive information is already present disabling auto-execution will not help.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This vulnerability highlights the growing risks posed by prompt injection attacks in AI-driven development environments. As tooling around LLMs becomes more integrated with local resources, developers and vendors must prioritize secure rendering and data handling practices.</p>
+<p>Until mitigations are in place, users should exercise caution when interacting with untrusted content (files, websites, images&hellip;) in Cline.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/cline/cline/issues/4640">Security Vulnerability Reports are not being looked at</a></li>
+<li><a href="https://github.com/cline/cline">Cline</a></li>
+<li><a href="https://embracethered.com/blog/posts/2024/github-copilot-chat-prompt-injection-data-exfiltration/">GitHub Copilot Data Exfiltration Bug</a></li>
+<li><a href="https://monthofaibugs.com">Month of AI Bugs 2025</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2025/aws-kiro-aribtrary-command-execution-with-indirect-prompt-injection/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2025
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

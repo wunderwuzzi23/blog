@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Tue, 26 Aug 2025 07:00:58 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 27 Aug 2025 08:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/agents/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cline: Vulnerable To Data Exfiltration And How To Protect Your Data</title>
+      <link>https://embracethered.com/blog/posts/2025/cline-vulnerable-to-data-exfiltration/</link>
+      <pubDate>Wed, 27 Aug 2025 08:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/cline-vulnerable-to-data-exfiltration/</guid>
+      <description>Cline is quite a popular AI coding agent, according to the product website it has 2+ million downloads and over 47k stars on GitHub.&#xA;Unfortunately, Cline is vulnerable to data exfiltration through the rendering of markdown images from untrusted domains in the chat box.&#xA;This allows an adversary to exfiltrate sensitive user information during a prompt injection attack by reading sensitive data (e.g. .env file) and appending its contents to the URL of an image.</description>
+    </item>
     <item>
       <title>AWS Kiro: Arbitrary Code Execution via Indirect Prompt Injection</title>
       <link>https://embracethered.com/blog/posts/2025/aws-kiro-aribtrary-command-execution-with-indirect-prompt-injection/</link>
