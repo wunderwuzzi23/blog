@@ -87,7 +87,7 @@ If sensitive information is already present disabling auto-execution will not he
 
 This vulnerability highlights the growing risks posed by prompt injection attacks in AI-driven development environments. As tooling around LLMs becomes more integrated with local resources, developers and vendors must prioritize secure rendering and data handling practices. 
 
-Until mitigations are in place, users should exercise caution when interacting with untrusted content (files, websites, images...) in Cline.
+Until mitigations are in place, users should exercise caution when interacting with untrusted content (files, websites, images...) in Cline and consider outlined mitigation steps.
 
 ## References
 
