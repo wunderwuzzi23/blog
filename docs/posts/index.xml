@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Wed, 27 Aug 2025 08:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 28 Aug 2025 12:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windsurf MCP Integration: Missing Security Controls Put Users at Risk</title>
+      <link>https://embracethered.com/blog/posts/2025/windsurf-dangers-lack-of-security-controls-for-mcp-server-tool-invocation/</link>
+      <pubDate>Thu, 28 Aug 2025 12:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/windsurf-dangers-lack-of-security-controls-for-mcp-server-tool-invocation/</guid>
+      <description>Part of my default test cases for coding agents is to check how MCP integration looks like, especially if the agent can be configured to allow setting fine-grained controls for tools.&#xA;Sometimes there are basic security controls missing.&#xA;Especially when running an agent on your local computer. Stakes are much higher. And it seems important to empower users to be able to configure which actions an AI should be able to take automatically, and which ones should be suggestions that the user reviews before executing.</description>
+    </item>
     <item>
       <title>Cline: Vulnerable To Data Exfiltration And How To Protect Your Data</title>
       <link>https://embracethered.com/blog/posts/2025/cline-vulnerable-to-data-exfiltration/</link>
