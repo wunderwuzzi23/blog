@@ -1,6 +1,6 @@
 ---
 title: "Conclusion: Wrapping Up the Month of AI Bugs"  
-date: 2025-08-30T00:20:58-07:00  
+date: 2025-08-31T00:20:58-07:00  
 draft: true  
 tags: ["llm", "agents", "month of ai bugs"]
 twitter:  

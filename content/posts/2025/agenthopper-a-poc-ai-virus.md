@@ -1,5 +1,5 @@
 ---
-title: "AgentHopper: An AI Virus Research Project"  
+title: "AgentHopper: An AI Virus (Research Project)"  
 date: 2025-08-29T20:20:58-07:00  
 draft: true  
 tags: ["llm", "agents", "month of ai bugs"]
@@ -20,17 +20,19 @@ As part of the Month of AI Bugs, serious vulnerabilities that allow remote code 
 
 During that time I was wondering if it would be possible to write an AI virus. 
 
-[![Episode Final Episode 29](/blog/images/2025/episode29-yt.png)](/blog/images/2025/episode29-yt.png)
+[![AgentHopper Logo](/blog/images/2025/agenthopper-logo.png)](/blog/images/2025/agenthopper-logo.png)
 
-Hence the idea of AgentHopper was born. This post is purely for educational purposes, and make sure to check the mitigations section at the end on tips to mitigate similar threats.
+Hence the idea of AgentHopper was born. 
 
-**All vulnerabilities mentioned in this research were responsibly disclosed and have been patched by the respective vendors. This post is shared for educational and awareness purposes to help improve security in AI-based developer tools. Check out the mitigations section for useful tips as well.**
+**All vulnerabilities mentioned in this research were responsibly disclosed and have been patched by the respective vendors. This post is shared for educational and awareness purposes to help improve security in AI-based products. Hopefully this research also serves as a warning to vendors of AI products that AI security vulnerabilities and the downstream implications of prompt injection can have significant consequences if not mitigated. Check out the mitigations section for useful tips as well.**
 
 Interestingly, recently we have seen [multiple real-world cases](https://github.com/aws/aws-toolkit-vscode/security/advisories/GHSA-7g7f-ff96-5gcw) where adversaries [target and exploit coding agents](https://www.stepsecurity.io/blog/supply-chain-security-alert-popular-nx-build-system-package-compromised-with-data-stealing-malware), including pushing information up to GitHub. 
 
 ## AgentHopper - An AI Virus Research Project
 
 The idea was to have one prompt injection payload that would operate across agents and exploit them accordingly. This was to demonstrate that conditional prompt injection can be leveraged as a powerful mechanism to target specific agents. 
+
+[![Episode Final Episode 29](/blog/images/2025/episode29-yt.png)](/blog/images/2025/episode29-yt.png)
 
 Let's first briefly revisit the vulnerabilities that vendors fixed which enabled AgentHopper.
 
@@ -61,21 +63,23 @@ Here's the breakdown:
 
 * **Initial Infection**: An adversary compromises a developer's agent (Agent 1) through an initial indirect prompt injection or otherwise. This is the entry point.
 
-* **Payload Distribution**: Once Agent 1 is compromised, it downloads the AgentHopper binary and executes it. AgentHopper then scans for Git repositories (e.g., Repo 1, Repo 2), injects them with the universal prompt injection payload, commits the changes and does a `git push --force` back to GitHub. The virus basically finds new repositories, which serve as host.
+* **Payload Distribution**: Once Agent 1 is compromised, it downloads the AgentHopper binary and executes it. AgentHopper then scans for Git repositories (e.g., Repo 1, Repo 2), injects them with the universal prompt injection payload, commits, and pushes the changes back to GitHub. The virus basically finds new repositories, which serve as host. 
 
 * **The Hop**: Now, imagine another developer, using another coding agent (Agent 2), pulls the now-infected code from GitHub (say, from Repo 2). When Agent 2 processes or interacts with this code, the prompt injection is triggered.
 
 * **Secondary Infection & Propagation**: Agent 2 becomes compromised, downloads and executes AgentHopper, and the cycle continues, infecting its own repositories (Repo 2, Repo 3) and pushing those changes.
 
-This mechanism highlights how easily a well-crafted prompt injection can propagate across different systems and agents. 
+This mechanism highlights how easily the well-crafted prompt was able to propagate across different systems and agents.
 
-After a successful hop, the target source code in GitHub would look like this:
+[![AgentHopper Logo](/blog/images/2025/agenthopper-1-hop.png)](/blog/images/2025/agenthopper-1-hop.png)
+
+After a successful infection, the target source code would look like this:
 
 [![Virus Payload](/blog/images/2025/agenthopper-after.png)](/blog/images/2025/agenthopper-after.png)
 
-As you can see it inserted the prompt at the beginning of the file.
+As you can see it inserted the prompt at the beginning of the file. 
 
-**Safety Switch:** To avoid accidents and to make sure it doesn't compromise repos in my environment that I didn't want to be backdoored, I added a safety switch that asks for approval for each repo. 
+**Safety Switch:** To avoid accidents and to make sure it doesn't write to repos in my environment that I didn't want to, I added a safety switch that asks for approval for each repo. 
 
 ## What are Conditional Prompt Injections?
 
@@ -114,6 +118,10 @@ But it also highlights a couple of things that are important for user/developer 
 * **Principle of Least Privilege**: This demo exploited vulnerabilities which all have been patched by vendors. However users might configure agents in a way that gives them too many privileges (e.g. allowlisting dangerous commands etc.), or running agents entirely in YOLO mode.
 * If a coding agent has **sandbox capabilities**, then leverage them
 * EDR vendors and GitHub hopefully considers such threats, as they can detect widespread infections quickly and mitigate it
+* **Vendors of coding agents need to make sure to have secure defaults, so that when an agent is hijacked via indirect prompt injection the harm it can cause is limited**
+* **Vendors need to perform in-depth threat modeling.** That can identify issues such as the requirement to isolate configuration settings from the agent (and also other agents) early on. 
+
+**It would be best if vendors would publicly share the outcome of threat modeling to highlight exactly what is done to mitigate the implications of prompt injection.**
 
 ## Conclusion
 
