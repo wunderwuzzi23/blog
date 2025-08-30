@@ -69,7 +69,7 @@ Here's the breakdown:
 
 This mechanism highlights how easily a well-crafted prompt injection can propagate across different systems and agents. 
 
-After a successful hope, the target source code in GitHub would look like this:
+After a successful hop, the target source code in GitHub would look like this:
 
 [![Virus Payload](/blog/images/2025/agenthopper-after.png)](/blog/images/2025/agenthopper-after.png)
 
