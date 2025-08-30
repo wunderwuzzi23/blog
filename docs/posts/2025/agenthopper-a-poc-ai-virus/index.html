@@ -141,7 +141,7 @@
 <p>Hence the idea of AgentHopper was born.</p>
 <p><strong>All vulnerabilities mentioned in this research were responsibly disclosed and have been patched by the respective vendors. This post is shared for educational and awareness purposes to help improve security in AI-based products. Hopefully this research also serves as a warning to vendors of AI products that AI security vulnerabilities and the downstream implications of prompt injection can have significant consequences if not mitigated. Check out the mitigations section for useful tips as well.</strong></p>
 <p>Interestingly, recently we have seen <a href="https://github.com/aws/aws-toolkit-vscode/security/advisories/GHSA-7g7f-ff96-5gcw">multiple real-world cases</a> where adversaries <a href="https://www.stepsecurity.io/blog/supply-chain-security-alert-popular-nx-build-system-package-compromised-with-data-stealing-malware">target and exploit coding agents</a>, including pushing information up to GitHub.</p>
-<h2 id="agenthopper---an-ai-virus-research-project">AgentHopper - An AI Virus Research Project</h2>
+<h2 id="agenthopper---an-ai-virus-demonstration">AgentHopper - An AI Virus Demonstration</h2>
 <p>The idea was to have one prompt injection payload that would operate across agents and exploit them accordingly. This was to demonstrate that conditional prompt injection can be leveraged as a powerful mechanism to target specific agents.</p>
 <h3 id="video-walkthrough">Video Walkthrough</h3>
 <p>If you prefer a video that explains the details, you can watch it here:
@@ -162,9 +162,8 @@
 <p>When discovering and responsibly disclosing them to vendors, I was wondering if it would be possible to build a prompt injection payload that exploits them all.</p>
 <p>A payload that can propagate, like a good old fashion computer virus.</p>
 <p>Back when I had a Commodore Amiga, viruses actually got transferred via floppy disks. When inserting an infected floppy disk, the virus would move to memory and wait for any new floppy disk to be inserted. If a new floppy was inserted, then the virus would attach itself to that floppy, and so on.</p>
-<p>All vulnerabilities have been addressed by vendors by the way.</p>
 <h2 id="the-infection-model-how-agenthopper-spreads">The Infection Model: How AgentHopper Spreads</h2>
-<p>So, how does this thing actually move? The basic concept for AgentHopper&rsquo;s propagation is deceptively simple and leverages common developer workflows.</p>
+<p>So, how does this thing actually move? The basic concept for AgentHopper&rsquo;s propagation is quite simple.</p>
 <p>This diagram is sort of a high level architectural overview:
 <a href="/blog/images/2025/agenthopper-concept.png"><img src="/blog/images/2025/agenthopper-concept.png" alt="AgentHopper - Concept"></a></p>
 <p>Here&rsquo;s the breakdown:</p>
@@ -184,9 +183,9 @@
 </ul>
 <p>This mechanism highlights how easily the well-crafted prompt was able to propagate across different systems and agents.</p>
 <p><a href="/blog/images/2025/agenthopper-1-hop.png"><img src="/blog/images/2025/agenthopper-1-hop.png" alt="AgentHopper Logo"></a></p>
-<p>After a successful infection, the target source code would look like this:</p>
+<p>After a successful infection, the target source code looked like this:</p>
 <p><a href="/blog/images/2025/agenthopper-after.png"><img src="/blog/images/2025/agenthopper-after.png" alt="Virus Payload"></a></p>
-<p>As you can see it inserted the prompt at the beginning of the file.</p>
+<p>Notice the inserted instructions at the beginning of the file to hijack agents that process the file.</p>
 <p><strong>Safety Switch:</strong> To avoid accidents and to make sure it doesn&rsquo;t write to repos in my environment that I didn&rsquo;t want to, I added a safety switch that asks for approval for each repo.</p>
 <h2 id="what-are-conditional-prompt-injections">What are Conditional Prompt Injections?</h2>
 <p>I first <a href="blog/posts/2024/whoami-conditional-prompt-injection-instructions/">described the idea of conditional instructions</a> for prompt injection exploit development a bit over a year ago with Microsoft Copilot, where we sent phishing emails that targeted different users with different attack payloads.</p>
@@ -205,7 +204,7 @@
 <p>As I described when I first discovered these vulnerabilities where an agent can modify its own configuration to escape, it sounded like science fiction, but it turns out it&rsquo;s actually a common design flaw that can easily be mitigated and even be caught early on during threat modeling.</p>
 <h2 id="mitigations--recommendations-for-developers">Mitigations &amp; Recommendations For Developers!</h2>
 <p>When developing this, it gave me a bit the chills, because it was seemingly quite easy to vibe code such malware. Scary simple.</p>
-<p>But it also highlights a couple of things that are important for user/developer to consider, because we can protect ourselves from such attacks:</p>
+<p>But it also highlights a couple of things that are important for users to consider, because we can protect ourselves from such attacks:</p>
 <ul>
 <li>Make sure you <strong>have a passphrase</strong> on your SSH and signing keys!</li>
 <li><strong>Enable branch protection</strong></li>
@@ -215,7 +214,7 @@
 <li><strong>Vendors of coding agents need to make sure to have secure defaults, so that when an agent is hijacked via indirect prompt injection the harm it can cause is limited</strong></li>
 <li><strong>Vendors need to perform in-depth threat modeling.</strong> That can identify issues such as the requirement to isolate configuration settings from the agent (and also other agents) early on.</li>
 </ul>
-<p><strong>It would be best if vendors would publicly share the outcome of threat modeling to highlight exactly what is done to mitigate the implications of prompt injection.</strong></p>
+<p>It would be best if vendors would publicly share the outcome of threat modeling to highlight exactly what is done to mitigate the downstream implications of prompt injection.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Given the <a href="https://www.stepsecurity.io/blog/supply-chain-security-alert-popular-nx-build-system-package-compromised-with-data-stealing-malware">recent malware cases</a>  and <a href="https://github.com/aws/aws-toolkit-vscode/security/advisories/GHSA-7g7f-ff96-5gcw">exploits leveraging coding agents</a>, AI-driven malware and prompt payloads will likely become more prevalent in the near future.</p>
 <p>AgentHopper is a good reminder to make sure you have branch protection on, and that you use a passphrase on your ssh and signing keys to prevent malware automatically pushing changes to GitHub, or other places.</p>

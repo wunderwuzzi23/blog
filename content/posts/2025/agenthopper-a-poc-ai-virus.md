@@ -28,7 +28,7 @@ Hence the idea of AgentHopper was born.
 
 Interestingly, recently we have seen [multiple real-world cases](https://github.com/aws/aws-toolkit-vscode/security/advisories/GHSA-7g7f-ff96-5gcw) where adversaries [target and exploit coding agents](https://www.stepsecurity.io/blog/supply-chain-security-alert-popular-nx-build-system-package-compromised-with-data-stealing-malware), including pushing information up to GitHub. 
 
-## AgentHopper - An AI Virus Research Project
+## AgentHopper - An AI Virus Demonstration
 
 The idea was to have one prompt injection payload that would operate across agents and exploit them accordingly. This was to demonstrate that conditional prompt injection can be leveraged as a powerful mechanism to target specific agents. 
 
@@ -54,11 +54,9 @@ A payload that can propagate, like a good old fashion computer virus.
 
 Back when I had a Commodore Amiga, viruses actually got transferred via floppy disks. When inserting an infected floppy disk, the virus would move to memory and wait for any new floppy disk to be inserted. If a new floppy was inserted, then the virus would attach itself to that floppy, and so on.
 
-All vulnerabilities have been addressed by vendors by the way.
-
 ## The Infection Model: How AgentHopper Spreads
 
-So, how does this thing actually move? The basic concept for AgentHopper's propagation is deceptively simple and leverages common developer workflows.
+So, how does this thing actually move? The basic concept for AgentHopper's propagation is quite simple.
 
 This diagram is sort of a high level architectural overview:
 [![AgentHopper - Concept](/blog/images/2025/agenthopper-concept.png)](/blog/images/2025/agenthopper-concept.png)
@@ -77,11 +75,11 @@ This mechanism highlights how easily the well-crafted prompt was able to propaga
 
 [![AgentHopper Logo](/blog/images/2025/agenthopper-1-hop.png)](/blog/images/2025/agenthopper-1-hop.png)
 
-After a successful infection, the target source code would look like this:
+After a successful infection, the target source code looked like this:
 
 [![Virus Payload](/blog/images/2025/agenthopper-after.png)](/blog/images/2025/agenthopper-after.png)
 
-As you can see it inserted the prompt at the beginning of the file. 
+Notice the inserted instructions at the beginning of the file to hijack agents that process the file. 
 
 **Safety Switch:** To avoid accidents and to make sure it doesn't write to repos in my environment that I didn't want to, I added a safety switch that asks for approval for each repo. 
 
@@ -113,7 +111,7 @@ As I described when I first discovered these vulnerabilities where an agent can 
 
 When developing this, it gave me a bit the chills, because it was seemingly quite easy to vibe code such malware. Scary simple.
 
-But it also highlights a couple of things that are important for user/developer to consider, because we can protect ourselves from such attacks:
+But it also highlights a couple of things that are important for users to consider, because we can protect ourselves from such attacks:
 * Make sure you **have a passphrase** on your SSH and signing keys!
 * **Enable branch protection**
 * **Principle of Least Privilege**: This demo exploited vulnerabilities which all have been patched by vendors. However users might configure agents in a way that gives them too many privileges (e.g. allowlisting dangerous commands etc.), or running agents entirely in YOLO mode.
@@ -122,7 +120,7 @@ But it also highlights a couple of things that are important for user/developer 
 * **Vendors of coding agents need to make sure to have secure defaults, so that when an agent is hijacked via indirect prompt injection the harm it can cause is limited**
 * **Vendors need to perform in-depth threat modeling.** That can identify issues such as the requirement to isolate configuration settings from the agent (and also other agents) early on. 
 
-**It would be best if vendors would publicly share the outcome of threat modeling to highlight exactly what is done to mitigate the implications of prompt injection.**
+It would be best if vendors would publicly share the outcome of threat modeling to highlight exactly what is done to mitigate the downstream implications of prompt injection.
 
 ## Conclusion
 
