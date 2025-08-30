@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Thu, 28 Aug 2025 12:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 29 Aug 2025 20:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/agents/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AgentHopper: An AI Virus Research Project</title>
+      <link>https://embracethered.com/blog/posts/2025/agenthopper-a-poc-ai-virus/</link>
+      <pubDate>Fri, 29 Aug 2025 20:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/agenthopper-a-poc-ai-virus/</guid>
+      <description>As part of the Month of AI Bugs, serious vulnerabilities that allow remote code execution via indirect prompt injection were discovered. There was a period of a few weeks where multiple arbitrary code execution vulnerabilities existed in popular agents, like GitHub Copilot, Amazon Q, AWS Kiro,&amp;hellip;&#xA;During that time I was wondering if it would be possible to write an AI virus.&#xA;Hence the idea of AgentHopper was born. This post is purely for educational purposes, and make sure to check the mitigations section at the end on tips to mitigate similar threats.</description>
+    </item>
     <item>
       <title>Windsurf MCP Integration: Missing Security Controls Put Users at Risk</title>
       <link>https://embracethered.com/blog/posts/2025/windsurf-dangers-lack-of-security-controls-for-mcp-server-tool-invocation/</link>
