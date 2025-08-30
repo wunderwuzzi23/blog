@@ -100,6 +100,10 @@ All of these vulnerabilities have now been patched.
 
 As I described when I first discovered these vulnerabilities where an agent can modify its own configuration to escape, it sounded like science fiction, but it turns out it's actually a common design flaw that can easily be mitigated and even be caught early on during threat modeling.
 
+## Video Demonstration
+
+Stop by again tomorrow for a long-form video.
+
 ## Mitigations & Recommendations For Developers!
 
 When developing this, it gave me a bit the chills, because it was seemingly quite easy to vibe code such malware. Scary simple.
