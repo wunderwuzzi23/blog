@@ -143,9 +143,15 @@
 <p>Interestingly, recently we have seen <a href="https://github.com/aws/aws-toolkit-vscode/security/advisories/GHSA-7g7f-ff96-5gcw">multiple real-world cases</a> where adversaries <a href="https://www.stepsecurity.io/blog/supply-chain-security-alert-popular-nx-build-system-package-compromised-with-data-stealing-malware">target and exploit coding agents</a>, including pushing information up to GitHub.</p>
 <h2 id="agenthopper---an-ai-virus-research-project">AgentHopper - An AI Virus Research Project</h2>
 <p>The idea was to have one prompt injection payload that would operate across agents and exploit them accordingly. This was to demonstrate that conditional prompt injection can be leveraged as a powerful mechanism to target specific agents.</p>
-<p><a href="/blog/images/2025/episode29-yt.png"><img src="/blog/images/2025/episode29-yt.png" alt="Episode Final Episode 29"></a></p>
-<p>Let&rsquo;s first briefly revisit the vulnerabilities that vendors fixed which enabled AgentHopper.</p>
+<h3 id="video-walkthrough">Video Walkthrough</h3>
+<p>If you prefer a video that explains the details, you can watch it here:
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/vlF0sblunQY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
 <h2 id="the-vulnerabilities-and-the-proof-of-concept">The Vulnerabilities and the Proof-of-concept</h2>
+<p>Let&rsquo;s first briefly revisit the vulnerabilities that vendors fixed which enabled AgentHopper.</p>
 <p>During the Month of AI Bugs we described a couple of arbitrary code execution vulnerabilities that vendors addressed:</p>
 <ul>
 <li><a href="/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/">GitHub Copilot: Remote Code Execution via Prompt Injection (CVE-2025-53773)</a></li>
@@ -197,8 +203,6 @@
 </ol>
 <h2 id="agents-that-can-modify-their-own-configuration">Agents That Can Modify Their Own Configuration</h2>
 <p>As I described when I first discovered these vulnerabilities where an agent can modify its own configuration to escape, it sounded like science fiction, but it turns out it&rsquo;s actually a common design flaw that can easily be mitigated and even be caught early on during threat modeling.</p>
-<h2 id="video-demonstration">Video Demonstration</h2>
-<p>Stop by again tomorrow for a long-form video.</p>
 <h2 id="mitigations--recommendations-for-developers">Mitigations &amp; Recommendations For Developers!</h2>
 <p>When developing this, it gave me a bit the chills, because it was seemingly quite easy to vibe code such malware. Scary simple.</p>
 <p>But it also highlights a couple of things that are important for user/developer to consider, because we can protect ourselves from such attacks:</p>

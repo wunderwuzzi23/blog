@@ -32,11 +32,15 @@ Interestingly, recently we have seen [multiple real-world cases](https://github.
 
 The idea was to have one prompt injection payload that would operate across agents and exploit them accordingly. This was to demonstrate that conditional prompt injection can be leveraged as a powerful mechanism to target specific agents. 
 
-[![Episode Final Episode 29](/blog/images/2025/episode29-yt.png)](/blog/images/2025/episode29-yt.png)
+### Video Walkthrough
+
+If you prefer a video that explains the details, you can watch it here:
+{{< youtube vlF0sblunQY >}}
+
+## The Vulnerabilities and the Proof-of-concept
 
 Let's first briefly revisit the vulnerabilities that vendors fixed which enabled AgentHopper.
 
-## The Vulnerabilities and the Proof-of-concept
 
 During the Month of AI Bugs we described a couple of arbitrary code execution vulnerabilities that vendors addressed:
 * [GitHub Copilot: Remote Code Execution via Prompt Injection (CVE-2025-53773)](/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/)
@@ -104,9 +108,6 @@ All of these vulnerabilities have now been patched.
 
 As I described when I first discovered these vulnerabilities where an agent can modify its own configuration to escape, it sounded like science fiction, but it turns out it's actually a common design flaw that can easily be mitigated and even be caught early on during threat modeling.
 
-## Video Demonstration
-
-Stop by again tomorrow for a long-form video.
 
 ## Mitigations & Recommendations For Developers!
 
