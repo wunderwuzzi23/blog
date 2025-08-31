@@ -1,5 +1,5 @@
 ---
-title: "AgentHopper: An AI Virus (Research Project)"  
+title: "AgentHopper: An AI Virus"  
 date: 2025-08-29T20:20:58-07:00  
 draft: true  
 tags: ["llm", "agents", "month of ai bugs"]
