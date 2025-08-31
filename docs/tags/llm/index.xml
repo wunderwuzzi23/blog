@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Fri, 29 Aug 2025 20:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 30 Aug 2025 18:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Wrap Up: The Month of AI Bugs</title>
+      <link>https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/</link>
+      <pubDate>Sat, 30 Aug 2025 18:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/</guid>
+      <description>That&amp;rsquo;s it.&#xA;The Month of AI Bugs is done. There won&amp;rsquo;t be a post tomorrow, because I will be at PAX West.&#xA;Overview of Posts ChatGPT: Exfiltrating Your Chat History and Memories With Prompt Injection | Video ChatGPT Codex: Turning ChatGPT Codex Into a ZombAI Agent | Video Anthropic Filesystem MCP Server: Directory Access Bypass Via Improper Path Validation | Video Cursor: Arbitrary Data Exfiltration via Mermaid | Video Amp Code: Arbitrary Command Execution via Prompt Injection | Video Devin AI: I Spent $500 To Test Devin For Prompt Injection So That You Don&amp;rsquo;t Have To Devin AI: How Devin AI Can Leak Your Secrets via Multiple Means Devin AI: The AI Kill Chain in Action: Exposing Ports to the Internet via Prompt Injection OpenHands - The Lethal Trifecta Strikes Again: How Prompt Injection Can Leak Access Tokens OpenHands: Remote Code Execution and AI ClickFix Demo | Video Claude Code: Data Exfiltration with DNS Requests (CVE-2025-55284) | Video GitHub Copilot: Remote Code Execution (CVE-2025-53773) | Video Google Jules: Vulnerable to Multiple Data Exfiltration Issues Google Jules - Zombie Agent: From Prompt Injection to Remote Control Google Jules: Vulnerable To Invisible Prompt Injection Amp Code: Invisible Prompt Injection Vulnerability Fixed Amp Code: Data Exfiltration via Image Rendering Fixed | Video Amazon Q Developer: Secrets Leaked via DNS and Prompt Injection | Video Amazon Q Developer: Remote Code Execution via Prompt Injection | Video Amazon Q Developer: Vulnerable to Invisible Prompt Injection | Video Windsurf: Hijacking Windsurf: How Prompt Injection Leaks Developer Secrets | Video Windsurf: Memory-Persistent Data Exfiltration - SpAIware Exploit Windsurf: Sneaking Invisible Instructions by Developers Deep Research Agents: How Deep Research Agents Can Leak Your Data Manus: How Prompt Injection Hijacks Manus to Expose VS Code Server to the Internet | Video AWS Kiro: Arbitrary Code Execution via Indirect Prompt Injection | Video Cline: Vulnerable to Data Exfiltration and How to Protect Your Data | Video Windsurf MCP Integration: Missing Security Controls Put Users at Risk | Video Season Finale: AgentHopper: An AI Virus Research Project Demonstration | Video Thank you for following this research, and I hope it serves as a useful reference.</description>
+    </item>
     <item>
       <title>AgentHopper: An AI Virus (Research Project)</title>
       <link>https://embracethered.com/blog/posts/2025/agenthopper-a-poc-ai-virus/</link>
