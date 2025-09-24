@@ -72,6 +72,7 @@ Here is a video that explains the scenario in detail and it includes a demo:
 
 {{< youtube EWuoWjWO8i4 >}}
 
+The demo with Copilot freeing Claude is around minute 3 by the way.
 
 ## Mitigations and Recommendations
 
