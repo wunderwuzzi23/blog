@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Sat, 30 Aug 2025 18:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 24 Sep 2025 12:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cross-Agent Privilege Escalation: When Agents Free Each Other</title>
+      <link>https://embracethered.com/blog/posts/2025/cross-agent-privilege-escalation-agents-that-free-each-other/</link>
+      <pubDate>Wed, 24 Sep 2025 12:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/cross-agent-privilege-escalation-agents-that-free-each-other/</guid>
+      <description>During the Month of AI Bugs, I described an emerging vulnerability pattern that shows how commonly agentic systems have a design flaw that allows an agent to overwrite its own configuration and security settings.&#xA;This allows the agent to break out of its sandbox and escape by executing arbitrary code.&#xA;My research with GitHub Copilot, AWS Kiro and a few others demonstrated how this can be exploited by an adversary with an indirect prompt injection.</description>
+    </item>
     <item>
       <title>Wrap Up: The Month of AI Bugs</title>
       <link>https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/</link>
