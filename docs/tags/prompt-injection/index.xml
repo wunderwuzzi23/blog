@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Mon, 17 Feb 2025 07:30:21 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Oct 2025 08:36:30 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/prompt-injection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Pirate: Abusing Anthropic&#39;s File API For Data Exfiltration</title>
+      <link>https://embracethered.com/blog/posts/2025/claude-abusing-network-access-and-anthropic-api-for-data-exfiltration/</link>
+      <pubDate>Tue, 28 Oct 2025 08:36:30 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/claude-abusing-network-access-and-anthropic-api-for-data-exfiltration/</guid>
+      <description>Recently, Anthropic added the capability for Claude&amp;rsquo;s Code Interpreter to perform network requests. This is obviously very dangerous as we will see in this post.&#xA;At a high level, this post is about a data exfiltration attack chain, where an adversary (either the model or third-party attacker via indirect prompt injection) can exfiltrate data the user has access to.&#xA;The interesting part is that this is not via hyperlink rendering as we often see, but by leveraging the built-in Anthropic Claude APIs!</description>
+    </item>
     <item>
       <title>ChatGPT Operator: Prompt Injection Exploits &amp; Defenses</title>
       <link>https://embracethered.com/blog/posts/2025/chatgpt-operator-prompt-injection-exploits/</link>

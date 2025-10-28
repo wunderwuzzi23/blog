@@ -7,20 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Wed, 24 Sep 2025 12:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 28 Oct 2025 08:36:30 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Agents</title>
       <link>https://embracethered.com/blog/tags/agents/</link>
-      <pubDate>Wed, 24 Sep 2025 12:20:58 -0700</pubDate>
+      <pubDate>Tue, 28 Oct 2025 08:36:30 -0700</pubDate>
       <guid>https://embracethered.com/blog/tags/agents/</guid>
       <description></description>
     </item>
     <item>
       <title>Llm</title>
       <link>https://embracethered.com/blog/tags/llm/</link>
-      <pubDate>Wed, 24 Sep 2025 12:20:58 -0700</pubDate>
+      <pubDate>Tue, 28 Oct 2025 08:36:30 -0700</pubDate>
       <guid>https://embracethered.com/blog/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Prompt Injection</title>
+      <link>https://embracethered.com/blog/tags/prompt-injection/</link>
+      <pubDate>Tue, 28 Oct 2025 08:36:30 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/prompt-injection/</guid>
       <description></description>
     </item>
     <item>
@@ -91,13 +98,6 @@
       <link>https://embracethered.com/blog/tags/exfil/</link>
       <pubDate>Mon, 17 Feb 2025 07:30:21 -0800</pubDate>
       <guid>https://embracethered.com/blog/tags/exfil/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Prompt Injection</title>
-      <link>https://embracethered.com/blog/tags/prompt-injection/</link>
-      <pubDate>Mon, 17 Feb 2025 07:30:21 -0800</pubDate>
-      <guid>https://embracethered.com/blog/tags/prompt-injection/</guid>
       <description></description>
     </item>
     <item>
