@@ -124,6 +124,16 @@ That's it.
 
 ## Responsible Disclosure 
 
+
+**Important Update 10/30/2025: Anthropic has confirmed that data exfiltration vulnerabilities such as this one are in-scope for reporting, and this issue should not have been closed as out-of-scope.**
+
+There was a process hiccup they will work on addressing.
+
+As I'm highlighting under Recommendations & Mitigations below, the security considerations section of Claude [documents](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_6b7e833898:~:text=Reading%20sensitive%20data%20from%20a%20connected%20knowledge%20source%20(for%20example%2C%20Remote%20MCP%2C%20projects)%20and%20using%20the%20sandbox%20environment%20to%20make%20an%20external%20network%20request%20to%20leak%20the%20data) data exfiltration risks and emphasizes the following mitigation: "...we recommend you monitor Claude while using the feature and stop it if you see it using or accessing data unexpectedly."
+
+
+---
+
 I disclosed this to Anthropic via HackerOne on 10/25/2025 and the ticket was closed 1 hour later with the following statement:
 
 > "Thank you for your submission! Unfortunately, this particular issue you reported is explicitly out of scope as outlined in the [Policy Page](https://hackerone.com/anthropic). 
