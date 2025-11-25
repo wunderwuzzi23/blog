@@ -69,7 +69,7 @@ It required a few tricks to bypass the model's behavior and have it run arbitrar
 
 In the above screenshot you can see a source code file that contains instructions that hijack Gemini 3 to download a remote script and run it via bash (which then launches a calculator). This shows that we achieve arbitrary code execution via the remote script.
 
-**This demo shows how Antigravity over-relies on the output of the LLM, in an attempt to enforce security.**
+**This demo shows how Antigravity over-relies on the LLM doing the right thing in an attempt to enforce security.**
 
 *In case you are wondering why I call this RCE, it's because it's indirect prompt injection and issue #3 will highlight this even better*
 

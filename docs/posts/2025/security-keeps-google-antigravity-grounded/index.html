@@ -170,7 +170,7 @@
 <p>It required a few tricks to bypass the model&rsquo;s behavior and have it run arbitrary remote code that is downloaded via curl then piped to bash, but I have working exploits for both Gemini 3 and Claude Sonnet 4.5 within Antigravity now:</p>
 <p><a href="/blog/images/2025/antigravity-arbitrary-command-execution-redacted.png"><img src="/blog/images/2025/antigravity-arbitrary-command-execution-redacted.png" alt="antigravity rce with invisible instructions"></a></p>
 <p>In the above screenshot you can see a source code file that contains instructions that hijack Gemini 3 to download a remote script and run it via bash (which then launches a calculator). This shows that we achieve arbitrary code execution via the remote script.</p>
-<p><strong>This demo shows how Antigravity over-relies on the output of the LLM, in an attempt to enforce security.</strong></p>
+<p><strong>This demo shows how Antigravity over-relies on the LLM doing the right thing in an attempt to enforce security.</strong></p>
 <p><em>In case you are wondering why I call this RCE, it&rsquo;s because it&rsquo;s indirect prompt injection and issue #3 will highlight this even better</em></p>
 <p>But it gets more interesting with the second issue&hellip; hidden instructions via Unicode Tag characters.</p>
 <h2 id="issue-2-antigravity-follows-hidden-instructions">Issue #2: Antigravity Follows Hidden Instructions</h2>
