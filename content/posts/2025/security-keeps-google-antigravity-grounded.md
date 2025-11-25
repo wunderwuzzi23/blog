@@ -22,7 +22,7 @@ Because it's based on Windsurf, I was curious if vulnerabilities that I reported
 
 In this post we will walk through five security vulnerabilities, including data exfiltration vulnerabilities, and even remote command execution via indirect prompt injection. As an outsider, it's unclear why these known vulnerabilities are in the product, but after researchers started reporting issues last Tuesday, Google started documenting them publicly [here](https://bughunters.google.com/learn/invalid-reports/google-products/4655949258227712/antigravity-known-issues) also. My personal guess is that the Google security team was caught a bit off guard by Antigravity shipping...
 
-I am not including the exploit payload details for now, the main goal is to raise awareness and provide a practical mitigations.
+I am not including the exploit payload details for now, the main goal is to raise awareness and provide practical mitigations.
 
 ## Overview
 
