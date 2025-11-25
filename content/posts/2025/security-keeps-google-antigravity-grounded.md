@@ -49,9 +49,9 @@ For reference, you can find the [system instructions](https://github.com/wunderw
 
 [![system prompt](/blog/images/2025/antigravity-system-prompt-small.png)](/blog/images/2025/antigravity-system-prompt.png)
 
-Note: I had two MCP servers attached, which you can see on the bottom of the prompt, and hence the tools sections contains all the tools from those MCP servers.
+Note: I had two MCP servers attached, which you can see on the bottom of the prompt, and hence the tools sections contains all the tools from those MCP servers. This is the prompt for "Fast" mode.
 
-I also want to give a shout out to [p1njc70r](https://x.com/p1njc70r/status/1990919996265148701?s=20) who was the first to share the system prompt publicly to my knowledge.
+Also, shout out to [p1njc70r](https://x.com/p1njc70r/) who was the first to share an Antigravity system prompt publicly, and I think his is the Planning mode one. Check it out [here](https://x.com/p1njc70r/status/1990919996265148701?s=20).
 
 Let's get started.
 
