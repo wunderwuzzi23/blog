@@ -7,20 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Tue, 28 Oct 2025 08:36:30 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 25 Nov 2025 06:00:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Agents</title>
-      <link>https://embracethered.com/blog/tags/agents/</link>
-      <pubDate>Tue, 28 Oct 2025 08:36:30 -0700</pubDate>
-      <guid>https://embracethered.com/blog/tags/agents/</guid>
+      <title>Data Exfiltration</title>
+      <link>https://embracethered.com/blog/tags/data-exfiltration/</link>
+      <pubDate>Tue, 25 Nov 2025 06:00:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/data-exfiltration/</guid>
       <description></description>
     </item>
     <item>
       <title>Llm</title>
       <link>https://embracethered.com/blog/tags/llm/</link>
-      <pubDate>Tue, 28 Oct 2025 08:36:30 -0700</pubDate>
+      <pubDate>Tue, 25 Nov 2025 06:00:58 -0700</pubDate>
       <guid>https://embracethered.com/blog/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rce</title>
+      <link>https://embracethered.com/blog/tags/rce/</link>
+      <pubDate>Tue, 25 Nov 2025 06:00:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/rce/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agents</title>
+      <link>https://embracethered.com/blog/tags/agents/</link>
+      <pubDate>Tue, 28 Oct 2025 08:36:30 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/agents/</guid>
       <description></description>
     </item>
     <item>

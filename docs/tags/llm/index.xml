@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Tue, 28 Oct 2025 08:36:30 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 25 Nov 2025 06:00:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Antigravity Grounded! Security Vulnerabilities in Google&#39;s Latest IDE</title>
+      <link>https://embracethered.com/blog/posts/2025/security-keeps-google-antigravity-grounded/</link>
+      <pubDate>Tue, 25 Nov 2025 06:00:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/security-keeps-google-antigravity-grounded/</guid>
+      <description>Last week Google released an IDE called Antigravity. It&amp;rsquo;s basically the outcome of the Windsurf licensing deal from a few months ago, where Google paid some $2.4 billion for a non-exclusive license to the code.&#xA;Because it&amp;rsquo;s based on Windsurf, I was curious if vulnerabilities that I reported to Windsurf back in May 2025, long before the deal, would have been addressed in the Antigravity IDE. See Month of AI Bugs for some detailed write-ups.</description>
+    </item>
     <item>
       <title>Claude Pirate: Abusing Anthropic&#39;s File API For Data Exfiltration</title>
       <link>https://embracethered.com/blog/posts/2025/claude-abusing-network-access-and-anthropic-api-for-data-exfiltration/</link>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data Exfiltration on Embrace The Red</title>
-    <link>https://embracethered.com/blog/tags/data-exfiltration/</link>
-    <description>Recent content in Data Exfiltration on Embrace The Red</description>
+    <title>Rce on Embrace The Red</title>
+    <link>https://embracethered.com/blog/tags/rce/</link>
+    <description>Recent content in Rce on Embrace The Red</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
     <lastBuildDate>Tue, 25 Nov 2025 06:00:58 -0700</lastBuildDate>
-    <atom:link href="https://embracethered.com/blog/tags/data-exfiltration/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/rce/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Antigravity Grounded! Security Vulnerabilities in Google&#39;s Latest IDE</title>
       <link>https://embracethered.com/blog/posts/2025/security-keeps-google-antigravity-grounded/</link>

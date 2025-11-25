@@ -8,19 +8,28 @@
     <loc>https://embracethered.com/blog/posts/</loc>
     <lastmod>2026-10-22T12:25:25-07:00</lastmod>
   </url><url>
+    <loc>https://embracethered.com/blog/posts/2025/security-keeps-google-antigravity-grounded/</loc>
+    <lastmod>2025-11-25T06:00:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/data-exfiltration/</loc>
+    <lastmod>2025-11-25T06:00:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2025-11-25T06:00:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/rce/</loc>
+    <lastmod>2025-11-25T06:00:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2025-11-25T06:00:58-07:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/agents/</loc>
     <lastmod>2025-10-28T08:36:30-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2025/claude-abusing-network-access-and-anthropic-api-for-data-exfiltration/</loc>
     <lastmod>2025-10-28T08:36:30-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2025-10-28T08:36:30-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/prompt-injection/</loc>
-    <lastmod>2025-10-28T08:36:30-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2025-10-28T08:36:30-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2025/cross-agent-privilege-escalation-agents-that-free-each-other/</loc>
