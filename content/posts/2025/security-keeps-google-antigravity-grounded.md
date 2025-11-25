@@ -36,15 +36,12 @@ As this is a bit of a lengthy post, here is a quick index table.
 * [Issue #5: Data Exfiltration via image rendering](#issue-5-data-exfiltration-via-image-rendering)
 * [Recommendations and Mitigations](#recommendations-and-mitigations)
 
-For all reports I created fresh, reliable exploit payloads and demo videos. 
-
-If you prefer to watch a video with details and demos:
+For all reports I created fresh, reliable exploit payloads and demo videos. If you want to watch a video with details and demos:
 {{< youtube 3gHx1gvDnZU >}}
 
-There are also five additional issues, which I have not previously discussed. I'll share details on those as fixes arrive, issues are won't fixed, or as responsible disclosure deadlines pass.
+There are additional issues, which I have not previously discussed. I'll share details on those as fixes arrive, issues are won't fixed, or as responsible disclosure deadlines pass.
 
 Let's take a look.
-
 
 ## Antigravity System Prompt
 
@@ -76,7 +73,7 @@ In the above screenshot you can see a source code file that contains instruction
 
 *In case you are wondering why I call this RCE, it's because it's indirect prompt injection and issue #3 will highlight this even better*
 
-But it already better, with the second issue... hidden instructions via Unicode Tag characters.
+But it gets more interesting with the second issue... hidden instructions via Unicode Tag characters.
 
 ## Issue #2: Antigravity Follows Hidden Instructions
 
@@ -182,8 +179,6 @@ Let's see how Antigravity will evolve over the next few weeks. Technically, thes
 ## Conclusion
 
 In this post we revisited common vulnerabilities that we discussed in Windsurf and the Month of AI bugs in August before. Unfortunately, Google's latest Antigravity IDE is vulnerable to all the same issues as Windsurf, first disclosed to the team back then in May 2025.
-
-The issues described in this post are not the only ones I'm aware of. There are 5 more security issues reported, and then I stopped looking for now to see how things are triaged and being handled.
 
 Overall, coding agents are a game changer, but we also have to take security seriously. There are currently other, more mature, coding agents out there with better security and patch history, including Claude Code, GitHub Copilot, Cursor, Codex, Google's own Gemini CLI,... and some also support Gemini 3 already. 
 

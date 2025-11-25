@@ -149,14 +149,13 @@
 <li><a href="#issue-5-data-exfiltration-via-image-rendering">Issue #5: Data Exfiltration via image rendering</a></li>
 <li><a href="#recommendations-and-mitigations">Recommendations and Mitigations</a></li>
 </ul>
-<p>For all reports I created fresh, reliable exploit payloads and demo videos.</p>
-<p>If you prefer to watch a video with details and demos:
+<p>For all reports I created fresh, reliable exploit payloads and demo videos. If you want to watch a video with details and demos:
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/3gHx1gvDnZU" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 </p>
-<p>There are also five additional issues, which I have not previously discussed. I&rsquo;ll share details on those as fixes arrive, issues are won&rsquo;t fixed, or as responsible disclosure deadlines pass.</p>
+<p>There are additional issues, which I have not previously discussed. I&rsquo;ll share details on those as fixes arrive, issues are won&rsquo;t fixed, or as responsible disclosure deadlines pass.</p>
 <p>Let&rsquo;s take a look.</p>
 <h2 id="antigravity-system-prompt">Antigravity System Prompt</h2>
 <p>For reference, you can find the <a href="https://github.com/wunderwuzzi23/scratch/blob/master/system_prompts/antigravity-ide-2025-11-24.txt">system instructions</a> from my session here.</p>
@@ -173,7 +172,7 @@
 <p>In the above screenshot you can see a source code file that contains instructions that hijack Gemini 3 to download a remote script and run it via bash (which then launches a calculator). This shows that we achieve arbitrary code execution via the remote script.</p>
 <p><strong>This demo shows how Antigravity over-relies on the output of the LLM, in an attempt to enforce security.</strong></p>
 <p><em>In case you are wondering why I call this RCE, it&rsquo;s because it&rsquo;s indirect prompt injection and issue #3 will highlight this even better</em></p>
-<p>But it already better, with the second issue&hellip; hidden instructions via Unicode Tag characters.</p>
+<p>But it gets more interesting with the second issue&hellip; hidden instructions via Unicode Tag characters.</p>
 <h2 id="issue-2-antigravity-follows-hidden-instructions">Issue #2: Antigravity Follows Hidden Instructions</h2>
 <p>Gemini models are very good at interpreting invisible instructions, and Gemini 3 is exceptional at it.</p>
 <p><strong>This now also impacts the new Antigravity IDE:</strong></p>
@@ -237,7 +236,6 @@ I was able to repro a data exfiltration example from Windsurf quickly by plantin
 <p>Let&rsquo;s see how Antigravity will evolve over the next few weeks. Technically, these are relatively simple bug fixes to have an out-of-box secure experience and it will be interesting to see if these are a priority or not.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>In this post we revisited common vulnerabilities that we discussed in Windsurf and the Month of AI bugs in August before. Unfortunately, Google&rsquo;s latest Antigravity IDE is vulnerable to all the same issues as Windsurf, first disclosed to the team back then in May 2025.</p>
-<p>The issues described in this post are not the only ones I&rsquo;m aware of. There are 5 more security issues reported, and then I stopped looking for now to see how things are triaged and being handled.</p>
 <p>Overall, coding agents are a game changer, but we also have to take security seriously. There are currently other, more mature, coding agents out there with better security and patch history, including Claude Code, GitHub Copilot, Cursor, Codex, Google&rsquo;s own Gemini CLI,&hellip; and some also support Gemini 3 already.</p>
 <p>Keep an eye out for Antigravity CVEs.</p>
 <p>Stay safe.</p>
