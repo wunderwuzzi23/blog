@@ -20,13 +20,13 @@ Because it's based on Windsurf, I was curious if vulnerabilities that I reported
 
 [![system prompt](/blog/images/2025/antigravity-grounded2.png)](/blog/images/2025/antigravity-grounded2.png)
 
-In this post we will walk through five security vulnerabilities that I reported to Google last week, including data exfiltration vulnerabilities, and even remote code execution via indirect prompt injection. As an outsider, it's unclear why these known vulnerabilities are in the product, but after researchers started reporting issues last Tuesday, Google started documenting them publicly [here](https://bughunters.google.com/learn/invalid-reports/google-products/4655949258227712/antigravity-known-issues) also. My personal guess is that the Google security team was caught a bit off guard by Antigravity shipping...
+In this post we will walk through five security vulnerabilities, including data exfiltration vulnerabilities, and even remote command execution via indirect prompt injection. As an outsider, it's unclear why these known vulnerabilities are in the product, but after researchers started reporting issues last Tuesday, Google started documenting them publicly [here](https://bughunters.google.com/learn/invalid-reports/google-products/4655949258227712/antigravity-known-issues) also. My personal guess is that the Google security team was caught a bit off guard by Antigravity shipping...
 
-Although these vulnerabilities are straightforward to exploit, I will not include the exploit payloads verbatim at this point. The main goal is to raise awareness, and provide a practical mitigations steps as well.
+I am not including the exploit payload details for now, the main goal is to raise awareness and provide a practical mitigations.
 
 ## Overview
 
-As this is a bit of a lengthy post, I'm including a quick index table.
+As this is a bit of a lengthy post, here is a quick index table.
 
 * [Antigravity System Prompt](#antigravity-system-prompt)
 * [Issue #1: Remote Command Execution via Indirect Prompt Injection (Auto-Execute Bypasses)](#issue-1-remote-command-execution)
