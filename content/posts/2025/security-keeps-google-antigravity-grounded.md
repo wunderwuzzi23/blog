@@ -71,7 +71,7 @@ In the above screenshot you can see a source code file that contains instruction
 
 **This demo shows how Antigravity over-relies on the LLM doing the right thing in an attempt to enforce security.**
 
-*In case you are wondering why I call this RCE, it's because it's indirect prompt injection and issue #3 will highlight this even better*
+*In case you are wondering why I call this RCE, it's because it's indirect prompt injection and issue #3 will highlight this even better.*
 
 But it gets more interesting with the second issue... hidden instructions via Unicode Tag characters.
 
@@ -79,9 +79,9 @@ But it gets more interesting with the second issue... hidden instructions via Un
 
 Gemini models are very good at interpreting invisible instructions, and Gemini 3 is exceptional at it.
 
-**This now also impacts the new Antigravity IDE:** 
+**This now also impacts the new Antigravity IDE.** 
 
-An attacker can hide instructions in code or other data source (invisible to users in the UI), and when Antigravity sends it to Gemini it will follow the hidden instructions.
+An attacker can hide instructions in code or other data sources (invisible to users in the UI), and when Antigravity sends it to Gemini it will follow the hidden instructions.
 
 **This will increase the likelihood of successful attacks hiding in plain sight.**
 
@@ -95,7 +95,7 @@ Here is the result when the file enters the chat context:
 
 **This is scary. Code reviews will not catch this!**
 
-This weakness, which I reported first back in the Bard days has not been addressed at the model or API level. Hence, all applications built on top of Gemini models inherit this behavior. As we have [shown with Google Jules in the past](/blog/posts/2025/google-jules-invisible-prompt-injection/) this applies to all Google products that use Gemini.
+This weakness, which I reported first back in the Bard days, has not been addressed at the model or API level. Hence, all applications built on top of Gemini models inherit this behavior. As we have [shown with Google Jules in the past](/blog/posts/2025/google-jules-invisible-prompt-injection/) this applies to all Google products that use Gemini.
 
 The implications are getting worse. As predicted two years back, the models are getting better, and in the case with Gemini 3 Fast it seems to often bypass guardrails as well.
 
@@ -151,7 +151,7 @@ The result is that it invokes the `read_file` tool to read the developers `.env`
 
 [![antigravity data exfil via images](/blog/images/2025/antigravity-render2-redacted.png)](/blog/images/2025/antigravity-render2-redacted.png)
 
-I'm not the only one pointing this out. [p1njc70r](https://x.com/p1njc70r/) has also reported this and got a similar response from Google.
+I'm not the only one pointing this out. [p1njc70r](https://x.com/p1njc70r/) also reported this and got a similar response from Google.
 
 ## Video Walkthrough 
 
@@ -178,7 +178,7 @@ Let's see how Antigravity will evolve over the next few weeks. Technically, thes
 
 ## Conclusion
 
-In this post we revisited common vulnerabilities that we discussed in Windsurf and the Month of AI bugs in August before. Unfortunately, Google's latest Antigravity IDE is vulnerable to all the same issues as Windsurf, first disclosed to the team back then in May 2025.
+In this post we revisited common vulnerabilities that we discussed in Windsurf and the Month of AI bugs in August before. Unfortunately, Google's latest Antigravity IDE is vulnerable to many of the same issues as Windsurf, with disclosures going back to May 2025.
 
 Overall, coding agents are a game changer, but we also have to take security seriously. There are currently other, more mature, coding agents out there with better security and patch history, including Claude Code, GitHub Copilot, Cursor, Codex, Google's own Gemini CLI,... and some also support Gemini 3 already. 
 

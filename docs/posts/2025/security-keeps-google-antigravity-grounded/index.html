@@ -171,19 +171,19 @@
 <p><a href="/blog/images/2025/antigravity-arbitrary-command-execution-redacted.png"><img src="/blog/images/2025/antigravity-arbitrary-command-execution-redacted.png" alt="antigravity rce with invisible instructions"></a></p>
 <p>In the above screenshot you can see a source code file that contains instructions that hijack Gemini 3 to download a remote script and run it via bash (which then launches a calculator). This shows that we achieve arbitrary code execution via the remote script.</p>
 <p><strong>This demo shows how Antigravity over-relies on the LLM doing the right thing in an attempt to enforce security.</strong></p>
-<p><em>In case you are wondering why I call this RCE, it&rsquo;s because it&rsquo;s indirect prompt injection and issue #3 will highlight this even better</em></p>
+<p><em>In case you are wondering why I call this RCE, it&rsquo;s because it&rsquo;s indirect prompt injection and issue #3 will highlight this even better.</em></p>
 <p>But it gets more interesting with the second issue&hellip; hidden instructions via Unicode Tag characters.</p>
 <h2 id="issue-2-antigravity-follows-hidden-instructions">Issue #2: Antigravity Follows Hidden Instructions</h2>
 <p>Gemini models are very good at interpreting invisible instructions, and Gemini 3 is exceptional at it.</p>
-<p><strong>This now also impacts the new Antigravity IDE:</strong></p>
-<p>An attacker can hide instructions in code or other data source (invisible to users in the UI), and when Antigravity sends it to Gemini it will follow the hidden instructions.</p>
+<p><strong>This now also impacts the new Antigravity IDE.</strong></p>
+<p>An attacker can hide instructions in code or other data sources (invisible to users in the UI), and when Antigravity sends it to Gemini it will follow the hidden instructions.</p>
 <p><strong>This will increase the likelihood of successful attacks hiding in plain sight.</strong></p>
 <h3 id="demo-arbitrary-command-execution-with-hidden-instructions">Demo: Arbitrary Command Execution with Hidden Instructions</h3>
 <p>I created a demonstration file that contains invisible instructions to print a certain text and invoke the <code>run_command</code> to download malware and run it. For creating/decoding hidden Unicode Tag instructions I use <a href="https://embracethered.com/blog/ascii-smuggler.html">ASCII Smuggler</a>.</p>
 <p>Here is the result when the file enters the chat context:</p>
 <p><a href="/blog/images/2025/antigravity-zombai-invisible-instructions-e2e-demo-screenshot.png"><img src="/blog/images/2025/antigravity-zombai-invisible-instructions-e2e-demo-screenshot.png" alt="antigravity rce with invisible instructions"></a></p>
 <p><strong>This is scary. Code reviews will not catch this!</strong></p>
-<p>This weakness, which I reported first back in the Bard days has not been addressed at the model or API level. Hence, all applications built on top of Gemini models inherit this behavior. As we have <a href="/blog/posts/2025/google-jules-invisible-prompt-injection/">shown with Google Jules in the past</a> this applies to all Google products that use Gemini.</p>
+<p>This weakness, which I reported first back in the Bard days, has not been addressed at the model or API level. Hence, all applications built on top of Gemini models inherit this behavior. As we have <a href="/blog/posts/2025/google-jules-invisible-prompt-injection/">shown with Google Jules in the past</a> this applies to all Google products that use Gemini.</p>
 <p>The implications are getting worse. As predicted two years back, the models are getting better, and in the case with Gemini 3 Fast it seems to often bypass guardrails as well.</p>
 <p>But, wait&hellip; there is more!</p>
 <h2 id="issue-3-lack-of-human-in-the-loop-for-mcp">Issue #3: Lack of Human in the Loop for MCP</h2>
@@ -212,7 +212,7 @@ An attacker can use invisible Unicode Tag characters as instructions here too, e
 I was able to repro a data exfiltration example from Windsurf quickly by planting a prompt injection demo exploit into a <code>.c</code> file, and then have Antigravity explain that file.</p>
 <p>The result is that it invokes the <code>read_file</code> tool to read the developers <code>.env</code> file and leaks the secrets to the third-party server via an http request that loads the image.</p>
 <p><a href="/blog/images/2025/antigravity-render2-redacted.png"><img src="/blog/images/2025/antigravity-render2-redacted.png" alt="antigravity data exfil via images"></a></p>
-<p>I&rsquo;m not the only one pointing this out. <a href="https://x.com/p1njc70r/">p1njc70r</a> has also reported this and got a similar response from Google.</p>
+<p>I&rsquo;m not the only one pointing this out. <a href="https://x.com/p1njc70r/">p1njc70r</a> also reported this and got a similar response from Google.</p>
 <h2 id="video-walkthrough">Video Walkthrough</h2>
 <p>Here is a video that walks through all the scenarios and demos:</p>
 
@@ -235,7 +235,7 @@ I was able to repro a data exfiltration example from Windsurf quickly by plantin
 </ul>
 <p>Let&rsquo;s see how Antigravity will evolve over the next few weeks. Technically, these are relatively simple bug fixes to have an out-of-box secure experience and it will be interesting to see if these are a priority or not.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>In this post we revisited common vulnerabilities that we discussed in Windsurf and the Month of AI bugs in August before. Unfortunately, Google&rsquo;s latest Antigravity IDE is vulnerable to all the same issues as Windsurf, first disclosed to the team back then in May 2025.</p>
+<p>In this post we revisited common vulnerabilities that we discussed in Windsurf and the Month of AI bugs in August before. Unfortunately, Google&rsquo;s latest Antigravity IDE is vulnerable to many of the same issues as Windsurf, with disclosures going back to May 2025.</p>
 <p>Overall, coding agents are a game changer, but we also have to take security seriously. There are currently other, more mature, coding agents out there with better security and patch history, including Claude Code, GitHub Copilot, Cursor, Codex, Google&rsquo;s own Gemini CLI,&hellip; and some also support Gemini 3 already.</p>
 <p>Keep an eye out for Antigravity CVEs.</p>
 <p>Stay safe.</p>
