@@ -133,21 +133,22 @@
 <p><a href="/blog/images/2025/normalization-of-deviance-in-ai.png"><img src="/blog/images/2025/normalization-of-deviance-in-ai.png" alt="normalization of deviance in ai"></a></p>
 <p>I use the term <strong>Normalization of Deviance in AI</strong> to describe the gradual and systemic over-reliance on LLM outputs, especially in agentic systems.</p>
 <p>At its core, large language models (LLMs) are unreliable (and untrusted) actors in system design.</p>
-<p>This means that security controls (access checks, proper encoding, and sanitization, etc.) must be applied downstream of LLM output. A constant stream of <a href="https://monthofaibugs.com">indirect prompt injection exploit demonstrations</a> indicates that system designers and developers are either unaware of this or are simply accepting the deviance. It is particularly dangerous when vendors make insecure decisions for their userbase by default.</p>
+<p>This means that security controls (access checks, proper encoding, and sanitization, etc.) must be applied downstream of LLM output.</p>
+<p>A constant stream of <a href="https://monthofaibugs.com">indirect prompt injection exploit demonstrations</a> indicates that system designers and developers are either unaware of this or are simply accepting the deviance. It is particularly dangerous when vendors make insecure decisions for their userbase by default.</p>
 <p>I first learned about this concept in the context of the <a href="https://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster">Space Shuttle Challenger disaster</a>, where systemic normalization of warnings led to tragedy.</p>
 <p><em>Despite data showing erosion in colder temperatures, the deviation from safety standards was repeatedly rationalized because previous flights had succeeded. The absence of disaster was mistaken for the presence of safety.</em></p>
-<h2 id="the-model-is-untrustworthy-and-not-reliable">The Model is Untrustworthy and Not Reliable</h2>
+<h2 id="untrustworthy-llm-outputs">Untrustworthy LLM Outputs</h2>
 <p>In the world of AI, we observe companies treating probabilistic, non-deterministic, and sometimes adversarial model outputs as if they were reliable, predictable, and safe.</p>
 <p>Vendors are normalizing trusting LLM output, but current understanding violates the assumption of reliability.</p>
 <p>The model will not consistently follow instructions, stay aligned, or maintain context integrity. This is especially true if there is an attacker in the loop (e.g indirect prompt injection).</p>
-<p>However, we see more and more systems allowing untrusted output to take consequential actions. Most of the time it goes well, but over time vendors and organizations lower their guard or skip human oversight entirely, because &ldquo;it worked last time.&rdquo;</p>
+<p>However, we see more and more systems allowing untrusted output to take consequential actions. Most of the time it goes well, and over time vendors and organizations lower their guard or skip human oversight entirely, because &ldquo;it worked last time.&rdquo;</p>
 <p>This dangerous bias is the fuel for normalization: organizations confuse the absence of a successful attack with the presence of robust security.</p>
 <p><strong>Two ways this can impact systems are:</strong></p>
 <ol>
 <li>This normalization can be a safety incident that simply arises from over-trusting fallible but benign outputs (hallucinations, context loss, brittleness, etc.)</li>
 <li>But it becomes more dangerous when adversarial inputs (prompt injection, backdoors in models) exploit systems. <strong>The same cultural drift enables exploitation!</strong></li>
 </ol>
-<p>And we already see agents make mistakes in day to day usage, like <a href="https://www.theregister.com/2025/12/01/google_antigravity_wipes_d_drive/?td=rt-3a">formatting hard drives</a>, <a href="https://embracethered.com/blog/posts/2023/chatgpt-chat-with-code-plugin-take-down/">creating random GitHub issues</a>, or <a href="https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure/">wipe a production database</a>.</p>
+<p>And we already see agents make mistakes in day to day usage, like <a href="https://www.theregister.com/2025/12/01/google_antigravity_wipes_d_drive/?td=rt-3a">formatting hard drives</a>, <a href="https://embracethered.com/blog/posts/2023/chatgpt-chat-with-code-plugin-take-down/">creating random GitHub issues</a>, or <a href="https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure/">wiping a production database</a>.</p>
 <p>So, the signs are there. And it is inherently dangerous, not only because of attacks like indirect prompt injection, but also because these systems are trained on enormous, untrustworthy data sets from the Internet. Anthropic research recently <a href="https://www.anthropic.com/research/small-samples-poison">showed that</a> it takes only a small amount of documents to successfully add a backdoor to a model.</p>
 <p>Consider a scenario where the Normalization of Deviance has drastic consequences: an attacker trains a backdoor into a model that triggers on certain days to invoke tools, like compromising a user via code execution. Since we have a pretty centralized ecosystem, where attacks often are transferable, and natural language is universally understood by LLMs, this can have consequences across many systems and vendors.</p>
 <h2 id="cultural-drifts-in-organizations">Cultural Drifts in Organizations</h2>
@@ -165,7 +166,8 @@
 <li><strong>Google Antigravity</strong>: <a href="https://bughunters.google.com/learn/invalid-reports/google-products/4655949258227712/antigravity-known-issues#code-execution">Remote Code Executions</a> via indirect prompt injection is a known issue when the product first shipped, as is data exfiltration.</li>
 <li><strong>Windsurf Cascade Coding Agent</strong>: No human in the loop feature for MCP tool calls. Lack of human in the loop can normalize risky practices by over-trusting AI outputs in high-stakes situations. See also the <a href="https://monthofaibugs.com">Month of AI Bugs</a>.</li>
 </ul>
-<p>While some vendors acknowledge the risks, others appear to overlook or downplay them, potentially due to competitive pressure and focus on product and customer acquisition. In many cases, we probably collectively hope that &ldquo;someone&rdquo; will solve these security and safety challenges.</p>
+<p>While some vendors acknowledge the risks, others appear to overlook or downplay them, potentially due to competitive pressure and focus on product and customer acquisition.</p>
+<p>In many cases, we probably collectively hope that &ldquo;someone&rdquo; will solve these security and safety challenges.</p>
 <p>Companies like Google, OpenAI, Anthropic, Microsoft, and other institutions and organizations perform extensive research in this area, including publishing evals and mitigation ideas. However, the rush to be the first is evident from a product perspective.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Nevertheless, before we drift off into a utopian future with agentic AI, I believe the best and safest outcome is to stay realistic around capabilities and control mechanisms, and for AI to remain human-led, particularly in high-stake contexts, to ensure the best outcome overall.</p>

@@ -22,14 +22,15 @@ I use the term **Normalization of Deviance in AI** to describe the gradual and s
 
 At its core, large language models (LLMs) are unreliable (and untrusted) actors in system design. 
 
-This means that security controls (access checks, proper encoding, and sanitization, etc.) must be applied downstream of LLM output. A constant stream of [indirect prompt injection exploit demonstrations](https://monthofaibugs.com) indicates that system designers and developers are either unaware of this or are simply accepting the deviance. It is particularly dangerous when vendors make insecure decisions for their userbase by default.
+This means that security controls (access checks, proper encoding, and sanitization, etc.) must be applied downstream of LLM output.
+
+A constant stream of [indirect prompt injection exploit demonstrations](https://monthofaibugs.com) indicates that system designers and developers are either unaware of this or are simply accepting the deviance. It is particularly dangerous when vendors make insecure decisions for their userbase by default.
 
 I first learned about this concept in the context of the [Space Shuttle Challenger disaster](https://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster), where systemic normalization of warnings led to tragedy. 
 
 *Despite data showing erosion in colder temperatures, the deviation from safety standards was repeatedly rationalized because previous flights had succeeded. The absence of disaster was mistaken for the presence of safety.* 
 
-
-## The Model is Untrustworthy and Not Reliable
+## Untrustworthy LLM Outputs
 
 In the world of AI, we observe companies treating probabilistic, non-deterministic, and sometimes adversarial model outputs as if they were reliable, predictable, and safe. 
 
@@ -37,7 +38,7 @@ Vendors are normalizing trusting LLM output, but current understanding violates 
 
 The model will not consistently follow instructions, stay aligned, or maintain context integrity. This is especially true if there is an attacker in the loop (e.g indirect prompt injection).
 
-However, we see more and more systems allowing untrusted output to take consequential actions. Most of the time it goes well, but over time vendors and organizations lower their guard or skip human oversight entirely, because "it worked last time."
+However, we see more and more systems allowing untrusted output to take consequential actions. Most of the time it goes well, and over time vendors and organizations lower their guard or skip human oversight entirely, because "it worked last time."
 
 This dangerous bias is the fuel for normalization: organizations confuse the absence of a successful attack with the presence of robust security. 
 
@@ -45,7 +46,7 @@ This dangerous bias is the fuel for normalization: organizations confuse the abs
 1. This normalization can be a safety incident that simply arises from over-trusting fallible but benign outputs (hallucinations, context loss, brittleness, etc.)
 2. But it becomes more dangerous when adversarial inputs (prompt injection, backdoors in models) exploit systems. **The same cultural drift enables exploitation!**
 
-And we already see agents make mistakes in day to day usage, like [formatting hard drives](https://www.theregister.com/2025/12/01/google_antigravity_wipes_d_drive/?td=rt-3a), [creating random GitHub issues](https://embracethered.com/blog/posts/2023/chatgpt-chat-with-code-plugin-take-down/), or [wipe a production database](https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure/).
+And we already see agents make mistakes in day to day usage, like [formatting hard drives](https://www.theregister.com/2025/12/01/google_antigravity_wipes_d_drive/?td=rt-3a), [creating random GitHub issues](https://embracethered.com/blog/posts/2023/chatgpt-chat-with-code-plugin-take-down/), or [wiping a production database](https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure/).
 
 So, the signs are there. And it is inherently dangerous, not only because of attacks like indirect prompt injection, but also because these systems are trained on enormous, untrustworthy data sets from the Internet. Anthropic research recently [showed that](https://www.anthropic.com/research/small-samples-poison) it takes only a small amount of documents to successfully add a backdoor to a model.
 
@@ -73,7 +74,9 @@ Three years after ChatGPT shipped, vendors push agentic AI to users, but at the 
 * **Google Antigravity**: [Remote Code Executions](https://bughunters.google.com/learn/invalid-reports/google-products/4655949258227712/antigravity-known-issues#code-execution) via indirect prompt injection is a known issue when the product first shipped, as is data exfiltration.
 * **Windsurf Cascade Coding Agent**: No human in the loop feature for MCP tool calls. Lack of human in the loop can normalize risky practices by over-trusting AI outputs in high-stakes situations. See also the [Month of AI Bugs](https://monthofaibugs.com).
 
-While some vendors acknowledge the risks, others appear to overlook or downplay them, potentially due to competitive pressure and focus on product and customer acquisition. In many cases, we probably collectively hope that "someone" will solve these security and safety challenges.
+While some vendors acknowledge the risks, others appear to overlook or downplay them, potentially due to competitive pressure and focus on product and customer acquisition.
+
+In many cases, we probably collectively hope that "someone" will solve these security and safety challenges.
 
 Companies like Google, OpenAI, Anthropic, Microsoft, and other institutions and organizations perform extensive research in this area, including publishing evals and mitigation ideas. However, the rush to be the first is evident from a product perspective.
 
