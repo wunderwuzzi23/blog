@@ -8,19 +8,25 @@
     <loc>https://embracethered.com/blog/posts/</loc>
     <lastmod>2026-10-22T12:25:25-07:00</lastmod>
   </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2025-12-04T18:42:03-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
+    <lastmod>2025-12-04T18:42:03-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2025-12-04T18:42:03-08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2025/the-normalization-of-deviance-in-ai/</loc>
+    <lastmod>2025-12-04T18:42:03-08:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2025/security-keeps-google-antigravity-grounded/</loc>
     <lastmod>2025-11-25T06:00:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/data-exfiltration/</loc>
     <lastmod>2025-11-25T06:00:58-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2025-11-25T06:00:58-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/rce/</loc>
-    <lastmod>2025-11-25T06:00:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2025-11-25T06:00:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/agents/</loc>
@@ -168,9 +174,6 @@
     <lastmod>2025-04-06T20:11:43-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2025/github-custom-copilot-instructions/</loc>
-    <lastmod>2025-04-06T20:11:43-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
     <lastmod>2025-04-06T20:11:43-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2025/sneaky-bits-and-ascii-smuggler/</loc>

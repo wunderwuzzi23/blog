@@ -7,20 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Tue, 25 Nov 2025 06:00:58 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 04 Dec 2025 18:42:03 -0800</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Llm</title>
+      <link>https://embracethered.com/blog/tags/llm/</link>
+      <pubDate>Thu, 04 Dec 2025 18:42:03 -0800</pubDate>
+      <guid>https://embracethered.com/blog/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
+      <pubDate>Thu, 04 Dec 2025 18:42:03 -0800</pubDate>
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Data Exfiltration</title>
       <link>https://embracethered.com/blog/tags/data-exfiltration/</link>
       <pubDate>Tue, 25 Nov 2025 06:00:58 -0700</pubDate>
       <guid>https://embracethered.com/blog/tags/data-exfiltration/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Llm</title>
-      <link>https://embracethered.com/blog/tags/llm/</link>
-      <pubDate>Tue, 25 Nov 2025 06:00:58 -0700</pubDate>
-      <guid>https://embracethered.com/blog/tags/llm/</guid>
       <description></description>
     </item>
     <item>
@@ -98,13 +105,6 @@
       <link>https://embracethered.com/blog/tags/aiml/</link>
       <pubDate>Sun, 06 Apr 2025 20:11:43 -0700</pubDate>
       <guid>https://embracethered.com/blog/tags/aiml/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Machine Learning</title>
-      <link>https://embracethered.com/blog/tags/machine-learning/</link>
-      <pubDate>Sun, 06 Apr 2025 20:11:43 -0700</pubDate>
-      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
       <description></description>
     </item>
     <item>

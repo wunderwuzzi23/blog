@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Tue, 25 Nov 2025 06:00:58 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 04 Dec 2025 18:42:03 -0800</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Normalization of Deviance in AI</title>
+      <link>https://embracethered.com/blog/posts/2025/the-normalization-of-deviance-in-ai/</link>
+      <pubDate>Thu, 04 Dec 2025 18:42:03 -0800</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/the-normalization-of-deviance-in-ai/</guid>
+      <description>The AI industry risks repeating the same cultural failures that contributed to the Space Shuttle Challenger disaster: Quietly normalizing warning signs while progress marches forward.&#xA;The original term Normalization of Deviance comes from the American sociologist Diane Vaughan, who describes it as the process in which deviance from correct or proper behavior or rule becomes culturally normalized.&#xA;I use the term Normalization of Deviance in AI to describe the gradual and systemic over-reliance on LLM outputs, especially in agentic systems.</description>
+    </item>
     <item>
       <title>Antigravity Grounded! Security Vulnerabilities in Google&#39;s Latest IDE</title>
       <link>https://embracethered.com/blog/posts/2025/security-keeps-google-antigravity-grounded/</link>
