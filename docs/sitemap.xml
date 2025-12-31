@@ -11,20 +11,23 @@
     <loc>https://embracethered.com/blog/posts/2025/39c3-agentic-probllms-exploiting-computer-use-and-coding-agents/</loc>
     <lastmod>2025-12-30T22:20:58-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/cookies/</loc>
+    <loc>https://embracethered.com/blog/tags/aiml/</loc>
     <lastmod>2025-12-30T22:20:58-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <loc>https://embracethered.com/blog/tags/conference/</loc>
+    <lastmod>2025-12-30T22:20:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2025-12-30T22:20:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/prompt-injection/</loc>
     <lastmod>2025-12-30T22:20:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2025-12-30T22:20:58-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <loc>https://embracethered.com/blog/tags/video/</loc>
     <lastmod>2025-12-30T22:20:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2025-12-04T18:42:03-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/machine-learning/</loc>
     <lastmod>2025-12-04T18:42:03-08:00</lastmod>
@@ -45,9 +48,6 @@
     <lastmod>2025-10-28T08:36:30-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2025/claude-abusing-network-access-and-anthropic-api-for-data-exfiltration/</loc>
-    <lastmod>2025-10-28T08:36:30-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/prompt-injection/</loc>
     <lastmod>2025-10-28T08:36:30-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2025/cross-agent-privilege-escalation-agents-that-free-each-other/</loc>
@@ -152,6 +152,9 @@
     <loc>https://embracethered.com/blog/tags/advisory/</loc>
     <lastmod>2025-06-24T16:00:46-07:00</lastmod>
   </url><url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2025-06-24T16:00:46-07:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2025/security-advisory-anthropic-slack-mcp-server-data-leakage/</loc>
     <lastmod>2025-06-24T16:00:46-07:00</lastmod>
   </url><url>
@@ -159,6 +162,9 @@
     <lastmod>2025-06-24T16:00:46-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/tools/</loc>
+    <lastmod>2025-06-24T16:00:46-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
     <lastmod>2025-06-24T16:00:46-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2025/mcp-com-server-automate-anything-on-windows/</loc>
@@ -175,9 +181,6 @@
   </url><url>
     <loc>https://embracethered.com/blog/posts/2025/model-context-protocol-security-risks-and-exploits/</loc>
     <lastmod>2025-05-02T12:30:35-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/aiml/</loc>
-    <lastmod>2025-04-06T20:11:43-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2025/github-custom-copilot-instructions/</loc>
     <lastmod>2025-04-06T20:11:43-07:00</lastmod>
@@ -281,14 +284,14 @@
     <loc>https://embracethered.com/blog/tags/red-teaming/</loc>
     <lastmod>2024-05-18T16:00:00-07:00</lastmod>
   </url><url>
+    <loc>https://embracethered.com/blog/tags/cookies/</loc>
+    <lastmod>2024-05-16T00:00:11-08:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/posts/2024/cookie-theft-in-2024-and-what-todo/</loc>
     <lastmod>2024-05-16T00:00:11-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/google-notebook-ml-data-exfiltration/</loc>
     <lastmod>2024-04-15T08:11:30-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/conference/</loc>
-    <lastmod>2024-04-13T18:30:39-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/hackspacecon-2024/</loc>
     <lastmod>2024-04-13T18:30:39-07:00</lastmod>
@@ -321,9 +324,6 @@
     <lastmod>2024-02-14T03:30:17-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/bugbounty/</loc>
-    <lastmod>2024-02-12T17:11:48-08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/video/</loc>
     <lastmod>2024-02-12T17:11:48-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2024/ascii-smuggling-and-hidden-prompt-instructions/</loc>

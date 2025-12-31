@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
-    <lastBuildDate>Tue, 28 Oct 2025 08:36:30 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 30 Dec 2025 22:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/prompt-injection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agentic ProbLLMs: Exploiting AI Computer-Use And Coding Agents (39C3 Video &#43; Slides)</title>
+      <link>https://embracethered.com/blog/posts/2025/39c3-agentic-probllms-exploiting-computer-use-and-coding-agents/</link>
+      <pubDate>Tue, 30 Dec 2025 22:20:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2025/39c3-agentic-probllms-exploiting-computer-use-and-coding-agents/</guid>
+      <description>It was great to attend the 39C3 - Power Cycles in Hamburg this year. The Chaos Communication Congress was once again packed with great talks, amazing people, awesome events and side quests - and I even got to present!&#xA;You can watch the talk with translation options on media.ccc.de.&#xA;I also uploaded the English version to the Embrace The Red YouTube channel. I hope it&amp;rsquo;s interesting and helpful.&#xA;The talk is titled &amp;ldquo;Agentic ProbLLMs: Exploiting AI Computer-Use and Coding Agents&amp;rdquo; and is about my security research on vulnerabilities in agentic systems and the Month of AI Bugs with lots of demos.</description>
+    </item>
     <item>
       <title>Claude Pirate: Abusing Anthropic&#39;s File API For Data Exfiltration</title>
       <link>https://embracethered.com/blog/posts/2025/claude-abusing-network-access-and-anthropic-api-for-data-exfiltration/</link>
