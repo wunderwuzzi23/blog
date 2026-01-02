@@ -2,12 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2026-10-22T12:25:25-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2026-10-22T12:25:25-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/posts/2025/39c3-agentic-probllms-exploiting-computer-use-and-coding-agents/</loc>
     <lastmod>2025-12-30T22:20:58-07:00</lastmod>
   </url><url>
@@ -17,7 +11,13 @@
     <loc>https://embracethered.com/blog/tags/conference/</loc>
     <lastmod>2025-12-30T22:20:58-07:00</lastmod>
   </url><url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2025-12-30T22:20:58-07:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2025-12-30T22:20:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
     <lastmod>2025-12-30T22:20:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/prompt-injection/</loc>
