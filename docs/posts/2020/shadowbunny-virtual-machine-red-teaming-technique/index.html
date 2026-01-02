@@ -144,8 +144,7 @@
 <p>At that time, I had been contemplating with the idea of using virtual machines for red teaming. Especially for lateral movement it seemed like a great way to try something new that possibly evades detections and at the same time providing a persistence mechanism.</p>
 <p>The combination of the “shadow manager” that was put in my chair during vacation as replacement, plus the idea of using virtual machines for lateral movement was the beginning of the Shadowbunny.</p>
 <blockquote>
-<p>A Shadowbunny is a virtual machine (VM) instance that is deployed by an adversary on a target host to pivot and provide  persistence and at the same time evade detections. <a href="https://www.urbandictionary.com/define.php?term=shadowbunny">&raquo; Urban Dictionary &laquo;</a></p>
-</blockquote>
+<p>A Shadowbunny is a virtual machine (VM) instance that is deployed by an adversary on a target host to pivot and provide  persistence and at the same time evade detections. <a href="https://www.urbandictionary.com/define.php?term=shadowbunny">&raquo; Urban Dictionary &laquo;</a></p></blockquote>
 <p>The VM itself does not have any security monitoring and is entirely attacker controlled.</p>
 <h3 id="using-virtual-machines-for-attacks">Using virtual machines for attacks</h3>
 <p><strong>Real-world adversaries are using virtual machines as well by the way.</strong> Recently the <a href="https://news.sophos.com/en-us/2020/05/21/ragnar-locker-ransomware-deploys-virtual-machine-to-dodge-security/">Ragnar Locker Ransomware</a> was seen using a virtual machine (VirtualBox) to hide its tracks.</p>
@@ -204,8 +203,7 @@
 <p>The VM will probably want to automatically connect to the C2 periodically to check for commands. Possibly enable disk encryption, uninstall any unneeded software, establish direct connections to host via a shared folder or clipboard access, disabling any AV inside, sink holing telemetry, maybe USB access to have access to smart cards, or security keys and more.</p>
 <p>The creation can be a lengthy and involved step depending on the red team operation. For certain scenarios the disk size has to be small to limit the amount of time it takes to perform lateral movement.</p>
 <blockquote>
-<p>Interesting fact: The recent “Ragnar Lock Ransomware” used an old version of Windows XP – which keeps the size of the virtual machine quite small.</p>
-</blockquote>
+<p>Interesting fact: The recent “Ragnar Lock Ransomware” used an old version of Windows XP – which keeps the size of the virtual machine quite small.</p></blockquote>
 <p>To get started Ubuntu Server VM is a good option. For the more advanced cases there are light-weight Linux distributions to choose from as well. In the end, the outcome will be a virtual machine disk image file (or vdi, vhd, vhdx).</p>
 <p><strong>Using flock to regularly connect to the C2:</strong></p>
 <p>If the VM runs Linux the <code>flock</code> command can be used to awake zombies regularly.</p>
@@ -266,8 +264,7 @@ Enter-PSSession -Computer dangerzone -Port 5986 -Credential $creds -SessionOptio
 <p>Especially scripts that use <code>Invoke-WebRequest</code> or <code>WebClient</code> to download tools from the Internet get a lot of attention and are frequently manually investigated by an analyst.</p>
 <p>However, there are many tactics to continue using PowerShell and evade detections.</p>
 <blockquote>
-<p>PowerShell usage as adversarial technique will not go away, the same way we still see malware use VBScript.</p>
-</blockquote>
+<p>PowerShell usage as adversarial technique will not go away, the same way we still see malware use VBScript.</p></blockquote>
 <p>Just to give a few examples on top of my head that threat hunters should be aware of:</p>
 <ul>
 <li><strong>Mount a Cloud SMB share and copy data</strong> using a regular copy command.</li>
@@ -498,7 +495,7 @@ Start-VM $VM
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2025
+     (c) WUNDERWUZZI 2018-2026
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">

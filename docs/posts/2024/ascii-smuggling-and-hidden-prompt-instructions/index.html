@@ -146,13 +146,12 @@
   <section>
     <p>A couple of weeks ago hidden prompt injections were discovered and <a href="/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/">we covered it at the time</a>.</p>
 <p>This video explains it in more detail, and also highlights implications beyond hiding instructions, including what I call <code>ASCII Smuggling</code>. This is the usage of <a href="https://en.wikipedia.org/wiki/Tags_(Unicode_block)">Unicode Tags Block characters</a> to both craft and deciper hidden messages in plain sight.</p>
-<p>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/7z8weQnEbsc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+<p><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/7z8weQnEbsc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted --></p>
+<br>
+<br></p>
 <p>Using Unicode encoding to bypass security features or execute code (XSS, SSRF,..) has been in use for a while, however this new TTP enables more sophisticated attack scenarios.</p>
 <p>This is because Unicode Tags Code Point mirror the entire ASCII set, but are often not visible in UI elements. For Large Language Models this is interesting because LLMs often interpret this hidden text as ASCII, and they can also craft such hidden text when replying to user queries.</p>
 <h3 id="take-aways">Take-aways</h3>
@@ -161,8 +160,8 @@
 <li>Test your own LLM apps for this new attack vector</li>
 <li>As developer a possible mitigations is to remove Unicode Tags Block text on the way in and out</li>
 <li>Consider implications beyond LLM applications and Chatbots
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted --></li>
+<br>
+<br></li>
 </ul>
 <h3 id="the-ascii-smuggler-tool-is-here-by-the-way">The ASCII Smuggler Tool is here by the way</h3>
 <p><a href="/blog/ascii-smuggler.html"><img src="/blog/images/2024/ascii-smuggler-qr-clean.png" alt="ASCII Smuggler Tool"></a></p>
@@ -197,7 +196,7 @@
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2025
+     (c) WUNDERWUZZI 2018-2026
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">

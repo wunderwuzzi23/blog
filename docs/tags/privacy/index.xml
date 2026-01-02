@@ -4,9 +4,9 @@
     <title>Privacy on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/privacy/</link>
     <description>Recent content in Privacy on Embrace The Red</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Sat, 01 May 2021 10:10:08 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/privacy/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,14 +14,14 @@
       <link>https://embracethered.com/blog/posts/2021/red-teaming-floc-chrome-cohort/</link>
       <pubDate>Sat, 01 May 2021 10:10:08 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2021/red-teaming-floc-chrome-cohort/</guid>
-      <description>Recently Google&amp;rsquo;s FLoC proposal has been making the rounds in the news. FLoC stands for &amp;ldquo;federated learning of cohorts&amp;rdquo; and is Google&amp;rsquo;s vision how to perform user profiling in Chrome going forward.&#xA;Currently user tracking and profiling happens (mostly) via cookies, but many browser vendors have been supportive of protection of their users and started blocking third party and tracking cookies - or at least offer features in their browser to enable blocking.</description>
+      <description>&lt;p&gt;Recently Google&amp;rsquo;s FLoC proposal has been making the rounds in the news. FLoC stands for &amp;ldquo;federated learning of cohorts&amp;rdquo; and is Google&amp;rsquo;s vision how to perform user profiling in Chrome going forward.&lt;/p&gt;&#xA;&lt;p&gt;Currently user tracking and profiling happens (mostly) via cookies, but many browser vendors have been supportive of protection of their users and started blocking third party and tracking cookies - or at least offer features in their browser to enable blocking.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Motivated Intruder - Red Teaming for Privacy!</title>
       <link>https://embracethered.com/blog/posts/2020/red-teaming-for-privacy/</link>
       <pubDate>Fri, 24 Jul 2020 10:00:16 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2020/red-teaming-for-privacy/</guid>
-      <description>In this post I will discuss some testing techniques for internal red teams to identify privacy issues in services and infrastructure, most importantly a simple three step approach that might uncover interesting results.&#xA;Background story First, let me share a story from the past. When I did my master&amp;rsquo;s I built an app that performs end to end encryption of Facebook posts. This means that only the intended audience for which your posts were encrypted for can decipher the posts.</description>
+      <description>&lt;p&gt;In this post I will discuss some testing techniques for internal red teams to identify privacy issues in services and infrastructure, most importantly a simple three step approach that might uncover interesting results.&lt;/p&gt;&#xA;&lt;h2 id=&#34;background-story&#34;&gt;Background story&lt;/h2&gt;&#xA;&lt;p&gt;First, let me share a story from the past. When I did my master&amp;rsquo;s I built an app that performs end to end encryption of Facebook posts. This means that only the intended audience for which your posts were encrypted for can decipher the posts.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -4,9 +4,9 @@
     <title>Cve on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/cve/</link>
     <description>Recent content in Cve on Embrace The Red</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Wed, 14 Oct 2020 10:35:02 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/cve/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://embracethered.com/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/</link>
       <pubDate>Wed, 14 Oct 2020 10:35:02 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2020/cve-2020-16977-vscode-microsoft-python-extension-remote-code-execution/</guid>
-      <description>While building &amp;ldquo;Husky AI&amp;rdquo; I started working a lot with Microsoft&amp;rsquo;s VS Code Python extension. It is a super convinient way to edit Jupyter Notebooks. I just use VS Code&amp;rsquo;s Remote SSH feature to get to my Linux host and work on modeling and testing there.&#xA;When threat modeling &amp;ldquo;Husky AI&amp;rdquo; I identified backdooring of third party libraries and development tools as a potential issue to be aware of.&#xA;So finding security issues in the tools is naturally something I am keeping an eye on.</description>
+      <description>&lt;p&gt;While building &amp;ldquo;Husky AI&amp;rdquo; I started working a lot with Microsoft&amp;rsquo;s VS Code Python extension. It is a super convinient way to edit Jupyter Notebooks. I just use VS Code&amp;rsquo;s Remote SSH feature to get to my Linux host and work on modeling and testing there.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2020/vscode-notebook.png&#34; alt=&#34;VS Code Python Extension&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;When &lt;a href=&#34;https://embracethered.com/blog/posts/2020/husky-ai-threat-modeling-machine-learning&#34;&gt;threat modeling &amp;ldquo;Husky AI&amp;rdquo;&lt;/a&gt; I identified backdooring of third party libraries and development tools as a potential issue to be aware of.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

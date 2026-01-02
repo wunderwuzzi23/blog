@@ -140,8 +140,7 @@
 <h2 id="how-does-network-access-work-with-claude">How does Network Access Work with Claude?</h2>
 <p>The first thing I was curious about with Claude&rsquo;s network access was which domains are allow-listed when the default network access is on for the Code Interpreter. This is what the documentation <a href="https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_152729314d">states</a>about the configuration:</p>
 <blockquote>
-<p>&ldquo;Allow network egress to package managers only (default): Claude can access approved package managers (npm, PyPI, GitHub, etc.) to install necessary software packages. This balances functionality with security, but some advanced features may be limited.&rdquo;</p>
-</blockquote>
+<p>&ldquo;Allow network egress to package managers only (default): Claude can access approved package managers (npm, PyPI, GitHub, etc.) to install necessary software packages. This balances functionality with security, but some advanced features may be limited.&rdquo;</p></blockquote>
 <p>The default setting is called &ldquo;Package managers only&rdquo;:</p>
 <p><a href="/blog/images/2025/claude-pirate-allow-network-egress.png"><img src="/blog/images/2025/claude-pirate-allow-network-egress.png" alt="Claude Pirate Network Access"></a></p>
 <p>That list of allowed domains is short and <a href="https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_152729314d">documented here</a> as &ldquo;Approved network domains&rdquo;:
@@ -178,10 +177,9 @@ client.beta.files.upload(
 <p>😈</p>
 <h3 id="demo-video">Demo Video</h3>
 <p>Here is a narrated demo video that shows it end-to-end. A quick walkthrough with screenshots is in the next section.</p>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/2IoqhwqVI0s" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/2IoqhwqVI0s?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <p>Hope it helps to highlight the scenario.</p>
 <h3 id="demo-screenshots">Demo Screenshots</h3>
@@ -218,8 +216,7 @@ client.beta.files.upload(
 <hr>
 <p>I disclosed this to Anthropic via HackerOne on 10/25/2025 and the ticket was closed 1 hour later with the following statement:</p>
 <blockquote>
-<p>&ldquo;Thank you for your submission! Unfortunately, this particular issue you reported is explicitly out of scope as outlined in the <a href="https://hackerone.com/anthropic">Policy Page</a>.</p>
-</blockquote>
+<p>&ldquo;Thank you for your submission! Unfortunately, this particular issue you reported is explicitly out of scope as outlined in the <a href="https://hackerone.com/anthropic">Policy Page</a>.</p></blockquote>
 <p>With further explanation that it is considered a model safety issue.</p>
 <p>However, I do not believe this is just a safety issue, but a security vulnerability with the default network egress configuration that can lead to exfiltration of your private information.</p>
 <p><strong>Safety protects you from accidents. Security protects you from adversaries.</strong></p>
@@ -228,8 +225,7 @@ client.beta.files.upload(
 <p>For end users there is the option to disable the feature, or allow-list only specific domains, as well as monitoring execution closely - if you like to live dangerously.</p>
 <p>The <a href="https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_27fc9da35e">security considerations section of Claude</a> also highlight the generic threat:</p>
 <blockquote>
-<p>&ldquo;This means Claude can be tricked into sending information from its context (for example, prompts, projects, data via MCP, Google integrations) to malicious third parties. To mitigate these risks, we recommend you monitor Claude while using the feature and stop it if you see it using or accessing data unexpectedly. You can report issues to us using the thumbs down function directly in claude.ai.&rdquo;</p>
-</blockquote>
+<p>&ldquo;This means Claude can be tricked into sending information from its context (for example, prompts, projects, data via MCP, Google integrations) to malicious third parties. To mitigate these risks, we recommend you monitor Claude while using the feature and stop it if you see it using or accessing data unexpectedly. You can report issues to us using the thumbs down function directly in claude.ai.&rdquo;</p></blockquote>
 <p>However, users might incorrectly assume the default &ldquo;Package manager only&rdquo; option is secure, but it is not as this post demonstrates.</p>
 <p>For now, to protect the innocent, I won&rsquo;t share the exact repro payload.</p>
 <p>Further, it&rsquo;s also quite possible that other allow-listed domains from the &ldquo;Package managers only&rdquo; list allow for similar exploits.</p>
@@ -278,7 +274,7 @@ client.beta.files.upload(
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2025
+     (c) WUNDERWUZZI 2018-2026
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">

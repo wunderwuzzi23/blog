@@ -4,9 +4,9 @@
     <title>Threat Modeling on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/threat-modeling/</link>
     <description>Recent content in Threat Modeling on Embrace The Red</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Sun, 06 Sep 2020 00:00:00 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/threat-modeling/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://embracethered.com/blog/posts/2020/husky-ai-threat-modeling-machine-learning/</link>
       <pubDate>Sun, 06 Sep 2020 00:00:00 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2020/husky-ai-threat-modeling-machine-learning/</guid>
-      <description>This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &amp;ldquo;huskyai&amp;rdquo; to see all the posts, or visit the machine learning attack series overview section.&#xA;In the previous post we walked through the steps required to gather training data, build and test a model to build &amp;ldquo;Husky AI&amp;rdquo;.&#xA;This post is all about threat modeling the system to identify scenarios for attacks which we will perform in the upcoming posts.</description>
+      <description>&lt;p&gt;This post is part of a series about machine learning and artificial intelligence. Click on the blog tag &lt;a href=&#34;https://embracethered.com/blog/tags/huskyai/&#34;&gt;&amp;ldquo;huskyai&amp;rdquo;&lt;/a&gt; to see all the posts, or visit the &lt;a href=&#34;https://embracethered.com/blog/posts/2020/machine-learning-attack-series-overview/&#34;&gt;machine learning attack series overview section&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;In the &lt;a href=&#34;https://embracethered.com/blog/posts/2020/husky-ai-building-the-machine-learning-model/&#34;&gt;previous post&lt;/a&gt; we walked through the steps required to gather training data, build and test a model to build &amp;ldquo;Husky AI&amp;rdquo;.&lt;/p&gt;&#xA;&lt;p&gt;This post is all about threat modeling the system to identify scenarios for attacks which we will perform in the upcoming posts.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

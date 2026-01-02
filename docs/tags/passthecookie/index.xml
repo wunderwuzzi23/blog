@@ -4,9 +4,9 @@
     <title>Passthecookie on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/passthecookie/</link>
     <description>Recent content in Passthecookie on Embrace The Red</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Wed, 15 Jul 2020 06:00:00 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/passthecookie/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,14 +14,14 @@
       <link>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</link>
       <pubDate>Wed, 15 Jul 2020 06:00:00 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2020/cookies-on-firefox/</guid>
-      <description>Previously I talked about remotely debugging Chrome, and we also covered the latest Microsoft Edge browser along the way.&#xA;These features allow an adversary to gain access to authentication tokens and cookies. See MITRE ATT&amp;amp;CK Technique T1539: Steal Web Session Cookie as well for this.&#xA;What about Firefox? For a while I was wondering if (my favorite) browser Firefox has such debugging features as well, and how one could detect malware trying to exploit it.</description>
+      <description>&lt;p&gt;Previously I talked about &lt;a href=&#34;https://embracethered.com/blog/posts/2020/chrome-spy-remote-control&#34;&gt;remotely debugging Chrome&lt;/a&gt;, and we also covered the &lt;a href=&#34;https://embracethered.com/blog/posts/2020/cookie-crimes-on-microsoft-edge&#34;&gt;latest Microsoft Edge browser&lt;/a&gt; along the way.&lt;/p&gt;&#xA;&lt;p&gt;These features allow an adversary to gain access to authentication tokens and cookies. See &lt;a href=&#34;https://attack.mitre.org/techniques/T1539/&#34;&gt;MITRE ATT&amp;amp;CK Technique T1539: Steal Web Session Cookie&lt;/a&gt; as well for this.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-about-firefox&#34;&gt;What about Firefox?&lt;/h2&gt;&#xA;&lt;p&gt;For a while I was wondering if (my favorite) browser Firefox has such debugging features as well, and how one could detect malware trying to exploit it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cookie Crimes and the new Microsoft Edge Browser</title>
       <link>https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</link>
       <pubDate>Fri, 01 May 2020 01:00:46 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2020/cookie-crimes-on-mirosoft-edge/</guid>
-      <description>Revisiting Cookie Crimes In 2018 @mangopdf described &amp;ldquo;Cookie Crimes&amp;rdquo;, which is great research around Chrome&amp;rsquo;s remote debugging feature that allows adversaries and malware to gain access to cookies quite convienently during post-exploitation.&#xA;The original research is published here, and it still works today.&#xA;The new Microsoft Edge browser and Chromium Microsoft&amp;rsquo;s latest Edge browser is based on the same code, Chromium. I guess, you already know where this is going now&amp;hellip;</description>
+      <description>&lt;h2 id=&#34;revisiting-cookie-crimes&#34;&gt;Revisiting Cookie Crimes&lt;/h2&gt;&#xA;&lt;p&gt;In 2018 &lt;em&gt;@mangopdf&lt;/em&gt; described &amp;ldquo;Cookie Crimes&amp;rdquo;, which is great research around Chrome&amp;rsquo;s remote debugging feature that allows adversaries and malware to gain access to cookies quite convienently during post-exploitation.&lt;/p&gt;&#xA;&lt;p&gt;The original research is published &lt;a href=&#34;https://mango.pdf.zone/stealing-chrome-cookies-without-a-password&#34;&gt;here&lt;/a&gt;, and it still works today.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-new-microsoft-edge-browser-and-chromium&#34;&gt;The new Microsoft Edge browser and Chromium&lt;/h2&gt;&#xA;&lt;p&gt;Microsoft&amp;rsquo;s latest Edge browser is based on the same code, Chromium. I guess, you already know where this is going now&amp;hellip;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

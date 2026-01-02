@@ -4,9 +4,9 @@
     <title>Appsec on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/appsec/</link>
     <description>Recent content in Appsec on Embrace The Red</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Tue, 12 Oct 2021 00:02:00 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/appsec/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,28 +14,28 @@
       <link>https://embracethered.com/blog/posts/2021/video-image-scaling-attacks/</link>
       <pubDate>Tue, 12 Oct 2021 00:02:00 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2021/video-image-scaling-attacks/</guid>
-      <description>Today you are in for a special treat. Did you know that an adversary can hide a smaller image within a larger one?&#xA;This video demonstrates how a small image becomes magically visible when the computer resizes the large image, and also how to mitigate the vulnerability.&#xA;This is possible when vulnerable code uses insecure interpolation.&#xA;If you like this one check out the overall Machine Learning Attack Series.&#xA;Credit for original research, Erwing Quiring, et al.</description>
+      <description>&lt;p&gt;Today you are in for a special treat. Did you know that an adversary can hide a smaller image within a larger one?&lt;/p&gt;&#xA;&lt;p&gt;This video demonstrates how a small image becomes magically visible when the computer resizes the large image, and also how to mitigate the vulnerability.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=UItbZNBtfaQ&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2021/image-scaling-attack.png&#34; alt=&#34;Image Scaling Attacks&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This is possible when vulnerable code uses insecure interpolation.&lt;/p&gt;&#xA;&lt;p&gt;If you like this one check out the overall &lt;a href=&#34;https://embracethered.com/blog/posts/2020/machine-learning-attack-series-overview/&#34;&gt;Machine Learning Attack Series&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Video: What is Tabnabbing?</title>
       <link>https://embracethered.com/blog/posts/2021/what-is-tab-nabbing/</link>
       <pubDate>Sun, 10 Oct 2021 10:10:51 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2021/what-is-tab-nabbing/</guid>
-      <description>Tabnabbing is a web application security vulnerability that can be used to perform phishing attacks, so its important to be aware of it as a developer and penetration tester.&#xA;It is easy to mitigate and in this short video we cover both attacks and mitigations.&#xA;Thanks for reading and happy hacking!&#xA;@wunderwuzzi23</description>
+      <description>&lt;p&gt;Tabnabbing is a web application security vulnerability that can be used to perform phishing attacks, so its important to be aware of it as a developer and penetration tester.&lt;/p&gt;&#xA;&lt;p&gt;It is easy to mitigate and in this short video we cover both attacks and mitigations.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=VyaXnBjV-IE&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2021/tabnabbing.png&#34; alt=&#34;WebAppSec&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Thanks for reading and happy hacking!&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://twitter.com/wunderwuzzi23&#34;&gt;@wunderwuzzi23&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Video: Web Application Security Fundamentals</title>
       <link>https://embracethered.com/blog/posts/2021/web-application-security-fundamentals-video/</link>
       <pubDate>Mon, 06 Sep 2021 08:02:00 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2021/web-application-security-fundamentals-video/</guid>
-      <description>In this 25 minute video I&amp;rsquo;m explaining the foundations of Web Application Security.&#xA;The video covers the basic building blocks of web applications, such as HTML, HTTP, JavaScript and Cookies. Furthermore core web applications security concepts such as the Same-Origin Policy are discussed in detail.&#xA;The goal is to provide foundational knowledge to help grasp security vulnerabilities, such as XSS, CSRF, SQLi, tab-nabbing, etc. later on.&#xA;In the past I have trained and presented content like this to thousands of engineers at large organizations and cloud providers, hence its quite optimized for best learning and comprehension outcome.</description>
+      <description>&lt;p&gt;In this 25 minute video I&amp;rsquo;m explaining the foundations of &lt;code&gt;Web Application Security&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The video covers the basic building blocks of web applications, such as &lt;code&gt;HTML&lt;/code&gt;, &lt;code&gt;HTTP&lt;/code&gt;, &lt;code&gt;JavaScript&lt;/code&gt; and &lt;code&gt;Cookies&lt;/code&gt;. Furthermore core web applications security concepts such as the &lt;code&gt;Same-Origin Policy&lt;/code&gt; are discussed in detail.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=-7OX58nHPb8&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2021/webappsecfundamentals.png&#34; alt=&#34;WebAppSec&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;The goal is to provide foundational knowledge to help grasp security vulnerabilities, such as &lt;code&gt;XSS&lt;/code&gt;, &lt;code&gt;CSRF&lt;/code&gt;, &lt;code&gt;SQLi&lt;/code&gt;, &lt;code&gt;tab-nabbing&lt;/code&gt;, etc. later on.&lt;/p&gt;&#xA;&lt;p&gt;In the past I have trained and presented content like this to thousands of engineers at large organizations and cloud providers, hence its quite optimized for best learning and comprehension outcome.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Race conditions when applying ACLs</title>
       <link>https://embracethered.com/blog/posts/2020/applying-acls-and-race-conditions/</link>
       <pubDate>Mon, 24 Aug 2020 12:00:33 -0800</pubDate>
       <guid>https://embracethered.com/blog/posts/2020/applying-acls-and-race-conditions/</guid>
-      <description>Today I&amp;rsquo;m gonna talk about a class of application security issues I ran across a few times over the years. In particular, let&amp;rsquo;s discuss race conditions when it comes to files with sensitive content and permissions.&#xA;Race conditions can allow an adversary to gain access to sensitive information on machines. Assume a system creates a file that contains sensitive information and afterwards applies permissions to lockdown that file.&#xA;Understanding the race condition Let&amp;rsquo;s look at a practical example seen in the wild a few times.</description>
+      <description>&lt;p&gt;Today I&amp;rsquo;m gonna talk about a class of application security issues I ran across a few times over the years. In particular, let&amp;rsquo;s discuss race conditions when it comes to files with sensitive content and permissions.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Race conditions&lt;/strong&gt; can allow an adversary to gain access to sensitive information on machines. Assume a system creates a file that contains sensitive information and &lt;em&gt;afterwards&lt;/em&gt; applies permissions to lockdown that file.&lt;/p&gt;&#xA;&lt;h2 id=&#34;understanding-the-race-condition&#34;&gt;Understanding the race condition&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s look at a practical example seen in the wild a few times. Imagine code like this:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

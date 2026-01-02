@@ -153,8 +153,7 @@
 <p>The primary goal of this research post is to highlight that there is no trust boundary, and once you add multiple research tools to the research process, the agent can freely invoke tools and may use data from one to query another.</p>
 <p>The ChatGPT <a href="https://help.openai.com/en/articles/11487775-connectors-in-chatgpt">documentation</a> states:</p>
 <blockquote>
-<p>When you enable a connector, ChatGPT can send and retrieve information from the connected app in order to find information relevant to your prompts and use them in its responses.</p>
-</blockquote>
+<p>When you enable a connector, ChatGPT can send and retrieve information from the connected app in order to find information relevant to your prompts and use them in its responses.</p></blockquote>
 <p>This basically hints to this behavior.</p>
 <h3 id="implementing-a-remote-mcp-server">Implementing a Remote MCP Server</h3>
 <p>To test this out I created a simple remote MCP server named <code>Remote Matrix</code> that correctly implements <code>search</code> and <code>fetch</code> tools to adhere to OpenAI’s specification.</p>
@@ -166,8 +165,7 @@
 <p>Here you can see we have <code>Outlook Email</code>, the <code>Remote Matrix</code> and a few other tools selected. This means that data from Outlook can be used in a query to the <code>Remote Matrix</code> tool. Remember, a research process often runs for 10+ minutes, so humans are not in the loop during the process.</p>
 <p>The documentation highlights this with Web Search:</p>
 <blockquote>
-<p>ChatGPT can also use relevant information accessed from Connectors to inform search queries when ChatGPT searches the web to provide a response.</p>
-</blockquote>
+<p>ChatGPT can also use relevant information accessed from Connectors to inform search queries when ChatGPT searches the web to provide a response.</p></blockquote>
 <p>And turns out that web search uses both <a href="https://help.openai.com/en/articles/9237897-chatgpt-search">Bing and Shopify</a>.</p>
 <p><a href="/blog/images/2025/chatgpt-deepresearch-search-explain.png"><img src="/blog/images/2025/chatgpt-deepresearch-search-explain.png" alt="Remote Matrix Leak"></a></p>
 <p>And as you can see above, your <strong>stored memories might also be sent to tools</strong>.</p>
@@ -253,7 +251,7 @@ update in a table form with high level details and status.
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2025
+     (c) WUNDERWUZZI 2018-2026
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">

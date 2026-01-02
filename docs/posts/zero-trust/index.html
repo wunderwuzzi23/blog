@@ -124,14 +124,12 @@
 <p>Malware can spread fast and damage businesses at scale.</p>
 <p>SQL Slammer [1] and WannaCry [2] are two well-known cases that showed how quickly and damaging this can be. Interstingly, both of these disasters were nearly 15 years apart.</p>
 <blockquote>
-<p>Did we not learn how to defend against automated attacks in the last 15 years?</p>
-</blockquote>
+<p>Did we not learn how to defend against automated attacks in the last 15 years?</p></blockquote>
 <p><strong>The network is hostile</strong> and that is something security experts agree upon and keep highlighting.</p>
 <h2 id="corporate-it-security">Corporate IT Security</h2>
 <p><strong>Zero Trust</strong> is typically used to refer to the fact that the network infrastructure cannot be trusted. However, remote management endpoints (and others also) are constantly <strong>permanently</strong> exposed to untrusted networks. Especially corporate devices (such as laptops and phones) are often exposed to quite hostile networks.</p>
 <blockquote>
-<p>To this day, malware, adversaries and red teams move through environments via remotely exposed endpoints, most of them time using dedicated admin management endpoints.</p>
-</blockquote>
+<p>To this day, malware, adversaries and red teams move through environments via remotely exposed endpoints, most of them time using dedicated admin management endpoints.</p></blockquote>
 <p>In your company the IT department might be permanently enabling SSH (or WinRM on Windows) on your laptop. This allows to connect and assert administrative privileges on your (and other employee&rsquo;s) machines whenever the need arises.</p>
 <h2 id="why-is-this-bad">Why is this bad?</h2>
 <p>Here are a few reasons why permanently exposing remote management endpoints is bad:</p>
@@ -157,8 +155,7 @@
 <h2 id="mitigations">Mitigations</h2>
 <p>It is a frustrating thing for a red teamer to have a valid password (certificate, token,&hellip;..) but not being able use it because there is no endpoint exposed.</p>
 <blockquote>
-<p><strong>So, we should assume it is similarly frustrating for a real world adversary!</strong></p>
-</blockquote>
+<p><strong>So, we should assume it is similarly frustrating for a real world adversary!</strong></p></blockquote>
 <p>One of the simplest mitigations that prevents malware from spreading is to <strong>not expose remote endpoints</strong> (especially remote management endpoints) by default, hence, ensure that endpoints are not exposed widely, and look into:</p>
 <ul>
 <li>Disabling SSH</li>
@@ -216,7 +213,7 @@
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2025
+     (c) WUNDERWUZZI 2018-2026
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">

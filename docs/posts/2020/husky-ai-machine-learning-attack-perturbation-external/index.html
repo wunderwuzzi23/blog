@@ -285,8 +285,7 @@ best_image = find_best_pixels_random(image)
 </ul>
 <p>To be most efficient the adversary has to either have access to the model or use a model that is similar. From the FGSM paper:</p>
 <blockquote>
-<p>An intriguing aspect of adversarial examples is that an example generated for one model is often misclassified by other models, even when they have different architectures or were trained on dis-joint training sets.</p>
-</blockquote>
+<p>An intriguing aspect of adversarial examples is that an example generated for one model is often misclassified by other models, even when they have different architectures or were trained on dis-joint training sets.</p></blockquote>
 <p>Threat modeling already identified the adversary gainin gread access to the model (e.g. &ldquo;model stealing&rdquo;), so we will research that attack in a future post. I can think of least two ways that I already can think of, but for now let&rsquo;s continue to assume we have a model file again.</p>
 <p>Here is the code used to generate an adversary example via an Adam optimizer:</p>
 <pre tabindex="0"><code>shadowbunny = load_image(&#34;shadowbunny.png&#34;)
@@ -386,7 +385,7 @@ print(&#34;Final Score: &#34;, best_score.numpy()[0][0])
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2025
+     (c) WUNDERWUZZI 2018-2026
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">

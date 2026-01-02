@@ -4,9 +4,9 @@
     <title>Xss on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/xss/</link>
     <description>Recent content in Xss on Embrace The Red</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Fri, 29 Nov 2024 14:00:39 -0800</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/xss/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://embracethered.com/blog/posts/2024/deepseek-ai-prompt-injection-to-xss-and-account-takeover/</link>
       <pubDate>Fri, 29 Nov 2024 14:00:39 -0800</pubDate>
       <guid>https://embracethered.com/blog/posts/2024/deepseek-ai-prompt-injection-to-xss-and-account-takeover/</guid>
-      <description>About two weeks ago, DeepSeek released a new AI reasoning model, DeepSeek-R1-Lite. The news quickly gained attention and interest across the AI community due to the reasoning capabilities the Chinese lab announced.&#xA;However, whenever there is a new AI I have ideas&amp;hellip;&#xA;Apps That Hack Themselves - The 10x Hacker There are some cool tests that can be done when pentesting LLM-powered web apps, I usually try some quick fun prompts like this one:</description>
+      <description>&lt;p&gt;About two weeks ago, &lt;code&gt;DeepSeek&lt;/code&gt; released a new AI reasoning model, &lt;code&gt;DeepSeek-R1-Lite&lt;/code&gt;. The news quickly gained &lt;a href=&#34;https://techcrunch.com/2024/11/20/a-chinese-lab-has-released-a-model-to-rival-openais-o1/&#34;&gt;attention&lt;/a&gt; and &lt;a href=&#34;https://venturebeat.com/ai/deepseeks-first-reasoning-model-r1-lite-preview-turns-heads-beating-openai-o1-performance/&#34;&gt;interest&lt;/a&gt; across the AI community due to the reasoning capabilities the Chinese lab announced.&lt;/p&gt;&#xA;&lt;p&gt;However, whenever there is a new AI I have ideas&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;apps-that-hack-themselves---the-10x-hacker&#34;&gt;Apps That Hack Themselves - The 10x Hacker&lt;/h2&gt;&#xA;&lt;p&gt;There are some cool tests that can be done when pentesting LLM-powered web apps, I usually try some quick fun prompts like this one:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

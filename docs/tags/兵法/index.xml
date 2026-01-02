@@ -4,9 +4,9 @@
     <title>兵法 on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/%E5%85%B5%E6%B3%95/</link>
     <description>Recent content in 兵法 on Embrace The Red</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Wed, 03 Mar 2021 11:37:20 -0800</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/%E5%85%B5%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://embracethered.com/blog/posts/2021/talk-information-security-summit-hong-kong/</link>
       <pubDate>Wed, 03 Mar 2021 11:37:20 -0800</pubDate>
       <guid>https://embracethered.com/blog/posts/2021/talk-information-security-summit-hong-kong/</guid>
-      <description>Next week (on March, 9th 2021) I will be speaking at the Hong Kong Information Security Summit 2021.&#xA;歡迎, 你好!&#xA;I was invited to share my thoughts around protecting the modern (and remote) workplace. Of course, my talk is addressing this topic from a red teaming point of view. Conference details are here.&#xA;The adversary will come to your house The name of the talk is &amp;ldquo;Red Team Strategies for Helping Protect the Modern Workplace&amp;rdquo; which might seem less creative, but there is some (hopefullly) good and interesting information in my talk.</description>
+      <description>&lt;p&gt;Next week (on March, 9th 2021) I will be speaking at the Hong Kong Information Security Summit 2021.&lt;/p&gt;&#xA;&lt;p&gt;歡迎, 你好!&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.issummit.org/&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2021/hk-summit.png&#34; alt=&#34;HK Summit 2021&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;I was invited to share my thoughts around protecting the modern (and remote) workplace. Of course, my talk is addressing this topic from a red teaming point of view. Conference details are &lt;a href=&#34;https://www.issummit.org/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-adversary-will-come-to-your-house&#34;&gt;The adversary will come to your house&lt;/h2&gt;&#xA;&lt;p&gt;The name of the talk is &amp;ldquo;Red Team Strategies for Helping Protect the Modern Workplace&amp;rdquo; which might seem less creative, but there is some (hopefullly) good and interesting information in my talk.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

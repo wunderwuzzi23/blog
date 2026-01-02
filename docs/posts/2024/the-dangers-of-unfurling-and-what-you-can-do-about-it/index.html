@@ -159,12 +159,10 @@
 <p>First, unfurling refers to an application expanding (retrieving) a hyperlink automatically to show us a preview of the page.</p>
 <p>The <a href="https://api.slack.com/reference/messaging/link-unfurling">Slack documentation</a> states:</p>
 <blockquote>
-<p>When a link is spotted, Slack crawls it and provides a preview.</p>
-</blockquote>
+<p>When a link is spotted, Slack crawls it and provides a preview.</p></blockquote>
 <p>And the important part is that Slack expands links by default:</p>
 <blockquote>
-<p>By default, we unfurl all links in any messages posted by users and Slack Apps. This applies to messages posted via incoming webhooks, chat.postMessage and chat.postEphemeral. We also unfurl links to media based content within Block kit blocks.</p>
-</blockquote>
+<p>By default, we unfurl all links in any messages posted by users and Slack Apps. This applies to messages posted via incoming webhooks, chat.postMessage and chat.postEphemeral. We also unfurl links to media based content within Block kit blocks.</p></blockquote>
 <p>But how can this be exploited to exfiltrate data you might ask?</p>
 <h2 id="automatically-unfurling-links-and-data-exfiltration">Automatically unfurling links and data exfiltration</h2>
 <p>This becomes a threat in LLM (large language model) powered Chatbots and Slack Apps when untrusted data enters a chat, for instance via a prompt injection attack.</p>
@@ -262,7 +260,7 @@ Johann.</p>
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2025
+     (c) WUNDERWUZZI 2018-2026
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">

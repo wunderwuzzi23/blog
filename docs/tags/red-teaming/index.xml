@@ -4,9 +4,9 @@
     <title>Red Teaming on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/red-teaming/</link>
     <description>Recent content in Red Teaming on Embrace The Red</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Sat, 18 May 2024 16:00:00 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/red-teaming/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://embracethered.com/blog/posts/2024/machine-learning-attack-series-keras-backdoor-model/</link>
       <pubDate>Sat, 18 May 2024 16:00:00 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2024/machine-learning-attack-series-keras-backdoor-model/</guid>
-      <description>This post is part of a series about machine learning and artificial intelligence.&#xA;Adversaries often leverage supply chain attacks to gain footholds. In machine learning model deserialization issues are a significant threat, and detecting them is crucial, as they can lead to arbitrary code execution. We explored this attack with Python Pickle files in the past.&#xA;In this post we are covering backdooring the original Keras Husky AI model from the Machine Learning Attack Series, and afterwards we investigate tooling to detect the backdoor.</description>
+      <description>&lt;p&gt;This post is part of a &lt;a href=&#34;https://embracethered.com/blog/posts/2020/machine-learning-attack-series-overview/&#34;&gt;series&lt;/a&gt; about machine learning and artificial intelligence.&lt;/p&gt;&#xA;&lt;p&gt;Adversaries often leverage supply chain attacks to gain footholds. In machine learning &lt;strong&gt;model deserialization issues&lt;/strong&gt; are a significant threat, and detecting them is crucial, as they can lead to arbitrary code execution. We explored this attack with &lt;a href=&#34;https://embracethered.com/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/&#34;&gt;Python Pickle files in the past&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;In this post we are covering backdooring the original Keras &lt;code&gt;Husky AI&lt;/code&gt; model from the &lt;a href=&#34;https://embracethered.com/blog/posts/2020/machine-learning-attack-series-overview/&#34;&gt;Machine Learning Attack Series&lt;/a&gt;, and afterwards we investigate tooling to detect the backdoor.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

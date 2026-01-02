@@ -184,8 +184,7 @@ Mode                 LastWriteTime         Length Name
 <p>Forwarding keys is usually done via <code>ssh -A</code> option or <code>AllowForwarding=yes</code> setting in the <code>ssh_config</code>.</p>
 <p>From the <code>man ssh-agent</code> page:</p>
 <blockquote>
-<p><strong>SSH_AUTH_SOCK</strong>  When ssh-agent starts, it creates a UNIX-domain socket and stores its pathname in this variable.  It is accessible only to the current user, but is easily abused by root or another instance of the same user.</p>
-</blockquote>
+<p><strong>SSH_AUTH_SOCK</strong>  When ssh-agent starts, it creates a UNIX-domain socket and stores its pathname in this variable.  It is accessible only to the current user, but is easily abused by root or another instance of the same user.</p></blockquote>
 <p>Further more it states the location for the socket file, nameley <code>$TMPDIR/ssh-XXXXXXXXXX/agent.&lt;ppid&gt;</code>.</p>
 <p>Running <code>ssh-agent</code> shows these details.</p>
 <p>All that Mallory needs to do is set that environment variable for <code>SSH_AUTH_SOCK</code> and <code>SSH_AGENT_ID</code> before running <code>ssh</code>:</p>
@@ -266,7 +265,7 @@ Identity added: .ssh/alice-prod (alice@alice-ubuntu)
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2025
+     (c) WUNDERWUZZI 2018-2026
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">

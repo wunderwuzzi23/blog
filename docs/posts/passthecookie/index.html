@@ -189,64 +189,64 @@ Pass the Cookie is a post-exploitation technique to perform <a href="https://www
 <p>Below is a list of some &ldquo;cookies of interest&rdquo; for valuable web applications your organization might use. An adversary might be after those and you could emulate to see if your organization catches the attack.</p>
 <p>This list might change over time or have inaccuracies - feel to provide feedback or help amend.</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">Application</th>
-<th style="text-align:left">Cookie Name</th>
-<th style="text-align:left">Domain</th>
-<th style="text-align:left">Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Amazon Web Services</td>
-<td style="text-align:left">aws-userInfo, aws-creds</td>
-<td style="text-align:left">.amazon.com</td>
-<td style="text-align:left"><a href="https://console.aws.amazon.com">https://console.aws.amazon.com</a></td>
-</tr>
-<tr>
-<td style="text-align:left">Google Cloud Platform</td>
-<td style="text-align:left">OSID, HSID, SID, SSID, APISID, SAPISID, LSID</td>
-<td style="text-align:left">.google.com</td>
-<td style="text-align:left"><a href="https://console.cloud.google.com">https://console.cloud.google.com</a> OSID has to be set on console.cloud.google.com, others on .google.com LSID needed for cross app auth (e.g. GCP to Gmail).</td>
-</tr>
-<tr>
-<td style="text-align:left">Microsoft Online</td>
-<td style="text-align:left">ESTSAUTHPERSISTENT</td>
-<td style="text-align:left">.microsoftonline.com</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">Facebook for Work</td>
-<td style="text-align:left">c_user, cs</td>
-<td style="text-align:left">.facebook.com</td>
-<td style="text-align:left">Also works for regular Facebook</td>
-</tr>
-<tr>
-<td style="text-align:left">OneLogin</td>
-<td style="text-align:left">sub_session_onelogin.com</td>
-<td style="text-align:left">.onelogin.com</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">GitHub</td>
-<td style="text-align:left">user_session</td>
-<td style="text-align:left">.github.com</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:left">Hotmail, Calendar, People</td>
-<td style="text-align:left">RPSSecAuth</td>
-<td style="text-align:left">.live.com</td>
-<td style="text-align:left">Access to hotmail,&hellip; (No OneDrive)</td>
-</tr>
-<tr>
-<td style="text-align:left">Gmail</td>
-<td style="text-align:left">OSID, HSID, SID, SSID, APISID, SAPISID, LSID</td>
-<td style="text-align:left">.google.com</td>
-<td style="text-align:left"><a href="https://mail.google.com">https://mail.google.com</a>  For basic mail access only first 4 seem needed.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Application</th>
+          <th style="text-align: left">Cookie Name</th>
+          <th style="text-align: left">Domain</th>
+          <th style="text-align: left">Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Amazon Web Services</td>
+          <td style="text-align: left">aws-userInfo, aws-creds</td>
+          <td style="text-align: left">.amazon.com</td>
+          <td style="text-align: left"><a href="https://console.aws.amazon.com">https://console.aws.amazon.com</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Google Cloud Platform</td>
+          <td style="text-align: left">OSID, HSID, SID, SSID, APISID, SAPISID, LSID</td>
+          <td style="text-align: left">.google.com</td>
+          <td style="text-align: left"><a href="https://console.cloud.google.com">https://console.cloud.google.com</a> OSID has to be set on console.cloud.google.com, others on .google.com LSID needed for cross app auth (e.g. GCP to Gmail).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Microsoft Online</td>
+          <td style="text-align: left">ESTSAUTHPERSISTENT</td>
+          <td style="text-align: left">.microsoftonline.com</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Facebook for Work</td>
+          <td style="text-align: left">c_user, cs</td>
+          <td style="text-align: left">.facebook.com</td>
+          <td style="text-align: left">Also works for regular Facebook</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">OneLogin</td>
+          <td style="text-align: left">sub_session_onelogin.com</td>
+          <td style="text-align: left">.onelogin.com</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">GitHub</td>
+          <td style="text-align: left">user_session</td>
+          <td style="text-align: left">.github.com</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Hotmail, Calendar, People</td>
+          <td style="text-align: left">RPSSecAuth</td>
+          <td style="text-align: left">.live.com</td>
+          <td style="text-align: left">Access to hotmail,&hellip; (No OneDrive)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Gmail</td>
+          <td style="text-align: left">OSID, HSID, SID, SSID, APISID, SAPISID, LSID</td>
+          <td style="text-align: left">.google.com</td>
+          <td style="text-align: left"><a href="https://mail.google.com">https://mail.google.com</a>  For basic mail access only first 4 seem needed.</td>
+      </tr>
+  </tbody>
 </table>
 <p>
 <br>
@@ -311,7 +311,7 @@ You can always view the currently set cookies via document.cookie</p>
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2025
+     (c) WUNDERWUZZI 2018-2026
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">

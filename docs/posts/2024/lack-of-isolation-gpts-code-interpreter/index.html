@@ -148,12 +148,11 @@
 <p>The easiest way to repro this is to start a new ChatGPT chat, then upload a file or ask it to create a new file. You can ask for its <code>hostname</code> as a check, and <code>list files in /mnt/data</code> to view them.</p>
 <p>Afterwards do the same in a new chat session of a Custom GPT (with Code Interpreter enabled) and observe that hostname and private files created from your ChatGPT chat are visible and can also be overwriten.</p>
 <p>Here is a short demo video that highlights the problem:</p>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/b0pQ9DvdyZc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/b0pQ9DvdyZc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><br><br></p>
 <p>The video shows how a regular ChatGPT session and a custom GPT (public) have access to the same files of the user as they share the same Code Interpreter session.</p>
 <p><strong>Here are the repro steps in more detail:</strong></p>
 <ol>
@@ -231,7 +230,7 @@
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2025
+     (c) WUNDERWUZZI 2018-2026
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">

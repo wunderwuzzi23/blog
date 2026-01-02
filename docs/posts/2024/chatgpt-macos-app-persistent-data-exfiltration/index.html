@@ -146,7 +146,7 @@
   <section>
     <p>This post explains an attack chain for the ChatGPT macOS application. Through prompt injection from untrusted data, attackers could insert long-term persistent spyware into ChatGPT&rsquo;s memory. This led to continuous data exfiltration of any information the user typed or responses received by ChatGPT, including any future chat sessions.</p>
 <p><a href="/blog/images/2024/chatgpt-persistent-data-exfiltration.png"><img src="/blog/images/2024/chatgpt-persistent-data-exfiltration.png" alt="Thumbnail Memory Persistence"></a>
-<!-- raw HTML omitted -->
+<br>
 OpenAI released a fix for the macOS app last week. Ensure your app is updated to the latest version.</p>
 <p>Let&rsquo;s look at this <code>spAIware</code> in detail.</p>
 <h2 id="background-information">Background Information</h2>
@@ -168,12 +168,11 @@ OpenAI released a fix for the macOS app last week. Ensure your app is updated to
 <p>Let&rsquo;s look at it in action.</p>
 <h2 id="end-to-end-exploit-demonstration">End-to-End Exploit Demonstration</h2>
 <p>Here is an end to end demonstration that shows how a prompt injection from a website persists spyware instructions in ChatGPT&rsquo;s memory to continuously exfiltrate everything the users types going forward:</p>
-<p>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/zb0q5AW5ns8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+<p><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/zb0q5AW5ns8?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
-<!-- raw HTML omitted --></p>
+<br></p>
 <p>The image rendered in the video is invisible for stealth. Pretty scary.</p>
 <h2 id="step-by-step-explanation">Step by Step Explanation</h2>
 <p>First, the user analyzes an untrusted document or navigates to an untrusted website.</p>
@@ -219,10 +218,9 @@ Johann.</p>
 <h2 id="appendix">Appendix</h2>
 <h3 id="initial-poc-video">Initial POC Video</h3>
 <p>An earlier demo that does not attempt to hide the image that is being rendered:</p>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/YHW-UMxsais" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/YHW-UMxsais?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="latest-prompt-injection-payload-that-was-used">Latest Prompt Injection Payload that was used</h3>
 <p><a href="/blog/images/2024/chatgpt-persist-pi-bypass.png"><img src="/blog/images/2024/chatgpt-persist-pi-bypass.png" alt="Prompt PI Bypass"></a></p>
@@ -257,7 +255,7 @@ Johann.</p>
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2025
+     (c) WUNDERWUZZI 2018-2026
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">

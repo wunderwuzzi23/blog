@@ -151,8 +151,7 @@
 <p><a href="/blog/images/2024/term-blink-demo.gif"><img src="/blog/images/2024/term-blink-demo.gif" alt="blinking demo"></a></p>
 <p><a href="https://en.wikipedia.org/wiki/ANSI_escape_code">Wikipedia</a> describes it the following way:</p>
 <blockquote>
-<p>ANSI escape sequences are a standard for in-band signaling to control cursor location, color, font styling, and other options on video text terminals and terminal emulators.</p>
-</blockquote>
+<p>ANSI escape sequences are a standard for in-band signaling to control cursor location, color, font styling, and other options on video text terminals and terminal emulators.</p></blockquote>
 <p>From a security point of view there have been plenty of vulnerabilities in this space.</p>
 <h3 id="security-concerns---ansi-bombs-rce-and-more">Security Concerns - ANSI Bombs, RCE and more</h3>
 <p>Security research on this topic goes back decades, including <code>ANSI Bombs</code>, that reprogrammed keys on the keyboard. Recent talks at security conferences from last year covered CVE&rsquo;s including remote code execution, denial of service,&hellip; Here are recent resources about ANSI escape code research:</p>
@@ -193,10 +192,9 @@
 <h2 id="dillmapy---a-demo-app">dillma.py - A Demo App</h2>
 <p>To test this, I created a simple LLM-powered app using Python. The tool allows to specify a system prompt and attach a file to analyze &ndash; all on the command line. All the information is sent to the LLM (using OpenAI GPT-4o November preview) and the response is printed to the terminal.</p>
 <p>Below is a video highlight the use case and concept: The user is summarizing a file. The file, however, came from a malicious actor and contains instructions. Now, the tool is hijacked and inserts ANSI escape sequences to beep and create colored, flashing text.</p>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/aTEPsQzdl7s" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/aTEPsQzdl7s?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 
   <br>
@@ -217,10 +215,9 @@
 <p>But there is more!</p>
 <h3 id="writing-text-to-the-users-clipboard">Writing Text To The User&rsquo;s Clipboard</h3>
 <p>It&rsquo;s also possible <strong>to write</strong> data into the user&rsquo;s clipboard. Most terminals I tested with removed the final newline to prevent code execution. But not all of them!</p>
-<p>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/OcMSaPLiUqk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+<p><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/OcMSaPLiUqk?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 
   <br>
@@ -234,10 +231,9 @@
 <p>Let&rsquo;s combine the <code>DNS Leakage</code> scenario with the <code>code execution</code> approach I described in the intro.</p>
 <h3 id="gemini-enhancing-reliability-with-code-execution-tools--macos-terminal-dns-leakage-demo">Gemini: Enhancing Reliability with Code Execution Tools + macOS Terminal DNS Leakage Demo</h3>
 <p>If an application uses <code>code execution</code> it allows for the arbitrary creation of output, which makes creation of ANSI escape codes easier and more reliable.</p>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/HxSa3glgPWQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/HxSa3glgPWQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 
   <br>
@@ -251,10 +247,9 @@
 </ul>
 <p>Feel free to use, adjust as you see fit. No warranty, or liability.</p>
 <p>Here is a video that shows a link data leak demo and detailed mitigations:
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/mb0WSJlx9as" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/mb0WSJlx9as?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 </p>
 <h3 id="additional-ideas-for-mitigation">Additional Ideas For Mitigation</h3>
 <p>A few ideas come to mind, some were mentioned in the video:</p>
@@ -316,7 +311,7 @@
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2025
+     (c) WUNDERWUZZI 2018-2026
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">

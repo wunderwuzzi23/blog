@@ -4,9 +4,9 @@
     <title>Db on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/db/</link>
     <description>Recent content in Db on Embrace The Red</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Fri, 02 Dec 2022 08:41:49 -0800</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/db/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://embracethered.com/blog/posts/2022/chatgpt-imagine-you-are-a-database/</link>
       <pubDate>Fri, 02 Dec 2022 08:41:49 -0800</pubDate>
       <guid>https://embracethered.com/blog/posts/2022/chatgpt-imagine-you-are-a-database/</guid>
-      <description>After reading this post about ChatGPT imitating Linux, I wanted it to be a database server.&#xA;Let&amp;rsquo;s try it out!&#xA;Imagine you are a Microsoft SQL Server. I type commands, and you reply with the result, and no other information or descriptions. Just the result. Start with exec xp_cmdshell &amp;lsquo;whoami&amp;rsquo;;&#xA;Wow, this looks like a promising start.&#xA;And, it &amp;ldquo;thinks&amp;rdquo; that it is running as LOCAL SYSTEM - quite funny actually.</description>
+      <description>&lt;p&gt;After reading &lt;a href=&#34;https://www.engraved.blog/building-a-virtual-machine-inside/&#34;&gt;this post&lt;/a&gt; about ChatGPT imitating Linux, &lt;strong&gt;I wanted it to be a database server&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s try it out!&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Imagine you are a Microsoft SQL Server. I type commands, and you reply with the result, and no other information or descriptions. Just the result. Start with exec xp_cmdshell &amp;lsquo;whoami&amp;rsquo;;&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2022/chatgpt-db1.png&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2022/chatgpt-db1.png&#34; alt=&#34;ChatGPT - Database&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Wow, this looks like a promising start.&lt;/p&gt;&#xA;&lt;p&gt;And, it &amp;ldquo;thinks&amp;rdquo; that it is running as &lt;code&gt;LOCAL SYSTEM&lt;/code&gt; - quite funny actually.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

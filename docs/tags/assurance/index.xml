@@ -4,9 +4,9 @@
     <title>Assurance on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/assurance/</link>
     <description>Recent content in Assurance on Embrace The Red</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Mon, 11 Jan 2021 09:00:51 -0800</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/assurance/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://embracethered.com/blog/posts/2021/gamifying-red-team-security-score/</link>
       <pubDate>Mon, 11 Jan 2021 09:00:51 -0800</pubDate>
       <guid>https://embracethered.com/blog/posts/2021/gamifying-red-team-security-score/</guid>
-      <description>Security metrics are an interesting topic.&#xA;Over the years I used &amp;ldquo;scores&amp;rdquo; as a tool to identify and shine light on problematic areas or highlight lack of engineering and security quality of certain teams.&#xA;A security score should not seen as an objective or absoulte measure, but it allows to compare systems with each other at a relative scale, and by sharing the score it makes people ask questions.&#xA;I have seen showing management ask vivid questions when they see a chart with their service and a score next to it:</description>
+      <description>&lt;p&gt;Security metrics are an interesting topic.&lt;/p&gt;&#xA;&lt;p&gt;Over the years I used &amp;ldquo;scores&amp;rdquo; as a tool to identify and shine light on problematic areas or highlight lack of engineering and security quality of certain teams.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2021/attackteamscore.png&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2021/attackteamscore.png&#34; alt=&#34;Attack Team Score&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A security score should not seen as an objective or absoulte measure, but it &lt;strong&gt;allows to compare systems with each other at a relative scale&lt;/strong&gt;, and by sharing the score it makes people ask questions.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

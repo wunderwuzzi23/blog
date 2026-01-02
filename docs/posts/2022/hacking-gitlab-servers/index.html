@@ -194,8 +194,7 @@ curl --silent --header &#34;Authorization: Bearer $TOKEN&#34; \
      &#34;$GITLAB_API/projects/$PROJECT_ID&#34; | jq .runners_token | jq 
 </code></pre><p>From the Gitlab documentation:</p>
 <blockquote>
-<p>After registration, the runner receives an authentication token, which it uses to authenticate with GitLab when picking up jobs from the job queue. The authentication token is stored locally in the runner’s config.toml file.</p>
-</blockquote>
+<p>After registration, the runner receives an authentication token, which it uses to authenticate with GitLab when picking up jobs from the job queue. The authentication token is stored locally in the runner’s config.toml file.</p></blockquote>
 <p>Initially I assumed that token is the authentication token, but it&rsquo;s actually the <strong>Registration Token</strong>.</p>
 <p>It took me a while to realize that. Initially I had tried to verify the token as an auth token using:</p>
 <pre tabindex="0"><code>curl --request POST &#34;$GITLAB_API/runners/verify&#34; --form &#34;token=$RUNNER_TOKEN&#34;
@@ -251,7 +250,7 @@ curl --silent --header &#34;Authorization: Bearer $TOKEN&#34; \
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2025
+     (c) WUNDERWUZZI 2018-2026
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">

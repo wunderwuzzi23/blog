@@ -4,9 +4,9 @@
     <title>Fun on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/fun/</link>
     <description>Recent content in Fun on Embrace The Red</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Tue, 21 May 2019 21:48:29 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/fun/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://embracethered.com/blog/posts/lyrebird/</link>
       <pubDate>Tue, 21 May 2019 21:48:29 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/lyrebird/</guid>
-      <description>The idea for Lyrebird came from observing that sometimes when someone forgets lock their workstation, someone else might mess with their computer. Since I wanted to learn more on how to program a webcam and take pictures - I figured why not create a little tool that takes a screenshot and uses the webcam to take pictures of anyone that interacts with the computer while I&amp;rsquo;m gone.&#xA;The way this work is simple, start Lyrebird.</description>
+      <description>&lt;p&gt;The idea for Lyrebird came from observing that sometimes when someone forgets lock their workstation, someone else might mess with their computer. Since I wanted to learn more on how to program a webcam and take pictures - I figured why not create a little tool that takes a screenshot and uses the webcam to take pictures of anyone that interacts with the computer while I&amp;rsquo;m gone.&lt;/p&gt;&#xA;&lt;p&gt;The way this work is simple, start Lyrebird. It will take a screenshot of the current desktop and then enter its observation mode.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

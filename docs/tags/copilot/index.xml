@@ -4,9 +4,9 @@
     <title>Copilot on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/copilot/</link>
     <description>Recent content in Copilot on Embrace The Red</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Tue, 30 Jul 2024 10:00:36 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/copilot/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://embracethered.com/blog/posts/2024/copilot-studio-protect-your-copilots/</link>
       <pubDate>Tue, 30 Jul 2024 10:00:36 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2024/copilot-studio-protect-your-copilots/</guid>
-      <description>Microsoft&amp;rsquo;s Copilot Studio is a powerful, easy-to-use, low-code platform that enables employees in an organization to create chatbots. Previously known as Power Virtual Agents, it has been updated (including GenAI features) and rebranded to Copilot Studio, likely to align with current AI trends.&#xA;This post discusses security risks to be aware of when using Copilot Studio, focusing on data leaks, unauthorized access, and how external adversaries can find and interact with misconfigured Copilots.</description>
+      <description>&lt;p&gt;&lt;strong&gt;Microsoft&amp;rsquo;s Copilot Studio&lt;/strong&gt; is a powerful, easy-to-use, low-code platform that enables employees in an organization to create chatbots. Previously known as &lt;strong&gt;Power Virtual Agents&lt;/strong&gt;, it has been updated (including GenAI features) and rebranded to Copilot Studio, likely to align with current AI trends.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2024/copilot-data-leak-prevention-small.png&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2024/copilot-data-leak-prevention-small.png&#34; alt=&#34;Thumbnail Copilot Studio&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This post discusses security risks to be aware of when using Copilot Studio, focusing on data leaks, unauthorized access, and how external adversaries can find and interact with misconfigured Copilots. &lt;strong&gt;Learn about security controls, like enabling Data Loss Prevention (DLP), which is currently off by default, to protect your organization&amp;rsquo;s data.&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

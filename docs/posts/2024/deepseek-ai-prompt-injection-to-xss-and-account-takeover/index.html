@@ -152,10 +152,9 @@
 </code></pre><p>So, naturally I ran that and to my surprise this happened:</p>
 <p><a href="/blog/images/2024/deepseek-finding-xss-self.png"><img src="/blog/images/2024/deepseek-finding-xss-self-small.png" alt="Self Hacking XSS"></a></p>
 <p>Here is a short recording if you would like to see it happen in action, because it&rsquo;s kind of fun to watch AI hack itsself:</p>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/J-HandEXkso" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/J-HandEXkso?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <p><strong>Nice. This found found Cross Site Scripting (XSS), without even typing an actual XSS payload!</strong></p>
 <p>For the curious reader, in this case specifically, one of the injection points was via an <code>&lt;iframe</code> tag.</p>
@@ -163,10 +162,9 @@
 <p>For those unfamiliar with web application security, Cross-Site Scripting (XSS) is a serious vulnerability. It occurs when an attacker injects malicious JavaScript into a webpage, hoping another user will execute it.</p>
 <p>This leads to unauthorized code execution in the user&rsquo;s browser, often allowing the attacker to control the user&rsquo;s session and access sensitive data like cookies and local storage for the domain that was compromised. It&rsquo;s basically a complete user compromise, incl. account takeover.</p>
 <p>If you want to learn more about Web Application Security Fundamentals I have <a href="https://www.youtube.com/watch?v=-7OX58nHPb8">this video</a> which explains it all, in detail, from scratch:</p>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/-7OX58nHPb8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/-7OX58nHPb8?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <p>
 <br>
@@ -199,10 +197,9 @@ No small talk, no code style blocks, just the base64 decoded text. That&#39;s it
 <a href="/blog/images/2024/deepseek-xss-exploit-explained.png"><img src="/blog/images/2024/deepseek-xss-exploit-explained-small.png" alt="XSS Exploited - UserToken Access"></a></p>
 <p>Voila.</p>
 <h3 id="full-video-demonstration">Full Video Demonstration</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/a4OUk1KG-w8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/a4OUk1KG-w8?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 
 <br>
@@ -255,7 +252,7 @@ Johann.</p>
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2025
+     (c) WUNDERWUZZI 2018-2026
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">

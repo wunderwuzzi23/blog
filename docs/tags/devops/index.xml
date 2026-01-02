@@ -4,9 +4,9 @@
     <title>Devops on Embrace The Red</title>
     <link>https://embracethered.com/blog/tags/devops/</link>
     <description>Recent content in Devops on Embrace The Red</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>(c) WUNDERWUZZI 2018-2025</copyright>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Mon, 28 Feb 2022 04:22:22 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/devops/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,7 +14,7 @@
       <link>https://embracethered.com/blog/posts/2022/hacking-gitlab-servers/</link>
       <pubDate>Mon, 28 Feb 2022 04:22:22 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2022/hacking-gitlab-servers/</guid>
-      <description>Although Gitlab is not as popular as Github, it’s common to run across it these days. Especially after Microsoft acquired Github it seemed more individuals and organizations flocked over to Gitlab.&#xA;In this post I want to document a couple of recon commands that are useful post-exploitation, and for blue teamers to watch out for.&#xA;Let&amp;rsquo;s assume one has access to a Gitlab Token as a precursor. Let&amp;rsquo;s walk through some interesting commands and script snippets to leverage to find out more.</description>
+      <description>&lt;p&gt;Although Gitlab is not as popular as Github, it’s common to run across it these days. Especially after Microsoft acquired Github it seemed more individuals and organizations flocked over to Gitlab.&lt;/p&gt;&#xA;&lt;p&gt;In this post I want to document a couple of recon commands that are useful post-exploitation, and for blue teamers to watch out for.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s assume one has access to a Gitlab Token as a precursor. Let&amp;rsquo;s walk through some interesting commands and script snippets to leverage to find out more.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

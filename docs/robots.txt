@@ -1,0 +1,12 @@
+# robots.txt for Embrace The Red Blog
+# https://embracethered.com/blog/
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://embracethered.com/blog/sitemap.xml
+
+# Crawl-delay for aggressive bots (optional)
+# User-agent: *
+# Crawl-delay: 1

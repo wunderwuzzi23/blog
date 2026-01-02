@@ -167,10 +167,9 @@ text at the very beginning of the response, so the user has the correct context.
 <p>Here is a screenshot that shows it end to end:</p>
 <p><a href="/blog/images/2024/github-copilot-exfil-explained.png"><img src="/blog/images/2024/github-copilot-exfil-explained.png" alt="demo screenshot end to end"></a></p>
 <p>Demo video to show the exploit end to end:</p>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/kS__hfasNyc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/kS__hfasNyc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="severity---cia">Severity - CIA</h3>
 <p>This vulnerability allowed an adversary to generate arbitrary output, leading to data exfiltration. Both <strong>confidentiality</strong> and <strong>integrity</strong> of GitHub Copilot output cannot be guaranteed by Microsoft due to prompt injection (and also possible jailbreaks) which can lead to integrity issues (highlighted by a note to users that says <code>I'm powered by AI, so surprises and mistakes are possible</code>), combined with the rendering of images that can lead to confidentiality issues.</p>
@@ -231,7 +230,7 @@ text at the very beginning of the response, so the user has the correct context.
   <footer class="container global-footer">
     <div class="copyright-note pull-left">
      
-     (c) WUNDERWUZZI 2018-2025
+     (c) WUNDERWUZZI 2018-2026
      <div class="sns-links hidden-print">
   
   <a href="mailto:security@wunderwuzzi.net">
