@@ -3,7 +3,21 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  {{ $description := "" }}
+  {{ if .Params.description }}
+    {{ $description = .Params.description }}
+  {{ else if .Summary }}
+    {{ $description = .Summary | plainify | truncate 160 }}
+  {{ else }}
+    {{ $description = .Site.Params.subtitle }}
+  {{ end }}
+
+  <meta name="description" content="{{ $description }}" />
+  <link rel="canonical" href="{{ .Permalink }}" />
+
   <meta property="og:title" content="{{ if ne .Params.url "/" }} {{ .Title }} &middot; {{ end }} {{ .Site.Title }}" />
+  <meta property="og:description" content="{{ $description }}" />
   {{ with .Site.Params.themecolor }}
   <meta name="theme-color" content="{{ . }}" />
  {{ end }}
@@ -42,7 +56,53 @@
   {{ end }}
 
   {{ partial "twitter-card" . }}
-  
+
+  {{ if .IsPage }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": {{ .Title | jsonify }},
+    "description": {{ if .Params.description }}{{ .Params.description | jsonify }}{{ else if .Summary }}{{ .Summary | plainify | truncate 160 | jsonify }}{{ else }}{{ .Site.Params.subtitle | jsonify }}{{ end }},
+    "author": {
+      "@type": "Person",
+      "name": "wunderwuzzi",
+      "url": "https://x.com/{{ .Site.Params.twitter }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": {{ .Site.Title | jsonify }},
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ .Site.BaseURL }}images/favicon.ico"
+      }
+    },
+    "url": {{ .Permalink | jsonify }},
+    "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+    {{ with .Lastmod }}"dateModified": {{ .Format "2006-01-02T15:04:05Z07:00" | jsonify }},{{ end }}
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": {{ .Permalink | jsonify }}
+    }{{ with .Params.images }}{{ range first 1 . }},
+    "image": {{ . | jsonify }}{{ end }}{{ end }}
+  }
+  </script>
+  {{ else }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": {{ .Site.Title | jsonify }},
+    "url": {{ .Site.BaseURL | jsonify }},
+    "description": {{ .Site.Params.subtitle | jsonify }},
+    "publisher": {
+      "@type": "Organization",
+      "name": {{ .Site.Title | jsonify }}
+    }
+  }
+  </script>
+  {{ end }}
+
 </head>
 <body>
     <header class="global-header"  style="background-image:url({{ if isset .Params "image" }}{{ .Params.image }} {{ else }} /blog/images/bg.png {{ end }})">
