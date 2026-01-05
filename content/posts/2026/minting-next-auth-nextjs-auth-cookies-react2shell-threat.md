@@ -57,8 +57,9 @@ There isn't much special here, because it invokes the actual `next-auth` code to
 
 A demonstration of a simple Next.js app to show how cookies can be decrypted and encrypted/signed.
 
+{{< youtube >}}
 
-Hope these insights help highlight the importance of regular NextAuth secret rotation.
+Hope these insights help highlight the importance of regular Auth.js secret rotation.
 
 ## Persistent Access to the Application
 
