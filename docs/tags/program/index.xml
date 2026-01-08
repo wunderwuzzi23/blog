@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Program on Embrace The Red</title>
-    <link>https://embracethered.com/blog/tags/program/</link>
+    <link>http://localhost:1313/blog/tags/program/</link>
     <description>Recent content in Program on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Wed, 09 Jun 2021 08:30:00 -0700</lastBuildDate>
-    <atom:link href="https://embracethered.com/blog/tags/program/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/program/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Somewhere today a company is breached</title>
-      <link>https://embracethered.com/blog/posts/2021/somewhere-today-a-company-is-breached/</link>
+      <link>http://localhost:1313/blog/posts/2021/somewhere-today-a-company-is-breached/</link>
       <pubDate>Wed, 09 Jun 2021 08:30:00 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2021/somewhere-today-a-company-is-breached/</guid>
+      <guid>http://localhost:1313/blog/posts/2021/somewhere-today-a-company-is-breached/</guid>
       <description>&lt;p&gt;This rather lengthy post goes into reasons for having an offensive security program and in particular, on how a red team can help improve the immune system of your organization. This is the high-level outline of the post:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#security-breaches-cannot-be-entirely-prevented&#34;&gt;Security breaches cannot be entirely prevented&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#implications-of-a-breach&#34;&gt;Implications of a breach&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#automated-malware-can-hit-your-organization-at-any-time&#34;&gt;Automated malware can hit your organization at any time&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#security-investments&#34;&gt;Security investments - run as fast as you can, just to stay in place&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#the-immune-system-of-your-organization&#34;&gt;The immune system of your organization&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#embracing-the-red&#34;&gt;Embracing the red&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;With regular cadence companies are compromised and suffer breaches. Organizations do not realize a compromise until many days, months, sometimes even years later.&lt;/p&gt;</description>
     </item>
     <item>
       <title>What does an offensive security team actually do?</title>
-      <link>https://embracethered.com/blog/posts/2020/red-team-offensive-security-service-offerings/</link>
+      <link>http://localhost:1313/blog/posts/2020/red-team-offensive-security-service-offerings/</link>
       <pubDate>Mon, 19 Oct 2020 20:00:00 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2020/red-team-offensive-security-service-offerings/</guid>
+      <guid>http://localhost:1313/blog/posts/2020/red-team-offensive-security-service-offerings/</guid>
       <description>&lt;p&gt;There is a lot of discussion around terms such as red team, attack team, pentest, adversarial engineering or offensive security team and similar ones.&lt;/p&gt;&#xA;&lt;p&gt;I typically stay away from the (sometimes passionate) discussions that ensue whenever this topic comes up.&lt;/p&gt;&#xA;&lt;p&gt;Personally, I think a good strategy is to define programs and teams who operate in this space by &lt;strong&gt;what services the team (or teams) provide(s) to the organization&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The business groups, blue team, developers, engineers, employees and clients are the customers.&lt;/p&gt;</description>
     </item>
   </channel>

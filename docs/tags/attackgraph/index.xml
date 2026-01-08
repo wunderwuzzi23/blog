@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Attackgraph on Embrace The Red</title>
-    <link>https://embracethered.com/blog/tags/attackgraph/</link>
+    <link>http://localhost:1313/blog/tags/attackgraph/</link>
     <description>Recent content in Attackgraph on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Mon, 06 Apr 2020 21:00:30 -0700</lastBuildDate>
-    <atom:link href="https://embracethered.com/blog/tags/attackgraph/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/attackgraph/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Attack Graphs - How to create and present them</title>
-      <link>https://embracethered.com/blog/posts/2020/conceptual-attack-graphs/</link>
+      <link>http://localhost:1313/blog/posts/2020/conceptual-attack-graphs/</link>
       <pubDate>Mon, 06 Apr 2020 21:00:30 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2020/conceptual-attack-graphs/</guid>
+      <guid>http://localhost:1313/blog/posts/2020/conceptual-attack-graphs/</guid>
       <description>&lt;h2 id=&#34;conceptual-attack-graphs&#34;&gt;Conceptual Attack Graphs&lt;/h2&gt;&#xA;&lt;p&gt;One question that I have gotten a few times about  &lt;a href=&#34;https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&amp;amp;tag=wunderwuzzi-20&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;linkCode=as2&amp;amp;creativeASIN=1838828869&amp;amp;linkId=07bfd6b729fbc2b2904160e0e16c337f&#34;&gt;&amp;ldquo;Cybersecurity Attacks - Red Team Strategies&amp;rdquo;&lt;/a&gt; is around the conceptual attack graphs in &amp;ldquo;Chapter 3, Measuring an Offensive Security Program&amp;rdquo;. Specifically, how I create them.&lt;/p&gt;&#xA;&lt;p&gt;In this post I will briefly go over some of the reasons for creating them, and also how I create them and share a template for others to use and adjust.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m not a graphic designer, so I&amp;rsquo;m sure there are better ways of doing this.&lt;/p&gt;</description>
     </item>
   </channel>

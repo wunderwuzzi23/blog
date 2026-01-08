@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kpi on Embrace The Red</title>
-    <link>https://embracethered.com/blog/tags/kpi/</link>
+    <link>http://localhost:1313/blog/tags/kpi/</link>
     <description>Recent content in Kpi on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Fri, 31 Jul 2020 12:08:00 -0700</lastBuildDate>
-    <atom:link href="https://embracethered.com/blog/tags/kpi/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/kpi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Illusion of Control: Capability Maturity Models and Red Teaming</title>
-      <link>https://embracethered.com/blog/posts/2020/capability-maturity-model-test-red-teaming/</link>
+      <link>http://localhost:1313/blog/posts/2020/capability-maturity-model-test-red-teaming/</link>
       <pubDate>Fri, 31 Jul 2020 12:08:00 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2020/capability-maturity-model-test-red-teaming/</guid>
+      <guid>http://localhost:1313/blog/posts/2020/capability-maturity-model-test-red-teaming/</guid>
       <description>&lt;p&gt;Throughout my career I have been fascinated with quality assurance and testing, especially security testing and red teaming. One discussion that comes up frequently is how to measure the maturity of such programs and processes.&lt;/p&gt;&#xA;&lt;p&gt;My answer is straight forward as there are already existing frameworks that can be leveraged, adjusted and borrowed from to fit the needs of offensive security programs.&lt;/p&gt;&#xA;&lt;p&gt;You are likely familiar or have at least heard of the &lt;strong&gt;Capability Maturity Model Integration&lt;/strong&gt; from Carnegie Mellon University. In particular &lt;a href=&#34;https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration&#34;&gt;CMMI&lt;/a&gt; defines five levels to measure software engineering processes as follows:&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,68 +2,68 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tools on Embrace The Red</title>
-    <link>https://embracethered.com/blog/tags/tools/</link>
+    <link>http://localhost:1313/blog/tags/tools/</link>
     <description>Recent content in Tools on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Tue, 24 Jun 2025 16:00:46 -0700</lastBuildDate>
-    <atom:link href="https://embracethered.com/blog/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Security Advisory: Anthropic&#39;s Slack MCP Server Vulnerable to Data Exfiltration</title>
-      <link>https://embracethered.com/blog/posts/2025/security-advisory-anthropic-slack-mcp-server-data-leakage/</link>
+      <link>http://localhost:1313/blog/posts/2025/security-advisory-anthropic-slack-mcp-server-data-leakage/</link>
       <pubDate>Tue, 24 Jun 2025 16:00:46 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2025/security-advisory-anthropic-slack-mcp-server-data-leakage/</guid>
-      <description>&lt;a id=&#34;top_ref&#34;&gt;&lt;/a&gt;&#xA;&#xA;&lt;p&gt;This is a security advisory for a data leakage and exfiltration vulnerability in a popular, but now deprecated and unmaintained, Slack MCP Server from Anthropic.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2025/anthropic-slack-mcp-tn.png&#34; alt=&#34;Slack MCP Server&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;If you are using this MCP server, or run an &amp;ldquo;MCP Store&amp;rdquo; that hosts it, it is advised that you analyze how this threat applies to your use case and apply a patch as needed.&lt;/p&gt;&#xA;&lt;h2 id=&#34;anthropics-slack-mcp-server&#34;&gt;Anthropic&amp;rsquo;s Slack MCP Server&lt;/h2&gt;&#xA;&lt;p&gt;When Anthropic &lt;a href=&#34;https://www.anthropic.com/news/model-context-protocol&#34;&gt;introduced MCP&lt;/a&gt; they published reference server implementations &lt;a href=&#34;https://github.com/modelcontextprotocol/servers/&#34;&gt;on Github&lt;/a&gt;.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/posts/2025/security-advisory-anthropic-slack-mcp-server-data-leakage/</guid>
+      <description>&lt;a id=&#34;top_ref&#34;&gt;&lt;/a&gt;&#xA;&#xA;&lt;p&gt;This is a security advisory for a data leakage and exfiltration vulnerability in a popular, but now deprecated and unmaintained, Slack MCP Server from Anthropic.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/images/2025/anthropic-slack-mcp-tn.png&#34; alt=&#34;Slack MCP Server&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;If you are using this MCP server, or run an &amp;ldquo;MCP Store&amp;rdquo; that hosts it, it is advised that you analyze how this threat applies to your use case and apply a patch as needed.&lt;/p&gt;&#xA;&lt;h2 id=&#34;anthropics-slack-mcp-server&#34;&gt;Anthropic&amp;rsquo;s Slack MCP Server&lt;/h2&gt;&#xA;&lt;p&gt;When Anthropic &lt;a href=&#34;https://www.anthropic.com/news/model-context-protocol&#34;&gt;introduced MCP&lt;/a&gt; they published reference server implementations &lt;a href=&#34;https://github.com/modelcontextprotocol/servers/&#34;&gt;on Github&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hosting COM Servers with an MCP Server</title>
-      <link>https://embracethered.com/blog/posts/2025/mcp-com-server-automate-anything-on-windows/</link>
+      <link>http://localhost:1313/blog/posts/2025/mcp-com-server-automate-anything-on-windows/</link>
       <pubDate>Sun, 08 Jun 2025 22:30:40 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2025/mcp-com-server-automate-anything-on-windows/</guid>
+      <guid>http://localhost:1313/blog/posts/2025/mcp-com-server-automate-anything-on-windows/</guid>
       <description>&lt;p&gt;When the &lt;a href=&#34;https://modelcontextprotocol.io/introduction&#34;&gt;Model Context Protocol&lt;/a&gt; (MCP) came out it reminded me of the &lt;a href=&#34;https://learn.microsoft.com/en-us/windows/win32/com/the-component-object-model&#34;&gt;Common Object Model&lt;/a&gt; (COM) from Microsoft.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;COM&lt;/code&gt; has been around for decades and it&amp;rsquo;s used for programming, scripting, sharing of functionality at a binary/object level across languages and hosts. Via &lt;code&gt;DCOM&lt;/code&gt; all of this can even be done remotely, and well, it&amp;rsquo;s also useful for red teaming. A lot of software on Windows was/is implemented as &lt;code&gt;COM objects&lt;/code&gt;, including Microsoft Office.&lt;/p&gt;</description>
     </item>
     <item>
       <title>AI ClickFix: Hijacking Computer-Use Agents Using ClickFix</title>
-      <link>https://embracethered.com/blog/posts/2025/ai-clickfix-ttp-claude/</link>
+      <link>http://localhost:1313/blog/posts/2025/ai-clickfix-ttp-claude/</link>
       <pubDate>Sat, 24 May 2025 16:20:58 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2025/ai-clickfix-ttp-claude/</guid>
-      <description>&lt;p&gt;Today we are going to discuss how real-world tactics, techniques, and procedures (TTPs) apply to computer-use systems, specifically, we&amp;rsquo;ll look at &lt;code&gt;ClickFix&lt;/code&gt; attacks. This demo was part of my presentation at the &lt;a href=&#34;https://sites.google.com/ucsd.edu/sagai25-ieee-sp/program&#34;&gt;SAGAI Workshop&lt;/a&gt; on May 15th, 2025 in San Francisco.&lt;/p&gt;&#xA;&lt;p&gt;It was a great workshop, with tons of interesting insights and discussions.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2025/ai-clickfix-tn.png&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2025/ai-clickfix-tn.png&#34; alt=&#34;ai clickfix&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;So, let&amp;rsquo;s talk about &lt;code&gt;ClickFix&lt;/code&gt;, and how it applies to AI systems!&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-clickfix&#34;&gt;What is ClickFix?&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;ClickFix&lt;/code&gt; is a social engineering technique that is being used by adversaries. At a high level it tricks users by telling them something is broken or needs validation, and they have to click a button, open a terminal and run commands on their computer.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/posts/2025/ai-clickfix-ttp-claude/</guid>
+      <description>&lt;p&gt;Today we are going to discuss how real-world tactics, techniques, and procedures (TTPs) apply to computer-use systems, specifically, we&amp;rsquo;ll look at &lt;code&gt;ClickFix&lt;/code&gt; attacks. This demo was part of my presentation at the &lt;a href=&#34;https://sites.google.com/ucsd.edu/sagai25-ieee-sp/program&#34;&gt;SAGAI Workshop&lt;/a&gt; on May 15th, 2025 in San Francisco.&lt;/p&gt;&#xA;&lt;p&gt;It was a great workshop, with tons of interesting insights and discussions.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://localhost:1313/blog/images/2025/ai-clickfix-tn.png&#34;&gt;&lt;img src=&#34;http://localhost:1313/blog/images/2025/ai-clickfix-tn.png&#34; alt=&#34;ai clickfix&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;So, let&amp;rsquo;s talk about &lt;code&gt;ClickFix&lt;/code&gt;, and how it applies to AI systems!&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-clickfix&#34;&gt;What is ClickFix?&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;ClickFix&lt;/code&gt; is a social engineering technique that is being used by adversaries. At a high level it tricks users by telling them something is broken or needs validation, and they have to click a button, open a terminal and run commands on their computer.&lt;/p&gt;</description>
     </item>
     <item>
       <title>MCP: Untrusted Servers and Confused Clients, Plus a Sneaky Exploit</title>
-      <link>https://embracethered.com/blog/posts/2025/model-context-protocol-security-risks-and-exploits/</link>
+      <link>http://localhost:1313/blog/posts/2025/model-context-protocol-security-risks-and-exploits/</link>
       <pubDate>Fri, 02 May 2025 12:30:35 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2025/model-context-protocol-security-risks-and-exploits/</guid>
+      <guid>http://localhost:1313/blog/posts/2025/model-context-protocol-security-risks-and-exploits/</guid>
       <description>&lt;p&gt;The &lt;code&gt;Model Context Protocol&lt;/code&gt; (MCP) is a protocol definition for how LLM apps/agents can leverage external tools. I have been calling it &lt;code&gt;Model Control Protocol&lt;/code&gt; at times, because due to prompt injection, MCP tool servers control the client basically.&lt;/p&gt;&#xA;&lt;p&gt;This post will explain in detail why that is, and I will also share a novel exploit chain.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-mcp---how-is-it-different&#34;&gt;Why MCP - How Is It Different?&lt;/h2&gt;&#xA;&lt;p&gt;The main difference to other tool invocation setups, like &lt;code&gt;OpenAPI&lt;/code&gt; is that MCP is dynamic. It allows runtime discovery of available tools, etc from a given server. At the core it supports three capabilities: &lt;code&gt;tools&lt;/code&gt;, &lt;code&gt;resources&lt;/code&gt;, and &lt;code&gt;prompts&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sneaky Bits: Advanced Data Smuggling Techniques (ASCII Smuggler Updates)</title>
-      <link>https://embracethered.com/blog/posts/2025/sneaky-bits-and-ascii-smuggler/</link>
+      <link>http://localhost:1313/blog/posts/2025/sneaky-bits-and-ascii-smuggler/</link>
       <pubDate>Wed, 12 Mar 2025 17:21:25 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2025/sneaky-bits-and-ascii-smuggler/</guid>
+      <guid>http://localhost:1313/blog/posts/2025/sneaky-bits-and-ascii-smuggler/</guid>
       <description>&lt;p&gt;You are likely aware of &lt;a href=&#34;https://embracethered.com/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/&#34;&gt;ASCII Smuggling via Unicode Tags&lt;/a&gt;. It is unique and fascinating because many LLMs inherently interpret these as instructions when delivered as hidden prompt injection, and LLMs can also emit them. Then, a few weeks ago, a post on Hacker News demonstrated how &lt;code&gt;Variant Selectors&lt;/code&gt; can be used to smuggle data.&lt;/p&gt;&#xA;&lt;p&gt;This inspired me to take this further and build &lt;code&gt;Sneaky Bits&lt;/code&gt;, where we can encode any Unicode character (or sequence of bytes for that matter) with the usage of &lt;strong&gt;only two&lt;/strong&gt; invisible characters.&lt;/p&gt;</description>
     </item>
     <item>
       <title>ASCII Smuggler - Improvements</title>
-      <link>https://embracethered.com/blog/posts/2024/ascii-smuggler-updates/</link>
+      <link>http://localhost:1313/blog/posts/2024/ascii-smuggler-updates/</link>
       <pubDate>Mon, 04 Mar 2024 08:20:10 -0800</pubDate>
-      <guid>https://embracethered.com/blog/posts/2024/ascii-smuggler-updates/</guid>
-      <description>&lt;p&gt;I added a couple of features and improvements to &lt;code&gt;ASCII Smuggler&lt;/code&gt;, including:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Optional rendering of the &lt;code&gt;BEGIN&lt;/code&gt; and &lt;code&gt;END&lt;/code&gt; Unicode Tags when crafting hidden text&lt;/li&gt;&#xA;&lt;li&gt;Added a feature to URL decode the input before checking for hidden text&lt;/li&gt;&#xA;&lt;li&gt;Output Modes for Decoding: Switch between highlighting the hidden text amongst the regular content, or only showing the hidden text in the output&lt;/li&gt;&#xA;&lt;li&gt;The selected options are remembered now (using local storage)&lt;/li&gt;&#xA;&lt;li&gt;Updated the UI to make it look nicer (e.g bigger fonts), and it works better on mobile now&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The tool is &lt;a href=&#34;https://embracethered.com/blog/ascii-smuggler.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/posts/2024/ascii-smuggler-updates/</guid>
+      <description>&lt;p&gt;I added a couple of features and improvements to &lt;code&gt;ASCII Smuggler&lt;/code&gt;, including:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Optional rendering of the &lt;code&gt;BEGIN&lt;/code&gt; and &lt;code&gt;END&lt;/code&gt; Unicode Tags when crafting hidden text&lt;/li&gt;&#xA;&lt;li&gt;Added a feature to URL decode the input before checking for hidden text&lt;/li&gt;&#xA;&lt;li&gt;Output Modes for Decoding: Switch between highlighting the hidden text amongst the regular content, or only showing the hidden text in the output&lt;/li&gt;&#xA;&lt;li&gt;The selected options are remembered now (using local storage)&lt;/li&gt;&#xA;&lt;li&gt;Updated the UI to make it look nicer (e.g bigger fonts), and it works better on mobile now&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The tool is &lt;a href=&#34;http://localhost:1313/blog/ascii-smuggler.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Using procdump on Linux to dump credentials</title>
-      <link>https://embracethered.com/blog/posts/2021/linux-procdump/</link>
+      <link>http://localhost:1313/blog/posts/2021/linux-procdump/</link>
       <pubDate>Mon, 09 Aug 2021 10:00:20 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2021/linux-procdump/</guid>
+      <guid>http://localhost:1313/blog/posts/2021/linux-procdump/</guid>
       <description>&lt;p&gt;I like using &lt;code&gt;procdump&lt;/code&gt; on Windows.&lt;/p&gt;&#xA;&lt;p&gt;It’s quite handy for software development when systems have memory leaks or performance issues, &lt;code&gt;procdump&lt;/code&gt; allows to set thresholds to trigger creation of a core dump.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;BUT, it’s also super useful to search processes for secrets and other information.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;For instance, this one liner will dump the memory of all processes to hard disk and then you can search them as you see fit.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Silver Searcher - search through code and files quickly</title>
-      <link>https://embracethered.com/blog/posts/2021/silversearcher-ag/</link>
+      <link>http://localhost:1313/blog/posts/2021/silversearcher-ag/</link>
       <pubDate>Wed, 28 Jul 2021 11:44:20 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2021/silversearcher-ag/</guid>
-      <description>&lt;p&gt;In this very short post I wanna talk mention &lt;a href=&#34;https://github.com/ggreer/the_silver_searcher&#34;&gt;The Silver Searcher&lt;/a&gt;, which I just learned about a few weeks ago.&lt;/p&gt;&#xA;&lt;p&gt;In the past I have written quite a bit about the importance of &lt;a href=&#34;https://embracethered.com/blog/posts/2020/hunting-for-credentials&#34;&gt;credential hunting for your organization&lt;/a&gt; and some cool &lt;a href=&#34;https://embracethered.com/blog/posts/2021/invoke-windowssearch-credential-hunt&#34;&gt;built-in operating system indexing features&lt;/a&gt; that can be used as well.&lt;/p&gt;&#xA;&lt;p&gt;Of course &lt;code&gt;grep&lt;/code&gt; and &lt;code&gt;findstr&lt;/code&gt; are also in every red teamers toolbox.&lt;/p&gt;&#xA;&lt;p&gt;As part of a coding project I recently learned about &amp;ldquo;The Silver Searcher&amp;rdquo;, which is very fast and has some neat features built it. It&amp;rsquo;s focus is source code searching.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/posts/2021/silversearcher-ag/</guid>
+      <description>&lt;p&gt;In this very short post I wanna talk mention &lt;a href=&#34;https://github.com/ggreer/the_silver_searcher&#34;&gt;The Silver Searcher&lt;/a&gt;, which I just learned about a few weeks ago.&lt;/p&gt;&#xA;&lt;p&gt;In the past I have written quite a bit about the importance of &lt;a href=&#34;http://localhost:1313/blog/posts/2020/hunting-for-credentials&#34;&gt;credential hunting for your organization&lt;/a&gt; and some cool &lt;a href=&#34;http://localhost:1313/blog/posts/2021/invoke-windowssearch-credential-hunt&#34;&gt;built-in operating system indexing features&lt;/a&gt; that can be used as well.&lt;/p&gt;&#xA;&lt;p&gt;Of course &lt;code&gt;grep&lt;/code&gt; and &lt;code&gt;findstr&lt;/code&gt; are also in every red teamers toolbox.&lt;/p&gt;&#xA;&lt;p&gt;As part of a coding project I recently learned about &amp;ldquo;The Silver Searcher&amp;rdquo;, which is very fast and has some neat features built it. It&amp;rsquo;s focus is source code searching.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

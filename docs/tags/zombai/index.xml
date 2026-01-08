@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ZombAI on Embrace The Red</title>
-    <link>https://embracethered.com/blog/tags/zombai/</link>
+    <link>http://localhost:1313/blog/tags/zombai/</link>
     <description>Recent content in ZombAI on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Mon, 06 Jan 2025 20:30:53 -0800</lastBuildDate>
-    <atom:link href="https://embracethered.com/blog/tags/zombai/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/zombai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Domination: Remote Controlling ChatGPT ZombAI Instances</title>
-      <link>https://embracethered.com/blog/posts/2025/spaiware-and-chatgpt-command-and-control-via-prompt-injection-zombai/</link>
+      <link>http://localhost:1313/blog/posts/2025/spaiware-and-chatgpt-command-and-control-via-prompt-injection-zombai/</link>
       <pubDate>Mon, 06 Jan 2025 20:30:53 -0800</pubDate>
-      <guid>https://embracethered.com/blog/posts/2025/spaiware-and-chatgpt-command-and-control-via-prompt-injection-zombai/</guid>
+      <guid>http://localhost:1313/blog/posts/2025/spaiware-and-chatgpt-command-and-control-via-prompt-injection-zombai/</guid>
       <description>&lt;p&gt;At Black Hat Europe I did a fun presentation titled &lt;a href=&#34;https://www.blackhat.com/eu-24/briefings/schedule/#spaiware--more-advanced-prompt-injection-exploits-in-llm-applications-42007&#34;&gt;SpAIware and More: Advanced Prompt Injection Exploits&lt;/a&gt;. Without diving into the details of the entire talk, the key point I was making is that &lt;a href=&#34;https://arxiv.org/pdf/2412.06090&#34;&gt;prompt injection can impact all aspects of the CIA security triad&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;However, there is one part that I want to highlight explicitly:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A Command and Control system (C2) that uses prompt injection to remote control ChatGPT instances.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;remote-controlling-chatgpt-instances&#34;&gt;Remote Controlling ChatGPT Instances!&lt;/h2&gt;&#xA;&lt;p&gt;An adversary can compromise ChatGPT instances and have them join a central Command and Control system which provides updated instructions for all the remote controlled ChatGPT instances to follow over-time.&lt;/p&gt;</description>
     </item>
     <item>
       <title>ZombAIs: From Prompt Injection to C2 with Claude Computer Use</title>
-      <link>https://embracethered.com/blog/posts/2024/claude-computer-use-c2-the-zombais-are-coming/</link>
+      <link>http://localhost:1313/blog/posts/2024/claude-computer-use-c2-the-zombais-are-coming/</link>
       <pubDate>Thu, 24 Oct 2024 17:00:57 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2024/claude-computer-use-c2-the-zombais-are-coming/</guid>
-      <description>&lt;p&gt;A few days ago, Anthropic released &lt;code&gt;Claude Computer Use&lt;/code&gt;, which is a model + code that allows Claude to control a computer. It takes screenshots to make decisions, can run bash commands and so forth.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s cool, but obviously very dangerous because of prompt injection. &lt;code&gt;Claude Computer Use&lt;/code&gt; enables AI to run commands on machines autonomously, posing severe risks if exploited via prompt injection.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2024/computer-use-zombie.png&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2024/computer-use-zombie.png&#34; alt=&#34;claude - zombie&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;disclaimer&#34;&gt;Disclaimer&lt;/h2&gt;&#xA;&lt;p&gt;So, first a disclaimer: &lt;code&gt;Claude Computer Use&lt;/code&gt; is a Beta Feature and what you are going to see is a fundamental design problem in state-of-the-art LLM-powered Applications and Agents. This is an educational demo to highlight risks of autonomous AI systems processing untrusted data. And remember, do not execute unauthorized code systems without authorization from proper stakeholders.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/posts/2024/claude-computer-use-c2-the-zombais-are-coming/</guid>
+      <description>&lt;p&gt;A few days ago, Anthropic released &lt;code&gt;Claude Computer Use&lt;/code&gt;, which is a model + code that allows Claude to control a computer. It takes screenshots to make decisions, can run bash commands and so forth.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s cool, but obviously very dangerous because of prompt injection. &lt;code&gt;Claude Computer Use&lt;/code&gt; enables AI to run commands on machines autonomously, posing severe risks if exploited via prompt injection.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://localhost:1313/blog/images/2024/computer-use-zombie.png&#34;&gt;&lt;img src=&#34;http://localhost:1313/blog/images/2024/computer-use-zombie.png&#34; alt=&#34;claude - zombie&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;disclaimer&#34;&gt;Disclaimer&lt;/h2&gt;&#xA;&lt;p&gt;So, first a disclaimer: &lt;code&gt;Claude Computer Use&lt;/code&gt; is a Beta Feature and what you are going to see is a fundamental design problem in state-of-the-art LLM-powered Applications and Agents. This is an educational demo to highlight risks of autonomous AI systems processing untrusted data. And remember, do not execute unauthorized code systems without authorization from proper stakeholders.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code on Embrace The Red</title>
-    <link>https://embracethered.com/blog/tags/code/</link>
+    <link>http://localhost:1313/blog/tags/code/</link>
     <description>Recent content in Code on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Wed, 03 Jul 2019 21:58:01 -0700</lastBuildDate>
-    <atom:link href="https://embracethered.com/blog/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/code/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BashSpray - Simple Password Spray Bash Script</title>
-      <link>https://embracethered.com/blog/posts/bash-spray-password/</link>
+      <link>http://localhost:1313/blog/posts/bash-spray-password/</link>
       <pubDate>Wed, 03 Jul 2019 21:58:01 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/bash-spray-password/</guid>
+      <guid>http://localhost:1313/blog/posts/bash-spray-password/</guid>
       <description>&lt;p&gt;One thing every red team should attempt early on and regularly is to perform some password spray testing across their organization to identify and help remediate usage of weak passwords.&lt;/p&gt;&#xA;&lt;p&gt;In the past I have done this on Windows a lot, but now I built a simple version for it for Bash to run it also from a Mac.&lt;/p&gt;&#xA;&lt;p&gt;Check it out: &lt;a href=&#34;https://github.com/wunderwuzzi23/BashSpray&#34;&gt;Bash Spray&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Ideally, a script like bashspray.sh is integrated into your response pipelines, and SOC, Blue Team as well as account owner get notified - so they change their password right away, and any SOC investigation can be performed if necessary.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Lyrebird - Hack the hacker (and take a picture)</title>
-      <link>https://embracethered.com/blog/posts/lyrebird/</link>
+      <link>http://localhost:1313/blog/posts/lyrebird/</link>
       <pubDate>Tue, 21 May 2019 21:48:29 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/lyrebird/</guid>
+      <guid>http://localhost:1313/blog/posts/lyrebird/</guid>
       <description>&lt;p&gt;The idea for Lyrebird came from observing that sometimes when someone forgets lock their workstation, someone else might mess with their computer. Since I wanted to learn more on how to program a webcam and take pictures - I figured why not create a little tool that takes a screenshot and uses the webcam to take pictures of anyone that interacts with the computer while I&amp;rsquo;m gone.&lt;/p&gt;&#xA;&lt;p&gt;The way this work is simple, start Lyrebird. It will take a screenshot of the current desktop and then enter its observation mode.&lt;/p&gt;</description>
     </item>
     <item>
       <title>KoiPhish - The Beautiful Phishing Proxy</title>
-      <link>https://embracethered.com/blog/posts/koiphish/</link>
+      <link>http://localhost:1313/blog/posts/koiphish/</link>
       <pubDate>Thu, 10 Jan 2019 21:40:59 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/koiphish/</guid>
+      <guid>http://localhost:1313/blog/posts/koiphish/</guid>
       <description>&lt;p&gt;&lt;strong&gt;KoiPhish is a simple yet beautiful relay proxy idea.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The idea for this little project goes back many years. Since I started learning Golang I figured it would be good exercise to finally go ahead an implement it. So, last December during the 35C3 (which is always inspiring congress) I wrote it up.&lt;/p&gt;&#xA;&lt;p&gt;It relays requests a client makes to the KoiPish to the actual target and responses are sent back to the client. On the way in and out common links are overwritten in order to not break the user experience and functionality.&lt;/p&gt;</description>
     </item>
   </channel>
