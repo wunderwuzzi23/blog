@@ -3,10 +3,10 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta name="description" content="An adversary can mint authentication cookies for Next.js (next-auth) applications and maintain persistent access to the application as any user if they got a hold of the NEXTAUTH_SECRET used to encrypt and sign the auth tokens" />
+  <meta name="description" content="In this post, we&rsquo;ll look how an adversary can mint authentication cookies for Next.js (next-auth/Auth.js) applications to maintain persistent access to …" />
   <link rel="canonical" href="https://embracethered.com/blog/posts/2026/minting-next-auth-nextjs-auth-cookies-react2shell-threat/" />
   <meta property="og:title" content=" Minting Next.js Authentication Cookies &middot;  Embrace The Red" />
-  <meta property="og:description" content="An adversary can mint authentication cookies for Next.js (next-auth) applications and maintain persistent access to the application as any user if they got a hold of the NEXTAUTH_SECRET used to encrypt and sign the auth tokens" />
+  <meta property="og:description" content="In this post, we&rsquo;ll look how an adversary can mint authentication cookies for Next.js (next-auth/Auth.js) applications to maintain persistent access to …" />
   <meta property="og:site_name" content="Embrace The Red" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2026/minting-next-auth-nextjs-auth-cookies-react2shell-threat/" />
   <meta property="og:type" content="article" />
@@ -27,13 +27,22 @@
   <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
   <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
   <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Minting Next.js Authentication Cookies">
+<meta name="twitter:description" content="An adversary can mint authentication cookies for Next.js (next-auth) applications and maintain persistent access to the application as any user if they got a hold of the NEXTAUTH_SECRET used to encrypt and sign the auth tokens">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2026/next-auth.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "\"Minting Next.js Authentication Cookies\"",
-    "description": "\"An adversary can mint authentication cookies for Next.js (next-auth) applications and maintain persistent access to the application as any user if they got a hold of the NEXTAUTH_SECRET used to encrypt and sign the auth tokens\"",
+    "description": "\"In this post, we\\u0026rsquo;ll look how an adversary can mint authentication cookies for Next.js (next-auth/Auth.js) applications to maintain persistent access to …\"",
     "author": {
       "@type": "Person",
       "name": "wunderwuzzi",
@@ -58,7 +67,7 @@
 
 </head>
 <body>
-    <header class="global-header"  style="background-image:url(https://embracethered.com/blog/images/2026/next-auth.png )">
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
     <section class="header-text">
       <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
       

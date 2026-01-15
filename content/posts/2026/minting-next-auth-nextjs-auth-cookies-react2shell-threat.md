@@ -4,12 +4,12 @@ date: 2026-01-14T23:58:58-07:00
 draft: true
 tags: ["red", "cookies", "ttp"]
 twitter:
-card: "summary_large_image"
-site: "@wunderwuzzi23"
-creator: "@wunderwuzzi23"
-title: "Minting Next.js Authentication Cookies"
-description: "An adversary can mint authentication cookies for Next.js (next-auth) applications and maintain persistent access to the application as any user if they got a hold of the NEXTAUTH_SECRET used to encrypt and sign the auth tokens"
-image: "https://embracethered.com/blog/images/2026/next-auth.png"
+    card: "summary_large_image"
+    site: "@wunderwuzzi23"
+    creator: "@wunderwuzzi23"
+    title: "Minting Next.js Authentication Cookies"
+    description: "An adversary can mint authentication cookies for Next.js (next-auth) applications and maintain persistent access to the application as any user if they got a hold of the NEXTAUTH_SECRET used to encrypt and sign the auth tokens"
+    image: "https://embracethered.com/blog/images/2026/next-auth.png"
 ---
 
 In this post, we'll look how an adversary can mint authentication cookies for Next.js (`next-auth/Auth.js`) applications to maintain persistent access to the application as any user.
