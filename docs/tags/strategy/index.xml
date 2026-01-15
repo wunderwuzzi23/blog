@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Strategy on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/strategy/</link>
+    <link>https://embracethered.com/blog/tags/strategy/</link>
     <description>Recent content in Strategy on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Mon, 08 Feb 2021 11:00:20 -0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/strategy/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/strategy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>An alternative perspective on the death of manual red teaming </title>
-      <link>http://localhost:1313/blog/posts/2021/red-team-automation/</link>
+      <link>https://embracethered.com/blog/posts/2021/red-team-automation/</link>
       <pubDate>Mon, 08 Feb 2021 11:00:20 -0800</pubDate>
-      <guid>http://localhost:1313/blog/posts/2021/red-team-automation/</guid>
+      <guid>https://embracethered.com/blog/posts/2021/red-team-automation/</guid>
       <description>&lt;p&gt;The other day I read this blog post about &lt;a href=&#34;https://feed.prelude.org/p/the-death-of-manual-red-teams&#34;&gt;&amp;ldquo;The Death of Manual Red Teams&amp;rdquo;&lt;/a&gt; and I thought I&amp;rsquo;d take a moment to comment on it to provide an alternative perspective.&lt;/p&gt;&#xA;&lt;p&gt;In my opinion the premise of the blog post is backwards, highlighting a lack of understanding of what red teaming is about.&lt;/p&gt;&#xA;&lt;p&gt;For instance the following sentence in the post seems quite incorrect: &amp;ldquo;Red teaming is the process of using existing, already known security bugs and vulnerabilities to hack a system.&amp;rdquo;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Assuming Bias and Responsible AI</title>
-      <link>http://localhost:1313/blog/posts/2020/machine-learning-attack-series-assume-bias-strategy/</link>
+      <link>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-assume-bias-strategy/</link>
       <pubDate>Tue, 24 Nov 2020 14:00:50 -0800</pubDate>
-      <guid>http://localhost:1313/blog/posts/2020/machine-learning-attack-series-assume-bias-strategy/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/machine-learning-attack-series-assume-bias-strategy/</guid>
       <description>&lt;p&gt;There are plenty of examples of artificial intelligence and machine learning systems that made it into the news because of biased predictions and failures.&lt;/p&gt;&#xA;&lt;p&gt;Here are a few examples on AI/ML gone wrong:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.theguardian.com/technology/2018/oct/10/amazon-hiring-ai-gender-bias-recruiting-engine&#34;&gt;Amazon had an AI recruiting tool&lt;/a&gt; which favored men over women for technical jobs&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.reuters.com/article/us-microsoft-twitter-bot-idUSKCN0WQ2LA&#34;&gt;The Microsoft chat bot named &amp;ldquo;Tay&amp;rdquo;&lt;/a&gt; which turned racist and sexist rather quickly&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gizmodo.com/ibm-watson-reportedly-recommended-cancer-treatments-tha-1827868882&#34;&gt;A doctor at the Jupiter Hospital in Florida&lt;/a&gt; referred to IBM&amp;rsquo;s AI system for helping recommend cancer treatments as &amp;ldquo;a piece of sh*t&amp;rdquo;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://mashable.com/2017/10/24/facebook-auto-translation-palestinian-man-arrest-israel/&#34;&gt;Facebook&amp;rsquo;s AI got someone arrested for incorrectly translating text&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The list of AI failures goes on&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Web Application Security Principles Revisited</title>
-      <link>http://localhost:1313/blog/posts/importance-security-principles/</link>
+      <link>https://embracethered.com/blog/posts/importance-security-principles/</link>
       <pubDate>Wed, 12 Feb 2020 17:03:32 -0800</pubDate>
-      <guid>http://localhost:1313/blog/posts/importance-security-principles/</guid>
-      <description>&lt;h2 id=&#34;final-year-project---web-application-security-principles&#34;&gt;Final Year Project - Web Application Security Principles&lt;/h2&gt;&#xA;&lt;p&gt;About 18 years ago I worked on the final year project for my Bachelor&amp;rsquo;s degree in Computer Science. I had just gotten interested in security and was learning about security principles.&lt;/p&gt;&#xA;&lt;p&gt;The title of the project was &lt;strong&gt;&lt;a href=&#34;http://localhost:1313/blog/papers/Web_Application_Security_Principles.pdf&#34;&gt;&amp;ldquo;Web Application Security Principles - Designing Secure Web Based Enterprise Solutions&amp;rdquo;&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Looking back, a really cool thing was that I had just started working at Microsoft as an Associate Development Consultant and was bold enough to send the paper last minute over to &lt;strong&gt;Michael Howard&lt;/strong&gt; - who responded and indeed reviewed it! That was so cool! :)&lt;/p&gt;</description>
+      <guid>https://embracethered.com/blog/posts/importance-security-principles/</guid>
+      <description>&lt;h2 id=&#34;final-year-project---web-application-security-principles&#34;&gt;Final Year Project - Web Application Security Principles&lt;/h2&gt;&#xA;&lt;p&gt;About 18 years ago I worked on the final year project for my Bachelor&amp;rsquo;s degree in Computer Science. I had just gotten interested in security and was learning about security principles.&lt;/p&gt;&#xA;&lt;p&gt;The title of the project was &lt;strong&gt;&lt;a href=&#34;https://embracethered.com/blog/papers/Web_Application_Security_Principles.pdf&#34;&gt;&amp;ldquo;Web Application Security Principles - Designing Secure Web Based Enterprise Solutions&amp;rdquo;&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Looking back, a really cool thing was that I had just started working at Microsoft as an Associate Development Consultant and was bold enough to send the paper last minute over to &lt;strong&gt;Michael Howard&lt;/strong&gt; - who responded and indeed reviewed it! That was so cool! :)&lt;/p&gt;</description>
     </item>
     <item>
       <title>Zero Trust and Disabling Remote Management Endpoints</title>
-      <link>http://localhost:1313/blog/posts/zero-trust/</link>
+      <link>https://embracethered.com/blog/posts/zero-trust/</link>
       <pubDate>Thu, 06 Feb 2020 14:08:55 -0800</pubDate>
-      <guid>http://localhost:1313/blog/posts/zero-trust/</guid>
+      <guid>https://embracethered.com/blog/posts/zero-trust/</guid>
       <description>&lt;p&gt;This post highlights a simple mitigation to improve the security posture of your organization. The idea is to, by practical means, limit attack surface and prevent spreading of automated malware, as well as limiting lateral movement by adversaries.&lt;/p&gt;&#xA;&lt;h2 id=&#34;network-security-over-the-last-15-years&#34;&gt;Network security over the last 15 years&lt;/h2&gt;&#xA;&lt;p&gt;Malware can spread fast and damage businesses at scale.&lt;/p&gt;&#xA;&lt;p&gt;SQL Slammer [1] and WannaCry [2] are two well-known cases that showed how quickly and damaging this can be. Interstingly, both of these disasters were nearly 15 years apart.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cybersecurity - Homefield Advantage</title>
-      <link>http://localhost:1313/blog/posts/homefield-advantage/</link>
+      <link>https://embracethered.com/blog/posts/homefield-advantage/</link>
       <pubDate>Sat, 24 Aug 2019 18:46:06 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/homefield-advantage/</guid>
+      <guid>https://embracethered.com/blog/posts/homefield-advantage/</guid>
       <description>&lt;h3 id=&#34;no-one-should-beat-your-security-team-on-the-homefield&#34;&gt;No one should beat your security team on the homefield!&lt;/h3&gt;&#xA;&lt;p&gt;For several years I have been using the term Homefield Advantage in the context of running a security program, especially in regards to certain aspects of red teaming. Homefield Advantage describes well what a mature security program has to realize and leverage.&lt;/p&gt;&#xA;&lt;p&gt;Wikipedia describes &amp;ldquo;home advantage&amp;rdquo; in team sports and highlights some of the benefits:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;This benefit has been attributed to psychological effects supporting fans have on the competitors or referees; to psychological or physiological advantages of playing near home in familiar situations; to the disadvantages away teams suffer from changing time zones or climates, or from the rigors of travel; and, in some sports, to specific rules that favor the home team directly or indirectly.&amp;rdquo; (Wikipedia, 2019)&lt;/p&gt;</description>
     </item>
   </channel>

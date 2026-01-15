@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/blog/</link>
+    <link>https://embracethered.com/blog/tags/blog/</link>
     <description>Recent content in Blog on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Tue, 30 Jun 2020 23:45:42 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Feedspot ranked &#39;Embrace the Red&#39; one of the top 15 pentest blogs</title>
-      <link>http://localhost:1313/blog/posts/2020/embrace-the-red-one-of-top-15-pentest-blogs/</link>
+      <link>https://embracethered.com/blog/posts/2020/embrace-the-red-one-of-top-15-pentest-blogs/</link>
       <pubDate>Tue, 30 Jun 2020 23:45:42 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2020/embrace-the-red-one-of-top-15-pentest-blogs/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m  excited that &lt;a href=&#34;https://blog.feedspot.com/pentest_blogs/&#34;&gt;Feedspot&lt;/a&gt; ranked this blog (&lt;a href=&#34;https://embracethered.com/&#34;&gt;Embrace the Red&lt;/a&gt;) the number #10 pentest blog out there.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/images/2020/feedspot-site.png&#34; alt=&#34;Feedspot&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Subscribe and check-in regularly for new content related to offensive security engineering, penetration testing and red teaming.&lt;/p&gt;&#xA;&lt;p&gt;You can also follow me on Twitter &lt;a href=&#34;https://twitter.com/wunderwuzzi23&#34;&gt;@wunderwuzzi23&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Cheers.&lt;/p&gt;</description>
+      <guid>https://embracethered.com/blog/posts/2020/embrace-the-red-one-of-top-15-pentest-blogs/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m  excited that &lt;a href=&#34;https://blog.feedspot.com/pentest_blogs/&#34;&gt;Feedspot&lt;/a&gt; ranked this blog (&lt;a href=&#34;https://embracethered.com/&#34;&gt;Embrace the Red&lt;/a&gt;) the number #10 pentest blog out there.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2020/feedspot-site.png&#34; alt=&#34;Feedspot&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Subscribe and check-in regularly for new content related to offensive security engineering, penetration testing and red teaming.&lt;/p&gt;&#xA;&lt;p&gt;You can also follow me on Twitter &lt;a href=&#34;https://twitter.com/wunderwuzzi23&#34;&gt;@wunderwuzzi23&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Cheers.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

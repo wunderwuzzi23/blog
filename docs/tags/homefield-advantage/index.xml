@@ -2,33 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Homefield Advantage on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/homefield-advantage/</link>
+    <link>https://embracethered.com/blog/tags/homefield-advantage/</link>
     <description>Recent content in Homefield Advantage on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Mon, 06 Apr 2020 21:00:30 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/homefield-advantage/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/homefield-advantage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Attack Graphs - How to create and present them</title>
-      <link>http://localhost:1313/blog/posts/2020/conceptual-attack-graphs/</link>
+      <link>https://embracethered.com/blog/posts/2020/conceptual-attack-graphs/</link>
       <pubDate>Mon, 06 Apr 2020 21:00:30 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2020/conceptual-attack-graphs/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/conceptual-attack-graphs/</guid>
       <description>&lt;h2 id=&#34;conceptual-attack-graphs&#34;&gt;Conceptual Attack Graphs&lt;/h2&gt;&#xA;&lt;p&gt;One question that I have gotten a few times about  &lt;a href=&#34;https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&amp;amp;tag=wunderwuzzi-20&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;linkCode=as2&amp;amp;creativeASIN=1838828869&amp;amp;linkId=07bfd6b729fbc2b2904160e0e16c337f&#34;&gt;&amp;ldquo;Cybersecurity Attacks - Red Team Strategies&amp;rdquo;&lt;/a&gt; is around the conceptual attack graphs in &amp;ldquo;Chapter 3, Measuring an Offensive Security Program&amp;rdquo;. Specifically, how I create them.&lt;/p&gt;&#xA;&lt;p&gt;In this post I will briefly go over some of the reasons for creating them, and also how I create them and share a template for others to use and adjust.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m not a graphic designer, so I&amp;rsquo;m sure there are better ways of doing this.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cybersecurity Attacks - Red Team Strategies has been released.</title>
-      <link>http://localhost:1313/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/</link>
+      <link>https://embracethered.com/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/</link>
       <pubDate>Thu, 02 Apr 2020 00:01:09 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/</guid>
-      <description>&lt;h3 id=&#34;announcement&#34;&gt;Announcement&lt;/h3&gt;&#xA;&lt;p&gt;After countless evenings and weekends in coffee shops, and multiple vacations with the laptop, I&amp;rsquo;m excited to announce that my first book has been published. It took 18 months from writing the first words (at Victrola Coffee Roasters on Capitol Hill by the way) to finishing this project just a few days ago.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&amp;amp;tag=wunderwuzzi-20&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;linkCode=as2&amp;amp;creativeASIN=1838828869&amp;amp;linkId=07bfd6b729fbc2b2904160e0e16c337f&#34;&gt;&lt;img src=&#34;http://localhost:1313/blog/images/red_team_strategies_f.png&#34; alt=&#34;Cybersecurity Attacks - Red Team Strategies&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Looking back its amazing how this all came together. The first intial draft had 100 pages, and in the end it ended up being 524 pages.&lt;/p&gt;</description>
+      <guid>https://embracethered.com/blog/posts/2020/book-cybersecurity-attacks-red-team-strategies-released/</guid>
+      <description>&lt;h3 id=&#34;announcement&#34;&gt;Announcement&lt;/h3&gt;&#xA;&lt;p&gt;After countless evenings and weekends in coffee shops, and multiple vacations with the laptop, I&amp;rsquo;m excited to announce that my first book has been published. It took 18 months from writing the first words (at Victrola Coffee Roasters on Capitol Hill by the way) to finishing this project just a few days ago.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&amp;amp;tag=wunderwuzzi-20&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;linkCode=as2&amp;amp;creativeASIN=1838828869&amp;amp;linkId=07bfd6b729fbc2b2904160e0e16c337f&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/red_team_strategies_f.png&#34; alt=&#34;Cybersecurity Attacks - Red Team Strategies&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Looking back its amazing how this all came together. The first intial draft had 100 pages, and in the end it ended up being 524 pages.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Book: Cybersecurity Attacks - Red Team Strategies</title>
-      <link>http://localhost:1313/blog/posts/book-cybersecurity-attacks-red-team-strategies/</link>
+      <link>https://embracethered.com/blog/posts/book-cybersecurity-attacks-red-team-strategies/</link>
       <pubDate>Mon, 02 Dec 2019 17:09:57 -0800</pubDate>
-      <guid>http://localhost:1313/blog/posts/book-cybersecurity-attacks-red-team-strategies/</guid>
-      <description>&lt;p&gt;Excited to announce the book that I have been working on:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&amp;amp;tag=wunderwuzzi-20&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;linkCode=as2&amp;amp;creativeASIN=1838828869&amp;amp;linkId=07bfd6b729fbc2b2904160e0e16c337f&#34;&gt;Cybersecurity Attacks - Red Team Strategies&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Learn about the foundational tactics, techniques and procedures to elevate your red teaming skills and enhance the overall security posture of your organization by leveraging homefield advantage.&#xA;&lt;a href=&#34;https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&amp;amp;tag=wunderwuzzi-20&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;linkCode=as2&amp;amp;creativeASIN=1838828869&amp;amp;linkId=07bfd6b729fbc2b2904160e0e16c337f&#34;&gt;&lt;img src=&#34;http://localhost:1313/blog/images/9781838828868.jpeg&#34; alt=&#34;Cybersecurity Attacks - Red Team Strategies&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;contents-and-background&#34;&gt;Contents and Background&lt;/h3&gt;&#xA;&lt;p&gt;Red Team Strategies covers aspects that are not as commonly discussed in literature, including chapters around building and managing a pen test team. However, there is still plenty of technical content included as well. It is not a typical pen test book that focuses on common tools, or walks the reader through the various stages of a pen test.&lt;/p&gt;</description>
+      <guid>https://embracethered.com/blog/posts/book-cybersecurity-attacks-red-team-strategies/</guid>
+      <description>&lt;p&gt;Excited to announce the book that I have been working on:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&amp;amp;tag=wunderwuzzi-20&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;linkCode=as2&amp;amp;creativeASIN=1838828869&amp;amp;linkId=07bfd6b729fbc2b2904160e0e16c337f&#34;&gt;Cybersecurity Attacks - Red Team Strategies&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Learn about the foundational tactics, techniques and procedures to elevate your red teaming skills and enhance the overall security posture of your organization by leveraging homefield advantage.&#xA;&lt;a href=&#34;https://www.amazon.com/gp/product/1838828869/ref=as_li_tl?ie=UTF8&amp;amp;tag=wunderwuzzi-20&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;linkCode=as2&amp;amp;creativeASIN=1838828869&amp;amp;linkId=07bfd6b729fbc2b2904160e0e16c337f&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/9781838828868.jpeg&#34; alt=&#34;Cybersecurity Attacks - Red Team Strategies&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;contents-and-background&#34;&gt;Contents and Background&lt;/h3&gt;&#xA;&lt;p&gt;Red Team Strategies covers aspects that are not as commonly discussed in literature, including chapters around building and managing a pen test team. However, there is still plenty of technical content included as well. It is not a typical pen test book that focuses on common tools, or walks the reader through the various stages of a pen test.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sdl on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/sdl/</link>
+    <link>https://embracethered.com/blog/tags/sdl/</link>
     <description>Recent content in Sdl on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Fri, 12 Jun 2020 10:00:25 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/sdl/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/sdl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Putting system owners in Security Bug Jail</title>
-      <link>http://localhost:1313/blog/posts/2020/bugjail/</link>
+      <link>https://embracethered.com/blog/posts/2020/bugjail/</link>
       <pubDate>Fri, 12 Jun 2020 10:00:25 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2020/bugjail/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/bugjail/</guid>
       <description>&lt;p&gt;Some organization have this interesting concept of a bug jail to prevent new feature development when there are too many existing flaws in the system.&lt;/p&gt;&#xA;&lt;p&gt;For instance, if an engineer has 5 or more bugs assigned they aren&amp;rsquo;t allowed to work on anything else but fixing their bugs.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-the-security-bug-jail&#34;&gt;&lt;strong&gt;What is the Security Bug Jail?&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;A security bug jail goes along the same lines. The owner of a system can never have more than a certain upper limit of active security bugs.&lt;/p&gt;</description>
     </item>
   </channel>

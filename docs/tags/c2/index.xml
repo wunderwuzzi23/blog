@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C2 on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/c2/</link>
+    <link>https://embracethered.com/blog/tags/c2/</link>
     <description>Recent content in C2 on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Mon, 26 Oct 2020 06:00:00 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/c2/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/c2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Leveraging the Blue Team&#39;s Endpoint Agent as C2</title>
-      <link>http://localhost:1313/blog/posts/2020/red-teaming-endpoint-protection-agent-edr/</link>
+      <link>https://embracethered.com/blog/posts/2020/red-teaming-endpoint-protection-agent-edr/</link>
       <pubDate>Mon, 26 Oct 2020 06:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2020/red-teaming-endpoint-protection-agent-edr/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/red-teaming-endpoint-protection-agent-edr/</guid>
       <description>&lt;p&gt;A few years back the Blue Team of a company asked to be targeted in a Red Team Operation.&lt;/p&gt;&#xA;&lt;p&gt;That was a really fun, because Rules of Engagement commonly prevent targeting Blue Teams. Blue&amp;rsquo;s infrastructure, systems and team members are often out of scope, unfortunately.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Blue team infrastructure is a gold mine for credentials, recon but also for remote code execution!&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Often companies do not have adequate protection, procedures (MFA, multi-person attestation), monitoring and auditing in place when it comes to accessing data from endpoint agents. There is also frequently a lack of knowledge on what Endpoint Agents are capable of doing.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Supplychain on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/supplychain/</link>
+    <link>https://embracethered.com/blog/tags/supplychain/</link>
     <description>Recent content in Supplychain on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Fri, 09 Sep 2022 16:30:29 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/supplychain/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/supplychain/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Malicious Python Packages and Code Execution via pip download</title>
-      <link>http://localhost:1313/blog/posts/2022/python-package-manager-install-and-download-vulnerability/</link>
+      <link>https://embracethered.com/blog/posts/2022/python-package-manager-install-and-download-vulnerability/</link>
       <pubDate>Fri, 09 Sep 2022 16:30:29 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2022/python-package-manager-install-and-download-vulnerability/</guid>
+      <guid>https://embracethered.com/blog/posts/2022/python-package-manager-install-and-download-vulnerability/</guid>
       <description>&lt;p&gt;This week I learned about a design flaw with &lt;code&gt;pip download&lt;/code&gt;, which allows an adversary to run arbitrary code.&lt;/p&gt;&#xA;&lt;p&gt;I assumed that running &lt;code&gt;pip install&lt;/code&gt; means anything could happen, but &lt;code&gt;pip download&lt;/code&gt; seems a bit surprising.&lt;/p&gt;&#xA;&lt;p&gt;Both seem useful for red teaming though.&lt;/p&gt;&#xA;&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;&#xA;&lt;p&gt;This post from Yehuda Gelb named &lt;a href=&#34;https://medium.com/checkmarx-security/automatic-execution-of-code-upon-package-download-on-python-package-manager-cd6ed9e366a8&#34;&gt;Automatic Execution of Code Upon Package Download on Python Package Manager&lt;/a&gt; which the &lt;a href=&#34;https://twit.tv/shows/security-now/episodes/887?autostart=false&#34;&gt;Security Now! podcast&lt;/a&gt; pointed me towards.&lt;/p&gt;&#xA;&lt;p&gt;The post highlights that just running &lt;code&gt;pip download&lt;/code&gt; can compromise your computer.&lt;/p&gt;</description>
     </item>
   </channel>

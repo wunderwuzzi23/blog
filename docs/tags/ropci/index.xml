@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ropci on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/ropci/</link>
+    <link>https://embracethered.com/blog/tags/ropci/</link>
     <description>Recent content in Ropci on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Mon, 21 Nov 2022 06:00:33 -0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/ropci/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/ropci/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Device Code Phishing Attacks</title>
-      <link>http://localhost:1313/blog/posts/2022/device-code-phishing/</link>
+      <link>https://embracethered.com/blog/posts/2022/device-code-phishing/</link>
       <pubDate>Mon, 21 Nov 2022 06:00:33 -0800</pubDate>
-      <guid>http://localhost:1313/blog/posts/2022/device-code-phishing/</guid>
+      <guid>https://embracethered.com/blog/posts/2022/device-code-phishing/</guid>
       <description>&lt;p&gt;As more organizations move to hardware tokens and password-less auth (e.g. Yubi-keys, Windows Hello for Business,&amp;hellip;) attackers will look for other ways to to trick users to gain access to their data.&lt;/p&gt;&#xA;&lt;p&gt;One novel phishing technique is by using the &lt;a href=&#34;https://www.rfc-editor.org/rfc/rfc8628&#34;&gt;OAuth2 Device Authorization Grant&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This post describes how it works with Microsoft AAD as example.&lt;/p&gt;&#xA;&lt;h1 id=&#34;attacker-initiates-the-phishing-flow&#34;&gt;Attacker initiates the phishing flow&lt;/h1&gt;&#xA;&lt;p&gt;The attacker starts a Device Code flow by issuing a request to the device code token endpoint (e.g. &lt;code&gt;https://login.microsoftonline.com/{tenant}.onmicrosoft.com/oauth2/v2.0/devicecode&lt;/code&gt;).&lt;/p&gt;</description>
     </item>
   </channel>

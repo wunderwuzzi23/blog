@@ -2,662 +2,662 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/</link>
+    <link>https://embracethered.com/blog/tags/</link>
     <description>Recent content in Tags on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
-    <lastBuildDate>Thu, 08 Jan 2026 02:20:58 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Jan 2026 23:58:58 -0700</lastBuildDate>
+    <atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cookies</title>
-      <link>http://localhost:1313/blog/tags/cookies/</link>
-      <pubDate>Thu, 08 Jan 2026 02:20:58 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/cookies/</guid>
+      <link>https://embracethered.com/blog/tags/cookies/</link>
+      <pubDate>Wed, 14 Jan 2026 23:58:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/cookies/</guid>
       <description></description>
     </item>
     <item>
       <title>Red</title>
-      <link>http://localhost:1313/blog/tags/red/</link>
-      <pubDate>Thu, 08 Jan 2026 02:20:58 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/red/</guid>
+      <link>https://embracethered.com/blog/tags/red/</link>
+      <pubDate>Wed, 14 Jan 2026 23:58:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/red/</guid>
       <description></description>
     </item>
     <item>
       <title>TTP</title>
-      <link>http://localhost:1313/blog/tags/ttp/</link>
-      <pubDate>Thu, 08 Jan 2026 02:20:58 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/ttp/</guid>
+      <link>https://embracethered.com/blog/tags/ttp/</link>
+      <pubDate>Wed, 14 Jan 2026 23:58:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/ttp/</guid>
       <description></description>
     </item>
     <item>
       <title>Aiml</title>
-      <link>http://localhost:1313/blog/tags/aiml/</link>
+      <link>https://embracethered.com/blog/tags/aiml/</link>
       <pubDate>Tue, 30 Dec 2025 22:20:58 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/aiml/</guid>
+      <guid>https://embracethered.com/blog/tags/aiml/</guid>
       <description></description>
     </item>
     <item>
       <title>Conference</title>
-      <link>http://localhost:1313/blog/tags/conference/</link>
+      <link>https://embracethered.com/blog/tags/conference/</link>
       <pubDate>Tue, 30 Dec 2025 22:20:58 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/conference/</guid>
+      <guid>https://embracethered.com/blog/tags/conference/</guid>
       <description></description>
     </item>
     <item>
       <title>Llm</title>
-      <link>http://localhost:1313/blog/tags/llm/</link>
+      <link>https://embracethered.com/blog/tags/llm/</link>
       <pubDate>Tue, 30 Dec 2025 22:20:58 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/llm/</guid>
+      <guid>https://embracethered.com/blog/tags/llm/</guid>
       <description></description>
     </item>
     <item>
       <title>Prompt Injection</title>
-      <link>http://localhost:1313/blog/tags/prompt-injection/</link>
+      <link>https://embracethered.com/blog/tags/prompt-injection/</link>
       <pubDate>Tue, 30 Dec 2025 22:20:58 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/prompt-injection/</guid>
+      <guid>https://embracethered.com/blog/tags/prompt-injection/</guid>
       <description></description>
     </item>
     <item>
       <title>Video</title>
-      <link>http://localhost:1313/blog/tags/video/</link>
+      <link>https://embracethered.com/blog/tags/video/</link>
       <pubDate>Tue, 30 Dec 2025 22:20:58 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/video/</guid>
+      <guid>https://embracethered.com/blog/tags/video/</guid>
       <description></description>
     </item>
     <item>
       <title>Machine Learning</title>
-      <link>http://localhost:1313/blog/tags/machine-learning/</link>
+      <link>https://embracethered.com/blog/tags/machine-learning/</link>
       <pubDate>Thu, 04 Dec 2025 18:42:03 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/machine-learning/</guid>
+      <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Exfiltration</title>
-      <link>http://localhost:1313/blog/tags/data-exfiltration/</link>
+      <link>https://embracethered.com/blog/tags/data-exfiltration/</link>
       <pubDate>Tue, 25 Nov 2025 06:00:58 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/data-exfiltration/</guid>
+      <guid>https://embracethered.com/blog/tags/data-exfiltration/</guid>
       <description></description>
     </item>
     <item>
       <title>Rce</title>
-      <link>http://localhost:1313/blog/tags/rce/</link>
+      <link>https://embracethered.com/blog/tags/rce/</link>
       <pubDate>Tue, 25 Nov 2025 06:00:58 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/rce/</guid>
+      <guid>https://embracethered.com/blog/tags/rce/</guid>
       <description></description>
     </item>
     <item>
       <title>Agents</title>
-      <link>http://localhost:1313/blog/tags/agents/</link>
+      <link>https://embracethered.com/blog/tags/agents/</link>
       <pubDate>Tue, 28 Oct 2025 08:36:30 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/agents/</guid>
+      <guid>https://embracethered.com/blog/tags/agents/</guid>
       <description></description>
     </item>
     <item>
       <title>Month of Ai Bugs</title>
-      <link>http://localhost:1313/blog/tags/month-of-ai-bugs/</link>
+      <link>https://embracethered.com/blog/tags/month-of-ai-bugs/</link>
       <pubDate>Sat, 30 Aug 2025 18:20:58 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/month-of-ai-bugs/</guid>
+      <guid>https://embracethered.com/blog/tags/month-of-ai-bugs/</guid>
       <description></description>
     </item>
     <item>
       <title>Advisory</title>
-      <link>http://localhost:1313/blog/tags/advisory/</link>
+      <link>https://embracethered.com/blog/tags/advisory/</link>
       <pubDate>Tue, 24 Jun 2025 16:00:46 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/advisory/</guid>
+      <guid>https://embracethered.com/blog/tags/advisory/</guid>
       <description></description>
     </item>
     <item>
       <title>Threats</title>
-      <link>http://localhost:1313/blog/tags/threats/</link>
+      <link>https://embracethered.com/blog/tags/threats/</link>
       <pubDate>Tue, 24 Jun 2025 16:00:46 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/threats/</guid>
+      <guid>https://embracethered.com/blog/tags/threats/</guid>
       <description></description>
     </item>
     <item>
       <title>Tools</title>
-      <link>http://localhost:1313/blog/tags/tools/</link>
+      <link>https://embracethered.com/blog/tags/tools/</link>
       <pubDate>Tue, 24 Jun 2025 16:00:46 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/tools/</guid>
+      <guid>https://embracethered.com/blog/tags/tools/</guid>
       <description></description>
     </item>
     <item>
       <title>Chatgpt</title>
-      <link>http://localhost:1313/blog/tags/chatgpt/</link>
+      <link>https://embracethered.com/blog/tags/chatgpt/</link>
       <pubDate>Sun, 04 May 2025 23:24:56 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/chatgpt/</guid>
+      <guid>https://embracethered.com/blog/tags/chatgpt/</guid>
       <description></description>
     </item>
     <item>
       <title>Exfil</title>
-      <link>http://localhost:1313/blog/tags/exfil/</link>
+      <link>https://embracethered.com/blog/tags/exfil/</link>
       <pubDate>Mon, 17 Feb 2025 07:30:21 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/exfil/</guid>
+      <guid>https://embracethered.com/blog/tags/exfil/</guid>
       <description></description>
     </item>
     <item>
       <title>Ai</title>
-      <link>http://localhost:1313/blog/tags/ai/</link>
+      <link>https://embracethered.com/blog/tags/ai/</link>
       <pubDate>Mon, 10 Feb 2025 06:30:21 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/ai/</guid>
+      <guid>https://embracethered.com/blog/tags/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>Gemini</title>
-      <link>http://localhost:1313/blog/tags/gemini/</link>
+      <link>https://embracethered.com/blog/tags/gemini/</link>
       <pubDate>Mon, 10 Feb 2025 06:30:21 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/gemini/</guid>
+      <guid>https://embracethered.com/blog/tags/gemini/</guid>
       <description></description>
     </item>
     <item>
       <title>ZombAI</title>
-      <link>http://localhost:1313/blog/tags/zombai/</link>
+      <link>https://embracethered.com/blog/tags/zombai/</link>
       <pubDate>Mon, 06 Jan 2025 20:30:53 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/zombai/</guid>
+      <guid>https://embracethered.com/blog/tags/zombai/</guid>
       <description></description>
     </item>
     <item>
       <title>Xss</title>
-      <link>http://localhost:1313/blog/tags/xss/</link>
+      <link>https://embracethered.com/blog/tags/xss/</link>
       <pubDate>Fri, 29 Nov 2024 14:00:39 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/xss/</guid>
+      <guid>https://embracethered.com/blog/tags/xss/</guid>
       <description></description>
     </item>
     <item>
       <title>Memories</title>
-      <link>http://localhost:1313/blog/tags/memories/</link>
+      <link>https://embracethered.com/blog/tags/memories/</link>
       <pubDate>Fri, 20 Sep 2024 11:02:36 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/memories/</guid>
+      <guid>https://embracethered.com/blog/tags/memories/</guid>
       <description></description>
     </item>
     <item>
       <title>Testing</title>
-      <link>http://localhost:1313/blog/tags/testing/</link>
+      <link>https://embracethered.com/blog/tags/testing/</link>
       <pubDate>Wed, 21 Aug 2024 19:00:30 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/testing/</guid>
+      <guid>https://embracethered.com/blog/tags/testing/</guid>
       <description></description>
     </item>
     <item>
       <title>Blue</title>
-      <link>http://localhost:1313/blog/tags/blue/</link>
+      <link>https://embracethered.com/blog/tags/blue/</link>
       <pubDate>Tue, 30 Jul 2024 10:00:36 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/blue/</guid>
+      <guid>https://embracethered.com/blog/tags/blue/</guid>
       <description></description>
     </item>
     <item>
       <title>Copilot</title>
-      <link>http://localhost:1313/blog/tags/copilot/</link>
+      <link>https://embracethered.com/blog/tags/copilot/</link>
       <pubDate>Tue, 30 Jul 2024 10:00:36 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/copilot/</guid>
+      <guid>https://embracethered.com/blog/tags/copilot/</guid>
       <description></description>
     </item>
     <item>
       <title>Data</title>
-      <link>http://localhost:1313/blog/tags/data/</link>
+      <link>https://embracethered.com/blog/tags/data/</link>
       <pubDate>Tue, 30 Jul 2024 10:00:36 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/data/</guid>
+      <guid>https://embracethered.com/blog/tags/data/</guid>
       <description></description>
     </item>
     <item>
       <title>Huskyai</title>
-      <link>http://localhost:1313/blog/tags/huskyai/</link>
+      <link>https://embracethered.com/blog/tags/huskyai/</link>
       <pubDate>Sat, 18 May 2024 16:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/huskyai/</guid>
+      <guid>https://embracethered.com/blog/tags/huskyai/</guid>
       <description></description>
     </item>
     <item>
       <title>Red Teaming</title>
-      <link>http://localhost:1313/blog/tags/red-teaming/</link>
+      <link>https://embracethered.com/blog/tags/red-teaming/</link>
       <pubDate>Sat, 18 May 2024 16:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/red-teaming/</guid>
+      <guid>https://embracethered.com/blog/tags/red-teaming/</guid>
       <description></description>
     </item>
     <item>
       <title>Chatbot</title>
-      <link>http://localhost:1313/blog/tags/chatbot/</link>
+      <link>https://embracethered.com/blog/tags/chatbot/</link>
       <pubDate>Tue, 02 Apr 2024 20:00:48 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/chatbot/</guid>
+      <guid>https://embracethered.com/blog/tags/chatbot/</guid>
       <description></description>
     </item>
     <item>
       <title>Mitigation</title>
-      <link>http://localhost:1313/blog/tags/mitigation/</link>
+      <link>https://embracethered.com/blog/tags/mitigation/</link>
       <pubDate>Tue, 02 Apr 2024 20:00:48 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/mitigation/</guid>
+      <guid>https://embracethered.com/blog/tags/mitigation/</guid>
       <description></description>
     </item>
     <item>
       <title>Research</title>
-      <link>http://localhost:1313/blog/tags/research/</link>
+      <link>https://embracethered.com/blog/tags/research/</link>
       <pubDate>Sat, 02 Mar 2024 22:25:17 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/research/</guid>
+      <guid>https://embracethered.com/blog/tags/research/</guid>
       <description></description>
     </item>
     <item>
       <title>Bugbounty</title>
-      <link>http://localhost:1313/blog/tags/bugbounty/</link>
+      <link>https://embracethered.com/blog/tags/bugbounty/</link>
       <pubDate>Mon, 12 Feb 2024 17:11:48 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/bugbounty/</guid>
+      <guid>https://embracethered.com/blog/tags/bugbounty/</guid>
       <description></description>
     </item>
     <item>
       <title>Ascii</title>
-      <link>http://localhost:1313/blog/tags/ascii/</link>
+      <link>https://embracethered.com/blog/tags/ascii/</link>
       <pubDate>Thu, 08 Feb 2024 02:01:54 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/ascii/</guid>
+      <guid>https://embracethered.com/blog/tags/ascii/</guid>
       <description></description>
     </item>
     <item>
       <title>Bard</title>
-      <link>http://localhost:1313/blog/tags/bard/</link>
+      <link>https://embracethered.com/blog/tags/bard/</link>
       <pubDate>Fri, 03 Nov 2023 12:00:01 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/bard/</guid>
+      <guid>https://embracethered.com/blog/tags/bard/</guid>
       <description></description>
     </item>
     <item>
       <title>Gcp</title>
-      <link>http://localhost:1313/blog/tags/gcp/</link>
+      <link>https://embracethered.com/blog/tags/gcp/</link>
       <pubDate>Thu, 19 Oct 2023 06:35:37 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/gcp/</guid>
+      <guid>https://embracethered.com/blog/tags/gcp/</guid>
       <description></description>
     </item>
     <item>
       <title>Plugins</title>
-      <link>http://localhost:1313/blog/tags/plugins/</link>
+      <link>https://embracethered.com/blog/tags/plugins/</link>
       <pubDate>Fri, 29 Sep 2023 10:00:08 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/plugins/</guid>
+      <guid>https://embracethered.com/blog/tags/plugins/</guid>
       <description></description>
     </item>
     <item>
       <title>Msrc</title>
-      <link>http://localhost:1313/blog/tags/msrc/</link>
+      <link>https://embracethered.com/blog/tags/msrc/</link>
       <pubDate>Sun, 18 Jun 2023 00:01:02 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/msrc/</guid>
+      <guid>https://embracethered.com/blog/tags/msrc/</guid>
       <description></description>
     </item>
     <item>
       <title>Ai Injection</title>
-      <link>http://localhost:1313/blog/tags/ai-injection/</link>
+      <link>https://embracethered.com/blog/tags/ai-injection/</link>
       <pubDate>Wed, 29 Mar 2023 20:26:31 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/ai-injection/</guid>
+      <guid>https://embracethered.com/blog/tags/ai-injection/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>http://localhost:1313/blog/tags/programming/</link>
+      <link>https://embracethered.com/blog/tags/programming/</link>
       <pubDate>Sun, 05 Mar 2023 17:31:58 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/programming/</guid>
+      <guid>https://embracethered.com/blog/tags/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Pentest</title>
-      <link>http://localhost:1313/blog/tags/pentest/</link>
+      <link>https://embracethered.com/blog/tags/pentest/</link>
       <pubDate>Wed, 25 Jan 2023 09:31:58 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/pentest/</guid>
+      <guid>https://embracethered.com/blog/tags/pentest/</guid>
       <description></description>
     </item>
     <item>
       <title>Red Team</title>
-      <link>http://localhost:1313/blog/tags/red-team/</link>
+      <link>https://embracethered.com/blog/tags/red-team/</link>
       <pubDate>Wed, 04 Jan 2023 06:36:05 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/red-team/</guid>
+      <guid>https://embracethered.com/blog/tags/red-team/</guid>
       <description></description>
     </item>
     <item>
       <title>Db</title>
-      <link>http://localhost:1313/blog/tags/db/</link>
+      <link>https://embracethered.com/blog/tags/db/</link>
       <pubDate>Fri, 02 Dec 2022 08:41:49 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/db/</guid>
+      <guid>https://embracethered.com/blog/tags/db/</guid>
       <description></description>
     </item>
     <item>
       <title>Phishing</title>
-      <link>http://localhost:1313/blog/tags/phishing/</link>
+      <link>https://embracethered.com/blog/tags/phishing/</link>
       <pubDate>Mon, 21 Nov 2022 06:00:33 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/phishing/</guid>
+      <guid>https://embracethered.com/blog/tags/phishing/</guid>
       <description></description>
     </item>
     <item>
       <title>Ropci</title>
-      <link>http://localhost:1313/blog/tags/ropci/</link>
+      <link>https://embracethered.com/blog/tags/ropci/</link>
       <pubDate>Mon, 21 Nov 2022 06:00:33 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/ropci/</guid>
+      <guid>https://embracethered.com/blog/tags/ropci/</guid>
       <description></description>
     </item>
     <item>
       <title>Cloud</title>
-      <link>http://localhost:1313/blog/tags/cloud/</link>
+      <link>https://embracethered.com/blog/tags/cloud/</link>
       <pubDate>Sun, 20 Nov 2022 18:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/cloud/</guid>
+      <guid>https://embracethered.com/blog/tags/cloud/</guid>
       <description></description>
     </item>
     <item>
       <title>Tool</title>
-      <link>http://localhost:1313/blog/tags/tool/</link>
+      <link>https://embracethered.com/blog/tags/tool/</link>
       <pubDate>Sun, 20 Nov 2022 18:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/tool/</guid>
+      <guid>https://embracethered.com/blog/tags/tool/</guid>
       <description></description>
     </item>
     <item>
       <title>Pentesting</title>
-      <link>http://localhost:1313/blog/tags/pentesting/</link>
+      <link>https://embracethered.com/blog/tags/pentesting/</link>
       <pubDate>Sun, 18 Sep 2022 08:00:01 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/pentesting/</guid>
+      <guid>https://embracethered.com/blog/tags/pentesting/</guid>
       <description></description>
     </item>
     <item>
       <title>Supplychain</title>
-      <link>http://localhost:1313/blog/tags/supplychain/</link>
+      <link>https://embracethered.com/blog/tags/supplychain/</link>
       <pubDate>Fri, 09 Sep 2022 16:30:29 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/supplychain/</guid>
+      <guid>https://embracethered.com/blog/tags/supplychain/</guid>
       <description></description>
     </item>
     <item>
       <title>Ebpf</title>
-      <link>http://localhost:1313/blog/tags/ebpf/</link>
+      <link>https://embracethered.com/blog/tags/ebpf/</link>
       <pubDate>Sun, 10 Jul 2022 20:00:13 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/ebpf/</guid>
+      <guid>https://embracethered.com/blog/tags/ebpf/</guid>
       <description></description>
     </item>
     <item>
       <title>Documentation</title>
-      <link>http://localhost:1313/blog/tags/documentation/</link>
+      <link>https://embracethered.com/blog/tags/documentation/</link>
       <pubDate>Sat, 28 May 2022 14:00:54 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/documentation/</guid>
+      <guid>https://embracethered.com/blog/tags/documentation/</guid>
       <description></description>
     </item>
     <item>
       <title>Macos</title>
-      <link>http://localhost:1313/blog/tags/macos/</link>
+      <link>https://embracethered.com/blog/tags/macos/</link>
       <pubDate>Sun, 03 Apr 2022 10:46:07 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/macos/</guid>
+      <guid>https://embracethered.com/blog/tags/macos/</guid>
       <description></description>
     </item>
     <item>
       <title>Flipper</title>
-      <link>http://localhost:1313/blog/tags/flipper/</link>
+      <link>https://embracethered.com/blog/tags/flipper/</link>
       <pubDate>Fri, 18 Mar 2022 23:58:26 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/flipper/</guid>
+      <guid>https://embracethered.com/blog/tags/flipper/</guid>
       <description></description>
     </item>
     <item>
       <title>Hardware</title>
-      <link>http://localhost:1313/blog/tags/hardware/</link>
+      <link>https://embracethered.com/blog/tags/hardware/</link>
       <pubDate>Fri, 18 Mar 2022 23:58:26 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/hardware/</guid>
+      <guid>https://embracethered.com/blog/tags/hardware/</guid>
       <description></description>
     </item>
     <item>
       <title>Cicd</title>
-      <link>http://localhost:1313/blog/tags/cicd/</link>
+      <link>https://embracethered.com/blog/tags/cicd/</link>
       <pubDate>Mon, 28 Feb 2022 04:22:22 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/cicd/</guid>
+      <guid>https://embracethered.com/blog/tags/cicd/</guid>
       <description></description>
     </item>
     <item>
       <title>Devops</title>
-      <link>http://localhost:1313/blog/tags/devops/</link>
+      <link>https://embracethered.com/blog/tags/devops/</link>
       <pubDate>Mon, 28 Feb 2022 04:22:22 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/devops/</guid>
+      <guid>https://embracethered.com/blog/tags/devops/</guid>
       <description></description>
     </item>
     <item>
       <title>Appsec</title>
-      <link>http://localhost:1313/blog/tags/appsec/</link>
+      <link>https://embracethered.com/blog/tags/appsec/</link>
       <pubDate>Tue, 12 Oct 2021 00:02:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/appsec/</guid>
+      <guid>https://embracethered.com/blog/tags/appsec/</guid>
       <description></description>
     </item>
     <item>
       <title>Webapp</title>
-      <link>http://localhost:1313/blog/tags/webapp/</link>
+      <link>https://embracethered.com/blog/tags/webapp/</link>
       <pubDate>Sun, 10 Oct 2021 10:10:51 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/webapp/</guid>
+      <guid>https://embracethered.com/blog/tags/webapp/</guid>
       <description></description>
     </item>
     <item>
       <title>Program</title>
-      <link>http://localhost:1313/blog/tags/program/</link>
+      <link>https://embracethered.com/blog/tags/program/</link>
       <pubDate>Wed, 09 Jun 2021 08:30:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/program/</guid>
+      <guid>https://embracethered.com/blog/tags/program/</guid>
       <description></description>
     </item>
     <item>
       <title>Privacy</title>
-      <link>http://localhost:1313/blog/tags/privacy/</link>
+      <link>https://embracethered.com/blog/tags/privacy/</link>
       <pubDate>Sat, 01 May 2021 10:10:08 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/privacy/</guid>
+      <guid>https://embracethered.com/blog/tags/privacy/</guid>
       <description></description>
     </item>
     <item>
       <title>Crypto</title>
-      <link>http://localhost:1313/blog/tags/crypto/</link>
+      <link>https://embracethered.com/blog/tags/crypto/</link>
       <pubDate>Fri, 19 Mar 2021 10:16:02 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/crypto/</guid>
+      <guid>https://embracethered.com/blog/tags/crypto/</guid>
       <description></description>
     </item>
     <item>
       <title>兵法</title>
-      <link>http://localhost:1313/blog/tags/%E5%85%B5%E6%B3%95/</link>
+      <link>https://embracethered.com/blog/tags/%E5%85%B5%E6%B3%95/</link>
       <pubDate>Wed, 03 Mar 2021 11:37:20 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/%E5%85%B5%E6%B3%95/</guid>
+      <guid>https://embracethered.com/blog/tags/%E5%85%B5%E6%B3%95/</guid>
       <description></description>
     </item>
     <item>
       <title>Strategy</title>
-      <link>http://localhost:1313/blog/tags/strategy/</link>
+      <link>https://embracethered.com/blog/tags/strategy/</link>
       <pubDate>Mon, 08 Feb 2021 11:00:20 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/strategy/</guid>
+      <guid>https://embracethered.com/blog/tags/strategy/</guid>
       <description></description>
     </item>
     <item>
       <title>Mitre</title>
-      <link>http://localhost:1313/blog/tags/mitre/</link>
+      <link>https://embracethered.com/blog/tags/mitre/</link>
       <pubDate>Fri, 22 Jan 2021 12:00:34 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/mitre/</guid>
+      <guid>https://embracethered.com/blog/tags/mitre/</guid>
       <description></description>
     </item>
     <item>
       <title>Assurance</title>
-      <link>http://localhost:1313/blog/tags/assurance/</link>
+      <link>https://embracethered.com/blog/tags/assurance/</link>
       <pubDate>Mon, 11 Jan 2021 09:00:51 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/assurance/</guid>
+      <guid>https://embracethered.com/blog/tags/assurance/</guid>
       <description></description>
     </item>
     <item>
       <title>Metrics</title>
-      <link>http://localhost:1313/blog/tags/metrics/</link>
+      <link>https://embracethered.com/blog/tags/metrics/</link>
       <pubDate>Mon, 11 Jan 2021 09:00:51 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/metrics/</guid>
+      <guid>https://embracethered.com/blog/tags/metrics/</guid>
       <description></description>
     </item>
     <item>
       <title>C2</title>
-      <link>http://localhost:1313/blog/tags/c2/</link>
+      <link>https://embracethered.com/blog/tags/c2/</link>
       <pubDate>Mon, 26 Oct 2020 06:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/c2/</guid>
+      <guid>https://embracethered.com/blog/tags/c2/</guid>
       <description></description>
     </item>
     <item>
       <title>Cve</title>
-      <link>http://localhost:1313/blog/tags/cve/</link>
+      <link>https://embracethered.com/blog/tags/cve/</link>
       <pubDate>Wed, 14 Oct 2020 10:35:02 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/cve/</guid>
+      <guid>https://embracethered.com/blog/tags/cve/</guid>
       <description></description>
     </item>
     <item>
       <title>Threat Modeling</title>
-      <link>http://localhost:1313/blog/tags/threat-modeling/</link>
+      <link>https://embracethered.com/blog/tags/threat-modeling/</link>
       <pubDate>Sun, 06 Sep 2020 00:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/threat-modeling/</guid>
+      <guid>https://embracethered.com/blog/tags/threat-modeling/</guid>
       <description></description>
     </item>
     <item>
       <title>Book</title>
-      <link>http://localhost:1313/blog/tags/book/</link>
+      <link>https://embracethered.com/blog/tags/book/</link>
       <pubDate>Fri, 31 Jul 2020 12:08:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/book/</guid>
+      <guid>https://embracethered.com/blog/tags/book/</guid>
       <description></description>
     </item>
     <item>
       <title>Kpi</title>
-      <link>http://localhost:1313/blog/tags/kpi/</link>
+      <link>https://embracethered.com/blog/tags/kpi/</link>
       <pubDate>Fri, 31 Jul 2020 12:08:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/kpi/</guid>
+      <guid>https://embracethered.com/blog/tags/kpi/</guid>
       <description></description>
     </item>
     <item>
       <title>Philosophy</title>
-      <link>http://localhost:1313/blog/tags/philosophy/</link>
+      <link>https://embracethered.com/blog/tags/philosophy/</link>
       <pubDate>Fri, 31 Jul 2020 12:08:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/philosophy/</guid>
+      <guid>https://embracethered.com/blog/tags/philosophy/</guid>
       <description></description>
     </item>
     <item>
       <title>Post-Exploitation</title>
-      <link>http://localhost:1313/blog/tags/post-exploitation/</link>
+      <link>https://embracethered.com/blog/tags/post-exploitation/</link>
       <pubDate>Tue, 21 Jul 2020 11:00:15 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/post-exploitation/</guid>
+      <guid>https://embracethered.com/blog/tags/post-exploitation/</guid>
       <description></description>
     </item>
     <item>
       <title>Passthecookie</title>
-      <link>http://localhost:1313/blog/tags/passthecookie/</link>
+      <link>https://embracethered.com/blog/tags/passthecookie/</link>
       <pubDate>Wed, 15 Jul 2020 06:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/passthecookie/</guid>
+      <guid>https://embracethered.com/blog/tags/passthecookie/</guid>
       <description></description>
     </item>
     <item>
       <title>Windows</title>
-      <link>http://localhost:1313/blog/tags/windows/</link>
+      <link>https://embracethered.com/blog/tags/windows/</link>
       <pubDate>Tue, 14 Jul 2020 20:18:51 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/windows/</guid>
+      <guid>https://embracethered.com/blog/tags/windows/</guid>
       <description></description>
     </item>
     <item>
       <title>Bug Bounty</title>
-      <link>http://localhost:1313/blog/tags/bug-bounty/</link>
+      <link>https://embracethered.com/blog/tags/bug-bounty/</link>
       <pubDate>Wed, 01 Jul 2020 10:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/tags/bug-bounty/</guid>
+      <guid>https://embracethered.com/blog/tags/bug-bounty/</guid>
       <description></description>
     </item>
     <item>
       <title>Story</title>
-      <link>http://localhost:1313/blog/tags/story/</link>
+      <link>https://embracethered.com/blog/tags/story/</link>
       <pubDate>Wed, 01 Jul 2020 10:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/tags/story/</guid>
+      <guid>https://embracethered.com/blog/tags/story/</guid>
       <description></description>
     </item>
     <item>
       <title>Blog</title>
-      <link>http://localhost:1313/blog/tags/blog/</link>
+      <link>https://embracethered.com/blog/tags/blog/</link>
       <pubDate>Tue, 30 Jun 2020 23:45:42 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/blog/</guid>
+      <guid>https://embracethered.com/blog/tags/blog/</guid>
       <description></description>
     </item>
     <item>
       <title>Sdl</title>
-      <link>http://localhost:1313/blog/tags/sdl/</link>
+      <link>https://embracethered.com/blog/tags/sdl/</link>
       <pubDate>Fri, 12 Jun 2020 10:00:25 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/sdl/</guid>
+      <guid>https://embracethered.com/blog/tags/sdl/</guid>
       <description></description>
     </item>
     <item>
       <title>Monte Carlo</title>
-      <link>http://localhost:1313/blog/tags/monte-carlo/</link>
+      <link>https://embracethered.com/blog/tags/monte-carlo/</link>
       <pubDate>Wed, 10 Jun 2020 11:23:20 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/monte-carlo/</guid>
+      <guid>https://embracethered.com/blog/tags/monte-carlo/</guid>
       <description></description>
     </item>
     <item>
       <title>Credentials</title>
-      <link>http://localhost:1313/blog/tags/credentials/</link>
+      <link>https://embracethered.com/blog/tags/credentials/</link>
       <pubDate>Sun, 26 Apr 2020 12:31:29 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/credentials/</guid>
+      <guid>https://embracethered.com/blog/tags/credentials/</guid>
       <description></description>
     </item>
     <item>
       <title>Attackgraph</title>
-      <link>http://localhost:1313/blog/tags/attackgraph/</link>
+      <link>https://embracethered.com/blog/tags/attackgraph/</link>
       <pubDate>Mon, 06 Apr 2020 21:00:30 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/attackgraph/</guid>
+      <guid>https://embracethered.com/blog/tags/attackgraph/</guid>
       <description></description>
     </item>
     <item>
       <title>Homefield Advantage</title>
-      <link>http://localhost:1313/blog/tags/homefield-advantage/</link>
+      <link>https://embracethered.com/blog/tags/homefield-advantage/</link>
       <pubDate>Mon, 06 Apr 2020 21:00:30 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/homefield-advantage/</guid>
+      <guid>https://embracethered.com/blog/tags/homefield-advantage/</guid>
       <description></description>
     </item>
     <item>
       <title>Presentations</title>
-      <link>http://localhost:1313/blog/tags/presentations/</link>
+      <link>https://embracethered.com/blog/tags/presentations/</link>
       <pubDate>Mon, 06 Apr 2020 21:00:30 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/presentations/</guid>
+      <guid>https://embracethered.com/blog/tags/presentations/</guid>
       <description></description>
     </item>
     <item>
       <title>Books</title>
-      <link>http://localhost:1313/blog/tags/books/</link>
+      <link>https://embracethered.com/blog/tags/books/</link>
       <pubDate>Thu, 02 Apr 2020 00:01:09 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/books/</guid>
+      <guid>https://embracethered.com/blog/tags/books/</guid>
       <description></description>
     </item>
     <item>
       <title>Coffeeshop</title>
-      <link>http://localhost:1313/blog/tags/coffeeshop/</link>
+      <link>https://embracethered.com/blog/tags/coffeeshop/</link>
       <pubDate>Sat, 15 Feb 2020 15:48:51 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/coffeeshop/</guid>
+      <guid>https://embracethered.com/blog/tags/coffeeshop/</guid>
       <description></description>
     </item>
     <item>
       <title>Principles</title>
-      <link>http://localhost:1313/blog/tags/principles/</link>
+      <link>https://embracethered.com/blog/tags/principles/</link>
       <pubDate>Wed, 12 Feb 2020 17:03:32 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/principles/</guid>
+      <guid>https://embracethered.com/blog/tags/principles/</guid>
       <description></description>
     </item>
     <item>
       <title>Web</title>
-      <link>http://localhost:1313/blog/tags/web/</link>
+      <link>https://embracethered.com/blog/tags/web/</link>
       <pubDate>Wed, 12 Feb 2020 17:03:32 -0800</pubDate>
-      <guid>http://localhost:1313/blog/tags/web/</guid>
+      <guid>https://embracethered.com/blog/tags/web/</guid>
       <description></description>
     </item>
     <item>
       <title>Cookiesforall</title>
-      <link>http://localhost:1313/blog/tags/cookiesforall/</link>
+      <link>https://embracethered.com/blog/tags/cookiesforall/</link>
       <pubDate>Sun, 27 Oct 2019 10:56:03 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/cookiesforall/</guid>
+      <guid>https://embracethered.com/blog/tags/cookiesforall/</guid>
       <description></description>
     </item>
     <item>
       <title>Breaches</title>
-      <link>http://localhost:1313/blog/tags/breaches/</link>
+      <link>https://embracethered.com/blog/tags/breaches/</link>
       <pubDate>Sun, 01 Sep 2019 13:25:07 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/breaches/</guid>
+      <guid>https://embracethered.com/blog/tags/breaches/</guid>
       <description></description>
     </item>
     <item>
       <title>Purple</title>
-      <link>http://localhost:1313/blog/tags/purple/</link>
+      <link>https://embracethered.com/blog/tags/purple/</link>
       <pubDate>Sat, 24 Aug 2019 18:46:06 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/purple/</guid>
+      <guid>https://embracethered.com/blog/tags/purple/</guid>
       <description></description>
     </item>
     <item>
       <title>Code</title>
-      <link>http://localhost:1313/blog/tags/code/</link>
+      <link>https://embracethered.com/blog/tags/code/</link>
       <pubDate>Wed, 03 Jul 2019 21:58:01 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/code/</guid>
+      <guid>https://embracethered.com/blog/tags/code/</guid>
       <description></description>
     </item>
     <item>
       <title>Fun</title>
-      <link>http://localhost:1313/blog/tags/fun/</link>
+      <link>https://embracethered.com/blog/tags/fun/</link>
       <pubDate>Tue, 21 May 2019 21:48:29 -0700</pubDate>
-      <guid>http://localhost:1313/blog/tags/fun/</guid>
+      <guid>https://embracethered.com/blog/tags/fun/</guid>
       <description></description>
     </item>
   </channel>

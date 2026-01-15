@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head prefix="og: http://ogp.me/ns#"><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+<head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   <meta name="description" content="An adversary can mint authentication cookies for Next.js (next-auth) applications and maintain persistent access to the application as any user if they got a hold of the NEXTAUTH_SECRET used to encrypt and sign the auth tokens" />
-  <link rel="canonical" href="http://localhost:1313/blog/posts/2026/minting-next-auth-nextjs-auth-cookies-react2shell-threat/" />
+  <link rel="canonical" href="https://embracethered.com/blog/posts/2026/minting-next-auth-nextjs-auth-cookies-react2shell-threat/" />
   <meta property="og:title" content=" Minting Next.js Authentication Cookies &middot;  Embrace The Red" />
   <meta property="og:description" content="An adversary can mint authentication cookies for Next.js (next-auth) applications and maintain persistent access to the application as any user if they got a hold of the NEXTAUTH_SECRET used to encrypt and sign the auth tokens" />
   <meta property="og:site_name" content="Embrace The Red" />
-  <meta property="og:url" content="http://localhost:1313/blog/posts/2026/minting-next-auth-nextjs-auth-cookies-react2shell-threat/" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2026/minting-next-auth-nextjs-auth-cookies-react2shell-threat/" />
   <meta property="og:type" content="article" />
-  <meta property="og:article:published_time" content="2026-01-08T02:20:58-07:00" />
+  <meta property="og:article:published_time" content="2026-01-14T23:58:58-07:00" />
   <meta property="og:article:tag" content="red" />
   <meta property="og:article:tag" content="cookies" />
   <meta property="og:article:tag" content="ttp" />
@@ -19,14 +19,14 @@
      Minting Next.js Authentication Cookies &middot;  Embrace The Red
   </title>
 
-  <link rel="stylesheet" href="http://localhost:1313/blog/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="http://localhost:1313/blog/css/main.css" />
-  <link rel="stylesheet" href="http://localhost:1313/blog/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="http://localhost:1313/blog/css/github.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
   
-  <link rel="stylesheet" href="http://localhost:1313/blog/fonts/cachedfonts.css" type="text/css">
-  <link rel="shortcut icon" type="image/x-icon" href="http://localhost:1313/blog/images/favicon.ico" />
-  <link rel="apple-touch-icon" type="image/x-icon" href="http://localhost:1313/blog/images/favicon.ico" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
 
   <script type="application/ld+json">
   {
@@ -44,23 +44,23 @@
       "name": "\"Embrace The Red\"",
       "logo": {
         "@type": "ImageObject",
-        "url": "http:\/\/localhost:1313\/blog\/images/favicon.ico"
+        "url": "https:\/\/embracethered.com\/blog\/images/favicon.ico"
       }
     },
-    "url": "\"http://localhost:1313/blog/posts/2026/minting-next-auth-nextjs-auth-cookies-react2shell-threat/\"",
-    "datePublished": "\"2026-01-08T02:20:58-07:00\"","dateModified": "\"2026-01-08T02:20:58-07:00\"",
+    "url": "\"https://embracethered.com/blog/posts/2026/minting-next-auth-nextjs-auth-cookies-react2shell-threat/\"",
+    "datePublished": "\"2026-01-14T23:58:58-07:00\"","dateModified": "\"2026-01-14T23:58:58-07:00\"",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "\"http://localhost:1313/blog/posts/2026/minting-next-auth-nextjs-auth-cookies-react2shell-threat/\""
+      "@id": "\"https://embracethered.com/blog/posts/2026/minting-next-auth-nextjs-auth-cookies-react2shell-threat/\""
     }
   }
   </script>
 
 </head>
 <body>
-    <header class="global-header"  style="background-image:url(https://embracethered.com/blog/images/2025/next-auth.png )">
+    <header class="global-header"  style="background-image:url(https://embracethered.com/blog/images/2026/next-auth.png )">
     <section class="header-text">
-      <h1><a href="http://localhost:1313/blog/">Embrace The Red</a></h1>
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
       
       <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
         wunderwuzzi&#39;s blog
@@ -102,7 +102,7 @@
 </div>
 
       
-      <a href="http://localhost:1313/blog/" class="btn-header btn-back hidden-xs">
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
         &nbsp;Home
       </a>
@@ -124,38 +124,49 @@
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="2026-01-08T02:20:58-07:00">
-          Jan 8, 2026
+        <time datetime="2026-01-14T23:58:58-07:00">
+          Jan 14, 2026
         </time>
       </div>
     
       <div class="pull-right">
         
-        <span class="post-tag small"><a href="http://localhost:1313/blog//tags/red">#red</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
         
-        <span class="post-tag small"><a href="http://localhost:1313/blog//tags/cookies">#cookies</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/cookies">#cookies</a></span>
         
-        <span class="post-tag small"><a href="http://localhost:1313/blog//tags/ttp">#ttp</a></span>
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
         
       </div>
     </div>
   </header>
   <section>
     <p>In this post, we&rsquo;ll look how an adversary can mint authentication cookies for Next.js (<code>next-auth/Auth.js</code>) applications to maintain persistent access to the application as any user.</p>
+<p><a href="/blog/images/2026/next-auth.png"><img src="/blog/images/2026/next-auth.png" alt="Minting NextAuth authentication tokens and cookies"></a></p>
 <p>The reason this is important is because of <code>React2Shell</code>, which is a deserialization vulnerability that allows an adversary to run arbitrary code. Much has been discussed about this vulnerability, and you can read up the original details from the finder <a href="https://react2shell.com/">here</a>.</p>
-<h3 id="exploitation-of-react2shell">Exploitation of React2Shell</h3>
-<p>One of the challenges for defenders is that there is little evidence left behind when exploitation occurs.</p>
+<h2 id="exploitation-of-react2shell">Exploitation of React2Shell</h2>
+<p>A challenge for defenders is that there is little evidence left behind when exploitation occurs.</p>
 <p>Imagine an adversary exploited your application, and ran the <code>env</code> command. By doing so, the attacker likely retrieved OAuth (e.g. Entra ID,&hellip;) <code>client_id</code> and <code>client_secret</code> among other environment variables.</p>
-<p>Defenders might rotate these OAuth secrets, and maybe that happens even automatically and regularly. However, for a typical Next.js app that uses the <code>next-auth</code> library (now also called <code>Auth.js)</code>, that is not a sufficient mitigation.</p>
+<h2 id="mandatory-secret-rotation">Mandatory Secret Rotation</h2>
+<p>Defenders might rotate these OAuth secrets, and ideally it happens automatically and regularly. However, for a typical Next.js app that uses the <code>next-auth</code> library (also called <code>Auth.js)</code>, that is not a sufficient mitigation.</p>
 <p>There is another critical environment variable, typically named <code>NEXTAUTH_SECRET</code> (or in the latest version just <code>AUTH_SECRET</code>), that needs rotation and serves as the standalone secret used to encrypt and authenticate <code>next-auth</code> session cookies.</p>
 <h2 id="the-nextauth_secret-is-all-you-need">The NEXTAUTH_SECRET is all you need</h2>
-<p>The code that creates the authentication cookies is in this <a href="https://github.com/nextauthjs/next-auth">GitHub repo</a>.</p>
-<p>The salt used for minting these cookies is the cookie name itself. So, it&rsquo;s pretty easy for an adversary to derive it as well.</p>
-<h2 id="creating-a-next-auth-cookie-minter">Creating a Next-Auth Cookie Minter</h2>
-<p>When tackling this, the easiest approach is to just call the exact functions from the <code>next-auth</code> library, as that is all that is needed.</p>
-<p>Rather than researching this entirely manually, I used AI to go over the code and build a cookie encoder/decoder (those are the words used by <code>next-auth</code>) to allow minting and decoding valid cookies.</p>
+<p>The <code>next-auth</code> code that creates the authentication cookies is in this <a href="https://github.com/nextauthjs/next-auth">GitHub repo</a>. The salt used for minting these cookies is the cookie name itself. So, it&rsquo;s pretty easy for an adversary to derive it as well.</p>
+<h2 id="creating-a-next-auth-cookie-minter-code">Creating a Next Auth Cookie Minter (Code)</h2>
+<p>When tackling this, the easiest approach is to call the functions from the <code>next-auth</code> library.</p>
+<p>Rather than researching this manually, I used AI to go over the code and build a cookie encoder/decoder (those are the terms used by <code>next-auth</code>) to allow minting and decoding valid cookies.</p>
+<p>There isn&rsquo;t anything special here. Nevertheless, I figured to share to raise awareness of this TTP.</p>
+<p>I created this a few weeks ago, and just put the source code up <a href="https://github.com/wunderwuzzi23/next-auth-cookie-tool">here</a>.</p>
+<p>See the <a href="#appendix">Appendix</a> for the tool usage and command line options.</p>
+<h2 id="demonstration-video-and-walkthrough">Demonstration Video and Walkthrough</h2>
+<p>If you prefer to watch a video with details. This is a demo of a basic Next.js app to show how cookies can be decrypted and encrypted/signed.</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Imv_7Es1WHQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>Hope these insights help highlight the importance of regular Auth.js secret rotation.</p>
 <h3 id="a-few-more-implementation-details">A Few More Implementation Details</h3>
-<p>In particular <code>next-auth</code> uses <strong>HKDF (HMAC-based Key Derivation Function)</strong> to derive encryption keys from the secret when encoding/signing JWT cookies. Here&rsquo;s the complete process:</p>
+<p>In particular, <code>next-auth</code> uses <strong>HKDF (HMAC-based Key Derivation Function)</strong> to derive encryption keys from the secret when encoding/signing JWT cookies. Here&rsquo;s the complete process:</p>
 <ol>
 <li>Salt Value: That&rsquo;s the session cookie name, e.g. <code>authjs.session-token</code>,  <code>__Secure-authjs.session-token</code>, <code>next-auth.session-token</code>,&hellip; (varies by version)</li>
 <li>Key-Derivation: Using HKDF in <code>getDerivedEncryptionKey</code></li>
@@ -163,15 +174,6 @@
 </ol>
 <p>The only input needed should be the <code>NEXTAUTH_SECRET</code>, and then cycle through a couple of default salt values that <code>next-auth</code> uses and differ between versions as far as I can tell.</p>
 <p><strong>Note:</strong> If you see multiple cookies with numbers at the end, concatenate their values in order (token0 + token1) and pass that single long string to this decoder utility (that should work).</p>
-<h2 id="source-code-for-a-token-minter">Source Code For A Token Minter</h2>
-<p>There isn&rsquo;t much special here, because it invokes the actual <code>next-auth</code> code to do all the heavy lifting. Nevertheless, I figured I&rsquo;d raise awareness of this TTP. I created this a few weeks ago, and don&rsquo;t recall if I used GitHub Copilot or Claude Code right now. But anyhow you can find the basic code it <a href="https://github.com/wunderwuzzi23/next-auth-cookie-tool">here</a>.</p>
-<h2 id="demonstration-video-and-walkthrough">Demonstration Video and Walkthrough</h2>
-<p>A demonstration of a simple Next.js app to show how cookies can be decrypted and encrypted/signed.</p>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/abc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
-
-<p>Hope these insights help highlight the importance of regular Auth.js secret rotation.</p>
 <h2 id="persistent-access-to-the-application">Persistent Access to the Application</h2>
 <p>If you had a public facing website vulnerable to <code>React2Shell</code> and you have not updated the <code>NEXTAUTH_SECRET</code> itmight mean that an adversary gained access to the <code>NEXTAUTH_SECRET</code> and can mint arbitrary authentication tokens.</p>
 <p>This allows the adversary to impersonate any user, with any role, and maintain persistent access.</p>
@@ -193,7 +195,72 @@
 <li><a href="https://github.com/nextauthjs/next-auth">github.com/nextauthjs/next-auth</a></li>
 <li><a href="https://nextjs.org/">Next.js</a></li>
 </ul>
+<h2 id="appendix">Appendix</h2>
+<h3 id="cookie-creator">Cookie Creator</h3>
+<p>Create a signed session cookie with example data:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>node cookie-creator.js
+</span></span></code></pre></div><p><strong>Note:</strong> To create cookies with custom session information for your specific application, edit the example session data in <a href="cookie-creator.js:202">cookie-creator.js</a> (around line 202). Update the fields like <code>name</code>, <code>email</code>, <code>sub</code>, and any other custom claims to match your application&rsquo;s session structure.</p>
+<h4 id="custom-cookie-name">Custom Cookie Name</h4>
+<p>You can specify a custom cookie name using the <code>--cookie-name</code> argument:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>node cookie-creator.js --cookie-name <span style="color:#e6db74">&#39;authjs.session-token&#39;</span>
+</span></span></code></pre></div><p>This is useful when working with different NextAuth versions or custom configurations.</p>
+<h4 id="output">Output</h4>
+<p>This will output:</p>
+<ul>
+<li>The cookie name (default: <code>next-auth.session-token</code> or your custom name)</li>
+<li>The encrypted JWT token</li>
+<li>A complete Set-Cookie header string</li>
+<li>Expiration information</li>
+</ul>
+<h4 id="example-output">Example Output</h4>
+<pre tabindex="0"><code>🔐 NextAuth Cookie Creator Tool
 
+📝 Creating session cookie with example data:
+{
+  &#34;name&#34;: &#34;John Doe&#34;,
+  &#34;email&#34;: &#34;john@example.org&#34;,
+  &#34;sub&#34;: &#34;user-123&#34;,
+  &#34;picture&#34;: &#34;https://wuzzi.net/h.png&#34;
+}
+
+✅ Cookie created successfully!
+
+Cookie Name: next-auth.session-token
+
+Encrypted Token (JWT):
+eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwia2lkIjoiU3N3dTVtM0FK...
+
+Full Cookie String (for Set-Cookie header):
+next-auth.session-token=eyJhbGci...; HttpOnly; SameSite=lax; Path=/; Max-Age=2592000
+
+Expires in: 2592000 seconds ( 30 days)
+</code></pre><h3 id="cookie-decoder">Cookie Decoder</h3>
+<p>Decode and verify an existing session cookie:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>node cookie-decoder.js <span style="color:#e6db74">&#39;eyJhbGci...&#39;</span>
+</span></span></code></pre></div><h4 id="example-output-1">Example Output</h4>
+<pre tabindex="0"><code>🔓 NextAuth Cookie Decoder Tool
+
+🔍 Trying salt: &#34;next-auth.session-token&#34;...
+✅ Token decoded successfully with salt: &#34;next-auth.session-token&#34;!
+
+Cookie Name (Salt Used): &#34;next-auth.session-token&#34;
+
+Session Data:
+{
+  &#34;name&#34;: &#34;John Doe&#34;,
+  &#34;email&#34;: &#34;john@example.org&#34;,
+  &#34;sub&#34;: &#34;user-123&#34;,
+  &#34;picture&#34;: &#34;https://wuzzi.net/h.png&#34;,
+  &#34;iat&#34;: 1734559200,
+  &#34;exp&#34;: 1737151200,
+  &#34;jti&#34;: &#34;a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p6&#34;
+}
+
+Expiry Information:
+  Expires at: 2025-01-17T12:00:00.000Z
+  Status: ✅ Valid
+  Time remaining: 29 days, 23 hours
+</code></pre>
   </section>
   <footer>
     
@@ -215,7 +282,7 @@
 
       
       
-      <li class="previous"><a href="http://localhost:1313/blog/posts/2025/39c3-agentic-probllms-exploiting-computer-use-and-coding-agents/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2025/39c3-agentic-probllms-exploiting-computer-use-and-coding-agents/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>
@@ -264,7 +331,7 @@
     </div>
     </div>
 </footer>
-  <script src="http://localhost:1313/blog/js/highlight.pack.js"></script>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
   </script>

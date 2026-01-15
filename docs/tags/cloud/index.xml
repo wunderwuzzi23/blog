@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cloud on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/cloud/</link>
+    <link>https://embracethered.com/blog/tags/cloud/</link>
     <description>Recent content in Cloud on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Sun, 20 Nov 2022 18:00:00 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ropci deep-dive for Azure hackers</title>
-      <link>http://localhost:1313/blog/posts/2022/ropci-usage/</link>
+      <link>https://embracethered.com/blog/posts/2022/ropci-usage/</link>
       <pubDate>Sun, 20 Nov 2022 18:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2022/ropci-usage/</guid>
-      <description>&lt;p&gt;Misconfigurations with MFA setups are not uncommon when using AAD, especially when federated setups or Pass Through Authentication is configured I have seen MFA bypass opportunities in multiple production tenants.&lt;/p&gt;&#xA;&lt;p&gt;A common misconfiguration is that MFA is enforced at the federated identity provider, but AAD is forgotten and ROPC authentication still succeeds against AAD.&lt;/p&gt;&#xA;&lt;p&gt;To learn more about ROPC, check out the &lt;a href=&#34;http://localhost:1313/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/&#34;&gt;previous post about the topic&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This post focuses on the &lt;code&gt;ropci&lt;/code&gt; features that can be leveraged post-exploitation.&lt;/p&gt;</description>
+      <guid>https://embracethered.com/blog/posts/2022/ropci-usage/</guid>
+      <description>&lt;p&gt;Misconfigurations with MFA setups are not uncommon when using AAD, especially when federated setups or Pass Through Authentication is configured I have seen MFA bypass opportunities in multiple production tenants.&lt;/p&gt;&#xA;&lt;p&gt;A common misconfiguration is that MFA is enforced at the federated identity provider, but AAD is forgotten and ROPC authentication still succeeds against AAD.&lt;/p&gt;&#xA;&lt;p&gt;To learn more about ROPC, check out the &lt;a href=&#34;https://embracethered.com/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/&#34;&gt;previous post about the topic&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This post focuses on the &lt;code&gt;ropci&lt;/code&gt; features that can be leveraged post-exploitation.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PenTest Magazine Open Source Toolkit: ropci</title>
-      <link>http://localhost:1313/blog/posts/2022/ropci-pentest-magazine-open-source-tools/</link>
+      <link>https://embracethered.com/blog/posts/2022/ropci-pentest-magazine-open-source-tools/</link>
       <pubDate>Thu, 20 Oct 2022 09:00:10 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2022/ropci-pentest-magazine-open-source-tools/</guid>
-      <description>&lt;p&gt;Great news!&lt;/p&gt;&#xA;&lt;p&gt;An article about &lt;code&gt;ropci&lt;/code&gt; is in the latest free issue of the Pentest Magazine!&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit/&#34;&gt;&lt;img src=&#34;http://localhost:1313/blog/images/2022/ropci-pentest-magazine.png&#34; alt=&#34;pentest magazine&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;The article has a lot more info then my ropci blog post or the info on the &lt;a href=&#34;https://github.com/wunderwuzzi23/ropci&#34;&gt;ropci Github repo&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Get your copy and check it out! It also has an article about Nuclei, one of my favorite tools.&lt;/p&gt;&#xA;&lt;p&gt;Cheers.&lt;/p&gt;&#xA;&lt;p&gt;Link: &lt;a href=&#34;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit&#34;&gt;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://embracethered.com/blog/posts/2022/ropci-pentest-magazine-open-source-tools/</guid>
+      <description>&lt;p&gt;Great news!&lt;/p&gt;&#xA;&lt;p&gt;An article about &lt;code&gt;ropci&lt;/code&gt; is in the latest free issue of the Pentest Magazine!&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit/&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2022/ropci-pentest-magazine.png&#34; alt=&#34;pentest magazine&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;The article has a lot more info then my ropci blog post or the info on the &lt;a href=&#34;https://github.com/wunderwuzzi23/ropci&#34;&gt;ropci Github repo&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Get your copy and check it out! It also has an article about Nuclei, one of my favorite tools.&lt;/p&gt;&#xA;&lt;p&gt;Cheers.&lt;/p&gt;&#xA;&lt;p&gt;Link: &lt;a href=&#34;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit&#34;&gt;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>ROPC - So, you think you have MFA?</title>
-      <link>http://localhost:1313/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/</link>
+      <link>https://embracethered.com/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/</link>
       <pubDate>Thu, 20 Oct 2022 08:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/</guid>
-      <description>&lt;p&gt;This post will highlight a pattern I have seen across multiple production Microsoft Azure Active Directory tenants which led to MFA bypasses using ROPC.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;The key take-away: Always enforce MFA! Sounds easy, but there are often misconfigurations and unexpected exceptions. So, test your own AAD tenant for ROPC based MFA bypass opportunities.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Github&lt;/strong&gt;: &lt;a href=&#34;https://github.com/wunderwuzzi23/ropci&#34;&gt;https://github.com/wunderwuzzi23/ropci&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: The latest free issue of Pentest Magazine has a &lt;a href=&#34;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit/&#34;&gt;ropci article&lt;/a&gt;. Check it out.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/images/2022/ropci.png&#34; alt=&#34;How does an OAuth2 ROPC Request look like&#34;&gt;&lt;/p&gt;</description>
+      <guid>https://embracethered.com/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/</guid>
+      <description>&lt;p&gt;This post will highlight a pattern I have seen across multiple production Microsoft Azure Active Directory tenants which led to MFA bypasses using ROPC.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;The key take-away: Always enforce MFA! Sounds easy, but there are often misconfigurations and unexpected exceptions. So, test your own AAD tenant for ROPC based MFA bypass opportunities.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Github&lt;/strong&gt;: &lt;a href=&#34;https://github.com/wunderwuzzi23/ropci&#34;&gt;https://github.com/wunderwuzzi23/ropci&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: The latest free issue of Pentest Magazine has a &lt;a href=&#34;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit/&#34;&gt;ropci article&lt;/a&gt;. Check it out.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2022/ropci.png&#34; alt=&#34;How does an OAuth2 ROPC Request look like&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>AWS Scaled Command Bash Script - Run AWS commands for many profiles</title>
-      <link>http://localhost:1313/blog/posts/2022/aws-scaled-command/</link>
+      <link>https://embracethered.com/blog/posts/2022/aws-scaled-command/</link>
       <pubDate>Sat, 12 Mar 2022 10:42:14 -0800</pubDate>
-      <guid>http://localhost:1313/blog/posts/2022/aws-scaled-command/</guid>
-      <description>&lt;p&gt;One area that I have encountered quite often over the years is that during recon phase of a bug bounty hunt or pentest a set of AWS access keys are being discovered.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s say you found 50 AWS access keys by drooling and &lt;a href=&#34;http://localhost:1313/blog/posts/2020/hunting-for-credentials/&#34;&gt;hunting&lt;/a&gt; through public Github repos and using other nifty tricks and means.&lt;/p&gt;&#xA;&lt;p&gt;How do you go about checking their validity? And what do they have access to and provide the Bug Bounty Program or Blue Team the dates, times, and IP address when those keys were used?&lt;/p&gt;</description>
+      <guid>https://embracethered.com/blog/posts/2022/aws-scaled-command/</guid>
+      <description>&lt;p&gt;One area that I have encountered quite often over the years is that during recon phase of a bug bounty hunt or pentest a set of AWS access keys are being discovered.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s say you found 50 AWS access keys by drooling and &lt;a href=&#34;https://embracethered.com/blog/posts/2020/hunting-for-credentials/&#34;&gt;hunting&lt;/a&gt; through public Github repos and using other nifty tricks and means.&lt;/p&gt;&#xA;&lt;p&gt;How do you go about checking their validity? And what do they have access to and provide the Bug Bounty Program or Blue Team the dates, times, and IP address when those keys were used?&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

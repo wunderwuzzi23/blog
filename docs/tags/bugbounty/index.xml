@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bugbounty on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/bugbounty/</link>
+    <link>https://embracethered.com/blog/tags/bugbounty/</link>
     <description>Recent content in Bugbounty on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Mon, 12 Feb 2024 17:11:48 -0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/bugbounty/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/bugbounty/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Video: ASCII Smuggling and Hidden Prompt Instructions</title>
-      <link>http://localhost:1313/blog/posts/2024/ascii-smuggling-and-hidden-prompt-instructions/</link>
+      <link>https://embracethered.com/blog/posts/2024/ascii-smuggling-and-hidden-prompt-instructions/</link>
       <pubDate>Mon, 12 Feb 2024 17:11:48 -0800</pubDate>
-      <guid>http://localhost:1313/blog/posts/2024/ascii-smuggling-and-hidden-prompt-instructions/</guid>
-      <description>&lt;p&gt;A couple of weeks ago hidden prompt injections were discovered and &lt;a href=&#34;http://localhost:1313/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/&#34;&gt;we covered it at the time&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This video explains it in more detail, and also highlights implications beyond hiding instructions, including what I call &lt;code&gt;ASCII Smuggling&lt;/code&gt;. This is the usage of &lt;a href=&#34;https://en.wikipedia.org/wiki/Tags_(Unicode_block)&#34;&gt;Unicode Tags Block characters&lt;/a&gt; to both craft and deciper hidden messages in plain sight.&lt;/p&gt;&#xA;&lt;p&gt;&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;&#xA;      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/7z8weQnEbsc?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;&lt;br&gt;&#xA;&lt;br&gt;&lt;/p&gt;</description>
+      <guid>https://embracethered.com/blog/posts/2024/ascii-smuggling-and-hidden-prompt-instructions/</guid>
+      <description>&lt;p&gt;A couple of weeks ago hidden prompt injections were discovered and &lt;a href=&#34;https://embracethered.com/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/&#34;&gt;we covered it at the time&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This video explains it in more detail, and also highlights implications beyond hiding instructions, including what I call &lt;code&gt;ASCII Smuggling&lt;/code&gt;. This is the usage of &lt;a href=&#34;https://en.wikipedia.org/wiki/Tags_(Unicode_block)&#34;&gt;Unicode Tags Block characters&lt;/a&gt; to both craft and deciper hidden messages in plain sight.&lt;/p&gt;&#xA;&lt;p&gt;&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;&#xA;      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/7z8weQnEbsc?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;&lt;br&gt;&#xA;&lt;br&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>$3000 Bug Bounty Award from Mozilla for a successful targeted Credential Hunt</title>
-      <link>http://localhost:1313/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/</link>
+      <link>https://embracethered.com/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/</link>
       <pubDate>Wed, 13 May 2020 18:00:25 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/mozilla-bug-bounty-credential-hunt-phabricator-token/</guid>
       <description>&lt;p&gt;Last month I did some research on Firefox, specifically I was learning more about it&amp;rsquo;s remote debugging features. As part of that I was reading Bugzilla bug information and learned more about Mozilla&amp;rsquo;s infrastructure.&lt;/p&gt;&#xA;&lt;p&gt;One thing I noticed reading up on details was that Mozilla uses &lt;strong&gt;Phabricator&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;what-is-phabricator&#34;&gt;What is Phabricator?&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Phabricator&lt;/strong&gt; is a collaborative web-based toolset for code reviews, checkins, bugs, work items, wiki, pastes, credentials and many other useful things. It was orginally developed by Facebook as far as I know.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Google Leaks Your Alternate Email Addresses to Unauthenticated Users</title>
-      <link>http://localhost:1313/blog/posts/google-email-leak/</link>
+      <link>https://embracethered.com/blog/posts/google-email-leak/</link>
       <pubDate>Tue, 04 Jun 2019 21:51:52 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/google-email-leak/</guid>
+      <guid>https://embracethered.com/blog/posts/google-email-leak/</guid>
       <description>&lt;p&gt;The Google Login Flow leaks additional email account information to unauthenticated users. I discovered this in the Google Account Login flow while building KoiPhish.&lt;/p&gt;&#xA;&lt;h2 id=&#34;responsible-disclosure&#34;&gt;Responsible Disclosure&lt;/h2&gt;&#xA;&lt;p&gt;I reported this issue to Google and they looked into it and after a about 5 weeks of back and forth they decided that this is not an issue worth fixing. After asking if I can post about it publicly I got Google&amp;rsquo;s okay.&lt;/p&gt;</description>
     </item>
   </channel>
