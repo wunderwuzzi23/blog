@@ -330,9 +330,7 @@ tr:nth-child(even) {
     cursor: pointer;
     z-index: 9998;
     font-size: 24px;
-    text-decoration: none;
     transition: background-color 0.2s, transform 0.2s;
-    /* Hidden on desktop but still in DOM for Kit JS binding */
     visibility: hidden;
     pointer-events: none;
 }
@@ -355,3 +353,4 @@ tr:nth-child(even) {
         pointer-events: auto;
     }
 }
+
