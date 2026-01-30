@@ -83,7 +83,7 @@ a.btn-header:hover {
 }
 
 a.btn-rss {
-    right: 120px;
+    right: 125px;
 }
 
 a.btn-subscribe {
@@ -313,4 +313,45 @@ tr:nth-child(even) {
     left: 0;
     right: 0;
     z-index: 9999;
+}
+
+/* Floating Subscribe Button (FAB) for Mobile */
+.fab-subscribe {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #337ab7;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 9998;
+    font-size: 24px;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.2s;
+    /* Hidden on desktop but still in DOM for Kit JS binding */
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.fab-subscribe i {
+    line-height: 56px;
+    width: 100%;
+    text-align: center;
+}
+
+.fab-subscribe:hover,
+.fab-subscribe:active {
+    background-color: #286090;
+    color: white;
+}
+
+@media (max-width: 767px) {
+    .fab-subscribe {
+        visibility: visible;
+        pointer-events: auto;
+    }
 }
