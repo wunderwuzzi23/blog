@@ -82,6 +82,10 @@ a.btn-header:hover {
     color: rgba(0, 0, 0, 1.0);
 }
 
+a.btn-rss {
+    right: 120px;
+}
+
 a.btn-subscribe {
     right: 20px;
 }
@@ -300,4 +304,13 @@ th {
 
 tr:nth-child(even) {
     background-color: #f2f2f2;
+}
+
+/* Kit Newsletter Subscription - Floating Bottom Bar */
+.kit-subscribe-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
 }
