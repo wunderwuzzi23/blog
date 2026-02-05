@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta name="description" content="Last week I saw this paper from OpenAI called &ldquo;Preventing URL-Based Data Exfiltration in Language-Model Agents&rdquo;, which goes into detail on new …" />
+  <link rel="canonical" href="https://embracethered.com/blog/posts/2026/data-exfiltration-mitigation-paper-by-openai/" />
+  <meta property="og:title" content=" OpenAI Explains URL-Based Data Exfiltration Mitigations in New Paper &middot;  Embrace The Red" />
+  <meta property="og:description" content="Last week I saw this paper from OpenAI called &ldquo;Preventing URL-Based Data Exfiltration in Language-Model Agents&rdquo;, which goes into detail on new …" />
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2026/data-exfiltration-mitigation-paper-by-openai/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:article:published_time" content="2026-02-04T23:59:30-07:00" />
+  <meta property="og:article:tag" content="llm" />
+  <meta property="og:article:tag" content="data exfiltration" />
+  <meta property="og:article:tag" content="blue" />
+
+  <title>
+     OpenAI Explains URL-Based Data Exfiltration Mitigations in New Paper &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="OpenAI Explains URL-Based Data Exfiltration Mitigations in New Paper">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2026/data-exfil-mitigation.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "\"OpenAI Explains URL-Based Data Exfiltration Mitigations in New Paper\"",
+    "description": "\"Last week I saw this paper from OpenAI called \\u0026ldquo;Preventing URL-Based Data Exfiltration in Language-Model Agents\\u0026rdquo;, which goes into detail on new …\"",
+    "author": {
+      "@type": "Person",
+      "name": "wunderwuzzi",
+      "url": "https://x.com/wunderwuzzi23"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "\"Embrace The Red\"",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https:\/\/embracethered.com\/blog\/images/favicon.ico"
+      }
+    },
+    "url": "\"https://embracethered.com/blog/posts/2026/data-exfiltration-mitigation-paper-by-openai/\"",
+    "datePublished": "\"2026-02-04T23:59:30-07:00\"","dateModified": "\"2026-02-04T23:59:30-07:00\"",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "\"https://embracethered.com/blog/posts/2026/data-exfiltration-mitigation-paper-by-openai/\""
+    }
+  }
+  </script>
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+  <a data-formkit-toggle="15376e9e24" href="https://embracethered.kit.com/15376e9e24" title="Subscribe to newsletter" onclick="return false;">
+    <i class="fa fa-bell"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-rss hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;RSS
+      </a>
+      <a data-formkit-toggle="15376e9e24" href="https://embracethered.kit.com/15376e9e24" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">OpenAI Explains URL-Based Data Exfiltration Mitigations in New Paper</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2026-02-04T23:59:30-07:00">
+          Feb 4, 2026
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/data-exfiltration">#data exfiltration</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/blue">#blue</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>Last week I saw <a href="https://cdn.openai.com/pdf/dd8e7875-e606-42b4-80a1-f824e4e11cf4/prevent-url-data-exfil.pdf">this paper</a> from OpenAI called &ldquo;Preventing URL-Based Data Exfiltration in
+Language-Model Agents&rdquo;, which goes into detail on new mitigations they’ve added.</p>
+<p><a href="https://cdn.openai.com/pdf/dd8e7875-e606-42b4-80a1-f824e4e11cf4/prevent-url-data-exfil.pdf"><img src="/blog/images/2026/openai-paper-abstract.png" alt="OpenAI Paper Abstract"></a></p>
+<p><strong>This is a great read.</strong> I like this transparency.</p>
+<h3 id="initial-disclosure-in-2023">Initial Disclosure in 2023</h3>
+<p>Nearly three years ago I reported the zero-click data exfiltration exploit to OpenAI. Back in early 2023 OpenAI did not have a bug bounty program, so communication was via email, and unfortunately there was little traction or appetite to fix the problem in ChatGPT. I also reported the same issue to Microsoft as Bing Chat was impacted, and Microsoft applied a fix (via a Content-Security-Policy header) in May 2023 to generally prevent loading of images.</p>
+<p>Since then, dozens of such vulnerabilities across the AI ecosystem, being one of the most common AI application security vulnerabilities.</p>
+<h3 id="tackling-the-problem">Tackling the Problem</h3>
+<p>In December 2023 OpenAI <a href="https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/">added initial mitigations via a url_safe feature</a>. But it was unclear exactly what the decision process was that made a URL safe. I reverse engineered a few things over time and found bypasses, like those presented at <a href="https://www.youtube.com/watch?v=84NVG1c5LRI">BlackHat Europe 2024</a>. Additionally, there were places where OpenAI had not added the mitigation at all, like in the macOS and iOS apps.</p>
+<p>Interestingly, back then I wrote:</p>
+<blockquote>
+<p>There is some internal decision making happening when an image is considered safe and when not, maybe ChatGPT queries the Bing index to see if an image is valid and pre-existing or have other tracking capabilities and/or other checks.</p></blockquote>
+<p>Around August 2025 additional mitigations were <a href="https://embracethered.com/blog/posts/2025/chatgpt-chat-history-data-exfiltration/">added</a>, specifically the <code>url_safe</code> feature which mitigated the attacks shown at BlackHat and <a href="https://embracethered.com/blog/posts/2025/chatgpt-chat-history-data-exfiltration/">Month of AI Bugs</a>.</p>
+<p>The latest paper from OpenAI discusses these new mitigation steps in detail.</p>
+<h2 id="what-is-the-new-mitigation">What Is the New Mitigation</h2>
+<p>First, it&rsquo;s not a solved problem, but complexity of attacks has increased.</p>
+<p>But at a high level, OpenAI has a crawler and any URL that it encounters is added to an allow-list, meaning ChatGPT will navigate to that URL without issue. However, if ChatGPT tries to dynamically create a new URL, then it would be unsafe.</p>
+<p>So, it&rsquo;s not using the Bing Index (as I had ideated in 2023), but OpenAI now has their own web index and they also use it for URL validation.</p>
+<p>Also, if a URL is directly entered as part of a user message, that URL is considered safe for the chat session. At least that has been my understanding with ChatGPT for a while.</p>
+<h3 id="how-can-it-be-bypassed">How Can It Be Bypassed?</h3>
+<p>Despite these mitigations, certain bypasses remain viable.</p>
+<p>One such bypass trick <a href="https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/">that I described in 2023</a> is still applicable, and OpenAI also highlights it in the paper.</p>
+<p>The idea is to use individual URLs for each letter.</p>
+<p>Now, those URLs would have to be in their search index also. If someone has a larger website or blog there are probably already 36 URLs indexed that can be used for the LLM to do the mapping from A-Z and 0-9. 😈 Someone could also go a lot further, expanding the vocabulary to thousands of URLs and teach the model via indirect prompt injection the mapping.</p>
+<p>Leakage of bits of information still seems straightforward, and that remains a risk for certain scenarios.</p>
+<p>You can see a basic demo of something similar <a href="https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/">in my blog post from 2023</a> which highlights the idea, but with limitations.</p>
+<h2 id="additional-mitigation-ideas">Additional Mitigation Ideas</h2>
+<p>One challenge for attackers that I highlighted back in 2023 was that the browser caches requests and requests might arrive out of order. Both are mitigating factors, but the fact that the AI does connect is still a leakage channel that can be abused.</p>
+<p>Two ideas immediately come to mind, and they are both related. The idea is to prevent the agent from visiting the same full URL multiple times in one session. This makes it even more difficult for an attacker.</p>
+<p>This could be achieved by:</p>
+<ol>
+<li>Caching the response for some time (e.g., even just a few minutes would probably suffice)</li>
+<li>Prevent the agent from visiting the same URL multiple times within one session</li>
+</ol>
+<p>This would still allow limited data exfiltration, but tricks like using fixed URLs to map characters repeatedly would face additional challenges. I have not tested the feature recently to check if some of these mitigations are in place by the way.</p>
+<p>Further advances in research and feature additions or changes might highlight additional exploit techniques in the future.</p>
+<h2 id="final-risk---thorough-adoption-of-the-mitigation">Final Risk - Thorough Adoption of the Mitigation</h2>
+<p>The final real-world risk is that not every developer at OpenAI might know about this mitigation and adopt it accordingly. This is a typical engineering challenge for the security organization that I have personally encountered often in the past also. Just because there is a good mitigation, it doesn&rsquo;t mean that it is actually used.</p>
+<p>Also, this mitigation is about the data exfiltration channel, it does not make any claim or statement about indirect prompt injection.</p>
+<p>It&rsquo;s great to see these mitigations being added, and also a paper about it being published by OpenAI. Even though it&rsquo;s not a silver bullet to fix all leaks, it is a significant improvement.</p>
+<p>Happy Hacking.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://openai.com/index/ai-agent-link-safety/">AI Agent Link Safety</a></li>
+<li><a href="https://embracethered.com/blog/posts/2023/openai-data-exfiltration-first-mitigations-implemented/">OpenAI Begins Tackling ChatGPT Data Leak Vulnerability</a></li>
+<li><a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">Simon Willison - Lethal Trifecta</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2026/minting-next-auth-nextjs-auth-cookies-react2shell-threat/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2026
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+  <a data-formkit-toggle="15376e9e24" href="https://embracethered.kit.com/15376e9e24" title="Subscribe to newsletter" onclick="return false;">
+    <i class="fa fa-bell"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. | <a href="https://embracethered.com/blog/privacy.txt">Privacy</a>
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<img src="https://wuzzi.net/anamato/inc/rts.php?idsite=1&amp;rec=1" style="border:0;" alt="" />
+
+
+<script async data-uid="15376e9e24" src="https://embracethered.kit.com/15376e9e24/index.js"></script>
+
+</body>
+</html>
+

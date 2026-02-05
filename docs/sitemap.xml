@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://embracethered.com/blog/tags/cookies/</loc>
-    <lastmod>2026-01-14T23:58:58-07:00</lastmod>
+    <loc>https://embracethered.com/blog/tags/blue/</loc>
+    <lastmod>2026-02-04T23:59:30-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/data-exfiltration/</loc>
+    <lastmod>2026-02-04T23:59:30-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2026-02-04T23:59:30-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2026-02-04T23:59:30-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2026/data-exfiltration-mitigation-paper-by-openai/</loc>
+    <lastmod>2026-02-04T23:59:30-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2026-02-04T23:59:30-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2026-02-04T23:59:30-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/cookies/</loc>
     <lastmod>2026-01-14T23:58:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2026/minting-next-auth-nextjs-auth-cookies-react2shell-threat/</loc>
     <lastmod>2026-01-14T23:58:58-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2026-01-14T23:58:58-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2026-01-14T23:58:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2026-01-14T23:58:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/ttp/</loc>
@@ -30,9 +42,6 @@
     <lastmod>2025-12-30T22:20:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/conference/</loc>
-    <lastmod>2025-12-30T22:20:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
     <lastmod>2025-12-30T22:20:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/prompt-injection/</loc>
@@ -48,9 +57,6 @@
     <lastmod>2025-12-04T18:42:03-08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2025/security-keeps-google-antigravity-grounded/</loc>
-    <lastmod>2025-11-25T06:00:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/data-exfiltration/</loc>
     <lastmod>2025-11-25T06:00:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/rce/</loc>
@@ -250,9 +256,6 @@
   </url><url>
     <loc>https://embracethered.com/blog/tags/testing/</loc>
     <lastmod>2024-08-21T19:00:30-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/blue/</loc>
-    <lastmod>2024-07-30T10:00:36-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/copilot/</loc>
     <lastmod>2024-07-30T10:00:36-07:00</lastmod>

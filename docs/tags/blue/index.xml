@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
-    <lastBuildDate>Tue, 30 Jul 2024 10:00:36 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 04 Feb 2026 23:59:30 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/blue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenAI Explains URL-Based Data Exfiltration Mitigations in New Paper</title>
+      <link>https://embracethered.com/blog/posts/2026/data-exfiltration-mitigation-paper-by-openai/</link>
+      <pubDate>Wed, 04 Feb 2026 23:59:30 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2026/data-exfiltration-mitigation-paper-by-openai/</guid>
+      <description>&lt;p&gt;Last week I saw &lt;a href=&#34;https://cdn.openai.com/pdf/dd8e7875-e606-42b4-80a1-f824e4e11cf4/prevent-url-data-exfil.pdf&#34;&gt;this paper&lt;/a&gt; from OpenAI called &amp;ldquo;Preventing URL-Based Data Exfiltration in&#xA;Language-Model Agents&amp;rdquo;, which goes into detail on new mitigations they’ve added.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cdn.openai.com/pdf/dd8e7875-e606-42b4-80a1-f824e4e11cf4/prevent-url-data-exfil.pdf&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2026/openai-paper-abstract.png&#34; alt=&#34;OpenAI Paper Abstract&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;This is a great read.&lt;/strong&gt; I like this transparency.&lt;/p&gt;&#xA;&lt;h3 id=&#34;initial-disclosure-in-2023&#34;&gt;Initial Disclosure in 2023&lt;/h3&gt;&#xA;&lt;p&gt;Nearly three years ago I reported the zero-click data exfiltration exploit to OpenAI. Back in early 2023 OpenAI did not have a bug bounty program, so communication was via email, and unfortunately there was little traction or appetite to fix the problem in ChatGPT. I also reported the same issue to Microsoft as Bing Chat was impacted, and Microsoft applied a fix (via a Content-Security-Policy header) in May 2023 to generally prevent loading of images.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Protect Your Copilots: Preventing Data Leaks in Copilot Studio</title>
       <link>https://embracethered.com/blog/posts/2024/copilot-studio-protect-your-copilots/</link>

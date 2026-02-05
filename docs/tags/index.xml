@@ -7,8 +7,29 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
-    <lastBuildDate>Wed, 14 Jan 2026 23:58:58 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 04 Feb 2026 23:59:30 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blue</title>
+      <link>https://embracethered.com/blog/tags/blue/</link>
+      <pubDate>Wed, 04 Feb 2026 23:59:30 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/blue/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Exfiltration</title>
+      <link>https://embracethered.com/blog/tags/data-exfiltration/</link>
+      <pubDate>Wed, 04 Feb 2026 23:59:30 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/data-exfiltration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llm</title>
+      <link>https://embracethered.com/blog/tags/llm/</link>
+      <pubDate>Wed, 04 Feb 2026 23:59:30 -0700</pubDate>
+      <guid>https://embracethered.com/blog/tags/llm/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Cookies</title>
       <link>https://embracethered.com/blog/tags/cookies/</link>
@@ -45,13 +66,6 @@
       <description></description>
     </item>
     <item>
-      <title>Llm</title>
-      <link>https://embracethered.com/blog/tags/llm/</link>
-      <pubDate>Tue, 30 Dec 2025 22:20:58 -0700</pubDate>
-      <guid>https://embracethered.com/blog/tags/llm/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Prompt Injection</title>
       <link>https://embracethered.com/blog/tags/prompt-injection/</link>
       <pubDate>Tue, 30 Dec 2025 22:20:58 -0700</pubDate>
@@ -70,13 +84,6 @@
       <link>https://embracethered.com/blog/tags/machine-learning/</link>
       <pubDate>Thu, 04 Dec 2025 18:42:03 -0800</pubDate>
       <guid>https://embracethered.com/blog/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Data Exfiltration</title>
-      <link>https://embracethered.com/blog/tags/data-exfiltration/</link>
-      <pubDate>Tue, 25 Nov 2025 06:00:58 -0700</pubDate>
-      <guid>https://embracethered.com/blog/tags/data-exfiltration/</guid>
       <description></description>
     </item>
     <item>
@@ -175,13 +182,6 @@
       <link>https://embracethered.com/blog/tags/testing/</link>
       <pubDate>Wed, 21 Aug 2024 19:00:30 -0700</pubDate>
       <guid>https://embracethered.com/blog/tags/testing/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Blue</title>
-      <link>https://embracethered.com/blog/tags/blue/</link>
-      <pubDate>Tue, 30 Jul 2024 10:00:36 -0700</pubDate>
-      <guid>https://embracethered.com/blog/tags/blue/</guid>
       <description></description>
     </item>
     <item>
