@@ -2,25 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://embracethered.com/blog/tags/agents/</loc>
+    <lastmod>2026-02-11T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2026-02-11T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2026-02-11T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2026-02-11T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/rce/</loc>
+    <lastmod>2026-02-11T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2026/scary-agent-skills/</loc>
+    <lastmod>2026-02-11T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2026-02-11T06:00:00-07:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/blue/</loc>
     <lastmod>2026-02-04T23:59:30-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/data-exfiltration/</loc>
     <lastmod>2026-02-04T23:59:30-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2026-02-04T23:59:30-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2026-02-04T23:59:30-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/posts/2026/data-exfiltration-mitigation-paper-by-openai/</loc>
-    <lastmod>2026-02-04T23:59:30-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2026-02-04T23:59:30-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2026-02-04T23:59:30-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/cookies/</loc>
@@ -58,12 +67,6 @@
   </url><url>
     <loc>https://embracethered.com/blog/posts/2025/security-keeps-google-antigravity-grounded/</loc>
     <lastmod>2025-11-25T06:00:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/rce/</loc>
-    <lastmod>2025-11-25T06:00:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/agents/</loc>
-    <lastmod>2025-10-28T08:36:30-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2025/claude-abusing-network-access-and-anthropic-api-for-data-exfiltration/</loc>
     <lastmod>2025-10-28T08:36:30-07:00</lastmod>
