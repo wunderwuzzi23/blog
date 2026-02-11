@@ -9,7 +9,7 @@ twitter:
   creator: "@wunderwuzzi23"  
   title: "Scary Agent Skills: Hidden Unicode Instructions in Skills ...And How To Catch Them"  
   description: "Agent Skills are powerful and scary. They are remote commands that your Agent will happily follow, and they can be sneaky as we will show in this post."
-  image: "https://embracethered.com/blog/images/2026/scary-agent-skills.png"  
+  image: "https://embracethered.com/blog/images/2026/skills/scary-agent-skills.png"  
 ---
 
 There is a lot of talk about Skills recently, both in terms of capabilities and security concerns. However, so far I haven't seen anyone bring up hidden prompt injection. So, I figured to demo a Skills supply chain backdoor that survives human review.
