@@ -8,7 +8,7 @@ twitter:
   site: "@wunderwuzzi23"  
   creator: "@wunderwuzzi23"  
   title: "Scary Agent Skills: Hidden Unicode Instructions in Skills ...And How To Catch Them"  
-  description: "Agent Skills are powerful and scary. They are remote commands that your Agent will happily follow, and they can be sneaky as we will show in this post."
+  description: "Agent Skills are powerful and scary. They are instructions that your Agent will happily follow, and they can be sneaky as we will show in this post."
   image: "https://embracethered.com/blog/images/2026/skills/scary-agent-skills.png"  
 ---
 
@@ -145,6 +145,8 @@ Here are a few things to be aware of:
 4. When retrying the demo on February 10, 2026, I consistently got invisible unicode detection and refusals from Claude Code. It appears Anthropic made changes in detecting invisible unicode tags since last week. We will need to keep an eye out if this is accidental, or a real mitigation that was put in place.
 5. However, in `claude.ai`, such a mitigation did not exist for Skills when I checked cross-checked yesterday.
 6. Consider running your agent in a sandbox where you grant access to resources and data explicitly, especially helpful if you use auto-approval of commands.
+7. If you install Skills be very selective, and only use Skills from trusted sources and vendors.
+8. Don't forget to uninstall/remove Skills if you don't need them anymore.
 
 ## A Scanner to Catch Attacks
 

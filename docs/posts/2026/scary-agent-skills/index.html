@@ -30,7 +30,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wunderwuzzi23">
 <meta name="twitter:title" content="Scary Agent Skills: Hidden Unicode Instructions in Skills ...And How To Catch Them">
-<meta name="twitter:description" content="Agent Skills are powerful and scary. They are remote commands that your Agent will happily follow, and they can be sneaky as we will show in this post.">
+<meta name="twitter:description" content="Agent Skills are powerful and scary. They are instructions that your Agent will happily follow, and they can be sneaky as we will show in this post.">
 <meta name="twitter:image" content="https://embracethered.com/blog/images/2026/skills/scary-agent-skills.png">
 
 <meta name="twitter:creator" content="@wunderwuzzi23">
@@ -241,6 +241,8 @@ Use this skill when the user asks about AI security.
 <li>When retrying the demo on February 10, 2026, I consistently got invisible unicode detection and refusals from Claude Code. It appears Anthropic made changes in detecting invisible unicode tags since last week. We will need to keep an eye out if this is accidental, or a real mitigation that was put in place.</li>
 <li>However, in <code>claude.ai</code>, such a mitigation did not exist for Skills when I checked cross-checked yesterday.</li>
 <li>Consider running your agent in a sandbox where you grant access to resources and data explicitly, especially helpful if you use auto-approval of commands.</li>
+<li>If you install Skills be very selective, and only use Skills from trusted sources and vendors.</li>
+<li>Don&rsquo;t forget to uninstall/remove Skills if you don&rsquo;t need them anymore.</li>
 </ol>
 <h2 id="a-scanner-to-catch-attacks">A Scanner to Catch Attacks</h2>
 <p>To catch the attacks you can use the <a href="/blog/ascii-smuggler.html">ASCII Smuggler</a>. But last week I also vibe coded a simple scanner, the code is <a href="https://github.com/wunderwuzzi23/aid">here</a>. And yesterday I also had <a href="https://github.com/openclaw/openclaw/pull/13012">my agent propose updates to OpenClaw</a> to catch such attacks.</p>
