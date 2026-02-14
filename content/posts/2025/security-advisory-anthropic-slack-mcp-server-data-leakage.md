@@ -122,7 +122,7 @@ Due to link unfurling the attacker's web server received the `Slackbot-Link-Expa
 
 ## Video Walkthrough
 
-To see the demos in action for both Claude Code and Claude Deskotp, and also learn a bit more about MCP and how to configure permissions and settings in Claude Desktop, check out this video.
+To see the demos in action for both Claude Code and Claude Desktop, and also learn a bit more about MCP and how to configure permissions and settings in Claude Desktop, check out this video.
 {{< youtube nlehKmz5Myg >}}
 
 Hope that it is useful. Please subscribe and like the channel. 
