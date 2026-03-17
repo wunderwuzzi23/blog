@@ -2,25 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://embracethered.com/blog/tags/agents/</loc>
-    <lastmod>2026-02-11T06:00:00-07:00</lastmod>
+    <loc>https://embracethered.com/blog/posts/2026/agent-commander-your-agent-works-for-me-now/</loc>
+    <lastmod>2026-03-16T20:20:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2026-02-11T06:00:00-07:00</lastmod>
+    <lastmod>2026-03-16T20:20:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2026-02-11T06:00:00-07:00</lastmod>
+    <lastmod>2026-03-16T20:20:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2026-03-16T20:20:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/prompt-injection/</loc>
+    <lastmod>2026-03-16T20:20:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2026-03-16T20:20:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2026-03-16T20:20:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/ttp/</loc>
+    <lastmod>2026-03-16T20:20:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/agents/</loc>
     <lastmod>2026-02-11T06:00:00-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/rce/</loc>
     <lastmod>2026-02-11T06:00:00-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2026/scary-agent-skills/</loc>
-    <lastmod>2026-02-11T06:00:00-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2026-02-11T06:00:00-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/blue/</loc>
@@ -38,12 +50,6 @@
     <loc>https://embracethered.com/blog/posts/2026/minting-next-auth-nextjs-auth-cookies-react2shell-threat/</loc>
     <lastmod>2026-01-14T23:58:58-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2026-01-14T23:58:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/ttp/</loc>
-    <lastmod>2026-01-14T23:58:58-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/posts/2025/39c3-agentic-probllms-exploiting-computer-use-and-coding-agents/</loc>
     <lastmod>2025-12-30T22:20:58-07:00</lastmod>
   </url><url>
@@ -51,9 +57,6 @@
     <lastmod>2025-12-30T22:20:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/conference/</loc>
-    <lastmod>2025-12-30T22:20:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/prompt-injection/</loc>
     <lastmod>2025-12-30T22:20:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/video/</loc>

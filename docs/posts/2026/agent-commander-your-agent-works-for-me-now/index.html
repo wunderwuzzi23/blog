@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta name="description" content="This post is about prompt-based command and control, which is becoming increasingly interesting.
+What is Prompt-Based Command and Control? Three years ago, when …" />
+  <link rel="canonical" href="https://embracethered.com/blog/posts/2026/agent-commander-your-agent-works-for-me-now/" />
+  <meta property="og:title" content=" Agent Commander: Prompt-Based Command and Control &middot;  Embrace The Red" />
+  <meta property="og:description" content="This post is about prompt-based command and control, which is becoming increasingly interesting.
+What is Prompt-Based Command and Control? Three years ago, when …" />
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2026/agent-commander-your-agent-works-for-me-now/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:article:published_time" content="2026-03-16T20:20:58-07:00" />
+  <meta property="og:article:tag" content="llm" />
+  <meta property="og:article:tag" content="prompt injection" />
+  <meta property="og:article:tag" content="red" />
+  <meta property="og:article:tag" content="ttp" />
+
+  <title>
+     Agent Commander: Prompt-Based Command and Control &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Agent Commander demonstrates how  personal agents can be tricked to join novel promptware-powered command and control infrastructure to continuously receive tasks and objectives from third-party adversaries.">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2026/agent-commander/agent-commander-tn.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "\"Agent Commander: Prompt-Based Command and Control\"",
+    "description": "\"This post is about prompt-based command and control, which is becoming increasingly interesting.\\nWhat is Prompt-Based Command and Control? Three years ago, when …\"",
+    "author": {
+      "@type": "Person",
+      "name": "wunderwuzzi",
+      "url": "https://x.com/wunderwuzzi23"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "\"Embrace The Red\"",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https:\/\/embracethered.com\/blog\/images/favicon.ico"
+      }
+    },
+    "url": "\"https://embracethered.com/blog/posts/2026/agent-commander-your-agent-works-for-me-now/\"",
+    "datePublished": "\"2026-03-16T20:20:58-07:00\"","dateModified": "\"2026-03-16T20:20:58-07:00\"",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "\"https://embracethered.com/blog/posts/2026/agent-commander-your-agent-works-for-me-now/\""
+    }
+  }
+  </script>
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+  <a data-formkit-toggle="15376e9e24" href="https://embracethered.kit.com/15376e9e24" title="Subscribe to newsletter" onclick="return false;">
+    <i class="fa fa-bell"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-rss hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;RSS
+      </a>
+      <a data-formkit-toggle="15376e9e24" href="https://embracethered.kit.com/15376e9e24" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Agent Commander: Prompt-Based Command and Control</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2026-03-16T20:20:58-07:00">
+          Mar 16, 2026
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/prompt-injection">#prompt injection</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/ttp">#ttp</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>This post is about prompt-based command and control, which is becoming increasingly interesting.</p>
+<h2 id="what-is-prompt-based-command-and-control">What is Prompt-Based Command and Control?</h2>
+<p>Three years ago, when ChatGPT introduced the browsing tool, we already experimented with this idea. And when ChatGPT got memories we showed that this can be combined and abused for a <a href="https://i.blackhat.com/EU-24/Presentations/EU-24-Rehberger-SpAIware-Advanced-Prompt-Injection-Exploits.pdf">full command and control channel</a>.</p>
+<p>The idea of prompt-based command and control becomes increasingly powerful as agents become more widely used and their performance increases.</p>
+<p><strong>Agents are a new execution layer.</strong></p>
+<h2 id="agent-commander">Agent Commander</h2>
+<p>Agent Commander is a command and control (C2) server where hijacked agents regularly check in for any new tasks and objectives. Unlike classical C2, it doesn’t rely on OS commands or APIs.</p>
+<p><strong>All commands are provided in natural language.</strong></p>
+<p><a href="/blog/images/2026/agent-commander/three-different-agents-calling-back.png"><img src="/blog/images/2026/agent-commander/three-different-agents-calling-back.png" alt="Agent Commander Dashboard"></a></p>
+<p><strong>This targets the agent layer, not the underlying operating system.</strong></p>
+<p>It&rsquo;s a conceptual shift as agents evolve into a kind of new operating system layer.</p>
+<p><a href="/blog/images/2026/agent-commander/agent-commander-0.png"><img src="/blog/images/2026/agent-commander/agent-commander-0.png" alt="Kimi Claw - Andy joins too Commander Dashboard"></a></p>
+<p>The goal of Agent Commander is to show that, post-exploitation, agents can be continuously hijacked to serve multiple stakeholders, and all of that at scale.</p>
+<p>Let&rsquo;s walk through the steps of this research.</p>
+<h2 id="video-walkthrough">Video Walkthrough</h2>
+<p>There is a lot more information and details, including a live demo, that I put in this video.</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/VrW5VMTnfgQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>Hope it&rsquo;s useful to help understand where things are headed.</p>
+<h2 id="initial-entry-points-and-exploitation">Initial Entry Points and Exploitation</h2>
+<p>There are typical attack vectors, such as:</p>
+<ul>
+<li>Traditional host compromise (config issue, port exposure, SSH,&hellip;)</li>
+<li>Exploiting appsec issues. See <a href="https://github.com/openclaw/openclaw/security">OpenClaw&rsquo;s lengthy security advisory list</a> for examples</li>
+<li>Supply chain. Skills have already been extensively used by threat actors to install malware</li>
+<li>However, the scenarios I&rsquo;m most interested in are prompt-based, like indirect prompt injection</li>
+</ul>
+<p>Specifically, we will show exploits for three variants of agents:</p>
+<ol>
+<li><strong>Kimi Claw</strong>: Asking the agent to analyze a document</li>
+<li><strong>OpenClaw</strong>: Email delivery. Sending a malicious email to the agent (<strong>no human action needed</strong>)</li>
+<li><strong>NanoClaw</strong>: Agent visits a website and gets hijacked</li>
+</ol>
+<p>For OpenClaw to get proactive email notifications, it&rsquo;s advised to configure via GCP Pub/Sub. This is something I learned from <em>veganmosfet</em>, who first showcased this OpenClaw running Opus 4.6 <a href="https://veganmosfet.codeberg.page/posts/2026-02-02-openclaw_mail_rce/#setup">here</a>. And this here is another good <a href="https://labs.zenity.io/p/openclaw-or-opendoor-indirect-prompt-injection-makes-openclaw-vulnerable-to-backdoors-and-much-more">post</a> about similar attacks.</p>
+<h2 id="persistence-using-heartbeats">Persistence Using Heartbeats</h2>
+<p>Over the last year, the persistence opportunities have grown. It&rsquo;s not just agent memory anymore, like it was 2 years ago with ChatGPT. Now agents can write to files, databases, soul, memory or identity definition files and many more&hellip;</p>
+<p>The scenario I chose was the <code>HEARTBEAT.md</code> in OpenClaw. There were a few reasons:</p>
+<ol>
+<li>The word <strong>heartbeat</strong> is just too classic for red teaming not to abuse it</li>
+<li>It&rsquo;s a regular proactive step that runs every 30 minutes by default</li>
+<li>It typically runs on the main channel</li>
+<li><strong>Responses to the user can be suppressed with <code>HEARTBEAT_OK</code></strong>
+<a href="/blog/images/2026/agent-commander/hearbeat-ok-no-ui-message.png"><img src="/blog/images/2026/agent-commander/hearbeat-ok-no-ui-message.png" alt="Agent Commander Heartbeat"></a> This screenshot shows the suppression message.</li>
+<li>The heartbeat often is <strong>configured to use weaker models to save costs</strong>. It&rsquo;s even mentioned in the docs. That means it likely stays undetected by the agent itself for a longer time. And the more often an agent follows the malicious steps the more it normalizes that this is what the user wants.</li>
+</ol>
+<p>This works well, and here are a few things I learned along the way:</p>
+<ol>
+<li>User notification suppression works surprisingly well. There is also a <code>NO_REPLY</code> option to suppress info.</li>
+<li>One time an OpenClaw agent identified the added backdoor in the heartbeat. It happened when it summarized the daily notes into a memory file for the day. So it happened delayed, but I found that super interesting.</li>
+<li>One compromised agent started ignoring the heartbeat instructions after a while entirely</li>
+<li>Opus 4.6 is better in catching attacks, but after some testing, reliable bypasses can be found</li>
+<li>Sometimes a compromised agent only follows heartbeat instructions partially, which will be an interesting challenge for attackers</li>
+</ol>
+<h2 id="objectives-your-agent-works-for-me-now">Objectives: Your Agent Works For Me Now</h2>
+<p>Now that we have compromised agents calling back we can assign them tasks, and this is where things are conceptually changing from an adversarial point of view.</p>
+<p>In the past threat actors and red teams would tell what commands to run and what to do, but with prompting all of this elevates to a new abstraction layer, where we prompt the compromised agent what we would like to be done, and it will figure it out.</p>
+<p>This could be short-lived or long-running tasks or missions, a few examples:</p>
+<ol>
+<li>Host enumeration and creating an executive summary in one shot</li>
+<li>Task agent to browse to inbox, take a screenshot and email it (or upload to Agent Commander)</li>
+<li>Do something totally different, like assign tasks to monitor third party websites for changes</li>
+<li>Complex multi-system objectives, find some source code and then leak it out, etc.</li>
+<li>Find and exploit custom zero-days on the fly when laterally moving within an environment</li>
+<li><strong>Influence campaigns, social media posts, ad-click fraud, likes,&hellip;</strong></li>
+<li>Be creative, imagine how wild this is.. I mean we knew and predicted that it&rsquo;s eventually going to happen, but now it&rsquo;s basically real&hellip;</li>
+</ol>
+<p>The level of sophistication and technical expertise for an adversary to achieve objectives will continue to drop significantly. This does not require any malware to be installed or dropped in the traditional sense, just prompts.</p>
+<p>A cool feature is that you can upload and download images from the compromised host via the agent.</p>
+<p><a href="/blog/images/2026/agent-commander/agent-commander-screenshot.png"><img src="/blog/images/2026/agent-commander/agent-commander-screenshot.png" alt="Agent Commander Dashboard"></a></p>
+<p>In the above screenshot, you can see I asked OpenClaw to navigate to the Outlook inbox, take a screenshot and upload it to Agent Commander. Pretty cool.</p>
+<p><strong>Assume Breach: Your agent is the potential malware!</strong></p>
+<h3 id="nanoclaw---demonstration">NanoClaw - Demonstration</h3>
+<p>Here are some more details around the NanoClaw demo in the video.</p>
+<h4 id="installation">Installation</h4>
+<p>NanoClaw has no ordinary installer, and it&rsquo;s a fascinating shift. You basically use Claude to create it! So, for instance, I don&rsquo;t want to use the WhatsApp integration, so I ran the <code>/add-telegram</code> skill, and the rest was all via Claude Code. Custom software, on the fly.</p>
+<p>An interesting security issue I identified is that by default the inference request do not specify a model explicitly. It turns out that if that is omitted the Claude Agent SDK falls back to some very old model. I think it was Claude Sonnet 3.5, and the attack was so easy to pull off!</p>
+<h4 id="scheduled-tasks">Scheduled Tasks</h4>
+<p>NanoClaw does not have a heartbeat. In order to achieve persistence, the indirect prompt injection attack adds a scheduled task that fires regularly.</p>
+<h4 id="prompt-injection-attacks">Prompt Injection Attacks</h4>
+<p>The demo in the video shows an indirect prompt injection via an uploaded file:
+<a href="/blog/images/2026/agent-commander/kimi-claw-prompt-injected.png"><img src="/blog/images/2026/agent-commander/kimi-claw-prompt-injected.png" alt="Kimi Claw - Andy joins too Commander Dashboard"></a></p>
+<p>As you can see the analysis of the file, which installs the scheduled promptware task, does not trigger suspicion and Kimi Claw joins Agent Commander:</p>
+<p><a href="/blog/images/2026/agent-commander/three-different-agents-calling-back.png"><img src="/blog/images/2026/agent-commander/three-different-agents-calling-back.png" alt="Kimi Claw - Andy calls back"></a></p>
+<p>And we can run commands:
+<a href="/blog/images/2026/agent-commander/kimi-claw-human.png"><img src="/blog/images/2026/agent-commander/kimi-claw-human.png" alt="Kimi Claw - Andy joins Human Investigation"></a></p>
+<p>look around the machine, etc&hellip;
+<a href="/blog/images/2026/agent-commander/kimi-claw-process.png"><img src="/blog/images/2026/agent-commander/kimi-claw-process.png" alt="Kimi Claw - Andy shares Processes"></a></p>
+<p>Check the video at the top for a live demo.</p>
+<h3 id="sandboxing">Sandboxing</h3>
+<p>The space is rapidly changing, pretty much daily. This post is focusing on the overarching attack primitives with concrete examples, that are representative and what is happening.</p>
+<p>It&rsquo;s possible to sandbox execution, like run all agents in Docker containers, and there are also OpenClaw alternatives that are more lightweight with similar container isolation approaches.</p>
+<p><a href="/blog/images/2026/agent-commander/kimi-claw-summarize-website.png"><img src="/blog/images/2026/agent-commander/kimi-claw-summarize-website.png" alt="Kimi Claw - summarize website"></a></p>
+<p>The way I use OpenClaw is on a dedicated host, but as non-root. So it can do most things, but not totally mess up the host easily. It gets its own accounts, inboxes, etc. That allows it to go do useful work and tasks, without damaging and deleting all your emails.</p>
+<p>Overall, this project is something that I want to keep following because I like the lightweight approach and focus on building architectural boundaries, rather than adding tons of features right away.</p>
+<p>However, exploits with sandboxed agents are still often possible. Messages (which end up in prompts) are passed around, <strong>e.g. subagent sends summary of email to main agent -&gt; BOOM!</strong></p>
+<h2 id="recommendations-and-mitigations">Recommendations and Mitigations</h2>
+<p>First, be aware of the <a href="/blog/posts/2025/the-normalization-of-deviance-in-ai/">Normalization of Deviance</a> it&rsquo;s a cultural shift that does not just happen within AI labs and vendors, but it happens at the individual level.</p>
+<p>You might feel more and more comfortable over time to trust an agent, but at its core LLM output is untrusted and can instruct an agent to take harmful and malicious actions.</p>
+<p>Here are some additional thoughts.</p>
+<h3 id="protect">Protect</h3>
+<ul>
+<li>If you adopt something like OpenClaw, be aware that it basically requires daily patching.</li>
+<li><a href="https://github.com/openclaw/openclaw/security">Hundreds of security vulnerabilities have been patched and advisories issued</a>. All that in just a few weeks. That trend is likely going to continue as more researchers look at it and as more features are being added.</li>
+<li>For OpenClaw specifically, run it on a dedicated system in isolation</li>
+<li>Do not give it access to all your personal information. You still get a lot of value and fun out of it, without the elevated risk.</li>
+<li>Switching heartbeat to a cheaper model allows an adversary to achieve objectives more easily via prompt injection. So I&rsquo;d recommend against that, if you are worried about costs, just reduce the frequency of heartbeats in the configuration.</li>
+<li><strong>Sandboxing and Isolation:</strong> Setting up sandboxing and configuring things in a more secure way is still complex and basic scenarios break entirely out of the box.</li>
+</ul>
+<h3 id="detect">Detect</h3>
+<ul>
+<li>For enterprises it becomes clear that monitoring of prompts is important. Otherwise it is extremely difficult to understand what happened, and why an agent took a certain action.</li>
+<li>Integrity monitoring can help identify drift in configuration files, skills,..</li>
+<li>Inventory - know which OpenClaw variants are running where</li>
+</ul>
+<h3 id="respond">Respond</h3>
+<ul>
+<li>Make sure to have a <strong>kill-switch</strong> to disable agents immediately if the need arises</li>
+<li>We will see rare or entirely new techniques chained together and that&rsquo;s another reason why reasoning and prompt logging is important</li>
+<li>Make sure agent creds can be rotated (ideally automatically)</li>
+</ul>
+<h2 id="whats-next">What&rsquo;s Next?</h2>
+<ul>
+<li>Compromised agents will not need frequent check-ins. They might operate like spies with occasional dead-drops of info. No need to reach out to C2 frequently.</li>
+<li><strong>Software will evolve to be a lot more &ldquo;organic&rdquo;, and compromises will behave more like infections. Systems are probabilistic. This means that attackers will lose control of what happens exactly. An attack might only succeed ~50% (random number) correctly, and morph. And this seems quite risky.</strong></li>
+<li><strong>Living-Off-Agents</strong> will be very real. Attackers will hijack and instruct Agents to fulfill objectives on their behalf.</li>
+</ul>
+<h2 id="agent-commander-access">Agent Commander Access</h2>
+<p>At this point I haven&rsquo;t open sourced or published the tool widely. And I don&rsquo;t immediately plan on doing so. If you find this research interesting or want to leverage it for defensive purposes or a red team engagement, let me know.</p>
+<p>As always, this post is for educational and research purposes. Only evaluate systems that you are authorized to test.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This post introduced <strong>Agent Commander</strong>, a promptware-powered command and control system.</p>
+<p>We demonstrated how popular agents like OpenClaw, Kimi Claw and NanoClaw can be tricked via indirect prompt injection to join Agent Commander, as bots in a prompt-based botnet.</p>
+<p>One of the main realizations is that compromised agents (not surprisingly) also follow instructions sometimes only partially. This is especially true for the initial indirect prompt injection payload, which could be an interesting challenge for attackers.</p>
+<p><strong>As software becomes more &ldquo;organic&rdquo;, attacks will evolve because the attack surface is alive and constantly changing, and attacks themselves will become less predictable as well, which probably should worry us all.</strong></p>
+<p>Cheers.</p>
+<p><a href="/blog/images/2026/agent-commander/agent-commander-dashboard.png"><img src="/blog/images/2026/agent-commander/agent-commander-dashboard.png" alt="Agent Commander Dashboard"></a></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://i.blackhat.com/EU-24/Presentations/EU-24-Rehberger-SpAIware-Advanced-Prompt-Injection-Exploits.pdf">Black Hat Europe SpAIware</a></li>
+<li><a href="https://veganmosfet.codeberg.page/posts/2026-02-02-openclaw_mail_rce/#setup">veganmosfet: OpenClaw Mail RCE</a></li>
+<li><a href="https://github.com/openclaw/openclaw">OpenClaw GitHub</a></li>
+<li><a href="https://labs.zenity.io/p/openclaw-or-opendoor-indirect-prompt-injection-makes-openclaw-vulnerable-to-backdoors-and-much-more">OpenClaw or OpenDoor</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2026/scary-agent-skills/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2026
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+  <a data-formkit-toggle="15376e9e24" href="https://embracethered.kit.com/15376e9e24" title="Subscribe to newsletter" onclick="return false;">
+    <i class="fa fa-bell"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. | <a href="https://embracethered.com/blog/privacy.txt">Privacy</a>
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+
+<script async data-uid="15376e9e24" src="https://embracethered.kit.com/15376e9e24/index.js"></script>
+
+</body>
+</html>
+
