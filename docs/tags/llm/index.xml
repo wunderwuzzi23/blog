@@ -10,11 +10,11 @@
     <lastBuildDate>Mon, 16 Mar 2026 20:20:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Agent Commander: Prompt-Based Command and Control</title>
+      <title>Agent Commander: Promptware-Powered Command and Control</title>
       <link>https://embracethered.com/blog/posts/2026/agent-commander-your-agent-works-for-me-now/</link>
       <pubDate>Mon, 16 Mar 2026 20:20:58 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2026/agent-commander-your-agent-works-for-me-now/</guid>
-      <description>&lt;p&gt;This post is about prompt-based command and control, which is becoming increasingly interesting.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-prompt-based-command-and-control&#34;&gt;What is Prompt-Based Command and Control?&lt;/h2&gt;&#xA;&lt;p&gt;Three years ago, when ChatGPT introduced the browsing tool, we already experimented with this idea. And when ChatGPT got memories we showed that this can be combined and abused for a &lt;a href=&#34;https://i.blackhat.com/EU-24/Presentations/EU-24-Rehberger-SpAIware-Advanced-Prompt-Injection-Exploits.pdf&#34;&gt;full command and control channel&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The idea of prompt-based command and control becomes increasingly powerful as agents become more widely used and their performance increases.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This post is about prompt-based command and control (C2), which is becoming more relevant.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-promptware-powered-c2&#34;&gt;What is Promptware-Powered C2?&lt;/h2&gt;&#xA;&lt;p&gt;Three years ago, when ChatGPT introduced the browsing tool, we already experimented with the idea of prompt-based command and control. And when ChatGPT got memories we showed that this can be combined and abused for a &lt;a href=&#34;https://i.blackhat.com/EU-24/Presentations/EU-24-Rehberger-SpAIware-Advanced-Prompt-Injection-Exploits.pdf&#34;&gt;full command and control channel&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://arxiv.org/html/2601.09625v1&#34;&gt;Recent work uses&lt;/a&gt; the term &lt;strong&gt;promptware&lt;/strong&gt; to describe prompt-injection payloads that are more complex in behavior and closer to malware. I&amp;rsquo;m using that term here as it fits well.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Scary Agent Skills: Hidden Unicode Instructions in Skills ...And How To Catch Them</title>

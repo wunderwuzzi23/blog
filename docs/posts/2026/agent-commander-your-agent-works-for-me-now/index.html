@@ -3,12 +3,12 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta name="description" content="This post is about prompt-based command and control, which is becoming increasingly interesting.
-What is Prompt-Based Command and Control? Three years ago, when …" />
+  <meta name="description" content="This post is about prompt-based command and control (C2), which is becoming more relevant.
+What is Promptware-Powered C2? Three years ago, when ChatGPT …" />
   <link rel="canonical" href="https://embracethered.com/blog/posts/2026/agent-commander-your-agent-works-for-me-now/" />
-  <meta property="og:title" content=" Agent Commander: Prompt-Based Command and Control &middot;  Embrace The Red" />
-  <meta property="og:description" content="This post is about prompt-based command and control, which is becoming increasingly interesting.
-What is Prompt-Based Command and Control? Three years ago, when …" />
+  <meta property="og:title" content=" Agent Commander: Promptware-Powered Command and Control &middot;  Embrace The Red" />
+  <meta property="og:description" content="This post is about prompt-based command and control (C2), which is becoming more relevant.
+What is Promptware-Powered C2? Three years ago, when ChatGPT …" />
   <meta property="og:site_name" content="Embrace The Red" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2026/agent-commander-your-agent-works-for-me-now/" />
   <meta property="og:type" content="article" />
@@ -19,7 +19,7 @@ What is Prompt-Based Command and Control? Three years ago, when …" />
   <meta property="og:article:tag" content="ttp" />
 
   <title>
-     Agent Commander: Prompt-Based Command and Control &middot;  Embrace The Red
+     Agent Commander: Promptware-Powered Command and Control &middot;  Embrace The Red
   </title>
 
   <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
@@ -44,8 +44,8 @@ What is Prompt-Based Command and Control? Three years ago, when …" />
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "\"Agent Commander: Prompt-Based Command and Control\"",
-    "description": "\"This post is about prompt-based command and control, which is becoming increasingly interesting.\\nWhat is Prompt-Based Command and Control? Three years ago, when …\"",
+    "headline": "\"Agent Commander: Promptware-Powered Command and Control\"",
+    "description": "\"This post is about prompt-based command and control (C2), which is becoming more relevant.\\nWhat is Promptware-Powered C2? Three years ago, when ChatGPT …\"",
     "author": {
       "@type": "Person",
       "name": "wunderwuzzi",
@@ -138,7 +138,7 @@ What is Prompt-Based Command and Control? Three years ago, when …" />
 
 <article>
   <header>
-    <h1 class="text-primary">Agent Commander: Prompt-Based Command and Control</h1>
+    <h1 class="text-primary">Agent Commander: Promptware-Powered Command and Control</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
@@ -162,13 +162,14 @@ What is Prompt-Based Command and Control? Three years ago, when …" />
     </div>
   </header>
   <section>
-    <p>This post is about prompt-based command and control, which is becoming increasingly interesting.</p>
-<h2 id="what-is-prompt-based-command-and-control">What is Prompt-Based Command and Control?</h2>
-<p>Three years ago, when ChatGPT introduced the browsing tool, we already experimented with this idea. And when ChatGPT got memories we showed that this can be combined and abused for a <a href="https://i.blackhat.com/EU-24/Presentations/EU-24-Rehberger-SpAIware-Advanced-Prompt-Injection-Exploits.pdf">full command and control channel</a>.</p>
-<p>The idea of prompt-based command and control becomes increasingly powerful as agents become more widely used and their performance increases.</p>
+    <p>This post is about prompt-based command and control (C2), which is becoming more relevant.</p>
+<h2 id="what-is-promptware-powered-c2">What is Promptware-Powered C2?</h2>
+<p>Three years ago, when ChatGPT introduced the browsing tool, we already experimented with the idea of prompt-based command and control. And when ChatGPT got memories we showed that this can be combined and abused for a <a href="https://i.blackhat.com/EU-24/Presentations/EU-24-Rehberger-SpAIware-Advanced-Prompt-Injection-Exploits.pdf">full command and control channel</a>.</p>
+<p><a href="https://arxiv.org/html/2601.09625v1">Recent work uses</a> the term <strong>promptware</strong> to describe prompt-injection payloads that are more complex in behavior and closer to malware. I&rsquo;m using that term here as it fits well.</p>
+<p>As agents become more powerful and widespread, attackers will target them more frequently.</p>
 <p><strong>Agents are a new execution layer.</strong></p>
 <h2 id="agent-commander">Agent Commander</h2>
-<p>Agent Commander is a command and control (C2) server where hijacked agents regularly check in for any new tasks and objectives. Unlike classical C2, it doesn’t rely on OS commands or APIs.</p>
+<p>Agent Commander is a command and control (C2) server where hijacked agents regularly check in for any new tasks and objectives. Unlike classical C2, it doesn’t execute raw OS commands or APIs.</p>
 <p><strong>All commands are provided in natural language.</strong></p>
 <p><a href="/blog/images/2026/agent-commander/three-different-agents-calling-back.png"><img src="/blog/images/2026/agent-commander/three-different-agents-calling-back.png" alt="Agent Commander Dashboard"></a></p>
 <p><strong>This targets the agent layer, not the underlying operating system.</strong></p>
@@ -303,6 +304,7 @@ What is Prompt-Based Command and Control? Three years ago, when …" />
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://i.blackhat.com/EU-24/Presentations/EU-24-Rehberger-SpAIware-Advanced-Prompt-Injection-Exploits.pdf">Black Hat Europe SpAIware</a></li>
+<li><a href="https://arxiv.org/html/2601.09625v1">The Promptware Kill Chain: How Prompt Injections Gradually Evolved Into a Multi-Step Malware</a></li>
 <li><a href="https://veganmosfet.codeberg.page/posts/2026-02-02-openclaw_mail_rce/#setup">veganmosfet: OpenClaw Mail RCE</a></li>
 <li><a href="https://github.com/openclaw/openclaw">OpenClaw GitHub</a></li>
 <li><a href="https://labs.zenity.io/p/openclaw-or-opendoor-indirect-prompt-injection-makes-openclaw-vulnerable-to-backdoors-and-much-more">OpenClaw or OpenDoor</a></li>

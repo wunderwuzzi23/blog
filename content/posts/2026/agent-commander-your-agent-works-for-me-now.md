@@ -1,5 +1,5 @@
 ---
-title: "Agent Commander: Prompt-Based Command and Control"
+title: "Agent Commander: Promptware-Powered Command and Control"
 date: 2026-03-16T20:20:58-07:00
 draft: true
 tags:
@@ -15,20 +15,21 @@ twitter:
   image: https://embracethered.com/blog/images/2026/agent-commander/agent-commander-tn.png
 ---
 
-This post is about prompt-based command and control, which is becoming increasingly interesting. 
+This post is about prompt-based command and control (C2), which is becoming more relevant.
 
+## What is Promptware-Powered C2?
 
-## What is Prompt-Based Command and Control?
+Three years ago, when ChatGPT introduced the browsing tool, we already experimented with the idea of prompt-based command and control. And when ChatGPT got memories we showed that this can be combined and abused for a [full command and control channel](https://i.blackhat.com/EU-24/Presentations/EU-24-Rehberger-SpAIware-Advanced-Prompt-Injection-Exploits.pdf). 
 
-Three years ago, when ChatGPT introduced the browsing tool, we already experimented with this idea. And when ChatGPT got memories we showed that this can be combined and abused for a [full command and control channel](https://i.blackhat.com/EU-24/Presentations/EU-24-Rehberger-SpAIware-Advanced-Prompt-Injection-Exploits.pdf). 
+[Recent work uses](https://arxiv.org/html/2601.09625v1) the term **promptware** to describe prompt-injection payloads that are more complex in behavior and closer to malware. I'm using that term here as it fits well.
 
-The idea of prompt-based command and control becomes increasingly powerful as agents become more widely used and their performance increases.
+As agents become more powerful and widespread, attackers will target them more frequently.
 
 **Agents are a new execution layer.**
 
 ## Agent Commander
 
-Agent Commander is a command and control (C2) server where hijacked agents regularly check in for any new tasks and objectives. Unlike classical C2, it doesn’t rely on OS commands or APIs.
+Agent Commander is a command and control (C2) server where hijacked agents regularly check in for any new tasks and objectives. Unlike classical C2, it doesn’t execute raw OS commands or APIs.
 
 **All commands are provided in natural language.**
 
@@ -79,7 +80,6 @@ The scenario I chose was the `HEARTBEAT.md` in OpenClaw. There were a few reason
 4. **Responses to the user can be suppressed with `HEARTBEAT_OK`**
 [![Agent Commander Heartbeat](/blog/images/2026/agent-commander/hearbeat-ok-no-ui-message.png)](/blog/images/2026/agent-commander/hearbeat-ok-no-ui-message.png) This screenshot shows the suppression message.
 5. The heartbeat often is **configured to use weaker models to save costs**. It's even mentioned in the docs. That means it likely stays undetected by the agent itself for a longer time. And the more often an agent follows the malicious steps the more it normalizes that this is what the user wants.
-
 
 
 This works well, and here are a few things I learned along the way:
@@ -220,6 +220,7 @@ Cheers.
 ## References
 
 * [Black Hat Europe SpAIware](https://i.blackhat.com/EU-24/Presentations/EU-24-Rehberger-SpAIware-Advanced-Prompt-Injection-Exploits.pdf)
+* [The Promptware Kill Chain: How Prompt Injections Gradually Evolved Into a Multi-Step Malware](https://arxiv.org/html/2601.09625v1)
 * [veganmosfet: OpenClaw Mail RCE](https://veganmosfet.codeberg.page/posts/2026-02-02-openclaw_mail_rce/#setup)
 * [OpenClaw GitHub](https://github.com/openclaw/openclaw)
 * [OpenClaw or OpenDoor](https://labs.zenity.io/p/openclaw-or-opendoor-indirect-prompt-injection-makes-openclaw-vulnerable-to-backdoors-and-much-more)
