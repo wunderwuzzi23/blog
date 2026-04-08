@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta name="description" content="A few months ago I had this realization that agents have become really good at identifying bugs in code, especially security vulnerabilities. They are …" />
+  <link rel="canonical" href="https://embracethered.com/blog/posts/2026/given-enough-agents-all-bugs-become-shallow/" />
+  <meta property="og:title" content=" Given Enough Agents, All Bugs Become Shallow &middot;  Embrace The Red" />
+  <meta property="og:description" content="A few months ago I had this realization that agents have become really good at identifying bugs in code, especially security vulnerabilities. They are …" />
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2026/given-enough-agents-all-bugs-become-shallow/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:article:published_time" content="2026-04-07T23:58:58-07:00" />
+  <meta property="og:article:tag" content="llm" />
+  <meta property="og:article:tag" content="red" />
+  <meta property="og:article:tag" content="blue" />
+
+  <title>
+     Given Enough Agents, All Bugs Become Shallow &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Given Enough Agents, All Bugs Become Shallow">
+<meta name="twitter:description" content="Thoughts on Situational Awareness, Anthropic Mythos and the challenges and opportunities ahead">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2026/agents-and-bugs.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "\"Given Enough Agents, All Bugs Become Shallow\"",
+    "description": "\"A few months ago I had this realization that agents have become really good at identifying bugs in code, especially security vulnerabilities. They are …\"",
+    "author": {
+      "@type": "Person",
+      "name": "wunderwuzzi",
+      "url": "https://x.com/wunderwuzzi23"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "\"Embrace The Red\"",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https:\/\/embracethered.com\/blog\/images/favicon.ico"
+      }
+    },
+    "url": "\"https://embracethered.com/blog/posts/2026/given-enough-agents-all-bugs-become-shallow/\"",
+    "datePublished": "\"2026-04-07T23:58:58-07:00\"","dateModified": "\"2026-04-07T23:58:58-07:00\"",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "\"https://embracethered.com/blog/posts/2026/given-enough-agents-all-bugs-become-shallow/\""
+    }
+  }
+  </script>
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+  <a data-formkit-toggle="15376e9e24" href="https://embracethered.kit.com/15376e9e24" title="Subscribe to newsletter" onclick="return false;">
+    <i class="fa fa-bell"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-rss hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;RSS
+      </a>
+      <a data-formkit-toggle="15376e9e24" href="https://embracethered.kit.com/15376e9e24" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Given Enough Agents, All Bugs Become Shallow</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2026-04-07T23:58:58-07:00">
+          Apr 7, 2026
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/blue">#blue</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p>A few months ago I had this realization that agents have become really good at identifying bugs in code, especially security vulnerabilities. They are relentless in analyzing code and you can spin up multiple of them to go through source code quickly.</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">given enough agents, all bugs are shallow</p>&mdash; Johann Rehberger (@wunderwuzzi23) <a href="https://twitter.com/wunderwuzzi23/status/2021046801630101595?ref_src=twsrc%5Etfw">February 10, 2026</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>It is an emerging capability that many security researchers and bug bounty hunters have observed over the last few months.</p>
+<p>Gadi Evron <a href="https://www.linkedin.com/posts/gadievron_the-ai-vulnerability-cataclysm-is-coming-activity-7366486915878924288-iPIZ">posted</a> about the upcoming <strong>AI Vulnerability Cataclysm</strong> last year to help raise awareness.</p>
+<h2 id="increases-in-security-capabilities">Increases in Security Capabilities</h2>
+<p>Today Anthropic announced <code>Mythos - Preview</code>, and according to their announcement the model is very capable in performing cyber security research and attacks. It&rsquo;s so powerful that access to the model is gated to a handful of companies.</p>
+<p>The information shared by Anthropic highlights a significant increase in capabilities, most notable agents powered by the model can identify and exploit previously unknown vulnerabilities.</p>
+<p>According to Anthropic&rsquo;s post Opus 4.6 succeeded at exploiting Firefox JS engine vulns only twice out of hundreds of attempts, but <code>Mythos Preview</code> succeeded 181 times.</p>
+<p><strong>That is a significant improvement.</strong></p>
+<p>Even though a footnote in Anthropic&rsquo;s post highlights that this using a dedicated testing harness without the Firefox sandbox or other defense-in-depth mitigations, it&rsquo;s a significant progression.</p>
+<p><img src="/blog/images/2026/agents-and-bugs.png" alt="Agents And Bugs"></p>
+<p>Anthropic will not release Mythos publicly (for now), it&rsquo;s available as a gated preview only.</p>
+<h2 id="finding-security-bugs">Finding Security Bugs</h2>
+<p>Specifically, the <a href="https://red.anthropic.com/2026/mythos-preview/">red team post</a> highlights details of some of the identified vulnerabilities. Like a 27-year-old OpenBSD SACK bug, a 16-year-old FFmpeg H.264 bug, and the 17-year-old FreeBSD NFS RCE. So, there are some quite severe and interesting findings.</p>
+<p>It will be interesting to see what kind of vulnerabilities it finds in closed source software, and hopefully Microsoft and others share outcomes of their efforts as well.</p>
+<h2 id="building-exploits-for-newly-patched-vulnerabilities">Building Exploits for Newly Patched Vulnerabilities</h2>
+<p>When companies release security patches for their products, these patches get immediately reverse engineered by security researchers to identify the root cause of the patched issue, with the goal to build an exploit.</p>
+<p>We have seen researchers use LLMs for that task, and Anthropic highlights that they investigated this capability also. And it&rsquo;s scary, because according to their data points Mythos often succeeds.</p>
+<p>Current LLMs can autonomously write exploits for published patches (CVEs), which allows threat actors who would have access to such capabilities to have working exploits quickly.</p>
+<p><strong>The window between disclosure and exploitation was narrowing already, but it might soon collapse.</strong></p>
+<p>And some companies hide patches in larger updates. So the next logical step will be to review and diff all software updates, not just CVEs and patches. LLMs make such tasks feasible.</p>
+<h2 id="democratizing-offensive-security">Democratizing Offensive Security</h2>
+<p>An important part in Anthropic&rsquo;s post is the fact that it allows non-security people to find and exploit systems.</p>
+<blockquote>
+<p>Engineers at Anthropic with no formal security training have asked Mythos Preview to find remote code execution vulnerabilities overnight, and woken up the following morning to a complete, working exploit.</p></blockquote>
+<p>I&rsquo;m wondering if the bar for performing successful cyberattacks will drop and become more objective driven &ldquo;Go ransom company X&rdquo;, rather than having to find exploits or buy them.</p>
+<p>It&rsquo;s plausible that adversaries have found and exploited some of the newly discovered vulnerabilities already in the past. So, these new LLM powered capabilities are a very good thing for securing systems in the long run.</p>
+<h2 id="deploying-patches-remains-the-big-challenge">Deploying Patches Remains the Big Challenge</h2>
+<p><strong>The biggest challenge for organizations is typically to get vendor fixes deployed.</strong></p>
+<p>Even when patches are available, it does not mean that the problem is gone.</p>
+<p>Organizations often take a very long time to apply patches, and at times no patch management is present at all. This is where the industry needs to adjust, and new innovations could help.</p>
+<h2 id="project-glasswing">Project Glasswing</h2>
+<p>To try to raise awareness and tackle some of these challenges Anthropic announced <strong>Project Glasswing</strong>.</p>
+<blockquote>
+<p>Project Glasswing is an initiative to secure the world’s most critical software for the AI era</p></blockquote>
+<p>It&rsquo;s an effort that multiple large companies, such as AWS, Cisco, Microsoft, Linux Foundation, CrowdStrike, Palo Alto Networks, NVIDIA,.. joined.</p>
+<p>Anthropic also donates up to $100M credits + $4M to Open Source Software.</p>
+<p>This means a lot of good things are happening already to help identify and patch the &ldquo;low-hanging&rdquo; LLM fruits (difficult for humans, but easy for LLMs). As the testing harnesses, approaches and capabilities improve, and reruns happen more vulnerabilities will be discovered.</p>
+<p>Remember LLMs are non-deterministic. This means running an analysis a few times will not yield all the same bugs a given LLM can find.</p>
+<h2 id="isolation-concerns-for-testing">Isolation Concerns For Testing</h2>
+<p>As systems become more capable, Anthropic realized that current security benchmarks are maxed out, and hence capabilities are evaluated against real-world targets in isolated environments.</p>
+<p>This raises an obvious concern, especially if further step-function improvements occur. How will AI labs, researchers and the industry at large properly isolate such systems, when they can potentially identify flaws in that isolation boundary, and at the same time the systems are explicitly tasked to identify issues and build exploits.</p>
+<p>Anthropic <a href="https://www-cdn.anthropic.com/8b8380204f74670be75e81c820ca8dda846ab289.pdf">does mention</a> that they &ldquo;arranged a 24-hour period of internal alignment review&rdquo; before proceeding with wide range internal usage on February, 24.</p>
+<p>A fun anecdote from my side. In my testing harness, Opus 4.6. figured out a way to <code>sudo</code>, and install <code>gdb</code> and other tools which it seemed would be useful for debugging a buffer overflow that it found while testing the target.</p>
+<p>As a side note, in the model card it also shows that Mythos shows improved resistance to indirect prompt injection, which matters as these agents interact with untrusted inputs.</p>
+<h2 id="the-rise-of-open-weight-models">The Rise of Open Weight Models</h2>
+<p>Open weight (sometimes generically called open source) models are usually not that far behind the frontier labs. So it&rsquo;s likely that 6-12 months from now comparable capabilities will be available to anyone in the world.</p>
+<p>The next 12-18 months might be rough, as offensive capabilities arrive before patches.</p>
+<p>This was all predicted by the Situational Awareness <a href="https://situational-awareness.ai/">paper</a>, from former OpenAI employee Leopold Aschenbrenner. He said there is a scary time in between where attacker will have the upside, and it seems we are entering this period.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>With all of this actually comes a great opportunity, which is that many of the core projects that run the Internet and computing systems are going through a security push at the moment.</p>
+<p><strong>This is extremely good.</strong></p>
+<p>Overall, by what Anthropic shared, it&rsquo;s clear that things are accelerating, and that the industry has to come together. It&rsquo;s a great opportunity to improve the security posture quickly.</p>
+<p>There are big challenges around deployment of patches and that these capabilities are also used by threat actors. The one thing organizations really have to figure out is quicker roll-out of patches.</p>
+<p><strong>A monthly patch Tuesday might soon not cut it anymore if you want to stay protected.</strong></p>
+<p>I&rsquo;m quite curious how large vendors of client-side enterprise software will react to this new reality that is approaching fast.</p>
+<p>In case you were not familiar with the title pun of this post, it&rsquo;s about <a href="https://en.wikipedia.org/wiki/Linus%27s_law">Linus&rsquo;s law</a> that states &ldquo;Given enough eyeballs, all bugs become shallow.&rdquo;</p>
+<p>Let&rsquo;s hope that the industry figures out how to deploy patches quickly without breaking too much.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www-cdn.anthropic.com/8b8380204f74670be75e81c820ca8dda846ab289.pdf">Claude Mythos - System Card</a></li>
+<li><a href="https://www.anthropic.com/project/glasswing">Glasswing</a></li>
+<li><a href="https://red.anthropic.com/2026/mythos-preview/">Mythos Preview</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linus%27s_law">Linus&rsquo; law</a></li>
+<li><a href="https://situational-awareness.ai/">Situational Awareness</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2026/agent-commander-your-agent-works-for-me-now/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2026
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+  <a data-formkit-toggle="15376e9e24" href="https://embracethered.kit.com/15376e9e24" title="Subscribe to newsletter" onclick="return false;">
+    <i class="fa fa-bell"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. | <a href="https://embracethered.com/blog/privacy.txt">Privacy</a>
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+
+<script async data-uid="15376e9e24" src="https://embracethered.kit.com/15376e9e24/index.js"></script>
+
+</body>
+</html>
+

@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
-    <lastBuildDate>Mon, 16 Mar 2026 20:20:58 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2026 23:58:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Given Enough Agents, All Bugs Become Shallow</title>
+      <link>https://embracethered.com/blog/posts/2026/given-enough-agents-all-bugs-become-shallow/</link>
+      <pubDate>Tue, 07 Apr 2026 23:58:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2026/given-enough-agents-all-bugs-become-shallow/</guid>
+      <description>&lt;p&gt;A few months ago I had this realization that agents have become really good at identifying bugs in code, especially security vulnerabilities. They are relentless in analyzing code and you can spin up multiple of them to go through source code quickly.&lt;/p&gt;&#xA;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;given enough agents, all bugs are shallow&lt;/p&gt;&amp;mdash; Johann Rehberger (@wunderwuzzi23) &lt;a href=&#34;https://twitter.com/wunderwuzzi23/status/2021046801630101595?ref_src=twsrc%5Etfw&#34;&gt;February 10, 2026&lt;/a&gt;&lt;/blockquote&gt;&#xA;&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&#xA;&#xA;&#xA;&lt;p&gt;It is an emerging capability that many security researchers and bug bounty hunters have observed over the last few months.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Agent Commander: Promptware-Powered Command and Control</title>
       <link>https://embracethered.com/blog/posts/2026/agent-commander-your-agent-works-for-me-now/</link>
