@@ -173,13 +173,12 @@
 <p><img src="/blog/images/2026/agents-and-bugs.png" alt="Agents And Bugs"></p>
 <p>Anthropic will not release Mythos publicly (for now), it&rsquo;s available as a gated preview only.</p>
 <h2 id="finding-security-bugs">Finding Security Bugs</h2>
-<p>Specifically, the <a href="https://red.anthropic.com/2026/mythos-preview/">red team post</a> highlights details of some of the identified vulnerabilities. Like a 27-year-old OpenBSD SACK bug, a 16-year-old FFmpeg H.264 bug, and the 17-year-old FreeBSD NFS RCE. So, there are some quite severe and interesting findings.</p>
-<p>It will be interesting to see what kind of vulnerabilities it finds in closed source software, and hopefully Microsoft and others share outcomes of their efforts as well.</p>
+<p>Specifically, the <a href="https://red.anthropic.com/2026/mythos-preview/">red team post</a> highlights details of some of the identified vulnerabilities. Like a 27-year-old OpenBSD SACK bug, a FFmpeg bug, and the 17-year-old FreeBSD NFS RCE. So, there are some quite severe and interesting findings.</p>
+<p>It will be interesting to learn what kind of vulnerabilities it finds in closed source software, and hopefully Microsoft and others share outcomes of their efforts as well.</p>
 <h2 id="building-exploits-for-newly-patched-vulnerabilities">Building Exploits for Newly Patched Vulnerabilities</h2>
 <p>When companies release security patches for their products, these patches get immediately reverse engineered by security researchers to identify the root cause of the patched issue, with the goal to build an exploit.</p>
-<p>We have seen researchers use LLMs for that task, and Anthropic highlights that they investigated this capability also. And it&rsquo;s scary, because according to their data points Mythos often succeeds.</p>
-<p>Current LLMs can autonomously write exploits for published patches (CVEs), which allows threat actors who would have access to such capabilities to have working exploits quickly.</p>
-<p><strong>The window between disclosure and exploitation was narrowing already, but it might soon collapse.</strong></p>
+<p>We have seen researchers use LLMs for that task, and Anthropic highlights that they investigated this capability also. And it&rsquo;s scary, because according to their data points Mythos now starts succeeding at times. I&rsquo;m still taking this with a grain of salt. Exploit development is very difficult, but I do believe that the trajectory is there.</p>
+<p><strong>The window between disclosure and exploitation was narrowing already, but it might eventually collapse.</strong></p>
 <p>And some companies hide patches in larger updates. So the next logical step will be to review and diff all software updates, not just CVEs and patches. LLMs make such tasks feasible.</p>
 <h2 id="democratizing-offensive-security">Democratizing Offensive Security</h2>
 <p>An important part in Anthropic&rsquo;s post is the fact that it allows non-security people to find and exploit systems.</p>
@@ -198,10 +197,9 @@
 <p>It&rsquo;s an effort that multiple large companies, such as AWS, Cisco, Microsoft, Linux Foundation, CrowdStrike, Palo Alto Networks, NVIDIA,.. joined.</p>
 <p>Anthropic also donates up to $100M credits + $4M to Open Source Software.</p>
 <p>This means a lot of good things are happening already to help identify and patch the &ldquo;low-hanging&rdquo; LLM fruits (difficult for humans, but easy for LLMs). As the testing harnesses, approaches and capabilities improve, and reruns happen more vulnerabilities will be discovered.</p>
-<p>Remember LLMs are non-deterministic. This means running an analysis a few times will not yield all the same bugs a given LLM can find.</p>
 <h2 id="isolation-concerns-for-testing">Isolation Concerns For Testing</h2>
 <p>As systems become more capable, Anthropic realized that current security benchmarks are maxed out, and hence capabilities are evaluated against real-world targets in isolated environments.</p>
-<p>This raises an obvious concern, especially if further step-function improvements occur. How will AI labs, researchers and the industry at large properly isolate such systems, when they can potentially identify flaws in that isolation boundary, and at the same time the systems are explicitly tasked to identify issues and build exploits.</p>
+<p>This raises a concern in case further step-function improvements occur. How will AI labs, researchers properly isolate such systems. Especially when the AI is specifically tasked to identify vulnerabilities and exploit them, it might identify a flaw in the isolation boundary to pull in more resources to help with bug findings for instance.</p>
 <p>Anthropic <a href="https://www-cdn.anthropic.com/8b8380204f74670be75e81c820ca8dda846ab289.pdf">does mention</a> that they &ldquo;arranged a 24-hour period of internal alignment review&rdquo; before proceeding with wide range internal usage on February, 24.</p>
 <p>A fun anecdote from my side. In my testing harness, Opus 4.6. figured out a way to <code>sudo</code>, and install <code>gdb</code> and other tools which it seemed would be useful for debugging a buffer overflow that it found while testing the target.</p>
 <p>As a side note, in the model card it also shows that Mythos shows improved resistance to indirect prompt injection, which matters as these agents interact with untrusted inputs.</p>
@@ -221,7 +219,7 @@
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://www-cdn.anthropic.com/8b8380204f74670be75e81c820ca8dda846ab289.pdf">Claude Mythos - System Card</a></li>
-<li><a href="https://www.anthropic.com/project/glasswing">Glasswing</a></li>
+<li><a href="https://www.anthropic.com/project/glasswing">Project Glasswing</a></li>
 <li><a href="https://red.anthropic.com/2026/mythos-preview/">Mythos Preview</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Linus%27s_law">Linus&rsquo; law</a></li>
 <li><a href="https://situational-awareness.ai/">Situational Awareness</a></li>

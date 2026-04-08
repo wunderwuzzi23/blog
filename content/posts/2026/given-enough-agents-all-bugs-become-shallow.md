@@ -38,19 +38,17 @@ Anthropic will not release Mythos publicly (for now), it's available as a gated 
 
 ## Finding Security Bugs
 
-Specifically, the [red team post](https://red.anthropic.com/2026/mythos-preview/) highlights details of some of the identified vulnerabilities. Like a 27-year-old OpenBSD SACK bug, a 16-year-old FFmpeg H.264 bug, and the 17-year-old FreeBSD NFS RCE. So, there are some quite severe and interesting findings.
+Specifically, the [red team post](https://red.anthropic.com/2026/mythos-preview/) highlights details of some of the identified vulnerabilities. Like a 27-year-old OpenBSD SACK bug, a FFmpeg bug, and the 17-year-old FreeBSD NFS RCE. So, there are some quite severe and interesting findings.
 
-It will be interesting to see what kind of vulnerabilities it finds in closed source software, and hopefully Microsoft and others share outcomes of their efforts as well.
+It will be interesting to learn what kind of vulnerabilities it finds in closed source software, and hopefully Microsoft and others share outcomes of their efforts as well.
 
 ## Building Exploits for Newly Patched Vulnerabilities
 
 When companies release security patches for their products, these patches get immediately reverse engineered by security researchers to identify the root cause of the patched issue, with the goal to build an exploit.
 
-We have seen researchers use LLMs for that task, and Anthropic highlights that they investigated this capability also. And it's scary, because according to their data points Mythos often succeeds.
+We have seen researchers use LLMs for that task, and Anthropic highlights that they investigated this capability also. And it's scary, because according to their data points Mythos now starts succeeding at times. I'm still taking this with a grain of salt. Exploit development is very difficult, but I do believe that the trajectory is there.
 
-Current LLMs can autonomously write exploits for published patches (CVEs), which allows threat actors who would have access to such capabilities to have working exploits quickly.
-
-**The window between disclosure and exploitation was narrowing already, but it might soon collapse.** 
+**The window between disclosure and exploitation was narrowing already, but it might eventually collapse.** 
 
 And some companies hide patches in larger updates. So the next logical step will be to review and diff all software updates, not just CVEs and patches. LLMs make such tasks feasible.
 
@@ -84,13 +82,11 @@ Anthropic also donates up to $100M credits + $4M to Open Source Software.
 
 This means a lot of good things are happening already to help identify and patch the "low-hanging" LLM fruits (difficult for humans, but easy for LLMs). As the testing harnesses, approaches and capabilities improve, and reruns happen more vulnerabilities will be discovered. 
 
-Remember LLMs are non-deterministic. This means running an analysis a few times will not yield all the same bugs a given LLM can find. 
-
 ## Isolation Concerns For Testing
 
 As systems become more capable, Anthropic realized that current security benchmarks are maxed out, and hence capabilities are evaluated against real-world targets in isolated environments.
 
-This raises an obvious concern, especially if further step-function improvements occur. How will AI labs, researchers and the industry at large properly isolate such systems, when they can potentially identify flaws in that isolation boundary, and at the same time the systems are explicitly tasked to identify issues and build exploits.
+This raises a concern in case further step-function improvements occur. How will AI labs, researchers properly isolate such systems. Especially when the AI is specifically tasked to identify vulnerabilities and exploit them, it might identify a flaw in the isolation boundary to pull in more resources to help with bug findings for instance.
 
 Anthropic [does mention](https://www-cdn.anthropic.com/8b8380204f74670be75e81c820ca8dda846ab289.pdf) that they "arranged a 24-hour period of internal alignment review" before proceeding with wide range internal usage on February, 24.
 
@@ -127,7 +123,7 @@ Let's hope that the industry figures out how to deploy patches quickly without b
 ## References
 
 * [Claude Mythos - System Card](https://www-cdn.anthropic.com/8b8380204f74670be75e81c820ca8dda846ab289.pdf)
-* [Glasswing](https://www.anthropic.com/project/glasswing)
+* [Project Glasswing](https://www.anthropic.com/project/glasswing)
 * [Mythos Preview](https://red.anthropic.com/2026/mythos-preview/)
 * [Linus' law](https://en.wikipedia.org/wiki/Linus%27s_law)
 * [Situational Awareness](https://situational-awareness.ai/)
