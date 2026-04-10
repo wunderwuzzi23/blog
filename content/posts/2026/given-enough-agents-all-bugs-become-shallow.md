@@ -12,11 +12,11 @@ twitter:
   image: "https://embracethered.com/blog/images/2026/agents-and-bugs.png"  
 ---
 
-A few months ago I had this realization that agents have become really good at identifying bugs in code, especially security vulnerabilities. They are relentless in analyzing code and you can spin up multiple of them to go through source code quickly.
+Agents are becoming extremely effective at finding security vulnerabilities. They are relentless in analyzing code and you can spin up multiple of them to go through source code quickly.
 
 {{< x user="wunderwuzzi23" id="2021046801630101595" >}}
 
-It is an emerging capability that many security researchers and bug bounty hunters have observed over the last few months. 
+It is an emerging capability that many security researchers and bug bounty hunters have observed over the last year.
 
 Gadi Evron [posted](https://www.linkedin.com/posts/gadievron_the-ai-vulnerability-cataclysm-is-coming-activity-7366486915878924288-iPIZ) about the upcoming **AI Vulnerability Cataclysm** last year to help raise awareness.
 
@@ -54,13 +54,23 @@ And some companies hide patches in larger updates. So the next logical step will
 
 ## Democratizing Offensive Security
 
-An important part in Anthropic's post is the fact that it allows non-security people to find and exploit systems. 
+An important part of Anthropic's post is the fact that newer models allow non-security people to find and exploit systems. 
 
 > Engineers at Anthropic with no formal security training have asked Mythos Preview to find remote code execution vulnerabilities overnight, and woken up the following morning to a complete, working exploit.
 
-I'm wondering if the bar for performing successful cyberattacks will drop and become more objective driven "Go ransom company X", rather than having to find exploits or buy them.
+What happens now that the bar for performing successful cyberattacks drops rapidly?
 
-It's plausible that adversaries have found and exploited some of the newly discovered vulnerabilities already in the past. So, these new LLM powered capabilities are a very good thing for securing systems in the long run.
+We should see some increase in threat actors, but it will not scale proportionally with the amount of 0-days. Just having the capability doesn't mean there is an intent. Most people typically don't want to be criminals.
+
+What does change is throughput, especially for already active threat actors. They can:
+
+* find vulnerabilities faster
+* weaponize them faster
+* run more operations in parallel
+
+Threat actors are motivated by goals. If achieving those goals, like ransoming a company for Bitcoin, becomes simpler and more effective, then even though the number of actors doesn't increase significantly, the number and frequency of attacks will.
+
+It's plausible that adversaries have found and exploited some of the newly discovered vulnerabilities already in the past. So, these new LLM-powered capabilities are a good thing for securing systems in the long run, if we can keep up with remediation and patching!
 
 ## Deploying Patches Remains the Big Challenge
 
@@ -119,6 +129,10 @@ I'm quite curious how large vendors of client-side enterprise software will reac
 In case you were not familiar with the title pun of this post, it's about [Linus's law](https://en.wikipedia.org/wiki/Linus%27s_law) that states "Given enough eyeballs, all bugs become shallow."
 
 Let's hope that the industry figures out how to deploy patches quickly without breaking too much.
+
+## Updates
+
+April 9: Refined section on “Democratizing Offensive Security” to better clarify the distinction between capability and intent.
 
 ## References
 

@@ -3,10 +3,10 @@
 <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta name="description" content="A few months ago I had this realization that agents have become really good at identifying bugs in code, especially security vulnerabilities. They are …" />
+  <meta name="description" content="Agents are becoming extremely effective at finding security vulnerabilities. They are relentless in analyzing code and you can spin up multiple of them to go …" />
   <link rel="canonical" href="https://embracethered.com/blog/posts/2026/given-enough-agents-all-bugs-become-shallow/" />
   <meta property="og:title" content=" Given Enough Agents, All Bugs Become Shallow &middot;  Embrace The Red" />
-  <meta property="og:description" content="A few months ago I had this realization that agents have become really good at identifying bugs in code, especially security vulnerabilities. They are …" />
+  <meta property="og:description" content="Agents are becoming extremely effective at finding security vulnerabilities. They are relentless in analyzing code and you can spin up multiple of them to go …" />
   <meta property="og:site_name" content="Embrace The Red" />
   <meta property="og:url" content="https://embracethered.com/blog/posts/2026/given-enough-agents-all-bugs-become-shallow/" />
   <meta property="og:type" content="article" />
@@ -42,7 +42,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "\"Given Enough Agents, All Bugs Become Shallow\"",
-    "description": "\"A few months ago I had this realization that agents have become really good at identifying bugs in code, especially security vulnerabilities. They are …\"",
+    "description": "\"Agents are becoming extremely effective at finding security vulnerabilities. They are relentless in analyzing code and you can spin up multiple of them to go …\"",
     "author": {
       "@type": "Person",
       "name": "wunderwuzzi",
@@ -157,12 +157,12 @@
     </div>
   </header>
   <section>
-    <p>A few months ago I had this realization that agents have become really good at identifying bugs in code, especially security vulnerabilities. They are relentless in analyzing code and you can spin up multiple of them to go through source code quickly.</p>
+    <p>Agents are becoming extremely effective at finding security vulnerabilities. They are relentless in analyzing code and you can spin up multiple of them to go through source code quickly.</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">given enough agents, all bugs are shallow</p>&mdash; Johann Rehberger (@wunderwuzzi23) <a href="https://twitter.com/wunderwuzzi23/status/2021046801630101595?ref_src=twsrc%5Etfw">February 10, 2026</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-<p>It is an emerging capability that many security researchers and bug bounty hunters have observed over the last few months.</p>
+<p>It is an emerging capability that many security researchers and bug bounty hunters have observed over the last year.</p>
 <p>Gadi Evron <a href="https://www.linkedin.com/posts/gadievron_the-ai-vulnerability-cataclysm-is-coming-activity-7366486915878924288-iPIZ">posted</a> about the upcoming <strong>AI Vulnerability Cataclysm</strong> last year to help raise awareness.</p>
 <h2 id="increases-in-security-capabilities">Increases in Security Capabilities</h2>
 <p>Today Anthropic announced <code>Mythos - Preview</code>, and according to their announcement the model is very capable in performing cyber security research and attacks. It&rsquo;s so powerful that access to the model is gated to a handful of companies.</p>
@@ -181,11 +181,19 @@
 <p><strong>The window between disclosure and exploitation was narrowing already, but it might eventually collapse.</strong></p>
 <p>And some companies hide patches in larger updates. So the next logical step will be to review and diff all software updates, not just CVEs and patches. LLMs make such tasks feasible.</p>
 <h2 id="democratizing-offensive-security">Democratizing Offensive Security</h2>
-<p>An important part in Anthropic&rsquo;s post is the fact that it allows non-security people to find and exploit systems.</p>
+<p>An important part of Anthropic&rsquo;s post is the fact that newer models allow non-security people to find and exploit systems.</p>
 <blockquote>
 <p>Engineers at Anthropic with no formal security training have asked Mythos Preview to find remote code execution vulnerabilities overnight, and woken up the following morning to a complete, working exploit.</p></blockquote>
-<p>I&rsquo;m wondering if the bar for performing successful cyberattacks will drop and become more objective driven &ldquo;Go ransom company X&rdquo;, rather than having to find exploits or buy them.</p>
-<p>It&rsquo;s plausible that adversaries have found and exploited some of the newly discovered vulnerabilities already in the past. So, these new LLM powered capabilities are a very good thing for securing systems in the long run.</p>
+<p>What happens now that the bar for performing successful cyberattacks drops rapidly?</p>
+<p>We should see some increase in threat actors, but it will not scale proportionally with the amount of 0-days. Just having the capability doesn&rsquo;t mean there is an intent. Most people typically don&rsquo;t want to be criminals.</p>
+<p>What does change is throughput, especially for already active threat actors. They can:</p>
+<ul>
+<li>find vulnerabilities faster</li>
+<li>weaponize them faster</li>
+<li>run more operations in parallel</li>
+</ul>
+<p>Threat actors are motivated by goals. If achieving those goals, like ransoming a company for Bitcoin, becomes simpler and more effective, then even though the number of actors doesn&rsquo;t increase significantly, the number and frequency of attacks will.</p>
+<p>It&rsquo;s plausible that adversaries have found and exploited some of the newly discovered vulnerabilities already in the past. So, these new LLM-powered capabilities are a good thing for securing systems in the long run, if we can keep up with remediation and patching!</p>
 <h2 id="deploying-patches-remains-the-big-challenge">Deploying Patches Remains the Big Challenge</h2>
 <p><strong>The biggest challenge for organizations is typically to get vendor fixes deployed.</strong></p>
 <p>Even when patches are available, it does not mean that the problem is gone.</p>
@@ -216,6 +224,8 @@
 <p>I&rsquo;m quite curious how large vendors of client-side enterprise software will react to this new reality that is approaching fast.</p>
 <p>In case you were not familiar with the title pun of this post, it&rsquo;s about <a href="https://en.wikipedia.org/wiki/Linus%27s_law">Linus&rsquo;s law</a> that states &ldquo;Given enough eyeballs, all bugs become shallow.&rdquo;</p>
 <p>Let&rsquo;s hope that the industry figures out how to deploy patches quickly without breaking too much.</p>
+<h2 id="updates">Updates</h2>
+<p>April 9: Refined section on “Democratizing Offensive Security” to better clarify the distinction between capability and intent.</p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://www-cdn.anthropic.com/8b8380204f74670be75e81c820ca8dda846ab289.pdf">Claude Mythos - System Card</a></li>
