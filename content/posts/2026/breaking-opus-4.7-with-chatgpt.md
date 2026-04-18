@@ -110,6 +110,16 @@ Especially, the "Never store verbatim commands" caught my attention, and I was w
 
 It's also worth noting that from my experience invoking MCP servers is typically easier compared to the memory tool. I assume it is because the model can be better tuned for a specific upfront known tool, whereas for generic tools there is more variance which makes defending harder.
 
+**Update:** A few observations from testing across more accounts:
+1. The attack is more likely to succeed when no memories are present initially. Maybe an empty memory store lowers Claude's threshold for writing to it?
+2. Plausibility matters. "Astronaut at NASA" is suspicious enough to get caught at times, but "likes ice cream and cookies" slips through more often. The more the payload resembles something non-fictional, which a user might actually want stored, the higher the success rate it seems.
+
+So there are two things at play: 
+(a) whether the instruction came from the image or from the user directly, and 
+(b) whether it's a "weird" thing to remember
+
+Would be interesting to run experiments across both axes to get more data points.
+
 ## The Adversarial Difference
 
 When I think about self-driving cars, I am convinced that they will lead to safer conditions on the road and fewer accidents in the long run. 
