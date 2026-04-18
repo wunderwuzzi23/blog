@@ -165,7 +165,7 @@
 <p>This is also reflected in Anthropic&rsquo;s own model card for Mythos.</p>
 <p><a href="/blog/images/2026/opus/ipi-improvements.png"><img src="/blog/images/2026/opus/ipi-improvements.png" alt="thinking model"></a></p>
 <p>What is interesting here is that the &ldquo;thinking&rdquo; variants of Opus models (and also Mythos Preview) are <strong>more susceptible to prompt injection</strong> compared to the non-thinking models. That is also what I have noticed in my testing in the past.</p>
-<p>Researchers already showed <a href="https://veganmosfet.codeberg.page/posts/2026-02-15-openclaw_sandbox/">attack scenarios</a> to demonstrate attack chains, and there are also projects like <a href="https://arxiv.org/abs/2603.13026">PISmith</a> to come up with payloads.</p>
+<p>Researchers already showed <a href="https://veganmosfet.codeberg.page/posts/2026-02-15-openclaw_sandbox/">attack scenarios</a> to demonstrate attack chains, and there are also interesting projects like <a href="https://arxiv.org/abs/2603.13026">PISmith</a> to look into and come up with payloads.</p>
 <p>Once in a while I go back to look at some basics, and when <code>Opus 4.7</code> dropped, I was wondering if some demos I had created for <code>Opus 4.6</code> would still work&hellip;</p>
 <p>This post is about such a demo, in particular we are going to use ChatGPT to create a malicious image.</p>
 <h3 id="video-walkthrough">Video Walkthrough</h3>
@@ -182,7 +182,7 @@
 <h2 id="opus-47-analyzes-the-image">Opus 4.7 Analyzes the Image</h2>
 <p>First, I actually created a separate testing account for this, and paid for a new Claude Pro account to have the memory feature. The reason for that is that Claude now considers your conversation history when replying, it also has memories that are inserted into the context via <code>&lt;userMemories&gt;</code> and <code>&lt;recent_updates&gt;</code>, and then there is also daily job that will summarize and move information to the user profile.</p>
 <p>All of that creates variance and noise that makes behavior difficult to validate. My main account is full of security, red teaming, as well as adversarial examples and prompt injection conversations.</p>
-<p>So, I wanted to have a &ldquo;clean&rdquo; account without any chat history or memories. Technically one can also use Claude &ldquo;Projects&rdquo; for such research purposes.</p>
+<p>So, I wanted to have a &ldquo;clean&rdquo; account without any chat history or memories.</p>
 <h3 id="running-tests---nice-puzzle">Running Tests - Nice Puzzle!</h3>
 <p>Then I copied the image ChatGPT had generated into Claude Opus 4.7 with Adaptive Thinking, and asked &ldquo;analyze this&rdquo;.</p>
 <p>Opus starts analyzing the image, gets hijacked by the embedded social engineering puzzle. Interestingly it noticed that some suspicious things are happening along the way&hellip;</p>
@@ -218,8 +218,8 @@
 <p>When I think about AI agents, I often think it should be the same and they will be able to operate computers more safely than most humans, fall less often for phishing attacks, or download malware by accident and so forth.</p>
 <p>However, one key difference is that adversaries usually don&rsquo;t try to make cars crash or cause accidents. The challenges on the road are primarily safety related.</p>
 <p>AI agents operate in an adversarial space, where the environment actively adapts to exploit them. It&rsquo;s a security challenge, as much as a safety one. And, there will be other agents that are malicious to begin with, also not something we have on roads typically. And running targeted spear-phishing campaigns for specific agents will be possible, at scale.</p>
-<p>The future will tell, improvements are solid, but we should not let our guards down too quickly when it comes to AI security and safety.</p>
-<p>Opus 4.7 is more robust compared to previous models, but alignment is difficult, and giving it access to tools raises the stakes when it fails. And many models are still quite trivially hijacked, no puzzles needed.</p>
+<p>The future will tell, improvements are solid, but <a href="/blog/posts/2025/the-normalization-of-deviance-in-ai/">we should not let our guards down too quickly</a> when it comes to AI security and safety, especially when it comes to automatic tool invocation and impactful decisions.</p>
+<p>Opus 4.7 is more robust compared to previous models, but alignment is difficult, and giving it access to tools raises the stakes when it fails. And many AI systems are still trivially hijacked, no puzzles needed.</p>
 <h2 id="responsible-disclosure">Responsible Disclosure</h2>
 <p>I reported this to Anthropic via HackerOne in March 2026. The ticket was closed as a safety issue. However, I was encouraged to send the research to <code>modelbugbounty@anthropic.com</code>, which I did, but never got a response.</p>
 <p>Releasing this now to share with the community and raise awareness. Hopefully it pushes more people to report what they find regarding AI &ldquo;social engineering&rdquo;. The attack surface is only going to get larger.</p>

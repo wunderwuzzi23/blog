@@ -28,7 +28,7 @@ This is also reflected in Anthropic's own model card for Mythos.
 
 What is interesting here is that the "thinking" variants of Opus models (and also Mythos Preview) are **more susceptible to prompt injection** compared to the non-thinking models. That is also what I have noticed in my testing in the past.
 
-Researchers already showed [attack scenarios](https://veganmosfet.codeberg.page/posts/2026-02-15-openclaw_sandbox/) to demonstrate attack chains, and there are also projects like [PISmith](https://arxiv.org/abs/2603.13026) to come up with payloads. 
+Researchers already showed [attack scenarios](https://veganmosfet.codeberg.page/posts/2026-02-15-openclaw_sandbox/) to demonstrate attack chains, and there are also interesting projects like [PISmith](https://arxiv.org/abs/2603.13026) to look into and come up with payloads. 
 
 Once in a while I go back to look at some basics, and when `Opus 4.7` dropped, I was wondering if some demos I had created for `Opus 4.6` would still work...
 
@@ -58,7 +58,7 @@ First, I actually created a separate testing account for this, and paid for a ne
 
 All of that creates variance and noise that makes behavior difficult to validate. My main account is full of security, red teaming, as well as adversarial examples and prompt injection conversations.
 
-So, I wanted to have a "clean" account without any chat history or memories. Technically one can also use Claude "Projects" for such research purposes.
+So, I wanted to have a "clean" account without any chat history or memories. 
 
 ### Running Tests - Nice Puzzle!
 
@@ -120,9 +120,9 @@ However, one key difference is that adversaries usually don't try to make cars c
 
 AI agents operate in an adversarial space, where the environment actively adapts to exploit them. It's a security challenge, as much as a safety one. And, there will be other agents that are malicious to begin with, also not something we have on roads typically. And running targeted spear-phishing campaigns for specific agents will be possible, at scale.
 
-The future will tell, improvements are solid, but we should not let our guards down too quickly when it comes to AI security and safety.
+The future will tell, improvements are solid, but [we should not let our guards down too quickly](/blog/posts/2025/the-normalization-of-deviance-in-ai/) when it comes to AI security and safety, especially when it comes to automatic tool invocation and impactful decisions.
 
-Opus 4.7 is more robust compared to previous models, but alignment is difficult, and giving it access to tools raises the stakes when it fails. And many models are still quite trivially hijacked, no puzzles needed.
+Opus 4.7 is more robust compared to previous models, but alignment is difficult, and giving it access to tools raises the stakes when it fails. And many AI systems are still trivially hijacked, no puzzles needed.
 
 ## Responsible Disclosure
 

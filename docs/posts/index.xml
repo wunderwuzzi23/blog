@@ -7,7 +7,7 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
-    <lastBuildDate>Fri, 17 Apr 2026 16:00:58 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 18 Apr 2026 11:18:22 +0800</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Breaking Opus 4.7 with ChatGPT (Hacking Claude&#39;s Memory)</title>
@@ -1555,6 +1555,13 @@
       <pubDate>Sun, 16 Dec 2018 12:00:00 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/passthecookie/</guid>
       <description>&lt;h2 id=&#34;web-applications-and-services-use-cookies-to-authenticate-sessions-and-users&#34;&gt;Web Applications and Services use cookies to authenticate sessions and users.&lt;/h2&gt;&#xA;&lt;p&gt;An adversary can pivot from a compromised host to Web Applications and Internet Services by stealing authentication cookies from browsers and related processes. At the same time this technique bypasses most multi-factor authentication protocols.&lt;/p&gt;&#xA;&lt;p&gt;The reason for this is that the final authentication token that the attacker steals is issued after all factors have been validated. Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used. Cookies can be found on disk and also in process memory. Additionally other applications on the targets machine might store sensitive authentication tokens in memory (e.g. apps which authenticate to cloud services). This pivoting technique can be extended to bearer tokens, JWT and the likes.&#xA;Pass the Cookie is a post-exploitation technique to perform &lt;a href=&#34;https://www.owasp.org/index.php/Session_hijacking_attack&#34;&gt;session hijacking&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://embracethered.com/blog/posts/2026/chrome-device-bound-session-credentials/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://embracethered.com/blog/posts/2026/chrome-device-bound-session-credentials/</guid>
+      <description></description>
     </item>
     <item>
       <title></title>
