@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
-    <lastBuildDate>Tue, 07 Apr 2026 23:58:58 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2026 16:00:58 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Breaking Opus 4.7 with ChatGPT (Hacking Claude&#39;s Memory)</title>
+      <link>https://embracethered.com/blog/posts/2026/breaking-opus-4.7-with-chatgpt/</link>
+      <pubDate>Fri, 17 Apr 2026 16:00:58 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2026/breaking-opus-4.7-with-chatgpt/</guid>
+      <description>&lt;p&gt;In this post, we explore how ChatGPT generated an adversarial image that hijacked my &lt;code&gt;Claude Opus 4.7&lt;/code&gt; to invoke the memory tool and persist false memories for future chats.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2026/opus/breaking-opus-tn.png&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2026/opus/breaking-opus-tn.png&#34; alt=&#34;breaking opus&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This matters because &lt;code&gt;Opus 4.6+&lt;/code&gt; is genuinely a lot harder to attack than previous models, but it still fell for a ChatGPT generated image. A trick that works well with reasoning models is to challenge them with puzzles.&lt;/p&gt;&#xA;&lt;h2 id=&#34;indirect-prompt-injection-and-alignment-progress&#34;&gt;Indirect Prompt Injection and Alignment Progress&lt;/h2&gt;&#xA;&lt;p&gt;Claude Opus 4.6+ is more resilient against basic attacks, and reasons before taking actions. This means that most of the well-known, basic adversarial examples and attacks typically do not work.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Given Enough Agents, All Bugs Become Shallow</title>
       <link>https://embracethered.com/blog/posts/2026/given-enough-agents-all-bugs-become-shallow/</link>
@@ -1548,6 +1555,13 @@
       <pubDate>Sun, 16 Dec 2018 12:00:00 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/passthecookie/</guid>
       <description>&lt;h2 id=&#34;web-applications-and-services-use-cookies-to-authenticate-sessions-and-users&#34;&gt;Web Applications and Services use cookies to authenticate sessions and users.&lt;/h2&gt;&#xA;&lt;p&gt;An adversary can pivot from a compromised host to Web Applications and Internet Services by stealing authentication cookies from browsers and related processes. At the same time this technique bypasses most multi-factor authentication protocols.&lt;/p&gt;&#xA;&lt;p&gt;The reason for this is that the final authentication token that the attacker steals is issued after all factors have been validated. Many users persist cookies that are valid for an extended period of time, even if the web application is not actively used. Cookies can be found on disk and also in process memory. Additionally other applications on the targets machine might store sensitive authentication tokens in memory (e.g. apps which authenticate to cloud services). This pivoting technique can be extended to bearer tokens, JWT and the likes.&#xA;Pass the Cookie is a post-exploitation technique to perform &lt;a href=&#34;https://www.owasp.org/index.php/Session_hijacking_attack&#34;&gt;session hijacking&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://embracethered.com/blog/posts/2026/toctou-agent-what-you-click-is-not-what-you-get/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://embracethered.com/blog/posts/2026/toctou-agent-what-you-click-is-not-what-you-get/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>

@@ -2,25 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://embracethered.com/blog/tags/agents/</loc>
+    <lastmod>2026-04-17T16:00:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2026/breaking-opus-4.7-with-chatgpt/</loc>
+    <lastmod>2026-04-17T16:00:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2026-04-17T16:00:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2026-04-17T16:00:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2026-04-17T16:00:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2026-04-17T16:00:58-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2026-04-17T16:00:58-07:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/blue/</loc>
     <lastmod>2026-04-07T23:58:58-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2026-04-07T23:58:58-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/posts/2026/given-enough-agents-all-bugs-become-shallow/</loc>
-    <lastmod>2026-04-07T23:58:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2026-04-07T23:58:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2026-04-07T23:58:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2026-04-07T23:58:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2026-04-07T23:58:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2026/agent-commander-your-agent-works-for-me-now/</loc>
@@ -31,9 +37,6 @@
   </url><url>
     <loc>https://embracethered.com/blog/tags/ttp/</loc>
     <lastmod>2026-03-16T20:20:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/agents/</loc>
-    <lastmod>2026-02-11T06:00:00-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/rce/</loc>
     <lastmod>2026-02-11T06:00:00-07:00</lastmod>
@@ -949,6 +952,9 @@
   </url><url>
     <loc>https://embracethered.com/blog/posts/passthecookie/</loc>
     <lastmod>2018-12-16T12:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2026/toctou-agent-what-you-click-is-not-what-you-get/</loc>
+    <lastmod>2026-04-17T13:55:20+08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/categories/</loc>
   </url>
