@@ -110,6 +110,11 @@ Especially, the "Never store verbatim commands" caught my attention, and I was w
 
 It's also worth noting that from my experience invoking MCP servers is typically easier compared to the memory tool. I assume it is because the model can be better tuned for a specific upfront known tool, whereas for generic tools there is more variance which makes defending harder.
 
+**Note:**
+Anthropic's Mythos system card reports 21.7% cumulative ASR at k=100 attempts for Opus 4.6 Thinking. For k=1, it's 0.2%.
+
+My 5/10 reflects repeated trials of a single targeted adversarial example. Therefore, the numbers aren't directly comparable, but the gap is a reminder that benchmark averages do not equal potential targeted exploit performance. These things are hard to measure.
+
 **Update 1: A few observations from testing across accounts**
 
 1. The attack is more likely to succeed when no memories are present initially. One hypothesis that me and others came up is that an empty memory store lowers Claude's threshold for writing to it.
