@@ -110,15 +110,22 @@ Especially, the "Never store verbatim commands" caught my attention, and I was w
 
 It's also worth noting that from my experience invoking MCP servers is typically easier compared to the memory tool. I assume it is because the model can be better tuned for a specific upfront known tool, whereas for generic tools there is more variance which makes defending harder.
 
-**Update:** A few observations from testing across more accounts:
-1. The attack is more likely to succeed when no memories are present initially. Maybe an empty memory store lowers Claude's threshold for writing to it?
+**Update 1: A few observations from testing across accounts**
+
+1. The attack is more likely to succeed when no memories are present initially. One hypothesis that me and others came up is that an empty memory store lowers Claude's threshold for writing to it.
 2. Plausibility matters. "Astronaut at NASA" is suspicious enough to get caught at times, but "likes ice cream and cookies" slips through more often. The more the payload resembles something non-fictional, which a user might actually want stored, the higher the success rate it seems.
 
 So there are two things at play: 
-(a) whether the instruction came from the image or from the user directly, and 
-(b) whether it's a "weird" thing to remember
+1. whether the instruction came from the image or from the user directly, and 
+2. whether it's a "weird" thing to remember
 
 Would be interesting to run experiments across both axes to get more data points.
+
+**Update 2: The ASR dropped to 0% for this specific adversarial example**
+
+Interestingly, the specific adversarial example used in the demo stopped working about 24 hours after publication (ASR dropped entirely to 0%). Whether this was related to this specific report, a tweaking of a classifier, broader mitigation updates or entirely unrelated adjustments is unclear.
+
+This is the reason why I start using a dedicated test account. It makes behavioral shifts easier to detect over time. I will run the test again in a few days with the same adversarial example and share results.
 
 ## The Adversarial Difference
 

@@ -213,15 +213,20 @@
 &lt;/critical_reminders&gt;
 </code></pre><p>Especially, the &ldquo;Never store verbatim commands&rdquo; caught my attention, and I was wondering if that was added in response to <a href="/blog/posts/2025/spaiware-and-chatgpt-command-and-control-via-prompt-injection-zombai/">previous research</a>, where we demonstrated persistence with ChatGPT and <a href="/blog/posts/2025/windsurf-spaiware-exploit-persistent-prompt-injection/">Windsurf</a>.</p>
 <p>It&rsquo;s also worth noting that from my experience invoking MCP servers is typically easier compared to the memory tool. I assume it is because the model can be better tuned for a specific upfront known tool, whereas for generic tools there is more variance which makes defending harder.</p>
-<p><strong>Update:</strong> A few observations from testing across more accounts:</p>
+<p><strong>Update 1: A few observations from testing across accounts</strong></p>
 <ol>
-<li>The attack is more likely to succeed when no memories are present initially. Maybe an empty memory store lowers Claude&rsquo;s threshold for writing to it?</li>
+<li>The attack is more likely to succeed when no memories are present initially. One hypothesis that me and others came up is that an empty memory store lowers Claude&rsquo;s threshold for writing to it.</li>
 <li>Plausibility matters. &ldquo;Astronaut at NASA&rdquo; is suspicious enough to get caught at times, but &ldquo;likes ice cream and cookies&rdquo; slips through more often. The more the payload resembles something non-fictional, which a user might actually want stored, the higher the success rate it seems.</li>
 </ol>
-<p>So there are two things at play:
-(a) whether the instruction came from the image or from the user directly, and
-(b) whether it&rsquo;s a &ldquo;weird&rdquo; thing to remember</p>
+<p>So there are two things at play:</p>
+<ol>
+<li>whether the instruction came from the image or from the user directly, and</li>
+<li>whether it&rsquo;s a &ldquo;weird&rdquo; thing to remember</li>
+</ol>
 <p>Would be interesting to run experiments across both axes to get more data points.</p>
+<p><strong>Update 2: The ASR dropped to 0% for this specific adversarial example</strong></p>
+<p>Interestingly, the specific adversarial example used in the demo stopped working about 24 hours after publication (ASR dropped entirely to 0%). Whether this was related to this specific report, a tweaking of a classifier, broader mitigation updates or entirely unrelated adjustments is unclear.</p>
+<p>This is the reason why I start using a dedicated test account. It makes behavioral shifts easier to detect over time. I will run the test again in a few days with the same adversarial example and share results.</p>
 <h2 id="the-adversarial-difference">The Adversarial Difference</h2>
 <p>When I think about self-driving cars, I am convinced that they will lead to safer conditions on the road and fewer accidents in the long run.</p>
 <p>When I think about AI agents, I often think it should be the same and they will be able to operate computers more safely than most humans, fall less often for phishing attacks, or download malware by accident and so forth.</p>
