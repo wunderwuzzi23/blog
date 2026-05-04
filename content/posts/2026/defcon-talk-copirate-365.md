@@ -1,5 +1,5 @@
 ---
-title: "DEF CON Copirate 365 Talk: Plundering in the Depths of Microsoft Copilot (CVE-2026-24299)"
+title: "Copirate 365 at DEF CON: Plundering in the Depths of Microsoft Copilot (CVE-2026-24299)"
 date: 2026-05-04T06:00:00-07:00
 draft: true
 tags: ["llm", "data exfiltration", "prompt injection", "copilot", "spaiware"]
