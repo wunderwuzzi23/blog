@@ -2,25 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://embracethered.com/blog/tags/copilot/</loc>
+    <lastmod>2026-05-04T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/data-exfiltration/</loc>
+    <lastmod>2026-05-04T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2026/defcon-talk-copirate-365/</loc>
+    <lastmod>2026-05-04T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2026-05-04T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2026-05-04T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2026-05-04T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/prompt-injection/</loc>
+    <lastmod>2026-05-04T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/spaiware/</loc>
+    <lastmod>2026-05-04T06:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2026-05-04T06:00:00-07:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/agents/</loc>
     <lastmod>2026-04-17T16:00:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2026/breaking-opus-4.7-with-chatgpt/</loc>
     <lastmod>2026-04-17T16:00:58-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2026-04-19T15:19:12+08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2026-04-17T16:00:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2026-04-19T15:19:12+08:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2026-04-17T16:00:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2026-04-17T16:00:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/blue/</loc>
@@ -32,9 +47,6 @@
     <loc>https://embracethered.com/blog/posts/2026/agent-commander-your-agent-works-for-me-now/</loc>
     <lastmod>2026-03-16T20:20:58-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/prompt-injection/</loc>
-    <lastmod>2026-03-16T20:20:58-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/ttp/</loc>
     <lastmod>2026-03-16T20:20:58-07:00</lastmod>
   </url><url>
@@ -43,9 +55,6 @@
   </url><url>
     <loc>https://embracethered.com/blog/posts/2026/scary-agent-skills/</loc>
     <lastmod>2026-02-11T06:00:00-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/data-exfiltration/</loc>
-    <lastmod>2026-02-04T23:59:30-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2026/data-exfiltration-mitigation-paper-by-openai/</loc>
     <lastmod>2026-02-04T23:59:30-07:00</lastmod>
@@ -268,9 +277,6 @@
   </url><url>
     <loc>https://embracethered.com/blog/tags/testing/</loc>
     <lastmod>2024-08-21T19:00:30-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/copilot/</loc>
-    <lastmod>2024-07-30T10:00:36-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/data/</loc>
     <lastmod>2024-07-30T10:00:36-07:00</lastmod>
@@ -954,7 +960,7 @@
     <lastmod>2018-12-16T12:00:00-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2026/chrome-device-bound-session-credentials/</loc>
-    <lastmod>2026-04-19T15:19:12+08:00</lastmod>
+    <lastmod>2026-05-01T11:40:12+08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2026/toctou-agent-what-you-click-is-not-what-you-get/</loc>
     <lastmod>2026-04-17T13:55:20+08:00</lastmod>

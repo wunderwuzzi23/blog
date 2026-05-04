@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>M365 Copilot on Embrace The Red</title>
+    <link>http://localhost:1313/blog/tags/m365-copilot/</link>
+    <description>Recent content in M365 Copilot on Embrace The Red</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
+    <lastBuildDate>Sat, 02 May 2026 11:20:58 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/tags/m365-copilot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DEF CON: Copirate 365 - Plundering in the Depths of Microsoft Copilot (CVE-2026-24299)</title>
+      <link>http://localhost:1313/blog/posts/2026/defcon-talk-copirate-365/</link>
+      <pubDate>Sat, 02 May 2026 11:20:58 -0700</pubDate>
+      <guid>http://localhost:1313/blog/posts/2026/defcon-talk-copirate-365/</guid>
+      <description>&lt;p&gt;This is a writeup of my &lt;a href=&#34;https://defcon.org/html/defcon-singapore/dc-singapore-talks.html&#34;&gt;DEF CON Singapore&lt;/a&gt; talk that walks through vulnerabilities and exploits in M365 and Consumer Copilot, that I responsibly disclosed to Microsoft end of last year, demonstrating data exfiltration and memory exploits.&lt;/p&gt;&#xA;&lt;h2 id=&#34;contents&#34;&gt;Contents&lt;/h2&gt;&#xA;&lt;p&gt;This turned out to be a longer post covering the 45 minute talk, I added a quick index so you know what&amp;rsquo;s in here.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#preface-a-long-long-time-ago&#34;&gt;Preface: A Brief History of AI Data Exfiltration&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#the-lethal-trifecta-and-m365-copilot&#34;&gt;The Lethal Trifecta and M365 Copilot&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#extracting-system-prompt-information-and-tools&#34;&gt;Extracting System Prompt Information and Tools&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#chapter-1-html-preview-as-exfiltration-channel&#34;&gt;Chapter 1: HTML Preview as Exfiltration Channel&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#bypass-1-style-sheets-with-background-images&#34;&gt;Bypass 1: Background Images via CSS&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#bypass-2-loading-fonts-issues-web-requests&#34;&gt;Bypass 2: Loading Fonts via @font-face&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#bypass-3-auto-switching-to-preview-for-zero-click-attacks&#34;&gt;Bypass 3: Auto-Switching to Preview&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#end-to-end-demo-copirate-in-microsoft-word-stealing-emails&#34;&gt;End-to-End Demos: Stealing Emails with Copilot&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#copilots-ai-widgets-and-a-general-take-away&#34;&gt;Take-away: AI Widgets and Host Contracts&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#chapter-2-delayed-tool-invocation&#34;&gt;Chapter 2: Delayed Tool Invocation&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#chapter-3-m365-copilot-got-memory&#34;&gt;Chapter 3: M365 Copilot Got Memory!&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#adding-memories-via-prompt-injection&#34;&gt;Adding Memories via Prompt Injection&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#deleting-memories-via-prompt-injection&#34;&gt;Deleting Memories via Prompt Injection&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#chapter-4-spaiware-persistence--exfil&#34;&gt;Chapter 4: SpAIware Persistence + Data Exfiltration&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#encore-hacking-consumer-copilot&#34;&gt;Encore: Hacking Consumer Copilot&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#epilogue-take-aways&#34;&gt;Epilogue: Take-aways&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s dive into it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
