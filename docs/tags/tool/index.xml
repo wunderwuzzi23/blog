@@ -2,60 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tool on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/tool/</link>
+    <link>https://embracethered.com/blog/tags/tool/</link>
     <description>Recent content in Tool on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Sun, 20 Nov 2022 18:00:00 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/tool/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/tool/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ropci deep-dive for Azure hackers</title>
-      <link>http://localhost:1313/blog/posts/2022/ropci-usage/</link>
+      <link>https://embracethered.com/blog/posts/2022/ropci-usage/</link>
       <pubDate>Sun, 20 Nov 2022 18:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2022/ropci-usage/</guid>
-      <description>&lt;p&gt;Misconfigurations with MFA setups are not uncommon when using AAD, especially when federated setups or Pass Through Authentication is configured I have seen MFA bypass opportunities in multiple production tenants.&lt;/p&gt;&#xA;&lt;p&gt;A common misconfiguration is that MFA is enforced at the federated identity provider, but AAD is forgotten and ROPC authentication still succeeds against AAD.&lt;/p&gt;&#xA;&lt;p&gt;To learn more about ROPC, check out the &lt;a href=&#34;http://localhost:1313/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/&#34;&gt;previous post about the topic&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This post focuses on the &lt;code&gt;ropci&lt;/code&gt; features that can be leveraged post-exploitation.&lt;/p&gt;</description>
+      <guid>https://embracethered.com/blog/posts/2022/ropci-usage/</guid>
+      <description>&lt;p&gt;Misconfigurations with MFA setups are not uncommon when using AAD, especially when federated setups or Pass Through Authentication is configured I have seen MFA bypass opportunities in multiple production tenants.&lt;/p&gt;&#xA;&lt;p&gt;A common misconfiguration is that MFA is enforced at the federated identity provider, but AAD is forgotten and ROPC authentication still succeeds against AAD.&lt;/p&gt;&#xA;&lt;p&gt;To learn more about ROPC, check out the &lt;a href=&#34;https://embracethered.com/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/&#34;&gt;previous post about the topic&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This post focuses on the &lt;code&gt;ropci&lt;/code&gt; features that can be leveraged post-exploitation.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PenTest Magazine Open Source Toolkit: ropci</title>
-      <link>http://localhost:1313/blog/posts/2022/ropci-pentest-magazine-open-source-tools/</link>
+      <link>https://embracethered.com/blog/posts/2022/ropci-pentest-magazine-open-source-tools/</link>
       <pubDate>Thu, 20 Oct 2022 09:00:10 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2022/ropci-pentest-magazine-open-source-tools/</guid>
-      <description>&lt;p&gt;Great news!&lt;/p&gt;&#xA;&lt;p&gt;An article about &lt;code&gt;ropci&lt;/code&gt; is in the latest free issue of the Pentest Magazine!&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit/&#34;&gt;&lt;img src=&#34;http://localhost:1313/blog/images/2022/ropci-pentest-magazine.png&#34; alt=&#34;pentest magazine&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;The article has a lot more info then my ropci blog post or the info on the &lt;a href=&#34;https://github.com/wunderwuzzi23/ropci&#34;&gt;ropci Github repo&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Get your copy and check it out! It also has an article about Nuclei, one of my favorite tools.&lt;/p&gt;&#xA;&lt;p&gt;Cheers.&lt;/p&gt;&#xA;&lt;p&gt;Link: &lt;a href=&#34;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit&#34;&gt;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://embracethered.com/blog/posts/2022/ropci-pentest-magazine-open-source-tools/</guid>
+      <description>&lt;p&gt;Great news!&lt;/p&gt;&#xA;&lt;p&gt;An article about &lt;code&gt;ropci&lt;/code&gt; is in the latest free issue of the Pentest Magazine!&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit/&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2022/ropci-pentest-magazine.png&#34; alt=&#34;pentest magazine&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;The article has a lot more info then my ropci blog post or the info on the &lt;a href=&#34;https://github.com/wunderwuzzi23/ropci&#34;&gt;ropci Github repo&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Get your copy and check it out! It also has an article about Nuclei, one of my favorite tools.&lt;/p&gt;&#xA;&lt;p&gt;Cheers.&lt;/p&gt;&#xA;&lt;p&gt;Link: &lt;a href=&#34;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit&#34;&gt;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>ROPC - So, you think you have MFA?</title>
-      <link>http://localhost:1313/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/</link>
+      <link>https://embracethered.com/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/</link>
       <pubDate>Thu, 20 Oct 2022 08:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/</guid>
-      <description>&lt;p&gt;This post will highlight a pattern I have seen across multiple production Microsoft Azure Active Directory tenants which led to MFA bypasses using ROPC.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;The key take-away: Always enforce MFA! Sounds easy, but there are often misconfigurations and unexpected exceptions. So, test your own AAD tenant for ROPC based MFA bypass opportunities.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Github&lt;/strong&gt;: &lt;a href=&#34;https://github.com/wunderwuzzi23/ropci&#34;&gt;https://github.com/wunderwuzzi23/ropci&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: The latest free issue of Pentest Magazine has a &lt;a href=&#34;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit/&#34;&gt;ropci article&lt;/a&gt;. Check it out.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/images/2022/ropci.png&#34; alt=&#34;How does an OAuth2 ROPC Request look like&#34;&gt;&lt;/p&gt;</description>
+      <guid>https://embracethered.com/blog/posts/2022/ropci-so-you-think-you-have-mfa-azure-ad/</guid>
+      <description>&lt;p&gt;This post will highlight a pattern I have seen across multiple production Microsoft Azure Active Directory tenants which led to MFA bypasses using ROPC.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;The key take-away: Always enforce MFA! Sounds easy, but there are often misconfigurations and unexpected exceptions. So, test your own AAD tenant for ROPC based MFA bypass opportunities.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Github&lt;/strong&gt;: &lt;a href=&#34;https://github.com/wunderwuzzi23/ropci&#34;&gt;https://github.com/wunderwuzzi23/ropci&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: The latest free issue of Pentest Magazine has a &lt;a href=&#34;https://pentestmag.com/product/pentest-open-source-pentesting-toolkit/&#34;&gt;ropci article&lt;/a&gt;. Check it out.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2022/ropci.png&#34; alt=&#34;How does an OAuth2 ROPC Request look like&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>gospray - Simple LDAP bind-based password spray tool</title>
-      <link>http://localhost:1313/blog/posts/2022/gospray-active-directory-ldap-password-spraying/</link>
+      <link>https://embracethered.com/blog/posts/2022/gospray-active-directory-ldap-password-spraying/</link>
       <pubDate>Sun, 18 Sep 2022 08:00:01 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2022/gospray-active-directory-ldap-password-spraying/</guid>
+      <guid>https://embracethered.com/blog/posts/2022/gospray-active-directory-ldap-password-spraying/</guid>
       <description>&lt;p&gt;On a network and need credentials?  Try password spraying the domain controller directly.&lt;/p&gt;&#xA;&lt;p&gt;A few years ago, I wrote this password spray tool called &lt;code&gt;gospray&lt;/code&gt; that was used succesfully in a couple of engagements since. It does an LDAP bind directly against the domain controller to validate credentials. This doesn&amp;rsquo;t require an SMB server (or other servers) as target. So, it&amp;rsquo;s pretty quiet and number of concurrent Go routines is configurable. :)&lt;/p&gt;</description>
     </item>
     <item>
       <title>BashSpray - Simple Password Spray Bash Script</title>
-      <link>http://localhost:1313/blog/posts/bash-spray-password/</link>
+      <link>https://embracethered.com/blog/posts/bash-spray-password/</link>
       <pubDate>Wed, 03 Jul 2019 21:58:01 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/bash-spray-password/</guid>
+      <guid>https://embracethered.com/blog/posts/bash-spray-password/</guid>
       <description>&lt;p&gt;One thing every red team should attempt early on and regularly is to perform some password spray testing across their organization to identify and help remediate usage of weak passwords.&lt;/p&gt;&#xA;&lt;p&gt;In the past I have done this on Windows a lot, but now I built a simple version for it for Bash to run it also from a Mac.&lt;/p&gt;&#xA;&lt;p&gt;Check it out: &lt;a href=&#34;https://github.com/wunderwuzzi23/BashSpray&#34;&gt;Bash Spray&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Ideally, a script like bashspray.sh is integrated into your response pipelines, and SOC, Blue Team as well as account owner get notified - so they change their password right away, and any SOC investigation can be performed if necessary.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Active Directory and MacOS</title>
-      <link>http://localhost:1313/blog/posts/active-directory-and-macos/</link>
+      <link>https://embracethered.com/blog/posts/active-directory-and-macos/</link>
       <pubDate>Thu, 20 Jun 2019 22:00:16 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/active-directory-and-macos/</guid>
+      <guid>https://embracethered.com/blog/posts/active-directory-and-macos/</guid>
       <description>&lt;h2 id=&#34;interacting-with-active-directory-on-the-mac&#34;&gt;Interacting with Active Directory on the Mac&lt;/h2&gt;&#xA;&lt;p&gt;Did you ever have to interact with Active Directory on a MAC?&lt;/p&gt;&#xA;&lt;p&gt;If yes, this post might be interesting for you. I am pretty new to the Mac and basic things I know how to do on Windows need some research to figure out. This time around I explore Active Directory/LDAP Server interactions.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;First, there is the &lt;em&gt;Directory Utility&lt;/em&gt; on MacOS which can be quite useful.&lt;/li&gt;&#xA;&lt;li&gt;Second, there is Apache&amp;rsquo;s - &lt;em&gt;Directory Studio&lt;/em&gt; - which is pretty amazing and feature rich.&lt;/li&gt;&#xA;&lt;li&gt;Third, you might want to write your own tools or scripts.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There are ldap commands that allow you to do most tasks in automated fashion.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Lyrebird - Hack the hacker (and take a picture)</title>
-      <link>http://localhost:1313/blog/posts/lyrebird/</link>
+      <link>https://embracethered.com/blog/posts/lyrebird/</link>
       <pubDate>Tue, 21 May 2019 21:48:29 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/lyrebird/</guid>
+      <guid>https://embracethered.com/blog/posts/lyrebird/</guid>
       <description>&lt;p&gt;The idea for Lyrebird came from observing that sometimes when someone forgets lock their workstation, someone else might mess with their computer. Since I wanted to learn more on how to program a webcam and take pictures - I figured why not create a little tool that takes a screenshot and uses the webcam to take pictures of anyone that interacts with the computer while I&amp;rsquo;m gone.&lt;/p&gt;&#xA;&lt;p&gt;The way this work is simple, start Lyrebird. It will take a screenshot of the current desktop and then enter its observation mode.&lt;/p&gt;</description>
     </item>
   </channel>

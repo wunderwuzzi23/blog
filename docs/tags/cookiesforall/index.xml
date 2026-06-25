@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cookiesforall on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/cookiesforall/</link>
+    <link>https://embracethered.com/blog/tags/cookiesforall/</link>
     <description>Recent content in Cookiesforall on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Sun, 27 Oct 2019 10:56:03 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/cookiesforall/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/cookiesforall/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MITRE ATT&amp;CK Update for Cloud and cookies!</title>
-      <link>http://localhost:1313/blog/posts/mitreattackupdate/</link>
+      <link>https://embracethered.com/blog/posts/mitreattackupdate/</link>
       <pubDate>Sun, 27 Oct 2019 10:56:03 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/mitreattackupdate/</guid>
+      <guid>https://embracethered.com/blog/posts/mitreattackupdate/</guid>
       <description>&lt;p&gt;MITRE just updated the &lt;a href=&#34;https://attack.mitre.org/&#34;&gt;ATT&amp;amp;CK Framework&lt;/a&gt; to include Cloud TTPs.&lt;/p&gt;&#xA;&lt;p&gt;The update includes techniques for stealing cookies from machines and using them for lateral movement. These are the two techniques I helped contribute to the matrix:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://attack.mitre.org/techniques/T1539/&#34;&gt;Credential Access - Steal Web Session Cookie&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://attack.mitre.org/techniques/T1506/&#34;&gt;Lateral Movement - Web Session Cookie&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;It was exciting experience to collaborate with MITRE and contribute on this. And kinda cool to see the &lt;a href=&#34;https://wunderwuzzi23.github.io/blog/passthecookie.html&#34;&gt;Pass the Cookie&lt;/a&gt; work referenced.&lt;/p&gt;</description>
     </item>
   </channel>

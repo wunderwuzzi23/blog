@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mitre on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/mitre/</link>
+    <link>https://embracethered.com/blog/tags/mitre/</link>
     <description>Recent content in Mitre on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Fri, 22 Jan 2021 12:00:34 -0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/mitre/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/mitre/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Survivorship Bias and Red Teaming</title>
-      <link>http://localhost:1313/blog/posts/2021/survivorship-bias-and-red-teaming/</link>
+      <link>https://embracethered.com/blog/posts/2021/survivorship-bias-and-red-teaming/</link>
       <pubDate>Fri, 22 Jan 2021 12:00:34 -0800</pubDate>
-      <guid>http://localhost:1313/blog/posts/2021/survivorship-bias-and-red-teaming/</guid>
+      <guid>https://embracethered.com/blog/posts/2021/survivorship-bias-and-red-teaming/</guid>
       <description>&lt;p&gt;Survivorship bias is an interesting thing that we can observe nearly daily. It is the success stories of exponentially growing startups, the motivational speaker who shares their insights on how to be successful and so forth.&lt;/p&gt;&#xA;&lt;p&gt;What is it exactly?&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-survivorship-bias&#34;&gt;What is survivorship bias?&lt;/h2&gt;&#xA;&lt;p&gt;Wikipedia defines it as &amp;ldquo;&amp;hellip;the logical error of concentrating on the people or things that made it past some selection process and overlooking those that did not, typically because of their lack of visibility.&amp;rdquo;&lt;/p&gt;</description>
     </item>
   </channel>

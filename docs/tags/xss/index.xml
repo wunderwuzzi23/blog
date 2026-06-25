@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Xss on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/xss/</link>
+    <link>https://embracethered.com/blog/tags/xss/</link>
     <description>Recent content in Xss on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Fri, 29 Nov 2024 14:00:39 -0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/xss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/xss/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DeepSeek AI: From Prompt Injection To Account Takeover</title>
-      <link>http://localhost:1313/blog/posts/2024/deepseek-ai-prompt-injection-to-xss-and-account-takeover/</link>
+      <link>https://embracethered.com/blog/posts/2024/deepseek-ai-prompt-injection-to-xss-and-account-takeover/</link>
       <pubDate>Fri, 29 Nov 2024 14:00:39 -0800</pubDate>
-      <guid>http://localhost:1313/blog/posts/2024/deepseek-ai-prompt-injection-to-xss-and-account-takeover/</guid>
+      <guid>https://embracethered.com/blog/posts/2024/deepseek-ai-prompt-injection-to-xss-and-account-takeover/</guid>
       <description>&lt;p&gt;About two weeks ago, &lt;code&gt;DeepSeek&lt;/code&gt; released a new AI reasoning model, &lt;code&gt;DeepSeek-R1-Lite&lt;/code&gt;. The news quickly gained &lt;a href=&#34;https://techcrunch.com/2024/11/20/a-chinese-lab-has-released-a-model-to-rival-openais-o1/&#34;&gt;attention&lt;/a&gt; and &lt;a href=&#34;https://venturebeat.com/ai/deepseeks-first-reasoning-model-r1-lite-preview-turns-heads-beating-openai-o1-performance/&#34;&gt;interest&lt;/a&gt; across the AI community due to the reasoning capabilities the Chinese lab announced.&lt;/p&gt;&#xA;&lt;p&gt;However, whenever there is a new AI I have ideas&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;apps-that-hack-themselves---the-10x-hacker&#34;&gt;Apps That Hack Themselves - The 10x Hacker&lt;/h2&gt;&#xA;&lt;p&gt;There are some cool tests that can be done when pentesting LLM-powered web apps, I usually try some quick fun prompts like this one:&lt;/p&gt;</description>
     </item>
   </channel>

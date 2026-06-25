@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Windows on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/windows/</link>
+    <link>https://embracethered.com/blog/tags/windows/</link>
     <description>Recent content in Windows on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Tue, 14 Jul 2020 20:18:51 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Performing port-proxying and port-forwarding on Windows</title>
-      <link>http://localhost:1313/blog/posts/2020/windows-port-forward/</link>
+      <link>https://embracethered.com/blog/posts/2020/windows-port-forward/</link>
       <pubDate>Tue, 14 Jul 2020 20:18:51 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2020/windows-port-forward/</guid>
+      <guid>https://embracethered.com/blog/posts/2020/windows-port-forward/</guid>
       <description>&lt;p&gt;A technique on Windows that is less known is how to do basic port-proxying.&lt;/p&gt;&#xA;&lt;p&gt;Proxying ports is useful when a process binds on one (maybe only the local) interface and &lt;strong&gt;you want to expose that endpoint on another network interface&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s say you have an existing process that listens only on the loopback interface, and you want to expose it remotely. Or there are two network interfaces and you want expose traffic from one to the other (maybe some evil persistence for port 3389) - or think of basic &lt;strong&gt;pivoting&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
   </channel>

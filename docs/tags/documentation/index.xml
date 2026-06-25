@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Documentation on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/documentation/</link>
+    <link>https://embracethered.com/blog/tags/documentation/</link>
     <description>Recent content in Documentation on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Sat, 28 May 2022 14:00:54 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Customized Hacker Shell Prompts</title>
-      <link>http://localhost:1313/blog/posts/2022/hacker-shell-prompts/</link>
+      <link>https://embracethered.com/blog/posts/2022/hacker-shell-prompts/</link>
       <pubDate>Sat, 28 May 2022 14:00:54 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2022/hacker-shell-prompts/</guid>
+      <guid>https://embracethered.com/blog/posts/2022/hacker-shell-prompts/</guid>
       <description>&lt;p&gt;As the saying goes, a picture is worth a thousand words.&lt;/p&gt;&#xA;&lt;p&gt;In order to improve your documentation and uplevel red team and pentest reporting, it&amp;rsquo;s useful to add date and time information to screenshots and &lt;a href=&#34;https://www.man7.org/linux/man-pages/man1/script.1.html&#34;&gt;&lt;code&gt;script&lt;/code&gt; logs&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This helps the Blue Team (and yourself) reviewing past activity, reports and when deconflicting activity is required. Depending on the shell that is used there are different ways to go about it. Let&amp;rsquo;s cover three common ones.&lt;/p&gt;</description>
     </item>
   </channel>

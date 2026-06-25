@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Copilot on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/copilot/</link>
+    <link>https://embracethered.com/blog/tags/copilot/</link>
     <description>Recent content in Copilot on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Mon, 04 May 2026 06:00:00 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/copilot/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/copilot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Copirate 365 at DEF CON: Plundering in the Depths of Microsoft Copilot (CVE-2026-24299)</title>
-      <link>http://localhost:1313/blog/posts/2026/defcon-talk-copirate-365/</link>
+      <link>https://embracethered.com/blog/posts/2026/defcon-talk-copirate-365/</link>
       <pubDate>Mon, 04 May 2026 06:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2026/defcon-talk-copirate-365/</guid>
+      <guid>https://embracethered.com/blog/posts/2026/defcon-talk-copirate-365/</guid>
       <description>&lt;p&gt;This is a writeup of my &lt;a href=&#34;https://defcon.org/html/defcon-singapore/dc-singapore-talks.html&#34;&gt;DEF CON Singapore&lt;/a&gt; talk that walks through vulnerabilities and exploits in M365 Copilot and Consumer Copilot. I disclosed these to Microsoft last year. MSRC assigned &lt;a href=&#34;https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2026-24299&#34;&gt;CVE-2026-24299&lt;/a&gt; and the issues are now patched.&lt;/p&gt;&#xA;&lt;h2 id=&#34;contents&#34;&gt;Contents&lt;/h2&gt;&#xA;&lt;p&gt;This turned out to be a long post, covering the 45 minute talk. I added an index page, so you know what&amp;rsquo;s in here. The talk had a more demos by the way, but I included videos here in this post also.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Protect Your Copilots: Preventing Data Leaks in Copilot Studio</title>
-      <link>http://localhost:1313/blog/posts/2024/copilot-studio-protect-your-copilots/</link>
+      <link>https://embracethered.com/blog/posts/2024/copilot-studio-protect-your-copilots/</link>
       <pubDate>Tue, 30 Jul 2024 10:00:36 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2024/copilot-studio-protect-your-copilots/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Microsoft&amp;rsquo;s Copilot Studio&lt;/strong&gt; is a powerful, easy-to-use, low-code platform that enables employees in an organization to create chatbots. Previously known as &lt;strong&gt;Power Virtual Agents&lt;/strong&gt;, it has been updated (including GenAI features) and rebranded to Copilot Studio, likely to align with current AI trends.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://localhost:1313/blog/images/2024/copilot-data-leak-prevention-small.png&#34;&gt;&lt;img src=&#34;http://localhost:1313/blog/images/2024/copilot-data-leak-prevention-small.png&#34; alt=&#34;Thumbnail Copilot Studio&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This post discusses security risks to be aware of when using Copilot Studio, focusing on data leaks, unauthorized access, and how external adversaries can find and interact with misconfigured Copilots. &lt;strong&gt;Learn about security controls, like enabling Data Loss Prevention (DLP), which is currently off by default, to protect your organization&amp;rsquo;s data.&lt;/strong&gt;&lt;/p&gt;</description>
+      <guid>https://embracethered.com/blog/posts/2024/copilot-studio-protect-your-copilots/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Microsoft&amp;rsquo;s Copilot Studio&lt;/strong&gt; is a powerful, easy-to-use, low-code platform that enables employees in an organization to create chatbots. Previously known as &lt;strong&gt;Power Virtual Agents&lt;/strong&gt;, it has been updated (including GenAI features) and rebranded to Copilot Studio, likely to align with current AI trends.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2024/copilot-data-leak-prevention-small.png&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2024/copilot-data-leak-prevention-small.png&#34; alt=&#34;Thumbnail Copilot Studio&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This post discusses security risks to be aware of when using Copilot Studio, focusing on data leaks, unauthorized access, and how external adversaries can find and interact with misconfigured Copilots. &lt;strong&gt;Learn about security controls, like enabling Data Loss Prevention (DLP), which is currently off by default, to protect your organization&amp;rsquo;s data.&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

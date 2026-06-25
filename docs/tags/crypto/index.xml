@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Crypto on Embrace The Red</title>
-    <link>http://localhost:1313/blog/tags/crypto/</link>
+    <link>https://embracethered.com/blog/tags/crypto/</link>
     <description>Recent content in Crypto on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Fri, 19 Mar 2021 10:16:02 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/crypto/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://embracethered.com/blog/tags/crypto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Broken NFT standards</title>
-      <link>http://localhost:1313/blog/posts/2021/broken-nft-standards/</link>
+      <link>https://embracethered.com/blog/posts/2021/broken-nft-standards/</link>
       <pubDate>Fri, 19 Mar 2021 10:16:02 -0700</pubDate>
-      <guid>http://localhost:1313/blog/posts/2021/broken-nft-standards/</guid>
+      <guid>https://embracethered.com/blog/posts/2021/broken-nft-standards/</guid>
       <description>&lt;p&gt;You probably heard of NFTs (non-fungible tokens). They are receiving a lot of interest over the last several months. I did some digging and realized that there are some bigger issues with the standards and various interpretations and implementations of it, and how &lt;strong&gt;centralized&lt;/strong&gt; many offerings are.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-an-nft&#34;&gt;What is an NFT&lt;/h2&gt;&#xA;&lt;p&gt;The idea behind it is simple, use a blockchain (and cryptography) to assign and be able to proof ownership over a specific piece of digital content.&lt;/p&gt;</description>
     </item>
   </channel>
