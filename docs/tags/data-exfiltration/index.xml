@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Exfiltration on Embrace The Red</title>
-    <link>https://embracethered.com/blog/tags/data-exfiltration/</link>
+    <link>http://localhost:1313/blog/tags/data-exfiltration/</link>
     <description>Recent content in Data Exfiltration on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Mon, 04 May 2026 06:00:00 -0700</lastBuildDate>
-    <atom:link href="https://embracethered.com/blog/tags/data-exfiltration/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/data-exfiltration/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Copirate 365 at DEF CON: Plundering in the Depths of Microsoft Copilot (CVE-2026-24299)</title>
-      <link>https://embracethered.com/blog/posts/2026/defcon-talk-copirate-365/</link>
+      <link>http://localhost:1313/blog/posts/2026/defcon-talk-copirate-365/</link>
       <pubDate>Mon, 04 May 2026 06:00:00 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2026/defcon-talk-copirate-365/</guid>
+      <guid>http://localhost:1313/blog/posts/2026/defcon-talk-copirate-365/</guid>
       <description>&lt;p&gt;This is a writeup of my &lt;a href=&#34;https://defcon.org/html/defcon-singapore/dc-singapore-talks.html&#34;&gt;DEF CON Singapore&lt;/a&gt; talk that walks through vulnerabilities and exploits in M365 Copilot and Consumer Copilot. I disclosed these to Microsoft last year. MSRC assigned &lt;a href=&#34;https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2026-24299&#34;&gt;CVE-2026-24299&lt;/a&gt; and the issues are now patched.&lt;/p&gt;&#xA;&lt;h2 id=&#34;contents&#34;&gt;Contents&lt;/h2&gt;&#xA;&lt;p&gt;This turned out to be a long post, covering the 45 minute talk. I added an index page, so you know what&amp;rsquo;s in here. The talk had a more demos by the way, but I included videos here in this post also.&lt;/p&gt;</description>
     </item>
     <item>
       <title>OpenAI Explains URL-Based Data Exfiltration Mitigations in New Paper</title>
-      <link>https://embracethered.com/blog/posts/2026/data-exfiltration-mitigation-paper-by-openai/</link>
+      <link>http://localhost:1313/blog/posts/2026/data-exfiltration-mitigation-paper-by-openai/</link>
       <pubDate>Wed, 04 Feb 2026 23:59:30 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2026/data-exfiltration-mitigation-paper-by-openai/</guid>
-      <description>&lt;p&gt;Last week I saw &lt;a href=&#34;https://cdn.openai.com/pdf/dd8e7875-e606-42b4-80a1-f824e4e11cf4/prevent-url-data-exfil.pdf&#34;&gt;this paper&lt;/a&gt; from OpenAI called &amp;ldquo;Preventing URL-Based Data Exfiltration in&#xA;Language-Model Agents&amp;rdquo;, which goes into detail on new mitigations they’ve added.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cdn.openai.com/pdf/dd8e7875-e606-42b4-80a1-f824e4e11cf4/prevent-url-data-exfil.pdf&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2026/openai-paper-abstract.png&#34; alt=&#34;OpenAI Paper Abstract&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;This is a great read.&lt;/strong&gt; I like this transparency.&lt;/p&gt;&#xA;&lt;h3 id=&#34;initial-disclosure-in-2023&#34;&gt;Initial Disclosure in 2023&lt;/h3&gt;&#xA;&lt;p&gt;Nearly three years ago I reported the zero-click data exfiltration exploit to OpenAI. Back in early 2023 OpenAI did not have a bug bounty program, so communication was via email, and unfortunately there was little traction or appetite to fix the problem in ChatGPT. I also reported the same issue to Microsoft as Bing Chat was impacted, and Microsoft applied a fix (via a Content-Security-Policy header) in May 2023 to generally prevent loading of images.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/posts/2026/data-exfiltration-mitigation-paper-by-openai/</guid>
+      <description>&lt;p&gt;Last week I saw &lt;a href=&#34;https://cdn.openai.com/pdf/dd8e7875-e606-42b4-80a1-f824e4e11cf4/prevent-url-data-exfil.pdf&#34;&gt;this paper&lt;/a&gt; from OpenAI called &amp;ldquo;Preventing URL-Based Data Exfiltration in&#xA;Language-Model Agents&amp;rdquo;, which goes into detail on new mitigations they’ve added.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cdn.openai.com/pdf/dd8e7875-e606-42b4-80a1-f824e4e11cf4/prevent-url-data-exfil.pdf&#34;&gt;&lt;img src=&#34;http://localhost:1313/blog/images/2026/openai-paper-abstract.png&#34; alt=&#34;OpenAI Paper Abstract&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;This is a great read.&lt;/strong&gt; I like this transparency.&lt;/p&gt;&#xA;&lt;h3 id=&#34;initial-disclosure-in-2023&#34;&gt;Initial Disclosure in 2023&lt;/h3&gt;&#xA;&lt;p&gt;Nearly three years ago I reported the zero-click data exfiltration exploit to OpenAI. Back in early 2023 OpenAI did not have a bug bounty program, so communication was via email, and unfortunately there was little traction or appetite to fix the problem in ChatGPT. I also reported the same issue to Microsoft as Bing Chat was impacted, and Microsoft applied a fix (via a Content-Security-Policy header) in May 2023 to generally prevent loading of images.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Antigravity Grounded! Security Vulnerabilities in Google&#39;s Latest IDE</title>
-      <link>https://embracethered.com/blog/posts/2025/security-keeps-google-antigravity-grounded/</link>
+      <link>http://localhost:1313/blog/posts/2025/security-keeps-google-antigravity-grounded/</link>
       <pubDate>Tue, 25 Nov 2025 06:00:58 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2025/security-keeps-google-antigravity-grounded/</guid>
+      <guid>http://localhost:1313/blog/posts/2025/security-keeps-google-antigravity-grounded/</guid>
       <description>&lt;p&gt;Last week Google released an IDE called Antigravity. It&amp;rsquo;s basically the outcome of the Windsurf licensing deal from a few months ago, where &lt;a href=&#34;https://www.reuters.com/business/google-hires-windsurf-ceo-researchers-advance-ai-ambitions-2025-07-11/&#34;&gt;Google paid some $2.4 billion for a non-exclusive license to the code&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Because it&amp;rsquo;s based on Windsurf, I was curious if vulnerabilities that I reported to Windsurf back in May 2025, long before the deal, would have been addressed in the Antigravity IDE. See &lt;a href=&#34;https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/&#34;&gt;Month of AI Bugs&lt;/a&gt; for some detailed write-ups.&lt;/p&gt;</description>
     </item>
   </channel>

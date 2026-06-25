@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Advisory on Embrace The Red</title>
-    <link>https://embracethered.com/blog/tags/advisory/</link>
+    <link>http://localhost:1313/blog/tags/advisory/</link>
     <description>Recent content in Advisory on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Tue, 24 Jun 2025 16:00:46 -0700</lastBuildDate>
-    <atom:link href="https://embracethered.com/blog/tags/advisory/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/advisory/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Security Advisory: Anthropic&#39;s Slack MCP Server Vulnerable to Data Exfiltration</title>
-      <link>https://embracethered.com/blog/posts/2025/security-advisory-anthropic-slack-mcp-server-data-leakage/</link>
+      <link>http://localhost:1313/blog/posts/2025/security-advisory-anthropic-slack-mcp-server-data-leakage/</link>
       <pubDate>Tue, 24 Jun 2025 16:00:46 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2025/security-advisory-anthropic-slack-mcp-server-data-leakage/</guid>
-      <description>&lt;a id=&#34;top_ref&#34;&gt;&lt;/a&gt;&#xA;&#xA;&lt;p&gt;This is a security advisory for a data leakage and exfiltration vulnerability in a popular, but now deprecated and unmaintained, Slack MCP Server from Anthropic.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2025/anthropic-slack-mcp-tn.png&#34; alt=&#34;Slack MCP Server&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;If you are using this MCP server, or run an &amp;ldquo;MCP Store&amp;rdquo; that hosts it, it is advised that you analyze how this threat applies to your use case and apply a patch as needed.&lt;/p&gt;&#xA;&lt;h2 id=&#34;anthropics-slack-mcp-server&#34;&gt;Anthropic&amp;rsquo;s Slack MCP Server&lt;/h2&gt;&#xA;&lt;p&gt;When Anthropic &lt;a href=&#34;https://www.anthropic.com/news/model-context-protocol&#34;&gt;introduced MCP&lt;/a&gt; they published reference server implementations &lt;a href=&#34;https://github.com/modelcontextprotocol/servers/&#34;&gt;on Github&lt;/a&gt;.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/posts/2025/security-advisory-anthropic-slack-mcp-server-data-leakage/</guid>
+      <description>&lt;a id=&#34;top_ref&#34;&gt;&lt;/a&gt;&#xA;&#xA;&lt;p&gt;This is a security advisory for a data leakage and exfiltration vulnerability in a popular, but now deprecated and unmaintained, Slack MCP Server from Anthropic.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/images/2025/anthropic-slack-mcp-tn.png&#34; alt=&#34;Slack MCP Server&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;If you are using this MCP server, or run an &amp;ldquo;MCP Store&amp;rdquo; that hosts it, it is advised that you analyze how this threat applies to your use case and apply a patch as needed.&lt;/p&gt;&#xA;&lt;h2 id=&#34;anthropics-slack-mcp-server&#34;&gt;Anthropic&amp;rsquo;s Slack MCP Server&lt;/h2&gt;&#xA;&lt;p&gt;When Anthropic &lt;a href=&#34;https://www.anthropic.com/news/model-context-protocol&#34;&gt;introduced MCP&lt;/a&gt; they published reference server implementations &lt;a href=&#34;https://github.com/modelcontextprotocol/servers/&#34;&gt;on Github&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

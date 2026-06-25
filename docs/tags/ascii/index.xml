@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ascii on Embrace The Red</title>
-    <link>https://embracethered.com/blog/tags/ascii/</link>
+    <link>http://localhost:1313/blog/tags/ascii/</link>
     <description>Recent content in Ascii on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Thu, 08 Feb 2024 02:01:54 -0800</lastBuildDate>
-    <atom:link href="https://embracethered.com/blog/tags/ascii/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/ascii/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hidden Prompt Injections with Anthropic Claude</title>
-      <link>https://embracethered.com/blog/posts/2024/claude-hidden-prompt-injection-ascii-smuggling/</link>
+      <link>http://localhost:1313/blog/posts/2024/claude-hidden-prompt-injection-ascii-smuggling/</link>
       <pubDate>Thu, 08 Feb 2024 02:01:54 -0800</pubDate>
-      <guid>https://embracethered.com/blog/posts/2024/claude-hidden-prompt-injection-ascii-smuggling/</guid>
-      <description>&lt;p&gt;A few weeks ago while waiting at the airport lounge I was wondering how other Chatbots, besides ChatGPT, handle hidden Unicode Tags code points.&lt;/p&gt;&#xA;&lt;p&gt;A quick reminder: Unicode Tags code points &lt;a href=&#34;https://embracethered.com/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/&#34;&gt;are invisible in UI elements&lt;/a&gt;, but ChatGPT was able to interpret them and follow hidden instructions. &lt;a href=&#34;https://twitter.com/goodside/status/1745511940351287394&#34;&gt;Riley Goodside discovered it&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-about-anthropic-claude&#34;&gt;What about Anthropic Claude?&lt;/h2&gt;&#xA;&lt;p&gt;While waiting for a flight I figured to look at Anthropic Claude. Turns out it has the same issue as ChatGPT had. I reported it behind the scenes, but got the following final reply and the ticket was closed.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/posts/2024/claude-hidden-prompt-injection-ascii-smuggling/</guid>
+      <description>&lt;p&gt;A few weeks ago while waiting at the airport lounge I was wondering how other Chatbots, besides ChatGPT, handle hidden Unicode Tags code points.&lt;/p&gt;&#xA;&lt;p&gt;A quick reminder: Unicode Tags code points &lt;a href=&#34;http://localhost:1313/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/&#34;&gt;are invisible in UI elements&lt;/a&gt;, but ChatGPT was able to interpret them and follow hidden instructions. &lt;a href=&#34;https://twitter.com/goodside/status/1745511940351287394&#34;&gt;Riley Goodside discovered it&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-about-anthropic-claude&#34;&gt;What about Anthropic Claude?&lt;/h2&gt;&#xA;&lt;p&gt;While waiting for a flight I figured to look at Anthropic Claude. Turns out it has the same issue as ChatGPT had. I reported it behind the scenes, but got the following final reply and the ticket was closed.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

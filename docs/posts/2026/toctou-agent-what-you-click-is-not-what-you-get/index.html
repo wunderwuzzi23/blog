@@ -1,36 +1,47 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head prefix="og: http://ogp.me/ns#">
+<head prefix="og: http://ogp.me/ns#"><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <meta name="description" content="wunderwuzzi&#39;s blog" />
-  <link rel="canonical" href="https://embracethered.com/blog/posts/2026/toctou-agent-what-you-click-is-not-what-you-get/" />
-  <meta property="og:title" content="  &middot;  Embrace The Red" />
-  <meta property="og:description" content="wunderwuzzi&#39;s blog" />
+  <meta name="description" content="Last year, Jun Kokatsu disclosed an interesting vulnerability with ChatGPT Operator by exploiting a race condition. I was wondering if I could reproduce this …" />
+  <link rel="canonical" href="http://localhost:1313/blog/posts/2026/toctou-agent-what-you-click-is-not-what-you-get/" />
+  <meta property="og:title" content=" Computer-Use and TOCTOU: What You Click Is Not What You Get! &middot;  Embrace The Red" />
+  <meta property="og:description" content="Last year, Jun Kokatsu disclosed an interesting vulnerability with ChatGPT Operator by exploiting a race condition. I was wondering if I could reproduce this …" />
   <meta property="og:site_name" content="Embrace The Red" />
-  <meta property="og:url" content="https://embracethered.com/blog/posts/2026/toctou-agent-what-you-click-is-not-what-you-get/" />
+  <meta property="og:url" content="http://localhost:1313/blog/posts/2026/toctou-agent-what-you-click-is-not-what-you-get/" />
   <meta property="og:type" content="article" />
-  <meta property="og:article:published_time" content="0001-01-01T00:00:00Z" />
+  <meta property="og:article:published_time" content="2026-06-25T05:20:58-07:00" />
+  <meta property="og:article:tag" content="llm" />
+  <meta property="og:article:tag" content="agents" />
 
   <title>
-      &middot;  Embrace The Red
+     Computer-Use and TOCTOU: What You Click Is Not What You Get! &middot;  Embrace The Red
   </title>
 
-  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
-  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  <link rel="stylesheet" href="http://localhost:1313/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="http://localhost:1313/blog/css/main.css" />
+  <link rel="stylesheet" href="http://localhost:1313/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="http://localhost:1313/blog/css/github.css" />
   
-  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
-  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
-  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="stylesheet" href="http://localhost:1313/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="http://localhost:1313/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="http://localhost:1313/blog/images/favicon.ico" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="Computer-Use and TOCTOU: What You Click Is Not What You Get!">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2026/toctou-agents.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "\"\"",
-    "description": "\"wunderwuzzi's blog\"",
+    "headline": "\"Computer-Use and TOCTOU: What You Click Is Not What You Get!\"",
+    "description": "\"Last year, Jun Kokatsu disclosed an interesting vulnerability with ChatGPT Operator by exploiting a race condition. I was wondering if I could reproduce this …\"",
     "author": {
       "@type": "Person",
       "name": "wunderwuzzi",
@@ -41,14 +52,14 @@
       "name": "\"Embrace The Red\"",
       "logo": {
         "@type": "ImageObject",
-        "url": "https:\/\/embracethered.com\/blog\/images/favicon.ico"
+        "url": "http:\/\/localhost:1313\/blog\/images/favicon.ico"
       }
     },
-    "url": "\"https://embracethered.com/blog/posts/2026/toctou-agent-what-you-click-is-not-what-you-get/\"",
-    "datePublished": "\"0001-01-01T00:00:00Z\"","dateModified": "\"2026-04-17T13:55:20+08:00\"",
+    "url": "\"http://localhost:1313/blog/posts/2026/toctou-agent-what-you-click-is-not-what-you-get/\"",
+    "datePublished": "\"2026-06-25T05:20:58-07:00\"","dateModified": "\"2026-06-25T05:20:58-07:00\"",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "\"https://embracethered.com/blog/posts/2026/toctou-agent-what-you-click-is-not-what-you-get/\""
+      "@id": "\"http://localhost:1313/blog/posts/2026/toctou-agent-what-you-click-is-not-what-you-get/\""
     }
   }
   </script>
@@ -57,7 +68,7 @@
 <body>
     <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
     <section class="header-text">
-      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      <h1><a href="http://localhost:1313/blog/">Embrace The Red</a></h1>
       
       <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
         wunderwuzzi&#39;s blog
@@ -102,7 +113,7 @@
 </div>
 
       
-      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+      <a href="http://localhost:1313/blog/" class="btn-header btn-back hidden-xs">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
         &nbsp;Home
       </a>
@@ -123,23 +134,83 @@
 
 <article>
   <header>
-    <h1 class="text-primary"></h1>
+    <h1 class="text-primary">Computer-Use and TOCTOU: What You Click Is Not What You Get!</h1>
     <div class="post-meta clearfix">
     
       <div class="post-date pull-left">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2026-06-25T05:20:58-07:00">
+          Jun 25, 2026
         </time>
       </div>
     
       <div class="pull-right">
         
+        <span class="post-tag small"><a href="http://localhost:1313/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="http://localhost:1313/blog//tags/agents">#agents</a></span>
+        
       </div>
     </div>
   </header>
   <section>
-    
+    <p>Last year, Jun Kokatsu disclosed an <a href="https://github.com/google/security-research/security/advisories/GHSA-mp56-7vrw-qxvf">interesting vulnerability</a> with ChatGPT Operator by exploiting a race condition. I was wondering if I could reproduce this attack chain, and this post describes the results of that research.</p>
+<p>I had this post drafted for months, and yesterday at the <a href="https://seclab.stanford.edu/RealWorldAIsec/">Real-world AI security conference</a> I included a video demo of this attack in my talk and that reminded me that I should finally publish this.</p>
+<p><a href="/blog/images/2026/toctou-agents.png"><img src="/blog/images/2026/toctou-agents.png" alt="toctou"></a></p>
+<p>I will discuss <code>Claude Computer-Use</code> specifically in this post. This research happened last October, and I just never got around sharing it.</p>
+<h2 id="what-is-a-toctou-attack">What Is a TOCTOU Attack?</h2>
+<p><code>TOCTOU</code> stands for <strong>time-of-check to time-of-use</strong> and describes a kind of <a href="https://en.wikipedia.org/wiki/Time-of-check_to_time-of-use">race condition</a> in security.</p>
+<h2 id="how-do-computer-use-agents-work">How Do Computer-Use Agents Work?</h2>
+<p>Computer-Use Agents take screenshots, and the AI processes the screenshots to determine the next steps. Once the Agent completes the reasoning process, it will take an action, like entering data or clicking a button or link.</p>
+<p>This creates a classic <code>TOCTOU</code> situation, where the computer screen could have changed while the LLM inference was happening.</p>
+<p><strong>That means that the action the AI Agent takes can happen on a different object than intended!</strong></p>
+<h3 id="basic-test-to-trick-an-agent">Basic Test To Trick an Agent</h3>
+<p>I ran a quick experiment with a single page that has an <strong>OKAY</strong> button, that I swapped out with an <strong>ENTER THE MATRIX</strong> button after 2 seconds.</p>
+<p><a href="/blog/images/2026/toctou-basic.png"><img src="/blog/images/2026/toctou-basic.png" alt="email draft"></a></p>
+<p>To my surprise both Claude Computer-Use and also ChatGPT Agent both fell for this at the first time, and it repro&rsquo;d basically every single time.</p>
+<p>Knowing that, it was time to craft something more malicious.</p>
+<h2 id="lets-trick-the-ai-to-send-an-email">Let&rsquo;s Trick the AI To Send An Email</h2>
+<p>Outlook allows you to draft an email with a single URL.</p>
+<p>The only thing needed is to click that link and you have a fully drafted email open, and all you need todo is click send!</p>
+<p>Let me show you what I mean:</p>
+<pre tabindex="0"><code>https://outlook.office.com/mail/deeplink/compose?to=REDACT@wunderwuzzi.net&amp;subject=Trust%20No%20AI&amp;body=This%20email%20was%20sent%20by%20your%20friendly%20AI%20Agent%20%0a%0dTrust%20No%20AI
+</code></pre><p>Note: For the Outlook consumer version the domain is different but it works the same.</p>
+<p>If you click that link it will open Outlook, like this:</p>
+<p><a href="/blog/images/2026/toctou-email-draft.png"><img src="/blog/images/2026/toctou-email-draft.png" alt="email draft"></a></p>
+<p>I noticed this feature a few years back and it seemed that it could be used malicously. I just didn&rsquo;t know how back then&hellip; Now, I know. AI!</p>
+<h2 id="crafting-the-attack">Crafting The Attack</h2>
+<p>So, all we need to do is have an attacker controlled phishing page, which shows a &ldquo;Click here to continue&rdquo; button. And then we place that button exactly at the same location as the &ldquo;Send&rdquo; button in Outlook.</p>
+<p>This is the page I came up with:</p>
+<p><a href="/blog/images/2026/toctou-send-pi.png"><img src="/blog/images/2026/toctou-send-pi.png" alt="email draft"></a></p>
+<p><strong>The important part is that the &ldquo;Continue&rdquo; button is at the exact same location as the &ldquo;Send&rdquo; button in the draft! The Agent will think it clicks the Continue button, but in reality it clicks &ldquo;Send&rdquo; to send an arbitrary email.</strong></p>
+<p>There is one trick that I had to come up with.</p>
+<p>The load of the Outlook page takes long and the Agent is taking new screenshots which prevents the exploit from working. This means I had to find a way to wait for 4-5 seconds until the Outlook page with the mail draft is loaded.</p>
+<p>To achieve that, the prompt injection asked Claude to calculate <code>1+1</code> using bash. This means there is an additional bash command run, which takes enough time to successfully load the Outlook page that we want to have the AI click &ldquo;Send&rdquo; on!</p>
+<h2 id="video-demonstration">Video Demonstration</h2>
+<p>Here is an end-to-end demonstration to show this TOCTOU scenario:
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/i16jHwD1tIQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+</p>
+<h2 id="disclosure">Disclosure</h2>
+<p>I reported this to Anthropic last October, and it was acknowledged and highlighted that they were already tracking this risk, and that Computer-Use agent, back then, was still a preview feature, see the <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool#security-considerations">security considerations</a> section.</p>
+<p>When Anthropic shipped Cowork with Computer-Use a few months ago, Felix Rieseberg (one of the developers) said in the <a href="https://x.com/felixrieseberg/status/2036476516960539118">announcement</a> that &ldquo;We also ensure that pixels haven&rsquo;t changed before action&rdquo;.</p>
+<p><a href="/blog/images/2026/felix-tweet.png"><img src="/blog/images/2026/felix-tweet.png" alt="felix announcement"></a></p>
+<p>So, this was addressed by Anthropic. Additionally, I also reported this TOCTOU threat to a couple of other vendors last year that I found vulnerable.</p>
+<h2 id="recommendation">Recommendation</h2>
+<p>The solution for this is simple: Ensure that the UI hasn&rsquo;t changed before taking an action, e.g take a snapshot when reasoning starts and when reasoning concludes check again that nothing significant changed.</p>
+<p><strong>It&rsquo;s a classic old school security problem, that surfaces under novel conditions.</strong></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The reasoning step (which often takes multiple seconds) offers a quite large window to create a very reliable race condition. This can lead to accidents, where the agent takes actions on outdated pixels, but it can also lead to security exploits, like data exfiltration, modification of settings and configurations.</p>
+<p>Happy hacking,
+Johann.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/google/security-research/security/advisories/GHSA-mp56-7vrw-qxvf">Jun&rsquo;s Disclosure: OpenAI Operator - Click on arbitrary origin by TOCTOU attack </a></li>
+<li><a href="https://en.wikipedia.org/wiki/Time-of-check_to_time-of-use">Race Conditions</a></li>
+<li><a href="https://seclab.stanford.edu/RealWorldAIsec/">Real-world AI Security Conference</a></li>
+</ul>
+
   </section>
   <footer>
     
@@ -149,7 +220,7 @@
     
     <ul class="pager">
       
-      <li class="next"><a href="https://embracethered.com/blog/posts/2026/chrome-device-bound-session-credentials/">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
       
       
       <li class="author-contact">
@@ -161,7 +232,7 @@
 
       
       
-      <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+      <li class="previous"><a href="http://localhost:1313/blog/posts/2026/defcon-talk-copirate-365/"><span aria-hidden="true">&larr;</span> Older</a></li>
       
     </ul>
   </footer>
@@ -209,11 +280,11 @@
 </div>
  
      <div style="font-size:small;font-style: italic;color:crimson">
-    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. | <a href="https://embracethered.com/blog/privacy.txt">Privacy</a>
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. | <a href="http://localhost:1313/blog/privacy.txt">Privacy</a>
     </div>
     </div>
 </footer>
-  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script src="http://localhost:1313/blog/js/highlight.pack.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
   </script>

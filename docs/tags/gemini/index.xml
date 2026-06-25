@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gemini on Embrace The Red</title>
-    <link>https://embracethered.com/blog/tags/gemini/</link>
+    <link>http://localhost:1313/blog/tags/gemini/</link>
     <description>Recent content in Gemini on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Mon, 10 Feb 2025 06:30:21 -0800</lastBuildDate>
-    <atom:link href="https://embracethered.com/blog/tags/gemini/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/gemini/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hacking Gemini&#39;s Memory with Prompt Injection and Delayed Tool Invocation</title>
-      <link>https://embracethered.com/blog/posts/2025/gemini-memory-persistence-prompt-injection/</link>
+      <link>http://localhost:1313/blog/posts/2025/gemini-memory-persistence-prompt-injection/</link>
       <pubDate>Mon, 10 Feb 2025 06:30:21 -0800</pubDate>
-      <guid>https://embracethered.com/blog/posts/2025/gemini-memory-persistence-prompt-injection/</guid>
+      <guid>http://localhost:1313/blog/posts/2025/gemini-memory-persistence-prompt-injection/</guid>
       <description>&lt;p&gt;&lt;em&gt;Imagine your AI rewriting your personal history&amp;hellip;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;A while ago Google added memories to Gemini. Memories allow Gemini to store user-related data across sessions, storing information in long-term memory. The feature is only available to users &lt;a href=&#34;https://support.google.com/gemini/answer/15637730?visit_id=638747979741490779-2881515340&amp;amp;p=saved_info&amp;amp;rd=1&#34;&gt;who subscribe to Gemini Advanced&lt;/a&gt; so far. So, in the fall of last year I chimed in and paid for the subscription for a month to check it out.&lt;/p&gt;&#xA;&lt;p&gt;As a user you can see what Gemini stored about you at &lt;code&gt;https://gemini.google.com/saved-info&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
   </channel>

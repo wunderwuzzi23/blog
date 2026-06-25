@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on Embrace The Red</title>
-    <link>https://embracethered.com/blog/tags/programming/</link>
+    <link>http://localhost:1313/blog/tags/programming/</link>
     <description>Recent content in Programming on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Sun, 05 Mar 2023 17:31:58 -0800</lastBuildDate>
-    <atom:link href="https://embracethered.com/blog/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Yolo: Natural Language to Shell Commands with ChatGPT API</title>
-      <link>https://embracethered.com/blog/posts/2023/yolo-natural-language-to-bash-command-with-chatgpt-api/</link>
+      <link>http://localhost:1313/blog/posts/2023/yolo-natural-language-to-bash-command-with-chatgpt-api/</link>
       <pubDate>Sun, 05 Mar 2023 17:31:58 -0800</pubDate>
-      <guid>https://embracethered.com/blog/posts/2023/yolo-natural-language-to-bash-command-with-chatgpt-api/</guid>
+      <guid>http://localhost:1313/blog/posts/2023/yolo-natural-language-to-bash-command-with-chatgpt-api/</guid>
       <description>&lt;p&gt;Once in a while I go build some fun new tools to adopt new tech. Just last week OpenAI made their &lt;code&gt;gpt-3.5-turbo&lt;/code&gt; model accessible via API endpoints.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Update: The latest version also supports GPT-4.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;So, I thought it&amp;rsquo;s time to start building a tool to leverage it.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-yolo&#34;&gt;What is yolo?&lt;/h2&gt;&#xA;&lt;p&gt;Do you know those moments when you can&amp;rsquo;t remember a shell command, or some arguments to it? How do you pipe all errors to /dev/null again? Things along those lines. This is where yolo comes to the rescue.&lt;/p&gt;</description>
     </item>
   </channel>

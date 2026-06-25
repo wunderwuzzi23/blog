@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Assurance on Embrace The Red</title>
-    <link>https://embracethered.com/blog/tags/assurance/</link>
+    <link>http://localhost:1313/blog/tags/assurance/</link>
     <description>Recent content in Assurance on Embrace The Red</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
     <lastBuildDate>Mon, 11 Jan 2021 09:00:51 -0800</lastBuildDate>
-    <atom:link href="https://embracethered.com/blog/tags/assurance/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/assurance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gamifying Security with Red Team Scores</title>
-      <link>https://embracethered.com/blog/posts/2021/gamifying-red-team-security-score/</link>
+      <link>http://localhost:1313/blog/posts/2021/gamifying-red-team-security-score/</link>
       <pubDate>Mon, 11 Jan 2021 09:00:51 -0800</pubDate>
-      <guid>https://embracethered.com/blog/posts/2021/gamifying-red-team-security-score/</guid>
-      <description>&lt;p&gt;Security metrics are an interesting topic.&lt;/p&gt;&#xA;&lt;p&gt;Over the years I used &amp;ldquo;scores&amp;rdquo; as a tool to identify and shine light on problematic areas or highlight lack of engineering and security quality of certain teams.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2021/attackteamscore.png&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2021/attackteamscore.png&#34; alt=&#34;Attack Team Score&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A security score should not seen as an objective or absoulte measure, but it &lt;strong&gt;allows to compare systems with each other at a relative scale&lt;/strong&gt;, and by sharing the score it makes people ask questions.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/posts/2021/gamifying-red-team-security-score/</guid>
+      <description>&lt;p&gt;Security metrics are an interesting topic.&lt;/p&gt;&#xA;&lt;p&gt;Over the years I used &amp;ldquo;scores&amp;rdquo; as a tool to identify and shine light on problematic areas or highlight lack of engineering and security quality of certain teams.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://localhost:1313/blog/images/2021/attackteamscore.png&#34;&gt;&lt;img src=&#34;http://localhost:1313/blog/images/2021/attackteamscore.png&#34; alt=&#34;Attack Team Score&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A security score should not seen as an objective or absoulte measure, but it &lt;strong&gt;allows to compare systems with each other at a relative scale&lt;/strong&gt;, and by sharing the score it makes people ask questions.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
