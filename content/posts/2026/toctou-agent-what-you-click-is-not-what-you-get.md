@@ -38,7 +38,7 @@ I ran a quick experiment with a single page that has an **OKAY** button, that I 
 
 [![email draft](/blog/images/2026/toctou-basic.png)](/blog/images/2026/toctou-basic.png)
 
-To my surprise both Claude Computer-Use and also ChatGPT Agent both fell for this at the first time, and it repro'd basically every single time.
+To my surprise both Claude Computer-Use fell for this at the first time, and it repro'd regularly.
 
 Knowing that, it was time to craft something more malicious.
 
