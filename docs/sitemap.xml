@@ -2,31 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://embracethered.com/blog/tags/data-exfiltration/</loc>
+    <lastmod>2026-07-16T17:13:18+08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2026-07-16T17:13:18+08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2026/macos-terminal-dillma-dns-exfil-ansi-escape-code-fix/</loc>
+    <lastmod>2026-07-16T17:13:18+08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2026-07-16T17:13:18+08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2026-07-16T17:13:18+08:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2026-07-16T17:13:18+08:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/agents/</loc>
     <lastmod>2026-06-25T05:20:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2026/toctou-agent-what-you-click-is-not-what-you-get/</loc>
     <lastmod>2026-06-25T05:20:58-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2026-06-26T07:17:53+08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2026-06-25T05:20:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2026-06-26T07:17:53+08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2026-06-25T05:20:58-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/tags/copilot/</loc>
     <lastmod>2026-05-04T06:00:00-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2026/defcon-talk-copirate-365/</loc>
-    <lastmod>2026-05-04T06:00:00-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/data-exfiltration/</loc>
     <lastmod>2026-05-04T06:00:00-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/prompt-injection/</loc>

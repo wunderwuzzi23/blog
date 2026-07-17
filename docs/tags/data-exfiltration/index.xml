@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
-    <lastBuildDate>Mon, 04 May 2026 06:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2026 17:13:18 +0800</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/data-exfiltration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From Indirect Prompt Injection to DNS Exfiltration in macOS Terminal</title>
+      <link>https://embracethered.com/blog/posts/2026/macos-terminal-dillma-dns-exfil-ansi-escape-code-fix/</link>
+      <pubDate>Thu, 16 Jul 2026 17:13:18 +0800</pubDate>
+      <guid>https://embracethered.com/blog/posts/2026/macos-terminal-dillma-dns-exfil-ansi-escape-code-fix/</guid>
+      <description>&lt;p&gt;This is a follow-up to my previous &lt;a href=&#34;https://embracethered.com/blog/posts/2024/terminal-dillmas-prompt-injection-ansi-sequences/&#34;&gt;Terminal DiLLMa research&lt;/a&gt;, and there is a positive outcome: Apple fixed a macOS Terminal behavior that enabled a DNS-based data exfiltration technique.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2026/ansi-esc/dillma-fixed.png&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2026/ansi-esc/dillma-fixed.png&#34; alt=&#34;dillma fixed&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;dns-requests-via-ansi-escape-codes&#34;&gt;DNS Requests via ANSI Escape Codes&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://dgl.cx/2023/09/ansi-terminal-security#apple-terminal-dns-leaks&#34;&gt;David Leadbeater originally discovered an interesting behavior&lt;/a&gt; in the &lt;strong&gt;macOS Terminal app&lt;/strong&gt; that allowed a special sequence of ANSI escape codes to issue DNS requests.&lt;/p&gt;&#xA;&lt;p&gt;In short, this triggered a DNS request from the macOS Terminal app:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Copirate 365 at DEF CON: Plundering in the Depths of Microsoft Copilot (CVE-2026-24299)</title>
       <link>https://embracethered.com/blog/posts/2026/defcon-talk-copirate-365/</link>
