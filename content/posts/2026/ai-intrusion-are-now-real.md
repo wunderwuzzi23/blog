@@ -26,9 +26,9 @@ The beachhead was established through a malicious dataset and two code-execution
 
 Afterwards the agent gained node-level (host) access, harvested cloud and cluster credentials, and moved laterally into several internal clusters. The framework executed tens of thousands of automated actions across short-lived sandboxes, leaving an attacker action log of more than 17,000 recorded events. Pretty wild.
 
-Their anomaly-detection pipeline (LLM-based triage over telemetry) flagged it first. Nice.
+Their anomaly-detection pipeline (LLM-based triager) flagged it first. Nice.
 
-It is not yet known what LLM the adversary used, but Hugging Face wrote that the agent seems to have been built on top of an open-source research agent.
+It is not yet known what LLM the adversary used, but they wrote that the agent seems to have been built on top of an open-source research agent.
 
 Hugging Face identified and fixed the root cause, eradicated the attacker's foothold, and rebuilt impacted systems. They also recommend rotating creds and reviewing activity on your account.
 
@@ -60,8 +60,8 @@ Hugging Face writes that an external forensic investigation remains ongoing, and
 
 1. **Autonomous Intrusions Are Operational:** AI-driven operations are now capable of compromising and navigating production environments, harvesting credentials, and performing lateral movement.
 2. **Safety Guardrails Can Block Incident Response:** Security workflows that depend on commercial AI APIs may become unavailable mid-incident.
-3. **Maintain an Independent Forensic Fallback:** Until commercial AI labs adjust their safety guardrail stance to reliably support defenders, it is probably a good idea to vet and stage a locally deployable open-weight model before an incident occurs, not during one. That should maybe even be the default. If you have an enterprise account, it's probably worth discussing this challenge with your account manager. **The current state is suboptimal.** I say suboptimal also because running a model with less safeguards, also means that attacks like indirect prompt injections might succeed more likely.
-4. **Incident Disclosures Must Be Actionable:** When IOCs are not shared, disclosures provide less value and defenders are left wondering.
+3. **Maintain an Independent Forensic Fallback:** Until commercial AI labs adjust their safety guardrail stance to reliably support defenders, it is probably a good idea to vet and stage a locally deployable open-weight model before an incident occurs, not during one. That should maybe even be the default. If you have an enterprise account, it's probably worth discussing this challenge with your account manager. **The current state is suboptimal.** 
+4. **Incident Disclosures Details:** IOCs are not (yet) shared, let's hope we'll get more details soon.
 5. **Rotate Your Tokens and Review Activity:** Hugging Face recommends "rotating any access tokens and reviewing recent activity on your account".
 
 ## Conclusion
