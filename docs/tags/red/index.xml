@@ -7,12 +7,12 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
-    <lastBuildDate>Sun, 19 Jul 2026 16:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 11:00:00 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Autonomous AI Intrusions Are Here: Lessons from the Hugging Face Compromise</title>
       <link>https://embracethered.com/blog/posts/2026/ai-intrusion-are-now-real/</link>
-      <pubDate>Sun, 19 Jul 2026 16:00:00 -0700</pubDate>
+      <pubDate>Sun, 19 Jul 2026 11:00:00 -0700</pubDate>
       <guid>https://embracethered.com/blog/posts/2026/ai-intrusion-are-now-real/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://huggingface.co/blog/security-incident-july-2026&#34;&gt;Hugging Face disclosed an intrusion&lt;/a&gt; that, according to them, was driven end to end by an autonomous AI agent system.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2026/ai-intrusions-are-here.png&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2026/ai-intrusions-are-here.png&#34; alt=&#34;ai intrusion&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Along similar lines, Sysdig recently published a blog on &lt;a href=&#34;https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion&#34;&gt;JADEPUFFER&lt;/a&gt;, which it assesses to be an agent-driven ransomware capable of adapting in real time. The report does not identify the victim or fully explain how Sysdig obtained visibility into the operation.&lt;/p&gt;&#xA;&lt;p&gt;The Hugging Face disclosure highlights three important things: autonomous AI intrusion, defensive asymmetry, and missing IOCs.&lt;/p&gt;</description>
     </item>
