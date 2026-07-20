@@ -1,6 +1,6 @@
 ---
 title: "Autonomous AI Intrusions Are Here: Lessons from the Hugging Face Compromise"
-date: 2026-07-20T00:00:41-07:00
+date: 2026-07-19T16:00:41-07:00
 draft: true  
 tags: ["llm", "red", "blue", "news"]
 twitter:  
