@@ -70,7 +70,7 @@ Pretty wild.
 
 ## Video Walkthrough
 
-Here is an end-to-end demo showing this in action:
+Here is an end-to-end [demo](https://www.youtube.com/watch?v=QEvlKz6AAJk) showing this in action:
 {{< youtube QEvlKz6AAJk >}}
 
 I recorded the video in December 2024, when I first got the end-to-end attack working, and subsequently shared it with Apple.

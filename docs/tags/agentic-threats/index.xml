@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Agentic Threats on Embrace The Red</title>
+    <link>http://localhost:1313/blog/tags/agentic-threats/</link>
+    <description>Recent content in Agentic Threats on Embrace The Red</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
+    <lastBuildDate>Sun, 19 Jul 2026 12:29:41 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/tags/agentic-threats/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Autonomous AI Intrusions Are Here: Lessons from the Hugging Face Compromise</title>
+      <link>http://localhost:1313/blog/posts/2026/ai-intrusion-are-now-real/</link>
+      <pubDate>Sun, 19 Jul 2026 12:29:41 -0700</pubDate>
+      <guid>http://localhost:1313/blog/posts/2026/ai-intrusion-are-now-real/</guid>
+      <description>&lt;p&gt;A confirmed AI-run intrusion now has a victim, and a disclosure. In July 2026, &lt;a href=&#34;https://huggingface.co/blog/security-incident-july-2026&#34;&gt;Hugging Face disclosed an intrusion&lt;/a&gt; that it says was driven end to end by an autonomous AI agent system.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://localhost:1313/blog/images/2026/ai-intrusions-are-here.png&#34;&gt;&lt;img src=&#34;http://localhost:1313/blog/images/2026/ansi-esc/ai-intrusions-are-here.png&#34; alt=&#34;ai intrusion&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;The capability is here, and defensive architectures need to adapt.&lt;/p&gt;&#xA;&lt;p&gt;There are other warning signs as well. Sysdig recently published research on JADEPUFFER, which it assesses to be an agent-driven database-extortion operation capable of adapting failed attack steps in real time. However, the report does not clearly explain whether the activity was observed in a real victim environment, a honeypot, or another instrumented research setup. It is therefore best treated as an important signal rather than definitive proof of an autonomous ransomware campaign.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

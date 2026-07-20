@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta name="description" content="Hugging Face disclosed an intrusion that, according to them, was driven end to end by an autonomous AI agent system.
+Along similar lines, Sysdig recently …" />
+  <link rel="canonical" href="https://embracethered.com/blog/posts/2026/ai-intrusion-are-now-real/" />
+  <meta property="og:title" content=" Autonomous AI Intrusions Are Here: Lessons from the Hugging Face Compromise &middot;  Embrace The Red" />
+  <meta property="og:description" content="Hugging Face disclosed an intrusion that, according to them, was driven end to end by an autonomous AI agent system.
+Along similar lines, Sysdig recently …" />
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2026/ai-intrusion-are-now-real/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:article:published_time" content="2026-07-19T18:01:41-07:00" />
+  <meta property="og:article:tag" content="llm" />
+  <meta property="og:article:tag" content="red" />
+  <meta property="og:article:tag" content="blue" />
+  <meta property="og:article:tag" content="news" />
+
+  <title>
+     Autonomous AI Intrusions Are Here: Lessons from the Hugging Face Compromise &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="AI Intrusions Are Here: Lessons from the Hugging Face Compromise">
+<meta name="twitter:description" content="Hugging Face disclosed an autonomous intrusion into its production infrastructure. A look at machine-speed attacks, defensive asymmetry, and the missing indicators.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2026/ai-intrusions-are-here.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "\"Autonomous AI Intrusions Are Here: Lessons from the Hugging Face Compromise\"",
+    "description": "\"Hugging Face disclosed an intrusion that, according to them, was driven end to end by an autonomous AI agent system.\\nAlong similar lines, Sysdig recently …\"",
+    "author": {
+      "@type": "Person",
+      "name": "wunderwuzzi",
+      "url": "https://x.com/wunderwuzzi23"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "\"Embrace The Red\"",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https:\/\/embracethered.com\/blog\/images/favicon.ico"
+      }
+    },
+    "url": "\"https://embracethered.com/blog/posts/2026/ai-intrusion-are-now-real/\"",
+    "datePublished": "\"2026-07-19T18:01:41-07:00\"","dateModified": "\"2026-07-19T18:01:41-07:00\"",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "\"https://embracethered.com/blog/posts/2026/ai-intrusion-are-now-real/\""
+    }
+  }
+  </script>
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+  <a data-formkit-toggle="15376e9e24" href="https://embracethered.kit.com/15376e9e24" title="Subscribe to newsletter" onclick="return false;">
+    <i class="fa fa-bell"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-rss hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;RSS
+      </a>
+      <a data-formkit-toggle="15376e9e24" href="https://embracethered.kit.com/15376e9e24" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Autonomous AI Intrusions Are Here: Lessons from the Hugging Face Compromise</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2026-07-19T18:01:41-07:00">
+          Jul 19, 2026
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/blue">#blue</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/news">#news</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p><a href="https://huggingface.co/blog/security-incident-july-2026">Hugging Face disclosed an intrusion</a> that, according to them, was driven end to end by an autonomous AI agent system.</p>
+<p><a href="/blog/images/2026/ai-intrusions-are-here.png"><img src="/blog/images/2026/ai-intrusions-are-here.png" alt="ai intrusion"></a></p>
+<p>Along similar lines, Sysdig recently published a blog on <a href="https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion">JADEPUFFER</a>, which it assesses to be an agent-driven ransomware capable of adapting in real time. The report does not identify the victim or fully explain how Sysdig obtained visibility into the operation.</p>
+<p>The Hugging Face disclosure highlights three important things: autonomous AI intrusion, defensive asymmetry, and missing IOCs.</p>
+<h2 id="the-hugging-face-intrusion">The Hugging Face Intrusion</h2>
+<p>The beachhead was established through a malicious dataset and two code-execution paths in their processing pipeline: a remote-code dataset loader and template injection in a dataset configuration. Hugging Face did not publish exact exploit details though.</p>
+<p>Afterwards the agent gained node-level (host) access, harvested cloud and cluster credentials, and moved laterally into several internal clusters. The framework executed tens of thousands of automated actions across short-lived sandboxes, leaving an attacker action log of more than 17,000 recorded events. Pretty wild.</p>
+<p>Their anomaly-detection pipeline (LLM-based triage over telemetry) flagged it first. Nice.</p>
+<p>It is not yet known what LLM the adversary used, but Hugging Face wrote that the agent seems to have been built on top of an open-source research agent.</p>
+<p>Hugging Face identified and fixed the root cause, eradicated the attacker&rsquo;s foothold, and rebuilt impacted systems. They also recommend rotating creds and reviewing activity on your account.</p>
+<h2 id="video-walkthrough">Video Walkthrough</h2>
+<p>Here is a video where I talk about this security incident in more detail:</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/JQQYhNK6AyU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<h2 id="the-asymmetry-problem">The Asymmetry Problem</h2>
+<p>The most significant lesson from the incident in my opinion is this part:</p>
+<p>Hugging Face needed to analyze the attacker&rsquo;s actions (like commands, exploit payloads, credentials, and C2 artifacts,&hellip;), and they <strong>initially tried to use frontier models behind commercial APIs, but provider safety guardrails repeatedly blocked the forensic workload.</strong></p>
+<p>This creates a challenge for defenders. Hugging Face eventually pivoted to GLM 5.2, a Chinese open-weight model, and ran it on their own infrastructure. The local model allowed the team to continue analyzing the intrusion, presumably because it has less aggressive safety guardrails.</p>
+<p>Local execution also ensured that attacker data and the credentials referenced in the logs never left Hugging Face&rsquo;s environment.</p>
+<h2 id="lack-of-ioc-sharing">Lack of IOC Sharing</h2>
+<p>Hugging Face says its analysis reconstructed the intrusion timeline and extracted indicators of compromise.</p>
+<p>But the public disclosure currently contains no actionable indicators to hunt for: no payload hashes, C2 domains, malicious dataset identifiers, or detection rules.</p>
+<p>Hugging Face writes that an external forensic investigation remains ongoing, and law enforcement was contacted as well. So, I assume we will hear more down the road, and to be fair it seems like the intrusion just happened recently.</p>
+<h2 id="key-takeaways-for-defenders">Key Takeaways for Defenders</h2>
+<ol>
+<li><strong>Autonomous Intrusions Are Operational:</strong> AI-driven operations are now capable of compromising and navigating production environments, harvesting credentials, and performing lateral movement.</li>
+<li><strong>Safety Guardrails Can Block Incident Response:</strong> Security workflows that depend on commercial AI APIs may become unavailable mid-incident.</li>
+<li><strong>Maintain an Independent Forensic Fallback:</strong> Until commercial AI labs adjust their safety guardrail stance to reliably support defenders, it is probably a good idea to vet and stage a locally deployable open-weight model before an incident occurs, not during one. That should maybe even be the default. If you have an enterprise account, it&rsquo;s probably worth discussing this challenge with your account manager. <strong>The current state is suboptimal.</strong> I say suboptimal also because running a model with less safeguards, also means that attacks like indirect prompt injections might succeed more likely.</li>
+<li><strong>Incident Disclosures Must Be Actionable:</strong> When IOCs are not shared, disclosures provide less value and defenders are left wondering.</li>
+<li><strong>Rotate Your Tokens and Review Activity:</strong> Hugging Face recommends &ldquo;rotating any access tokens and reviewing recent activity on your account&rdquo;.</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>The era of operational AI-driven intrusions is here.</p>
+<p>Attackers no longer necessarily need a human operator at the keyboard throughout an intrusion. Autonomous frameworks execute substantial parts of the attack lifecycle, adapt to failures, and operate at &ldquo;machine speed&rdquo;.</p>
+<p>The Hugging Face intrusion also shows that simply adding more AI to the defensive side is not enough. Hosted-model guardrails can obstruct legitimate forensic work.</p>
+<p>As I have said in many of my presentations, the exploits and TTPs will be quite familiar at first, but the velocity and scale of agentic adversaries is something defenders need to adapt to.</p>
+<p>Cheers,
+Johann.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://huggingface.co/blog/security-incident-july-2026">Hugging Face Security Incident Disclosure — July 2026</a></li>
+<li><a href="https://www.youtube.com/watch?v=JQQYhNK6AyU">AI Agent Autonomously Breached Hugging Face Infrastructure</a></li>
+<li><a href="https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion">JADEPUFFER: Agentic Ransomware for Automated Database Extortion</a></li>
+<li><a href="/blog/posts/2022/machine-learning-attack-series-injecting-code-pickle-files/">Machine Learning Attack Series: Pickle Files</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2026/macos-terminal-dillma-dns-exfil-ansi-escape-code-fix/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2026
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+  <a data-formkit-toggle="15376e9e24" href="https://embracethered.kit.com/15376e9e24" title="Subscribe to newsletter" onclick="return false;">
+    <i class="fa fa-bell"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. | <a href="https://embracethered.com/blog/privacy.txt">Privacy</a>
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+
+<script async data-uid="15376e9e24" src="https://embracethered.kit.com/15376e9e24/index.js"></script>
+
+</body>
+</html>
+

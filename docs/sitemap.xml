@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://embracethered.com/blog/posts/2026/ai-intrusion-are-now-real/</loc>
+    <lastmod>2026-07-19T18:01:41-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/blue/</loc>
+    <lastmod>2026-07-19T18:01:41-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/</loc>
+    <lastmod>2026-07-19T18:01:41-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2026-07-19T18:01:41-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/news/</loc>
+    <lastmod>2026-07-19T18:01:41-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/</loc>
+    <lastmod>2026-07-19T18:01:41-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2026-07-19T18:01:41-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2026-07-19T18:01:41-07:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/tags/data-exfiltration/</loc>
     <lastmod>2026-07-16T17:13:18+08:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2026-07-16T17:13:18+08:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/posts/2026/macos-terminal-dillma-dns-exfil-ansi-escape-code-fix/</loc>
-    <lastmod>2026-07-16T17:13:18+08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
-    <lastmod>2026-07-16T17:13:18+08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2026-07-16T17:13:18+08:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
     <lastmod>2026-07-16T17:13:18+08:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/agents/</loc>
@@ -40,12 +52,6 @@
   </url><url>
     <loc>https://embracethered.com/blog/posts/2026/breaking-opus-4.7-with-chatgpt/</loc>
     <lastmod>2026-04-17T16:00:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2026-04-17T16:00:58-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/blue/</loc>
-    <lastmod>2026-04-07T23:58:58-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2026/given-enough-agents-all-bugs-become-shallow/</loc>
     <lastmod>2026-04-07T23:58:58-07:00</lastmod>
