@@ -7,15 +7,8 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
-    <lastBuildDate>Mon, 20 Jul 2026 00:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 18:00:00 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/llm/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>LLM Heist: Hijacking AI Gateways for Traffic Interception, Key Theft, and Tool-Call Injection</title>
-      <link>https://embracethered.com/blog/posts/2026/hijacking-litellm-for-fun-and-profit/</link>
-      <pubDate>Mon, 20 Jul 2026 00:00:00 -0700</pubDate>
-      <guid>https://embracethered.com/blog/posts/2026/hijacking-litellm-for-fun-and-profit/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/BerriAI/litellm&#34;&gt;LiteLLM&lt;/a&gt; is a popular AI gateway. It provides a unified interface to LLMs and simplifies governance. It also has access to the backend LLM provider keys.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;All of that makes it a high-value target.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2026/llmheist/llm-heist.png&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2026/llmheist/llm-heist.png&#34; alt=&#34;LLM Heist&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This post walks through a set of TTPs that red teams can integrate into authorized operations to demonstrate rerouting, interception, and modification of LLM traffic. We also cover things defenders can look out for.&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Autonomous AI Intrusions Are Here: Lessons from the Hugging Face Compromise</title>
       <link>https://embracethered.com/blog/posts/2026/ai-intrusion-are-now-real/</link>
