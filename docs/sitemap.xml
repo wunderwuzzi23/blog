@@ -2,11 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://embracethered.com/blog/tags/blue/</loc>
+    <lastmod>2026-08-03T09:00:00-07:00</lastmod>
+  </url><url>
     <loc>https://embracethered.com/blog/</loc>
-    <lastmod>2026-08-02T00:00:00-07:00</lastmod>
+    <lastmod>2026-08-03T09:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/llm/</loc>
+    <lastmod>2026-08-03T09:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/posts/2026/hijacking-litellm-for-fun-and-profit/</loc>
+    <lastmod>2026-08-03T09:00:00-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/</loc>
-    <lastmod>2026-08-02T00:00:00-07:00</lastmod>
+    <lastmod>2026-08-03T09:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/red/</loc>
+    <lastmod>2026-08-03T09:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://embracethered.com/blog/tags/</loc>
+    <lastmod>2026-08-03T09:00:00-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/posts/2026/pipewire-flatpak-linux-sandbox-escape-cve-2026-5674/</loc>
     <lastmod>2026-07-30T09:00:00-07:00</lastmod>
@@ -14,19 +29,7 @@
     <loc>https://embracethered.com/blog/tags/linux/</loc>
     <lastmod>2026-07-30T09:00:00-07:00</lastmod>
   </url><url>
-    <loc>https://embracethered.com/blog/tags/red/</loc>
-    <lastmod>2026-07-30T09:00:00-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/</loc>
-    <lastmod>2026-07-30T09:00:00-07:00</lastmod>
-  </url><url>
     <loc>https://embracethered.com/blog/posts/2026/ai-intrusion-are-now-real/</loc>
-    <lastmod>2026-07-19T18:00:00-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/blue/</loc>
-    <lastmod>2026-07-19T18:00:00-07:00</lastmod>
-  </url><url>
-    <loc>https://embracethered.com/blog/tags/llm/</loc>
     <lastmod>2026-07-19T18:00:00-07:00</lastmod>
   </url><url>
     <loc>https://embracethered.com/blog/tags/news/</loc>

@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
-    <lastBuildDate>Thu, 30 Jul 2026 09:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2026 09:00:00 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/red/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LLM Heist: Hijacking LiteLLM for Traffic Interception, Key Theft, and Tool-Call Injection</title>
+      <link>https://embracethered.com/blog/posts/2026/hijacking-litellm-for-fun-and-profit/</link>
+      <pubDate>Mon, 03 Aug 2026 09:00:00 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2026/hijacking-litellm-for-fun-and-profit/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/BerriAI/litellm&#34;&gt;LiteLLM&lt;/a&gt; is a popular AI gateway. It provides a unified interface to LLMs and simplifies governance. It also has access to the backend LLM provider keys.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;All of that makes it a high-value target.&lt;/strong&gt; Not only for IP and data theft, but also for response modification and tool invocation.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2026/llmheist/llm-heist.png&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2026/llmheist/llm-heist.png&#34; alt=&#34;LLM Heist&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This post walks through a set of TTPs that red teams can integrate into authorized operations to demonstrate rerouting, interception, and modification of LLM traffic. We also cover things defenders can look out for.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Escaping Linux Sandboxes via PipeWire (CVE-2026-5674)</title>
       <link>https://embracethered.com/blog/posts/2026/pipewire-flatpak-linux-sandbox-escape-cve-2026-5674/</link>
