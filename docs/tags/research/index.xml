@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
-    <lastBuildDate>Sat, 02 Mar 2024 22:25:17 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 20:06:29 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recovering Encrypted LLM Reasoning Traces</title>
+      <link>https://embracethered.com/blog/posts/2026/recovering-encrypted-llm-thoughts/</link>
+      <pubDate>Sun, 16 Aug 2026 20:06:29 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2026/recovering-encrypted-llm-thoughts/</guid>
+      <description>&lt;p&gt;A few days ago, a paper named &lt;a href=&#34;https://arxiv.org/pdf/2608.09867&#34;&gt;&amp;ldquo;Stealing Reasoning Traces from Proprietary LLM APIs&amp;rdquo;&lt;/a&gt; was published. It describes a simple, yet super elegant way to recover encrypted LLM reasoning traces.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2026/strealing_traces_paper_tn.png&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2026/strealing_traces_paper_tn.png&#34; alt=&#34;Recovering Encrypted Reasoning Traces&#34;&gt;&lt;/a&gt;&#xA;Naturally, I had to try it.&lt;/p&gt;&#xA;&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;&#xA;&lt;p&gt;AI labs like OpenAI and Anthropic send reasoning traces back and forth as part of their messaging protocols. However, the actual reasoning text is hidden inside an encrypted, base64-encoded blob.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Who Am I? Conditional Prompt Injection Attacks with Microsoft Copilot</title>
       <link>https://embracethered.com/blog/posts/2024/whoami-conditional-prompt-injection-instructions/</link>

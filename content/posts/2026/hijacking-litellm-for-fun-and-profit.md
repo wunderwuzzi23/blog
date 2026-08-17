@@ -335,7 +335,7 @@ Here are some ideas for red teams engagements (of course only after proper autho
 - **Billing Reconciliation.** Independent use of a harvested key creates provider-side charges.
 - **Restrict the Keys Themselves.** Restrict provider keys to requests from approved gateway IPs.
 - **Patch.** Keep the host and LiteLLM current.
-- **Prompt and Response Signing.** This is something for the AI labs to consider as a feature! Basically the idea is to enforce integrity and detect an AI gateway in the middle hijacking traffic. This is an idea a prior colleague brought up a while ago. Shout out to JW.
+- **Prompt and Response Signing.** This is something for the AI labs to consider as a feature. Basically the idea is to enforce integrity and detect an AI gateway in the middle hijacking traffic. This is an idea a prior colleague brought up a while ago. Shout out to JW.
 
 
 ## Conclusion
