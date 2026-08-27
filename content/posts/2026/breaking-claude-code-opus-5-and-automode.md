@@ -294,17 +294,18 @@ We should stay vigilant and not let our guard down, especially as attacker model
 
 **Security invariants are not optional.**
 
-I also suggest reading [this post](https://itmeetsot.eu/posts/2026-08-12-opus5_automode/) if you are looking for more Auto Mode and Opus 5 bypass tricks, as there are more floating around already.
+I also suggest reading [this post by veganmosfet](https://itmeetsot.eu/posts/2026-08-12-opus5_automode/) if you are looking for more Auto Mode and Opus 5 bypass tricks, as there are more floating around already.
 
 Also, the usual reminder, do not target systems you do not own or are not authorized to test.
 
-Auto Mode can reduce risk if you do not run in a sandbox (when compared to `--dangerously-skip-permissions`), but it is not a security boundary, and hence risky. If the agent handles untrusted content, or becomes too motivated in pursuing its goal Auto Mode will not save you. 
+Auto Mode can reduce risk if you do not run in a sandbox (when compared to `--dangerously-skip-permissions`), but it is not a security boundary, and hence risky. If the agent handles untrusted content, or becomes too motivated in pursuing its goal, Auto Mode will not save you. 
 
 Cheers.
 
 ## References
 
 
+* [Opus 5 Auto Mode Bypass Info by veganmosfet](https://itmeetsot.eu/posts/2026-08-12-opus5_automode/)
 * [POC Demonstration video](https://www.youtube.com/watch?v=18PIeJoxYtc)
 * [Boris Cherny Tweet](https://x.com/bcherny/status/2085860677990883454)
 * [Building Claude Code](https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code)
@@ -312,7 +313,6 @@ Cheers.
 * [Auto Mode default announcement and evaluation](https://claude.com/blog/auto-mode-default-in-claude-code)
 * [Claude Code permission modes](https://code.claude.com/docs/en/permission-modes)
 * [Configure Auto Mode](https://code.claude.com/docs/en/auto-mode-config)
-* [Previous Opus 5 Auto Mode experiments](https://itmeetsot.eu/posts/2026-08-12-opus5_automode/)
 
 ## Appendix
 

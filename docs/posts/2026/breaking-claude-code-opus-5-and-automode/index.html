@@ -334,12 +334,13 @@
 <p>So, modern benchmarks have to evolve, if we want them to meaningfully measure resilience. I have seen a lot of success with puzzles, encryption (AES), combined with technical tricks (such as module shadowing) that hijack frontier-powered agents into making bad moves. And yes, frontier models are great in helping build such attacks too.</p>
 <p>We should stay vigilant and not let our guard down, especially as attacker models get better and aid in creating such payloads, but also because models themselves advance and will be able to trick users or attempt to break out of containment.</p>
 <p><strong>Security invariants are not optional.</strong></p>
-<p>I also suggest reading <a href="https://itmeetsot.eu/posts/2026-08-12-opus5_automode/">this post</a> if you are looking for more Auto Mode and Opus 5 bypass tricks, as there are more floating around already.</p>
+<p>I also suggest reading <a href="https://itmeetsot.eu/posts/2026-08-12-opus5_automode/">this post by veganmosfet</a> if you are looking for more Auto Mode and Opus 5 bypass tricks, as there are more floating around already.</p>
 <p>Also, the usual reminder, do not target systems you do not own or are not authorized to test.</p>
-<p>Auto Mode can reduce risk if you do not run in a sandbox (when compared to <code>--dangerously-skip-permissions</code>), but it is not a security boundary, and hence risky. If the agent handles untrusted content, or becomes too motivated in pursuing its goal Auto Mode will not save you.</p>
+<p>Auto Mode can reduce risk if you do not run in a sandbox (when compared to <code>--dangerously-skip-permissions</code>), but it is not a security boundary, and hence risky. If the agent handles untrusted content, or becomes too motivated in pursuing its goal, Auto Mode will not save you.</p>
 <p>Cheers.</p>
 <h2 id="references">References</h2>
 <ul>
+<li><a href="https://itmeetsot.eu/posts/2026-08-12-opus5_automode/">Opus 5 Auto Mode Bypass Info by veganmosfet</a></li>
 <li><a href="https://www.youtube.com/watch?v=18PIeJoxYtc">POC Demonstration video</a></li>
 <li><a href="https://x.com/bcherny/status/2085860677990883454">Boris Cherny Tweet</a></li>
 <li><a href="https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code">Building Claude Code</a></li>
@@ -347,7 +348,6 @@
 <li><a href="https://claude.com/blog/auto-mode-default-in-claude-code">Auto Mode default announcement and evaluation</a></li>
 <li><a href="https://code.claude.com/docs/en/permission-modes">Claude Code permission modes</a></li>
 <li><a href="https://code.claude.com/docs/en/auto-mode-config">Configure Auto Mode</a></li>
-<li><a href="https://itmeetsot.eu/posts/2026-08-12-opus5_automode/">Previous Opus 5 Auto Mode experiments</a></li>
 </ul>
 <h2 id="appendix">Appendix</h2>
 <p><a href="/blog/images/2026/claude-automode/cherny-prompt-injection-is-solved.png"><img src="/blog/images/2026/claude-automode/cherny-prompt-injection-is-solved.png" alt="Indirect prompt injection reduced to approximately zero"></a></p>
