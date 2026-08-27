@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
-    <lastBuildDate>Sun, 16 Aug 2026 20:06:29 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 21:00:00 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Breaking Claude Code Opus 5 Auto Mode</title>
+      <link>https://embracethered.com/blog/posts/2026/breaking-claude-code-opus-5-and-automode/</link>
+      <pubDate>Wed, 26 Aug 2026 21:00:00 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2026/breaking-claude-code-opus-5-and-automode/</guid>
+      <description>&lt;p&gt;In this post, we explore how a simple website summary request hijacks &lt;code&gt;Claude Code Opus 5&lt;/code&gt; in &lt;code&gt;Auto Mode&lt;/code&gt; and achieves code execution with 60-80% attack success rate using a small sample size.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2026/claude-automode/claude-auto-mode-rce.png&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2026/claude-automode/claude-auto-mode-rce.png&#34; alt=&#34;Breaking Claude Code Opus 5 Auto Mode&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This is interesting because a third-party evaluation commissioned by Anthropic showed a &lt;code&gt;0.00%&lt;/code&gt; prompt injection attack success rate for Opus 5 in Auto Mode.&lt;/p&gt;&#xA;&lt;h2 id=&#34;auto-mode-is-now-the-default-in-claude-code&#34;&gt;Auto Mode Is Now the Default in Claude Code&lt;/h2&gt;&#xA;&lt;p&gt;Auto Mode replaces human approval prompts with a safety classifier. Since mid-August it is the default starting mode for Claude Code.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Recovering Encrypted LLM Reasoning Traces</title>
       <link>https://embracethered.com/blog/posts/2026/recovering-encrypted-llm-thoughts/</link>
