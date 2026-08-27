@@ -261,7 +261,7 @@ However, users seem to be getting mixed messages from Anthropic.
 
 Here is the problem with the 0.00% messaging: The benchmark measured a fixed set of 72 scenarios, run 10 times each. My chain was not in that set. So 0.00% on the benchmark and a working RCE are both true at once. That is exactly why a single headline number misleads.
 
-Cherny (from the Claude Code team) said prompt injection is largely [solved]](https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code) in practice: "...we just cannot demonstrate prompt injection anymore."
+Cherny (from the Claude Code team) said prompt injection is largely [solved](https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code) in practice: "...we just cannot demonstrate prompt injection anymore."
 
 This post is a demonstration, but Anthropic then told a determined attack chain is out of scope. 
 
