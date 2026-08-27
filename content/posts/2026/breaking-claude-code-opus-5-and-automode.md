@@ -261,9 +261,9 @@ However, users seem to be getting mixed messages from Anthropic.
 
 Here is the problem with the 0.00% messaging: The benchmark measured a fixed set of 72 scenarios, run 10 times each. My chain was not in that set. So 0.00% on the benchmark and a working RCE are both true at once. That is exactly why a single headline number misleads.
 
-Cherny (from the Claude Code team) [said prompt injection is largely solved in practice](https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code): "...we just cannot demonstrate prompt injection anymore."
+Cherny (from the Claude Code team) said prompt injection is largely [solved]](https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code) in practice: "...we just cannot demonstrate prompt injection anymore."
 
-This post is a demonstration, but the Anthropic security team then told me a determined chain is out of scope. 
+This post is a demonstration, but Anthropic then told a determined attack chain is out of scope. 
 
 **Those two messages do not fit together.**
 
@@ -284,21 +284,21 @@ I run Claude and Codex on dedicated machines where I let them mostly roam freely
 
 ## Conclusion
 
-I think the industry has made great progress when it comes to prompt injection attacks and the days of "Ignore previous instructions..." kind of attacks are largely over... at least when it comes to frontier models. 
+I think the industry has made great progress when it comes to attacks that hijack agents, the days of "Ignore previous instructions..." attacks are largely over... at least when it comes to frontier models. 
 
-However, calling it solved is misleading. Solving prompt injection means solving a large part of alignment, since the two are closely related. "Adversarial misalignment" might even be the better name for it.
+However, calling it solved is misleading. Solving prompt injection means solving a large part of alignment, since the two are closely related. "Adversarial misalignment" might even be the better name for it, as it resembles social engineering more than a distinct concrete "injection". You might have also heard the term "promptware" that highlights these complexities.
 
-So, modern benchmarks have to evolve, if we want them to meaningfully measure resilience. I have seen a lot of success with puzzles, encryption (AES), combined with technical tricks (such as module shadowing) that hijack frontier-powered agents into making bad moves.
+So, modern benchmarks have to evolve, if we want them to meaningfully measure resilience. I have seen a lot of success with puzzles, encryption (AES), combined with technical tricks (such as module shadowing) that hijack frontier-powered agents into making bad moves. And yes, frontier models are great in helping build such attacks too.
 
 We should stay vigilant and not let our guard down, especially as attacker models get better and aid in creating such payloads, but also because models themselves advance and will be able to trick users or attempt to break out of containment. 
 
 **Security invariants are not optional.**
 
-I also suggest reading [this post](https://itmeetsot.eu/posts/2026-08-12-opus5_automode/) if you are looking for some other Auto Mode and Opus 5 bypass tricks, as there are more floating around already.
+I also suggest reading [this post](https://itmeetsot.eu/posts/2026-08-12-opus5_automode/) if you are looking for more Auto Mode and Opus 5 bypass tricks, as there are more floating around already.
 
 Also, the usual reminder, do not target systems you do not own or are not authorized to test.
 
-Auto Mode can reduce risk if you do not run in a sandbox (compared to `--dangerously-skip-permissions`), but it is not a security boundary. If the agent handles untrusted content, or becomes too motivated in pursuing its goal Auto Mode will not save you.
+Auto Mode can reduce risk if you do not run in a sandbox (when compared to `--dangerously-skip-permissions`), but it is not a security boundary, and hence risky. If the agent handles untrusted content, or becomes too motivated in pursuing its goal Auto Mode will not save you. 
 
 Cheers.
 

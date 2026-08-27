@@ -313,8 +313,8 @@
 <p>However, users seem to be getting mixed messages from Anthropic.</p>
 <h3 id="the-000-marketing-problem">The 0.00% Marketing Problem</h3>
 <p>Here is the problem with the 0.00% messaging: The benchmark measured a fixed set of 72 scenarios, run 10 times each. My chain was not in that set. So 0.00% on the benchmark and a working RCE are both true at once. That is exactly why a single headline number misleads.</p>
-<p>Cherny (from the Claude Code team) <a href="https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code">said prompt injection is largely solved in practice</a>: &ldquo;&hellip;we just cannot demonstrate prompt injection anymore.&rdquo;</p>
-<p>This post is a demonstration, but the Anthropic security team then told me a determined chain is out of scope.</p>
+<p>Cherny (from the Claude Code team) said prompt injection is largely [solved]](<a href="https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code">https://www.ycombinator.com/library/UN-boris-cherny-building-claude-code</a>) in practice: &ldquo;&hellip;we just cannot demonstrate prompt injection anymore.&rdquo;</p>
+<p>This post is a demonstration, but Anthropic then told a determined attack chain is out of scope.</p>
 <p><strong>Those two messages do not fit together.</strong></p>
 <h2 id="mitigation-sandboxing---not-optional">Mitigation: Sandboxing - Not Optional</h2>
 <p>The solution is something we talked about for many years. Do not trust the model output.</p>
@@ -329,14 +329,14 @@
 </ul>
 <p>I run Claude and Codex on dedicated machines where I let them mostly roam freely. On my workstation, I am much more careful and do not use permission-less modes.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>I think the industry has made great progress when it comes to prompt injection attacks and the days of &ldquo;Ignore previous instructions&hellip;&rdquo; kind of attacks are largely over&hellip; at least when it comes to frontier models.</p>
-<p>However, calling it solved is misleading. Solving prompt injection means solving a large part of alignment, since the two are closely related. &ldquo;Adversarial misalignment&rdquo; might even be the better name for it.</p>
-<p>So, modern benchmarks have to evolve, if we want them to meaningfully measure resilience. I have seen a lot of success with puzzles, encryption (AES), combined with technical tricks (such as module shadowing) that hijack frontier-powered agents into making bad moves.</p>
+<p>I think the industry has made great progress when it comes to attacks that hijack agents, the days of &ldquo;Ignore previous instructions&hellip;&rdquo; attacks are largely over&hellip; at least when it comes to frontier models.</p>
+<p>However, calling it solved is misleading. Solving prompt injection means solving a large part of alignment, since the two are closely related. &ldquo;Adversarial misalignment&rdquo; might even be the better name for it, as it resembles social engineering more than a distinct concrete &ldquo;injection&rdquo;. You might have also heard the term &ldquo;promptware&rdquo; that highlights these complexities.</p>
+<p>So, modern benchmarks have to evolve, if we want them to meaningfully measure resilience. I have seen a lot of success with puzzles, encryption (AES), combined with technical tricks (such as module shadowing) that hijack frontier-powered agents into making bad moves. And yes, frontier models are great in helping build such attacks too.</p>
 <p>We should stay vigilant and not let our guard down, especially as attacker models get better and aid in creating such payloads, but also because models themselves advance and will be able to trick users or attempt to break out of containment.</p>
 <p><strong>Security invariants are not optional.</strong></p>
-<p>I also suggest reading <a href="https://itmeetsot.eu/posts/2026-08-12-opus5_automode/">this post</a> if you are looking for some other Auto Mode and Opus 5 bypass tricks, as there are more floating around already.</p>
+<p>I also suggest reading <a href="https://itmeetsot.eu/posts/2026-08-12-opus5_automode/">this post</a> if you are looking for more Auto Mode and Opus 5 bypass tricks, as there are more floating around already.</p>
 <p>Also, the usual reminder, do not target systems you do not own or are not authorized to test.</p>
-<p>Auto Mode can reduce risk if you do not run in a sandbox (compared to <code>--dangerously-skip-permissions</code>), but it is not a security boundary. If the agent handles untrusted content, or becomes too motivated in pursuing its goal Auto Mode will not save you.</p>
+<p>Auto Mode can reduce risk if you do not run in a sandbox (when compared to <code>--dangerously-skip-permissions</code>), but it is not a security boundary, and hence risky. If the agent handles untrusted content, or becomes too motivated in pursuing its goal Auto Mode will not save you.</p>
 <p>Cheers.</p>
 <h2 id="references">References</h2>
 <ul>
