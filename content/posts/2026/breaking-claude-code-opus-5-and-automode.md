@@ -308,7 +308,7 @@ After publishing the blog post, I also created a long form end-to-end video expl
 
 ### Long-form Video Explanation of Attack Chain
 
-In the video I also show the obfuscated Python code (the struct.py file) briefly that GPT-5.6 had created.
+This video also shows the obfuscated Python code (the struct.py file) briefly that GPT-5.6 had created.
 
 {{< youtube Dsx4_kCBkbQ >}}
 
