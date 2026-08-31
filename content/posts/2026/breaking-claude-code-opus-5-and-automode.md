@@ -276,9 +276,8 @@ Also, if you do not want to fall victim to the [Normalization of Deviance in AI]
 - Run unattended coding agents in a container, VM or OS sandbox.
 - Restrict network egress.
 - Monitor your agents.
-- Do not expose home directories, SSH keys, cloud credentials,... to the agent runtime.
-- Use explicit ask/deny rules around process creation and sensitive paths.
-- Do not treat an Auto Mode approval as evidence that code is safe.
+- Do not expose home directories, SSH keys, cloud credentials,... to the agents.
+- Auto Mode approval is not evidence that a command is safe.
 
 I run Claude and Codex on dedicated machines where I let them mostly roam freely. On my workstation, I am much more careful and do not use permission-less modes.
 
@@ -302,6 +301,19 @@ Auto Mode can reduce risk if you do not run in a sandbox (when compared to `--da
 
 Cheers.
 
+
+## Appendix
+
+After publishing the blog post, I also created a long form end-to-end video explanation of the entire attack chain.
+
+### Long-form Video Explanation of Attack Chain
+
+In the video I also show the obfuscated Python code (the struct.py file) briefly that GPT-5.6 had created.
+
+{{< youtube Dsx4_kCBkbQ >}}
+
+Thanks for checking it out.
+
 ## References
 
 
@@ -313,7 +325,5 @@ Cheers.
 * [Auto Mode default announcement and evaluation](https://claude.com/blog/auto-mode-default-in-claude-code)
 * [Claude Code permission modes](https://code.claude.com/docs/en/permission-modes)
 * [Configure Auto Mode](https://code.claude.com/docs/en/auto-mode-config)
-
-## Appendix
-
+* Tweet - Indirect prompt injection reduced to approximately zero:
 [![Indirect prompt injection reduced to approximately zero](/blog/images/2026/claude-automode/cherny-prompt-injection-is-solved.png)](/blog/images/2026/claude-automode/cherny-prompt-injection-is-solved.png)

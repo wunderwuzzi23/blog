@@ -323,9 +323,8 @@
 <li>Run unattended coding agents in a container, VM or OS sandbox.</li>
 <li>Restrict network egress.</li>
 <li>Monitor your agents.</li>
-<li>Do not expose home directories, SSH keys, cloud credentials,&hellip; to the agent runtime.</li>
-<li>Use explicit ask/deny rules around process creation and sensitive paths.</li>
-<li>Do not treat an Auto Mode approval as evidence that code is safe.</li>
+<li>Do not expose home directories, SSH keys, cloud credentials,&hellip; to the agents.</li>
+<li>Auto Mode approval is not evidence that a command is safe.</li>
 </ul>
 <p>I run Claude and Codex on dedicated machines where I let them mostly roam freely. On my workstation, I am much more careful and do not use permission-less modes.</p>
 <h2 id="conclusion">Conclusion</h2>
@@ -338,6 +337,15 @@
 <p>Also, the usual reminder, do not target systems you do not own or are not authorized to test.</p>
 <p>Auto Mode can reduce risk if you do not run in a sandbox (when compared to <code>--dangerously-skip-permissions</code>), but it is not a security boundary, and hence risky. If the agent handles untrusted content, or becomes too motivated in pursuing its goal, Auto Mode will not save you.</p>
 <p>Cheers.</p>
+<h2 id="appendix">Appendix</h2>
+<p>After publishing the blog post, I also created a long form end-to-end video explanation of the entire attack chain.</p>
+<h3 id="long-form-video-explanation-of-attack-chain">Long-form Video Explanation of Attack Chain</h3>
+<p>In the video I also show the obfuscated Python code (the struct.py file) briefly that GPT-5.6 had created.</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Dsx4_kCBkbQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>Thanks for checking it out.</p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://itmeetsot.eu/posts/2026-08-12-opus5_automode/">Opus 5 Auto Mode Bypass Info by veganmosfet</a></li>
@@ -348,9 +356,9 @@
 <li><a href="https://claude.com/blog/auto-mode-default-in-claude-code">Auto Mode default announcement and evaluation</a></li>
 <li><a href="https://code.claude.com/docs/en/permission-modes">Claude Code permission modes</a></li>
 <li><a href="https://code.claude.com/docs/en/auto-mode-config">Configure Auto Mode</a></li>
+<li>Tweet - Indirect prompt injection reduced to approximately zero:
+<a href="/blog/images/2026/claude-automode/cherny-prompt-injection-is-solved.png"><img src="/blog/images/2026/claude-automode/cherny-prompt-injection-is-solved.png" alt="Indirect prompt injection reduced to approximately zero"></a></li>
 </ul>
-<h2 id="appendix">Appendix</h2>
-<p><a href="/blog/images/2026/claude-automode/cherny-prompt-injection-is-solved.png"><img src="/blog/images/2026/claude-automode/cherny-prompt-injection-is-solved.png" alt="Indirect prompt injection reduced to approximately zero"></a></p>
 
   </section>
   <footer>
