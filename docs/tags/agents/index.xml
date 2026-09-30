@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
-    <lastBuildDate>Wed, 26 Aug 2026 21:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 14:00:40 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/tags/agents/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From SELECT to SYSADMIN with SQL Copilot (CVE-2026-65669)</title>
+      <link>https://embracethered.com/blog/posts/2026/from-select-to-sysadmin-sql-copilot-bluehat-asia/</link>
+      <pubDate>Wed, 30 Sep 2026 14:00:40 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2026/from-select-to-sysadmin-sql-copilot-bluehat-asia/</guid>
+      <description>&lt;p&gt;Two weeks back I presented at BlueHat Asia 2026 about my research on Microsoft&amp;rsquo;s Copilot in SSMS, the SQL Server Management Studio.&lt;/p&gt;&#xA;&lt;p&gt;This post is a write up about the talk, which covered &lt;a href=&#34;https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-65669&#34;&gt;CVE-2026-65669&lt;/a&gt;, a SQL Server Elevation of Privilege Vulnerability rated critical by Microsoft.&lt;/p&gt;&#xA;&lt;p&gt;So, make sure your installations are up-to-date.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2026/sqlcopilot/johann-bluehat.jpeg&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2026/sqlcopilot/johann-bluehat.jpeg&#34; alt=&#34;BlueHat 2026 Johann Rehberger Presenting&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;The slides of the presentation can be found &lt;a href=&#34;https://embracethered.com/blog/downloads/from-select-to-sysadmin.pdf&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;bluehat-asia-2026-in-singapore&#34;&gt;BlueHat Asia 2026 in Singapore&lt;/h2&gt;&#xA;&lt;p&gt;First, a few words about the conference. I have spoken at BlueHat before, sometime back in 2017, and also two years ago. Both times at Microsoft&amp;rsquo;s Redmond Campus.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Breaking Claude Code Opus 5 Auto Mode</title>
       <link>https://embracethered.com/blog/posts/2026/breaking-claude-code-opus-5-and-automode/</link>
