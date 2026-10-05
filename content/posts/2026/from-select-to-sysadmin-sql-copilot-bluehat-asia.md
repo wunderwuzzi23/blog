@@ -35,6 +35,15 @@ Besides excellent talks from Halvar Flake, Stefan Esser, Chumy, and many others,
 
 Anyhow, let's talk about exploiting Copilot in SQL Server Management Studio.
 
+## Long-Form Video Presentation
+
+Since this post got quite popular and I got some inquiries, I recorded the 30 minute presentation and uploaded it to YouTube. You can watch it here:
+
+{{< youtube g347jsz2kEU >}}
+
+Otherwise, you can read all the details below.
+
+
 ## Reconnaissance: From SELECT to SYSADMIN
 
 Microsoft integrated Copilot into its database system via the SQL Server Management Studio. 
