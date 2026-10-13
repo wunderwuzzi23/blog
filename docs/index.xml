@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>(c) WUNDERWUZZI 2018-2026</copyright>
-    <lastBuildDate>Wed, 30 Sep 2026 14:00:40 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2026 15:00:40 -0700</lastBuildDate>
     <atom:link href="https://embracethered.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Visual Studio Copilot and SSMS Remote Code Execution (CVE-2026-103572)</title>
+      <link>https://embracethered.com/blog/posts/2026/visual-studio-copilot-remote-code-execution/</link>
+      <pubDate>Tue, 13 Oct 2026 15:00:40 -0700</pubDate>
+      <guid>https://embracethered.com/blog/posts/2026/visual-studio-copilot-remote-code-execution/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;A &lt;code&gt;.&lt;/code&gt; is all you need!&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Today Microsoft &lt;a href=&#34;https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-103572&#34;&gt;shipped the patch&lt;/a&gt; for a vulnerability in Visual Studio Copilot that I reported in August. Microsoft classified it as &lt;code&gt;Important&lt;/code&gt; severity &lt;code&gt;Remote Code Execution&lt;/code&gt; vulnerability.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://embracethered.com/blog/images/2026/sqlcopilot/copilot-vs-rce.png&#34;&gt;&lt;img src=&#34;https://embracethered.com/blog/images/2026/sqlcopilot/copilot-vs-rce.png&#34; alt=&#34;Visual Studio Remote Code Execution&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;At the root cause it allows Copilot in Visual Studio or SQL Server Management Studio to &lt;strong&gt;bypass a path validation check and write to its own settings and configuration files&lt;/strong&gt;. This allows Copilot to escape containment restrictions and achieve arbitrary command execution.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>From SELECT to SYSADMIN with SQL Copilot (CVE-2026-65669)</title>
       <link>https://embracethered.com/blog/posts/2026/from-select-to-sysadmin-sql-copilot-bluehat-asia/</link>
